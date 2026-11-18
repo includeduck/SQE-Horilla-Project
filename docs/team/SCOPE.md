@@ -1,0 +1,81 @@
+# Test Scope and Test Basis: Horilla HRMS, Leave Module
+
+> **DRAFT.** The team must review, verify against the running app, and edit this before it is used as the test basis.
+> Rule and requirement IDs are referenced by the traceability matrix, so keep them stable once agreed.
+
+## 1. System under test
+
+| Item | Value |
+|---|---|
+| System | Horilla HRMS (open-source Human Resource Management System) |
+| Upstream URL | https://github.com/horilla-opensource/horilla |
+| Licence | LGPL-2.1 (see `LICENSE`) |
+| Branch | `2.0` |
+| Baseline commit | `6c15617b8297b7a6775daa6c29aefcc48b1eb29f` ("[REL] Prepare 2.4.0", 2026-11-10) |
+| Stack | Python 3.12, Django 5.2, Django REST Framework (JWT auth), htmx/jQuery UI |
+| Storage | SQLite locally (PostgreSQL supported via `DATABASE_URL`) |
+| Browser UI | `http://localhost:8000/` |
+| HTTP API | `http://localhost:8000/api/leave/...` (Swagger at `/api/swagger/`) |
+| Module under test | `leave/` (models, services, views) plus `horilla_api/api_views/leave/` |
+
+## 2. Selected workflows
+
+### W1: Leave allocation (balance is granted)
+| | |
+|---|---|
+| Starting condition | Employee E has leave type "Annual Leave" assigned with `available_days = 0`. An allocation request for E does not exist. |
+| User action | E (or HR) creates a leave allocation request for 5 days; a leave approver approves it. |
+| Expected outcome | Allocation request status changes `requested → approved`; E's `AvailableLeave.available_days` increases by 5. |
+| API | `POST /api/leave/allocation-request/`, `PUT /api/leave/allocation-approve/<id>/`, `PUT /api/leave/allocation-reject/<id>/`, `GET/POST /api/leave/assign-leave/` |
+
+### W2: Leave request (balance is consumed)
+| | |
+|---|---|
+| Starting condition | E has `available_days = 5` for "Annual Leave" (produced by W1). |
+| User action | E submits a leave request for 3 working days; the approver approves it. Then E requests 3 more days. |
+| Expected outcome | First request `requested → approved`; balance becomes 2. Second request is **rejected by validation** ("Does not have sufficient leave balance…"); balance stays 2. |
+| API | `POST /api/leave/user-request/`, `PUT /api/leave/approve/<id>/`, `PUT /api/leave/reject/<id>/`, `PUT /api/leave/cancel/<id>/`, `GET /api/leave/available-leave/` |
+
+### Shared record
+**`AvailableLeave`** (one row per employee and leave type), specifically `available_days` (and `carryforward_days`).
+- W1 **writes** it (approval of an allocation adds days).
+- W2 **reads** it (balance check in `LeaveRequest.clean`) and **writes** it (approval deducts days; cancel/reject restores).
+
+## 3. Functional requirements (draft)
+
+| ID | Workflow | Requirement |
+|---|---|---|
+| FR-01 | W1 | An employee can create a leave allocation request for an assigned leave type with a requested number of days and a description. |
+| FR-02 | W1 | A leave approver can approve a `requested` allocation request; approval adds the requested days to the employee's available balance. |
+| FR-03 | W1 | A leave approver can reject a `requested` allocation request with a reason; the balance is not changed. |
+| FR-04 | W1 | An allocation request can only be edited while its status is `requested`. |
+| FR-05 | W2 | An employee can submit a leave request for an assigned leave type with start/end date and breakdown (full day / first half / second half). |
+| FR-06 | W2 | The system rejects a request whose effective requested days exceed the available balance (available + capped carry-forward + forecasted). |
+| FR-07 | W2 | The system rejects a request whose dates overlap an existing non-cancelled, non-rejected request of the same employee. |
+| FR-08 | W2 | A leave approver can approve a `requested` leave request; approval deducts the requested days from the balance. |
+| FR-09 | W2 | A leave approver can reject a leave request; any deducted days are restored. |
+| FR-10 | W2 | The employee's available-leave view shows the updated balance after W1 or W2 changes it. |
+
+## 4. Business rules (draft)
+
+| ID | Type (brief requirement) | Rule | Source |
+|---|---|---|---|
+| BR-01 | **Boundary / limit** | Effective requested days must be `> 0` and `≤ available_days + min(carryforward_days, carryforward_max) + forecasted_days`. | `leave/models.py` `LeaveRequest.clean` |
+| BR-02 | **Decision, ≥2 Boolean conditions** | A request is accepted only if: leave type is assigned to the employee **AND** `start_date ≤ end_date` **AND** (if single day) start and end breakdown match **AND** (if the type requires an attachment) an attachment is present **AND** no overlapping active request exists. | `LeaveRequest.clean` |
+| BR-03 | **Change of state** | Leave request states: `requested → approved / rejected / cancelled`; `approved → cancel_requested → cancelled` (or back to `approved` if cancel is rejected). `rejected` and `cancelled` are terminal. Allocation requests: `requested → approved / rejected`, editable only in `requested`. | `LEAVE_STATUS`, `LEAVE_ALLOCATION_STATUS`, API approve/reject/cancel views |
+| BR-04 | Permission / access | Only a user with leave-approver permission (or the employee's reporting manager) can approve or reject requests; an employee can only see and edit their own requests. | `approver_permission_required` in `horilla_api/api_views/leave/views.py` |
+
+Candidate extra rules if the team needs them: past-date restriction (`EmployeePastLeaveRestrict`), restricted-leave date ranges (`RestrictLeave`), carry-forward cap.
+
+## 5. User roles
+
+| Role | Can | Cannot |
+|---|---|---|
+| **Employee** (normal user) | Create/view own allocation and leave requests; view own balance; cancel own requests. | Approve/reject any request; see other employees' requests; assign leave types. |
+| **Leave Approver / HR Admin** (`leave.change_leaverequest`, `leave.change_leaveallocationrequest`, or reporting manager) | Approve/reject allocation and leave requests; assign leave types; view all requests. | n/a (superuser bypasses some validation; note this when testing). |
+
+## 6. Test basis notes and assumptions
+
+- Expected behaviour comes from the source code above and Horilla docs (https://www.horilla.com/). Where docs and code disagree, record the discrepancy as a potential defect and state which one is treated as the oracle.
+- **Assumption A1:** tests that check validation run as a **non-superuser**, because `LeaveRequest.clean` skips the past-date and restricted-leave checks for superusers.
+- **Assumption A2:** leave days are counted per `calculate_requested_days` with holidays/company leaves excluded per leave-type settings; test data avoids holidays unless a test targets them.
