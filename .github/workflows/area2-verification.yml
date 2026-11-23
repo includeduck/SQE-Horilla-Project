@@ -1,0 +1,46 @@
+name: Area 2 verification
+
+# Scoped execution environment for Rayyan's tests. Wasay still owns the
+# all-tests/Sonar/mutation merge gate and its required-check configuration.
+on:
+  push:
+    branches: [sqe-team]
+    paths:
+      - "tests/team/**"
+      - "horilla_api/api_views/leave/**"
+      - "horilla_api/api_serializers/leave/**"
+      - ".github/workflows/area2-verification.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  area2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install existing application system libraries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            libcairo2 libpango-1.0-0 libpangocairo-1.0-0 \
+            libgdk-pixbuf-2.0-0 libffi8 shared-mime-info
+      - name: Install unchanged application and scoped test requirements
+        run: |
+          python -m pip install --upgrade pip
+          bash .github/scripts/install-requirements.sh
+          python -m pip install -r tests/team/requirements-area2.txt
+      - name: Verify Area 2 twice with reversed second API order
+        run: python tests/team/run_area2.py --evidence docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Retain real results on success or failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: area2-${{ github.run_id }}-${{ github.run_attempt }}
+          path: docs/team/evidence/area2/ci-*/
+          if-no-files-found: warn

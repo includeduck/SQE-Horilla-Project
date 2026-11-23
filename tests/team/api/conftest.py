@@ -69,3 +69,38 @@ def runtime_cases(area2_seed, tmp_path):
     artifact = generator.load_json(artifact_path)
     generator.verify_fresh(artifact, document, bindings)
     return artifact
+
+
+@pytest.fixture
+def c_context(area2_seed):
+    """Distinct normal users/balances expose cross-user refund corruption."""
+    from employee.models import EmployeeWorkInformation
+    from leave.models import AvailableLeave
+    from rest_framework.settings import api_settings
+
+    assert "JSONParser" in {parser.__name__ for parser in api_settings.DEFAULT_PARSER_CLASSES}
+
+    context = area2_seed
+    user = context["upsert_user"]("team_outsider", "TeamOutside#2026", "team_outsider@sqe.test")
+    outsider = context["upsert_employee"](user, "Team", "Outsider", "team_outsider@sqe.test", "03000000004")
+    work, _ = EmployeeWorkInformation.objects.get_or_create(employee_id=outsider)
+    work.company_id = context["company"]
+    work.reporting_manager_id = None
+    work.save()
+    context.update(outsider_user=user, outsider=outsider)
+    for role, amount in (("approver", 7), ("outsider", 9)):
+        available, _ = AvailableLeave.objects.get_or_create(employee_id=context[role], leave_type_id=context["leave_type"])
+        AvailableLeave.objects.filter(pk=available.pk).update(available_days=amount, carryforward_days=0, total_leave_days=amount)
+        assert not context[role + "_user"].is_superuser
+    return context
+
+
+@pytest.fixture
+def leave_http(live_server, c_context, area2_http, runtime_cases, record_property):
+    from http_support import LeaveHTTP
+
+    harness = LeaveHTTP(live_server.url, area2_http, c_context, runtime_cases, record_property)
+    assert harness.balance() == (0.0, 0.0)
+    assert harness.balance("approver") == (7.0, 0.0)
+    assert harness.balance("outsider") == (9.0, 0.0)
+    return harness
