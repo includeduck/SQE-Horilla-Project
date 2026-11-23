@@ -1,6 +1,7 @@
 """Scoped, non-autouse Area 2 fixtures. No production server or database access."""
 
 import importlib.util
+import os
 import runpy
 from pathlib import Path
 
@@ -20,7 +21,11 @@ spec.loader.exec_module(generator)
 @pytest.fixture
 def area2_seed(transactional_db):
     """pytest-django flushes the disposable database between parametrized cases."""
-    assert settings.SETTINGS_MODULE == "area2_settings", "Use the explicit Area 2 config"
+    # SETTINGS_MODULE metadata may be None under the live-server overrides.
+    # Verify the selected module, our positive sentinel and actual DB path.
+    assert os.environ.get("DJANGO_SETTINGS_MODULE") == "area2_settings"
+    assert getattr(settings, "AREA2_ISOLATED_TESTS", False) is True
+    assert connection.settings_dict["ENGINE"] == "django.db.backends.sqlite3"
     assert Path(connection.settings_dict["NAME"]).resolve().parent == settings.AREA2_TEMP_ROOT.resolve()
     cache.clear()
     context = runpy.run_path(str(REPO / "scripts/team/seed_team.py"))

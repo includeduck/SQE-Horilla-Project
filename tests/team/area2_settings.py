@@ -13,6 +13,7 @@ os.environ.setdefault("SECRET_KEY", "sqe-area2-synthetic-test-key-do-not-use-in-
 from horilla.settings import *  # noqa: E402,F403
 
 AREA2_TEMP_ROOT = Path(tempfile.mkdtemp(prefix="sqe-area2-"))
+AREA2_ISOLATED_TESTS = True
 atexit.register(shutil.rmtree, AREA2_TEMP_ROOT, ignore_errors=True)
 DATABASES = {
     "default": {

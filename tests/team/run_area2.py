@@ -22,7 +22,7 @@ def stage_commands(evidence):
     py = sys.executable
     generator = TEAM / "generator"
     pytest_base = [py, "-m", "pytest", "-c", str(TEAM / "pytest-area2.ini"),
-                   "-p", "area2_order", str(TEAM / "api"), "-v", "-s",
+                   "-p", "area2_order", "-v", "-s",
                    "-o", "junit_family=xunit1"]
     return [
         ("generator", [py, "-m", "unittest", "discover", "-s", str(generator), "-p", "test_*.py", "-v"]),
@@ -30,8 +30,9 @@ def stage_commands(evidence):
                        "--bindings", str(generator / "bindings.json"), "--output", str(generator / "generated_cases.json"), "--check"]),
         ("schema", [py, "-c", "import json; from openapi_spec_validator import validate; validate(json.load(open('tests/team/generator/openapi.json', encoding='utf-8'))); print('OpenAPI validated')"]),
         ("django", [py, "manage.py", "check", "--settings=area2_settings"]),
-        ("api-first", pytest_base + ["--junitxml=" + str(evidence / "api-first.xml")]),
-        ("api-reversed", pytest_base + ["--area2-reverse", "--junitxml=" + str(evidence / "api-reversed.xml")]),
+        ("api-preflight", pytest_base + [str(TEAM / "api/test_workflows.py") + "::test_w1_to_w2_shared_balance", "--maxfail=1", "--junitxml=" + str(evidence / "api-preflight.xml")]),
+        ("api-first", pytest_base + [str(TEAM / "api"), "--junitxml=" + str(evidence / "api-first.xml")]),
+        ("api-reversed", pytest_base + [str(TEAM / "api"), "--area2-reverse", "--junitxml=" + str(evidence / "api-reversed.xml")]),
         ("complete-scope", [py, str(generator / "generate.py"), "--spec", str(generator / "openapi.json"),
                             "--bindings", str(generator / "bindings.json"), "--output", str(generator / "generated_cases.json"), "--check", "--require-complete"]),
     ]
@@ -40,12 +41,19 @@ def stage_commands(evidence):
 def execute_stage(name, command, evidence, *, cwd=REPO, env=None):
     start = time.monotonic()
     # Each run has a new evidence directory; an old passing XML is never reused.
-    result = subprocess.run(command, cwd=cwd, env=env, stdout=subprocess.PIPE,
-                            stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace")
-    (evidence / (name + ".txt")).write_text(result.stdout, encoding="utf-8")
-    print(result.stdout, end="")
-    return {"name": name, "command": command, "exit_code": result.returncode,
-            "status": "passed" if result.returncode == 0 else "failed",
+    process = subprocess.Popen(command, cwd=cwd, env=env, stdout=subprocess.PIPE,
+                               stderr=subprocess.STDOUT, text=True, encoding="utf-8",
+                               errors="replace", bufsize=1)
+    # Preserve partial output if a remote job is interrupted, and make real
+    # migration/case progress visible instead of buffering an entire API pass.
+    with process.stdout as output, (evidence / (name + ".txt")).open("w", encoding="utf-8") as log:
+        for line in output:
+            log.write(line)
+            log.flush()
+            print(line, end="", flush=True)
+    code = process.wait()
+    return {"name": name, "command": command, "exit_code": code,
+            "status": "passed" if code == 0 else "failed",
             "elapsed_seconds": round(time.monotonic() - start, 3)}
 
 
@@ -71,6 +79,7 @@ def main(argv=None):
     env = os.environ.copy()
     env["PYTHONPATH"] = os.pathsep.join([str(TEAM), str(TEAM / "api"), str(REPO)])
     env["PYTHONIOENCODING"] = "utf-8"
+    env["PYTHONUNBUFFERED"] = "1"
     results = []
     failure = None
     exit_code = 0
@@ -92,6 +101,7 @@ def main(argv=None):
         "python": sys.version, "repository": str(REPO),
         "spec_sha256": artifact["spec_sha256"], "data_sha256": artifact["data_sha256"],
         "coverage_complete": artifact["coverage_complete"], "stages": results,
+        "api_preflight": xml_totals(evidence / "api-preflight.xml"),
         "api_first": xml_totals(evidence / "api-first.xml"),
         "api_reversed": xml_totals(evidence / "api-reversed.xml"),
         "exit_code": exit_code, "accepted": exit_code == 0 and artifact["coverage_complete"],

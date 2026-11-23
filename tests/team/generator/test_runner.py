@@ -38,7 +38,8 @@ class RunnerTests(unittest.TestCase):
 
     def test_command_order_reverses_second_clean_api_run_and_keeps_gate(self):
         commands = runner.stage_commands(Path("synthetic-evidence"))
-        self.assertEqual([name for name, _ in commands], ["generator", "freshness", "schema", "django", "api-first", "api-reversed", "complete-scope"])
+        self.assertEqual([name for name, _ in commands], ["generator", "freshness", "schema", "django", "api-preflight", "api-first", "api-reversed", "complete-scope"])
+        self.assertIn("--maxfail=1", commands[4][1])
         self.assertIn("--area2-reverse", commands[-2][1])
         self.assertIn("--require-complete", commands[-1][1])
 
