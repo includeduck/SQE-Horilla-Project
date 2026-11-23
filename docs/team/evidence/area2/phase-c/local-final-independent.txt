@@ -43,6 +43,6 @@ test_existing_evidence_directory_is_not_overwritten (test_runner.RunnerTests.tes
 test_xml_counts_skips_errors_and_failures (test_runner.RunnerTests.test_xml_counts_skips_errors_and_failures) ... ok
 
 ----------------------------------------------------------------------
-Ran 41 tests in 1.611s
+Ran 41 tests in 1.500s
 
 OK

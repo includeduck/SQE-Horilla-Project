@@ -112,3 +112,56 @@ These commands are provided for reproducibility; consult the status report for
 what actually ran. Current HTTP invocation stops at missing pytest, so no HTTP
 JUnit result or passing API run is claimed. Full decision/state/balance scenarios
 remain Phase C; the two-real-constraint demonstration remains Phase D.
+
+## Phase C producer, case inventory and remote verification
+
+The latest execution is tracked in
+[`SQE_IMPLEMENTATION_PHASE_C_STATUS.md`](../../docs/team/reports/SQE_IMPLEMENTATION_PHASE_C_STATUS.md).
+The preceding B runtime limitation is historical; an isolated remote verification
+workflow now installs the application runtime and runs the same test producer.
+Its result must be checked rather than inferred from job startup.
+
+```sh
+python tests/team/run_area2.py --evidence docs/team/evidence/area2/run-UNIQUE-ID
+```
+
+The runner verifies generator tests, data freshness, formal schema and Django,
+then runs all API cases twice in separate processes with reversed second order,
+retains actual logs/JUnit/manifest and enforces the incomplete-scope gate. It
+refuses to overwrite prior evidence. See
+[`AREA2_CI_HANDOFF.md`](../../docs/team/AREA2_CI_HANDOFF.md) for exact prerequisites,
+failure semantics and Wasay's remaining complete-gate integration.
+
+`api/case_ledger.json` inventories **178** implemented API cases, counted once:
+71 generated self-create inputs, the existing five-case multipart slice, three
+generated pagination-clamp boundaries, three generated missing-reference cases,
+24 feasible BR-02 combinations, eight BR-04 combinations, 50 state/role
+transitions, 11 workflow/regression/repetition cases, two token cases and one
+generic non-owner detail case. The eight infeasible rows of the full 32-row
+BR-02 table remain documented, not skipped executable tests. This inventory is
+not an execution result or full selected-input coverage claim.
+
+`case_catalog.py` and its bookkeeping regressions are independent of Django.
+They verify unique scenario accounting, not the application's business logic
+or Wasay's statement/branch/MCC/MC/DC coverage.
+
+The C harness reuses B's server/seed/Requests fixtures. It adds a distinct normal
+outsider and deliberately different approver balance, so a wrong-user refund
+is observable. Non-file input tests bind native JSON and remove the optional
+upload baseline, recording the bound-request hash. The API's falsy end-date
+normalization is explicitly recorded separately from the raw date schema.
+These adaptations must be reconciled with a complete media/normalization
+contract; they are not silently called byte-for-byte multipart replay.
+
+Pagination generation uses a source-derived `x-clamp-maximum: 100`, not a
+rejecting maximum. Values 99/100/101 are generated with expected normalized
+sizes 99/100/100. Other pagination/filter/rejection-reason/dynamic-balance inputs
+remain explicitly unfinished. Provisional duplicate/terminal-state assertions
+need owner reconciliation; real failures must remain visible.
+
+Blocked unfinished work is assigned by Rayyan to Wasay/his agent in
+[`handoff.md`](../../handoff.md) and
+[issue #1](https://github.com/includeduck/SQE-Horilla-Project/issues/1).
+GitHub author/committer attribution is verified for each published checkpoint.
+The original laptop Git metadata remains read-only; do not reset or discard its
+uncommitted files to conceal the difference from the published branch.

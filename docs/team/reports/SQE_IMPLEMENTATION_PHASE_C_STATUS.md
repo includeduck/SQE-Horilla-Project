@@ -226,3 +226,22 @@ discover -s tests/team/generator -p 'test_*.py' -v` returned exit 0: **41 passed
 Exact output: `docs/team/evidence/area2/phase-c/local-final-independent.txt`.
 This rerun follows the streaming pipe cleanup and reports no ResourceWarning.
 
+
+## Attachment failure and protected-branch update — 23 November 2026
+
+Remote run 45183086568 reproduced storage exceptions for generated allocation
+attachment filename boundaries 99 and 100 (log lines 1720/1816). The original
+`horilla.models.upload_path` treated a filename without a dot as an extension,
+leaving storage no basename to shorten within the FileField path budget.
+A narrow correction now retains extensionless input as the basename; dotted
+names retain their suffix. Four real FileSystemStorage regressions and the
+existing five HTTP slice cases are configured as a targeted remote retest.
+The source fix is proposed, not verified until those tests actually finish.
+This supersedes earlier statements that application source is unchanged.
+
+Branch protection now requires PRs. Evidence commit `b6e298ae646738e1122528b2835d7aa08f1f7015`
+was published on `rayyan/phase-c-evidence` in PR #2, after its direct update to
+`sqe-team` was rejected. Do not bypass protection. Wasay was notified through
+issue #1 comment 7102792706. Further proposed corrections/evidence use the same
+review branch; owner review/merge and group gate remain required.
+
