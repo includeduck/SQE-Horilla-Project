@@ -245,3 +245,29 @@ was published on `rayyan/phase-c-evidence` in PR #2, after its direct update to
 issue #1 comment 7102792706. Further proposed corrections/evidence use the same
 review branch; owner review/merge and group gate remain required.
 
+
+## Final first-pass evidence and corrective proposals — 23 November 2026
+
+Build `1948e0f`, run 45183086568 completed: W1/W2 preflight **1 passed**;
+full collection **169 passed, 9 failed**, 184 warnings, 1038.66 seconds.
+There were no setup errors in this collection. Reverse and completeness stages
+were blocked by the failing first pass. Raw log: `ci-45183086568-job.log`;
+summary: `ci-third-summary.json`; remote artifact 14824755317. Preflight repeats
+one API scenario and does not increase the 178 unique-case denominator.
+
+Confirmed failures: A2-D01 refund leaves requester balance at 2 instead of 5;
+A2-D02 non-owner PUT/DELETE return 500 instead of controlled 403; A2-D03 raw
+carry-forward accepts three days (201) despite effective cap one; A2-D09 valid
+99/100 extensionless attachments trigger storage failure. Proposed narrow fixes
+restore the requester, explicitly deny a foreign owner, apply existing model
+carry-forward cap/policy in the serializer, and correctly split upload names.
+Forecast/employee-holiday scope remains unfinished; this cap correction does
+not claim to implement those separate gaps.
+
+A2-D04 duplicate allocation and A2-D05 cancelled-to-rejected behavior also fail
+the provisional tests. Their oracles conflict with current behavior and require
+Wasay's explicit business-rule reconciliation. They are not silently fixed or
+marked as successful. The targeted corrective retest additionally runs affected
+upstream balance/carry-forward/file-display tests separately. Actual passing-after
+results and full clean/reversed acceptance remain pending.
+

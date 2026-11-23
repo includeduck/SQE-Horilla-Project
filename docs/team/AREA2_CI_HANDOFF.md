@@ -56,7 +56,7 @@ overwrite evidence. These utility checks do not prove branch protection.
 ## Isolated remote verification
 
 `.github/workflows/area2-verification.yml` runs the producer on relevant pushes
-to `sqe-team`, on an ordinary Ubuntu runner with read-only repository permission
+to `sqe-team` and `rayyan/phase-c-evidence`, on an ordinary Ubuntu runner with read-only repository permission
 and synthetic data. It preserves actual artifacts with `if: always()` after a
 failure; that upload condition does not suppress the failing test step. It
 does not modify Wasay's existing workflows, configure a paid runner or claim a
@@ -86,3 +86,12 @@ Preserve and reconcile source changes from both members before integration.
 Connected GitHub writes work under Rayyan's verified identity; local `.git`
 remains protected. Do not force-push or reset the laptop's uncommitted files to
 make its outdated local HEAD look synchronized.
+
+## Focused attachment correction retest
+
+PR #2 adds a targeted step before the producer: four real storage cases plus
+the existing five generated HTTP slice cases. Pipefail retains pytest failures
+through tee; actual XML/logs are always uploaded. This nine-case targeted
+collection is separate from the 178-case API ledger and repeats five existing
+API cases; do not add nine to the unique API denominator. Proposed correction
+build: a1cfb4ab81c993684f6917c4db4d43d4d7e1fd83. Actual result remains pending.

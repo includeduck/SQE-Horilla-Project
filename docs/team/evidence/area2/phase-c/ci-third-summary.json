@@ -1,0 +1,20 @@
+{
+  "build": "1948e0fdf85ec3824e5f472176688e994307928a",
+  "run_id": 45183086568,
+  "job_id": 137721623010,
+  "preflight": {
+    "passed": 1,
+    "warnings": 7,
+    "seconds": 248.64
+  },
+  "api_first": {
+    "passed": 169,
+    "failed": 9,
+    "warnings": 184,
+    "seconds": 1038.66
+  },
+  "api_reversed": "blocked by api-first failure",
+  "complete_scope": "blocked; coverage_complete remains false",
+  "artifact_id": 14824755317,
+  "accepted": false
+}

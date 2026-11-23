@@ -13,10 +13,10 @@ Rayyan's implemented generator/tests to Wasay or certify any course requirement.
 
 | ID | Mandatory work now assigned to Wasay / his agent | Completion evidence | Current state |
 |---|---|---|---|
-| H-01 | Supply/use a permitted complete Horilla runtime; install unchanged root requirements and scoped Area 2 test tools | Actual Python/Django/DRF/tool versions, successful setup/schema checks and disposable DB/server verification | Open; current laptop has pip only; package resolution failed; Docker engine unavailable |
+| H-01 | Supply/use a permitted complete Horilla runtime; install unchanged root requirements and scoped Area 2 test tools | Actual Python/Django/DRF/tool versions, successful setup/schema checks and disposable DB/server verification | Remote setup resolved: unchanged application/test dependencies installed in CI; laptop runtime remains unavailable |
 | H-02 | Recover the original Phase A archive if available, or finish and reconcile its missing live foundation/oracles | Verified original archive or fresh two-initialization/authentication/balance/schema evidence, one reconciled contract | Open; archive details are in Communication.md; no historical logs may be fabricated |
-| H-03 | Execute and finish all blocked B/C API coverage, including generated input classes and dynamic balance/filter/reason gaps | Clean full suite twice, reverse/order independence, real HTTP plus persisted-state assertions, complete coverage denominators | Open; local implementation may advance independently but no HTTP pass is established |
-| H-04 | Reproduce candidate defects, apply only source-backed minimal fixes, rerun affected team/upstream tests and produce actual defect/PR evidence | Genuine failing-before/passing-after logs, Issue/PR links, triage/RCA and retest | Open; static candidates are not reproduced findings |
+| H-03 | Execute and finish all blocked B/C API coverage, including generated input classes and dynamic balance/filter/reason gaps | Clean full suite twice, reverse/order independence, real HTTP plus persisted-state assertions, complete coverage denominators | In progress: current remote run reaches HTTP assertions; full/reversed acceptance and remaining scope are open |
+| H-04 | Reproduce candidate defects, apply only source-backed minimal fixes, rerun affected team/upstream tests and produce actual defect/PR evidence | Genuine failing-before/passing-after logs, Issue/PR links, triage/RCA and retest | Attachment storage failure reproduced; narrow source fix and focused retest proposed in PR #2; other candidates need actual results |
 | H-05 | Integrate the Area 2 producer command with the group's all-tests/PR gate | Required-check names, actual failed gate and successful retest; no failure suppression | Open; Wasay retains overall CI ownership |
 | H-06 | Resolve laptop Git metadata/network restrictions or provide an approved synchronized checkout | Working fetch/pull and identity-safe local commits/push, preserving uncommitted files and concurrent history | Open locally; GitHub connected-app object/ref writes now work under Rayyan's identity |
 
@@ -89,4 +89,30 @@ was published on `rayyan/phase-c-evidence` in PR #2, after its direct update to
 `sqe-team` was rejected. Do not bypass protection. Wasay was notified through
 issue #1 comment 7102792706. Further proposed corrections/evidence use the same
 review branch; owner review/merge and group gate remain required.
+
+
+## Final first-pass evidence and corrective proposals — 23 November 2026
+
+Build `1948e0f`, run 45183086568 completed: W1/W2 preflight **1 passed**;
+full collection **169 passed, 9 failed**, 184 warnings, 1038.66 seconds.
+There were no setup errors in this collection. Reverse and completeness stages
+were blocked by the failing first pass. Raw log: `ci-45183086568-job.log`;
+summary: `ci-third-summary.json`; remote artifact 14824755317. Preflight repeats
+one API scenario and does not increase the 178 unique-case denominator.
+
+Confirmed failures: A2-D01 refund leaves requester balance at 2 instead of 5;
+A2-D02 non-owner PUT/DELETE return 500 instead of controlled 403; A2-D03 raw
+carry-forward accepts three days (201) despite effective cap one; A2-D09 valid
+99/100 extensionless attachments trigger storage failure. Proposed narrow fixes
+restore the requester, explicitly deny a foreign owner, apply existing model
+carry-forward cap/policy in the serializer, and correctly split upload names.
+Forecast/employee-holiday scope remains unfinished; this cap correction does
+not claim to implement those separate gaps.
+
+A2-D04 duplicate allocation and A2-D05 cancelled-to-rejected behavior also fail
+the provisional tests. Their oracles conflict with current behavior and require
+Wasay's explicit business-rule reconciliation. They are not silently fixed or
+marked as successful. The targeted corrective retest additionally runs affected
+upstream balance/carry-forward/file-display tests separately. Actual passing-after
+results and full clean/reversed acceptance remain pending.
 

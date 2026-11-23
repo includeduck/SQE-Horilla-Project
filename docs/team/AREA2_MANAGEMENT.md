@@ -6,7 +6,7 @@ Syed Muhammad Rayyan Hassan, **24I-3000**, 23 November 2026.
 
 **Hold full Area 2 completion.** Phase C is explicitly authorized by the user. Independent generator/catalog/producer checks pass and the remote verification workflow installed the application runtime. Local runtime/Git limits and missing A recovery remain recorded. Accept API results only after retrieving the corresponding build evidence. All-input scope remains incomplete; Phase D has not started.
 
-The current work follows the supplied B prerequisite-repair provision. No application handler/model/seed, Wasay unit/CI module, or Zain browser/security/performance/recovery module was changed. All implementation code is under `tests/team/`.
+Phase C continues the B prerequisite repair. A real HTTP attachment failure now justifies a narrow correction to `horilla/models.py::upload_path`, proposed in PR #2. Other application source, teammate modules and seed logic remain unchanged. Focused storage/HTTP retest is pending.
 
 ## Measurable activity and effort
 
@@ -22,7 +22,7 @@ For **remaining B verification only**, a provisional forecast after package/runt
 |---|---|---|
 | Untested contract assumptions produce misleading passing tests | 4×5=20 | Label source-only assumptions, introspect serializers, run real HTTP and inspect state. |
 | Missing dynamic business inputs hide balance/ownership defects | 4×5=20 | Preserve incomplete coverage, recover A basis, bind C scenarios and compare both users' state. |
-| Environment/access failure prevents reproducible submission | 5×4=20 | Maintain logs, owner handoffs and exact commands; do not claim remote delivery. |
+| Environment/access failure prevents reproducible submission | 5×4=20 | Maintain logs, owner handoffs and exact commands; distinguish verified publication from blocked local Git operations. |
 | Accidentally resetting an existing local DB | 2×5=10 | Dedicated settings with absolute temporary SQLite/media paths; fixture asserts the DB parent before seeding. |
 
 These are Area 2 risk contributions, not the assignment's completed group risk register or approved 5×5 matrix. Shared plan, eight product/two project risks, exit criteria and final GQM/completion reporting remain group obligations.
