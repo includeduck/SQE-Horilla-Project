@@ -42,3 +42,32 @@ and the subsequent C status report for exact files, commands and evidence.
 Update this handoff as tasks are accepted, implemented, tested and published.
 Do not mark a task complete because code or a report exists. Rayyan's two
 personal use-case/Phase D implementation has not automatically started.
+
+## Phase C verification checkpoint — 23 November 2026
+
+Remote runtime installation is now successful. Runs 45179588790 and 45181052750
+stopped at a fixture guard (171/178 setup errors), before product assertions.
+Commit `1948e0fdf85ec3824e5f472176688e994307928a` repaired that guard while
+retaining the explicit isolated-settings marker and exact temporary SQLite
+path checks. Run 45183086568 is executing real generated-input HTTP assertions;
+passing cases were observed live. Final and reversed-run results are pending.
+Do not treat this in-progress observation as full acceptance.
+
+There are 178 unique API scenarios, with 82 of 578 generated IDs referenced and
+496 unconsumed. Scope completeness remains false. All 41 independent generator,
+catalog and runner checks passed locally with ResourceWarning treated as an
+error; these are distinct from product API tests. Application source is unchanged.
+See `docs/team/reports/SQE_IMPLEMENTATION_PHASE_C_STATUS.md` for evidence.
+
+Published checkpoints after the initial three: `aa600a2` B evidence/handoff,
+`5a5df40` C suite/producer/workflow, `7fba8ee` pagination/unique ledger,
+`1948e0f` fixture guard and streaming preflight. Verified Rayyan author and
+committer throughout; local Git staging/pull restrictions remain unresolved.
+
+Wasay/his agent: H-01 remote installation is resolved, but H-02–H-06 still require
+completion where blocked, including final result evaluation, coverage/oracle
+reconciliation, genuine product fixes/retests and group CI integration. Owner
+issue #1 was delivered and assigned to includeduck; acceptance is unobserved.
+This is Rayyan's explicit mandatory execution reassignment, preserving actual
+contribution history. Phase D has not started.
+

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json; from openapi_spec_validator import validate; validate(json.load(open('tests/team/generator/openapi.json', encoding='utf-8'))); print('OpenAPI validated')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'openapi_spec_validator'

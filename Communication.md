@@ -68,3 +68,32 @@ Current publication attempt: git identity is Rayyan Hassan; staging the generato
 The current user explicitly authorized C and requested that work blocked from this workspace be assigned to Wasay/his agent for mandatory completion. See root handoff.md H-01 through H-06. Acceptance by Wasay is not yet observed; original implemented-work authorship is preserved. This supersedes the earlier wait-before-C instruction for independent C implementation, while actual A/B runtime prerequisites remain unverified.
 
 GitHub connected-app tree/commit/ref writes now succeed. Published checkpoints, each verified as Rayyan author/committer: 44384b129156059d63647f6d9b8324813b668ae0 (audit/plans/roll), cbe4b74282213732b176ae5e3b4519044b7b6a1e (generator/source basis), 905f08909a6b8bb3bda70a94a28c42bc8c1a7455 (HTTP slice/fixtures). Local Git metadata and CLI network failures remain separate blockers. New documentation/evidence publication follows; earlier local-only status entries describe their observation time.
+
+## Phase C verification checkpoint — 23 November 2026
+
+Remote runtime installation is now successful. Runs 45179588790 and 45181052750
+stopped at a fixture guard (171/178 setup errors), before product assertions.
+Commit `1948e0fdf85ec3824e5f472176688e994307928a` repaired that guard while
+retaining the explicit isolated-settings marker and exact temporary SQLite
+path checks. Run 45183086568 is executing real generated-input HTTP assertions;
+passing cases were observed live. Final and reversed-run results are pending.
+Do not treat this in-progress observation as full acceptance.
+
+There are 178 unique API scenarios, with 82 of 578 generated IDs referenced and
+496 unconsumed. Scope completeness remains false. All 41 independent generator,
+catalog and runner checks passed locally with ResourceWarning treated as an
+error; these are distinct from product API tests. Application source is unchanged.
+See `docs/team/reports/SQE_IMPLEMENTATION_PHASE_C_STATUS.md` for evidence.
+
+Published checkpoints after the initial three: `aa600a2` B evidence/handoff,
+`5a5df40` C suite/producer/workflow, `7fba8ee` pagination/unique ledger,
+`1948e0f` fixture guard and streaming preflight. Verified Rayyan author and
+committer throughout; local Git staging/pull restrictions remain unresolved.
+
+Wasay/his agent: H-01 remote installation is resolved, but H-02–H-06 still require
+completion where blocked, including final result evaluation, coverage/oracle
+reconciliation, genuine product fixes/retests and group CI integration. Owner
+issue #1 was delivered and assigned to includeduck; acceptance is unobserved.
+This is Rayyan's explicit mandatory execution reassignment, preserving actual
+contribution history. Phase D has not started.
+

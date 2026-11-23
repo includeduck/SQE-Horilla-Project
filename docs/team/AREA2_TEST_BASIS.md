@@ -43,3 +43,17 @@ References resolve locally; missing/external/cyclic references and unsupported r
 BR-01 effective duration, capped carry-forward and forecast; BR-02 breakdown matching, assignment, overlap and conditional attachment; BR-03 the complete state graph, allocation reversal and repeat behavior; and BR-04 all ownership/permission paths still need the full A/C scenario basis and runtime verification. Date-order generation covers only one BR-02 condition. In particular, restoring balance on rejection must affect the requester, not the acting approver; the audit's candidate defect remains unexecuted and unmodified.
 
 `openapi.json` contains eight explicit exclusions, copied into every generated artifact with `coverage_complete: false`. Unknown relevant constraints cause failure rather than a complete-coverage claim. Query/filter, rejection normalization and dynamic effective-balance boundaries must be reconciled before all-input coverage can be accepted.
+## Phase C supplement — 23 November 2026
+
+The earlier sections describe the Phase B baseline. Phase C now exercises
+generated self-create body inputs, pagination clamp boundaries, decisions,
+states, authentication and workflows. `case_ledger.json` records 178 unique
+API scenarios referencing 82 of 578 generated IDs. The 496 unconsumed IDs,
+filter/grouping, rejection normalization and dynamic-balance scope remain
+unaccepted. See `API_COVERAGE_MATRIX.md` for current denominators. Remote run
+45183086568 has reached HTTP assertions after the isolated fixture repair;
+final acceptance is pending. FileField defaults are asserted by the fixture,
+and the exact final test outcome must establish whether they were verified.
+Provisional cancellation/duplicate oracles require owner reconciliation, not
+automatic production changes to satisfy the test.
+

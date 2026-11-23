@@ -1,0 +1,13 @@
+synthetic fail-propagation probe
+test_child_failure_preserves_exit_code_and_log (test_runner.RunnerTests.test_child_failure_preserves_exit_code_and_log) ... ok
+synthetic success probe
+test_child_success_and_missing_xml_are_distinct (test_runner.RunnerTests.test_child_success_and_missing_xml_are_distinct) ... ok
+test_command_order_reverses_second_clean_api_run_and_keeps_gate (test_runner.RunnerTests.test_command_order_reverses_second_clean_api_run_and_keeps_gate) ... ok
+test_existing_evidence_directory_is_not_overwritten (test_runner.RunnerTests.test_existing_evidence_directory_is_not_overwritten) ... ok
+test_xml_counts_skips_errors_and_failures (test_runner.RunnerTests.test_xml_counts_skips_errors_and_failures) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.261s
+
+OK
+exit_code=0

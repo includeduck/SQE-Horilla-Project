@@ -4,13 +4,13 @@ Syed Muhammad Rayyan Hassan, **24I-3000**, 23 November 2026.
 
 ## Current control decision
 
-**Hold Phase B completion.** Independent generator implementation can proceed; missing Phase A recovery and the unavailable application/tool environment prevent accepting HTTP integration or all-input coverage. Do not start Phase C automatically.
+**Hold full Area 2 completion.** Phase C is explicitly authorized by the user. Independent generator/catalog/producer checks pass and the remote verification workflow installed the application runtime. Local runtime/Git limits and missing A recovery remain recorded. Accept API results only after retrieving the corresponding build evidence. All-input scope remains incomplete; Phase D has not started.
 
 The current work follows the supplied B prerequisite-repair provision. No application handler/model/seed, Wasay unit/CI module, or Zain browser/security/performance/recovery module was changed. All implementation code is under `tests/team/`.
 
 ## Measurable activity and effort
 
-The B status report and `evidence/area2/phase-b/` record actual test counts, command exits, tool versions and generated fingerprints. Generated case counts measure available data, not API cases executed or requirement coverage. HTTP execution remains zero until the real server tests run.
+The B status report and `evidence/area2/phase-b/` record actual test counts, command exits, tool versions and generated fingerprints. Generated case counts measure available data, not API cases executed or requirement coverage. Local HTTP attempts stopped before collection. Remote API runs are now in progress; actual executed/pass/fail counts must come from build-specific JUnit/logs, not source inventory.
 
 No reliable start/end time sheet or original A estimate is available locally. Overall actual hours and estimate-versus-actual variance are unknown. Test elapsed seconds in raw logs are tool execution durations, not Rayyan's human effort. No retrospective pre-implementation estimate, weekly report or human review is invented.
 
@@ -38,3 +38,13 @@ Suspend dependent HTTP work when packages, engine, schema defaults or an oracle 
 ## Ownership handoff
 
 Wasay: repository write/access route, available compatible runtime or original A archive, and CI command/required-check coordination. Rayyan retains generator/HTTP fixes and reruns. Zain retains Area 3; the B harness can later be shared without replacing his work. `Communication.md` records delivery state; local notes are not proof that a teammate received them.
+
+## Phase C control actions and ownership update
+
+Rayyan explicitly requested transfer of blocked unfinished execution to Wasay/his agent, with completion mandatory. Root handoff.md H-01 through H-06 and GitHub issue #1 record this allocation and delivered notification. Acceptance is not assumed. Original authored work and the official per-member area/viva requirements are not retroactively rewritten.
+
+Frequent meaningful checkpoints are now actually published under Rayyan author/committer identity; the connected-app write restriction was resolved. Local Git metadata remains read-only. The isolated remote workflow supplies a test environment without changing Wasay's complete PR gate.
+
+Proposed GQM populations: functional requirement coverage is verified FR IDs / the ten selected FR IDs (not API case pass rate); API result rate is passed executable cases / executed cases for one build/run; defect density needs confirmed defects / an explicitly measured size, currently unavailable; reopen rate needs reopened confirmed defects / closed confirmed defects, currently unavailable. A coordination issue is not counted as a product defect. No unavailable metric is reported as an invented zero.
+
+Current implementation accounting: 178 API scenarios, 82 distinct generated IDs referenced out of 578 generated labels, 24 feasible of 32 BR-02 rows, eight BR-04 rows, 50 state/actor cases. These are implementation denominators. Result evidence and remaining scope must be reviewed before any release decision. No human effort or team signoff is inferred from automated execution time.
