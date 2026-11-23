@@ -1,0 +1,9 @@
+{
+  "employee_id": 101,
+  "leave_type_id": 201,
+  "allocation_id": 301,
+  "leave_request_id": 401,
+  "missing_id": 2147483647,
+  "start_date": "2030-01-07",
+  "end_date": "2030-01-09"
+}
