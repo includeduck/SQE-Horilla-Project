@@ -1,0 +1,48 @@
+## sqe-team...origin/sqe-team
+ M docs/team/AI_USE_RECORD.md
+ M docs/team/SCOPE.md
+ M docs/team/SETUP.md
+ M docs/team/TEAM.md
+ M tests/team/README.md
+?? Communication.md
+?? docs/team/API_COVERAGE_MATRIX.md
+?? docs/team/AREA2_MANAGEMENT.md
+?? docs/team/AREA2_TEST_BASIS.md
+?? docs/team/SQE_IMPLEMENTATION_PHASE_A.md
+?? docs/team/SQE_IMPLEMENTATION_PHASE_B.md
+?? docs/team/SQE_IMPLEMENTATION_PHASE_C.md
+?? docs/team/SQE_IMPLEMENTATION_PHASE_D.md
+?? docs/team/SQE_PHASE_1_PERSONAL_AUDIT.md
+?? docs/team/SQE_PHASE_2_IMPLEMENTATION_ROADMAP.md
+?? docs/team/evidence/area2/phase-b/checkpoint-manifest.json
+?? docs/team/evidence/area2/phase-b/checkpoint-review.json
+?? docs/team/evidence/area2/phase-b/compile.txt
+?? docs/team/evidence/area2/phase-b/dependency-install.txt
+?? docs/team/evidence/area2/phase-b/django-check.txt
+?? docs/team/evidence/area2/phase-b/docker-attempt.txt
+?? docs/team/evidence/area2/phase-b/environment.json
+?? docs/team/evidence/area2/phase-b/freshness.txt
+?? docs/team/evidence/area2/phase-b/generation.txt
+?? docs/team/evidence/area2/phase-b/generator-tests-first-source-check.txt
+?? docs/team/evidence/area2/phase-b/generator-tests.txt
+?? docs/team/evidence/area2/phase-b/git-version.txt
+?? docs/team/evidence/area2/phase-b/http-attempt.txt
+?? docs/team/evidence/area2/phase-b/incomplete-gate.txt
+?? docs/team/evidence/area2/phase-b/lint-attempt.txt
+?? docs/team/evidence/area2/phase-b/openapi-validation-attempt.txt
+?? docs/team/evidence/area2/phase-b/packages.json
+?? docs/team/evidence/area2/phase-b/publication-attempt.json
+?? docs/team/evidence/area2/phase-b/remote-state.json
+?? docs/team/evidence/area2/phase-b/working-tree.txt
+?? docs/team/reports/SQE_IMPLEMENTATION_PHASE_A_STATUS.md
+?? docs/team/reports/SQE_IMPLEMENTATION_PHASE_B_STATUS.md
+?? tests/team/api/conftest.py
+?? tests/team/api/test_generated_slice.py
+?? tests/team/area2_settings.py
+?? tests/team/generator/bindings.json
+?? tests/team/generator/generate.py
+?? tests/team/generator/generated_cases.json
+?? tests/team/generator/openapi.json
+?? tests/team/generator/test_generate.py
+?? tests/team/pytest-area2.ini
+?? tests/team/requirements-area2.txt

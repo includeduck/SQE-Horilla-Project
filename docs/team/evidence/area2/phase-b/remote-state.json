@@ -1,0 +1,9 @@
+{
+  "verified_date": "2026-11-23",
+  "source": "https://api.github.com/repos/includeduck/SQE-Horilla-Project/branches/sqe-team",
+  "branch": "sqe-team",
+  "head": "da76b337190ceb67f1a7c43ee4d5f8eca4ddc8a0",
+  "protected_reported": false,
+  "required_status_contexts_reported": [],
+  "note": "Read-only branch endpoint result. Does not establish every repository ruleset or administration setting. No remote update was made."
+}

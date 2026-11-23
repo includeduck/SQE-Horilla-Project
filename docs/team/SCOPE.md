@@ -3,6 +3,11 @@
 > **DRAFT.** The team must review, verify against the running app, and edit this before it is used as the test basis.
 > Rule and requirement IDs are referenced by the traceability matrix, so keep them stable once agreed.
 
+> 23 November 2026 Area 2 checkpoint: see [AREA2_TEST_BASIS.md](AREA2_TEST_BASIS.md)
+> and [API_COVERAGE_MATRIX.md](API_COVERAGE_MATRIX.md) for the source-reconstructed B
+> contract, current generated coverage and explicit runtime/oracle gaps. This
+> supplement does not convert this draft into an approved or live-verified basis.
+
 ## 1. System under test
 
 | Item | Value |

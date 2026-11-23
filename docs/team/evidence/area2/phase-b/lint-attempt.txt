@@ -1,0 +1,2 @@
+D:\RAYYAN\ASSIGNMENTS\Software Quality Engineering\project\SQE-Horilla-Project\.venv\Scripts\python.exe: No module named ruff
+exit_code=1

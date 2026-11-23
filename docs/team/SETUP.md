@@ -3,6 +3,21 @@
 Upstream: https://github.com/horilla-opensource/horilla, branch `2.0`, baseline commit `6c15617b8297b7a6775daa6c29aefcc48b1eb29f`.
 Verified on Windows 11 (PowerShell) on 2026-11-18.
 
+## Area 2 checkpoint, 23 November 2026
+
+The current execution environment has Python 3.14.7 with pip only in `.venv`.
+It does not reproduce the older verified environment described below. Scoped
+test dependency installation could not resolve pytest; Django, Requests,
+formal OpenAPI validation and Ruff remain unavailable. Docker Desktop startup
+was requested, but engine access remained unavailable. See
+[Phase B status](reports/SQE_IMPLEMENTATION_PHASE_B_STATUS.md) for actual evidence.
+
+The standard-library generator can run independently using commands in
+[`tests/team/README.md`](../../tests/team/README.md). Its HTTP consumer requires
+the unchanged application requirements and scoped test tools. Use its explicit
+Area 2 pytest configuration and disposable database settings; do not reset an
+unverified personal/team database to repair this runtime.
+
 ## Tool versions (baseline)
 
 | Tool | Version |

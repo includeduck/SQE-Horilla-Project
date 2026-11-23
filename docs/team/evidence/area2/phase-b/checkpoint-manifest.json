@@ -1,0 +1,242 @@
+{
+  "date": "2026-11-23",
+  "owner": "Syed Muhammad Rayyan Hassan",
+  "roll": "24I-3000",
+  "local_and_observed_remote_head": "da76b337190ceb67f1a7c43ee4d5f8eca4ddc8a0",
+  "phase": "B",
+  "acceptance": "partial; HTTP blocked; coverage incomplete",
+  "published": false,
+  "note": "Includes preserved pre-existing planning/roll/communication changes. SHA values below are raw bytes, not canonical data hashes. Manifest excludes itself.",
+  "files": [
+    {
+      "path": "Communication.md",
+      "size_bytes": 12994,
+      "sha256": "189fd3473fe8d3fccdc1a5553e69ed16f0e0f50b413908705e24d7bc1f17d1dc"
+    },
+    {
+      "path": "docs/team/AI_USE_RECORD.md",
+      "size_bytes": 1886,
+      "sha256": "f51653b0e4b667ade2edec0221ae38cf1ff0fa8290828771b3581a3b5ac2e890"
+    },
+    {
+      "path": "docs/team/API_COVERAGE_MATRIX.md",
+      "size_bytes": 9317,
+      "sha256": "2e30f37e41ca7ab9ee2d34b678b569e9351cdb0008a03f0945927f7c5f50c86c"
+    },
+    {
+      "path": "docs/team/AREA2_MANAGEMENT.md",
+      "size_bytes": 4020,
+      "sha256": "97cb83ed37cfbd8de683ad3fe42cd54f64cf9bd19cea38207d5b648da1e8ab47"
+    },
+    {
+      "path": "docs/team/AREA2_TEST_BASIS.md",
+      "size_bytes": 6869,
+      "sha256": "332973bab0984a94c4c36866bb0d05e49f8beea7e684cd5ed68a4d305663feeb"
+    },
+    {
+      "path": "docs/team/SCOPE.md",
+      "size_bytes": 6957,
+      "sha256": "814813967af6dc504273dd1592dbe17ea857f812cc592ac79a6ca2ef7081c6d6"
+    },
+    {
+      "path": "docs/team/SETUP.md",
+      "size_bytes": 5002,
+      "sha256": "74b5189691e7c8d357776a77d0001ea25d2f7242d78669ad1fd7885c1046e4fa"
+    },
+    {
+      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_A.md",
+      "size_bytes": 14805,
+      "sha256": "003f0c0b3e1c65e3a8bf5c96bc04a5ffba6f2df8e1f36b1fb59db8a0f527ee2e"
+    },
+    {
+      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_B.md",
+      "size_bytes": 12618,
+      "sha256": "84dc0322571e2344e2a49bb9172b72906242394a64994313d9cc5681dc5819ea"
+    },
+    {
+      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_C.md",
+      "size_bytes": 15786,
+      "sha256": "81a2a53ce763ad108c4237b86a02d8b6a1b9c56c9fc406b43e54b9313ade660d"
+    },
+    {
+      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_D.md",
+      "size_bytes": 16447,
+      "sha256": "1d627100738894c1bdf01a788b25f19af76d2250e1782cde05c45c3505f39e00"
+    },
+    {
+      "path": "docs/team/SQE_PHASE_1_PERSONAL_AUDIT.md",
+      "size_bytes": 53708,
+      "sha256": "681bec4a39e09a4208cdbf518f1bc70654e63b162be692b6d05a4412078d00cb"
+    },
+    {
+      "path": "docs/team/SQE_PHASE_2_IMPLEMENTATION_ROADMAP.md",
+      "size_bytes": 36122,
+      "sha256": "68057f190ef1475303bf9ffae3fcf64b4455d6e1c7402192f0a6451603f6eb35"
+    },
+    {
+      "path": "docs/team/TEAM.md",
+      "size_bytes": 1589,
+      "sha256": "e382fe736eaaa5f5a8a199ecefb772b4b2073ecbe5bb24bc946a577b65831bfc"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/checkpoint-review.json",
+      "size_bytes": 226,
+      "sha256": "5dbd018ce5ab12922adb51ddd9b85c491b54fee1bb677cc6426494af5c78cdb3"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/compile.txt",
+      "size_bytes": 52,
+      "sha256": "390e1446107b939923fb6b65b5cde268207eac5a83e9d63bf2edb8f74ab0390a"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/dependency-install.txt",
+      "size_bytes": 174,
+      "sha256": "a883ba2cccecbcdd3ea199aacc794f8a9c0635c446bb930b970609156c5429d2"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/django-check.txt",
+      "size_bytes": 883,
+      "sha256": "34e408e10a2f3531d0a59658e9c1f5f775337022388ac483b54808ad5c82861e"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/docker-attempt.txt",
+      "size_bytes": 238,
+      "sha256": "dada53e96e50b0ca64d279c9fb15dfecbdd7ccda3d07aa243513dbd3698fd2c6"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/environment.json",
+      "size_bytes": 146,
+      "sha256": "e1b476a93ad504cbc727d1119f4e95fe3adf309274c93cd644da13fa701fd72e"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/freshness.txt",
+      "size_bytes": 1779,
+      "sha256": "186b806628940baa8d66e44bb36f7aaad0beee1108d4dcaca0618b87e6150aee"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/generation.txt",
+      "size_bytes": 1779,
+      "sha256": "186b806628940baa8d66e44bb36f7aaad0beee1108d4dcaca0618b87e6150aee"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/generator-tests-first-source-check.txt",
+      "size_bytes": 4217,
+      "sha256": "ceb7ea021570d503937733e29647863c3708b2e1f2a3732a2a6a3c6a6e210e4c"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/generator-tests.txt",
+      "size_bytes": 3712,
+      "sha256": "5b8cf891b1be3d95d02e8609c946336fb33ef081d4171ec0ca1520da3a7fd12e"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/git-version.txt",
+      "size_bytes": 30,
+      "sha256": "a889b053f8ace6b04a3b21d398036489e8e3ac002571b90d803207b261777ea2"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/http-attempt.txt",
+      "size_bytes": 142,
+      "sha256": "1b8d45a2b9e82f17a037d9b28edc0e484fb48819921c0e518bdb8757e9046463"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/incomplete-gate.txt",
+      "size_bytes": 1856,
+      "sha256": "ad66126c10a04e2af376fc7717b0580aa9f22e8c33fd654e0b427a3b70977128"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/lint-attempt.txt",
+      "size_bytes": 140,
+      "sha256": "0a550e580115517eecf716ffb64b02e186568afc20c3bf79fe4e337cbd7e9e2a"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/openapi-validation-attempt.txt",
+      "size_bytes": 401,
+      "sha256": "60e8edfbfd75a77def2ff256e7184cdc06a9601608f52a87a0180e85e219314b"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/packages.json",
+      "size_bytes": 40,
+      "sha256": "0cae1637858a893c233211ec093b16227a1359765330bd1b2e8fc345b18fad06"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/publication-attempt.json",
+      "size_bytes": 1047,
+      "sha256": "9e8ffaa0fccdd20b688d8aba6ae30c2765c798b1685e9f2a836c671ac36b255e"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/remote-state.json",
+      "size_bytes": 427,
+      "sha256": "ad8b5726aed975c971c390e732ef705af47a4705c54006bb0d32d4b43259a073"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/working-tree.txt",
+      "size_bytes": 2189,
+      "sha256": "c1ade8d836ef7701ad94eeccda8dd243880ebff0d3ca578cfd4c76e105930bab"
+    },
+    {
+      "path": "docs/team/reports/SQE_IMPLEMENTATION_PHASE_A_STATUS.md",
+      "size_bytes": 2306,
+      "sha256": "42f5cb04170b63f292e1b00a7e362936fcdcfca0f627e7f80433484e5afa11d8"
+    },
+    {
+      "path": "docs/team/reports/SQE_IMPLEMENTATION_PHASE_B_STATUS.md",
+      "size_bytes": 15148,
+      "sha256": "dd4072c3f55cd90ddb6e929a8ef6aba9052d7b6a3a7cf92a6ce7f5ac89903842"
+    },
+    {
+      "path": "tests/team/README.md",
+      "size_bytes": 7601,
+      "sha256": "a3088ec32da12fcaddaf12c0dc16973fafbfd94b40ced4eca42e3ad558f68dcf"
+    },
+    {
+      "path": "tests/team/api/conftest.py",
+      "size_bytes": 2959,
+      "sha256": "c66306208d4a64e3897d631549417a60593f929aaee469ba6a6f4f37a02719b2"
+    },
+    {
+      "path": "tests/team/api/test_generated_slice.py",
+      "size_bytes": 5010,
+      "sha256": "84ede6f3a53be712d60d5a7c61bb485eabb13f31baa49d74e97b43a0835174d6"
+    },
+    {
+      "path": "tests/team/area2_settings.py",
+      "size_bytes": 1226,
+      "sha256": "5876cf6ca2c0a0e19a86a4570286d461db8c86e2123d95ea6e5fe7bde38a29d9"
+    },
+    {
+      "path": "tests/team/generator/bindings.json",
+      "size_bytes": 195,
+      "sha256": "2cf7eb58c3baed287ace815764674c9fe7f034a091e5d4351df012ada1150dfd"
+    },
+    {
+      "path": "tests/team/generator/generate.py",
+      "size_bytes": 26252,
+      "sha256": "a533ecc27e6d59b39bf030accef25c04ddd49657e1dc73e6796b6efd7c8f6830"
+    },
+    {
+      "path": "tests/team/generator/generated_cases.json",
+      "size_bytes": 1097761,
+      "sha256": "00adb295cb59bf4106d53aeee93cbf001100770cb724bf4db164d81496d1906d"
+    },
+    {
+      "path": "tests/team/generator/openapi.json",
+      "size_bytes": 45261,
+      "sha256": "acd0a2620a84932f7d4d906c019c632c3b60c7326c762ebb1cd4dc92f2a28d22"
+    },
+    {
+      "path": "tests/team/generator/test_generate.py",
+      "size_bytes": 16398,
+      "sha256": "e9818fe0599240daa28bfa6cc9b4aa960ab8858ddb32f83bef465d1cab1afdbb"
+    },
+    {
+      "path": "tests/team/pytest-area2.ini",
+      "size_bytes": 100,
+      "sha256": "82f137b0ec64f51f65cf9fb5310a02f3078107c470d87c0e39ef7ad849072561"
+    },
+    {
+      "path": "tests/team/requirements-area2.txt",
+      "size_bytes": 259,
+      "sha256": "43133e040a459a900fc1c408570b579150182b176beac271ac060ca4b33ae311"
+    }
+  ]
+}

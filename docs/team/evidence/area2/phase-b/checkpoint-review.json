@@ -1,0 +1,8 @@
+{
+  "allowed_changed_paths_only": true,
+  "consumer_case_ids_present": 5,
+  "no_false_http_junit": true,
+  "status_and_matrix_fingerprints_match": true,
+  "roll_number_check": "24I-3000",
+  "application_changes": []
+}
