@@ -13,3 +13,102 @@ Everything in this folder is written by our team. Upstream tests (e.g. `leave/te
 | `recovery/` | Failure-and-recovery test for a state-changing operation | pytest + test double | Area 3 |
 
 Test-basis IDs (FR-xx, BR-xx) come from [`docs/team/SCOPE.md`](../../docs/team/SCOPE.md). Reference them in each test's docstring so the traceability matrix can be generated.
+
+## Rayyan Area 2: Phase B generator and HTTP slice
+
+Owner: Syed Muhammad Rayyan Hassan, **24I-3000**, `rayyanhasan899`.
+Current acceptance status is **partial / HTTP blocked**, detailed in
+[`SQE_IMPLEMENTATION_PHASE_B_STATUS.md`](../../docs/team/reports/SQE_IMPLEMENTATION_PHASE_B_STATUS.md).
+The source-reconstructed test basis is
+[`AREA2_TEST_BASIS.md`](../../docs/team/AREA2_TEST_BASIS.md).
+
+### Independent generation and regression checks
+
+From the repository root with a supported Python (3.12–3.14), these commands
+require only the standard library. On this Windows checkout replace `python`
+with `.\.venv\Scripts\python`; on Linux use the activated environment's
+`python` or `.venv/bin/python`.
+
+```sh
+python -m unittest discover -s tests/team/generator -p test_generate.py -v
+python tests/team/generator/generate.py --spec tests/team/generator/openapi.json --bindings tests/team/generator/bindings.json --output tests/team/generator/generated_cases.json
+python tests/team/generator/generate.py --spec tests/team/generator/openapi.json --bindings tests/team/generator/bindings.json --output tests/team/generator/generated_cases.json --check
+```
+
+The reader supports **OpenAPI 3.0.3 JSON**, local references, body object/nested
+leaves, path/query scalar inputs, required versus nullable, enum/type classes,
+finite numbers, explicit numeric steps, character/array limits, date formats and
+absolute date bounds, and synthetic multipart file descriptors. The scoped
+contract also uses `x-binding`, `x-reference`, `x-date-order`,
+`x-filename-maxLength`, `x-allow-empty-file` and `x-trim-whitespace`.
+`x-wire-coercion` is a disclosure, not an exhaustive DRF coercion model.
+Array item validation and one-invalid-item classes are supported; recursive
+item-by-item EP/BVA expansion and multipart collection encoding are not claimed.
+Unsupported relevant schema/operation constraints fail visibly.
+
+`bindings.json` is synthetic and deterministic; it contains no credentials.
+Never substitute real personal data or a production account. Runtime date/ID
+bindings must be chosen for the scenario, not copied blindly from placeholders.
+The generator never calls an application server.
+
+Each JSON artifact contains operations, input inventory, source exclusions,
+case IDs, baseline/mutated request, EP/BVA class, expected predicate/oracle,
+FR/BR references, source schema, and BVA limit/unit/step/inclusivity. Canonical
+SHA-256 fingerprints cover the spec, logical bindings and generated data.
+There is no volatile timestamp in comparison data. `--check` regenerates in
+memory and rejects stale/altered output with exit 2, including generator logic
+changes that change the expected artifact. Consumers do the same check.
+
+Exit 0 means generation/freshness succeeded for the declared supported subset.
+It does **not** mean all-input/API/assignment coverage passed. Current output has
+`coverage_complete: false` and explicit exclusions. Add `--require-complete`
+when a completion gate must reject unresolved exclusions; it intentionally exits
+3 for the current contract. Wasay retains CI design/required-check ownership.
+
+### Real HTTP consumer: requires the complete application environment
+
+Install the unchanged root application requirements, then the scoped tools:
+
+```sh
+python -m pip install -r requirements.txt
+python -m pip install -r tests/team/requirements-area2.txt
+python -c "import json; from openapi_spec_validator import validate; validate(json.load(open('tests/team/generator/openapi.json', encoding='utf-8')))"
+python -m pytest -c tests/team/pytest-area2.ini tests/team/api/test_generated_slice.py -v -s --junitxml=docs/team/evidence/area2/phase-b/http-results.xml
+python -m ruff check tests/team/generator tests/team/api tests/team/area2_settings.py
+```
+
+The explicit config is essential: it uses `area2_settings` and pytest-django's
+real loopback server, absolute disposable SQLite files, temporary media,
+locmem mail/cache, unchanged authentication/permissions/password hashing and
+the existing synthetic `scripts/team/seed_team.py`. No manually running server,
+Docker container or reset of `TestDB.sqlite3` is required. Do not run the
+destructive normal reset script against an unverified local database.
+
+Five parametrized cases consume generated output: one valid allocation amount,
+one nonnumeric amount and filename lengths just below/at/above the declared
+100-character bound. The fixture checks that actual serializer defaults agree
+before any consumer case proceeds. It verifies the checked-in artifact, binds
+the actual employee/type IDs, writes and rereads a fresh runtime JSON artifact,
+and selects the same stable case IDs from it. It authenticates normal employee
+and approver accounts and never saves JWTs.
+
+Each case asserts real response/error fields, the employee's HTTP list/detail
+and unchanged HTTP balance, the approver's independent balance, row counts,
+owner, request state, amount and stored file bytes. ORM checks corroborate HTTP
+readback. Every case starts from pytest-django's freshly flushed synthetic
+state. `-s` exposes nonsecret case/spec/data lineage, also added as JUnit
+properties. Use JUnit's default xunit2 with any `record_property` compatibility
+warnings visible, or pass `-o junit_family=xunit1` if consuming tools require
+those properties in a supported family.
+
+After the full slice passes, rerun its nodes in reverse order explicitly
+(without installing an ordering plugin):
+
+```sh
+python -m pytest -c tests/team/pytest-area2.ini 'tests/team/api/test_generated_slice.py::test_generated_allocation[self_allocation_create:body:attachment:BVA:x-filename-maxLength-above]' 'tests/team/api/test_generated_slice.py::test_generated_allocation[self_allocation_create:body:attachment:BVA:x-filename-maxLength-at]' 'tests/team/api/test_generated_slice.py::test_generated_allocation[self_allocation_create:body:attachment:BVA:x-filename-maxLength-below]' 'tests/team/api/test_generated_slice.py::test_generated_allocation[self_allocation_create:body:requested_days:EP:nonnumeric]' 'tests/team/api/test_generated_slice.py::test_generated_allocation[self_allocation_create:body:requested_days:EP:valid]' -v -s
+```
+
+These commands are provided for reproducibility; consult the status report for
+what actually ran. Current HTTP invocation stops at missing pytest, so no HTTP
+JUnit result or passing API run is claimed. Full decision/state/balance scenarios
+remain Phase C; the two-real-constraint demonstration remains Phase D.

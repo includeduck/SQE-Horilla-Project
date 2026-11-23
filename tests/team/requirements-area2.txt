@@ -1,0 +1,7 @@
+# First install the unchanged root requirements.txt (full Horilla runtime).
+pytest>=8.3,<10
+pytest-django>=4.9,<5
+requests>=2.32,<3
+openapi-spec-validator>=0.7,<0.8
+# Optional development linting, not required by the standard-library generator:
+ruff>=0.14,<1
