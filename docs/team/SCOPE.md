@@ -84,3 +84,14 @@ Candidate extra rules if the team needs them: past-date restriction (`EmployeePa
 - Expected behaviour comes from the source code above and Horilla docs (https://www.horilla.com/). Where docs and code disagree, record the discrepancy as a potential defect and state which one is treated as the oracle.
 - **Assumption A1:** tests that check validation run as a **non-superuser**, because `LeaveRequest.clean` skips the past-date and restricted-leave checks for superusers.
 - **Assumption A2:** leave days are counted per `calculate_requested_days` with holidays/company leaves excluded per leave-type settings; test data avoids holidays unless a test targets them.
+
+## 7. Oracle decisions
+
+Team decisions on expected behaviour where the code and documentation do not settle it. Tests use these as their oracle; a mismatch is logged as a defect, never "fixed" by changing the expected result.
+
+| ID | Date | Situation | Decision (expected behaviour) | Basis | Observed at baseline |
+|---|---|---|---|---|---|
+| OD-01 | 2026-11-23 | Reject (`PUT /api/leave/reject/<id>/`) a leave request whose status is already `cancelled` | Reject with **HTTP 400**; status and balance unchanged | BR-03: `cancelled` is terminal | HTTP 200 (transition accepted) → **defect** |
+| OD-02 | 2026-11-23 | Submit an allocation request identical to the same employee's existing **pending** request (same leave type, days, description) | Reject with **HTTP 400**; no second record created | Brief §2: repeated requests must not create duplicates | Duplicate accepted → **defect / endpoint weakness** |
+
+Tests for open decisions are marked `xfail(strict=True)` with the defect issue number, so they stay visible as known failures and turn into an error (XPASS) once the defect is fixed.
