@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Rayyan Area 2 source-reconstructed leave API subset",
-    "version": "0.1.0-source-review"
+    "version": "0.2.0-source-review"
   },
   "servers": [
     {
@@ -11,7 +11,7 @@
   ],
   "x-exclusions": [
     "Phase A archive/report/runtime evidence unavailable locally; this is a source-reconstructed scoped contract, not the recovered or live-validated Phase A contract.",
-    "Filter/search/grouping/page/page_size query inputs and assign-leave administration remain unreviewed here; pagination is coercion/clamping, not a declared rejection maximum.",
+    "Page-size clamp generation is supported for five list operations. Remaining page/filter/search/grouping query inputs, invalid-value pagination fallbacks and assign-leave administration still require complete inventory/coverage.",
     "Optional reject reason is normalized/ignored/truncated by helper, not schema-validated; body generation for rejection and its persistence mismatch require Phase C oracle review.",
     "Date ordering has generated relative calendar-day BVA. Other relational breakdown/overlap/attachment-required and effective balance/carry-forward/forecast rules require runtime scenario binding; isolated schema cases may violate those relations and are not automatically safe HTTP cases.",
     "Path integer routing/existence and role/state transitions need Phase C expectations; positive/existing symbolic values are scenario placeholders, not proven database records.",
@@ -46,6 +46,21 @@
           {
             "BearerAuth": []
           }
+        ],
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 20,
+              "x-clamp-maximum": 100,
+              "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+              "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+            }
+          }
         ]
       }
     },
@@ -75,6 +90,21 @@
         "security": [
           {
             "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 20,
+              "x-clamp-maximum": 100,
+              "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+              "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+            }
           }
         ]
       },
@@ -255,6 +285,21 @@
           {
             "BearerAuth": []
           }
+        ],
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 20,
+              "x-clamp-maximum": 100,
+              "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+              "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+            }
+          }
         ]
       },
       "post": {
@@ -406,6 +451,21 @@
         "security": [
           {
             "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 20,
+              "x-clamp-maximum": 100,
+              "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+              "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+            }
           }
         ]
       },
@@ -600,6 +660,21 @@
         "security": [
           {
             "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 20,
+              "x-clamp-maximum": 100,
+              "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+              "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+            }
           }
         ]
       },

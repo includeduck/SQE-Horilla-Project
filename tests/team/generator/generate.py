@@ -52,6 +52,7 @@ SCHEMA_KEYS = {
     "x-date-maximum", "x-filename-maxLength", "x-allow-empty-file",
     "x-wire-coercion",
     "x-trim-whitespace",
+    "x-clamp-maximum",
 }
 
 
@@ -93,6 +94,8 @@ def check_schema(document, schema, seen=()):
             raise ContractError("Bounded number requires a justified x-step")
     if schema.get("x-step", 1) <= 0:
         raise ContractError("x-step must be positive")
+    if "x-clamp-maximum" in schema and kind != "integer":
+        raise ContractError("Scoped pagination clamp requires an integer schema")
     return schema
 
 
@@ -246,7 +249,7 @@ def variations(document, raw_schema, required, baseline, bindings):
         yield "EP", "empty-file", empty, False, "x-allow-empty-file"
         yield "EP", "empty-filename", {**baseline, "filename": ""}, False, "format"
     for key in ("minimum", "maximum", "minLength", "maxLength", "minItems", "maxItems",
-                "x-date-minimum", "x-date-maximum", "x-filename-maxLength"):
+                "x-date-minimum", "x-date-maximum", "x-filename-maxLength", "x-clamp-maximum"):
         if key not in schema:
             continue
         limit = schema[key]
@@ -365,7 +368,7 @@ def generate(document, bindings):
                     value = value[part]
                 bounds = [key for key in schema if key in {
                     "minimum", "maximum", "minLength", "maxLength", "minItems", "maxItems",
-                    "x-date-minimum", "x-date-maximum", "x-filename-maxLength"}]
+                    "x-date-minimum", "x-date-maximum", "x-filename-maxLength", "x-clamp-maximum"}]
                 inventory.append({
                     "operation": operation_id, "location": location, "field": list(field),
                     "source": schema.get("x-source", operation.get("x-source")),
@@ -395,8 +398,11 @@ def generate(document, bindings):
                         "provenance": {"constraint": constraint, "schema": schema,
                                        "source": schema.get("x-source", operation.get("x-source"))},
                     })
+                    if constraint == "x-clamp-maximum":
+                        cases[-1]["expected"]["normalized_value"] = min(mutated, schema[constraint])
                     if technique == "BVA":
                         unit = ("calendar days" if constraint.startswith("x-date-") else
+                                "items per page" if constraint == "x-clamp-maximum" else
                                 "filename characters" if constraint == "x-filename-maxLength" else
                                 "characters after trim" if "Length" in constraint and schema.get("x-trim-whitespace") else
                                 "characters" if "Length" in constraint else

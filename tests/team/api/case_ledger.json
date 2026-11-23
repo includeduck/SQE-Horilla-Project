@@ -1,0 +1,2134 @@
+{
+  "format_version": 1,
+  "spec_sha256": "45e37bfbcd255fc567d5923b13076637f8777bbc4c48bb239f6c2e3fe398f0db",
+  "data_sha256": "38d69c57a2e33ede9682bb8b6b165d7c1398b578711983ecf05cd3f8e59e3521",
+  "implemented_api_cases": 178,
+  "referenced_generated_case_ids": 82,
+  "generated_data_cases": 578,
+  "entries": [
+    {
+      "case_id": "self_allocation_create:body:leave_type_id:EP:valid",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:leave_type_id:EP:missing",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:leave_type_id:EP:null",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:leave_type_id:EP:wrong-type",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:leave_type_id:EP:nonnumeric",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:leave_type_id:EP:fraction",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:leave_type_id:EP:missing-record",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:requested_days:EP:missing",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:requested_days:EP:null",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:requested_days:EP:wrong-type",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:requested_days:EP:negative",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:requested_days:EP:zero",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:requested_days:EP:positive",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:description:EP:valid",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:description:EP:missing",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:description:EP:null",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:description:EP:wrong-type",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:description:EP:empty",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:description:EP:whitespace",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:description:BVA:minLength-below",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:description:BVA:minLength-at",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:description:BVA:minLength-above",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:leave_type_id:EP:valid",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:leave_type_id:EP:missing",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:leave_type_id:EP:null",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:leave_type_id:EP:wrong-type",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:leave_type_id:EP:nonnumeric",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:leave_type_id:EP:fraction",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:leave_type_id:EP:missing-record",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:start_date:EP:valid",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:start_date:EP:missing",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:start_date:EP:null",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:start_date:EP:wrong-type",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:start_date:EP:empty",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:start_date:EP:bad-date",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:end_date:EP:valid",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:end_date:EP:missing",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:end_date:EP:null",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:end_date:EP:wrong-type",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:end_date:EP:empty",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:end_date:EP:bad-date",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:start_date_breakdown:EP:valid",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:start_date_breakdown:EP:missing",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:start_date_breakdown:EP:null",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:start_date_breakdown:EP:wrong-type",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:start_date_breakdown:EP:enum-0",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:start_date_breakdown:EP:enum-1",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:start_date_breakdown:EP:enum-2",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:start_date_breakdown:EP:outside-enum",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:start_date_breakdown:EP:empty",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:end_date_breakdown:EP:valid",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:end_date_breakdown:EP:missing",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:end_date_breakdown:EP:null",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:end_date_breakdown:EP:wrong-type",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:end_date_breakdown:EP:enum-0",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:end_date_breakdown:EP:enum-1",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:end_date_breakdown:EP:enum-2",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:end_date_breakdown:EP:outside-enum",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:end_date_breakdown:EP:empty",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:description:EP:valid",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:description:EP:missing",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:description:EP:null",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:description:EP:wrong-type",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:description:EP:empty",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:description:EP:whitespace",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:description:BVA:minLength-below",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:description:BVA:minLength-at",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:description:BVA:minLength-above",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:end_date:BVA:date-order-below",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:end_date:BVA:date-order-at",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_leave_create:body:end_date:BVA:date-order-above",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:requested_days:EP:valid",
+      "file": "test_generated_slice.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:requested_days:EP:nonnumeric",
+      "file": "test_generated_slice.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:attachment:BVA:x-filename-maxLength-below",
+      "file": "test_generated_slice.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:attachment:BVA:x-filename-maxLength-at",
+      "file": "test_generated_slice.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_create:body:attachment:BVA:x-filename-maxLength-above",
+      "file": "test_generated_slice.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_list:query:page_size:BVA:x-clamp-maximum-below",
+      "file": "test_queries_and_auth.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_list:query:page_size:BVA:x-clamp-maximum-at",
+      "file": "test_queries_and_auth.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_list:query:page_size:BVA:x-clamp-maximum-above",
+      "file": "test_queries_and_auth.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "allocation_detail:path:pk:EP:missing-record",
+      "file": "test_queries_and_auth.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "leave_detail:path:pk:EP:missing-record",
+      "file": "test_queries_and_auth.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "approve:path:pk:EP:missing-record",
+      "file": "test_queries_and_auth.py",
+      "generated": true,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "DEC-BR02-05",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "DEC-BR02-06",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "DEC-BR02-07",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "DEC-BR02-08",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "DEC-BR02-09",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "DEC-BR02-10",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "DEC-BR02-11",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "DEC-BR02-12",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "DEC-BR02-13",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "DEC-BR02-14",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "DEC-BR02-15",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "DEC-BR02-16",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "DEC-BR02-21",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "DEC-BR02-22",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "DEC-BR02-23",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "DEC-BR02-24",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "DEC-BR02-25",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "DEC-BR02-26",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "DEC-BR02-27",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "DEC-BR02-28",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "DEC-BR02-29",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "DEC-BR02-30",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "DEC-BR02-31",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "DEC-BR02-32",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "case_id": "AUTH-BR04-01",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "BR-04"
+      ]
+    },
+    {
+      "case_id": "AUTH-BR04-02",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "BR-04"
+      ]
+    },
+    {
+      "case_id": "AUTH-BR04-03",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "BR-04"
+      ]
+    },
+    {
+      "case_id": "AUTH-BR04-04",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "BR-04"
+      ]
+    },
+    {
+      "case_id": "AUTH-BR04-05",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "BR-04"
+      ]
+    },
+    {
+      "case_id": "AUTH-BR04-06",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "BR-04"
+      ]
+    },
+    {
+      "case_id": "AUTH-BR04-07",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "BR-04"
+      ]
+    },
+    {
+      "case_id": "AUTH-BR04-08",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "BR-04"
+      ]
+    },
+    {
+      "case_id": "STATE-ALLOC-requested-self-approve",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "BR-03",
+        "BR-04"
+      ]
+    },
+    {
+      "case_id": "STATE-ALLOC-requested-approve",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-02",
+        "FR-03",
+        "FR-04",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-ALLOC-requested-reject",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-02",
+        "FR-03",
+        "FR-04",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-ALLOC-requested-update",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-02",
+        "FR-03",
+        "FR-04",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-ALLOC-requested-delete",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-02",
+        "FR-03",
+        "FR-04",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-ALLOC-approved-self-approve",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "BR-03",
+        "BR-04"
+      ]
+    },
+    {
+      "case_id": "STATE-ALLOC-approved-approve",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-02",
+        "FR-03",
+        "FR-04",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-ALLOC-approved-reject",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-02",
+        "FR-03",
+        "FR-04",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-ALLOC-approved-update",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-02",
+        "FR-03",
+        "FR-04",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-ALLOC-approved-delete",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-02",
+        "FR-03",
+        "FR-04",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-ALLOC-rejected-self-approve",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "BR-03",
+        "BR-04"
+      ]
+    },
+    {
+      "case_id": "STATE-ALLOC-rejected-approve",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-02",
+        "FR-03",
+        "FR-04",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-ALLOC-rejected-reject",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-02",
+        "FR-03",
+        "FR-04",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-ALLOC-rejected-update",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-02",
+        "FR-03",
+        "FR-04",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-ALLOC-rejected-delete",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-02",
+        "FR-03",
+        "FR-04",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-requested-approve",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-requested-reject",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-requested-cancel",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-requested-cancellation-approve",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-requested-cancellation-reject",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-requested-update",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-requested-delete",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-approved-approve",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-approved-reject",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-approved-cancel",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-approved-cancellation-approve",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-approved-cancellation-reject",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-approved-update",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-approved-delete",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-rejected-approve",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-rejected-reject",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-rejected-cancel",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-rejected-cancellation-approve",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-rejected-cancellation-reject",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-rejected-update",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-rejected-delete",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-cancel_requested-approve",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-cancel_requested-reject",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-cancel_requested-cancel",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-cancel_requested-cancellation-approve",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-cancel_requested-cancellation-reject",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-cancel_requested-update",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-cancel_requested-delete",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-cancelled-approve",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-cancelled-reject",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-cancelled-cancel",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-cancelled-cancellation-approve",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-cancelled-cancellation-reject",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-cancelled-update",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "STATE-LEAVE-cancelled-delete",
+      "file": "test_states_and_decisions.py",
+      "generated": false,
+      "execution_status": "pending-current-build",
+      "requirements": [
+        "FR-08",
+        "FR-09",
+        "BR-03"
+      ]
+    },
+    {
+      "case_id": "INTEGRATION-W1-W2-001",
+      "file": "test_workflows.py",
+      "generated": false,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "DEFECT-REFUND-REQUESTER-001",
+      "file": "test_workflows.py",
+      "generated": false,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "CANCEL-DECISION-True",
+      "file": "test_workflows.py",
+      "generated": false,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "CANCEL-DECISION-False",
+      "file": "test_workflows.py",
+      "generated": false,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "REPEAT-ALLOCATION-APPROVE-001",
+      "file": "test_workflows.py",
+      "generated": false,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "REPEAT-LEAVE-APPROVE-001",
+      "file": "test_workflows.py",
+      "generated": false,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "REPEAT-LEAVE-CREATE-001",
+      "file": "test_workflows.py",
+      "generated": false,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "GAP-ALLOCATION-DUPLICATE-001",
+      "file": "test_workflows.py",
+      "generated": false,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "DEFECT-NONOWNER-ALLOCATION-PUT",
+      "file": "test_workflows.py",
+      "generated": false,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "DEFECT-NONOWNER-ALLOCATION-DELETE",
+      "file": "test_workflows.py",
+      "generated": false,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "DEFECT-CARRYFORWARD-CAP-001",
+      "file": "test_workflows.py",
+      "generated": false,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "AUTH-TOKEN-missing",
+      "file": "test_queries_and_auth.py",
+      "generated": false,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "AUTH-TOKEN-invalid",
+      "file": "test_queries_and_auth.py",
+      "generated": false,
+      "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "AUTH-NONOWNER-GENERIC-DETAIL",
+      "file": "test_queries_and_auth.py",
+      "generated": false,
+      "execution_status": "pending-current-build"
+    }
+  ],
+  "infeasible_decision_rows": [
+    {
+      "id": "DEC-BR02-01",
+      "conditions": {
+        "assigned": false,
+        "ordered": false,
+        "matching": false,
+        "attachment": false,
+        "no_overlap": false
+      },
+      "feasible": false,
+      "reason": "Reversed dates cannot be a same-day breakdown mismatch",
+      "expected_status": 400,
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "id": "DEC-BR02-02",
+      "conditions": {
+        "assigned": false,
+        "ordered": false,
+        "matching": false,
+        "attachment": false,
+        "no_overlap": true
+      },
+      "feasible": false,
+      "reason": "Reversed dates cannot be a same-day breakdown mismatch",
+      "expected_status": 400,
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "id": "DEC-BR02-03",
+      "conditions": {
+        "assigned": false,
+        "ordered": false,
+        "matching": false,
+        "attachment": true,
+        "no_overlap": false
+      },
+      "feasible": false,
+      "reason": "Reversed dates cannot be a same-day breakdown mismatch",
+      "expected_status": 400,
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "id": "DEC-BR02-04",
+      "conditions": {
+        "assigned": false,
+        "ordered": false,
+        "matching": false,
+        "attachment": true,
+        "no_overlap": true
+      },
+      "feasible": false,
+      "reason": "Reversed dates cannot be a same-day breakdown mismatch",
+      "expected_status": 400,
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "id": "DEC-BR02-17",
+      "conditions": {
+        "assigned": true,
+        "ordered": false,
+        "matching": false,
+        "attachment": false,
+        "no_overlap": false
+      },
+      "feasible": false,
+      "reason": "Reversed dates cannot be a same-day breakdown mismatch",
+      "expected_status": 400,
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "id": "DEC-BR02-18",
+      "conditions": {
+        "assigned": true,
+        "ordered": false,
+        "matching": false,
+        "attachment": false,
+        "no_overlap": true
+      },
+      "feasible": false,
+      "reason": "Reversed dates cannot be a same-day breakdown mismatch",
+      "expected_status": 400,
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "id": "DEC-BR02-19",
+      "conditions": {
+        "assigned": true,
+        "ordered": false,
+        "matching": false,
+        "attachment": true,
+        "no_overlap": false
+      },
+      "feasible": false,
+      "reason": "Reversed dates cannot be a same-day breakdown mismatch",
+      "expected_status": 400,
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    },
+    {
+      "id": "DEC-BR02-20",
+      "conditions": {
+        "assigned": true,
+        "ordered": false,
+        "matching": false,
+        "attachment": true,
+        "no_overlap": true
+      },
+      "feasible": false,
+      "reason": "Reversed dates cannot be a same-day breakdown mismatch",
+      "expected_status": 400,
+      "requirements": [
+        "FR-05",
+        "FR-07",
+        "BR-02"
+      ]
+    }
+  ],
+  "unconsumed_generated_case_ids": [
+    "allocation_approve:path:pk:EP:valid",
+    "allocation_approve:path:pk:EP:missing",
+    "allocation_approve:path:pk:EP:null",
+    "allocation_approve:path:pk:EP:wrong-type",
+    "allocation_approve:path:pk:EP:nonnumeric",
+    "allocation_approve:path:pk:EP:fraction",
+    "allocation_approve:path:pk:EP:missing-record",
+    "allocation_reject:path:pk:EP:valid",
+    "allocation_reject:path:pk:EP:missing",
+    "allocation_reject:path:pk:EP:null",
+    "allocation_reject:path:pk:EP:wrong-type",
+    "allocation_reject:path:pk:EP:nonnumeric",
+    "allocation_reject:path:pk:EP:fraction",
+    "allocation_reject:path:pk:EP:missing-record",
+    "allocation_list:query:page_size:EP:valid",
+    "allocation_list:query:page_size:EP:missing",
+    "allocation_list:query:page_size:EP:null",
+    "allocation_list:query:page_size:EP:wrong-type",
+    "allocation_list:query:page_size:EP:nonnumeric",
+    "allocation_list:query:page_size:EP:fraction",
+    "allocation_list:query:page_size:BVA:minimum-below",
+    "allocation_list:query:page_size:BVA:minimum-at",
+    "allocation_list:query:page_size:BVA:minimum-above",
+    "allocation_list:query:page_size:BVA:x-clamp-maximum-below",
+    "allocation_list:query:page_size:BVA:x-clamp-maximum-at",
+    "allocation_list:query:page_size:BVA:x-clamp-maximum-above",
+    "allocation_create:body:leave_type_id:EP:valid",
+    "allocation_create:body:leave_type_id:EP:missing",
+    "allocation_create:body:leave_type_id:EP:null",
+    "allocation_create:body:leave_type_id:EP:wrong-type",
+    "allocation_create:body:leave_type_id:EP:nonnumeric",
+    "allocation_create:body:leave_type_id:EP:fraction",
+    "allocation_create:body:leave_type_id:EP:missing-record",
+    "allocation_create:body:employee_id:EP:valid",
+    "allocation_create:body:employee_id:EP:missing",
+    "allocation_create:body:employee_id:EP:null",
+    "allocation_create:body:employee_id:EP:wrong-type",
+    "allocation_create:body:employee_id:EP:nonnumeric",
+    "allocation_create:body:employee_id:EP:fraction",
+    "allocation_create:body:employee_id:EP:missing-record",
+    "allocation_create:body:requested_days:EP:valid",
+    "allocation_create:body:requested_days:EP:missing",
+    "allocation_create:body:requested_days:EP:null",
+    "allocation_create:body:requested_days:EP:wrong-type",
+    "allocation_create:body:requested_days:EP:nonnumeric",
+    "allocation_create:body:requested_days:EP:negative",
+    "allocation_create:body:requested_days:EP:zero",
+    "allocation_create:body:requested_days:EP:positive",
+    "allocation_create:body:description:EP:valid",
+    "allocation_create:body:description:EP:missing",
+    "allocation_create:body:description:EP:null",
+    "allocation_create:body:description:EP:wrong-type",
+    "allocation_create:body:description:EP:empty",
+    "allocation_create:body:description:EP:whitespace",
+    "allocation_create:body:description:BVA:minLength-below",
+    "allocation_create:body:description:BVA:minLength-at",
+    "allocation_create:body:description:BVA:minLength-above",
+    "allocation_create:body:attachment:EP:valid",
+    "allocation_create:body:attachment:EP:missing",
+    "allocation_create:body:attachment:EP:null",
+    "allocation_create:body:attachment:EP:wrong-type",
+    "allocation_create:body:attachment:EP:empty-file",
+    "allocation_create:body:attachment:EP:empty-filename",
+    "allocation_create:body:attachment:BVA:x-filename-maxLength-below",
+    "allocation_create:body:attachment:BVA:x-filename-maxLength-at",
+    "allocation_create:body:attachment:BVA:x-filename-maxLength-above",
+    "allocation_delete:path:pk:EP:valid",
+    "allocation_delete:path:pk:EP:missing",
+    "allocation_delete:path:pk:EP:null",
+    "allocation_delete:path:pk:EP:wrong-type",
+    "allocation_delete:path:pk:EP:nonnumeric",
+    "allocation_delete:path:pk:EP:fraction",
+    "allocation_delete:path:pk:EP:missing-record",
+    "allocation_detail:path:pk:EP:valid",
+    "allocation_detail:path:pk:EP:missing",
+    "allocation_detail:path:pk:EP:null",
+    "allocation_detail:path:pk:EP:wrong-type",
+    "allocation_detail:path:pk:EP:nonnumeric",
+    "allocation_detail:path:pk:EP:fraction",
+    "allocation_update:path:pk:EP:valid",
+    "allocation_update:path:pk:EP:missing",
+    "allocation_update:path:pk:EP:null",
+    "allocation_update:path:pk:EP:wrong-type",
+    "allocation_update:path:pk:EP:nonnumeric",
+    "allocation_update:path:pk:EP:fraction",
+    "allocation_update:path:pk:EP:missing-record",
+    "allocation_update:body:leave_type_id:EP:valid",
+    "allocation_update:body:leave_type_id:EP:missing",
+    "allocation_update:body:leave_type_id:EP:null",
+    "allocation_update:body:leave_type_id:EP:wrong-type",
+    "allocation_update:body:leave_type_id:EP:nonnumeric",
+    "allocation_update:body:leave_type_id:EP:fraction",
+    "allocation_update:body:leave_type_id:EP:missing-record",
+    "allocation_update:body:employee_id:EP:valid",
+    "allocation_update:body:employee_id:EP:missing",
+    "allocation_update:body:employee_id:EP:null",
+    "allocation_update:body:employee_id:EP:wrong-type",
+    "allocation_update:body:employee_id:EP:nonnumeric",
+    "allocation_update:body:employee_id:EP:fraction",
+    "allocation_update:body:employee_id:EP:missing-record",
+    "allocation_update:body:requested_days:EP:valid",
+    "allocation_update:body:requested_days:EP:missing",
+    "allocation_update:body:requested_days:EP:null",
+    "allocation_update:body:requested_days:EP:wrong-type",
+    "allocation_update:body:requested_days:EP:nonnumeric",
+    "allocation_update:body:requested_days:EP:negative",
+    "allocation_update:body:requested_days:EP:zero",
+    "allocation_update:body:requested_days:EP:positive",
+    "allocation_update:body:description:EP:valid",
+    "allocation_update:body:description:EP:missing",
+    "allocation_update:body:description:EP:null",
+    "allocation_update:body:description:EP:wrong-type",
+    "allocation_update:body:description:EP:empty",
+    "allocation_update:body:description:EP:whitespace",
+    "allocation_update:body:description:BVA:minLength-below",
+    "allocation_update:body:description:BVA:minLength-at",
+    "allocation_update:body:description:BVA:minLength-above",
+    "allocation_update:body:attachment:EP:valid",
+    "allocation_update:body:attachment:EP:missing",
+    "allocation_update:body:attachment:EP:null",
+    "allocation_update:body:attachment:EP:wrong-type",
+    "allocation_update:body:attachment:EP:empty-file",
+    "allocation_update:body:attachment:EP:empty-filename",
+    "allocation_update:body:attachment:BVA:x-filename-maxLength-below",
+    "allocation_update:body:attachment:BVA:x-filename-maxLength-at",
+    "allocation_update:body:attachment:BVA:x-filename-maxLength-above",
+    "approve:path:pk:EP:valid",
+    "approve:path:pk:EP:missing",
+    "approve:path:pk:EP:null",
+    "approve:path:pk:EP:wrong-type",
+    "approve:path:pk:EP:nonnumeric",
+    "approve:path:pk:EP:fraction",
+    "own_balance:query:page_size:EP:valid",
+    "own_balance:query:page_size:EP:missing",
+    "own_balance:query:page_size:EP:null",
+    "own_balance:query:page_size:EP:wrong-type",
+    "own_balance:query:page_size:EP:nonnumeric",
+    "own_balance:query:page_size:EP:fraction",
+    "own_balance:query:page_size:BVA:minimum-below",
+    "own_balance:query:page_size:BVA:minimum-at",
+    "own_balance:query:page_size:BVA:minimum-above",
+    "own_balance:query:page_size:BVA:x-clamp-maximum-below",
+    "own_balance:query:page_size:BVA:x-clamp-maximum-at",
+    "own_balance:query:page_size:BVA:x-clamp-maximum-above",
+    "cancel:path:pk:EP:valid",
+    "cancel:path:pk:EP:missing",
+    "cancel:path:pk:EP:null",
+    "cancel:path:pk:EP:wrong-type",
+    "cancel:path:pk:EP:nonnumeric",
+    "cancel:path:pk:EP:fraction",
+    "cancel:path:pk:EP:missing-record",
+    "cancellation_approve:path:pk:EP:valid",
+    "cancellation_approve:path:pk:EP:missing",
+    "cancellation_approve:path:pk:EP:null",
+    "cancellation_approve:path:pk:EP:wrong-type",
+    "cancellation_approve:path:pk:EP:nonnumeric",
+    "cancellation_approve:path:pk:EP:fraction",
+    "cancellation_approve:path:pk:EP:missing-record",
+    "cancellation_reject:path:pk:EP:valid",
+    "cancellation_reject:path:pk:EP:missing",
+    "cancellation_reject:path:pk:EP:null",
+    "cancellation_reject:path:pk:EP:wrong-type",
+    "cancellation_reject:path:pk:EP:nonnumeric",
+    "cancellation_reject:path:pk:EP:fraction",
+    "cancellation_reject:path:pk:EP:missing-record",
+    "reject:path:pk:EP:valid",
+    "reject:path:pk:EP:missing",
+    "reject:path:pk:EP:null",
+    "reject:path:pk:EP:wrong-type",
+    "reject:path:pk:EP:nonnumeric",
+    "reject:path:pk:EP:fraction",
+    "reject:path:pk:EP:missing-record",
+    "leave_list:query:page_size:EP:valid",
+    "leave_list:query:page_size:EP:missing",
+    "leave_list:query:page_size:EP:null",
+    "leave_list:query:page_size:EP:wrong-type",
+    "leave_list:query:page_size:EP:nonnumeric",
+    "leave_list:query:page_size:EP:fraction",
+    "leave_list:query:page_size:BVA:minimum-below",
+    "leave_list:query:page_size:BVA:minimum-at",
+    "leave_list:query:page_size:BVA:minimum-above",
+    "leave_list:query:page_size:BVA:x-clamp-maximum-below",
+    "leave_list:query:page_size:BVA:x-clamp-maximum-at",
+    "leave_list:query:page_size:BVA:x-clamp-maximum-above",
+    "leave_create:body:employee_id:EP:valid",
+    "leave_create:body:employee_id:EP:missing",
+    "leave_create:body:employee_id:EP:null",
+    "leave_create:body:employee_id:EP:wrong-type",
+    "leave_create:body:employee_id:EP:nonnumeric",
+    "leave_create:body:employee_id:EP:fraction",
+    "leave_create:body:employee_id:EP:missing-record",
+    "leave_create:body:leave_type_id:EP:valid",
+    "leave_create:body:leave_type_id:EP:missing",
+    "leave_create:body:leave_type_id:EP:null",
+    "leave_create:body:leave_type_id:EP:wrong-type",
+    "leave_create:body:leave_type_id:EP:nonnumeric",
+    "leave_create:body:leave_type_id:EP:fraction",
+    "leave_create:body:leave_type_id:EP:missing-record",
+    "leave_create:body:start_date:EP:valid",
+    "leave_create:body:start_date:EP:missing",
+    "leave_create:body:start_date:EP:null",
+    "leave_create:body:start_date:EP:wrong-type",
+    "leave_create:body:start_date:EP:empty",
+    "leave_create:body:start_date:EP:bad-date",
+    "leave_create:body:end_date:EP:valid",
+    "leave_create:body:end_date:EP:missing",
+    "leave_create:body:end_date:EP:null",
+    "leave_create:body:end_date:EP:wrong-type",
+    "leave_create:body:end_date:EP:empty",
+    "leave_create:body:end_date:EP:bad-date",
+    "leave_create:body:start_date_breakdown:EP:valid",
+    "leave_create:body:start_date_breakdown:EP:missing",
+    "leave_create:body:start_date_breakdown:EP:null",
+    "leave_create:body:start_date_breakdown:EP:wrong-type",
+    "leave_create:body:start_date_breakdown:EP:enum-0",
+    "leave_create:body:start_date_breakdown:EP:enum-1",
+    "leave_create:body:start_date_breakdown:EP:enum-2",
+    "leave_create:body:start_date_breakdown:EP:outside-enum",
+    "leave_create:body:start_date_breakdown:EP:empty",
+    "leave_create:body:end_date_breakdown:EP:valid",
+    "leave_create:body:end_date_breakdown:EP:missing",
+    "leave_create:body:end_date_breakdown:EP:null",
+    "leave_create:body:end_date_breakdown:EP:wrong-type",
+    "leave_create:body:end_date_breakdown:EP:enum-0",
+    "leave_create:body:end_date_breakdown:EP:enum-1",
+    "leave_create:body:end_date_breakdown:EP:enum-2",
+    "leave_create:body:end_date_breakdown:EP:outside-enum",
+    "leave_create:body:end_date_breakdown:EP:empty",
+    "leave_create:body:description:EP:valid",
+    "leave_create:body:description:EP:missing",
+    "leave_create:body:description:EP:null",
+    "leave_create:body:description:EP:wrong-type",
+    "leave_create:body:description:EP:empty",
+    "leave_create:body:description:EP:whitespace",
+    "leave_create:body:description:BVA:minLength-below",
+    "leave_create:body:description:BVA:minLength-at",
+    "leave_create:body:description:BVA:minLength-above",
+    "leave_create:body:attachment:EP:valid",
+    "leave_create:body:attachment:EP:missing",
+    "leave_create:body:attachment:EP:null",
+    "leave_create:body:attachment:EP:wrong-type",
+    "leave_create:body:attachment:EP:empty-file",
+    "leave_create:body:attachment:EP:empty-filename",
+    "leave_create:body:attachment:BVA:x-filename-maxLength-below",
+    "leave_create:body:attachment:BVA:x-filename-maxLength-at",
+    "leave_create:body:attachment:BVA:x-filename-maxLength-above",
+    "leave_create:body:end_date:BVA:date-order-below",
+    "leave_create:body:end_date:BVA:date-order-at",
+    "leave_create:body:end_date:BVA:date-order-above",
+    "leave_delete:path:pk:EP:valid",
+    "leave_delete:path:pk:EP:missing",
+    "leave_delete:path:pk:EP:null",
+    "leave_delete:path:pk:EP:wrong-type",
+    "leave_delete:path:pk:EP:nonnumeric",
+    "leave_delete:path:pk:EP:fraction",
+    "leave_delete:path:pk:EP:missing-record",
+    "leave_detail:path:pk:EP:valid",
+    "leave_detail:path:pk:EP:missing",
+    "leave_detail:path:pk:EP:null",
+    "leave_detail:path:pk:EP:wrong-type",
+    "leave_detail:path:pk:EP:nonnumeric",
+    "leave_detail:path:pk:EP:fraction",
+    "leave_update:path:pk:EP:valid",
+    "leave_update:path:pk:EP:missing",
+    "leave_update:path:pk:EP:null",
+    "leave_update:path:pk:EP:wrong-type",
+    "leave_update:path:pk:EP:nonnumeric",
+    "leave_update:path:pk:EP:fraction",
+    "leave_update:path:pk:EP:missing-record",
+    "leave_update:body:employee_id:EP:valid",
+    "leave_update:body:employee_id:EP:missing",
+    "leave_update:body:employee_id:EP:null",
+    "leave_update:body:employee_id:EP:wrong-type",
+    "leave_update:body:employee_id:EP:nonnumeric",
+    "leave_update:body:employee_id:EP:fraction",
+    "leave_update:body:employee_id:EP:missing-record",
+    "leave_update:body:leave_type_id:EP:valid",
+    "leave_update:body:leave_type_id:EP:missing",
+    "leave_update:body:leave_type_id:EP:null",
+    "leave_update:body:leave_type_id:EP:wrong-type",
+    "leave_update:body:leave_type_id:EP:nonnumeric",
+    "leave_update:body:leave_type_id:EP:fraction",
+    "leave_update:body:leave_type_id:EP:missing-record",
+    "leave_update:body:start_date:EP:valid",
+    "leave_update:body:start_date:EP:missing",
+    "leave_update:body:start_date:EP:null",
+    "leave_update:body:start_date:EP:wrong-type",
+    "leave_update:body:start_date:EP:empty",
+    "leave_update:body:start_date:EP:bad-date",
+    "leave_update:body:end_date:EP:valid",
+    "leave_update:body:end_date:EP:missing",
+    "leave_update:body:end_date:EP:null",
+    "leave_update:body:end_date:EP:wrong-type",
+    "leave_update:body:end_date:EP:empty",
+    "leave_update:body:end_date:EP:bad-date",
+    "leave_update:body:start_date_breakdown:EP:valid",
+    "leave_update:body:start_date_breakdown:EP:missing",
+    "leave_update:body:start_date_breakdown:EP:null",
+    "leave_update:body:start_date_breakdown:EP:wrong-type",
+    "leave_update:body:start_date_breakdown:EP:enum-0",
+    "leave_update:body:start_date_breakdown:EP:enum-1",
+    "leave_update:body:start_date_breakdown:EP:enum-2",
+    "leave_update:body:start_date_breakdown:EP:outside-enum",
+    "leave_update:body:start_date_breakdown:EP:empty",
+    "leave_update:body:end_date_breakdown:EP:valid",
+    "leave_update:body:end_date_breakdown:EP:missing",
+    "leave_update:body:end_date_breakdown:EP:null",
+    "leave_update:body:end_date_breakdown:EP:wrong-type",
+    "leave_update:body:end_date_breakdown:EP:enum-0",
+    "leave_update:body:end_date_breakdown:EP:enum-1",
+    "leave_update:body:end_date_breakdown:EP:enum-2",
+    "leave_update:body:end_date_breakdown:EP:outside-enum",
+    "leave_update:body:end_date_breakdown:EP:empty",
+    "leave_update:body:description:EP:valid",
+    "leave_update:body:description:EP:missing",
+    "leave_update:body:description:EP:null",
+    "leave_update:body:description:EP:wrong-type",
+    "leave_update:body:description:EP:empty",
+    "leave_update:body:description:EP:whitespace",
+    "leave_update:body:description:BVA:minLength-below",
+    "leave_update:body:description:BVA:minLength-at",
+    "leave_update:body:description:BVA:minLength-above",
+    "leave_update:body:attachment:EP:valid",
+    "leave_update:body:attachment:EP:missing",
+    "leave_update:body:attachment:EP:null",
+    "leave_update:body:attachment:EP:wrong-type",
+    "leave_update:body:attachment:EP:empty-file",
+    "leave_update:body:attachment:EP:empty-filename",
+    "leave_update:body:attachment:BVA:x-filename-maxLength-below",
+    "leave_update:body:attachment:BVA:x-filename-maxLength-at",
+    "leave_update:body:attachment:BVA:x-filename-maxLength-above",
+    "leave_update:body:end_date:BVA:date-order-below",
+    "leave_update:body:end_date:BVA:date-order-at",
+    "leave_update:body:end_date:BVA:date-order-above",
+    "self_allocation_list:query:page_size:EP:valid",
+    "self_allocation_list:query:page_size:EP:missing",
+    "self_allocation_list:query:page_size:EP:null",
+    "self_allocation_list:query:page_size:EP:wrong-type",
+    "self_allocation_list:query:page_size:EP:nonnumeric",
+    "self_allocation_list:query:page_size:EP:fraction",
+    "self_allocation_list:query:page_size:BVA:minimum-below",
+    "self_allocation_list:query:page_size:BVA:minimum-at",
+    "self_allocation_list:query:page_size:BVA:minimum-above",
+    "self_allocation_create:body:attachment:EP:valid",
+    "self_allocation_create:body:attachment:EP:missing",
+    "self_allocation_create:body:attachment:EP:null",
+    "self_allocation_create:body:attachment:EP:wrong-type",
+    "self_allocation_create:body:attachment:EP:empty-file",
+    "self_allocation_create:body:attachment:EP:empty-filename",
+    "self_allocation_delete:path:pk:EP:valid",
+    "self_allocation_delete:path:pk:EP:missing",
+    "self_allocation_delete:path:pk:EP:null",
+    "self_allocation_delete:path:pk:EP:wrong-type",
+    "self_allocation_delete:path:pk:EP:nonnumeric",
+    "self_allocation_delete:path:pk:EP:fraction",
+    "self_allocation_delete:path:pk:EP:missing-record",
+    "self_allocation_update:path:pk:EP:valid",
+    "self_allocation_update:path:pk:EP:missing",
+    "self_allocation_update:path:pk:EP:null",
+    "self_allocation_update:path:pk:EP:wrong-type",
+    "self_allocation_update:path:pk:EP:nonnumeric",
+    "self_allocation_update:path:pk:EP:fraction",
+    "self_allocation_update:path:pk:EP:missing-record",
+    "self_allocation_update:body:leave_type_id:EP:valid",
+    "self_allocation_update:body:leave_type_id:EP:missing",
+    "self_allocation_update:body:leave_type_id:EP:null",
+    "self_allocation_update:body:leave_type_id:EP:wrong-type",
+    "self_allocation_update:body:leave_type_id:EP:nonnumeric",
+    "self_allocation_update:body:leave_type_id:EP:fraction",
+    "self_allocation_update:body:leave_type_id:EP:missing-record",
+    "self_allocation_update:body:requested_days:EP:valid",
+    "self_allocation_update:body:requested_days:EP:missing",
+    "self_allocation_update:body:requested_days:EP:null",
+    "self_allocation_update:body:requested_days:EP:wrong-type",
+    "self_allocation_update:body:requested_days:EP:nonnumeric",
+    "self_allocation_update:body:requested_days:EP:negative",
+    "self_allocation_update:body:requested_days:EP:zero",
+    "self_allocation_update:body:requested_days:EP:positive",
+    "self_allocation_update:body:description:EP:valid",
+    "self_allocation_update:body:description:EP:missing",
+    "self_allocation_update:body:description:EP:null",
+    "self_allocation_update:body:description:EP:wrong-type",
+    "self_allocation_update:body:description:EP:empty",
+    "self_allocation_update:body:description:EP:whitespace",
+    "self_allocation_update:body:description:BVA:minLength-below",
+    "self_allocation_update:body:description:BVA:minLength-at",
+    "self_allocation_update:body:description:BVA:minLength-above",
+    "self_allocation_update:body:attachment:EP:valid",
+    "self_allocation_update:body:attachment:EP:missing",
+    "self_allocation_update:body:attachment:EP:null",
+    "self_allocation_update:body:attachment:EP:wrong-type",
+    "self_allocation_update:body:attachment:EP:empty-file",
+    "self_allocation_update:body:attachment:EP:empty-filename",
+    "self_allocation_update:body:attachment:BVA:x-filename-maxLength-below",
+    "self_allocation_update:body:attachment:BVA:x-filename-maxLength-at",
+    "self_allocation_update:body:attachment:BVA:x-filename-maxLength-above",
+    "self_leave_list:query:page_size:EP:valid",
+    "self_leave_list:query:page_size:EP:missing",
+    "self_leave_list:query:page_size:EP:null",
+    "self_leave_list:query:page_size:EP:wrong-type",
+    "self_leave_list:query:page_size:EP:nonnumeric",
+    "self_leave_list:query:page_size:EP:fraction",
+    "self_leave_list:query:page_size:BVA:minimum-below",
+    "self_leave_list:query:page_size:BVA:minimum-at",
+    "self_leave_list:query:page_size:BVA:minimum-above",
+    "self_leave_list:query:page_size:BVA:x-clamp-maximum-below",
+    "self_leave_list:query:page_size:BVA:x-clamp-maximum-at",
+    "self_leave_list:query:page_size:BVA:x-clamp-maximum-above",
+    "self_leave_create:body:attachment:EP:valid",
+    "self_leave_create:body:attachment:EP:missing",
+    "self_leave_create:body:attachment:EP:null",
+    "self_leave_create:body:attachment:EP:wrong-type",
+    "self_leave_create:body:attachment:EP:empty-file",
+    "self_leave_create:body:attachment:EP:empty-filename",
+    "self_leave_create:body:attachment:BVA:x-filename-maxLength-below",
+    "self_leave_create:body:attachment:BVA:x-filename-maxLength-at",
+    "self_leave_create:body:attachment:BVA:x-filename-maxLength-above",
+    "self_leave_delete:path:pk:EP:valid",
+    "self_leave_delete:path:pk:EP:missing",
+    "self_leave_delete:path:pk:EP:null",
+    "self_leave_delete:path:pk:EP:wrong-type",
+    "self_leave_delete:path:pk:EP:nonnumeric",
+    "self_leave_delete:path:pk:EP:fraction",
+    "self_leave_delete:path:pk:EP:missing-record",
+    "self_leave_detail:path:pk:EP:valid",
+    "self_leave_detail:path:pk:EP:missing",
+    "self_leave_detail:path:pk:EP:null",
+    "self_leave_detail:path:pk:EP:wrong-type",
+    "self_leave_detail:path:pk:EP:nonnumeric",
+    "self_leave_detail:path:pk:EP:fraction",
+    "self_leave_detail:path:pk:EP:missing-record",
+    "self_leave_update:path:pk:EP:valid",
+    "self_leave_update:path:pk:EP:missing",
+    "self_leave_update:path:pk:EP:null",
+    "self_leave_update:path:pk:EP:wrong-type",
+    "self_leave_update:path:pk:EP:nonnumeric",
+    "self_leave_update:path:pk:EP:fraction",
+    "self_leave_update:path:pk:EP:missing-record",
+    "self_leave_update:body:leave_type_id:EP:valid",
+    "self_leave_update:body:leave_type_id:EP:missing",
+    "self_leave_update:body:leave_type_id:EP:null",
+    "self_leave_update:body:leave_type_id:EP:wrong-type",
+    "self_leave_update:body:leave_type_id:EP:nonnumeric",
+    "self_leave_update:body:leave_type_id:EP:fraction",
+    "self_leave_update:body:leave_type_id:EP:missing-record",
+    "self_leave_update:body:start_date:EP:valid",
+    "self_leave_update:body:start_date:EP:missing",
+    "self_leave_update:body:start_date:EP:null",
+    "self_leave_update:body:start_date:EP:wrong-type",
+    "self_leave_update:body:start_date:EP:empty",
+    "self_leave_update:body:start_date:EP:bad-date",
+    "self_leave_update:body:end_date:EP:valid",
+    "self_leave_update:body:end_date:EP:missing",
+    "self_leave_update:body:end_date:EP:null",
+    "self_leave_update:body:end_date:EP:wrong-type",
+    "self_leave_update:body:end_date:EP:empty",
+    "self_leave_update:body:end_date:EP:bad-date",
+    "self_leave_update:body:start_date_breakdown:EP:valid",
+    "self_leave_update:body:start_date_breakdown:EP:missing",
+    "self_leave_update:body:start_date_breakdown:EP:null",
+    "self_leave_update:body:start_date_breakdown:EP:wrong-type",
+    "self_leave_update:body:start_date_breakdown:EP:enum-0",
+    "self_leave_update:body:start_date_breakdown:EP:enum-1",
+    "self_leave_update:body:start_date_breakdown:EP:enum-2",
+    "self_leave_update:body:start_date_breakdown:EP:outside-enum",
+    "self_leave_update:body:start_date_breakdown:EP:empty",
+    "self_leave_update:body:end_date_breakdown:EP:valid",
+    "self_leave_update:body:end_date_breakdown:EP:missing",
+    "self_leave_update:body:end_date_breakdown:EP:null",
+    "self_leave_update:body:end_date_breakdown:EP:wrong-type",
+    "self_leave_update:body:end_date_breakdown:EP:enum-0",
+    "self_leave_update:body:end_date_breakdown:EP:enum-1",
+    "self_leave_update:body:end_date_breakdown:EP:enum-2",
+    "self_leave_update:body:end_date_breakdown:EP:outside-enum",
+    "self_leave_update:body:end_date_breakdown:EP:empty",
+    "self_leave_update:body:description:EP:valid",
+    "self_leave_update:body:description:EP:missing",
+    "self_leave_update:body:description:EP:null",
+    "self_leave_update:body:description:EP:wrong-type",
+    "self_leave_update:body:description:EP:empty",
+    "self_leave_update:body:description:EP:whitespace",
+    "self_leave_update:body:description:BVA:minLength-below",
+    "self_leave_update:body:description:BVA:minLength-at",
+    "self_leave_update:body:description:BVA:minLength-above",
+    "self_leave_update:body:attachment:EP:valid",
+    "self_leave_update:body:attachment:EP:missing",
+    "self_leave_update:body:attachment:EP:null",
+    "self_leave_update:body:attachment:EP:wrong-type",
+    "self_leave_update:body:attachment:EP:empty-file",
+    "self_leave_update:body:attachment:EP:empty-filename",
+    "self_leave_update:body:attachment:BVA:x-filename-maxLength-below",
+    "self_leave_update:body:attachment:BVA:x-filename-maxLength-at",
+    "self_leave_update:body:attachment:BVA:x-filename-maxLength-above",
+    "self_leave_update:body:end_date:BVA:date-order-below",
+    "self_leave_update:body:end_date:BVA:date-order-at",
+    "self_leave_update:body:end_date:BVA:date-order-above"
+  ],
+  "note": "Implementation inventory only. Match actual JUnit case_id properties to execution results; no passing status inferred. Case counts are once per executable API scenario."
+}

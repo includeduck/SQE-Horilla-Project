@@ -88,9 +88,13 @@ def selected_generated_cases(artifact):
     binding is recorded in the HTTP lineage rather than called a raw replay.
     """
     operations = {"self_allocation_create", "self_leave_create"}
+    already_in_b = {
+        "self_allocation_create:body:requested_days:EP:valid",
+        "self_allocation_create:body:requested_days:EP:nonnumeric",
+    }
     selected = [case for case in artifact["cases"]
                 if case["operation"] in operations and case["location"] == "body"
-                and case["field"] != ["attachment"]]
+                and case["field"] != ["attachment"] and case["id"] not in already_in_b]
     return selected
 
 

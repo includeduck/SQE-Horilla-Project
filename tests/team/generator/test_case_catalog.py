@@ -49,6 +49,7 @@ class CatalogTests(unittest.TestCase):
         self.assertTrue(selected)
         self.assertTrue(all(case["field"] != ["attachment"] and case["location"] == "body" for case in selected))
         self.assertEqual({case["operation"] for case in selected}, {"self_allocation_create", "self_leave_create"})
+        self.assertNotIn("self_allocation_create:body:requested_days:EP:valid", {case["id"] for case in selected})
 
     def test_balance_oracle_cap_and_forecast_are_separate(self):
         self.assertEqual(catalog.effective_balance(2, 9, "carryforward", 3, 1), 6)

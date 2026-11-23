@@ -206,6 +206,14 @@ class GeneratorTests(unittest.TestCase):
         self.assertEqual([c["value"] for c in cases if c["class"] in {"negative", "zero", "positive"}], [-1, 0, 1])
         self.assertFalse(any(c["technique"] == "BVA" for c in cases))
 
+    def test_pagination_cap_clamps_instead_of_rejecting_above_limit(self):
+        cases = cases_for({"type": "integer", "minimum": 1, "default": 20, "x-clamp-maximum": 100})
+        boundary = [c for c in cases if c["class"].startswith("x-clamp-maximum-")]
+        self.assertEqual([c["value"] for c in boundary], [99, 100, 101])
+        self.assertEqual([c["expected"]["predicate"] for c in boundary], ["accept"] * 3)
+        self.assertEqual([c["expected"]["normalized_value"] for c in boundary], [99, 100, 100])
+        self.assertEqual(boundary[-1]["boundary"]["unit"], "items per page")
+
     def test_stale_spec_binding_data_and_code_are_detected(self):
         doc = document({"value": {"type": "integer", "minimum": 2}}, ["value"])
         artifact = generator.generate(doc, {})

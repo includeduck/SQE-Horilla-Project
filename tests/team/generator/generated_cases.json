@@ -1,6 +1,6 @@
 {
   "format_version": 1,
-  "spec_sha256": "0b090bc8a58c0d56e761c489ebb726b2bbc2d1b79feb1256d27981c1a965eb03",
+  "spec_sha256": "45e37bfbcd255fc567d5923b13076637f8777bbc4c48bb239f6c2e3fe398f0db",
   "bindings_sha256": "25b0b2a165dd1c31cf9ad9cdb0b317f1de106560b399cc9098e234a5875be4a0",
   "operations": [
     "allocation_approve",
@@ -59,6 +59,21 @@
       ],
       "unrepresentable": [],
       "wire_coercion": null
+    },
+    {
+      "operation": "allocation_list",
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+      "bva_constraints": [
+        "minimum",
+        "x-clamp-maximum"
+      ],
+      "bva_na": [],
+      "unrepresentable": [],
+      "wire_coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
     },
     {
       "operation": "allocation_create",
@@ -257,6 +272,21 @@
       "wire_coercion": null
     },
     {
+      "operation": "own_balance",
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+      "bva_constraints": [
+        "minimum",
+        "x-clamp-maximum"
+      ],
+      "bva_na": [],
+      "unrepresentable": [],
+      "wire_coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+    },
+    {
       "operation": "cancel",
       "location": "path",
       "field": [
@@ -311,6 +341,21 @@
       ],
       "unrepresentable": [],
       "wire_coercion": null
+    },
+    {
+      "operation": "leave_list",
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+      "bva_constraints": [
+        "minimum",
+        "x-clamp-maximum"
+      ],
+      "bva_na": [],
+      "unrepresentable": [],
+      "wire_coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
     },
     {
       "operation": "leave_create",
@@ -579,6 +624,21 @@
       "wire_coercion": null
     },
     {
+      "operation": "self_allocation_list",
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+      "bva_constraints": [
+        "minimum",
+        "x-clamp-maximum"
+      ],
+      "bva_na": [],
+      "unrepresentable": [],
+      "wire_coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+    },
+    {
       "operation": "self_allocation_create",
       "location": "body",
       "field": [
@@ -717,6 +777,21 @@
       "bva_na": [],
       "unrepresentable": [],
       "wire_coercion": null
+    },
+    {
+      "operation": "self_leave_list",
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+      "bva_constraints": [
+        "minimum",
+        "x-clamp-maximum"
+      ],
+      "bva_na": [],
+      "unrepresentable": [],
+      "wire_coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
     },
     {
       "operation": "self_leave_create",
@@ -1660,6 +1735,659 @@
           "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
         },
         "source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+      }
+    },
+    {
+      "id": "allocation_list:query:page_size:EP:valid",
+      "operation": "allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/allocation-request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "valid",
+      "omitted": false,
+      "value": 20,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "type",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "allocation_list:query:page_size:EP:missing",
+      "operation": "allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/allocation-request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "missing",
+      "omitted": true,
+      "value": null,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {}
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "optional",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "allocation_list:query:page_size:EP:null",
+      "operation": "allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/allocation-request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "null",
+      "omitted": false,
+      "value": null,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": null
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "nullable",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "allocation_list:query:page_size:EP:wrong-type",
+      "operation": "allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/allocation-request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "wrong-type",
+      "omitted": false,
+      "value": {
+        "not": "a scalar"
+      },
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": {
+            "not": "a scalar"
+          }
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "type",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "allocation_list:query:page_size:EP:nonnumeric",
+      "operation": "allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/allocation-request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "nonnumeric",
+      "omitted": false,
+      "value": "not-a-number",
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": "not-a-number"
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "type",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "allocation_list:query:page_size:EP:fraction",
+      "operation": "allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/allocation-request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "fraction",
+      "omitted": false,
+      "value": 1.5,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 1.5
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "type",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "allocation_list:query:page_size:BVA:minimum-below",
+      "operation": "allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/allocation-request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "minimum-below",
+      "omitted": false,
+      "value": 0,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 0
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "minimum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 1,
+        "unit": "numeric units",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "allocation_list:query:page_size:BVA:minimum-at",
+      "operation": "allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/allocation-request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "minimum-at",
+      "omitted": false,
+      "value": 1,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 1
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "minimum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 1,
+        "unit": "numeric units",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "allocation_list:query:page_size:BVA:minimum-above",
+      "operation": "allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/allocation-request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "minimum-above",
+      "omitted": false,
+      "value": 2,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 2
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "minimum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 1,
+        "unit": "numeric units",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "allocation_list:query:page_size:BVA:x-clamp-maximum-below",
+      "operation": "allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/allocation-request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "x-clamp-maximum-below",
+      "omitted": false,
+      "value": 99,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 99
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true,
+        "normalized_value": 99
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "x-clamp-maximum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 100,
+        "unit": "items per page",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "allocation_list:query:page_size:BVA:x-clamp-maximum-at",
+      "operation": "allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/allocation-request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "x-clamp-maximum-at",
+      "omitted": false,
+      "value": 100,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 100
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true,
+        "normalized_value": 100
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "x-clamp-maximum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 100,
+        "unit": "items per page",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "allocation_list:query:page_size:BVA:x-clamp-maximum-above",
+      "operation": "allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/allocation-request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "x-clamp-maximum-above",
+      "omitted": false,
+      "value": 101,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 101
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true,
+        "normalized_value": 100
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "x-clamp-maximum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 100,
+        "unit": "items per page",
+        "step": 1,
+        "inclusive": true
       }
     },
     {
@@ -8864,6 +9592,647 @@
       }
     },
     {
+      "id": "own_balance:query:page_size:EP:valid",
+      "operation": "own_balance",
+      "method": "GET",
+      "route": "/api/v1/leave/available-leave/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "valid",
+      "omitted": false,
+      "value": 20,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true
+      },
+      "requirements": [
+        "FR-10"
+      ],
+      "provenance": {
+        "constraint": "type",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "own_balance:query:page_size:EP:missing",
+      "operation": "own_balance",
+      "method": "GET",
+      "route": "/api/v1/leave/available-leave/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "missing",
+      "omitted": true,
+      "value": null,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {}
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true
+      },
+      "requirements": [
+        "FR-10"
+      ],
+      "provenance": {
+        "constraint": "optional",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "own_balance:query:page_size:EP:null",
+      "operation": "own_balance",
+      "method": "GET",
+      "route": "/api/v1/leave/available-leave/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "null",
+      "omitted": false,
+      "value": null,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": null
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-10"
+      ],
+      "provenance": {
+        "constraint": "nullable",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "own_balance:query:page_size:EP:wrong-type",
+      "operation": "own_balance",
+      "method": "GET",
+      "route": "/api/v1/leave/available-leave/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "wrong-type",
+      "omitted": false,
+      "value": {
+        "not": "a scalar"
+      },
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": {
+            "not": "a scalar"
+          }
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-10"
+      ],
+      "provenance": {
+        "constraint": "type",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "own_balance:query:page_size:EP:nonnumeric",
+      "operation": "own_balance",
+      "method": "GET",
+      "route": "/api/v1/leave/available-leave/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "nonnumeric",
+      "omitted": false,
+      "value": "not-a-number",
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": "not-a-number"
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-10"
+      ],
+      "provenance": {
+        "constraint": "type",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "own_balance:query:page_size:EP:fraction",
+      "operation": "own_balance",
+      "method": "GET",
+      "route": "/api/v1/leave/available-leave/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "fraction",
+      "omitted": false,
+      "value": 1.5,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 1.5
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-10"
+      ],
+      "provenance": {
+        "constraint": "type",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "own_balance:query:page_size:BVA:minimum-below",
+      "operation": "own_balance",
+      "method": "GET",
+      "route": "/api/v1/leave/available-leave/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "minimum-below",
+      "omitted": false,
+      "value": 0,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 0
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-10"
+      ],
+      "provenance": {
+        "constraint": "minimum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 1,
+        "unit": "numeric units",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "own_balance:query:page_size:BVA:minimum-at",
+      "operation": "own_balance",
+      "method": "GET",
+      "route": "/api/v1/leave/available-leave/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "minimum-at",
+      "omitted": false,
+      "value": 1,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 1
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true
+      },
+      "requirements": [
+        "FR-10"
+      ],
+      "provenance": {
+        "constraint": "minimum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 1,
+        "unit": "numeric units",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "own_balance:query:page_size:BVA:minimum-above",
+      "operation": "own_balance",
+      "method": "GET",
+      "route": "/api/v1/leave/available-leave/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "minimum-above",
+      "omitted": false,
+      "value": 2,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 2
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true
+      },
+      "requirements": [
+        "FR-10"
+      ],
+      "provenance": {
+        "constraint": "minimum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 1,
+        "unit": "numeric units",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "own_balance:query:page_size:BVA:x-clamp-maximum-below",
+      "operation": "own_balance",
+      "method": "GET",
+      "route": "/api/v1/leave/available-leave/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "x-clamp-maximum-below",
+      "omitted": false,
+      "value": 99,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 99
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true,
+        "normalized_value": 99
+      },
+      "requirements": [
+        "FR-10"
+      ],
+      "provenance": {
+        "constraint": "x-clamp-maximum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 100,
+        "unit": "items per page",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "own_balance:query:page_size:BVA:x-clamp-maximum-at",
+      "operation": "own_balance",
+      "method": "GET",
+      "route": "/api/v1/leave/available-leave/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "x-clamp-maximum-at",
+      "omitted": false,
+      "value": 100,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 100
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true,
+        "normalized_value": 100
+      },
+      "requirements": [
+        "FR-10"
+      ],
+      "provenance": {
+        "constraint": "x-clamp-maximum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 100,
+        "unit": "items per page",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "own_balance:query:page_size:BVA:x-clamp-maximum-above",
+      "operation": "own_balance",
+      "method": "GET",
+      "route": "/api/v1/leave/available-leave/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "x-clamp-maximum-above",
+      "omitted": false,
+      "value": 101,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 101
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true,
+        "normalized_value": 100
+      },
+      "requirements": [
+        "FR-10"
+      ],
+      "provenance": {
+        "constraint": "x-clamp-maximum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 100,
+        "unit": "items per page",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
       "id": "cancel:path:pk:EP:valid",
       "operation": "cancel",
       "method": "PUT",
@@ -10269,6 +11638,671 @@
           "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
         },
         "source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+      }
+    },
+    {
+      "id": "leave_list:query:page_size:EP:valid",
+      "operation": "leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "valid",
+      "omitted": false,
+      "value": 20,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "type",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "leave_list:query:page_size:EP:missing",
+      "operation": "leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "missing",
+      "omitted": true,
+      "value": null,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {}
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "optional",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "leave_list:query:page_size:EP:null",
+      "operation": "leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "null",
+      "omitted": false,
+      "value": null,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": null
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "nullable",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "leave_list:query:page_size:EP:wrong-type",
+      "operation": "leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "wrong-type",
+      "omitted": false,
+      "value": {
+        "not": "a scalar"
+      },
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": {
+            "not": "a scalar"
+          }
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "type",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "leave_list:query:page_size:EP:nonnumeric",
+      "operation": "leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "nonnumeric",
+      "omitted": false,
+      "value": "not-a-number",
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": "not-a-number"
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "type",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "leave_list:query:page_size:EP:fraction",
+      "operation": "leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "fraction",
+      "omitted": false,
+      "value": 1.5,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 1.5
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "type",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "leave_list:query:page_size:BVA:minimum-below",
+      "operation": "leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "minimum-below",
+      "omitted": false,
+      "value": 0,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 0
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "minimum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 1,
+        "unit": "numeric units",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "leave_list:query:page_size:BVA:minimum-at",
+      "operation": "leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "minimum-at",
+      "omitted": false,
+      "value": 1,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 1
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "minimum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 1,
+        "unit": "numeric units",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "leave_list:query:page_size:BVA:minimum-above",
+      "operation": "leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "minimum-above",
+      "omitted": false,
+      "value": 2,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 2
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "minimum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 1,
+        "unit": "numeric units",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "leave_list:query:page_size:BVA:x-clamp-maximum-below",
+      "operation": "leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "x-clamp-maximum-below",
+      "omitted": false,
+      "value": 99,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 99
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true,
+        "normalized_value": 99
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "x-clamp-maximum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 100,
+        "unit": "items per page",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "leave_list:query:page_size:BVA:x-clamp-maximum-at",
+      "operation": "leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "x-clamp-maximum-at",
+      "omitted": false,
+      "value": 100,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 100
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true,
+        "normalized_value": 100
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "x-clamp-maximum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 100,
+        "unit": "items per page",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "leave_list:query:page_size:BVA:x-clamp-maximum-above",
+      "operation": "leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/request/",
+      "role": "approver",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "x-clamp-maximum-above",
+      "omitted": false,
+      "value": 101,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 101
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true,
+        "normalized_value": 100
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "x-clamp-maximum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 100,
+        "unit": "items per page",
+        "step": 1,
+        "inclusive": true
       }
     },
     {
@@ -21658,6 +23692,659 @@
       }
     },
     {
+      "id": "self_allocation_list:query:page_size:EP:valid",
+      "operation": "self_allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-allocation-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "valid",
+      "omitted": false,
+      "value": 20,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "type",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "self_allocation_list:query:page_size:EP:missing",
+      "operation": "self_allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-allocation-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "missing",
+      "omitted": true,
+      "value": null,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {}
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "optional",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "self_allocation_list:query:page_size:EP:null",
+      "operation": "self_allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-allocation-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "null",
+      "omitted": false,
+      "value": null,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": null
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "nullable",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "self_allocation_list:query:page_size:EP:wrong-type",
+      "operation": "self_allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-allocation-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "wrong-type",
+      "omitted": false,
+      "value": {
+        "not": "a scalar"
+      },
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": {
+            "not": "a scalar"
+          }
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "type",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "self_allocation_list:query:page_size:EP:nonnumeric",
+      "operation": "self_allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-allocation-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "nonnumeric",
+      "omitted": false,
+      "value": "not-a-number",
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": "not-a-number"
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "type",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "self_allocation_list:query:page_size:EP:fraction",
+      "operation": "self_allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-allocation-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "fraction",
+      "omitted": false,
+      "value": 1.5,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 1.5
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "type",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "self_allocation_list:query:page_size:BVA:minimum-below",
+      "operation": "self_allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-allocation-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "minimum-below",
+      "omitted": false,
+      "value": 0,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 0
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "minimum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 1,
+        "unit": "numeric units",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "self_allocation_list:query:page_size:BVA:minimum-at",
+      "operation": "self_allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-allocation-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "minimum-at",
+      "omitted": false,
+      "value": 1,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 1
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "minimum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 1,
+        "unit": "numeric units",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "self_allocation_list:query:page_size:BVA:minimum-above",
+      "operation": "self_allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-allocation-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "minimum-above",
+      "omitted": false,
+      "value": 2,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 2
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "minimum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 1,
+        "unit": "numeric units",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "self_allocation_list:query:page_size:BVA:x-clamp-maximum-below",
+      "operation": "self_allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-allocation-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "x-clamp-maximum-below",
+      "omitted": false,
+      "value": 99,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 99
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true,
+        "normalized_value": 99
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "x-clamp-maximum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 100,
+        "unit": "items per page",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "self_allocation_list:query:page_size:BVA:x-clamp-maximum-at",
+      "operation": "self_allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-allocation-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "x-clamp-maximum-at",
+      "omitted": false,
+      "value": 100,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 100
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true,
+        "normalized_value": 100
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "x-clamp-maximum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 100,
+        "unit": "items per page",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "self_allocation_list:query:page_size:BVA:x-clamp-maximum-above",
+      "operation": "self_allocation_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-allocation-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "x-clamp-maximum-above",
+      "omitted": false,
+      "value": 101,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 101
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true,
+        "normalized_value": 100
+      },
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "provenance": {
+        "constraint": "x-clamp-maximum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 100,
+        "unit": "items per page",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
       "id": "self_allocation_create:body:leave_type_id:EP:valid",
       "operation": "self_allocation_create",
       "method": "POST",
@@ -27011,6 +29698,671 @@
       "boundary": {
         "limit": 100,
         "unit": "filename characters",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "self_leave_list:query:page_size:EP:valid",
+      "operation": "self_leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "valid",
+      "omitted": false,
+      "value": 20,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "type",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "self_leave_list:query:page_size:EP:missing",
+      "operation": "self_leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "missing",
+      "omitted": true,
+      "value": null,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {}
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "optional",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "self_leave_list:query:page_size:EP:null",
+      "operation": "self_leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "null",
+      "omitted": false,
+      "value": null,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": null
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "nullable",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "self_leave_list:query:page_size:EP:wrong-type",
+      "operation": "self_leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "wrong-type",
+      "omitted": false,
+      "value": {
+        "not": "a scalar"
+      },
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": {
+            "not": "a scalar"
+          }
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "type",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "self_leave_list:query:page_size:EP:nonnumeric",
+      "operation": "self_leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "nonnumeric",
+      "omitted": false,
+      "value": "not-a-number",
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": "not-a-number"
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "type",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "self_leave_list:query:page_size:EP:fraction",
+      "operation": "self_leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "EP",
+      "class": "fraction",
+      "omitted": false,
+      "value": 1.5,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 1.5
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "type",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      }
+    },
+    {
+      "id": "self_leave_list:query:page_size:BVA:minimum-below",
+      "operation": "self_leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "minimum-below",
+      "omitted": false,
+      "value": 0,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 0
+        }
+      },
+      "expected": {
+        "predicate": "reject",
+        "oracle": "schema",
+        "schema_valid": false
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "minimum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 1,
+        "unit": "numeric units",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "self_leave_list:query:page_size:BVA:minimum-at",
+      "operation": "self_leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "minimum-at",
+      "omitted": false,
+      "value": 1,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 1
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "minimum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 1,
+        "unit": "numeric units",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "self_leave_list:query:page_size:BVA:minimum-above",
+      "operation": "self_leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "minimum-above",
+      "omitted": false,
+      "value": 2,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 2
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "minimum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 1,
+        "unit": "numeric units",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "self_leave_list:query:page_size:BVA:x-clamp-maximum-below",
+      "operation": "self_leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "x-clamp-maximum-below",
+      "omitted": false,
+      "value": 99,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 99
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true,
+        "normalized_value": 99
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "x-clamp-maximum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 100,
+        "unit": "items per page",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "self_leave_list:query:page_size:BVA:x-clamp-maximum-at",
+      "operation": "self_leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "x-clamp-maximum-at",
+      "omitted": false,
+      "value": 100,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 100
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true,
+        "normalized_value": 100
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "x-clamp-maximum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 100,
+        "unit": "items per page",
+        "step": 1,
+        "inclusive": true
+      }
+    },
+    {
+      "id": "self_leave_list:query:page_size:BVA:x-clamp-maximum-above",
+      "operation": "self_leave_list",
+      "method": "GET",
+      "route": "/api/v1/leave/user-request/",
+      "role": "employee",
+      "media_type": null,
+      "location": "query",
+      "field": [
+        "page_size"
+      ],
+      "technique": "BVA",
+      "class": "x-clamp-maximum-above",
+      "omitted": false,
+      "value": 101,
+      "baseline": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 20
+        }
+      },
+      "request": {
+        "body": {},
+        "path": {},
+        "query": {
+          "page_size": 101
+        }
+      },
+      "expected": {
+        "predicate": "accept",
+        "oracle": "schema",
+        "schema_valid": true,
+        "normalized_value": 100
+      },
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "provenance": {
+        "constraint": "x-clamp-maximum",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        },
+        "source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20"
+      },
+      "boundary": {
+        "limit": 100,
+        "unit": "items per page",
         "step": 1,
         "inclusive": true
       }
@@ -37074,7 +40426,7 @@
   ],
   "exclusions": [
     "Phase A archive/report/runtime evidence unavailable locally; this is a source-reconstructed scoped contract, not the recovered or live-validated Phase A contract.",
-    "Filter/search/grouping/page/page_size query inputs and assign-leave administration remain unreviewed here; pagination is coercion/clamping, not a declared rejection maximum.",
+    "Page-size clamp generation is supported for five list operations. Remaining page/filter/search/grouping query inputs, invalid-value pagination fallbacks and assign-leave administration still require complete inventory/coverage.",
     "Optional reject reason is normalized/ignored/truncated by helper, not schema-validated; body generation for rejection and its persistence mismatch require Phase C oracle review.",
     "Date ordering has generated relative calendar-day BVA. Other relational breakdown/overlap/attachment-required and effective balance/carry-forward/forecast rules require runtime scenario binding; isolated schema cases may violate those relations and are not automatically safe HTTP cases.",
     "Path integer routing/existence and role/state transitions need Phase C expectations; positive/existing symbolic values are scenario placeholders, not proven database records.",
@@ -37083,5 +40435,5 @@
     "Entire-body omission/null, binary byte/file-size limits and multipart collection encodings are outside this reader; body leaves and synthetic ASCII file descriptors are supported."
   ],
   "coverage_complete": false,
-  "data_sha256": "16d79497f483aced4ecaac4f0741f6b870f0e93035dfe21feac3847c3915c64c"
+  "data_sha256": "38d69c57a2e33ede9682bb8b6b165d7c1398b578711983ecf05cd3f8e59e3521"
 }
