@@ -68,3 +68,77 @@ Current publication attempt: git identity is Rayyan Hassan; staging the generato
 The current user explicitly authorized C and requested that work blocked from this workspace be assigned to Wasay/his agent for mandatory completion. See root handoff.md H-01 through H-06. Acceptance by Wasay is not yet observed; original implemented-work authorship is preserved. This supersedes the earlier wait-before-C instruction for independent C implementation, while actual A/B runtime prerequisites remain unverified.
 
 GitHub connected-app tree/commit/ref writes now succeed. Published checkpoints, each verified as Rayyan author/committer: 44384b129156059d63647f6d9b8324813b668ae0 (audit/plans/roll), cbe4b74282213732b176ae5e3b4519044b7b6a1e (generator/source basis), 905f08909a6b8bb3bda70a94a28c42bc8c1a7455 (HTTP slice/fixtures). Local Git metadata and CLI network failures remain separate blockers. New documentation/evidence publication follows; earlier local-only status entries describe their observation time.
+
+## Phase C verification checkpoint — 23 November 2026
+
+Remote runtime installation is now successful. Runs 45179588790 and 45181052750
+stopped at a fixture guard (171/178 setup errors), before product assertions.
+Commit `1948e0fdf85ec3824e5f472176688e994307928a` repaired that guard while
+retaining the explicit isolated-settings marker and exact temporary SQLite
+path checks. Run 45183086568 is executing real generated-input HTTP assertions;
+passing cases were observed live. Final and reversed-run results are pending.
+Do not treat this in-progress observation as full acceptance.
+
+There are 178 unique API scenarios, with 82 of 578 generated IDs referenced and
+496 unconsumed. Scope completeness remains false. All 41 independent generator,
+catalog and runner checks passed locally with ResourceWarning treated as an
+error; these are distinct from product API tests. Application source is unchanged.
+See `docs/team/reports/SQE_IMPLEMENTATION_PHASE_C_STATUS.md` for evidence.
+
+Published checkpoints after the initial three: `aa600a2` B evidence/handoff,
+`5a5df40` C suite/producer/workflow, `7fba8ee` pagination/unique ledger,
+`1948e0f` fixture guard and streaming preflight. Verified Rayyan author and
+committer throughout; local Git staging/pull restrictions remain unresolved.
+
+Wasay/his agent: H-01 remote installation is resolved, but H-02–H-06 still require
+completion where blocked, including final result evaluation, coverage/oracle
+reconciliation, genuine product fixes/retests and group CI integration. Owner
+issue #1 was delivered and assigned to includeduck; acceptance is unobserved.
+This is Rayyan's explicit mandatory execution reassignment, preserving actual
+contribution history. Phase D has not started.
+
+
+## Attachment failure and protected-branch update — 23 November 2026
+
+Remote run 45183086568 reproduced storage exceptions for generated allocation
+attachment filename boundaries 99 and 100 (log lines 1720/1816). The original
+`horilla.models.upload_path` treated a filename without a dot as an extension,
+leaving storage no basename to shorten within the FileField path budget.
+A narrow correction now retains extensionless input as the basename; dotted
+names retain their suffix. Four real FileSystemStorage regressions and the
+existing five HTTP slice cases are configured as a targeted remote retest.
+The source fix is proposed, not verified until those tests actually finish.
+This supersedes earlier statements that application source is unchanged.
+
+Branch protection now requires PRs. Evidence commit `b6e298ae646738e1122528b2835d7aa08f1f7015`
+was published on `rayyan/phase-c-evidence` in PR #2, after its direct update to
+`sqe-team` was rejected. Do not bypass protection. Wasay was notified through
+issue #1 comment 7102792706. Further proposed corrections/evidence use the same
+review branch; owner review/merge and group gate remain required.
+
+
+## Final first-pass evidence and corrective proposals — 23 November 2026
+
+Build `1948e0f`, run 45183086568 completed: W1/W2 preflight **1 passed**;
+full collection **169 passed, 9 failed**, 184 warnings, 1038.66 seconds.
+There were no setup errors in this collection. Reverse and completeness stages
+were blocked by the failing first pass. Raw log: `ci-45183086568-job.log`;
+summary: `ci-third-summary.json`; remote artifact 14824755317. Preflight repeats
+one API scenario and does not increase the 178 unique-case denominator.
+
+Confirmed failures: A2-D01 refund leaves requester balance at 2 instead of 5;
+A2-D02 non-owner PUT/DELETE return 500 instead of controlled 403; A2-D03 raw
+carry-forward accepts three days (201) despite effective cap one; A2-D09 valid
+99/100 extensionless attachments trigger storage failure. Proposed narrow fixes
+restore the requester, explicitly deny a foreign owner, apply existing model
+carry-forward cap/policy in the serializer, and correctly split upload names.
+Forecast/employee-holiday scope remains unfinished; this cap correction does
+not claim to implement those separate gaps.
+
+A2-D04 duplicate allocation and A2-D05 cancelled-to-rejected behavior also fail
+the provisional tests. Their oracles conflict with current behavior and require
+Wasay's explicit business-rule reconciliation. They are not silently fixed or
+marked as successful. The targeted corrective retest additionally runs affected
+upstream balance/carry-forward/file-display tests separately. Actual passing-after
+results and full clean/reversed acceptance remain pending.
+

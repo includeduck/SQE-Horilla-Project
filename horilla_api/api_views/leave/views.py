@@ -8,6 +8,7 @@ from django.utils.decorators import method_decorator
 from django.utils.translation import gettext_lazy as _
 from django.utils.translation import gettext_noop
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.exceptions import PermissionDenied
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -839,7 +840,7 @@ class LeaveRequestRejectAPIView(APIView):
     )
     def put(self, request, pk):
         leave_request = self.get_leave_request(pk)
-        employee_id = request.user.employee_get
+        employee_id = leave_request.employee_id
         if leave_request.status == "cancel_requested":
             raise serializers.ValidationError(
                 _("Decide on the pending cancellation request instead.")
@@ -1163,6 +1164,7 @@ class EmployeeLeaveAllocationUpdateDeleteAPIView(APIView):
             allocation_request = LeaveAllocationRequest.objects.get(id=pk)
             if allocation_request.employee_id == user.employee_get:
                 return allocation_request
+            raise PermissionDenied(_("Access Denied.."))
         except LeaveAllocationRequest.DoesNotExist as e:
             raise serializers.ValidationError(e)
 

@@ -4,11 +4,12 @@ name: Area 2 verification
 # all-tests/Sonar/mutation merge gate and its required-check configuration.
 on:
   push:
-    branches: [sqe-team]
+    branches: [sqe-team, rayyan/phase-c-evidence]
     paths:
       - "tests/team/**"
       - "horilla_api/api_views/leave/**"
       - "horilla_api/api_serializers/leave/**"
+      - "horilla/models.py"
       - ".github/workflows/area2-verification.yml"
 
 permissions:
@@ -35,6 +36,19 @@ jobs:
           python -m pip install --upgrade pip
           bash .github/scripts/install-requirements.sh
           python -m pip install -r tests/team/requirements-area2.txt
+      - name: Verify reproduced defect regressions before full API verification
+        env:
+          PYTHONPATH: tests/team:tests/team/api:.
+        run: |
+          mkdir -p docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}-targeted
+          set -o pipefail
+          python -m pytest -c tests/team/pytest-area2.ini tests/team/storage tests/team/api/test_generated_slice.py tests/team/api/test_workflows.py::test_refund_belongs_to_requester tests/team/api/test_workflows.py::test_nonowner_self_allocation_route_denied tests/team/api/test_workflows.py::test_carryforward_cap_used_in_balance_validation 'tests/team/api/test_states_and_decisions.py::test_state_transition_catalog[STATE-LEAVE-approved-reject]' -v -s --junitxml=docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}-targeted/defects.xml 2>&1 | tee docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}-targeted/defects.txt
+      - name: Run affected upstream balance and file-display regressions separately
+        env:
+          PYTHONPATH: tests/team:tests/team/api:.
+        run: |
+          set -o pipefail
+          python -m pytest -c tests/team/pytest-area2.ini leave/tests/test_carryforward.py leave/tests/test_approve_balance.py horilla_widgets/tests/test_pretty_file_name.py -v --junitxml=docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}-targeted/upstream.xml 2>&1 | tee docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}-targeted/upstream.txt
       - name: Verify Area 2 twice with reversed second API order
         run: python tests/team/run_area2.py --evidence docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Retain real results on success or failure

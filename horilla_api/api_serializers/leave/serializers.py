@@ -50,9 +50,14 @@ def leave_Validations(self, data):
         requested_days=requested_days,
     )
 
-    total_leave_days = (
-        available_leave.available_days + available_leave.carryforward_days
-    )
+    # Apply the same carry-forward policy as LeaveRequest.clean(). A stale or
+    # uncapped stored carry balance must not authorize excess requested days.
+    carryforward_days = available_leave.carryforward_days or 0
+    if leave_type_id.carryforward_type in ["carryforward", "carryforward expire"]:
+        carryforward_days = min(carryforward_days, leave_type_id.carryforward_max or 0)
+    elif leave_type_id.carryforward_type == "no carryforward":
+        carryforward_days = 0
+    total_leave_days = (available_leave.available_days or 0) + carryforward_days
     errors = {}
     # checking if there is any requested days is overlapping with the existing leave request
     # Cancelled and rejected requests don't hold the dates -- the same rule

@@ -82,9 +82,15 @@ def upload_path(instance, filename):
     Generates a unique file path for uploads in the format:
     app_label/model_name/field_name/originalfilename-uuid.ext
     """
-    ext = filename.split(".")[-1]
-    base_name = ".".join(filename.split(".")[:-1]) or "file"
-    unique_name = f"{slugify(base_name)}-{uuid4().hex[:8]}.{ext}"
+    # An extensionless name is a basename, not an extension. Treating its
+    # entire contents as a suffix prevents storage from shortening long names
+    # to the FileField's max_length after the upload directory is added.
+    base_name, separator, ext = filename.rpartition(".")
+    if not separator:
+        base_name, ext = filename, ""
+    unique_name = f"{slugify(base_name) or 'file'}-{uuid4().hex[:8]}"
+    if ext:
+        unique_name += f".{ext}"
 
     # Try to find which field is uploading this file
     field_name = next(
