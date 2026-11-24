@@ -1,0 +1,31 @@
+name: Finish 01 contract candidate integrity
+on:
+  pull_request:
+    branches: [sqe-team]
+    paths: ["tests/team/contract/prepare_contract.py", "tests/team/contract/test_media_reader.py", ".github/workflows/finish01-reconcile.yml"]
+permissions:
+  contents: read
+jobs:
+  candidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install openapi-spec-validator
+      - name: Build candidate only in disposable checkout and retain exact files
+        run: python tests/team/contract/prepare_contract.py --output docs/team/evidence/area2/finish-01/candidate-${{ github.run_id }}
+      - name: Validate reconciled schema and reader
+        run: |
+          python -c "import json; from openapi_spec_validator import validate; validate(json.load(open('tests/team/generator/openapi.json'))); print('Reconciled schema valid')"
+          python -W error::ResourceWarning -m unittest discover -s tests/team/generator -p 'test_*.py' -v
+          PYTHONPATH=tests/team/generator python -W error::ResourceWarning -m unittest discover -s tests/team/contract -p 'test_media_reader.py' -v
+          python tests/team/generator/generate.py --spec tests/team/generator/openapi.json --bindings tests/team/generator/bindings.json --output tests/team/generator/generated_cases.json --check
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: finish01-candidate-${{ github.run_id }}
+          path: docs/team/evidence/area2/finish-01/candidate-*/
+          if-no-files-found: error
