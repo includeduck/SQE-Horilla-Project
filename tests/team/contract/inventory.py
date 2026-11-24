@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[3]
 TEAM = ROOT / "tests/team"
 FINISH = ROOT / "docs/team/finish-line"
-RUNTIME = ROOT / "docs/team/evidence/area2/finish-01/runtime-contract-45410463931-fresh-b.json"
+RUNTIME = ROOT / "docs/team/evidence/area2/finish-01/runtime-contract-current.json"
 
 
 def read(path):
@@ -48,16 +48,17 @@ def source_routes():
     return rows
 
 
-def context(operation):
+def context(operation, role):
     allocation = "allocation" in operation
     assignment = operation.startswith("assignment_")
     detail = any(t in operation for t in ("update", "delete", "detail"))
     action = operation in ("approve", "reject", "cancel", "cancellation_approve",
                            "cancellation_reject", "allocation_approve", "allocation_reject")
     return {
-        "role": "normal employee" if operation.startswith("self_") or operation in ("own_balance", "leave_type_list", "employee_leave_type_list") else "normal approver with exact operation permission",
+        "role": "normal employee" if role == "employee" else "normal approver with exact operation permission",
+        "binding_role": role,
         "record_binding": "AvailableLeave.id" if assignment and detail else "Employee.id" if operation == "employee_leave_type_list" else "LeaveAllocationRequest.id" if allocation and (detail or action) else "LeaveRequest.id" if detail or action else "create/list route",
-        "state": "cancel_requested" if operation.startswith("cancellation_") else "approved" if operation == "cancel" else "requested for editable/approval/decision targets",
+        "state": "assigned record (no leave workflow status)" if assignment else "cancel_requested" if operation.startswith("cancellation_") else "approved" if operation == "cancel" else "requested for editable/approval/decision targets",
         "preparation": "Use existing real HTTP W1/W2 helpers; bind independent normal users and real IDs. Assignment admin cases grant exact availableleave permissions to a synthetic non-superuser. For employee_leave_type_list bind Employee, not leave/assignment ID.",
         "baseline": "Assigned type; non-overlapping future dates 2030-01-07..09; matching full-day breakdowns; required proof if enabled; effective balance >= requested days; no unintended duplicate pending record. Keep other query filters omitted.",
     }
@@ -81,6 +82,27 @@ def wire_plan(case):
     return {"status_rule": "Field schema predicate plus actual DRF coercion; case rejection generally 400, allowed field value succeeds only with the independently valid bound business baseline. Falsy end_date normalizes to start; JSON file-null differs from multipart omission.",
             "binding": "Preserve generated baseline/current field and record any fixture-ID/media normalization. Binary descriptors become real multipart bytes, not mocked uploads.",
             "schema_predicate_is_http_oracle": False}
+
+
+def filter_classes(meta):
+    """Wire partitions derive from the actual Django form field, never an invented domain bound."""
+    common = ["omitted", "empty", "matching", "nonmatching", "malformed"]
+    kind = meta.get("form_field", "")
+    if kind in ("DecimalField", "FloatField", "IntegerField"):
+        common += ["negative", "zero", "fractional", "nonfinite", "exponent", "lookup_threshold_below_at_above"]
+        common += ["validator_boundary:" + v["class"] + ":" + v["limit_value"]
+                   for v in meta.get("validators", []) if v.get("limit_value")]
+    elif kind in ("DateField", "DateTimeField"):
+        common += ["valid_calendar", "invalid_calendar", "leap_day", "lookup_date_before_at_after"]
+    elif "MultipleChoice" in kind:
+        common += ["real_reference", "missing_reference", "wrong_relation_reference", "repeated_keys", "mixed_valid_invalid"]
+    elif kind == "ChoiceField":
+        common += ["choice:" + v for v in meta.get("static_choices", [])] + ["invalid_choice"]
+    elif kind in ("NullBooleanField", "BooleanField"):
+        common += ["true", "false", "null", "unknown_boolean", "wire_coercions"]
+    else:
+        common += ["whitespace", "unicode", "case", "partial_match", "lookup_exactness"]
+    return common
 
 
 def build():
@@ -113,7 +135,8 @@ def build():
                 "source": routes[key], "runtime_view": rt.get("view"),
                 "parsers": rt.get("parsers", ["application/json", "application/x-www-form-urlencoded", "multipart/form-data"]),
                 "success_status": next((int(s) for s in operation["responses"] if s.startswith("2")), None),
-                "context": context(operation["operationId"]), "input_ids": [],
+                "context": context(operation["operationId"], operation["x-role"]), "input_ids": [],
+                "renderers": rt.get("renderers", []),
             }
     audit = []
     families = {}
@@ -125,6 +148,9 @@ def build():
                "category": category, "requirements": scope[op]["requirements"],
                "details": details, "generated_ids": [], "referenced_ids": [],
                "status": "planned", "mandatory": True, "stage": stage,
+               "phase": "C" if stage == 3 else "B-C",
+               "evidence": ["docs/team/finish-line/CONTRACT_RECONCILIATION.md", str(RUNTIME.relative_to(ROOT))],
+               "dependencies": ["Independent valid role/state/model fixture", "Prompt " + str(stage) + " actual execution"],
                "original_owner": "Rayyan / Area 2", "current_executor": "Codex for Rayyan",
                "acceptance": "All applicable classes bound and executed with exact response plus persisted postconditions; N/A needs specific evidence, not unsupported-reader status."}
         families[key] = row
@@ -145,6 +171,8 @@ def build():
                       "source": case["provenance"]["source"], "requirements": case["requirements"],
                       "generated_request_reference": {"file": "tests/team/generator/generated_cases.json", "pointer": "/cases/" + str(index)},
                       "context": scope[op]["context"], "expected_wire_behavior": wire_plan(case),
+                      "live_lookup_observation": next((p for p in runtime.get("lookup_probes", []) if p["operation"] == op), None) if location == "path" else None,
+                      "lookup_caveat": "403 on ungranted generic delete permission precedes object lookup; do not call it a fully authorized missing-ID oracle." if op in ("leave_delete", "allocation_delete") else None,
                       "consumer": refs.get(case["id"]), "planned_consumer": "existing parameterized module if referenced; otherwise tests/team/api contract consumer in Prompt " + str(family["stage"]),
                       "applicability": "mandatory_applicable_requires_context_binding",
                       "execution_status": "pending_reconciled_contract", "baseline_evidence": {"run_id": 45388276552, "previously_referenced": case["id"] in old_refs,
@@ -154,7 +182,7 @@ def build():
         route, method = operation["route"], operation["method"]
         rt = runtime_routes.get(route, {})
         for field, meta in rt.get("filters", {}).items() if method == "GET" else ():
-            add(op, "query", field, "runtime_filter", {"filter": meta, "classes": ["matching", "nonmatching", "invalid", "omitted"],
+            add(op, "query", field, "runtime_filter", {"filter": meta, "classes": filter_classes(meta),
                 "binding": "Use actual Filter.field semantics and fixture relations; invalid filters may be ignored by .qs rather than become HTTP 400. Do not assume schema validity equals filter semantics."})
         if method == "GET" and ("list" in op or op == "own_balance"):
             add(op, "query", "page", "pagination", {"classes": ["omitted", "1", "last", "beyond_last", "zero", "negative", "malformed"],

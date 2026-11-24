@@ -1,8 +1,8 @@
-name: Finish 01 contract candidate integrity
+name: Finish 01 contract integrity
 on:
   pull_request:
     branches: [sqe-team]
-    paths: ["tests/team/contract/prepare_contract.py", "tests/team/contract/test_media_reader.py", ".github/workflows/finish01-reconcile.yml"]
+    paths: ["tests/team/contract/**", "tests/team/generator/**", "tests/team/api/case_ledger.json", "docs/team/evidence/area2/finish-01/runtime-contract-current.json", ".github/workflows/finish01-reconcile.yml"]
 permissions:
   contents: read
 jobs:
@@ -26,7 +26,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: finish01-candidate-${{ github.run_id }}
-          path: |
-            docs/team/evidence/area2/finish-01/inventory-*/
+          name: finish01-inventory-${{ github.run_id }}
+          path: docs/team/evidence/area2/finish-01/inventory-*/
           if-no-files-found: error
