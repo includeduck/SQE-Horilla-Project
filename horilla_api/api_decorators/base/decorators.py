@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.utils.translation import gettext_lazy as _
 from rest_framework import status
+from rest_framework.exceptions import ValidationError
 from rest_framework.permissions import BasePermission
 from rest_framework.response import Response
 
@@ -117,7 +118,12 @@ def manager_or_owner_permission_required(model_class, perm):
                 target_id = data.get("employee_id")
                 if target_id is not None and str(target_id) == str(employee.id):
                     return func(self, request, *args, **kwargs)
-                target = Employee.objects.filter(pk=target_id).first()
+                try:
+                    target = Employee.objects.filter(pk=target_id).first()
+                except (TypeError, ValueError, OverflowError) as error:
+                    # Invalid client identifiers must not crash before DRF can
+                    # validate the request; ownership checks still apply.
+                    raise ValidationError({"employee_id": _("A valid employee identifier is required.")}) from error
 
             if request.user.has_perm(perm) or check_manager(employee, target):
                 if pk:

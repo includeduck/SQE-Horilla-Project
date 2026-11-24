@@ -161,7 +161,8 @@ def assert_result(h, case, ctx, response, before, before_balances, body, expecte
         assert row["leave_type_id_id"] == h.context["leave_type"].pk
         if operation == "assignment_update":
             available = float(body["available_days"])
-            carry = float(body.get("carryforward_days", old[pk]["carryforward_days"]))
+            carry = round(max(float(body.get("carryforward_days", old[pk]["carryforward_days"])), 0), 3)
+            h.record_property("carryforward_normalization", "AvailableLeave.pre_save_processing clamps below zero and rounds to three decimals")
             assert row["available_days"] == available and row["carryforward_days"] == carry
             expected_balances["employee"] = (available, carry)
         elif family != "assignments":
