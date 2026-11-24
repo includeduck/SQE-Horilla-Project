@@ -365,3 +365,19 @@ Rayyan explicitly approved publishing the prepared Phase C changes to
 continuation PR and triggering its free GitHub Actions tests. This supersedes
 the earlier authorization blocker. Publication and runtime results will be
 recorded after they are actually observed; no completion is inferred here.
+
+## Published continuation - 24 November 2026
+
+Publication succeeded after Rayyan's explicit approval. Commit
+`b8480253e6fd4f7679e39eac14395296a269a9a0` is pushed to
+`rayyan/phase-c-evidence`; GitHub author and committer are both verified as
+`rayyanhasan899`. [Draft PR #8](https://github.com/includeduck/SQE-Horilla-Project/pull/8)
+targets protected `sqe-team`; it has not been merged.
+
+[Area 2 run 45342013246](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45342013246)
+started on that exact source commit. At this observation, application dependency
+installation is in progress; no new API pass or phase completion is inferred.
+The previous automatic approval rejection is historical and is now resolved.
+Mandatory Wasay handoffs H-02 through H-08 remain in force until their required
+evidence is completed. Local Git metadata/HEAD remain unchanged; no pull or
+local commit is claimed. Phase D remains unstarted.
