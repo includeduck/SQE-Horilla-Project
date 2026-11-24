@@ -16,13 +16,13 @@ def query_model(op):
     return AvailableLeave
 
 
-def create_reference(model,h,depth=0):
+def create_reference(model,h,depth=0,force_new=False):
     from django.db import models
     from django.utils import timezone
     for key in ("employee","company","leave_type","employee_user"):
-        if isinstance(h.context[key],model):
+        if not force_new and isinstance(h.context[key],model):
             return h.context[key]
-    existing=model._base_manager.first()
+    existing=None if force_new else model._base_manager.first()
     if existing:
         return existing
     assert depth<5,("Unbound reference cycle",model.__name__)
@@ -190,8 +190,13 @@ def run_filter(h,case):
         for record in records: record.refresh_from_db()
         if "MultipleChoice" in kind:
             ref=scalar(actual); token=[ref]
-            if label in {"nonmatching","malformed","mixed_valid_missing"}:
-                token=[ref,2147483647] if label=="mixed_valid_missing" else [2147483647] if label=="nonmatching" else ["not-an-id"]
+            if label=="nonmatching":
+                related=type(actual)
+                other=related._base_manager.exclude(pk=ref).first() or create_reference(related,h,force_new=True)
+                token=[other.pk]
+                expected=[r.pk for r in records if scalar(value_at(r,path))==other.pk]
+            elif label in {"malformed","mixed_valid_missing"}:
+                token=[ref,2147483647] if label=="mixed_valid_missing" else ["not-an-id"]
                 expected=ids
             else:
                 if label=="repeated_keys": token=[ref,ref]
@@ -227,9 +232,12 @@ def run_filter(h,case):
                 else:
                     expected=[r.pk for r in records if compare(value_at(r,path),token,lookup)]
         elif kind in {"NullBooleanField","BooleanField"}:
-            token="true" if label in {"matching","true","one"} else "false" if label in {"nonmatching","false","zero"} else "unknown"
-            expected=ids if token=="unknown" else [r.pk for r in records if bool(value_at(r,path)) is (token=="true")]
-            if field=="is_active": expected=[] if token=="false" else ids
+            token={"matching":"true","true":"true","one":"1","nonmatching":"false","false":"false","zero":"0","null":"null"}.get(label,"unknown")
+            # Django NullBooleanField recognizes true/false; 1/0 and literal null
+            # normalize to None and leave the filter unapplied.
+            boolean=True if token=="true" else False if token=="false" else None
+            expected=ids if boolean is None else [r.pk for r in records if bool(value_at(r,path)) is boolean]
+            if field=="is_active": expected=[] if boolean is False else ids
         elif kind=="ChoiceField":
             allowed=[str(v) for v in meta.get("static_choices",[]) if v]
             token=label.split(":",1)[1] if label.startswith("choice:") else str(actual) if label=="matching" else "invalid-choice"
@@ -298,3 +306,4 @@ def run_query(h,case):
             expected=[pk for pk in ids if value_at(model.objects.entire().get(pk=pk),key) is not None]
         return assert_read(h,case,ctx,query,expected,status=400 if label=="malformed_value" and not number else 200)
     raise AssertionError("Missing query consumer "+category)
+

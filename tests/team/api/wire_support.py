@@ -61,12 +61,7 @@ def run_auth(h,case):
     headers={"Authorization":"" if label=="absent" else "Bearer intentionally-invalid"} if label in {"absent","invalid"} else None
     response=send(h,ctx,body,headers=headers)
     expected=auth_status(case,label)
-    original=h.context["employee"]
-    try:
-        if owner!="employee": h.context["employee"]=h.context[owner]
-        assert_result(h,case,ctx,response,before,amounts,body,expected)
-    finally:
-        h.context["employee"]=original
+    assert_result(h,case,ctx,response,before,amounts,body,expected)
     if expected==200 and case["method"]=="GET" and case["operation"].startswith("self_"):
         model=query_model(case["operation"])
         own=set(model.objects.entire().filter(employee_id=h.context[actor]).values_list("id",flat=True))
@@ -186,3 +181,4 @@ def run_wire(h,case):
         again_before,again_amounts=state(),balances(h)
         again=send(h,ctx,body)
         assert_result(h,case,ctx,again,again_before,again_amounts,body,201)
+

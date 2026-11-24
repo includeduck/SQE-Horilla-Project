@@ -160,7 +160,7 @@ def assert_result(h, case, ctx, response, before, before_balances, body, expecte
         assert set(new) == set(old), (case["id"], "update/action changed identities")
     if pk is not None and pk in new:
         row = new[pk]
-        assert row["employee_id_id"] == h.context["employee"].pk
+        assert row["employee_id_id"] == h.context[ctx.get("owner_role", "employee")].pk
         assert row["leave_type_id_id"] == h.context["leave_type"].pk
         if operation == "assignment_update":
             available = float(body["available_days"])
@@ -303,3 +303,4 @@ def run_pagination(h, case, ctx):
     assert len(result["results"]) == expected, (case["id"], len(result["results"]), expected)
     assert result["next"] is not None
     assert_result(h, case, ctx, response, before, amounts, None, 200)
+

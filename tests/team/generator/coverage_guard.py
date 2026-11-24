@@ -48,18 +48,23 @@ def validate(artifact,ledger,wire,paths,*,stage2=False,expected_source=None):
         if row.get("implementation_status")=="unsupported": raise ValueError("Required reader unsupported")
     observed,failed,total=results(paths)
     missing=sorted(set(ids)-set(observed))
+    unexpected=sorted(set(observed)-set(ids))
     bad=sorted(k for k,v in observed.items() if any(r["status"]!="passed" for r in v))
     wrong_spec=sorted(k for k,v in observed.items() if any(r["spec_sha256"]!=artifact["spec_sha256"] for r in v))
     wrong_source=sorted(k for k,v in observed.items() if expected_source and any(r["source_sha"]!=expected_source for r in v))
+    absent_lineage=sorted(k for k,v in observed.items() if any(not r["source_sha"] or not r["bound_data_sha256"] for r in v))
+    families={r["id"]:r["input_id"] for r in wire["cases"]}
+    wrong_family=sorted(k for k,v in observed.items() if k in families and any(r["input_family"]!=families[k] for r in v))
     deferred={r["id"] for r in artifact["cases"] if r["field"]==["reason"] or r["expected"]["oracle"]=="date-order"}
     unresolved=sorted(pending-deferred) if stage2 else sorted(pending)
-    passed=not(missing or bad or failed or wrong_spec or wrong_source or unresolved)
+    passed=not(missing or unexpected or bad or failed or wrong_spec or wrong_source or absent_lineage or wrong_family or unresolved)
     complete=passed and not artifact["exclusions"] and not pending and not stage2
     return dict(label="Derived from actual JUnit and deterministic consumer ledgers",
                 expected_source_sha=expected_source,canonical_cases=len(generated),generated_mapped=len(mapped),
                 generated_pending=sorted(pending),wire_cases=len(expected_wire),
                 mandatory_input_families=wire["mandatory_input_families"],api_mapping_count=len(ids),
                 actual_testcase_count=total,observed_unique_ids=len(observed),missing_ids=missing,
+                unexpected_ids=unexpected,missing_lineage_ids=absent_lineage,wrong_input_family_ids=wrong_family,
                 failed_error_or_skipped_ids=bad,raw_failures=failed,wrong_spec_ids=wrong_spec,
                 wrong_source_ids=wrong_source,unjustified_pending=unresolved,
                 stage2_accepted=passed if stage2 else False,complete_scope_accepted=complete,
@@ -88,3 +93,4 @@ def main():
 
 if __name__=="__main__":
     raise SystemExit(main())
+

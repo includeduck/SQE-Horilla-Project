@@ -25,7 +25,7 @@ class CoverageGuardTests(unittest.TestCase):
             return guard.validate(a,l,w,[path],stage2=True,expected_source=source)
 
     def xml(self,extra="",spec="SPEC",source="SOURCE"):
-        return f'<testsuite><testcase><properties><property name="case_id" value="G"/><property name="spec_sha256" value="{spec}"/><property name="source_sha" value="{source}"/></properties>{extra}</testcase></testsuite>'
+        return f'<testsuite><testcase><properties><property name="case_id" value="G"/><property name="spec_sha256" value="{spec}"/><property name="source_sha" value="{source}"/><property name="data_sha256" value="BOUND-DATA"/></properties>{extra}</testcase></testsuite>'
 
     def test_missing_malformed_and_empty_junit_fail(self):
         for xml in ("<broken","<testsuites/>"):
@@ -48,6 +48,20 @@ class CoverageGuardTests(unittest.TestCase):
         report=self.check_xml(self.xml(),source="SOURCE")
         self.assertTrue(report["stage2_accepted"]); self.assertFalse(report["complete_scope_accepted"])
 
+    def test_missing_bound_lineage_and_unknown_results_are_refused(self):
+        xml=self.xml().replace('<property name="data_sha256" value="BOUND-DATA"/>',"")
+        self.assertFalse(self.check_xml(xml)["stage2_accepted"])
+        xml=self.xml().replace("</testsuite>",'<testcase><properties><property name="case_id" value="UNKNOWN"/></properties></testcase></testsuite>')
+        self.assertFalse(self.check_xml(xml)["stage2_accepted"])
+
+    def test_wire_identity_requires_matching_input_family(self):
+        def wire(a,l,w):
+            l["entries"][0]["file"]="test_runtime_wire.py"
+            w["cases"]=[{"id":"G","input_id":"INPUT:mandatory"}]
+        self.assertFalse(self.check_xml(self.xml(),wire)["stage2_accepted"])
+        xml=self.xml().replace("</properties>",'<property name="input_family" value="INPUT:mandatory"/></properties>')
+        self.assertTrue(self.check_xml(xml,wire)["stage2_accepted"])
+
     def test_duplicate_missing_consumer_and_invented_na_refused(self):
         with self.assertRaises(ValueError): self.check_xml(self.xml(),lambda a,l,w:l["entries"].append(dict(l["entries"][0])))
         with self.assertRaises(ValueError): self.check_xml(self.xml(),lambda a,l,w:w["cases"].append({"id":"WIRE:mandatory"}))
@@ -66,3 +80,4 @@ class CoverageGuardTests(unittest.TestCase):
         self.assertEqual(len(actual["cases"]),len({r["id"] for r in actual["cases"]}))
         changed=copy.deepcopy(inventory); changed["inputs"][0]["category"]="unsupported"
         with self.assertRaises(ValueError): build(changed)
+
