@@ -5,10 +5,10 @@
   "section": "SE-5B",
   "upstream_baseline": "6c15617b8297b7a6775daa6c29aefcc48b1eb29f",
   "runtime_source_checkpoint": "7189656a7b118565f42004770ff9a9f8bbcd3a09",
-  "inventory_tree_sha": "c28c86c8a921f2feddf13c0dbdd175fa3f264b33",
+  "inventory_tree_sha": "61201ed55834e75cffb1f40b55172dee686346a9",
   "inventory_origin": "Authoritative non-truncated GitHub Git tree; byte sizes and Git blob identities describe published bytes, not the laptop's stale HEAD or CRLF working copies.",
   "hash_algorithm": "Git SHA-1 blob identity (includes Git blob header); separate from canonical JSON SHA-256 fingerprints",
-  "file_count": 141,
+  "file_count": 147,
   "files": [
     {
       "path": ".github/scripts/install-requirements.sh",
@@ -47,8 +47,8 @@
     },
     {
       "path": "docs/team/AREA2_EVIDENCE_INDEX.md",
-      "bytes": 7791,
-      "git_blob_sha": "16b1a19c9c965379141b1981d6e6c8879c10e83c"
+      "bytes": 8242,
+      "git_blob_sha": "870827fb860f8fbdcfc1a3c5fbb31e0da61efd70"
     },
     {
       "path": "docs/team/AREA2_MANAGEMENT.md",
@@ -461,6 +461,36 @@
       "git_blob_sha": "c40d50fde861acaabe2f34cdd326cda7da15c382"
     },
     {
+      "path": "docs/team/finish-line/BASELINE_VERIFICATION.json",
+      "bytes": 1094,
+      "git_blob_sha": "f3d7b35929438950be756a15b1920e319f679384"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT_01_CONTRACT_AND_SCOPE.md",
+      "bytes": 7368,
+      "git_blob_sha": "27eeb2fd4d4b1d327e2c2c0758cb18a3947e8fdd"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT_02_GENERATED_COVERAGE.md",
+      "bytes": 6386,
+      "git_blob_sha": "ce57ad38224f61125a2100ba6387c078d1062e8c"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT_03_BUSINESS_RULES_AND_FIXES.md",
+      "bytes": 6702,
+      "git_blob_sha": "44dfb152f922f8347a9d72ce0afafd6edee59dd6"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT_04_FINAL_VERIFICATION_AND_HANDOFF.md",
+      "bytes": 10888,
+      "git_blob_sha": "861071e7e56dd8f7781b3e8980a27764bfd01239"
+    },
+    {
+      "path": "docs/team/finish-line/README.md",
+      "bytes": 8777,
+      "git_blob_sha": "439834e9ddafea845d5eee3e96bc2f9e6b048445"
+    },
+    {
       "path": "docs/team/reports/AREA2_COMPLETION_REPORT.md",
       "bytes": 9605,
       "git_blob_sha": "b92e5fdd04b80abc6cdc5b44d170791be97cfae1"
@@ -477,8 +507,8 @@
     },
     {
       "path": "docs/team/reports/PHASES_A_D_REMAINING_CHECKLIST.md",
-      "bytes": 6499,
-      "git_blob_sha": "f0581e195cafcc7d65fb810dec011ffbd894ec4e"
+      "bytes": 7612,
+      "git_blob_sha": "46b5cee921848b3387488d8677e7d6f34c09a072"
     },
     {
       "path": "docs/team/reports/SQE_IMPLEMENTATION_PHASE_A_STATUS.md",
@@ -497,13 +527,13 @@
     },
     {
       "path": "docs/team/reports/SQE_IMPLEMENTATION_PHASE_D_STATUS.md",
-      "bytes": 11030,
-      "git_blob_sha": "b482164fee30eecd473f86dd382aa815d2d6a29f"
+      "bytes": 11067,
+      "git_blob_sha": "01fe6159c42ee82b749dd8507991722f77a3cab0"
     },
     {
       "path": "handoff.md",
-      "bytes": 25167,
-      "git_blob_sha": "78c09d9b2014743fc6b5e9668497e0febc4bd6f2"
+      "bytes": 26613,
+      "git_blob_sha": "663830abc68ba967d93141cae7fc06444dea706b"
     },
     {
       "path": "horilla/models.py",
@@ -716,15 +746,8 @@
       "git_blob_sha": "bd3217b335803437f79a461af280c30ae9d5470b"
     }
   ],
-  "verification_command": "git ls-tree -r --long c28c86c8a921f2feddf13c0dbdd175fa3f264b33",
+  "verification_command": "git ls-tree -r --long 61201ed55834e75cffb1f40b55172dee686346a9",
   "tested_populations": {
-    "api_first": {
-      "source": "32621b42b6ec9a64f81f4540eea151ede4acbb2e",
-      "run_id": 45355537962,
-      "passed": 275,
-      "total": 275,
-      "reverse_complete": false
-    },
     "personal_browser": {
       "source": "7189656a7b118565f42004770ff9a9f8bbcd3a09",
       "run_id": 45388276537,
@@ -741,6 +764,21 @@
       "variant_passed": 4,
       "variant_strict_predicted_failed": 2,
       "experiment_demonstrated": true
+    },
+    "api_verification": {
+      "source": "7189656a7b118565f42004770ff9a9f8bbcd3a09",
+      "run_id": 45388276552,
+      "artifact_id": 14921788926,
+      "first_order": {
+        "passed": 275,
+        "total": 275
+      },
+      "reversed_order": {
+        "passed": 275,
+        "total": 275
+      },
+      "complete_scope_exit": 3,
+      "accepted": false
     }
   },
   "group_archive_requirements": [
@@ -752,5 +790,11 @@
   "group_pdf_zip_complete": false,
   "local_git_history_is_current": false,
   "overall_release": "HOLD",
-  "note": "Contribution/dependency/evidence inventory, not a completed group submission or exclusive authorship claim. This manifest excludes itself to avoid circular hashing. The inventory tree contains the final evidence files before this manifest replacement; later modifications require a fresh inventory."
+  "note": "Contribution/dependency/evidence inventory, not a complete group submission or exclusive authorship claim. Four finish-line prompts are prepared, not executed. This manifest excludes itself; inventory tree describes the exact published content before manifest replacement. Refresh after subsequent content changes.",
+  "finish_line_sequence": {
+    "status": "prepared_not_executed",
+    "prompts": 4,
+    "index": "docs/team/finish-line/README.md",
+    "last_prompt_requires_final_assignment_closeout": true
+  }
 }

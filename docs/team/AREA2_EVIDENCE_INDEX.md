@@ -7,6 +7,13 @@ explicitly derived records, not reconstructed JUnit.
 
 ## Current verified populations
 
+Later verified baseline: run 45388276552 on 7189656a completed 275/275 first-order
+and 275/275 reversed-order cases, then returned exit 3 at complete-scope with
+accepted=false. Actual artifact 14921788926; derived summary is
+docs/team/finish-line/BASELINE_VERIFICATION.json. This supersedes older pending/
+timeout labels for that current baseline. The four prepared finish-line prompts
+have not yet executed; required input scope remains incomplete.
+
 | Evidence / tested source | Retained path or actual artifact | Establishes |
 |---|---|---|
 | Independent tooling | phase-d/independent-tests-final.txt | 49 generator/catalog/producer/report checks passed; not product/API passes |

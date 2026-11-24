@@ -24,7 +24,7 @@ archive is claimed.
 | Blank allocation-amount defect A2-D10 | Unchanged UC-RAY-01-E2 passed after bf44fe6c; all four other allocation flows passed too | Real failing-before/passing-after browser evidence |
 | Owner-confirmed duplicate/terminal API fixes | Source 32621b42: 16 focused passes and full first-order 275/275 passes in 45355537962 | Strict 400 and unchanged-state assertions retained; no xfail |
 | Separate affected/expanded API populations | Same run: 8 upstream, 177 expanded and 1 preflight passed | Overlapping populations; do not add to the 275 unique-case count |
-| Full/reversed API producer | First order passed; reverse cancelled at the 90-minute job limit. 7189656a raises budget to 120 minutes; run 45388276552 is pending | No twice/order-independent or complete-scope acceptance |
+| Full/reversed API producer | Later completed 120-minute run 45388276552 on 7189656a: 275/275 passed in each order; complete-scope returned 3, accepted=false | Baseline repeatability verified; full input scope and final changed-build acceptance remain open |
 | Reports, evidence, risk/GQM/RCA, AI and viva | Supplied and reconciled to actual results; seven-defect Pareto update separately labelled | Contribution delivered; human/group acceptance not inferred |
 | Relevant-PR wiring | Area 2 and D jobs actually run for PR #8 targeting sqe-team | Whole Sonar/mutation/required merge/deploy gate remains a separate owner obligation |
 

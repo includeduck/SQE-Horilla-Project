@@ -1,5 +1,28 @@
 # SQE owner handoff
 
+## New four-prompt finish-line instruction - 24 November 2026
+
+Rayyan has authorized Codex to complete all technically feasible remaining work
+through the four numbered prompts in docs/team/finish-line/README.md. Previously
+transferred items are not automatically Wasay-only: feasible contract, consumer,
+business-rule, verification and reporting work is to be completed by Codex in
+that sequence. These prompt files are prepared, not yet executed.
+
+Prompt 4 is the final execution prompt. After genuine completion attempts it
+must explicitly close Rayyan's project execution assignment and assign every
+remaining project execution item to Muhammad Wasay Tariq / Wasay's agent as
+mandatory, with no further technical prompt or execution expected from Rayyan.
+The exact required statement and acceptance/evidence table are in Prompt 4.
+This planning checkpoint does not prematurely claim all requirements passed,
+the final handoff was executed, owner acceptance or personal assessed completion.
+
+Fresh CI observation: run 45388276552 on 7189656a completed **275/275 first-order
+and 275/275 reversed-order API passes**. It then failed only complete-scope with
+exit 3, accepted=false. Artifact 14921788926 retains actual results. This
+supersedes prior labels calling that old reverse run pending/cancelled; scope
+completion and final changed-build verification are still required. Derived
+summary: docs/team/finish-line/BASELINE_VERIFICATION.json.
+
 ## Latest observed continuation - 24 November 2026
 
 This section and the current checklist supersede earlier pending labels.

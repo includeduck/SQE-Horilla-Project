@@ -7,6 +7,12 @@ acceptance, another member's authorship, human effort or course signoff.
 
 ## Work completed by Rayyan's agent in this continuation
 
+New execution instruction: the four prompts in ../finish-line/README.md reclaim
+all feasible technical items below for Codex to finish. They have been prepared,
+not executed. Prompt 4 must finish feasible carryover and close Rayyan's execution
+assignment; any genuine residual project execution is then mandatory Wasay work,
+with no fifth Rayyan prompt. Keep verification and assignment closure separate.
+
 - [x] Deliver the controlled two-constraint generator/consumer experiment; genuine baseline 6 pass, variant 4 pass / exactly 2 predicted strict failures (run 45348178607).
 - [x] Implement two attributed personal use-case specifications and all ten actual-browser flows, with real persisted-state assertions.
 - [x] Repair async browser setup, active-theme login, own-employee binding and initial missing-type interactions; retain original failed logs.
@@ -16,17 +22,23 @@ acceptance, another member's authorship, human effort or course signoff.
 - [x] Retrieve Wasay's existing OD-01/OD-02 decisions and implement both small API corrections here; preserve strict failing-before assertions rather than add xfail.
 - [x] Observe A2-D10's unchanged UI regression and all five allocation flows passing in run 45355537997; focused 16-case product step completed successfully in 45355537962.
 - [x] Retain the genuine 275/275 full first-order API pass and cancelled reverse outcome from 45355537962; increase the measured-too-short 90-minute job budget to 120 minutes without suppressing assertions.
+- [x] Inspect the later 120-minute run 45388276552: 275/275 passed in BOTH first and reversed order on 7189656a; complete-scope returned 3, accepted=false. Actual artifact 14921788926. The earlier timeout is historical, not the latest reverse outcome.
 - [x] Finish all ten browser flows after correcting this agent's button-only selector regression; inherited source 7189656a passed all ten in run 45388276537, including visible/persistent assertions and strict completion report. Retain artifact 14917252664 and browser-verified-summary.json. No D browser debugging remains assigned to Wasay.
 
-## Mandatory Wasay / his agent carryover and shared completion
+## Open project work: Codex finish-line execution, then mandatory Wasay carryover
+
+These are the existing transferred/shared work packages, now subject to the
+four-stage completion instruction above. Codex must finish feasible items rather
+than treat the former transfer as a technical blocker. The final Prompt 4 ledger
+will identify exactly what genuinely remains assigned to Wasay / his agent.
 
 | Check | Phase / reference | Incomplete work and exact acceptance evidence |
 |---|---|---|
 | [ ] | A / H-02 | Reconcile the accepted full test basis and source-reconstructed OpenAPI with live schema/Swagger, actual media/coercion/role contracts and teammate review. Fresh D baseline/variant DB initialization and normal-role HTTP execution now exist; do not redo them or fabricate the missing original archive. Recover original historical evidence only if it exists. |
 | [ ] | B-C / H-03 | Resolve the 399 unconsumed generated IDs individually through actual applicable consumers or defensible recorded N/A; finish remaining generic/reference/action/query/filter/search/grouping/pagination fallback/reason/normalization/body/media/relational input inventory. Preserve explicit unsupported constraints and the complete-scope failure until justified. Current inventory is 275 API cases / 179 of 578 generated IDs, not full coverage. |
 | [ ] | C / H-03/H-04 | Complete positive effective-duration, employee-specific holiday, forecast and reason normalization/persistence scenarios; reproduce candidates before calling them defects; minimally correct established failures and retain strict HTTP plus persisted-state/upstream retests. Accepted FR numerator over ten remains to be established from assertions/results, not inferred from tags. |
-| [ ] | C / H-03 | Finish and inspect two complete isolated API collections including reversed order and complete-scope gate after all applicable coverage is implemented. A successful expanded subset or old-build result is not this acceptance. Current long-running CI results must be reconciled when final. |
-| [ ] | C-D / H-04 | Reconcile real product Issues with actual failure/fix/retest evidence, severity/priority/triage and the existing two-major-defect RCA/four-defect Pareto contribution. Issues #3-#6 are still open despite merged fixes/retests; maintain behavior-to-ID mapping for the owner's reversed D04/D05 labels. Include new D10 separately with its own population/build. Do not invent lifecycle events. |
+| [ ] | C / H-03 | After remaining applicable scope is implemented, verify the final inventory in two complete isolated API orders and satisfy the complete-scope gate. Existing 7189656a already passed 275/275 in both orders in 45388276552; its failure is incomplete scope, not a missing reverse pass. Do not rerun the unchanged baseline merely to recover evidence that already exists. |
+| [ ] | C-D / H-04 | Reconcile real product Issues with actual failure/fix/retest evidence, severity/priority/triage and the supplied two-major-defect RCA plus separately labelled historical four/current seven-defect Pareto populations. Refresh current Issue status rather than assuming old open labels remain true. Preserve behavior-to-ID mapping for the owner's reversed D04/D05 labels and D10's own population/build. Do not invent lifecycle events. |
 | [ ] | D / H-05 | Complete Wasay's overall every-PR all-tests/Sonar/mutation gate and actual required merge/deployment enforcement; retain a genuinely blocked PR and corrected PR with exact check names/thresholds. Scoped Area 2 and D PR wiring is already supplied. Classic protection reads return 403 to this integration, so administrative verification needs the owner. |
 | [ ] | A-D / H-06 | Provide a permitted synchronized final checkout and .git history, preserving the laptop's uncommitted files. Connected-app commits/push work under Rayyan's identity; local protected Git metadata/network still prevent a normal fetch/pull/commit path. Do not reset this checkout. |
 | [ ] | D / H-08 | Integrate actual Area 1 and Area 3 evidence, shared risk acceptance/GQM/requirements/AI review and final combined PDF/ZIP including synchronized .git. Use supplied Rayyan reports/specs/scripts/manifest; do not assign their reimplementation to Wasay. Wasay coordinates with Zain while preserving actual authorship. Confirm final filename section token and perform genuine package checks. |
