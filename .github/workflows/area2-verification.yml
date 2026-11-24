@@ -42,7 +42,10 @@ permissions:
 jobs:
   area2:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    # The full/reversed producer plus focused/upstream/expanded populations
+    # exceeded 90 minutes after 275 clean first-order passes (run 45355537962).
+    # Allow both complete orders; never truncate or suppress their assertions.
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
