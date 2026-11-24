@@ -1,0 +1,18 @@
+Function                                                                          Stmts    Branches  Rule
+calculate_requested_days                                                            6/6         2/2  BR-01
+leave_requested_dates                                                               3/3         2/2  BR-01
+cal_effective_requested_days                                                      17/17         8/8  BR-01
+AvailableLeave.forcasted_leaves                                                     6/6         4/4  BR-01
+LeaveRequest.leaveoverlapping                                                       6/6         4/4  BR-02
+LeaveRequest.clean                                                                71/72       44/46  BR-01, BR-02 (critical module)  (justified gap)
+LeaveAllocationRequest.clean                                                        2/2         2/2  BR-03
+LeaveRequestApproveAPIView.leave_approve_calculation                              10/10         2/2  BR-01, BR-03
+LeaveRequestRejectAPIView.leave_calculation                                         9/9         0/0  BR-03
+LeaveRequestRejectAPIView.put                                                     13/13         6/6  BR-03
+LeaveAllocationApproveAPIView.approve_calculations                                  3/3         0/0  BR-03
+LeaveAllocationApproveAPIView.put                                                   7/7         2/2  BR-03
+LeaveAllocationRequestRejectAPIView.reject_calculation                              6/6         2/2  BR-03
+LeaveAllocationRequestRejectAPIView.put                                           10/10         4/4  BR-03
+EmployeeLeaveAllocationUpdateDeleteAPIView.get_allocation_request                 10/10         4/4  BR-04
+
+RESULT: PASS: 100% statement and branch coverage of scoped business logic
