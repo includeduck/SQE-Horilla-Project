@@ -80,5 +80,18 @@
   "coverage_complete": false,
   "acceptance": "Prompt 1 foundation/audit prerequisites verified. Five selected generated JSON contexts verified, not all 713 IDs or all 329 required families.",
   "remaining_input_family_count": 329,
-  "remaining_assignment": "Codex for Rayyan in Prompts 2–4, genuine shared/owner dependencies separately recorded"
+  "remaining_assignment": "Codex for Rayyan in Prompts 2–4, genuine shared/owner dependencies separately recorded",
+  "final_inventory_integrity": {
+    "source_sha": "3caa7741d39fef7b1db43a401145ade8a6043e8a",
+    "tested_merge_sha": "651707776fcd71e9eaf323ed3708a36044ce010b",
+    "run_id": 45419333975,
+    "job_id": 138534203584,
+    "artifact_id": 14933018094,
+    "formal_schema": "passed",
+    "existing_checks_passed": 49,
+    "new_reader_checks_passed": 4,
+    "freshness": "passed",
+    "input_and_id_audit": "passed",
+    "verified_generated_ids_selected_context": 5
+  }
 }

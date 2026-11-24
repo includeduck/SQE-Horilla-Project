@@ -13,6 +13,7 @@
       "2": 314,
       "3": 15
     },
+    "verified_generated_ids_selected_context": 5,
     "new_contract_executed_all": false,
     "coverage_complete": false
   },
@@ -1624,7 +1625,11 @@
             "missing-binding": "missing_id"
           },
           "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "allocation_approve:path:pk:EP:valid",
@@ -1679,7 +1684,11 @@
             "missing-binding": "missing_id"
           },
           "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "allocation_reject:path:pk:EP:valid",
@@ -1733,7 +1742,22 @@
           "example": "Synthetic rejection",
           "x-source": "reject_reason_from: optional text, strip, truncate to 1000, ignore nonstrings; persistence separately constrained",
           "x-wire-coercion": "Non-string/null/missing/blank is ignored, not schema-rejected. This schema is the text interpretation; Prompt 3 binds actual wire outcomes."
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "allocation_reject:body:reason:EP:valid",
@@ -1785,7 +1809,11 @@
           "x-clamp-maximum": 100,
           "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
           "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "allocation_list:query:page_size:EP:valid",
@@ -1852,7 +1880,25 @@
           },
           "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
           "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "number",
+          "numeric_string",
+          "whitespace_numeric_string",
+          "fractional",
+          "negative",
+          "zero",
+          "boolean",
+          "nonfinite",
+          "huge_exponent",
+          "real_reference_or_missing_if_FK"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "allocation_create:body:leave_type_id:EP:valid",
@@ -1909,7 +1955,25 @@
           },
           "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
           "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "number",
+          "numeric_string",
+          "whitespace_numeric_string",
+          "fractional",
+          "negative",
+          "zero",
+          "boolean",
+          "nonfinite",
+          "huge_exponent",
+          "real_reference_or_missing_if_FK"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "allocation_create:body:employee_id:EP:valid",
@@ -1963,7 +2027,25 @@
           "example": 5,
           "x-source": "horilla_api/api_serializers/leave/serializers.py LeaveAllocationRequestCreateSerializer.requested_days required FloatField, no min/max",
           "x-wire-coercion": "Finite numeric strings accepted by DRF FloatField; nonnumeric representative rejects"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "number",
+          "numeric_string",
+          "whitespace_numeric_string",
+          "fractional",
+          "negative",
+          "zero",
+          "boolean",
+          "nonfinite",
+          "huge_exponent",
+          "real_reference_or_missing_if_FK"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "allocation_create:body:requested_days:EP:valid",
@@ -2020,7 +2102,22 @@
           "example": "Synthetic Area 2 allocation",
           "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
           "x-trim-whitespace": true
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "allocation_create:body:description:EP:valid",
@@ -2080,7 +2177,28 @@
           "x-filename-maxLength": 100,
           "x-allow-empty-file": false,
           "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded",
+          "real_multipart_file",
+          "JSON_null_vs_omission",
+          "text_descriptor_not_upload",
+          "empty_bytes",
+          "unicode_and_long_filename",
+          "extensionless_and_extension_variants"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "allocation_create:body:attachment:EP:valid",
@@ -2140,7 +2258,11 @@
             "missing-binding": "missing_id"
           },
           "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "allocation_delete:path:pk:EP:valid",
@@ -2196,7 +2318,11 @@
             "missing-binding": "missing_id"
           },
           "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "allocation_detail:path:pk:EP:valid",
@@ -2253,7 +2379,11 @@
             "missing-binding": "missing_id"
           },
           "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "allocation_update:path:pk:EP:valid",
@@ -2310,7 +2440,25 @@
           },
           "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
           "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "number",
+          "numeric_string",
+          "whitespace_numeric_string",
+          "fractional",
+          "negative",
+          "zero",
+          "boolean",
+          "nonfinite",
+          "huge_exponent",
+          "real_reference_or_missing_if_FK"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "allocation_update:body:leave_type_id:EP:valid",
@@ -2367,7 +2515,25 @@
           },
           "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
           "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "number",
+          "numeric_string",
+          "whitespace_numeric_string",
+          "fractional",
+          "negative",
+          "zero",
+          "boolean",
+          "nonfinite",
+          "huge_exponent",
+          "real_reference_or_missing_if_FK"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "allocation_update:body:employee_id:EP:valid",
@@ -2422,7 +2588,25 @@
           "x-source": "horilla_api/api_serializers/leave/serializers.py LeaveAllocationRequestCreateSerializer.requested_days required FloatField, no min/max",
           "x-wire-coercion": "Finite numeric strings accepted by DRF FloatField; nonnumeric representative rejects",
           "nullable": true
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "number",
+          "numeric_string",
+          "whitespace_numeric_string",
+          "fractional",
+          "negative",
+          "zero",
+          "boolean",
+          "nonfinite",
+          "huge_exponent",
+          "real_reference_or_missing_if_FK"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "allocation_update:body:requested_days:EP:valid",
@@ -2479,7 +2663,22 @@
           "example": "Synthetic Area 2 allocation",
           "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
           "x-trim-whitespace": true
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "allocation_update:body:description:EP:valid",
@@ -2539,7 +2738,28 @@
           "x-filename-maxLength": 100,
           "x-allow-empty-file": false,
           "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded",
+          "real_multipart_file",
+          "JSON_null_vs_omission",
+          "text_descriptor_not_upload",
+          "empty_bytes",
+          "unicode_and_long_filename",
+          "extensionless_and_extension_variants"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "allocation_update:body:attachment:EP:valid",
@@ -2596,7 +2816,22 @@
           "type": "boolean",
           "example": true,
           "x-source": "Runtime LeaveAllocationRequestSerilaizer.is_active: writable BooleanField, optional, non-null"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "true",
+          "false",
+          "zero",
+          "one",
+          "boolean_string_tokens",
+          "blank_string",
+          "unrecognized_string"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "allocation_update:body:is_active:EP:valid",
@@ -2647,7 +2882,11 @@
             "missing-binding": "missing_id"
           },
           "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "approve:path:pk:EP:valid",
@@ -2705,7 +2944,11 @@
           "x-clamp-maximum": 100,
           "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
           "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "assignment_list:query:page_size:EP:valid",
@@ -2777,7 +3020,23 @@
             "x-source": "Runtime related field / int:pk route; existence and ownership bound separately"
           },
           "x-source": "AssignLeaveCreateSerializer.validate_employee_ids rejects empty, despite child allow_empty=True"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "singleton",
+          "multiple",
+          "duplicate_items",
+          "null_item",
+          "mixed_valid_invalid",
+          "repeated_form_keys",
+          "comma_string_is_not_JSON_array"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "assignment_create:body:employee_ids:EP:valid",
@@ -2843,7 +3102,23 @@
             "x-source": "Runtime related field / int:pk route; existence and ownership bound separately"
           },
           "x-source": "AssignLeaveCreateSerializer.validate_leave_type_ids rejects empty"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "singleton",
+          "multiple",
+          "duplicate_items",
+          "null_item",
+          "mixed_valid_invalid",
+          "repeated_form_keys",
+          "comma_string_is_not_JSON_array"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "assignment_create:body:leave_type_ids:EP:valid",
@@ -2903,7 +3178,11 @@
             "missing-binding": "missing_id"
           },
           "x-source": "Runtime related field / int:pk route; existence and ownership bound separately"
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "assignment_delete:path:pk:EP:valid",
@@ -2959,7 +3238,11 @@
             "missing-binding": "missing_id"
           },
           "x-source": "Runtime related field / int:pk route; existence and ownership bound separately"
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "assignment_detail:path:pk:EP:valid",
@@ -3015,7 +3298,11 @@
           "x-clamp-maximum": 100,
           "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
           "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "assignment_detail:query:page_size:EP:valid",
@@ -3081,7 +3368,11 @@
             "missing-binding": "missing_id"
           },
           "x-source": "Runtime related field / int:pk route; existence and ownership bound separately"
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "assignment_update:path:pk:EP:valid",
@@ -3134,7 +3425,25 @@
           "type": "number",
           "example": 5,
           "x-source": "Runtime AvailableLeaveUpdateSerializer: required, non-null, no declared numeric bounds"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "number",
+          "numeric_string",
+          "whitespace_numeric_string",
+          "fractional",
+          "negative",
+          "zero",
+          "boolean",
+          "nonfinite",
+          "huge_exponent",
+          "real_reference_or_missing_if_FK"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "assignment_update:body:available_days:EP:valid",
@@ -3189,7 +3498,25 @@
           "type": "number",
           "example": 0,
           "x-source": "Runtime AvailableLeaveUpdateSerializer: optional, non-null, no declared numeric bounds"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "number",
+          "numeric_string",
+          "whitespace_numeric_string",
+          "fractional",
+          "negative",
+          "zero",
+          "boolean",
+          "nonfinite",
+          "huge_exponent",
+          "real_reference_or_missing_if_FK"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "assignment_update:body:carryforward_days:EP:valid",
@@ -3246,7 +3573,11 @@
           "x-clamp-maximum": 100,
           "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
           "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "own_balance:query:page_size:EP:valid",
@@ -3311,7 +3642,11 @@
             "missing-binding": "missing_id"
           },
           "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "cancel:path:pk:EP:valid",
@@ -3366,7 +3701,11 @@
             "missing-binding": "missing_id"
           },
           "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "cancellation_approve:path:pk:EP:valid",
@@ -3421,7 +3760,11 @@
             "missing-binding": "missing_id"
           },
           "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "cancellation_reject:path:pk:EP:valid",
@@ -3475,7 +3818,22 @@
           "example": "Synthetic rejection",
           "x-source": "reject_reason_from: optional text, strip, truncate to 1000, ignore nonstrings; persistence separately constrained",
           "x-wire-coercion": "Non-string/null/missing/blank is ignored, not schema-rejected. This schema is the text interpretation; Prompt 3 binds actual wire outcomes."
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "cancellation_reject:body:reason:EP:valid",
@@ -3528,7 +3886,11 @@
             "missing-binding": "missing_id"
           },
           "x-source": "Runtime related field / int:pk route; existence and ownership bound separately"
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "employee_leave_type_list:path:pk:EP:valid",
@@ -3585,7 +3947,11 @@
           "x-clamp-maximum": 100,
           "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
           "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "employee_leave_type_list:query:page_size:EP:valid",
@@ -3651,7 +4017,11 @@
           "x-clamp-maximum": 100,
           "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
           "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "leave_type_list:query:page_size:EP:valid",
@@ -3716,7 +4086,11 @@
             "missing-binding": "missing_id"
           },
           "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "reject:path:pk:EP:valid",
@@ -3770,7 +4144,22 @@
           "example": "Synthetic rejection",
           "x-source": "reject_reason_from: optional text, strip, truncate to 1000, ignore nonstrings; persistence separately constrained",
           "x-wire-coercion": "Non-string/null/missing/blank is ignored, not schema-rejected. This schema is the text interpretation; Prompt 3 binds actual wire outcomes."
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "reject:body:reason:EP:valid",
@@ -3823,7 +4212,11 @@
           "x-clamp-maximum": 100,
           "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
           "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "leave_list:query:page_size:EP:valid",
@@ -3891,7 +4284,25 @@
           },
           "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
           "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "number",
+          "numeric_string",
+          "whitespace_numeric_string",
+          "fractional",
+          "negative",
+          "zero",
+          "boolean",
+          "nonfinite",
+          "huge_exponent",
+          "real_reference_or_missing_if_FK"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "leave_create:body:employee_id:EP:valid",
@@ -3949,7 +4360,25 @@
           },
           "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
           "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "number",
+          "numeric_string",
+          "whitespace_numeric_string",
+          "fractional",
+          "negative",
+          "zero",
+          "boolean",
+          "nonfinite",
+          "huge_exponent",
+          "real_reference_or_missing_if_FK"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "leave_create:body:leave_type_id:EP:valid",
@@ -4004,7 +4433,28 @@
           "format": "date",
           "x-binding": "start_date",
           "x-source": "leave/models.py:1383"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded",
+          "ISO_date",
+          "datetime_string",
+          "invalid_calendar",
+          "leap_day",
+          "parser_date_edges_0001_9999",
+          "falsy_end_date_normalization"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "leave_create:body:start_date:EP:valid",
@@ -4058,7 +4508,28 @@
           "nullable": true,
           "x-binding": "end_date",
           "x-source": "leave/models.py:1390; employee create normalizes missing/null end date to start"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded",
+          "ISO_date",
+          "datetime_string",
+          "invalid_calendar",
+          "leap_day",
+          "parser_date_edges_0001_9999",
+          "falsy_end_date_normalization"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "leave_create:body:end_date:EP:valid",
@@ -4121,7 +4592,22 @@
           ],
           "default": "full_day",
           "x-source": "leave/models.py BREAKDOWN and LeaveRequest start/end_date_breakdown"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "leave_create:body:start_date_breakdown:EP:valid",
@@ -4184,7 +4670,22 @@
           ],
           "default": "full_day",
           "x-source": "leave/models.py BREAKDOWN and LeaveRequest start/end_date_breakdown"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "leave_create:body:end_date_breakdown:EP:valid",
@@ -4244,7 +4745,22 @@
           "example": "Synthetic Area 2 allocation",
           "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
           "x-trim-whitespace": true
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "leave_create:body:description:EP:valid",
@@ -4305,7 +4821,28 @@
           "x-filename-maxLength": 100,
           "x-allow-empty-file": false,
           "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded",
+          "real_multipart_file",
+          "JSON_null_vs_omission",
+          "text_descriptor_not_upload",
+          "empty_bytes",
+          "unicode_and_long_filename",
+          "extensionless_and_extension_variants"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "leave_create:body:attachment:EP:valid",
@@ -4366,7 +4903,11 @@
             "missing-binding": "missing_id"
           },
           "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "leave_delete:path:pk:EP:valid",
@@ -4423,7 +4964,11 @@
             "missing-binding": "missing_id"
           },
           "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "leave_detail:path:pk:EP:valid",
@@ -4481,7 +5026,11 @@
             "missing-binding": "missing_id"
           },
           "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "leave_update:path:pk:EP:valid",
@@ -4539,7 +5088,25 @@
           },
           "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
           "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "number",
+          "numeric_string",
+          "whitespace_numeric_string",
+          "fractional",
+          "negative",
+          "zero",
+          "boolean",
+          "nonfinite",
+          "huge_exponent",
+          "real_reference_or_missing_if_FK"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "leave_update:body:employee_id:EP:valid",
@@ -4597,7 +5164,25 @@
           },
           "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
           "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "number",
+          "numeric_string",
+          "whitespace_numeric_string",
+          "fractional",
+          "negative",
+          "zero",
+          "boolean",
+          "nonfinite",
+          "huge_exponent",
+          "real_reference_or_missing_if_FK"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "leave_update:body:leave_type_id:EP:valid",
@@ -4652,7 +5237,28 @@
           "format": "date",
           "x-binding": "start_date",
           "x-source": "leave/models.py:1383"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded",
+          "ISO_date",
+          "datetime_string",
+          "invalid_calendar",
+          "leap_day",
+          "parser_date_edges_0001_9999",
+          "falsy_end_date_normalization"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "leave_update:body:start_date:EP:valid",
@@ -4706,7 +5312,28 @@
           "nullable": true,
           "x-binding": "end_date",
           "x-source": "leave/models.py:1390; employee create normalizes missing/null end date to start"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded",
+          "ISO_date",
+          "datetime_string",
+          "invalid_calendar",
+          "leap_day",
+          "parser_date_edges_0001_9999",
+          "falsy_end_date_normalization"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "leave_update:body:end_date:EP:valid",
@@ -4769,7 +5396,22 @@
           ],
           "default": "full_day",
           "x-source": "leave/models.py BREAKDOWN and LeaveRequest start/end_date_breakdown"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "leave_update:body:start_date_breakdown:EP:valid",
@@ -4832,7 +5474,22 @@
           ],
           "default": "full_day",
           "x-source": "leave/models.py BREAKDOWN and LeaveRequest start/end_date_breakdown"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "leave_update:body:end_date_breakdown:EP:valid",
@@ -4892,7 +5549,22 @@
           "example": "Synthetic Area 2 allocation",
           "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
           "x-trim-whitespace": true
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "leave_update:body:description:EP:valid",
@@ -4953,7 +5625,28 @@
           "x-filename-maxLength": 100,
           "x-allow-empty-file": false,
           "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded",
+          "real_multipart_file",
+          "JSON_null_vs_omission",
+          "text_descriptor_not_upload",
+          "empty_bytes",
+          "unicode_and_long_filename",
+          "extensionless_and_extension_variants"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "leave_update:body:attachment:EP:valid",
@@ -5013,7 +5706,11 @@
           "x-clamp-maximum": 100,
           "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
           "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_allocation_list:query:page_size:EP:valid",
@@ -5080,7 +5777,25 @@
           },
           "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
           "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "number",
+          "numeric_string",
+          "whitespace_numeric_string",
+          "fractional",
+          "negative",
+          "zero",
+          "boolean",
+          "nonfinite",
+          "huge_exponent",
+          "real_reference_or_missing_if_FK"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_allocation_create:body:leave_type_id:EP:valid",
@@ -5134,7 +5849,25 @@
           "example": 5,
           "x-source": "horilla_api/api_serializers/leave/serializers.py LeaveAllocationRequestCreateSerializer.requested_days required FloatField, no min/max",
           "x-wire-coercion": "Finite numeric strings accepted by DRF FloatField; nonnumeric representative rejects"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "number",
+          "numeric_string",
+          "whitespace_numeric_string",
+          "fractional",
+          "negative",
+          "zero",
+          "boolean",
+          "nonfinite",
+          "huge_exponent",
+          "real_reference_or_missing_if_FK"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_allocation_create:body:requested_days:EP:valid",
@@ -5191,7 +5924,22 @@
           "example": "Synthetic Area 2 allocation",
           "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
           "x-trim-whitespace": true
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_allocation_create:body:description:EP:valid",
@@ -5251,7 +5999,28 @@
           "x-filename-maxLength": 100,
           "x-allow-empty-file": false,
           "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded",
+          "real_multipart_file",
+          "JSON_null_vs_omission",
+          "text_descriptor_not_upload",
+          "empty_bytes",
+          "unicode_and_long_filename",
+          "extensionless_and_extension_variants"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_allocation_create:body:attachment:EP:valid",
@@ -5311,7 +6080,11 @@
             "missing-binding": "missing_id"
           },
           "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_allocation_delete:path:pk:EP:valid",
@@ -5367,7 +6140,11 @@
             "missing-binding": "missing_id"
           },
           "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_allocation_update:path:pk:EP:valid",
@@ -5424,7 +6201,25 @@
           },
           "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
           "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "number",
+          "numeric_string",
+          "whitespace_numeric_string",
+          "fractional",
+          "negative",
+          "zero",
+          "boolean",
+          "nonfinite",
+          "huge_exponent",
+          "real_reference_or_missing_if_FK"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_allocation_update:body:leave_type_id:EP:valid",
@@ -5479,7 +6274,25 @@
           "x-source": "horilla_api/api_serializers/leave/serializers.py LeaveAllocationRequestCreateSerializer.requested_days required FloatField, no min/max",
           "x-wire-coercion": "Finite numeric strings accepted by DRF FloatField; nonnumeric representative rejects",
           "nullable": true
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "number",
+          "numeric_string",
+          "whitespace_numeric_string",
+          "fractional",
+          "negative",
+          "zero",
+          "boolean",
+          "nonfinite",
+          "huge_exponent",
+          "real_reference_or_missing_if_FK"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_allocation_update:body:requested_days:EP:valid",
@@ -5536,7 +6349,22 @@
           "example": "Synthetic Area 2 allocation",
           "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
           "x-trim-whitespace": true
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_allocation_update:body:description:EP:valid",
@@ -5596,7 +6424,28 @@
           "x-filename-maxLength": 100,
           "x-allow-empty-file": false,
           "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded",
+          "real_multipart_file",
+          "JSON_null_vs_omission",
+          "text_descriptor_not_upload",
+          "empty_bytes",
+          "unicode_and_long_filename",
+          "extensionless_and_extension_variants"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_allocation_update:body:attachment:EP:valid",
@@ -5653,7 +6502,22 @@
           "type": "boolean",
           "example": true,
           "x-source": "Runtime LeaveAllocationRequestSerilaizer.is_active: writable BooleanField, optional, non-null"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "true",
+          "false",
+          "zero",
+          "one",
+          "boolean_string_tokens",
+          "blank_string",
+          "unrecognized_string"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_allocation_update:body:is_active:EP:valid",
@@ -5706,7 +6570,11 @@
           "x-clamp-maximum": 100,
           "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
           "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_leave_list:query:page_size:EP:valid",
@@ -5774,7 +6642,25 @@
           },
           "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
           "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "number",
+          "numeric_string",
+          "whitespace_numeric_string",
+          "fractional",
+          "negative",
+          "zero",
+          "boolean",
+          "nonfinite",
+          "huge_exponent",
+          "real_reference_or_missing_if_FK"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_leave_create:body:leave_type_id:EP:valid",
@@ -5829,7 +6715,28 @@
           "format": "date",
           "x-binding": "start_date",
           "x-source": "leave/models.py:1383"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded",
+          "ISO_date",
+          "datetime_string",
+          "invalid_calendar",
+          "leap_day",
+          "parser_date_edges_0001_9999",
+          "falsy_end_date_normalization"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_leave_create:body:start_date:EP:valid",
@@ -5883,7 +6790,28 @@
           "nullable": true,
           "x-binding": "end_date",
           "x-source": "leave/models.py:1390; employee create normalizes missing/null end date to start"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded",
+          "ISO_date",
+          "datetime_string",
+          "invalid_calendar",
+          "leap_day",
+          "parser_date_edges_0001_9999",
+          "falsy_end_date_normalization"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_leave_create:body:end_date:EP:valid",
@@ -5946,7 +6874,22 @@
           ],
           "default": "full_day",
           "x-source": "leave/models.py BREAKDOWN and LeaveRequest start/end_date_breakdown"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_leave_create:body:start_date_breakdown:EP:valid",
@@ -6009,7 +6952,22 @@
           ],
           "default": "full_day",
           "x-source": "leave/models.py BREAKDOWN and LeaveRequest start/end_date_breakdown"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_leave_create:body:end_date_breakdown:EP:valid",
@@ -6069,7 +7027,22 @@
           "example": "Synthetic Area 2 allocation",
           "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
           "x-trim-whitespace": true
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_leave_create:body:description:EP:valid",
@@ -6130,7 +7103,28 @@
           "x-filename-maxLength": 100,
           "x-allow-empty-file": false,
           "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded",
+          "real_multipart_file",
+          "JSON_null_vs_omission",
+          "text_descriptor_not_upload",
+          "empty_bytes",
+          "unicode_and_long_filename",
+          "extensionless_and_extension_variants"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_leave_create:body:attachment:EP:valid",
@@ -6191,7 +7185,11 @@
             "missing-binding": "missing_id"
           },
           "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_leave_delete:path:pk:EP:valid",
@@ -6248,7 +7246,11 @@
             "missing-binding": "missing_id"
           },
           "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_leave_detail:path:pk:EP:valid",
@@ -6305,7 +7307,11 @@
             "missing-binding": "missing_id"
           },
           "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
-        }
+        },
+        "wire_partition_plan": [
+          "schema classes plus routing/query encoding and independently bound role/model/state"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_leave_update:path:pk:EP:valid",
@@ -6363,7 +7369,25 @@
           },
           "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
           "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "number",
+          "numeric_string",
+          "whitespace_numeric_string",
+          "fractional",
+          "negative",
+          "zero",
+          "boolean",
+          "nonfinite",
+          "huge_exponent",
+          "real_reference_or_missing_if_FK"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_leave_update:body:leave_type_id:EP:valid",
@@ -6418,7 +7442,28 @@
           "format": "date",
           "x-binding": "start_date",
           "x-source": "leave/models.py:1383"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded",
+          "ISO_date",
+          "datetime_string",
+          "invalid_calendar",
+          "leap_day",
+          "parser_date_edges_0001_9999",
+          "falsy_end_date_normalization"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_leave_update:body:start_date:EP:valid",
@@ -6472,7 +7517,28 @@
           "nullable": true,
           "x-binding": "end_date",
           "x-source": "leave/models.py:1390; employee create normalizes missing/null end date to start"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded",
+          "ISO_date",
+          "datetime_string",
+          "invalid_calendar",
+          "leap_day",
+          "parser_date_edges_0001_9999",
+          "falsy_end_date_normalization"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_leave_update:body:end_date:EP:valid",
@@ -6535,7 +7601,22 @@
           ],
           "default": "full_day",
           "x-source": "leave/models.py BREAKDOWN and LeaveRequest start/end_date_breakdown"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_leave_update:body:start_date_breakdown:EP:valid",
@@ -6598,7 +7679,22 @@
           ],
           "default": "full_day",
           "x-source": "leave/models.py BREAKDOWN and LeaveRequest start/end_date_breakdown"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_leave_update:body:end_date_breakdown:EP:valid",
@@ -6658,7 +7754,22 @@
           "example": "Synthetic Area 2 allocation",
           "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
           "x-trim-whitespace": true
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_leave_update:body:description:EP:valid",
@@ -6719,7 +7830,28 @@
           "x-filename-maxLength": 100,
           "x-allow-empty-file": false,
           "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
-        }
+        },
+        "wire_partition_plan": [
+          "omitted",
+          "null",
+          "object",
+          "array",
+          "scalar_type_mismatch",
+          "empty",
+          "whitespace",
+          "trimmed",
+          "unicode",
+          "numeric_coercion",
+          "boolean_not_string",
+          "source_length_below_at_above_if_bounded",
+          "real_multipart_file",
+          "JSON_null_vs_omission",
+          "text_descriptor_not_upload",
+          "empty_bytes",
+          "unicode_and_long_filename",
+          "extensionless_and_extension_variants"
+        ],
+        "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"
       },
       "generated_ids": [
         "self_leave_update:body:attachment:EP:valid",

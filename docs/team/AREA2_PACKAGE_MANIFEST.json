@@ -4,11 +4,11 @@
   "roll": "24I-3000",
   "section": "SE-5B",
   "upstream_baseline": "6c15617b8297b7a6775daa6c29aefcc48b1eb29f",
-  "runtime_source_checkpoint": "7189656a7b118565f42004770ff9a9f8bbcd3a09",
-  "inventory_tree_sha": "61201ed55834e75cffb1f40b55172dee686346a9",
+  "runtime_source_checkpoint": "0ce4478b2d21a4f5be04d00b75e0cb34566feb76",
+  "inventory_tree_sha": "521c9a398e4872e74f963248a83e3aa2feef0fe0",
   "inventory_origin": "Authoritative non-truncated GitHub Git tree; byte sizes and Git blob identities describe published bytes, not the laptop's stale HEAD or CRLF working copies.",
   "hash_algorithm": "Git SHA-1 blob identity (includes Git blob header); separate from canonical JSON SHA-256 fingerprints",
-  "file_count": 147,
+  "file_count": 184,
   "files": [
     {
       "path": ".github/scripts/install-requirements.sh",
@@ -19,6 +19,16 @@
       "path": ".github/workflows/area2-verification.yml",
       "bytes": 5083,
       "git_blob_sha": "269d532da2129f797bc575fa4e3db990f03d9ae1"
+    },
+    {
+      "path": ".github/workflows/finish01-contract.yml",
+      "bytes": 2748,
+      "git_blob_sha": "da8848bc14122ff21b8f3067ee8b0ebcce884ddf"
+    },
+    {
+      "path": ".github/workflows/finish01-reconcile.yml",
+      "bytes": 1723,
+      "git_blob_sha": "0acf390c590243c1e752135b213282329f987b1a"
     },
     {
       "path": ".github/workflows/phase-d-verification.yml",
@@ -32,13 +42,13 @@
     },
     {
       "path": "docs/team/AI_USE_RECORD.md",
-      "bytes": 6445,
-      "git_blob_sha": "ddc3cda39c3e4617bdb2a1205e42e64d0631d0b7"
+      "bytes": 7873,
+      "git_blob_sha": "5582ad31a1036f94eecf47ba246521ea2b172c92"
     },
     {
       "path": "docs/team/API_COVERAGE_MATRIX.md",
-      "bytes": 15233,
-      "git_blob_sha": "a1d1cba488619ff4277b0fb74f9b0190b03e3088"
+      "bytes": 16658,
+      "git_blob_sha": "c1beb78657f163692136ccb320efec2812e13bff"
     },
     {
       "path": "docs/team/AREA2_CI_HANDOFF.md",
@@ -47,8 +57,8 @@
     },
     {
       "path": "docs/team/AREA2_EVIDENCE_INDEX.md",
-      "bytes": 8242,
-      "git_blob_sha": "870827fb860f8fbdcfc1a3c5fbb31e0da61efd70"
+      "bytes": 10460,
+      "git_blob_sha": "c1a87d5e1e2a80bd09441dd6de8fbcdd3c90386f"
     },
     {
       "path": "docs/team/AREA2_MANAGEMENT.md",
@@ -57,8 +67,8 @@
     },
     {
       "path": "docs/team/AREA2_TEST_BASIS.md",
-      "bytes": 11001,
-      "git_blob_sha": "a65a8b1d163c528315ae40587e8c65e78454b12b"
+      "bytes": 12426,
+      "git_blob_sha": "b9cd092f7affc7fb4eec4600ed667bb897705a42"
     },
     {
       "path": "docs/team/AREA2_VIVA_REHEARSAL.md",
@@ -66,59 +76,74 @@
       "git_blob_sha": "17b121665132636e928beaebba55226469176b0a"
     },
     {
-      "path": "docs/team/RAYYAN_USE_CASES.md",
-      "bytes": 5316,
-      "git_blob_sha": "7c9bce33913dcb1db70a77fefa8e6a71a07f4aa5"
-    },
-    {
-      "path": "docs/team/SCOPE.md",
-      "bytes": 8058,
-      "git_blob_sha": "7a7efb250e99553b3bbd348d8b0972fa1defa9bf"
-    },
-    {
-      "path": "docs/team/SETUP.md",
-      "bytes": 5002,
-      "git_blob_sha": "e08914571edc976c1c30dded8c93750ad567c9ad"
-    },
-    {
-      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_A.md",
-      "bytes": 14805,
-      "git_blob_sha": "67d5b17874e077985eac826b9e411219fe09b25e"
-    },
-    {
-      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_B.md",
-      "bytes": 12618,
-      "git_blob_sha": "dec9410de0fb8a87e0e96b7248455e9e20ed87c5"
-    },
-    {
-      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_C.md",
-      "bytes": 15786,
-      "git_blob_sha": "5988aaf3852fa3bbed2bfa2847066a6b954b842b"
-    },
-    {
-      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_D.md",
-      "bytes": 16447,
-      "git_blob_sha": "7bfa7957cb8279087d40b61088f34bf4a9aec5a5"
-    },
-    {
-      "path": "docs/team/SQE_PHASE_1_PERSONAL_AUDIT.md",
-      "bytes": 53708,
-      "git_blob_sha": "e0860ad7753c443003232884c261c287b51d1b1b"
-    },
-    {
-      "path": "docs/team/SQE_PHASE_2_IMPLEMENTATION_ROADMAP.md",
-      "bytes": 36122,
-      "git_blob_sha": "071c955d4365d9137b891e7f7f48f64ed26e7f15"
-    },
-    {
-      "path": "docs/team/TEAM.md",
-      "bytes": 1589,
-      "git_blob_sha": "5f850db3258ed02c20a6227866c0a26889297c18"
-    },
-    {
       "path": "docs/team/env.example",
       "bytes": 496,
       "git_blob_sha": "4f1b3c5bf191fbdf2d9a4300b25cd9295f5ad778"
+    },
+    {
+      "path": "docs/team/evidence/.gitkeep",
+      "bytes": 0,
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/ci-45410463931-fresh-a.log",
+      "bytes": 212892,
+      "git_blob_sha": "c626b721a014b2338f63f514e0021b575c07645d"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/ci-45410463931-fresh-b.log",
+      "bytes": 212935,
+      "git_blob_sha": "304cc3a24a4bc1f0e1585a8fb9fd528ebbba19b7"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/ci-45412578317-candidate-failed.log",
+      "bytes": 23987,
+      "git_blob_sha": "e7c8a426f9373ca793cd2d5c52b0b884f20fd1bb"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/ci-45414664482-browser-passed.log",
+      "bytes": 184221,
+      "git_blob_sha": "dda676d802a4aa67ff0b831de46186e16a6c5be3"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/ci-45414664482-regeneration-passed.log",
+      "bytes": 141872,
+      "git_blob_sha": "a536b567d20423e9e06435e13f9dd158670f7801"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/ci-45414665978-fresh-a-smoke-failed.log",
+      "bytes": 270632,
+      "git_blob_sha": "2f5bcd35078305bdca2962aa3a2cce7174ff326c"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/ci-45414665978-fresh-b-smoke-failed.log",
+      "bytes": 270002,
+      "git_blob_sha": "b5b62e5d2d51eeb3e6ebbef4256e2d0be2f62989"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/ci-45416612883-inventory-failed.log",
+      "bytes": 36086,
+      "git_blob_sha": "2ad29a1018eabf18bb2c1555ff4171ff69530379"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/ci-45416915820-fresh-a-passed.log",
+      "bytes": 264328,
+      "git_blob_sha": "b6dcc0c13321d6ca595ec92507d4881143f00588"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/ci-45416915820-fresh-b-passed.log",
+      "bytes": 264210,
+      "git_blob_sha": "f4515ce01b85700b2ad293a969479a861b54e7a8"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/runtime-contract-45410463931-fresh-b.json",
+      "bytes": 190042,
+      "git_blob_sha": "89c31b5ee18b860e6bca4342254a908cf5082ed4"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/runtime-contract-current.json",
+      "bytes": 236108,
+      "git_blob_sha": "e7125f92e10cf66d34d5c48f9f310ba28289cd78"
     },
     {
       "path": "docs/team/evidence/area2/phase-b/checkpoint-manifest.json",
@@ -371,11 +396,6 @@
       "git_blob_sha": "834e03a419a05bf694e8076bb6d5ae2e2237e686"
     },
     {
-      "path": "docs/team/evidence/area2/phase-d/REGENERATION_DEMONSTRATION.md",
-      "bytes": 4466,
-      "git_blob_sha": "1218a74e39b1d70ef2b758efa8f78d491e3539f5"
-    },
-    {
       "path": "docs/team/evidence/area2/phase-d/browser-verified-summary.json",
       "bytes": 1487,
       "git_blob_sha": "8d0ed11dcfad63fa89bcd2a5502252f1d22b1aa3"
@@ -451,6 +471,11 @@
       "git_blob_sha": "1571eba20b574352bbe025252de8fc06b7decc9c"
     },
     {
+      "path": "docs/team/evidence/area2/phase-d/REGENERATION_DEMONSTRATION.md",
+      "bytes": 4466,
+      "git_blob_sha": "1218a74e39b1d70ef2b758efa8f78d491e3539f5"
+    },
+    {
       "path": "docs/team/evidence/area2/phase-d/regeneration-32621b42-summary.json",
       "bytes": 2976,
       "git_blob_sha": "7b36c9ecf53fb4b1a91fe153a73faacf69c4253a"
@@ -466,9 +491,34 @@
       "git_blob_sha": "f3d7b35929438950be756a15b1920e319f679384"
     },
     {
+      "path": "docs/team/finish-line/CONTRACT_LINEAGE.json",
+      "bytes": 49110,
+      "git_blob_sha": "fd412ccb6594ba365aa839649f11371df9e473d2"
+    },
+    {
+      "path": "docs/team/finish-line/CONTRACT_RECONCILIATION.md",
+      "bytes": 11779,
+      "git_blob_sha": "6a1e43661abc6728c9b349cc7bed61fdeddd5b8b"
+    },
+    {
+      "path": "docs/team/finish-line/GENERATED_CASE_AUDIT.json",
+      "bytes": 2021290,
+      "git_blob_sha": "17bbd2e02cf55628873a6bfc8d892caaf7080a3e"
+    },
+    {
+      "path": "docs/team/finish-line/OPERATION_INPUT_INVENTORY.json",
+      "bytes": 818828,
+      "git_blob_sha": "32713fd9c966dcd0b15028f3051262b1207a23ac"
+    },
+    {
       "path": "docs/team/finish-line/PROMPT_01_CONTRACT_AND_SCOPE.md",
       "bytes": 7368,
       "git_blob_sha": "27eeb2fd4d4b1d327e2c2c0758cb18a3947e8fdd"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT_01_VERIFICATION.json",
+      "bytes": 3727,
+      "git_blob_sha": "3040a73e69570473ddebc00eba36d5b245fceb4c"
     },
     {
       "path": "docs/team/finish-line/PROMPT_02_GENERATED_COVERAGE.md",
@@ -491,6 +541,21 @@
       "git_blob_sha": "439834e9ddafea845d5eee3e96bc2f9e6b048445"
     },
     {
+      "path": "docs/team/finish-line/REMAINING_WORK.json",
+      "bytes": 640544,
+      "git_blob_sha": "e9613ce66d6293517ecc061d14107c3bab7a070c"
+    },
+    {
+      "path": "docs/team/RAYYAN_USE_CASES.md",
+      "bytes": 5316,
+      "git_blob_sha": "7c9bce33913dcb1db70a77fefa8e6a71a07f4aa5"
+    },
+    {
+      "path": "docs/team/reports/.gitkeep",
+      "bytes": 0,
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
       "path": "docs/team/reports/AREA2_COMPLETION_REPORT.md",
       "bytes": 9605,
       "git_blob_sha": "b92e5fdd04b80abc6cdc5b44d170791be97cfae1"
@@ -507,13 +572,18 @@
     },
     {
       "path": "docs/team/reports/PHASES_A_D_REMAINING_CHECKLIST.md",
-      "bytes": 7612,
-      "git_blob_sha": "46b5cee921848b3387488d8677e7d6f34c09a072"
+      "bytes": 9368,
+      "git_blob_sha": "3c34b09248b6e6c7c22d2a02ec4cdbebfb9a06db"
+    },
+    {
+      "path": "docs/team/reports/RAYYAN_FINISH_01_STATUS.md",
+      "bytes": 12038,
+      "git_blob_sha": "ea2a21eb4ba1226ecfea26fcf19e14edda78c7b9"
     },
     {
       "path": "docs/team/reports/SQE_IMPLEMENTATION_PHASE_A_STATUS.md",
-      "bytes": 2306,
-      "git_blob_sha": "8a6aa2b7953ca793cfbfb9294e45d0b7f2f94dc4"
+      "bytes": 3247,
+      "git_blob_sha": "76c0218bf972fcc92ab541749dc6293572f363cf"
     },
     {
       "path": "docs/team/reports/SQE_IMPLEMENTATION_PHASE_B_STATUS.md",
@@ -531,14 +601,54 @@
       "git_blob_sha": "01fe6159c42ee82b749dd8507991722f77a3cab0"
     },
     {
-      "path": "handoff.md",
-      "bytes": 26613,
-      "git_blob_sha": "663830abc68ba967d93141cae7fc06444dea706b"
+      "path": "docs/team/SCOPE.md",
+      "bytes": 9710,
+      "git_blob_sha": "fa608fa4a5576a69455f2e17a9e23c4f1f40987f"
     },
     {
-      "path": "horilla/models.py",
-      "bytes": 9892,
-      "git_blob_sha": "e77339b19b07773ddc0d18d5bdd58a66ddd6eff1"
+      "path": "docs/team/SETUP.md",
+      "bytes": 5002,
+      "git_blob_sha": "e08914571edc976c1c30dded8c93750ad567c9ad"
+    },
+    {
+      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_A.md",
+      "bytes": 14805,
+      "git_blob_sha": "67d5b17874e077985eac826b9e411219fe09b25e"
+    },
+    {
+      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_B.md",
+      "bytes": 12618,
+      "git_blob_sha": "dec9410de0fb8a87e0e96b7248455e9e20ed87c5"
+    },
+    {
+      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_C.md",
+      "bytes": 15786,
+      "git_blob_sha": "5988aaf3852fa3bbed2bfa2847066a6b954b842b"
+    },
+    {
+      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_D.md",
+      "bytes": 16447,
+      "git_blob_sha": "7bfa7957cb8279087d40b61088f34bf4a9aec5a5"
+    },
+    {
+      "path": "docs/team/SQE_PHASE_1_PERSONAL_AUDIT.md",
+      "bytes": 53708,
+      "git_blob_sha": "e0860ad7753c443003232884c261c287b51d1b1b"
+    },
+    {
+      "path": "docs/team/SQE_PHASE_2_IMPLEMENTATION_ROADMAP.md",
+      "bytes": 36122,
+      "git_blob_sha": "071c955d4365d9137b891e7f7f48f64ed26e7f15"
+    },
+    {
+      "path": "docs/team/TEAM.md",
+      "bytes": 1589,
+      "git_blob_sha": "5f850db3258ed02c20a6227866c0a26889297c18"
+    },
+    {
+      "path": "handoff.md",
+      "bytes": 28622,
+      "git_blob_sha": "2ee8b821a10ed8a0cca27cf61a04682b484ffa8a"
     },
     {
       "path": "horilla_api/api_serializers/leave/serializers.py",
@@ -549,6 +659,11 @@
       "path": "horilla_api/api_views/leave/views.py",
       "bytes": 54303,
       "git_blob_sha": "630a088ec4158324a1e56790eca676e6911ae7b9"
+    },
+    {
+      "path": "horilla/models.py",
+      "bytes": 9892,
+      "git_blob_sha": "e77339b19b07773ddc0d18d5bdd58a66ddd6eff1"
     },
     {
       "path": "leave/forms.py",
@@ -571,9 +686,14 @@
       "git_blob_sha": "bf5c5e01d4847459066382a457df1f18f4ca1b8a"
     },
     {
-      "path": "tests/team/README.md",
-      "bytes": 11692,
-      "git_blob_sha": "c231dde7a7c21bd8a8ef4b0f74cd0337c81cb764"
+      "path": "scripts/team/smoke_api.py",
+      "bytes": 912,
+      "git_blob_sha": "2c2e45cded6936eebc015774110e9efdbbdbabff"
+    },
+    {
+      "path": "tests/team/api/.gitkeep",
+      "bytes": 0,
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
     },
     {
       "path": "tests/team/api/case_catalog.py",
@@ -582,8 +702,8 @@
     },
     {
       "path": "tests/team/api/case_ledger.json",
-      "bytes": 84695,
-      "git_blob_sha": "1b29bbde8a4fcccd618eb83dd1b001914797707b"
+      "bytes": 92599,
+      "git_blob_sha": "167953a82f9b9565e30ff9f9405f4adc6ab5adb2"
     },
     {
       "path": "tests/team/api/conftest.py",
@@ -602,8 +722,8 @@
     },
     {
       "path": "tests/team/api/test_generated_inputs.py",
-      "bytes": 4652,
-      "git_blob_sha": "3a285a12d44b05a0256cd0a00d35ae9f17c4eadf"
+      "bytes": 5967,
+      "git_blob_sha": "401c64157b2fdedaef88a84559eaab6c486d5e6a"
     },
     {
       "path": "tests/team/api/test_generated_slice.py",
@@ -646,6 +766,41 @@
       "git_blob_sha": "7d1746f3d93c06ad89cc039b488520fa879dd2cd"
     },
     {
+      "path": "tests/team/contract/conftest.py",
+      "bytes": 481,
+      "git_blob_sha": "510d6e158f1cb5b9fe0265085f5346fa7d10f499"
+    },
+    {
+      "path": "tests/team/contract/contract_urls.py",
+      "bytes": 645,
+      "git_blob_sha": "e9d9b0da2bae9c77b468b998afd8ef350e5940f7"
+    },
+    {
+      "path": "tests/team/contract/inventory.py",
+      "bytes": 28744,
+      "git_blob_sha": "e82693b826a785be9c4b36ae9cbe8c3c09d79c7d"
+    },
+    {
+      "path": "tests/team/contract/prepare_contract.py",
+      "bytes": 13580,
+      "git_blob_sha": "1dbf3d8efb1989a27a25bafab3baabfdaa16081b"
+    },
+    {
+      "path": "tests/team/contract/test_foundation.py",
+      "bytes": 12300,
+      "git_blob_sha": "33d1d0f733a4c0089730a6fafac410227e690ac5"
+    },
+    {
+      "path": "tests/team/contract/test_media_reader.py",
+      "bytes": 2080,
+      "git_blob_sha": "d3464b35fc27390b305d88a5af05548ed18e56f6"
+    },
+    {
+      "path": "tests/team/e2e/.gitkeep",
+      "bytes": 0,
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
       "path": "tests/team/e2e/conftest.py",
       "bytes": 2281,
       "git_blob_sha": "8868f8763c1c2e5fb4765cb11cc9e07343af10e7"
@@ -656,9 +811,14 @@
       "git_blob_sha": "f9554d23fa7504808282999bf40c52da938977ec"
     },
     {
+      "path": "tests/team/generator/.gitkeep",
+      "bytes": 0,
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
       "path": "tests/team/generator/bindings.json",
-      "bytes": 186,
-      "git_blob_sha": "52cc7e689dac6539f3e8306e2af6c8e857b48ce1"
+      "bytes": 215,
+      "git_blob_sha": "37ba8e53387852656108ff78e3f3023df0a0fca2"
     },
     {
       "path": "tests/team/generator/demonstrate_regeneration.py",
@@ -667,18 +827,18 @@
     },
     {
       "path": "tests/team/generator/generate.py",
-      "bytes": 26699,
-      "git_blob_sha": "fff50cf48afa9da8e1b8eb314952e1d92df83083"
+      "bytes": 27705,
+      "git_blob_sha": "14cdff4f619ccbc146ad8256793018a4603a8ab9"
     },
     {
       "path": "tests/team/generator/generated_cases.json",
-      "bytes": 1162492,
-      "git_blob_sha": "b880584bef972546313d1e9d429802f4a17305ec"
+      "bytes": 1392206,
+      "git_blob_sha": "1814baac09bf6e25fad9033de8e6a11cdb150aec"
     },
     {
       "path": "tests/team/generator/openapi.json",
-      "bytes": 47451,
-      "git_blob_sha": "53624f1a59f2ab3dcc67c1c110c6663176bbe151"
+      "bytes": 67141,
+      "git_blob_sha": "2b4daeeea003c538c2b843d6129fbea05f77a255"
     },
     {
       "path": "tests/team/generator/test_browser_report.py",
@@ -693,7 +853,7 @@
     {
       "path": "tests/team/generator/test_generate.py",
       "bytes": 16992,
-      "git_blob_sha": "d6226197f7736f7fa406552dd2b777e52828581f"
+      "git_blob_sha": "0df570a39a71e93381ae6ae74f718e98ff1ec403"
     },
     {
       "path": "tests/team/generator/test_regeneration.py",
@@ -706,9 +866,24 @@
       "git_blob_sha": "f28a98e80dca05c9d2aaea109966268bd8ef0266"
     },
     {
+      "path": "tests/team/perf/.gitkeep",
+      "bytes": 0,
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
       "path": "tests/team/pytest-area2.ini",
       "bytes": 104,
       "git_blob_sha": "3be001fd5cae1467eab5464cd3ab63272a07f009"
+    },
+    {
+      "path": "tests/team/README.md",
+      "bytes": 11692,
+      "git_blob_sha": "c231dde7a7c21bd8a8ef4b0f74cd0337c81cb764"
+    },
+    {
+      "path": "tests/team/recovery/.gitkeep",
+      "bytes": 0,
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
     },
     {
       "path": "tests/team/regeneration/conftest.py",
@@ -741,12 +916,22 @@
       "git_blob_sha": "aa5c07f7de6d4acd974c685bd70335fec650db30"
     },
     {
+      "path": "tests/team/security/.gitkeep",
+      "bytes": 0,
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
       "path": "tests/team/storage/test_upload_path.py",
       "bytes": 1121,
       "git_blob_sha": "bd3217b335803437f79a461af280c30ae9d5470b"
+    },
+    {
+      "path": "tests/team/unit/.gitkeep",
+      "bytes": 0,
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
     }
   ],
-  "verification_command": "git ls-tree -r --long 61201ed55834e75cffb1f40b55172dee686346a9",
+  "verification_command": "git ls-tree -r --long 521c9a398e4872e74f963248a83e3aa2feef0fe0",
   "tested_populations": {
     "personal_browser": {
       "source": "7189656a7b118565f42004770ff9a9f8bbcd3a09",
@@ -779,6 +964,121 @@
       },
       "complete_scope_exit": 3,
       "accepted": false
+    },
+    "prompt_01_foundation_and_smoke": {
+      "label": "Derived Prompt 1 verification summary; actual logs/XML/schema artifacts are linked, not reconstructed",
+      "canonical_spec_sha256": "a9685a28c60f2b4484cff36fe0e0d11e723a222fa92fc20483d069d70fe20ae7",
+      "canonical_data_sha256": "1520883464d23872d139d0817a926ef49d345651579c072da1c1e3b3e947e0a4",
+      "source_sha": "0ce4478b2d21a4f5be04d00b75e0cb34566feb76",
+      "tested_merge_sha": "93d40f46fddd669b9ae000b35b89c24caa132708",
+      "run_id": 45416915820,
+      "foundation_initializations": [
+        {
+          "name": "fresh-a",
+          "job_id": 138525522511,
+          "passed": 1,
+          "seconds": 258,
+          "database": "/tmp/sqe-area2-6rmmr5pp/test.sqlite3",
+          "artifact_id": 14933137449,
+          "raw_log": "docs/team/evidence/area2/finish-01/ci-45416915820-fresh-a-passed.log"
+        },
+        {
+          "name": "fresh-b",
+          "job_id": 138525523026,
+          "passed": 1,
+          "seconds": 274.47,
+          "database": "/tmp/sqe-area2-5i8gwubp/test.sqlite3",
+          "artifact_id": 14932868040,
+          "raw_log": "docs/team/evidence/area2/finish-01/ci-45416915820-fresh-b-passed.log"
+        }
+      ],
+      "smoke_retest": {
+        "all_selected_passed": true,
+        "unique_cases": 5,
+        "each_job_passed": 5,
+        "failures": 0,
+        "errors": 0,
+        "required_skips": 0,
+        "seconds": {
+          "fresh_a": 269.17,
+          "fresh_b": 255.78
+        },
+        "binding": "Actual normal-role JSON PUT; optional upload omitted, real fixture record IDs. Persisted identities, inactive and normal HTTP readback and unchanged balances checked. Runtime bound artifact/request hashes differ from the checked-in canonical parent and are retained per case in actual evidence."
+      },
+      "verified_generated_ids": [
+        "self_allocation_update:body:is_active:EP:valid",
+        "self_allocation_update:body:is_active:EP:missing",
+        "self_allocation_update:body:is_active:EP:null",
+        "self_allocation_update:body:is_active:EP:wrong-type",
+        "self_allocation_update:body:is_active:EP:false"
+      ],
+      "integrity": {
+        "run_id": 45416915816,
+        "job_id": 138525521452,
+        "source_sha": "0ce4478b2d21a4f5be04d00b75e0cb34566feb76",
+        "tested_merge_sha": "93d40f46fddd669b9ae000b35b89c24caa132708",
+        "artifact_id": 14932238527,
+        "existing_checks_passed": 49,
+        "new_reader_checks_passed": 4,
+        "formal_schema": "passed",
+        "freshness": "passed",
+        "inventory_validation": "passed"
+      },
+      "browser_regeneration": {
+        "source_sha": "eb203f7e685379d937460cb7bd7300946de1ad65",
+        "run_id": 45414664482,
+        "tested_merge_sha": "15d38109ac219c79909157f63c21f14fa2486ec9",
+        "browser": {
+          "passed": 10,
+          "job_id": 138517529182,
+          "artifact_id": 14932497628
+        },
+        "regeneration": {
+          "job_id": 138517528721,
+          "baseline_passed": 6,
+          "variant_passed": 4,
+          "variant_predicted_strict_failures": 2,
+          "errors": 0,
+          "skips": 0,
+          "experiment_demonstrated": true,
+          "artifact_id": 14933045078
+        }
+      },
+      "coverage_complete": false,
+      "acceptance": "Prompt 1 foundation/audit prerequisites verified. Five selected generated JSON contexts verified, not all 713 IDs or all 329 required families.",
+      "remaining_input_family_count": 329,
+      "remaining_assignment": "Codex for Rayyan in Prompts 2–4, genuine shared/owner dependencies separately recorded",
+      "final_inventory_integrity": {
+        "source_sha": "3caa7741d39fef7b1db43a401145ade8a6043e8a",
+        "tested_merge_sha": "651707776fcd71e9eaf323ed3708a36044ce010b",
+        "run_id": 45419333975,
+        "job_id": 138534203584,
+        "artifact_id": 14933018094,
+        "formal_schema": "passed",
+        "existing_checks_passed": 49,
+        "new_reader_checks_passed": 4,
+        "freshness": "passed",
+        "input_and_id_audit": "passed",
+        "verified_generated_ids_selected_context": 5
+      }
+    },
+    "canonical_input_plan": {
+      "canonical_operations": 34,
+      "canonical_generated_inputs": 88,
+      "generated_cases": 713,
+      "referenced_generated_ids": 184,
+      "unconsumed_generated_ids": 529,
+      "old_399_accounted": 399,
+      "retired_old_ids": 0,
+      "required_input_families": 329,
+      "required_families_without_generated_ids": 241,
+      "input_families_by_stage": {
+        "2": 314,
+        "3": 15
+      },
+      "verified_generated_ids_selected_context": 5,
+      "new_contract_executed_all": false,
+      "coverage_complete": false
     }
   },
   "group_archive_requirements": [
@@ -790,10 +1090,17 @@
   "group_pdf_zip_complete": false,
   "local_git_history_is_current": false,
   "overall_release": "HOLD",
-  "note": "Contribution/dependency/evidence inventory, not a complete group submission or exclusive authorship claim. Four finish-line prompts are prepared, not executed. This manifest excludes itself; inventory tree describes the exact published content before manifest replacement. Refresh after subsequent content changes.",
+  "note": "Contribution/dependency/evidence inventory, not an all-area submission or exclusive authorship claim. Prompt 1 is verified; full input consumption/business/final acceptance remain Prompts 2–4. This manifest excludes itself and records exact published bytes in its pre-manifest tree; no synchronized local checkout or final group ZIP is claimed.",
   "finish_line_sequence": {
-    "status": "prepared_not_executed",
-    "prompts": 4,
+    "status": "prompt_01_completed",
+    "completed_prompts": [
+      1
+    ],
+    "remaining_prompts": [
+      2,
+      3,
+      4
+    ],
     "index": "docs/team/finish-line/README.md",
     "last_prompt_requires_final_assignment_closeout": true
   }
