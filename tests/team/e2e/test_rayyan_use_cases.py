@@ -44,11 +44,8 @@ async def select_field(form, name, value):
 async def submit(page, form, route):
     # The leave template provides a visible Save proxy, while allocation uses
     # a normal submit button. Both execute the application's own HTMX handlers.
-    button = form.locator("button:visible").filter(has_text=re.compile(r"^Save$"))
-    if await button.count() == 0:
-        button = form.locator('button[type="submit"]:visible').first
-    else:
-        button = button.first
+    button = form.locator("button:visible").filter(has_text=re.compile(r"^\s*Save\s*$")).first
+    await expect(button).to_be_visible()
     async with page.expect_response(lambda response: route in response.url and response.request.method == "POST") as posted:
         await button.click()
     assert (await posted.value).status == 200
@@ -73,7 +70,8 @@ async def test_rayyan_allocation_request(ray_page, leave_http, flow, record_prop
     record_property("contributor", "Syed Muhammad Rayyan Hassan / 24I-3000")
     await login(page, h)
     form, route = await open_form(page, h, "allocation")
-    await select_field(form, "leave_type_id", h.context["leave_type"].pk)
+    if flow != "E1":
+        await select_field(form, "leave_type_id", h.context["leave_type"].pk)
     # The normal employee form binds its own identity in a hidden control.
     # Assert that binding; do not try to operate an administrator's dropdown.
     await expect(form.locator('[name="employee_id"]')).to_have_value(str(h.context["employee"].pk))
@@ -83,7 +81,9 @@ async def test_rayyan_allocation_request(ray_page, leave_http, flow, record_prop
     if flow == "A1":
         await form.locator('[name="attachment"]').set_input_files({"name": "synthetic.pdf", "mimeType": "application/pdf", "buffer": b"%PDF-1.4 synthetic fixture"})
     if flow == "E1":
-        await select_field(form, "leave_type_id", "")
+        # Leave the original required placeholder selected. It is disabled
+        # after another option is chosen, so clearing it is not a real UI action.
+        await expect(form.locator('select[name="leave_type_id"]')).to_have_value("")
     if flow == "E2":
         await form.locator('[name="requested_days"]').fill("")
     before = h.snapshot()

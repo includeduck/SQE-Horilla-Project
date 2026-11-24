@@ -138,3 +138,24 @@ test now asserts that own-employee binding instead of attempting an admin-style
 dropdown. No hidden value is changed and role restrictions are preserved. The
 first flow failed and the other nine were not executed under maxfail=1; the
 HTML report marks this incomplete. Another genuine retest is being run here.
+
+## C prerequisite retest observed during D
+
+The expanded generated-input/attachment/pagination step completed successfully
+in run 45348178584 on source 8a9ca964, after the source-backed creator-FK oracle
+correction. The subsequent full Area 2 producer is running. This establishes
+that the earlier five attachment helper failures no longer block the expanded
+step; it is not a completed 275-case/reversed pass or complete input coverage.
+Exact run-level counts will be taken from retained JUnit/job logs at completion.
+Wasay does not need to redo that specific test-oracle diagnosis/correction.
+
+## Fourth browser observation: three real flows passed
+
+Run 45351673393 on dca27fa8 verified UC-RAY-01-MAIN, A1 and A2, including visible
+operation confirmation, persisted owner/count/balance and attachment bytes.
+E1 then failed before submission because its test tried to select an already
+disabled placeholder. The exception now leaves the required type unselected
+from the initial form rather than changing disabled controls. This is a real
+normal-user omission flow, not a manufactured DOM state. The remaining six
+flows were not reached under fail-fast. Raw log is retained and another real
+retest continues here. No D browser debugging has been assigned to Wasay.
