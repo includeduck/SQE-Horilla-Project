@@ -1,0 +1,65 @@
+# Phase D implementation status
+
+24 November 2026. Syed Muhammad Rayyan Hassan, 24I-3000, SE-5B.
+
+## Current decision
+
+In progress, **Hold**. The complete attached D prompt (107 lines, 16447 bytes)
+was read. Independent D work proceeds while C's open policy/coverage issues stay
+explicit. No entire-phase completion or new browser/HTTP pass is inferred.
+
+## Prerequisite verification and repair
+
+Protected sqe-team is `2242c502090c81031e20df912b49809a03a1f523`. Continuation PR #8
+head before D work is `3f2fda6bec27fde8165d06375f9e114f2abccb67`; it is draft/open.
+Local HEAD remains the preserved `da76b337` checkout plus uncommitted files.
+
+C run 45342013246 completed: 14 focused regressions passed; eight upstream
+regressions passed; expanded subset 172 passed / five failed / 177 collected.
+All five failures were the new attachment helper's creator-field assertion on
+LeaveRequest. Source establishes an optional Employee FK overriding the base
+HorillaUser FK; the API does not expose/set it. The test now preserves mandatory
+owner/identity/file-byte assertions and checks the actual field model instead
+of requiring a nonexistent user-audit contract. This is a test-oracle correction,
+not a production fix. Original failure log is retained; runtime retest pending.
+
+C's unresolved duplicate and terminal-state oracles remain unchanged. Current
+API inventory is 275 cases / 179 of 578 generated IDs; remaining 399 IDs are
+still explicit. D is not certification that A-C requirements have all passed.
+
+## Implemented D work
+
+- Controlled experiment changes two existing SelfAllocationCreate constraints:
+  description minLength 1 to 3 and filename budget 100 to 80. These are isolated
+  hypothetical spec edits, not invented production limits. Canonical files stay
+  unchanged; stale baseline data against variant spec is actually rejected.
+- The generator produced different, fingerprinted outputs and structured case
+  comparison independently. Baseline expected HTTP results: six passes. Variant
+  expected results: four passes and exactly two real strict assertion failures,
+  because unchanged production accepts length-two description/filename 81.
+- A strict HTTP consumer and runner retain pytest's genuine nonzero variant
+  output; any extra failure/error/skip/missing result fails the experiment.
+- Two individually attributed browser use-case specifications and all ten flows
+  are implemented with actual forms, visible results and HTTP/ORM postconditions.
+- Minimal reusable Python Playwright setup, disposable static-serving settings,
+  and a free Ubuntu workflow run regeneration and browser activities separately.
+  Sonar/mutation thresholds and Wasay's group gate are not replaced.
+
+## Verified independent experiment
+
+Command: `python tests/team/generator/demonstrate_regeneration.py --output
+docs/team/evidence/area2/phase-d/independent-regeneration-20261124`.
+Exit zero; stale-output rejection and unchanged canonical baseline asserted.
+Baseline spec SHA: 45e37bfbcd255fc567d5923b13076637f8777bbc4c48bb239f6c2e3fe398f0db.
+Variant spec SHA: 769fa6b449a3f8f9970a74c182b80e1db0e95ede2a36342b74d287583d61c16a.
+Full local outputs include both specs/data/comparison; CI recreates these in its
+artifact rather than treating a manually rewritten dataset as regeneration.
+
+## Pending verification and completion
+
+Browser selectors, real visible confirmations and all ten postconditions require
+actual runtime checks. Baseline/variant HTTP outcomes are predictions until the
+new job completes. Completion report, evidence index, final progress/risk/GQM,
+viva exercise and package manifest are being assembled by this agent before any
+new handoff. Existing C/group dependencies remain visible; no additional D task
+is automatically assigned to Wasay merely because implementation takes work.

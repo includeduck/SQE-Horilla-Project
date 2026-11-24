@@ -56,7 +56,14 @@ def test_generated_attachment_input(leave_http, case_id):
     model = LeaveAllocationRequest if allocation else LeaveRequest
     stored = model.objects.get(pk=pk)
     assert stored.employee_id_id == h.context["employee"].pk
-    assert stored.created_by_id == h.context["employee_user"].pk
+    if allocation:
+        assert stored.created_by_id == h.context["employee_user"].pk
+    else:
+        # LeaveRequest overrides HorillaModel.created_by with a nullable
+        # Employee FK. The API serializer does not expose/set that optional
+        # audit field; the mandatory owner is employee_id, asserted above.
+        from employee.models import Employee
+        assert model._meta.get_field("created_by").related_model is Employee
     if binary:
         assert detail["attachment"]
         with stored.attachment.open("rb") as source:

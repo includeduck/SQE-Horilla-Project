@@ -1,0 +1,1521 @@
+{
+  "changes": [
+    {
+      "field": "description",
+      "constraint": "minLength",
+      "before": 1,
+      "after": 3,
+      "rationale": "Tighten the existing nonblank minimum in a spec-only experiment; production remains minimum one."
+    },
+    {
+      "field": "attachment",
+      "constraint": "x-filename-maxLength",
+      "before": 100,
+      "after": 80,
+      "rationale": "Tighten the existing runtime-verified filename budget in a spec-only experiment; production remains 100."
+    }
+  ],
+  "baseline_spec_sha256": "45e37bfbcd255fc567d5923b13076637f8777bbc4c48bb239f6c2e3fe398f0db",
+  "variant_spec_sha256": "769fa6b449a3f8f9970a74c182b80e1db0e95ede2a36342b74d287583d61c16a",
+  "baseline_data_sha256": "38d69c57a2e33ede9682bb8b6b165d7c1398b578711983ecf05cd3f8e59e3521",
+  "variant_data_sha256": "fa67b50b61002c9a543fd255d839fb36a2110a52d80a140ca75da1e26ec20cb5",
+  "bindings_sha256": "25b0b2a165dd1c31cf9ad9cdb0b317f1de106560b399cc9098e234a5875be4a0",
+  "stale_output": {
+    "rejected": true,
+    "reason": "Stale or altered generated data: regenerate from current spec/bindings/code"
+  },
+  "affected_case_ids": [
+    "self_allocation_create:body:description:EP:valid",
+    "self_allocation_create:body:description:EP:missing",
+    "self_allocation_create:body:description:EP:null",
+    "self_allocation_create:body:description:EP:wrong-type",
+    "self_allocation_create:body:description:EP:empty",
+    "self_allocation_create:body:description:EP:whitespace",
+    "self_allocation_create:body:description:BVA:minLength-below",
+    "self_allocation_create:body:description:BVA:minLength-at",
+    "self_allocation_create:body:description:BVA:minLength-above",
+    "self_allocation_create:body:attachment:EP:valid",
+    "self_allocation_create:body:attachment:EP:missing",
+    "self_allocation_create:body:attachment:EP:null",
+    "self_allocation_create:body:attachment:EP:wrong-type",
+    "self_allocation_create:body:attachment:EP:empty-file",
+    "self_allocation_create:body:attachment:EP:empty-filename",
+    "self_allocation_create:body:attachment:BVA:x-filename-maxLength-below",
+    "self_allocation_create:body:attachment:BVA:x-filename-maxLength-at",
+    "self_allocation_create:body:attachment:BVA:x-filename-maxLength-above"
+  ],
+  "unchanged_case_ids": [
+    "allocation_approve:path:pk:EP:valid",
+    "allocation_approve:path:pk:EP:missing",
+    "allocation_approve:path:pk:EP:null",
+    "allocation_approve:path:pk:EP:wrong-type",
+    "allocation_approve:path:pk:EP:nonnumeric",
+    "allocation_approve:path:pk:EP:fraction",
+    "allocation_approve:path:pk:EP:missing-record",
+    "allocation_reject:path:pk:EP:valid",
+    "allocation_reject:path:pk:EP:missing",
+    "allocation_reject:path:pk:EP:null",
+    "allocation_reject:path:pk:EP:wrong-type",
+    "allocation_reject:path:pk:EP:nonnumeric",
+    "allocation_reject:path:pk:EP:fraction",
+    "allocation_reject:path:pk:EP:missing-record",
+    "allocation_list:query:page_size:EP:valid",
+    "allocation_list:query:page_size:EP:missing",
+    "allocation_list:query:page_size:EP:null",
+    "allocation_list:query:page_size:EP:wrong-type",
+    "allocation_list:query:page_size:EP:nonnumeric",
+    "allocation_list:query:page_size:EP:fraction",
+    "allocation_list:query:page_size:BVA:minimum-below",
+    "allocation_list:query:page_size:BVA:minimum-at",
+    "allocation_list:query:page_size:BVA:minimum-above",
+    "allocation_list:query:page_size:BVA:x-clamp-maximum-below",
+    "allocation_list:query:page_size:BVA:x-clamp-maximum-at",
+    "allocation_list:query:page_size:BVA:x-clamp-maximum-above",
+    "allocation_create:body:leave_type_id:EP:valid",
+    "allocation_create:body:leave_type_id:EP:missing",
+    "allocation_create:body:leave_type_id:EP:null",
+    "allocation_create:body:leave_type_id:EP:wrong-type",
+    "allocation_create:body:leave_type_id:EP:nonnumeric",
+    "allocation_create:body:leave_type_id:EP:fraction",
+    "allocation_create:body:leave_type_id:EP:missing-record",
+    "allocation_create:body:employee_id:EP:valid",
+    "allocation_create:body:employee_id:EP:missing",
+    "allocation_create:body:employee_id:EP:null",
+    "allocation_create:body:employee_id:EP:wrong-type",
+    "allocation_create:body:employee_id:EP:nonnumeric",
+    "allocation_create:body:employee_id:EP:fraction",
+    "allocation_create:body:employee_id:EP:missing-record",
+    "allocation_create:body:requested_days:EP:valid",
+    "allocation_create:body:requested_days:EP:missing",
+    "allocation_create:body:requested_days:EP:null",
+    "allocation_create:body:requested_days:EP:wrong-type",
+    "allocation_create:body:requested_days:EP:nonnumeric",
+    "allocation_create:body:requested_days:EP:negative",
+    "allocation_create:body:requested_days:EP:zero",
+    "allocation_create:body:requested_days:EP:positive",
+    "allocation_create:body:description:EP:valid",
+    "allocation_create:body:description:EP:missing",
+    "allocation_create:body:description:EP:null",
+    "allocation_create:body:description:EP:wrong-type",
+    "allocation_create:body:description:EP:empty",
+    "allocation_create:body:description:EP:whitespace",
+    "allocation_create:body:description:BVA:minLength-below",
+    "allocation_create:body:description:BVA:minLength-at",
+    "allocation_create:body:description:BVA:minLength-above",
+    "allocation_create:body:attachment:EP:valid",
+    "allocation_create:body:attachment:EP:missing",
+    "allocation_create:body:attachment:EP:null",
+    "allocation_create:body:attachment:EP:wrong-type",
+    "allocation_create:body:attachment:EP:empty-file",
+    "allocation_create:body:attachment:EP:empty-filename",
+    "allocation_create:body:attachment:BVA:x-filename-maxLength-below",
+    "allocation_create:body:attachment:BVA:x-filename-maxLength-at",
+    "allocation_create:body:attachment:BVA:x-filename-maxLength-above",
+    "allocation_delete:path:pk:EP:valid",
+    "allocation_delete:path:pk:EP:missing",
+    "allocation_delete:path:pk:EP:null",
+    "allocation_delete:path:pk:EP:wrong-type",
+    "allocation_delete:path:pk:EP:nonnumeric",
+    "allocation_delete:path:pk:EP:fraction",
+    "allocation_delete:path:pk:EP:missing-record",
+    "allocation_detail:path:pk:EP:valid",
+    "allocation_detail:path:pk:EP:missing",
+    "allocation_detail:path:pk:EP:null",
+    "allocation_detail:path:pk:EP:wrong-type",
+    "allocation_detail:path:pk:EP:nonnumeric",
+    "allocation_detail:path:pk:EP:fraction",
+    "allocation_detail:path:pk:EP:missing-record",
+    "allocation_update:path:pk:EP:valid",
+    "allocation_update:path:pk:EP:missing",
+    "allocation_update:path:pk:EP:null",
+    "allocation_update:path:pk:EP:wrong-type",
+    "allocation_update:path:pk:EP:nonnumeric",
+    "allocation_update:path:pk:EP:fraction",
+    "allocation_update:path:pk:EP:missing-record",
+    "allocation_update:body:leave_type_id:EP:valid",
+    "allocation_update:body:leave_type_id:EP:missing",
+    "allocation_update:body:leave_type_id:EP:null",
+    "allocation_update:body:leave_type_id:EP:wrong-type",
+    "allocation_update:body:leave_type_id:EP:nonnumeric",
+    "allocation_update:body:leave_type_id:EP:fraction",
+    "allocation_update:body:leave_type_id:EP:missing-record",
+    "allocation_update:body:employee_id:EP:valid",
+    "allocation_update:body:employee_id:EP:missing",
+    "allocation_update:body:employee_id:EP:null",
+    "allocation_update:body:employee_id:EP:wrong-type",
+    "allocation_update:body:employee_id:EP:nonnumeric",
+    "allocation_update:body:employee_id:EP:fraction",
+    "allocation_update:body:employee_id:EP:missing-record",
+    "allocation_update:body:requested_days:EP:valid",
+    "allocation_update:body:requested_days:EP:missing",
+    "allocation_update:body:requested_days:EP:null",
+    "allocation_update:body:requested_days:EP:wrong-type",
+    "allocation_update:body:requested_days:EP:nonnumeric",
+    "allocation_update:body:requested_days:EP:negative",
+    "allocation_update:body:requested_days:EP:zero",
+    "allocation_update:body:requested_days:EP:positive",
+    "allocation_update:body:description:EP:valid",
+    "allocation_update:body:description:EP:missing",
+    "allocation_update:body:description:EP:null",
+    "allocation_update:body:description:EP:wrong-type",
+    "allocation_update:body:description:EP:empty",
+    "allocation_update:body:description:EP:whitespace",
+    "allocation_update:body:description:BVA:minLength-below",
+    "allocation_update:body:description:BVA:minLength-at",
+    "allocation_update:body:description:BVA:minLength-above",
+    "allocation_update:body:attachment:EP:valid",
+    "allocation_update:body:attachment:EP:missing",
+    "allocation_update:body:attachment:EP:null",
+    "allocation_update:body:attachment:EP:wrong-type",
+    "allocation_update:body:attachment:EP:empty-file",
+    "allocation_update:body:attachment:EP:empty-filename",
+    "allocation_update:body:attachment:BVA:x-filename-maxLength-below",
+    "allocation_update:body:attachment:BVA:x-filename-maxLength-at",
+    "allocation_update:body:attachment:BVA:x-filename-maxLength-above",
+    "approve:path:pk:EP:valid",
+    "approve:path:pk:EP:missing",
+    "approve:path:pk:EP:null",
+    "approve:path:pk:EP:wrong-type",
+    "approve:path:pk:EP:nonnumeric",
+    "approve:path:pk:EP:fraction",
+    "approve:path:pk:EP:missing-record",
+    "own_balance:query:page_size:EP:valid",
+    "own_balance:query:page_size:EP:missing",
+    "own_balance:query:page_size:EP:null",
+    "own_balance:query:page_size:EP:wrong-type",
+    "own_balance:query:page_size:EP:nonnumeric",
+    "own_balance:query:page_size:EP:fraction",
+    "own_balance:query:page_size:BVA:minimum-below",
+    "own_balance:query:page_size:BVA:minimum-at",
+    "own_balance:query:page_size:BVA:minimum-above",
+    "own_balance:query:page_size:BVA:x-clamp-maximum-below",
+    "own_balance:query:page_size:BVA:x-clamp-maximum-at",
+    "own_balance:query:page_size:BVA:x-clamp-maximum-above",
+    "cancel:path:pk:EP:valid",
+    "cancel:path:pk:EP:missing",
+    "cancel:path:pk:EP:null",
+    "cancel:path:pk:EP:wrong-type",
+    "cancel:path:pk:EP:nonnumeric",
+    "cancel:path:pk:EP:fraction",
+    "cancel:path:pk:EP:missing-record",
+    "cancellation_approve:path:pk:EP:valid",
+    "cancellation_approve:path:pk:EP:missing",
+    "cancellation_approve:path:pk:EP:null",
+    "cancellation_approve:path:pk:EP:wrong-type",
+    "cancellation_approve:path:pk:EP:nonnumeric",
+    "cancellation_approve:path:pk:EP:fraction",
+    "cancellation_approve:path:pk:EP:missing-record",
+    "cancellation_reject:path:pk:EP:valid",
+    "cancellation_reject:path:pk:EP:missing",
+    "cancellation_reject:path:pk:EP:null",
+    "cancellation_reject:path:pk:EP:wrong-type",
+    "cancellation_reject:path:pk:EP:nonnumeric",
+    "cancellation_reject:path:pk:EP:fraction",
+    "cancellation_reject:path:pk:EP:missing-record",
+    "reject:path:pk:EP:valid",
+    "reject:path:pk:EP:missing",
+    "reject:path:pk:EP:null",
+    "reject:path:pk:EP:wrong-type",
+    "reject:path:pk:EP:nonnumeric",
+    "reject:path:pk:EP:fraction",
+    "reject:path:pk:EP:missing-record",
+    "leave_list:query:page_size:EP:valid",
+    "leave_list:query:page_size:EP:missing",
+    "leave_list:query:page_size:EP:null",
+    "leave_list:query:page_size:EP:wrong-type",
+    "leave_list:query:page_size:EP:nonnumeric",
+    "leave_list:query:page_size:EP:fraction",
+    "leave_list:query:page_size:BVA:minimum-below",
+    "leave_list:query:page_size:BVA:minimum-at",
+    "leave_list:query:page_size:BVA:minimum-above",
+    "leave_list:query:page_size:BVA:x-clamp-maximum-below",
+    "leave_list:query:page_size:BVA:x-clamp-maximum-at",
+    "leave_list:query:page_size:BVA:x-clamp-maximum-above",
+    "leave_create:body:employee_id:EP:valid",
+    "leave_create:body:employee_id:EP:missing",
+    "leave_create:body:employee_id:EP:null",
+    "leave_create:body:employee_id:EP:wrong-type",
+    "leave_create:body:employee_id:EP:nonnumeric",
+    "leave_create:body:employee_id:EP:fraction",
+    "leave_create:body:employee_id:EP:missing-record",
+    "leave_create:body:leave_type_id:EP:valid",
+    "leave_create:body:leave_type_id:EP:missing",
+    "leave_create:body:leave_type_id:EP:null",
+    "leave_create:body:leave_type_id:EP:wrong-type",
+    "leave_create:body:leave_type_id:EP:nonnumeric",
+    "leave_create:body:leave_type_id:EP:fraction",
+    "leave_create:body:leave_type_id:EP:missing-record",
+    "leave_create:body:start_date:EP:valid",
+    "leave_create:body:start_date:EP:missing",
+    "leave_create:body:start_date:EP:null",
+    "leave_create:body:start_date:EP:wrong-type",
+    "leave_create:body:start_date:EP:empty",
+    "leave_create:body:start_date:EP:bad-date",
+    "leave_create:body:end_date:EP:valid",
+    "leave_create:body:end_date:EP:missing",
+    "leave_create:body:end_date:EP:null",
+    "leave_create:body:end_date:EP:wrong-type",
+    "leave_create:body:end_date:EP:empty",
+    "leave_create:body:end_date:EP:bad-date",
+    "leave_create:body:start_date_breakdown:EP:valid",
+    "leave_create:body:start_date_breakdown:EP:missing",
+    "leave_create:body:start_date_breakdown:EP:null",
+    "leave_create:body:start_date_breakdown:EP:wrong-type",
+    "leave_create:body:start_date_breakdown:EP:enum-0",
+    "leave_create:body:start_date_breakdown:EP:enum-1",
+    "leave_create:body:start_date_breakdown:EP:enum-2",
+    "leave_create:body:start_date_breakdown:EP:outside-enum",
+    "leave_create:body:start_date_breakdown:EP:empty",
+    "leave_create:body:end_date_breakdown:EP:valid",
+    "leave_create:body:end_date_breakdown:EP:missing",
+    "leave_create:body:end_date_breakdown:EP:null",
+    "leave_create:body:end_date_breakdown:EP:wrong-type",
+    "leave_create:body:end_date_breakdown:EP:enum-0",
+    "leave_create:body:end_date_breakdown:EP:enum-1",
+    "leave_create:body:end_date_breakdown:EP:enum-2",
+    "leave_create:body:end_date_breakdown:EP:outside-enum",
+    "leave_create:body:end_date_breakdown:EP:empty",
+    "leave_create:body:description:EP:valid",
+    "leave_create:body:description:EP:missing",
+    "leave_create:body:description:EP:null",
+    "leave_create:body:description:EP:wrong-type",
+    "leave_create:body:description:EP:empty",
+    "leave_create:body:description:EP:whitespace",
+    "leave_create:body:description:BVA:minLength-below",
+    "leave_create:body:description:BVA:minLength-at",
+    "leave_create:body:description:BVA:minLength-above",
+    "leave_create:body:attachment:EP:valid",
+    "leave_create:body:attachment:EP:missing",
+    "leave_create:body:attachment:EP:null",
+    "leave_create:body:attachment:EP:wrong-type",
+    "leave_create:body:attachment:EP:empty-file",
+    "leave_create:body:attachment:EP:empty-filename",
+    "leave_create:body:attachment:BVA:x-filename-maxLength-below",
+    "leave_create:body:attachment:BVA:x-filename-maxLength-at",
+    "leave_create:body:attachment:BVA:x-filename-maxLength-above",
+    "leave_create:body:end_date:BVA:date-order-below",
+    "leave_create:body:end_date:BVA:date-order-at",
+    "leave_create:body:end_date:BVA:date-order-above",
+    "leave_delete:path:pk:EP:valid",
+    "leave_delete:path:pk:EP:missing",
+    "leave_delete:path:pk:EP:null",
+    "leave_delete:path:pk:EP:wrong-type",
+    "leave_delete:path:pk:EP:nonnumeric",
+    "leave_delete:path:pk:EP:fraction",
+    "leave_delete:path:pk:EP:missing-record",
+    "leave_detail:path:pk:EP:valid",
+    "leave_detail:path:pk:EP:missing",
+    "leave_detail:path:pk:EP:null",
+    "leave_detail:path:pk:EP:wrong-type",
+    "leave_detail:path:pk:EP:nonnumeric",
+    "leave_detail:path:pk:EP:fraction",
+    "leave_detail:path:pk:EP:missing-record",
+    "leave_update:path:pk:EP:valid",
+    "leave_update:path:pk:EP:missing",
+    "leave_update:path:pk:EP:null",
+    "leave_update:path:pk:EP:wrong-type",
+    "leave_update:path:pk:EP:nonnumeric",
+    "leave_update:path:pk:EP:fraction",
+    "leave_update:path:pk:EP:missing-record",
+    "leave_update:body:employee_id:EP:valid",
+    "leave_update:body:employee_id:EP:missing",
+    "leave_update:body:employee_id:EP:null",
+    "leave_update:body:employee_id:EP:wrong-type",
+    "leave_update:body:employee_id:EP:nonnumeric",
+    "leave_update:body:employee_id:EP:fraction",
+    "leave_update:body:employee_id:EP:missing-record",
+    "leave_update:body:leave_type_id:EP:valid",
+    "leave_update:body:leave_type_id:EP:missing",
+    "leave_update:body:leave_type_id:EP:null",
+    "leave_update:body:leave_type_id:EP:wrong-type",
+    "leave_update:body:leave_type_id:EP:nonnumeric",
+    "leave_update:body:leave_type_id:EP:fraction",
+    "leave_update:body:leave_type_id:EP:missing-record",
+    "leave_update:body:start_date:EP:valid",
+    "leave_update:body:start_date:EP:missing",
+    "leave_update:body:start_date:EP:null",
+    "leave_update:body:start_date:EP:wrong-type",
+    "leave_update:body:start_date:EP:empty",
+    "leave_update:body:start_date:EP:bad-date",
+    "leave_update:body:end_date:EP:valid",
+    "leave_update:body:end_date:EP:missing",
+    "leave_update:body:end_date:EP:null",
+    "leave_update:body:end_date:EP:wrong-type",
+    "leave_update:body:end_date:EP:empty",
+    "leave_update:body:end_date:EP:bad-date",
+    "leave_update:body:start_date_breakdown:EP:valid",
+    "leave_update:body:start_date_breakdown:EP:missing",
+    "leave_update:body:start_date_breakdown:EP:null",
+    "leave_update:body:start_date_breakdown:EP:wrong-type",
+    "leave_update:body:start_date_breakdown:EP:enum-0",
+    "leave_update:body:start_date_breakdown:EP:enum-1",
+    "leave_update:body:start_date_breakdown:EP:enum-2",
+    "leave_update:body:start_date_breakdown:EP:outside-enum",
+    "leave_update:body:start_date_breakdown:EP:empty",
+    "leave_update:body:end_date_breakdown:EP:valid",
+    "leave_update:body:end_date_breakdown:EP:missing",
+    "leave_update:body:end_date_breakdown:EP:null",
+    "leave_update:body:end_date_breakdown:EP:wrong-type",
+    "leave_update:body:end_date_breakdown:EP:enum-0",
+    "leave_update:body:end_date_breakdown:EP:enum-1",
+    "leave_update:body:end_date_breakdown:EP:enum-2",
+    "leave_update:body:end_date_breakdown:EP:outside-enum",
+    "leave_update:body:end_date_breakdown:EP:empty",
+    "leave_update:body:description:EP:valid",
+    "leave_update:body:description:EP:missing",
+    "leave_update:body:description:EP:null",
+    "leave_update:body:description:EP:wrong-type",
+    "leave_update:body:description:EP:empty",
+    "leave_update:body:description:EP:whitespace",
+    "leave_update:body:description:BVA:minLength-below",
+    "leave_update:body:description:BVA:minLength-at",
+    "leave_update:body:description:BVA:minLength-above",
+    "leave_update:body:attachment:EP:valid",
+    "leave_update:body:attachment:EP:missing",
+    "leave_update:body:attachment:EP:null",
+    "leave_update:body:attachment:EP:wrong-type",
+    "leave_update:body:attachment:EP:empty-file",
+    "leave_update:body:attachment:EP:empty-filename",
+    "leave_update:body:attachment:BVA:x-filename-maxLength-below",
+    "leave_update:body:attachment:BVA:x-filename-maxLength-at",
+    "leave_update:body:attachment:BVA:x-filename-maxLength-above",
+    "leave_update:body:end_date:BVA:date-order-below",
+    "leave_update:body:end_date:BVA:date-order-at",
+    "leave_update:body:end_date:BVA:date-order-above",
+    "self_allocation_list:query:page_size:EP:valid",
+    "self_allocation_list:query:page_size:EP:missing",
+    "self_allocation_list:query:page_size:EP:null",
+    "self_allocation_list:query:page_size:EP:wrong-type",
+    "self_allocation_list:query:page_size:EP:nonnumeric",
+    "self_allocation_list:query:page_size:EP:fraction",
+    "self_allocation_list:query:page_size:BVA:minimum-below",
+    "self_allocation_list:query:page_size:BVA:minimum-at",
+    "self_allocation_list:query:page_size:BVA:minimum-above",
+    "self_allocation_list:query:page_size:BVA:x-clamp-maximum-below",
+    "self_allocation_list:query:page_size:BVA:x-clamp-maximum-at",
+    "self_allocation_list:query:page_size:BVA:x-clamp-maximum-above",
+    "self_allocation_create:body:leave_type_id:EP:valid",
+    "self_allocation_create:body:leave_type_id:EP:missing",
+    "self_allocation_create:body:leave_type_id:EP:null",
+    "self_allocation_create:body:leave_type_id:EP:wrong-type",
+    "self_allocation_create:body:leave_type_id:EP:nonnumeric",
+    "self_allocation_create:body:leave_type_id:EP:fraction",
+    "self_allocation_create:body:leave_type_id:EP:missing-record",
+    "self_allocation_create:body:requested_days:EP:valid",
+    "self_allocation_create:body:requested_days:EP:missing",
+    "self_allocation_create:body:requested_days:EP:null",
+    "self_allocation_create:body:requested_days:EP:wrong-type",
+    "self_allocation_create:body:requested_days:EP:nonnumeric",
+    "self_allocation_create:body:requested_days:EP:negative",
+    "self_allocation_create:body:requested_days:EP:zero",
+    "self_allocation_create:body:requested_days:EP:positive",
+    "self_allocation_delete:path:pk:EP:valid",
+    "self_allocation_delete:path:pk:EP:missing",
+    "self_allocation_delete:path:pk:EP:null",
+    "self_allocation_delete:path:pk:EP:wrong-type",
+    "self_allocation_delete:path:pk:EP:nonnumeric",
+    "self_allocation_delete:path:pk:EP:fraction",
+    "self_allocation_delete:path:pk:EP:missing-record",
+    "self_allocation_update:path:pk:EP:valid",
+    "self_allocation_update:path:pk:EP:missing",
+    "self_allocation_update:path:pk:EP:null",
+    "self_allocation_update:path:pk:EP:wrong-type",
+    "self_allocation_update:path:pk:EP:nonnumeric",
+    "self_allocation_update:path:pk:EP:fraction",
+    "self_allocation_update:path:pk:EP:missing-record",
+    "self_allocation_update:body:leave_type_id:EP:valid",
+    "self_allocation_update:body:leave_type_id:EP:missing",
+    "self_allocation_update:body:leave_type_id:EP:null",
+    "self_allocation_update:body:leave_type_id:EP:wrong-type",
+    "self_allocation_update:body:leave_type_id:EP:nonnumeric",
+    "self_allocation_update:body:leave_type_id:EP:fraction",
+    "self_allocation_update:body:leave_type_id:EP:missing-record",
+    "self_allocation_update:body:requested_days:EP:valid",
+    "self_allocation_update:body:requested_days:EP:missing",
+    "self_allocation_update:body:requested_days:EP:null",
+    "self_allocation_update:body:requested_days:EP:wrong-type",
+    "self_allocation_update:body:requested_days:EP:nonnumeric",
+    "self_allocation_update:body:requested_days:EP:negative",
+    "self_allocation_update:body:requested_days:EP:zero",
+    "self_allocation_update:body:requested_days:EP:positive",
+    "self_allocation_update:body:description:EP:valid",
+    "self_allocation_update:body:description:EP:missing",
+    "self_allocation_update:body:description:EP:null",
+    "self_allocation_update:body:description:EP:wrong-type",
+    "self_allocation_update:body:description:EP:empty",
+    "self_allocation_update:body:description:EP:whitespace",
+    "self_allocation_update:body:description:BVA:minLength-below",
+    "self_allocation_update:body:description:BVA:minLength-at",
+    "self_allocation_update:body:description:BVA:minLength-above",
+    "self_allocation_update:body:attachment:EP:valid",
+    "self_allocation_update:body:attachment:EP:missing",
+    "self_allocation_update:body:attachment:EP:null",
+    "self_allocation_update:body:attachment:EP:wrong-type",
+    "self_allocation_update:body:attachment:EP:empty-file",
+    "self_allocation_update:body:attachment:EP:empty-filename",
+    "self_allocation_update:body:attachment:BVA:x-filename-maxLength-below",
+    "self_allocation_update:body:attachment:BVA:x-filename-maxLength-at",
+    "self_allocation_update:body:attachment:BVA:x-filename-maxLength-above",
+    "self_leave_list:query:page_size:EP:valid",
+    "self_leave_list:query:page_size:EP:missing",
+    "self_leave_list:query:page_size:EP:null",
+    "self_leave_list:query:page_size:EP:wrong-type",
+    "self_leave_list:query:page_size:EP:nonnumeric",
+    "self_leave_list:query:page_size:EP:fraction",
+    "self_leave_list:query:page_size:BVA:minimum-below",
+    "self_leave_list:query:page_size:BVA:minimum-at",
+    "self_leave_list:query:page_size:BVA:minimum-above",
+    "self_leave_list:query:page_size:BVA:x-clamp-maximum-below",
+    "self_leave_list:query:page_size:BVA:x-clamp-maximum-at",
+    "self_leave_list:query:page_size:BVA:x-clamp-maximum-above",
+    "self_leave_create:body:leave_type_id:EP:valid",
+    "self_leave_create:body:leave_type_id:EP:missing",
+    "self_leave_create:body:leave_type_id:EP:null",
+    "self_leave_create:body:leave_type_id:EP:wrong-type",
+    "self_leave_create:body:leave_type_id:EP:nonnumeric",
+    "self_leave_create:body:leave_type_id:EP:fraction",
+    "self_leave_create:body:leave_type_id:EP:missing-record",
+    "self_leave_create:body:start_date:EP:valid",
+    "self_leave_create:body:start_date:EP:missing",
+    "self_leave_create:body:start_date:EP:null",
+    "self_leave_create:body:start_date:EP:wrong-type",
+    "self_leave_create:body:start_date:EP:empty",
+    "self_leave_create:body:start_date:EP:bad-date",
+    "self_leave_create:body:end_date:EP:valid",
+    "self_leave_create:body:end_date:EP:missing",
+    "self_leave_create:body:end_date:EP:null",
+    "self_leave_create:body:end_date:EP:wrong-type",
+    "self_leave_create:body:end_date:EP:empty",
+    "self_leave_create:body:end_date:EP:bad-date",
+    "self_leave_create:body:start_date_breakdown:EP:valid",
+    "self_leave_create:body:start_date_breakdown:EP:missing",
+    "self_leave_create:body:start_date_breakdown:EP:null",
+    "self_leave_create:body:start_date_breakdown:EP:wrong-type",
+    "self_leave_create:body:start_date_breakdown:EP:enum-0",
+    "self_leave_create:body:start_date_breakdown:EP:enum-1",
+    "self_leave_create:body:start_date_breakdown:EP:enum-2",
+    "self_leave_create:body:start_date_breakdown:EP:outside-enum",
+    "self_leave_create:body:start_date_breakdown:EP:empty",
+    "self_leave_create:body:end_date_breakdown:EP:valid",
+    "self_leave_create:body:end_date_breakdown:EP:missing",
+    "self_leave_create:body:end_date_breakdown:EP:null",
+    "self_leave_create:body:end_date_breakdown:EP:wrong-type",
+    "self_leave_create:body:end_date_breakdown:EP:enum-0",
+    "self_leave_create:body:end_date_breakdown:EP:enum-1",
+    "self_leave_create:body:end_date_breakdown:EP:enum-2",
+    "self_leave_create:body:end_date_breakdown:EP:outside-enum",
+    "self_leave_create:body:end_date_breakdown:EP:empty",
+    "self_leave_create:body:description:EP:valid",
+    "self_leave_create:body:description:EP:missing",
+    "self_leave_create:body:description:EP:null",
+    "self_leave_create:body:description:EP:wrong-type",
+    "self_leave_create:body:description:EP:empty",
+    "self_leave_create:body:description:EP:whitespace",
+    "self_leave_create:body:description:BVA:minLength-below",
+    "self_leave_create:body:description:BVA:minLength-at",
+    "self_leave_create:body:description:BVA:minLength-above",
+    "self_leave_create:body:attachment:EP:valid",
+    "self_leave_create:body:attachment:EP:missing",
+    "self_leave_create:body:attachment:EP:null",
+    "self_leave_create:body:attachment:EP:wrong-type",
+    "self_leave_create:body:attachment:EP:empty-file",
+    "self_leave_create:body:attachment:EP:empty-filename",
+    "self_leave_create:body:attachment:BVA:x-filename-maxLength-below",
+    "self_leave_create:body:attachment:BVA:x-filename-maxLength-at",
+    "self_leave_create:body:attachment:BVA:x-filename-maxLength-above",
+    "self_leave_create:body:end_date:BVA:date-order-below",
+    "self_leave_create:body:end_date:BVA:date-order-at",
+    "self_leave_create:body:end_date:BVA:date-order-above",
+    "self_leave_delete:path:pk:EP:valid",
+    "self_leave_delete:path:pk:EP:missing",
+    "self_leave_delete:path:pk:EP:null",
+    "self_leave_delete:path:pk:EP:wrong-type",
+    "self_leave_delete:path:pk:EP:nonnumeric",
+    "self_leave_delete:path:pk:EP:fraction",
+    "self_leave_delete:path:pk:EP:missing-record",
+    "self_leave_detail:path:pk:EP:valid",
+    "self_leave_detail:path:pk:EP:missing",
+    "self_leave_detail:path:pk:EP:null",
+    "self_leave_detail:path:pk:EP:wrong-type",
+    "self_leave_detail:path:pk:EP:nonnumeric",
+    "self_leave_detail:path:pk:EP:fraction",
+    "self_leave_detail:path:pk:EP:missing-record",
+    "self_leave_update:path:pk:EP:valid",
+    "self_leave_update:path:pk:EP:missing",
+    "self_leave_update:path:pk:EP:null",
+    "self_leave_update:path:pk:EP:wrong-type",
+    "self_leave_update:path:pk:EP:nonnumeric",
+    "self_leave_update:path:pk:EP:fraction",
+    "self_leave_update:path:pk:EP:missing-record",
+    "self_leave_update:body:leave_type_id:EP:valid",
+    "self_leave_update:body:leave_type_id:EP:missing",
+    "self_leave_update:body:leave_type_id:EP:null",
+    "self_leave_update:body:leave_type_id:EP:wrong-type",
+    "self_leave_update:body:leave_type_id:EP:nonnumeric",
+    "self_leave_update:body:leave_type_id:EP:fraction",
+    "self_leave_update:body:leave_type_id:EP:missing-record",
+    "self_leave_update:body:start_date:EP:valid",
+    "self_leave_update:body:start_date:EP:missing",
+    "self_leave_update:body:start_date:EP:null",
+    "self_leave_update:body:start_date:EP:wrong-type",
+    "self_leave_update:body:start_date:EP:empty",
+    "self_leave_update:body:start_date:EP:bad-date",
+    "self_leave_update:body:end_date:EP:valid",
+    "self_leave_update:body:end_date:EP:missing",
+    "self_leave_update:body:end_date:EP:null",
+    "self_leave_update:body:end_date:EP:wrong-type",
+    "self_leave_update:body:end_date:EP:empty",
+    "self_leave_update:body:end_date:EP:bad-date",
+    "self_leave_update:body:start_date_breakdown:EP:valid",
+    "self_leave_update:body:start_date_breakdown:EP:missing",
+    "self_leave_update:body:start_date_breakdown:EP:null",
+    "self_leave_update:body:start_date_breakdown:EP:wrong-type",
+    "self_leave_update:body:start_date_breakdown:EP:enum-0",
+    "self_leave_update:body:start_date_breakdown:EP:enum-1",
+    "self_leave_update:body:start_date_breakdown:EP:enum-2",
+    "self_leave_update:body:start_date_breakdown:EP:outside-enum",
+    "self_leave_update:body:start_date_breakdown:EP:empty",
+    "self_leave_update:body:end_date_breakdown:EP:valid",
+    "self_leave_update:body:end_date_breakdown:EP:missing",
+    "self_leave_update:body:end_date_breakdown:EP:null",
+    "self_leave_update:body:end_date_breakdown:EP:wrong-type",
+    "self_leave_update:body:end_date_breakdown:EP:enum-0",
+    "self_leave_update:body:end_date_breakdown:EP:enum-1",
+    "self_leave_update:body:end_date_breakdown:EP:enum-2",
+    "self_leave_update:body:end_date_breakdown:EP:outside-enum",
+    "self_leave_update:body:end_date_breakdown:EP:empty",
+    "self_leave_update:body:description:EP:valid",
+    "self_leave_update:body:description:EP:missing",
+    "self_leave_update:body:description:EP:null",
+    "self_leave_update:body:description:EP:wrong-type",
+    "self_leave_update:body:description:EP:empty",
+    "self_leave_update:body:description:EP:whitespace",
+    "self_leave_update:body:description:BVA:minLength-below",
+    "self_leave_update:body:description:BVA:minLength-at",
+    "self_leave_update:body:description:BVA:minLength-above",
+    "self_leave_update:body:attachment:EP:valid",
+    "self_leave_update:body:attachment:EP:missing",
+    "self_leave_update:body:attachment:EP:null",
+    "self_leave_update:body:attachment:EP:wrong-type",
+    "self_leave_update:body:attachment:EP:empty-file",
+    "self_leave_update:body:attachment:EP:empty-filename",
+    "self_leave_update:body:attachment:BVA:x-filename-maxLength-below",
+    "self_leave_update:body:attachment:BVA:x-filename-maxLength-at",
+    "self_leave_update:body:attachment:BVA:x-filename-maxLength-above",
+    "self_leave_update:body:end_date:BVA:date-order-below",
+    "self_leave_update:body:end_date:BVA:date-order-at",
+    "self_leave_update:body:end_date:BVA:date-order-above"
+  ],
+  "selected_http_ids": [
+    "self_allocation_create:body:description:BVA:minLength-below",
+    "self_allocation_create:body:description:BVA:minLength-at",
+    "self_allocation_create:body:description:BVA:minLength-above",
+    "self_allocation_create:body:attachment:BVA:x-filename-maxLength-below",
+    "self_allocation_create:body:attachment:BVA:x-filename-maxLength-at",
+    "self_allocation_create:body:attachment:BVA:x-filename-maxLength-above"
+  ],
+  "predicted_baseline": {
+    "passed": 6,
+    "failed": 0
+  },
+  "predicted_variant": {
+    "passed": 4,
+    "failed": 2,
+    "failed_ids": [
+      "self_allocation_create:body:description:BVA:minLength-below",
+      "self_allocation_create:body:attachment:BVA:x-filename-maxLength-above"
+    ]
+  },
+  "selected_comparison": [
+    {
+      "id": "self_allocation_create:body:description:BVA:minLength-below",
+      "before": {
+        "id": "self_allocation_create:body:description:BVA:minLength-below",
+        "operation": "self_allocation_create",
+        "method": "POST",
+        "route": "/api/v1/leave/user-allocation-request/",
+        "role": "employee",
+        "media_type": "multipart/form-data",
+        "location": "body",
+        "field": [
+          "description"
+        ],
+        "technique": "BVA",
+        "class": "minLength-below",
+        "omitted": false,
+        "value": "",
+        "baseline": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "Synthetic Area 2 allocation",
+            "attachment": {
+              "filename": "proof.txt",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "request": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "",
+            "attachment": {
+              "filename": "proof.txt",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "expected": {
+          "predicate": "reject",
+          "oracle": "schema",
+          "schema_valid": false
+        },
+        "requirements": [
+          "FR-01",
+          "FR-04"
+        ],
+        "provenance": {
+          "constraint": "minLength",
+          "schema": {
+            "type": "string",
+            "minLength": 1,
+            "example": "Synthetic Area 2 allocation",
+            "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
+            "x-trim-whitespace": true
+          },
+          "source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum"
+        },
+        "boundary": {
+          "limit": 1,
+          "unit": "characters after trim",
+          "step": 1,
+          "inclusive": true
+        }
+      },
+      "after": {
+        "id": "self_allocation_create:body:description:BVA:minLength-below",
+        "operation": "self_allocation_create",
+        "method": "POST",
+        "route": "/api/v1/leave/user-allocation-request/",
+        "role": "employee",
+        "media_type": "multipart/form-data",
+        "location": "body",
+        "field": [
+          "description"
+        ],
+        "technique": "BVA",
+        "class": "minLength-below",
+        "omitted": false,
+        "value": "xx",
+        "baseline": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "Synthetic Area 2 allocation",
+            "attachment": {
+              "filename": "proof.txt",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "request": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "xx",
+            "attachment": {
+              "filename": "proof.txt",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "expected": {
+          "predicate": "reject",
+          "oracle": "schema",
+          "schema_valid": false
+        },
+        "requirements": [
+          "FR-01",
+          "FR-04"
+        ],
+        "provenance": {
+          "constraint": "minLength",
+          "schema": {
+            "type": "string",
+            "minLength": 3,
+            "example": "Synthetic Area 2 allocation",
+            "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
+            "x-trim-whitespace": true
+          },
+          "source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum"
+        },
+        "boundary": {
+          "limit": 3,
+          "unit": "characters after trim",
+          "step": 1,
+          "inclusive": true
+        }
+      }
+    },
+    {
+      "id": "self_allocation_create:body:description:BVA:minLength-at",
+      "before": {
+        "id": "self_allocation_create:body:description:BVA:minLength-at",
+        "operation": "self_allocation_create",
+        "method": "POST",
+        "route": "/api/v1/leave/user-allocation-request/",
+        "role": "employee",
+        "media_type": "multipart/form-data",
+        "location": "body",
+        "field": [
+          "description"
+        ],
+        "technique": "BVA",
+        "class": "minLength-at",
+        "omitted": false,
+        "value": "x",
+        "baseline": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "Synthetic Area 2 allocation",
+            "attachment": {
+              "filename": "proof.txt",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "request": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "x",
+            "attachment": {
+              "filename": "proof.txt",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "expected": {
+          "predicate": "accept",
+          "oracle": "schema",
+          "schema_valid": true
+        },
+        "requirements": [
+          "FR-01",
+          "FR-04"
+        ],
+        "provenance": {
+          "constraint": "minLength",
+          "schema": {
+            "type": "string",
+            "minLength": 1,
+            "example": "Synthetic Area 2 allocation",
+            "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
+            "x-trim-whitespace": true
+          },
+          "source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum"
+        },
+        "boundary": {
+          "limit": 1,
+          "unit": "characters after trim",
+          "step": 1,
+          "inclusive": true
+        }
+      },
+      "after": {
+        "id": "self_allocation_create:body:description:BVA:minLength-at",
+        "operation": "self_allocation_create",
+        "method": "POST",
+        "route": "/api/v1/leave/user-allocation-request/",
+        "role": "employee",
+        "media_type": "multipart/form-data",
+        "location": "body",
+        "field": [
+          "description"
+        ],
+        "technique": "BVA",
+        "class": "minLength-at",
+        "omitted": false,
+        "value": "xxx",
+        "baseline": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "Synthetic Area 2 allocation",
+            "attachment": {
+              "filename": "proof.txt",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "request": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "xxx",
+            "attachment": {
+              "filename": "proof.txt",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "expected": {
+          "predicate": "accept",
+          "oracle": "schema",
+          "schema_valid": true
+        },
+        "requirements": [
+          "FR-01",
+          "FR-04"
+        ],
+        "provenance": {
+          "constraint": "minLength",
+          "schema": {
+            "type": "string",
+            "minLength": 3,
+            "example": "Synthetic Area 2 allocation",
+            "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
+            "x-trim-whitespace": true
+          },
+          "source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum"
+        },
+        "boundary": {
+          "limit": 3,
+          "unit": "characters after trim",
+          "step": 1,
+          "inclusive": true
+        }
+      }
+    },
+    {
+      "id": "self_allocation_create:body:description:BVA:minLength-above",
+      "before": {
+        "id": "self_allocation_create:body:description:BVA:minLength-above",
+        "operation": "self_allocation_create",
+        "method": "POST",
+        "route": "/api/v1/leave/user-allocation-request/",
+        "role": "employee",
+        "media_type": "multipart/form-data",
+        "location": "body",
+        "field": [
+          "description"
+        ],
+        "technique": "BVA",
+        "class": "minLength-above",
+        "omitted": false,
+        "value": "xx",
+        "baseline": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "Synthetic Area 2 allocation",
+            "attachment": {
+              "filename": "proof.txt",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "request": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "xx",
+            "attachment": {
+              "filename": "proof.txt",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "expected": {
+          "predicate": "accept",
+          "oracle": "schema",
+          "schema_valid": true
+        },
+        "requirements": [
+          "FR-01",
+          "FR-04"
+        ],
+        "provenance": {
+          "constraint": "minLength",
+          "schema": {
+            "type": "string",
+            "minLength": 1,
+            "example": "Synthetic Area 2 allocation",
+            "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
+            "x-trim-whitespace": true
+          },
+          "source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum"
+        },
+        "boundary": {
+          "limit": 1,
+          "unit": "characters after trim",
+          "step": 1,
+          "inclusive": true
+        }
+      },
+      "after": {
+        "id": "self_allocation_create:body:description:BVA:minLength-above",
+        "operation": "self_allocation_create",
+        "method": "POST",
+        "route": "/api/v1/leave/user-allocation-request/",
+        "role": "employee",
+        "media_type": "multipart/form-data",
+        "location": "body",
+        "field": [
+          "description"
+        ],
+        "technique": "BVA",
+        "class": "minLength-above",
+        "omitted": false,
+        "value": "xxxx",
+        "baseline": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "Synthetic Area 2 allocation",
+            "attachment": {
+              "filename": "proof.txt",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "request": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "xxxx",
+            "attachment": {
+              "filename": "proof.txt",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "expected": {
+          "predicate": "accept",
+          "oracle": "schema",
+          "schema_valid": true
+        },
+        "requirements": [
+          "FR-01",
+          "FR-04"
+        ],
+        "provenance": {
+          "constraint": "minLength",
+          "schema": {
+            "type": "string",
+            "minLength": 3,
+            "example": "Synthetic Area 2 allocation",
+            "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
+            "x-trim-whitespace": true
+          },
+          "source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum"
+        },
+        "boundary": {
+          "limit": 3,
+          "unit": "characters after trim",
+          "step": 1,
+          "inclusive": true
+        }
+      }
+    },
+    {
+      "id": "self_allocation_create:body:attachment:BVA:x-filename-maxLength-below",
+      "before": {
+        "id": "self_allocation_create:body:attachment:BVA:x-filename-maxLength-below",
+        "operation": "self_allocation_create",
+        "method": "POST",
+        "route": "/api/v1/leave/user-allocation-request/",
+        "role": "employee",
+        "media_type": "multipart/form-data",
+        "location": "body",
+        "field": [
+          "attachment"
+        ],
+        "technique": "BVA",
+        "class": "x-filename-maxLength-below",
+        "omitted": false,
+        "value": {
+          "filename": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "text": "synthetic proof",
+          "content_type": "text/plain"
+        },
+        "baseline": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "Synthetic Area 2 allocation",
+            "attachment": {
+              "filename": "proof.txt",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "request": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "Synthetic Area 2 allocation",
+            "attachment": {
+              "filename": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "expected": {
+          "predicate": "accept",
+          "oracle": "schema",
+          "schema_valid": true
+        },
+        "requirements": [
+          "FR-01",
+          "FR-04"
+        ],
+        "provenance": {
+          "constraint": "x-filename-maxLength",
+          "schema": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true,
+            "x-filename-maxLength": 100,
+            "x-allow-empty-file": false,
+            "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+          },
+          "source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+        },
+        "boundary": {
+          "limit": 100,
+          "unit": "filename characters",
+          "step": 1,
+          "inclusive": true
+        }
+      },
+      "after": {
+        "id": "self_allocation_create:body:attachment:BVA:x-filename-maxLength-below",
+        "operation": "self_allocation_create",
+        "method": "POST",
+        "route": "/api/v1/leave/user-allocation-request/",
+        "role": "employee",
+        "media_type": "multipart/form-data",
+        "location": "body",
+        "field": [
+          "attachment"
+        ],
+        "technique": "BVA",
+        "class": "x-filename-maxLength-below",
+        "omitted": false,
+        "value": {
+          "filename": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "text": "synthetic proof",
+          "content_type": "text/plain"
+        },
+        "baseline": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "Synthetic Area 2 allocation",
+            "attachment": {
+              "filename": "proof.txt",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "request": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "Synthetic Area 2 allocation",
+            "attachment": {
+              "filename": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "expected": {
+          "predicate": "accept",
+          "oracle": "schema",
+          "schema_valid": true
+        },
+        "requirements": [
+          "FR-01",
+          "FR-04"
+        ],
+        "provenance": {
+          "constraint": "x-filename-maxLength",
+          "schema": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true,
+            "x-filename-maxLength": 80,
+            "x-allow-empty-file": false,
+            "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+          },
+          "source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+        },
+        "boundary": {
+          "limit": 80,
+          "unit": "filename characters",
+          "step": 1,
+          "inclusive": true
+        }
+      }
+    },
+    {
+      "id": "self_allocation_create:body:attachment:BVA:x-filename-maxLength-at",
+      "before": {
+        "id": "self_allocation_create:body:attachment:BVA:x-filename-maxLength-at",
+        "operation": "self_allocation_create",
+        "method": "POST",
+        "route": "/api/v1/leave/user-allocation-request/",
+        "role": "employee",
+        "media_type": "multipart/form-data",
+        "location": "body",
+        "field": [
+          "attachment"
+        ],
+        "technique": "BVA",
+        "class": "x-filename-maxLength-at",
+        "omitted": false,
+        "value": {
+          "filename": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "text": "synthetic proof",
+          "content_type": "text/plain"
+        },
+        "baseline": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "Synthetic Area 2 allocation",
+            "attachment": {
+              "filename": "proof.txt",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "request": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "Synthetic Area 2 allocation",
+            "attachment": {
+              "filename": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "expected": {
+          "predicate": "accept",
+          "oracle": "schema",
+          "schema_valid": true
+        },
+        "requirements": [
+          "FR-01",
+          "FR-04"
+        ],
+        "provenance": {
+          "constraint": "x-filename-maxLength",
+          "schema": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true,
+            "x-filename-maxLength": 100,
+            "x-allow-empty-file": false,
+            "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+          },
+          "source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+        },
+        "boundary": {
+          "limit": 100,
+          "unit": "filename characters",
+          "step": 1,
+          "inclusive": true
+        }
+      },
+      "after": {
+        "id": "self_allocation_create:body:attachment:BVA:x-filename-maxLength-at",
+        "operation": "self_allocation_create",
+        "method": "POST",
+        "route": "/api/v1/leave/user-allocation-request/",
+        "role": "employee",
+        "media_type": "multipart/form-data",
+        "location": "body",
+        "field": [
+          "attachment"
+        ],
+        "technique": "BVA",
+        "class": "x-filename-maxLength-at",
+        "omitted": false,
+        "value": {
+          "filename": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "text": "synthetic proof",
+          "content_type": "text/plain"
+        },
+        "baseline": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "Synthetic Area 2 allocation",
+            "attachment": {
+              "filename": "proof.txt",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "request": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "Synthetic Area 2 allocation",
+            "attachment": {
+              "filename": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "expected": {
+          "predicate": "accept",
+          "oracle": "schema",
+          "schema_valid": true
+        },
+        "requirements": [
+          "FR-01",
+          "FR-04"
+        ],
+        "provenance": {
+          "constraint": "x-filename-maxLength",
+          "schema": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true,
+            "x-filename-maxLength": 80,
+            "x-allow-empty-file": false,
+            "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+          },
+          "source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+        },
+        "boundary": {
+          "limit": 80,
+          "unit": "filename characters",
+          "step": 1,
+          "inclusive": true
+        }
+      }
+    },
+    {
+      "id": "self_allocation_create:body:attachment:BVA:x-filename-maxLength-above",
+      "before": {
+        "id": "self_allocation_create:body:attachment:BVA:x-filename-maxLength-above",
+        "operation": "self_allocation_create",
+        "method": "POST",
+        "route": "/api/v1/leave/user-allocation-request/",
+        "role": "employee",
+        "media_type": "multipart/form-data",
+        "location": "body",
+        "field": [
+          "attachment"
+        ],
+        "technique": "BVA",
+        "class": "x-filename-maxLength-above",
+        "omitted": false,
+        "value": {
+          "filename": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "text": "synthetic proof",
+          "content_type": "text/plain"
+        },
+        "baseline": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "Synthetic Area 2 allocation",
+            "attachment": {
+              "filename": "proof.txt",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "request": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "Synthetic Area 2 allocation",
+            "attachment": {
+              "filename": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "expected": {
+          "predicate": "reject",
+          "oracle": "schema",
+          "schema_valid": false
+        },
+        "requirements": [
+          "FR-01",
+          "FR-04"
+        ],
+        "provenance": {
+          "constraint": "x-filename-maxLength",
+          "schema": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true,
+            "x-filename-maxLength": 100,
+            "x-allow-empty-file": false,
+            "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+          },
+          "source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+        },
+        "boundary": {
+          "limit": 100,
+          "unit": "filename characters",
+          "step": 1,
+          "inclusive": true
+        }
+      },
+      "after": {
+        "id": "self_allocation_create:body:attachment:BVA:x-filename-maxLength-above",
+        "operation": "self_allocation_create",
+        "method": "POST",
+        "route": "/api/v1/leave/user-allocation-request/",
+        "role": "employee",
+        "media_type": "multipart/form-data",
+        "location": "body",
+        "field": [
+          "attachment"
+        ],
+        "technique": "BVA",
+        "class": "x-filename-maxLength-above",
+        "omitted": false,
+        "value": {
+          "filename": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "text": "synthetic proof",
+          "content_type": "text/plain"
+        },
+        "baseline": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "Synthetic Area 2 allocation",
+            "attachment": {
+              "filename": "proof.txt",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "request": {
+          "body": {
+            "leave_type_id": 201,
+            "requested_days": 5,
+            "description": "Synthetic Area 2 allocation",
+            "attachment": {
+              "filename": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "text": "synthetic proof",
+              "content_type": "text/plain"
+            }
+          },
+          "path": {},
+          "query": {}
+        },
+        "expected": {
+          "predicate": "reject",
+          "oracle": "schema",
+          "schema_valid": false
+        },
+        "requirements": [
+          "FR-01",
+          "FR-04"
+        ],
+        "provenance": {
+          "constraint": "x-filename-maxLength",
+          "schema": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true,
+            "x-filename-maxLength": 80,
+            "x-allow-empty-file": false,
+            "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+          },
+          "source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+        },
+        "boundary": {
+          "limit": 80,
+          "unit": "filename characters",
+          "step": 1,
+          "inclusive": true
+        }
+      }
+    }
+  ],
+  "interpretation": "The unchanged server accepts description length two and filename length 81; the tightened experimental contract rejects both. This demonstrates spec/server disagreement, not a production rule change.",
+  "canonical_baseline_preserved": true
+}

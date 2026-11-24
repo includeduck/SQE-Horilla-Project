@@ -35,3 +35,4 @@ ALLOWED_HOSTS = ["localhost", "127.0.0.1", "testserver"]
 CSRF_TRUSTED_ORIGINS = ["http://localhost", "http://127.0.0.1"]
 SECURE_SSL_REDIRECT = False
 TIME_ZONE = "Asia/Karachi"
+ROOT_URLCONF = "area2_urls"
