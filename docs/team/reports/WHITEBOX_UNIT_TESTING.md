@@ -54,14 +54,14 @@ The 100% target applies to the functions that implement the four business rules 
 
 | Location | Not covered | Why it cannot be covered |
 |---|---|---|
-| `leave/models.py:2141 → 2142` | `unique_dates.remove(...)` | **Infeasible: dead code.** The condition looks for `f"{today.month}-{today.year}"` (e.g. `"3-2031"`) in a list built as `f"{year}-{MM}"` (e.g. `"2031-03"`). A string starting with a 1–2 digit month can never equal one starting with a 4-digit year, so the branch is never true. `unique_dates` is also never used afterwards. Harmless, but a maintainability finding. |
+| `leave/models.py:2141 → 2142` | `unique_dates.remove(...)` | **Infeasible: dead code.** The condition looks for `f"{today.month}-{today.year}"` (e.g. `"3-2031"`) in a list built as `f"{year}-{MM}"` (e.g. `"2031-03"`). A string starting with a 1–2 digit month can never equal one starting with a 4-digit year, so the branch is never true. `unique_dates` is also never used afterwards. Harmless, but a maintainability finding (#12, A1-D02). |
 | `leave/models.py:2087 → 2097` | False branch of `if self.start_date and self.end_date` | **Infeasible:** it needs a missing `start_date` or `end_date`, but line 2069 (`start_date > end_date`) runs first and raises `TypeError` when `end_date` is `None` (`test_missing_end_date_crashes_before_validation`). `start_date` is non-nullable. |
 
 ## 4. White-box findings
 
-1. **Missing end date crashes validation.** `LeaveRequest.end_date` is nullable, but `clean()` compares it before checking for `None`, so a request without an end date raises `TypeError` (HTTP 500 through a form/API path) instead of a validation message. Severity: medium. To log as a GitHub Issue.
-2. **Dead code in `clean()`** (line 2141, see §3). Severity: low.
-3. **Unknown carry-forward type is not capped.** If `carryforward_type` holds a value outside the three choices (possible via direct DB edits or a future choice), the `elif` chain at 2151/2153 falls through and the stored carry-forward is added **uncapped** (`test_carryforward_types`, "2153 F" row). Severity: low (robustness).
+1. **Missing end date crashes validation.** `LeaveRequest.end_date` is nullable, but `clean()` compares it before checking for `None`, so a request without an end date raises `TypeError` (HTTP 500 through a form/API path) instead of a validation message. Severity: medium. Logged as #11 (A1-D01).
+2. **Dead code in `clean()`** (line 2141, see §3). Severity: low. Logged as #12 (A1-D02).
+3. **Unknown carry-forward type is not capped.** If `carryforward_type` holds a value outside the three choices (possible via direct DB edits or a future choice), the `elif` chain at 2151/2153 falls through and the stored carry-forward is added **uncapped** (`test_carryforward_types`, "2153 F" row). Severity: low (robustness). Logged as #13 (A1-D03).
 4. **Reject accepts a cancelled leave** (OD-01, BR-03 terminal state). Kept visible as `xfail(strict=True)`; when fixed, the test will XPASS and fail the run until the marker is removed.
 
 ## 5. MCC and MC/DC (critical module)
