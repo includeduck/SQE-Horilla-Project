@@ -70,7 +70,8 @@ def normalized_schema(body):
                          "responses": operation.get("responses", {})})
     # Keep definitions so body/response references remain resolvable.
     return {"operations": rows, "definitions": body.get("definitions", {}),
-            "securityDefinitions": body.get("securityDefinitions", {})}
+            "securityDefinitions": {name: {k: v for k, v in value.items() if k in ("type", "in", "name")}
+                                    for name, value in body.get("securityDefinitions", {}).items()}}
 
 
 def test_fresh_foundation_and_live_contract(leave_http, record_property):
@@ -150,6 +151,33 @@ def test_fresh_foundation_and_live_contract(leave_http, record_property):
             # Debug HTML can include Authorization headers. Never persist it.
             capture["limitation"] = "No successful schema document; status/hash only, no unsafe debug HTML"
         result["schemas"].append(capture)
+    # Source-specific missing-reference outcomes, with real JWT and URL routing.
+    # These probes are not counted as generated consumers or extra API scenarios.
+    from django.contrib.auth.models import Permission
+    permission_names = ("view_availableleave", "add_availableleave", "change_availableleave", "delete_availableleave")
+    permissions = Permission.objects.filter(content_type__app_label="leave", codename__in=permission_names)
+    h.context["approver_user"].user_permissions.add(*permissions)
+    result["lookup_probe_permissions"] = list(permissions.values_list("codename", flat=True))
+    result["lookup_probes"] = []
+    before_probes = h.snapshot()
+    for path, item in document["paths"].items():
+        if "{pk}" not in path:
+            continue
+        for method, operation in item.items():
+            if method not in ("get", "put", "delete"):
+                continue
+            role = operation.get("x-role", "employee")
+            values = {}
+            for label, value in (("positive_missing", "2147483647"), ("unroutable", "not-an-int")):
+                response = h.request(method.upper(), path.replace("{pk}", value), role, {} if method != "get" else None)
+                values[label] = response.status_code
+                if label == "unroutable":
+                    assert response.status_code == 404
+                else:
+                    assert response.status_code in (400, 403, 404), (operation["operationId"], response.status_code)
+            result["lookup_probes"].append({"operation": operation["operationId"], "route": path,
+                                             "method": method.upper(), "role": role, "statuses": values})
+    assert h.snapshot() == before_probes
     allocation_id = h.grant(5)
     leave_id = h.create_leave()
     h.approve_leave(leave_id)
