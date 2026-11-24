@@ -80,7 +80,7 @@ def bound_body(h, case):
 def send(h, ctx, body, *, query=None, headers=None, encoding="json", raw=None):
     files = None
     payload = copy.deepcopy(body)
-    if isinstance(payload, dict):
+    if isinstance(payload, dict) and raw is None:
         for name, value in list(payload.items()):
             if isinstance(value, dict) and set(value) == {"filename", "text", "content_type"}:
                 payload.pop(name)
@@ -110,8 +110,11 @@ def balances(h):
     return {role: h.balance(role) for role in ("employee", "approver", "outsider")}
 
 
-def readback(h, operation, pk):
-    return h.allocation_detail(pk) if "allocation" in operation else h.leave_detail(pk)
+def readback(h, operation, pk, role="employee"):
+    route = f"/api/v1/leave/allocation-request/{pk}/" if "allocation" in operation else f"/api/v1/leave/user-request/{pk}/"
+    response = h.request("GET", route, role=role)
+    assert response.status_code == 200, response.text[:1000]
+    return response.json()
 
 
 def assert_result(h, case, ctx, response, before, before_balances, body, expected_status):
@@ -207,7 +210,7 @@ def assert_result(h, case, ctx, response, before, before_balances, body, expecte
                 elif "attachment" in body and descriptor is None:
                     assert not stored.attachment
             if operation.startswith(("allocation_", "self_allocation_", "leave_", "self_leave_")) and operation not in transitions:
-                detail = readback(h, operation, pk)
+                detail = readback(h, operation, pk, ctx.get("owner_role", "employee"))
                 assert detail["id"] == pk and detail["status"] == row["status"]
                 if "is_active" in detail:
                     assert detail["is_active"] is row["is_active"]
