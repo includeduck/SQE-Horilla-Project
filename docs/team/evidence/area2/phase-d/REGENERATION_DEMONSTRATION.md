@@ -24,7 +24,7 @@ python tests/team/generator/demonstrate_regeneration.py --output docs/team/evide
 
 It returned exit zero and actually rejected old generated data against the
 variant spec. It also verified the canonical baseline remains unchanged.
-47 generator/catalog/runner/experiment integrity checks passed independently.
+49 generator/catalog/runner/experiment/report integrity checks passed independently.
 
 Real HTTP consumption command:
 
@@ -45,7 +45,34 @@ zero setup errors/skips and baseline exit zero. An unexpected failure makes the
 demonstration fail. This is not xfail, a disabled test, a green application gate
 or evidence that production now enforces the hypothetical limits.
 
-Actual HTTP outcomes remain pending until the linked runtime jobs complete.
-The manifest/raw logs/XML must be inspected before replacing this statement.
+The verified real HTTP outcomes are recorded below from completed job logs;
+current reruns have their own source identity and must be assessed separately.
 No baseline restore mutation is needed because canonical files were never edited;
 normal freshness/default commands still target canonical openapi.json/data.
+
+## Verified real HTTP regeneration result - 24 November 2026
+
+Run 45348178607, regeneration job 138287747685 on source 8a9ca964, completed
+successfully. Six strict baseline HTTP cases passed. The variant produced four
+passes and exactly two genuine failed strict assertions, with pytest exit one:
+`self_allocation_create:body:description:BVA:minLength-below` and
+`self_allocation_create:body:attachment:BVA:x-filename-maxLength-above`.
+The driver inspected exact failed IDs and zero errors/skips and recorded
+experiment_demonstrated true. This is the predicted spec/server mismatch, not
+an assertion that production enforces the hypothetical stricter spec.
+Raw job output: docs/team/evidence/area2/phase-d/ci-45348178607-regeneration.log.
+The canonical spec/data remain unchanged. This independently completes the
+controlled regeneration/consumption demonstration; browser verification and
+whole Area 2 acceptance remain separate.
+
+
+## Final same-source Phase D verification - 24 November 2026
+
+Source 7189656a / run 45388276537 completed both D jobs successfully. Browser:
+all ten flows passed, strict HTML completion report passed, artifact 14917252664.
+Regeneration: job 138424862957 retained baseline six passes, variant four passes
+and exactly two predicted strict failures, zero errors/skips and genuine variant
+exit one; experiment_demonstrated true. Current raw log and labelled summary are
+ci-45388276537-regeneration-passed.log and regeneration-current-verified-summary.json
+under docs/team/evidence/area2/phase-d/. These results complete this personal
+contribution's EC-3 evidence; overall required scope and group release remain HOLD.

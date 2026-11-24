@@ -1,6 +1,26 @@
 # Area 2 activity and management contribution
 
-## Current continuation - 24 November 2026
+## Latest verified progress - 24 November 2026
+
+Run 45355537962 on source 32621b42 verified 275/275 full first-order API cases
+with zero failures/errors/skips in the completed summary, plus separate 16
+focused, eight upstream, 177 expanded and one preflight passes. Reversed order
+was incomplete when the 90-minute job limit expired. This is a current-build
+100% first-order pass rate for the implemented inventory, not full scope,
+requirement coverage or twice/order-independent acceptance. Source 7189656a
+raises the job budget to 120 minutes; strict assertions/completeness stay intact.
+
+Owner-confirmed A2-D04/D05 API corrections passed strict regressions, and
+A2-D10's unchanged blank-amount browser test passed in 45355537997. Seven
+distinct corrected/retested defects now have evidence across the identified
+merged/draft builds; see the separately labelled seven-defect Pareto update.
+Browser harness errors are not product defects. Source 7189656a / run
+45388276537 verified all ten browser flows and the strict HTML report;
+artifact 14917252664 retains actual XML/log/screenshots/traces. Human review/viva/effort and
+team acceptance are not inferred. EC-1/EC-2 and group release remain HOLD due
+to remaining balance/input scope and group gate/package requirements.
+
+## Historical continuation - 24 November 2026
 
 This section supersedes earlier pending-result statements below. Phase C is
 **partially implemented; Hold remains in effect**. Wasay merged
@@ -65,18 +85,18 @@ The B status report and `evidence/area2/phase-b/` record actual test counts, com
 
 No reliable start/end time sheet or original A estimate is available locally. Overall actual hours and estimate-versus-actual variance are unknown. Test elapsed seconds in raw logs are tool execution durations, not Rayyan's human effort. No retrospective pre-implementation estimate, weekly report or human review is invented.
 
-For **remaining B verification only**, a provisional forecast after package/runtime access is restored is O=1, M=2, P=4 hours, PERT=(1+4Ã—2+4)/6=2.17 hours. This is an unapproved future-work estimate made after the implementation began, excludes waiting/access delay, and must be revised if runtime failures require more work. Group-wide estimation remains shared.
+For **remaining B verification only**, a provisional forecast after package/runtime access is restored is O=1, M=2, P=4 hours, PERT=(1+4A-2+4)/6=2.17 hours. This is an unapproved future-work estimate made after the implementation began, excludes waiting/access delay, and must be revised if runtime failures require more work. Group-wide estimation remains shared.
 
 ## Risk-based priorities
 
-| Risk | Likelihood Ã— impact, provisional 1â€“5 | Control / verification |
+| Risk | Likelihood A- impact, provisional 1�?"5 | Control / verification |
 |---|---|---|
-| Untested contract assumptions produce misleading passing tests | 4Ã—5=20 | Label source-only assumptions, introspect serializers, run real HTTP and inspect state. |
-| Missing dynamic business inputs hide balance/ownership defects | 4Ã—5=20 | Preserve incomplete coverage, recover A basis, bind C scenarios and compare both users' state. |
-| Environment/access failure prevents reproducible submission | 5Ã—4=20 | Maintain logs, owner handoffs and exact commands; distinguish verified publication from blocked local Git operations. |
-| Accidentally resetting an existing local DB | 2Ã—5=10 | Dedicated settings with absolute temporary SQLite/media paths; fixture asserts the DB parent before seeding. |
+| Untested contract assumptions produce misleading passing tests | 4A-5=20 | Label source-only assumptions, introspect serializers, run real HTTP and inspect state. |
+| Missing dynamic business inputs hide balance/ownership defects | 4A-5=20 | Preserve incomplete coverage, recover A basis, bind C scenarios and compare both users' state. |
+| Environment/access failure prevents reproducible submission | 5A-4=20 | Maintain logs, owner handoffs and exact commands; distinguish verified publication from blocked local Git operations. |
+| Accidentally resetting an existing local DB | 2A-5=10 | Dedicated settings with absolute temporary SQLite/media paths; fixture asserts the DB parent before seeding. |
 
-These are Area 2 risk contributions, not the assignment's completed group risk register or approved 5Ã—5 matrix. Shared plan, eight product/two project risks, exit criteria and final GQM/completion reporting remain group obligations.
+These are Area 2 risk contributions, not the assignment's completed group risk register or approved 5A-5 matrix. Shared plan, eight product/two project risks, exit criteria and final GQM/completion reporting remain group obligations.
 
 ## B entry / exit / suspension / resumption
 
@@ -143,14 +163,14 @@ probabilities or team-approved ratings. Score = likelihood * impact. Priorities:
 |---|---|---:|---:|---:|---|---|
 | A2-R01 | Product: incorrect effective balance grants excess leave | 4 | 5 | 20 | Cap/forecast/positive-duration BVA and connected state readback | Cap corrected; forecast/employee-holiday/positive-effective gaps remain |
 | A2-R02 | Product: refund or access affects another employee | 3 | 5 | 15 | Distinct owner/approver/outsider, authorization table and non-owner assertions | Refund/foreign allocation fixes retested; full scope incomplete |
-| A2-R03 | Product: repeated creation/approval duplicates records or effects | 4 | 3 | 12 | Repeated HTTP creation/approval plus count/balance readback | Approval guards tested; allocation creation policy unresolved |
-| A2-R04 | Product: invalid terminal transition corrupts history/balance | 4 | 3 | 12 | All scoped state transitions and invalid actions per state | Cancelled-to-rejected oracle unresolved |
+| A2-R03 | Product: repeated creation/approval duplicates records or effects | 4 | 3 | 12 | Repeated HTTP creation/approval plus count/balance readback | Approval guards tested; identical-pending rejection confirmed by Wasay, product correction pending |
+| A2-R04 | Product: invalid terminal transition corrupts history/balance | 4 | 3 | 12 | All scoped state transitions and invalid actions per state | Wasay confirmed terminal rejection must return 400; product correction pending |
 | A2-R05 | Product: stale/incomplete spec produces misleading test data | 4 | 4 | 16 | Regeneration/fingerprint checks; explicit exclusions; changed-spec experiment | Freshness passes; 399 generated IDs unconsumed |
-| A2-R06 | Product: attachment boundaries cause storage failure/data loss | 3 | 3 | 9 | Generated filename BVA, file bytes, real FileSystemStorage regressions | Upload fix retested; expanded creator test error corrected, retest pending |
+| A2-R06 | Product: attachment boundaries cause storage failure/data loss | 3 | 3 | 9 | Generated filename BVA, file bytes, real FileSystemStorage regressions | Upload fix retested; expanded creator test correction passed its CI step |
 | A2-R07 | Product: browser error/success display disagrees with stored state | 4 | 4 | 16 | Ten Playwright flows with visible and persistent assertions | Implemented; real UI verification ongoing |
 | A2-R08 | Product: date/breakdown/overlap/reference inputs bypass validation | 3 | 4 | 12 | Generated EP/date BVA, 32-row BR-02 table, invalid references | Implemented subset; full contract scope incomplete |
 | A2-J01 | Project: unavailable runtime/Git prevents reproduction | 4 | 5 | 20 | Free isolated CI, raw artifacts, own-account commit verification | Remote execution available; laptop dependencies/Git remain constrained |
-| A2-J02 | Project: unclear oracles/ownership delays accepted evidence | 4 | 4 | 16 | Explicit oracle ledger, stable IDs, dated contribution and owner records | Two policy decisions and team review remain pending |
+| A2-J02 | Project: unclear oracles/ownership delays accepted evidence | 4 | 4 | 16 | Explicit oracle ledger, stable IDs, dated contribution and owner records | Two policy decisions received; strict failures and remaining team review remain |
 
 Five-by-five matrix positions (row impact / column likelihood):
 
@@ -171,7 +191,7 @@ risk population; shared acceptance and other areas' risks still need team review
 |---|---|---|---|
 | EC-1 balance correctness | R01/R02, highest product risks | Every scoped balance/refund/decision case passes twice with exact owner/readback; zero unresolved high-severity balance defects | Four corrections retested on old build; full scope/forecast/positive-duration incomplete: FAIL/HOLD |
 | EC-2 contract and repeatability | R05/J01, high reproduction risk | Canonical freshness passes; all required generated input classes consumed or justified N/A; two isolated full API runs with zero failures/errors/skips | Freshness passes; 179/578 IDs referenced, 399 remaining; complete runs pending: FAIL/HOLD |
-| EC-3 personal browser/regeneration | R07/R05 | Ten of ten UI flows pass visible/persistent checks; six baseline HTTP cases pass; variant yields exactly two predicted strict mismatches with zero other failures/errors/skips | Implemented; runtime retests pending: NOT MET/HOLD |
+| EC-3 personal browser/regeneration | R07/R05 | Ten of ten UI flows pass visible/persistent checks; six baseline HTTP cases pass; variant yields exactly two predicted strict mismatches with zero other failures/errors/skips | Regeneration verified in 45355537997; all ten browser flows and strict report passed in 45388276537: MET for this contribution; shared acceptance and other criteria remain separate |
 
 These are measurable proposals, not retrospective team-approved targets. Two
 criteria explicitly address highest-scored risks. Other areas' release thresholds
@@ -192,7 +212,7 @@ does generated output follow supported spec edits; do UI outcomes match state?
 Metrics: accepted FRs/10 remains undetermined, not 10/10 inferred from test tags;
 implemented generated references 179/578=30.97% (inventory only); old full-build
 API pass fraction 176/178=98.88% (run-specific, not release readiness); current
-independent checks 47/47; browser verified pass fraction awaits actual results.
+independent checks 49/49; browser verified pass fraction awaits actual results.
 Confirmed-defect Pareto population is four; density needs a measured size and
 reopen rate needs real closed/reopened lifecycle counts, both unavailable.
 
@@ -207,3 +227,15 @@ No fictional weekly history or team signoff is backfilled.
 Existing defect-risk aliases are preserved: A2-R-BALANCE maps to A2-R01,
 A2-R-OWNERSHIP to A2-R02, A2-R-DUPLICATE to A2-R03, A2-R-STATE to A2-R04 and
 A2-R-CONTRACT to A2-R05. Earlier evidence remains linked; no FR/BR ID changes.
+
+
+## Final same-source Phase D verification - 24 November 2026
+
+Source 7189656a / run 45388276537 completed both D jobs successfully. Browser:
+all ten flows passed, strict HTML completion report passed, artifact 14917252664.
+Regeneration: job 138424862957 retained baseline six passes, variant four passes
+and exactly two predicted strict failures, zero errors/skips and genuine variant
+exit one; experiment_demonstrated true. Current raw log and labelled summary are
+ci-45388276537-regeneration-passed.log and regeneration-current-verified-summary.json
+under docs/team/evidence/area2/phase-d/. These results complete this personal
+contribution's EC-3 evidence; overall required scope and group release remain HOLD.

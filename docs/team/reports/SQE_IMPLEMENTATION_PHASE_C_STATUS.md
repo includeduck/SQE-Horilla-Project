@@ -1,5 +1,26 @@
 # SQE implementation Phase C status
 
+## Latest observed runtime - 24 November 2026
+
+This section supersedes historical unresolved-oracle/new-suite-pending labels.
+Run 45355537962 on source 32621b42 (tested PR merge 42f0b233) completed:
+16 focused regressions, eight upstream tests, 177 expanded input/file/query
+cases, one W1/W2 preflight and the full first-order 275-case collection, all
+passing in their separate populations. No skips/errors/failures are reported
+by those completed collection summaries. Raw job log and derived summary:
+`docs/team/evidence/area2/phase-c/ci-45355537962-job.log` and
+`ci-45355537962-summary.json`; actual CI artifact 14907648168.
+
+The reversed 275-case collection was cancelled at the 90-minute job limit;
+its partial progress is not accepted as a completed second run. The final
+complete-scope stage was not reached. Source 7189656a increases only the job
+budget to 120 minutes. Current retest: run 45388276552. The preserved complete
+scope remains false: 179/578 generated IDs referenced, 399 unconsumed, further
+balance/media/contract coverage and group acceptance still required. Phase C
+is partial/HOLD despite the clean 275-case first-order result. Owner-confirmed
+duplicate/terminal fixes passed strict retests; no xfail was used.
+
+
 ## Current continuation - 24 November 2026
 
 This section supersedes earlier pending-result statements below. Phase C is
@@ -62,7 +83,7 @@ results and two clean full API passes are not yet accepted. Do not call this
 phase complete or start D automatically.
 
 Rayyan explicitly assigned blocked unfinished execution to **Wasay / his agent**
-for mandatory project completion. Root `handoff.md` H-01â€“H-06 and the delivered
+for mandatory project completion. Root `handoff.md` H-01�?"H-06 and the delivered
 [owner issue #1](https://github.com/includeduck/SQE-Horilla-Project/issues/1)
 record that requested allocation. Acceptance by Wasay has not been observed.
 Actual authorship and the official area/viva obligations remain truthful; prior
@@ -132,8 +153,8 @@ correction is claimed without actual reproduction and retest.
    deletes, cancellation decisions, terminal assertions and owner refusal. The
    requested-allocation refusal is explicitly actor-conditioned self-approval;
    it is not presented as a nonexistent pure-state command.
-5. **Integration and repetitions:** zero â†’ allocation five â†’ approved three-day
-   leave â†’ balance two; a separate non-overlapping three-day request must reject
+5. **Integration and repetitions:** zero �+' allocation five �+' approved three-day
+   leave �+' balance two; a separate non-overlapping three-day request must reject
    without a new row or balance change. Approval/cancellation repetitions,
    duplicate leave creation and a visible provisional allocation-duplicate
    oracle are implemented.
@@ -173,9 +194,9 @@ not prove all-input completion.
 | Local syntax compilation | Passed; does not execute application imports | `compile-final.txt` |
 | Local full producer attempt | Generator/freshness passed, then validator import failed; dependent application stages blocked | `local-run-1/run-manifest.json` |
 | Two direct local API attempts | Both stopped at missing pytest; zero test bodies executed locally | `local-api-1.txt`, `local-api-2.txt` |
-| Remote build `5a5df40â€¦`, run [45179588790](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45179588790) | Dependencies installed; 40 independent checks passed; formal OpenAPI and Django check passed. **171 collected API cases had setup errors**, zero API test bodies reached. No product defect was established | `ci-45179588790-job.log`, `ci-first-summary.json`; remote artifact 14822725028 |
-| Remote build `7fba8eeâ€¦`, run [45181052750](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45181052750) | Same fixture guard failed on expanded collection: **178 setup errors**. Reverse run blocked. No API pass inferred | `ci-45181052750-job.log` |
-| Corrected fixture build `1948e0fâ€¦`, run [45183086568](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45183086568) | Runtime retest in progress at this checkpoint. Preflight precedes the expensive complete suite | Pending final observation; do not infer a pass |
+| Remote build `5a5df40�?�`, run [45179588790](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45179588790) | Dependencies installed; 40 independent checks passed; formal OpenAPI and Django check passed. **171 collected API cases had setup errors**, zero API test bodies reached. No product defect was established | `ci-45179588790-job.log`, `ci-first-summary.json`; remote artifact 14822725028 |
+| Remote build `7fba8ee�?�`, run [45181052750](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45181052750) | Same fixture guard failed on expanded collection: **178 setup errors**. Reverse run blocked. No API pass inferred | `ci-45181052750-job.log` |
+| Corrected fixture build `1948e0f�?�`, run [45183086568](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45183086568) | Runtime retest in progress at this checkpoint. Preflight precedes the expensive complete suite | Pending final observation; do not infer a pass |
 
 Bare evidence names in the table are relative to
 `docs/team/evidence/area2/phase-c/`. Raw failed runs are preserved. The remote
@@ -214,12 +235,12 @@ are not inferred from these API/catalog checks.
 
 | Requirement | Current contribution | Acceptance gap / mandatory owner completion |
 |---|---|---|
-| R3â€“R5 | Spec-driven EP/BVA, native/multipart/page/reference consumers and lineage | Remaining selected input/normalization/media/generic/action/update coverage and actual current-build results |
+| R3�?"R5 | Spec-driven EP/BVA, native/multipart/page/reference consumers and lineage | Remaining selected input/normalization/media/generic/action/update coverage and actual current-build results |
 | R6 | Decision/role vectors and 50 state/actor scenarios | Full remaining multi-condition balance rules and accepted state/duplicate oracle reconciliation |
-| R7 | Shared 5â†’3â†’2 sequence, rejection/repetition and persistent readback sources | Actual assertion execution, fixes where justified, complete clean and reversed passes |
+| R7 | Shared 5�+'3�+'2 sequence, rejection/repetition and persistent readback sources | Actual assertion execution, fixes where justified, complete clean and reversed passes |
 | R8/R13 | Structured candidate ledger with expected/source/reproducer/severity/risk/triage | Genuine product reproduction, Issues, correction/retest, RCA/Pareto and fixed/blocked PR evidence |
 | R11 | Fail-propagating Area 2 producer and isolated runtime workflow | Wasay's complete every-PR gate and required merge/deploy enforcement |
-| R12â€“R14/R16 | Actual logs, contribution/management/disclosure and verified commits | Final accepted results, GQM/risk review and truthful personal viva/human review |
+| R12�?"R14/R16 | Actual logs, contribution/management/disclosure and verified commits | Final accepted results, GQM/risk review and truthful personal viva/human review |
 
 Spec canonical SHA-256:
 `45e37bfbcd255fc567d5923b13076637f8777bbc4c48bb239f6c2e3fe398f0db`.
@@ -248,7 +269,7 @@ affected upstream checks separately after an actual product fix.
 
 ## Mandatory unfinished work and next prompt
 
-Wasay/his agent is assigned H-01â€“H-06 completion: finish/reconcile the foundation
+Wasay/his agent is assigned H-01�?"H-06 completion: finish/reconcile the foundation
 and scope, evaluate actual remote results, reproduce and narrowly fix genuine
 defects, finish coverage, rerun clean/reversed suites and integrate the group
 gate. Owner notification was delivered in issue #1, with progress comment
@@ -264,7 +285,7 @@ regeneration demonstration, browser cases and final reporting need verified C
 results/oracles. Independent document review may proceed, but D implementation
 was not started. Keep the project on Hold until the outstanding evidence and
 mandatory completion tasks are satisfied.
-## Latest live checkpoint â€” 23 November 2026
+## Latest live checkpoint �?" 23 November 2026
 
 Run 45183086568 at commit `1948e0f` has passed the fixture guard and is executing
 real generated-input HTTP tests; passing assertions were observed live. The
@@ -278,7 +299,7 @@ Exact output: `docs/team/evidence/area2/phase-c/local-final-independent.txt`.
 This rerun follows the streaming pipe cleanup and reports no ResourceWarning.
 
 
-## Attachment failure and protected-branch update â€” 23 November 2026
+## Attachment failure and protected-branch update �?" 23 November 2026
 
 Remote run 45183086568 reproduced storage exceptions for generated allocation
 attachment filename boundaries 99 and 100 (log lines 1720/1816). The original
@@ -297,7 +318,7 @@ issue #1 comment 7102792706. Further proposed corrections/evidence use the same
 review branch; owner review/merge and group gate remain required.
 
 
-## Final first-pass evidence and corrective proposals â€” 23 November 2026
+## Final first-pass evidence and corrective proposals �?" 23 November 2026
 
 Build `1948e0f`, run 45183086568 completed: W1/W2 preflight **1 passed**;
 full collection **169 passed, 9 failed**, 184 warnings, 1038.66 seconds.
@@ -381,3 +402,34 @@ The previous automatic approval rejection is historical and is now resolved.
 Mandatory Wasay handoffs H-02 through H-08 remain in force until their required
 evidence is completed. Local Git metadata/HEAD remain unchanged; no pull or
 local commit is claimed. Phase D remains unstarted.
+
+## C prerequisite retest observed during D
+
+The expanded generated-input/attachment/pagination step completed successfully
+in run 45348178584 on source 8a9ca964, after the source-backed creator-FK oracle
+correction. The subsequent full Area 2 producer is running. This establishes
+that the earlier five attachment helper failures no longer block the expanded
+step; it is not a completed 275-case/reversed pass or complete input coverage.
+Exact run-level counts will be taken from retained JUnit/job logs at completion.
+Wasay does not need to redo that specific test-oracle diagnosis/correction.
+
+## Retrieved owner decision - 24 November 2026
+
+Issue #1 contains a 23 November comment by includeduck confirming both strict
+400 oracles: cancelled leave must not be rejected again (BR-03 / OD-01), and
+an identical pending allocation must not create a duplicate (OD-02). This
+supersedes earlier statements that Wasay had not answered those two policies.
+The comment's D04/D05 labels reverse this ledger's existing labels; match by
+behavior and test name, preserving existing IDs rather than silently renumbering.
+
+The existing tests still assert 400 and unchanged persistent state. The current
+Phase D instruction requires genuine failures to remain visible, so the owner's
+requested xfail markers have not been added. No product correction or retest
+is inferred from a comment. The concrete remaining work is the two narrow
+product fixes and strict passing retests, not asking for the same decision again.
+The same comment confirms merged PRs #2/#7 and requests evidence-backed closure
+of Issues #3-#6. Their technical fixes/retests already exist; issue lifecycle
+changes require the authorized owner workflow.
+
+Source: https://github.com/includeduck/SQE-Horilla-Project/issues/1 (includeduck
+comment updated 2026-11-23T14:46:01Z). No new external message was sent here.

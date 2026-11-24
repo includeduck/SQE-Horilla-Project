@@ -104,3 +104,33 @@ rate or proof of an 80/20 relationship. Reopen rate and human actual effort are
 unavailable. Wasay must reconcile these contributions with real product Issues,
 triage/closure records, the group report and final accepted scope. A coordination
 issue is not counted as a product defect; no additional Issues were posted here.
+
+## Updated seven-defect population - 24 November 2026
+
+Keep the historical four-defect table above intact. Owner OD-01/OD-02 now
+confirm A2-D04/D05: both strict regressions passed the 16-case focused and
+275-case first-order collections in run 45355537962 on source 32621b42.
+A2-D10's blank form amount was reproduced in run 45353554904; its unchanged
+UC-RAY-01-E2 browser regression passed in 45355537997 after the required-field
+fix. These three fixes are in draft PR #8, unlike the first four merged fixes.
+Raw evidence is indexed in AREA2_EVIDENCE_INDEX.md and AREA2_DEFECTS.md.
+
+Population: seven distinct reproduced, corrected and retested defects across
+those explicitly identified builds; one category per defect. This is an updated
+Area 2 contribution, not an assertion that all seven were present in one run or
+that the whole application/reversed collection/group release passed.
+
+| Category | Defects | Count | Share | Cumulative |
+|---|---|---:|---:|---:|
+| Balance owner/policy calculation | A2-D01, A2-D03 | 2 | 28.57% | 28.57% |
+| Pending identity/terminal-state guard | A2-D04, A2-D05 | 2 | 28.57% | 57.14% |
+| Ownership denial handling | A2-D02 | 1 | 14.29% | 71.43% |
+| Attachment path construction | A2-D09 | 1 | 14.29% | 85.71% |
+| Form amount requiredness | A2-D10 | 1 | 14.29% | 100.00% |
+
+Percentages are rounded. The table supports retaining balance and request-state
+checks alongside UI required-field regressions; it does not establish an 80/20
+law, project-wide defect density, human triage/closure, or full input coverage.
+The seven-defect population excludes harness errors, coordination issues and
+unreproduced A2-D06/D07/D08 candidates. Two-major-defect analyses above remain
+grounded in A2-D01/A2-D03; no additional major severity is invented.

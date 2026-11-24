@@ -1,5 +1,26 @@
 # Area 2 CI producer and owner handoff
 
+## Latest observed runtime - 24 November 2026
+
+This section supersedes historical unresolved-oracle/new-suite-pending labels.
+Run 45355537962 on source 32621b42 (tested PR merge 42f0b233) completed:
+16 focused regressions, eight upstream tests, 177 expanded input/file/query
+cases, one W1/W2 preflight and the full first-order 275-case collection, all
+passing in their separate populations. No skips/errors/failures are reported
+by those completed collection summaries. Raw job log and derived summary:
+`docs/team/evidence/area2/phase-c/ci-45355537962-job.log` and
+`ci-45355537962-summary.json`; actual CI artifact 14907648168.
+
+The reversed 275-case collection was cancelled at the 90-minute job limit;
+its partial progress is not accepted as a completed second run. The final
+complete-scope stage was not reached. Source 7189656a increases only the job
+budget to 120 minutes. Current retest: run 45388276552. The preserved complete
+scope remains false: 179/578 generated IDs referenced, 399 unconsumed, further
+balance/media/contract coverage and group acceptance still required. Phase C
+is partial/HOLD despite the clean 275-case first-order result. Owner-confirmed
+duplicate/terminal fixes passed strict retests; no xfail was used.
+
+
 Owner of the implemented producer: Syed Muhammad Rayyan Hassan, **24I-3000**.
 Wasay owns the complete PR/Sonar/mutation gate and is assigned the blocked
 completion work in root `handoff.md` and [issue #1](https://github.com/includeduck/SQE-Horilla-Project/issues/1).
@@ -56,7 +77,7 @@ overwrite evidence. These utility checks do not prove branch protection.
 ## Isolated remote verification
 
 `.github/workflows/area2-verification.yml` runs the producer on relevant pushes
-to `sqe-team` and `rayyan/phase-c-evidence`, on an ordinary Ubuntu runner with read-only repository permission
+to `sqe-team` and relevant pull requests targeting `sqe-team`, on an ordinary Ubuntu runner with read-only repository permission
 and synthetic data. It preserves actual artifacts with `if: always()` after a
 failure; that upload condition does not suppress the failing test step. It
 does not modify Wasay's existing workflows, configure a paid runner or claim a
@@ -113,3 +134,18 @@ API passes; these are separate populations.
 Synthetic disposable users use MD5PasswordHasher only in area2_settings to
 reduce fixture/authentication time. Password checks, JWT issuance and actual
 role/permission handling remain enabled. Production settings are untouched.
+
+## Phase D integration actually supplied
+
+The relevant-PR source wiring is implemented, not an outstanding task for Wasay:
+Area 2 runs on relevant changes targeting sqe-team; Phase D has separate strict
+regeneration and browser jobs. Regeneration run 45348178607 is verified successful
+with exact baseline 6/6 and variant 4 pass / 2 predicted strict fail populations.
+The first expanded C step after creator-oracle correction passed in run
+45348178584; full/reversed producer results remain a separate acceptance check.
+
+Wasay's remaining H-05 is the complete all-tests/Sonar/mutation integration,
+required-check policy and real blocked/fixed merge/deploy evidence. Reading
+classic protection returned 403 (integration lacks administration access); an
+empty accessible ruleset list does not prove protection absent. No branch
+protection was changed or bypassed. Keep any failed C/completeness checks red.

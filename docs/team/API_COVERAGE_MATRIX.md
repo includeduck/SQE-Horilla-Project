@@ -1,6 +1,20 @@
-# Area 2 API coverage matrix â€” Phase C checkpoint
+# Area 2 API coverage matrix �?" Phase C checkpoint
 
-## Current continuation - 24 November 2026
+## Latest verified runtime - 24 November 2026
+
+Run 45355537962 / source 32621b42 verified all 275 implemented API cases in
+the full first-order collection. Separate focused/upstream/expanded/preflight
+populations passed 16/8/177/1; do not sum these overlapping populations.
+The reversed collection was cancelled at the 90-minute job limit, so a
+completed second-order result and complete-scope acceptance remain missing.
+Source 7189656a increases the job limit to 120 minutes without altering tests.
+The inventory remains 179/578 generated IDs referenced and 399 unconsumed;
+100% passing implemented scenarios is not full generated-input/FR coverage.
+Strict owner-confirmed duplicate/terminal regressions passed without xfail.
+Raw log and labelled summary: docs/team/evidence/area2/phase-c/
+ci-45355537962-job.log and ci-45355537962-summary.json.
+
+## Historical continuation - 24 November 2026
 
 This section supersedes earlier pending-result statements below. Phase C is
 **partially implemented; Hold remains in effect**. Wasay merged
@@ -117,7 +131,7 @@ is retained as history and does not replace the current 275-case inventory.
 - File-name boundary is source-derived 100 characters and introspected by the fixture before use. No maximum file-byte count, arbitrary allocation maximum or universal half-day numeric increment is invented.
 - Page-size limit is a clamp: 99/100/101 normalize to 99/100/100. Below-minimum/null/invalid pagination fallback semantics still need full generated consumption.
 - Case/setup IDs are correlated from actual fixture records and HTTP creation readback. Unsupported or unbound dimensions remain explicit; path/query/action/update/generic body coverage is not certified from self-create coverage alone.
-- Every targeted success/rejection includes state/balance/count readback. Refund regressions deliberately distinguish requester balance 5â†’2 from approver balance 7 and outsider balance 9.
+- Every targeted success/rejection includes state/balance/count readback. Refund regressions deliberately distinguish requester balance 5�+'2 from approver balance 7 and outsider balance 9.
 
 ## Decisions and state oracles
 
@@ -131,12 +145,12 @@ The state catalog exercises requested/approved/rejected allocation and requested
 
 | Requirement | Implemented contribution | Remaining mandatory completion, assigned to Wasay/his agent in handoff.md |
 |---|---|---|
-| R3â€“R5 / every input and generated consumption | Reproducible EP/BVA generator, self-create/file/page/reference consumers and provenance | Consume remaining generated labels and missing filters/page/reason/dynamic-balance/media inputs, with accurate normalization expectations |
+| R3�?"R5 / every input and generated consumption | Reproducible EP/BVA generator, self-create/file/page/reference consumers and provenance | Consume remaining generated labels and missing filters/page/reason/dynamic-balance/media inputs, with accurate normalization expectations |
 | R6 / decisions and transitions | 32-row BR-02 table, eight BR-04 rows, 50 state/actor cases | Reconcile unresolved graph/duplicate semantics and complete every remaining multi-condition business rule matrix |
-| R7 / rejection/repetition/shared record | W1 allocation five â†’ leave three â†’ balance two; independent over-balance rejection; state/replay/readback regressions | Execute/retest clean twice, resolve genuine product failures and retain real evidence |
+| R7 / rejection/repetition/shared record | W1 allocation five �+' leave three �+' balance two; independent over-balance rejection; state/replay/readback regressions | Execute/retest clean twice, resolve genuine product failures and retain real evidence |
 | R8/R13 / findings and root causes | Structured source candidates and precise HTTP reproducers in AREA2_DEFECTS.md | Attach actual failure/fix/retest evidence, Issues/RCA/Pareto/fixed and blocked PRs |
 | R11 / CI producer | Fail-propagating runner and isolated remote verification workflow | Wasay's complete every-PR Sonar/all-tests/mutation gate, required checks and merge/deploy enforcement |
-| R12â€“R14/R16 / records and contribution | Actual logs, status/management/disclosure, verified Rayyan commits and delivered owner issue | Complete actual-result reporting/GQM/risk acceptance and personal viva obligations without fabricated authorship |
+| R12�?"R14/R16 / records and contribution | Actual logs, status/management/disclosure, verified Rayyan commits and delivered owner issue | Complete actual-result reporting/GQM/risk acceptance and personal viva obligations without fabricated authorship |
 
 ## Current fingerprints
 
@@ -145,3 +159,25 @@ The state catalog exercises requested/approved/rejected allocation and requested
 - Generated data SHA-256: `38d69c57a2e33ede9682bb8b6b165d7c1398b578711983ecf05cd3f8e59e3521`.
 
 `api/case_ledger.json` retains every unconsumed generated ID and infeasible decision row. `coverage_complete` remains **false**. The older B evidence refers to its earlier 518-case contract/build; do not conflate its hashes or test totals with this expanded C snapshot.
+
+## C prerequisite retest observed during D
+
+The expanded generated-input/attachment/pagination step completed successfully
+in run 45348178584 on source 8a9ca964, after the source-backed creator-FK oracle
+correction. The subsequent full Area 2 producer is running. This establishes
+that the earlier five attachment helper failures no longer block the expanded
+step; it is not a completed 275-case/reversed pass or complete input coverage.
+Exact run-level counts will be taken from retained JUnit/job logs at completion.
+Wasay does not need to redo that specific test-oracle diagnosis/correction.
+
+## D prerequisite corrections and current owner decisions
+
+The published SCOPE OD-01/OD-02 already require HTTP 400 for rejecting cancelled
+leave and for identical pending employee/type/days/description allocations.
+Source 32621b42 implements both narrow fixes without xfail. The existing
+duplicate case additionally checks the generic route, distinct inputs and
+approved history, retaining one unique scenario ID; total API count stays 275.
+Focused CI now runs 16 rather than 14 cases. The historical four-defect result
+population remains separate; the focused strict regression step passed in
+run 45355537962, while full/reversed verification remains pending. Source-backed
+expanded attachment creator correction has already passed its 177-case step.

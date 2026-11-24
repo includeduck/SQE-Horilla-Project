@@ -1,5 +1,64 @@
 # SQE owner handoff
 
+## Latest observed continuation - 24 November 2026
+
+This section and the current checklist supersede earlier pending labels.
+Source 32621b42 / run 45355537962 verified **16 focused**, **8 upstream**,
+**177 expanded**, **1 preflight** and **275/275 first-order API** passes as
+separate overlapping populations. The reversed collection was cancelled at the
+90-minute job limit before completion. No twice/order-independent acceptance
+is claimed. Raw log and derived summary are in docs/team/evidence/area2/phase-c/
+ci-45355537962-job.log and ci-45355537962-summary.json. Artifact 14907648168
+retains actual first-order XML and partial reverse output. Source 7189656a
+increases only the Area 2 job budget to 120 minutes for the next full retest.
+
+A2-D04/D05 owner-confirmed fixes have real strict passing-after evidence;
+A2-D10 blank-amount validation passed the unchanged UC-RAY-01-E2 browser test
+in run 45355537997, alongside the other four allocation flows. These source
+fixes and their diagnosis are delivered contributions, not Wasay rework.
+Regeneration was verified again in the same run: baseline 6 pass; variant
+4 pass / exactly 2 predicted strict failures; no errors/skips.
+
+The next browser run 45357327780 exposed this agent's overly narrow button-only
+selector: active CBV navbars use anchors. This is a harness regression, not ten
+new product defects. Source ac32aaab selects visible Create controls regardless
+of tag, excluding hidden floating shortcuts. The inherited current source
+7189656a passed **all ten browser flows** in run 45388276537 / job 138424862639:
+10 passed, zero failures/errors/skips, 340.34 seconds, with the strict HTML
+completion report successful. Actual XML/HTML/log/screenshots/traces are in
+artifact 14917252664; decoded raw log and derived summary are retained under
+docs/team/evidence/area2/phase-d/. This agent finished its own D debugging.
+The same source/run's regeneration job 138424862957 also completed successfully:
+six baseline passes, four variant passes and exactly two predicted strict
+failures, no errors/skips; experiment_demonstrated true. Both D jobs are now
+verified on the same source. Final raw log and labelled summary are retained.
+See docs/team/reports/SQE_IMPLEMENTATION_PHASE_D_STATUS.md for the final report.
+Whole Area 2/group release remains
+HOLD: 399 generated IDs, remaining balance/contract scope and shared gates/
+group package are still explicit mandatory Wasay/shared carryover.
+
+## Current mandatory execution index - 24 November 2026
+
+Use [PHASES_A_D_REMAINING_CHECKLIST.md](docs/team/reports/PHASES_A_D_REMAINING_CHECKLIST.md)
+for the current complete A-D checklist and acceptance evidence. It supersedes
+historical pending/unstarted/unanswered labels below. Rayyan explicitly assigns
+unfinished work that this agent cannot complete within the permitted access
+and current scope to Wasay / his agent for mandatory project completion; it is
+no longer Rayyan's remaining technical execution assignment. Preserve actual
+authorship and do not infer another member's acceptance or personal viva result.
+
+This agent finished its own D browser retests/report/package contribution;
+the ten-flow passing retest is retained, not handed to Wasay as debugging.
+It also implemented the blank-amount form
+fix and the two OD-01/OD-02 API fixes after retrieving the existing owner decision.
+The previous "await owner decision" handoff is therefore obsolete. Current
+strict retest outcomes must be retained before calling those fixes verified.
+The scoped every-PR producer wiring, personal use-case specs, two-constraint
+HTTP demonstration, risk/criteria/RCA/evidence/viva contributions are supplied.
+Wasay's remaining work is the precise carryover/shared/administrative list in
+the checklist, not a requirement to redo those delivered contributions.
+
+
 ## Current continuation - 24 November 2026
 
 This section supersedes earlier pending-result statements below. Phase C is
@@ -94,7 +153,7 @@ Update this handoff as tasks are accepted, implemented, tested and published.
 Do not mark a task complete because code or a report exists. Rayyan's two
 personal use-case/Phase D implementation has not automatically started.
 
-## Phase C verification checkpoint â€” 23 November 2026
+## Phase C verification checkpoint �?" 23 November 2026
 
 Remote runtime installation is now successful. Runs 45179588790 and 45181052750
 stopped at a fixture guard (171/178 setup errors), before product assertions.
@@ -115,7 +174,7 @@ Published checkpoints after the initial three: `aa600a2` B evidence/handoff,
 `1948e0f` fixture guard and streaming preflight. Verified Rayyan author and
 committer throughout; local Git staging/pull restrictions remain unresolved.
 
-Wasay/his agent: H-01 remote installation is resolved, but H-02â€“H-06 still require
+Wasay/his agent: H-01 remote installation is resolved, but H-02�?"H-06 still require
 completion where blocked, including final result evaluation, coverage/oracle
 reconciliation, genuine product fixes/retests and group CI integration. Owner
 issue #1 was delivered and assigned to includeduck; acceptance is unobserved.
@@ -123,7 +182,7 @@ This is Rayyan's explicit mandatory execution reassignment, preserving actual
 contribution history. Phase D has not started.
 
 
-## Attachment failure and protected-branch update â€” 23 November 2026
+## Attachment failure and protected-branch update �?" 23 November 2026
 
 Remote run 45183086568 reproduced storage exceptions for generated allocation
 attachment filename boundaries 99 and 100 (log lines 1720/1816). The original
@@ -142,7 +201,7 @@ issue #1 comment 7102792706. Further proposed corrections/evidence use the same
 review branch; owner review/merge and group gate remain required.
 
 
-## Final first-pass evidence and corrective proposals â€” 23 November 2026
+## Final first-pass evidence and corrective proposals �?" 23 November 2026
 
 Build `1948e0f`, run 45183086568 completed: W1/W2 preflight **1 passed**;
 full collection **169 passed, 9 failed**, 184 warnings, 1038.66 seconds.
@@ -250,3 +309,49 @@ H-03/H-04 known implementation/debugging is being advanced here where possible.
 Existing unresolved policy/complete-scope/overall gate/archival dependencies
 remain open; none is marked complete solely because a script/report exists.
 No new D task is assigned to Wasay at this in-progress checkpoint.
+
+## Verified real HTTP regeneration result - 24 November 2026
+
+Run 45348178607, regeneration job 138287747685 on source 8a9ca964, completed
+successfully. Six strict baseline HTTP cases passed. The variant produced four
+passes and exactly two genuine failed strict assertions, with pytest exit one:
+`self_allocation_create:body:description:BVA:minLength-below` and
+`self_allocation_create:body:attachment:BVA:x-filename-maxLength-above`.
+The driver inspected exact failed IDs and zero errors/skips and recorded
+experiment_demonstrated true. This is the predicted spec/server mismatch, not
+an assertion that production enforces the hypothetical stricter spec.
+Raw job output: docs/team/evidence/area2/phase-d/ci-45348178607-regeneration.log.
+The canonical spec/data remain unchanged. This independently completes the
+controlled regeneration/consumption demonstration; browser verification and
+whole Area 2 acceptance remain separate.
+
+## C prerequisite retest observed during D
+
+The expanded generated-input/attachment/pagination step completed successfully
+in run 45348178584 on source 8a9ca964, after the source-backed creator-FK oracle
+correction. The subsequent full Area 2 producer is running. This establishes
+that the earlier five attachment helper failures no longer block the expanded
+step; it is not a completed 275-case/reversed pass or complete input coverage.
+Exact run-level counts will be taken from retained JUnit/job logs at completion.
+Wasay does not need to redo that specific test-oracle diagnosis/correction.
+
+## Retrieved owner decision - 24 November 2026
+
+Issue #1 contains a 23 November comment by includeduck confirming both strict
+400 oracles: cancelled leave must not be rejected again (BR-03 / OD-01), and
+an identical pending allocation must not create a duplicate (OD-02). This
+supersedes earlier statements that Wasay had not answered those two policies.
+The comment's D04/D05 labels reverse this ledger's existing labels; match by
+behavior and test name, preserving existing IDs rather than silently renumbering.
+
+The existing tests still assert 400 and unchanged persistent state. The current
+Phase D instruction requires genuine failures to remain visible, so the owner's
+requested xfail markers have not been added. No product correction or retest
+is inferred from a comment. The concrete remaining work is the two narrow
+product fixes and strict passing retests, not asking for the same decision again.
+The same comment confirms merged PRs #2/#7 and requests evidence-backed closure
+of Issues #3-#6. Their technical fixes/retests already exist; issue lifecycle
+changes require the authorized owner workflow.
+
+Source: https://github.com/includeduck/SQE-Horilla-Project/issues/1 (includeduck
+comment updated 2026-11-23T14:46:01Z). No new external message was sent here.

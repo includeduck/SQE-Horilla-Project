@@ -1,0 +1,59 @@
+{
+  "evidence_kind": "Derived summary from completed CI job log; actual XML/HTML/screenshots/traces remain in linked artifact",
+  "source_commit": "7189656a7b118565f42004770ff9a9f8bbcd3a09",
+  "run_id": 45388276537,
+  "job_id": 138424862639,
+  "job_conclusion": "success",
+  "raw_log": "ci-45388276537-browser-passed.log",
+  "artifact_id": 14917252664,
+  "artifact_url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45388276537/artifacts/14917252664",
+  "cases": 10,
+  "passed": 10,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "elapsed_seconds": 340.34,
+  "flows": [
+    {
+      "case_id": "UC-RAY-01-MAIN",
+      "result": "passed"
+    },
+    {
+      "case_id": "UC-RAY-01-A1",
+      "result": "passed"
+    },
+    {
+      "case_id": "UC-RAY-01-A2",
+      "result": "passed"
+    },
+    {
+      "case_id": "UC-RAY-01-E1",
+      "result": "passed"
+    },
+    {
+      "case_id": "UC-RAY-01-E2",
+      "result": "passed"
+    },
+    {
+      "case_id": "UC-RAY-02-MAIN",
+      "result": "passed"
+    },
+    {
+      "case_id": "UC-RAY-02-A1",
+      "result": "passed"
+    },
+    {
+      "case_id": "UC-RAY-02-A2",
+      "result": "passed"
+    },
+    {
+      "case_id": "UC-RAY-02-E1",
+      "result": "passed"
+    },
+    {
+      "case_id": "UC-RAY-02-E2",
+      "result": "passed"
+    }
+  ],
+  "meaning": "Two personal use cases, five flows each; actual UI interactions plus persistent assertions. Separate from API, generation-tooling and group release populations."
+}

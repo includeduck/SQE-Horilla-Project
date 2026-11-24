@@ -15,7 +15,7 @@ available/carry-forward balances zero, no allocation/leave requests, distinct
 approver/outsider accounts. Admin is used for fixture setup only.
 
 Main steps: sign in through the real login form; open Leave Allocation Requests;
-use its Create control; select assigned type and own employee; enter five days
+use its Create control; select the assigned type and verify the form binds the signed-in employee; enter five days
 and a description; click the application's Save control. Expected displayed
 result: success notification. Postconditions: exactly one owned requested
 allocation for five days, exact description/type, balance still zero until
@@ -26,7 +26,7 @@ approval. HTTP detail/list and independent ORM corroborate persistence.
 | MAIN / UC-RAY-01-MAIN | Submit five days with description | Success alert | One requested allocation; zero balance |
 | Alternative 1 / UC-RAY-01-A1 | Attach synthetic PDF before submitting | Success alert | Same record/owner/amount; stored file bytes equal uploaded bytes |
 | Alternative 2 / UC-RAY-01-A2 | Submit blank description; read required-field error; enter description and resubmit | Error first, then success | No row/balance change on first attempt; exactly one row after correction |
-| Exception 1 / UC-RAY-01-E1 | Clear required leave type and submit | Required-field error | No allocation and unchanged all-user balances |
+| Exception 1 / UC-RAY-01-E1 | Leave required type unselected and submit | Required-field error | No allocation and unchanged all-user balances |
 | Exception 2 / UC-RAY-01-E2 | Clear requested amount and submit | Required-field error | No allocation and unchanged all-user balances |
 
 ## UC-RAY-02: employee requests leave using W1's balance
@@ -40,7 +40,7 @@ The target W2 write is always through the actual browser form.
 Main steps: sign in; open My Leave Requests; use Create; select assigned type;
 enter future start/end spanning three full days and a description; Save.
 Expected displayed result: success notification. Postconditions: one owned
-requested three-day leave, exact dates/type/description; balance remains five
+requested three-day leave, exact description/owner/amount; balance remains five
 while requested. Approval/debit is already tested by the C integration scenario;
 this use case does not claim a UI approval action was automated.
 
@@ -70,6 +70,9 @@ python -m pytest -c tests/team/pytest-area2.ini tests/team/e2e -v -s -o junit_fa
 
 Use `AREA2_BROWSER_EVIDENCE` for a new trace/screenshot directory. The CI runner
 uses disposable SQLite/media plus test-only static serving; production URLs,
-password settings and existing databases are preserved. Runtime results remain
-pending until actual JUnit/visible/persistent assertions finish. Implementation
-is not a pass. Keyboard/Lighthouse/axe/ZAP/k6/recovery completeness is not claimed.
+password settings and existing databases are preserved. Source 7189656a / run
+45388276537 verified all ten declared UI flows: 10 passed, zero failures/errors/
+skips, 340.34 seconds. The strict HTML completion report succeeded. Actual XML,
+log, screenshots and traces are in artifact 14917252664; decoded job log and
+browser-verified-summary.json are retained in docs/team/evidence/area2/phase-d/.
+Keyboard/Lighthouse/axe/ZAP/k6/recovery completeness is not claimed.

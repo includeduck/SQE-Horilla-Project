@@ -1,0 +1,46 @@
+{
+  "evidence_kind": "Derived summary from completed GitHub job log; not fabricated JUnit",
+  "source_commit": "32621b42b6ec9a64f81f4540eea151ede4acbb2e",
+  "tested_merge_commit": "42f0b233b9dd28f62a2cd34d14cd589844c5977c",
+  "run_id": 45355537962,
+  "job_id": 138312304186,
+  "conclusion": "cancelled",
+  "raw_log": "ci-45355537962-job.log",
+  "artifact_id": 14907648168,
+  "populations": {
+    "focused": {
+      "passed": 16,
+      "total": 16,
+      "elapsed_seconds": 385.73
+    },
+    "upstream": {
+      "passed": 8,
+      "total": 8,
+      "elapsed_seconds": 330.36
+    },
+    "expanded": {
+      "passed": 177,
+      "total": 177,
+      "elapsed_seconds": 1137.37
+    },
+    "api_preflight": {
+      "passed": 1,
+      "total": 1,
+      "elapsed_seconds": 336.78
+    },
+    "api_first": {
+      "passed": 275,
+      "total": 275,
+      "elapsed_seconds": 1608.82
+    },
+    "api_reversed": {
+      "status": "incomplete: 90-minute job timeout; no accepted completed collection"
+    },
+    "complete_scope": {
+      "status": "not reached before timeout",
+      "coverage_complete": false,
+      "unconsumed_generated_ids": 399
+    }
+  },
+  "interpretation": "Populations repeat cases and must not be added. One clean full collection is verified, not twice/order independence, full input coverage, or overall run acceptance."
+}

@@ -73,7 +73,9 @@ python tests/team/generator/generate.py --spec tests/team/generator/openapi.json
 - 275 API scenarios and ten browser flows are different test-level populations.
   179/578 generated IDs referenced is implementation inventory, not requirements
   coverage, application code coverage or pass rate.
-- Open duplicate/terminal-state rules and required unexecuted coverage mean Hold.
+- Owner-confirmed duplicate/terminal fixes passed strict focused/full-first
+  retests in run 45355537962; reversed order was cancelled at the job limit;
+  required unexecuted coverage still means Hold.
   An enabled failing test is evidence, not a reason to weaken its assertion.
 - Wasay owns the complete Sonar/unit/mutation gate. A scoped workflow or draft
   failing PR does not alone prove protected merge/deployment enforcement.
