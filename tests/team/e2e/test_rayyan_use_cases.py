@@ -27,7 +27,9 @@ async def open_form(page, h, kind):
     route = "/leave/leave-allocation-request-create/" if kind == "allocation" else "/leave/leave-request-create/"
     response = await page.goto(h.base + listing)
     assert response.status == 200
-    await page.locator(f'[hx-get="{route}"]').first.click()
+    # The page Create button includes a confirm query parameter; an exact
+    # route match selects only the theme's hidden floating-menu shortcut.
+    await page.locator(f'button[hx-get^="{route}"]:visible').first.click()
     form = page.locator(f'form[hx-post^="{route}"]')
     await expect(form).to_be_visible()
     await expect(form.locator('[name="description"]')).to_be_visible()
@@ -157,3 +159,4 @@ async def test_rayyan_leave_request(ray_page, leave_http, flow, record_property)
     stored = await sync_to_async(LeaveRequest.objects.get)(pk=detail["id"])
     assert stored.employee_id_id == h.context["employee"].pk
     assert stored.created_by_id == h.context["employee"].pk
+
