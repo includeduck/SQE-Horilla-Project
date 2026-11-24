@@ -23,9 +23,13 @@ jobs:
           python -W error::ResourceWarning -m unittest discover -s tests/team/generator -p 'test_*.py' -v
           PYTHONPATH=tests/team/generator python -W error::ResourceWarning -m unittest discover -s tests/team/contract -p 'test_media_reader.py' -v
           python tests/team/generator/generate.py --spec tests/team/generator/openapi.json --bindings tests/team/generator/bindings.json --output tests/team/generator/generated_cases.json --check
+      - name: Build and validate every required input and generated-ID disposition
+        run: python tests/team/contract/inventory.py --output docs/team/evidence/area2/finish-01/inventory-${{ github.run_id }} --emit
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: finish01-candidate-${{ github.run_id }}
-          path: docs/team/evidence/area2/finish-01/candidate-*/
+          path: |
+            docs/team/evidence/area2/finish-01/candidate-*/
+            docs/team/evidence/area2/finish-01/inventory-*/
           if-no-files-found: error

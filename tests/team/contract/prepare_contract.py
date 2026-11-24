@@ -43,6 +43,8 @@ def build(output):
         source = source.replace(old, new)
     elif new not in source:
         raise ValueError("Generator media-selection source changed; inspect rather than patch blindly")
+    source = source.replace('- {"x-exclusions"}', '- {"x-exclusions", "x-input-inventory"}')
+    source = source.replace('"x-exclusions", "x-date-order"}', '"x-exclusions", "x-date-order", "x-generator-media-type", "x-media-consumption-status"}')
     doc = json.loads((TEAM / "generator/openapi.json").read_text(encoding="utf-8"))
     before = json.loads((TEAM / "generator/generated_cases.json").read_text(encoding="utf-8"))
     bindings = json.loads((TEAM / "generator/bindings.json").read_text(encoding="utf-8"))
@@ -144,6 +146,7 @@ def build(output):
     spec2.loader.exec_module(catalog)
     ledger = json.loads((TEAM / "api/case_ledger.json").read_text(encoding="utf-8"))
     entries = ledger["entries"]
+    old_referenced_ids = sorted(e["case_id"] for e in entries if e["generated"])
     present = {e["case_id"] for e in entries}
     for case in catalog.selected_generated_cases(artifact):
         if case["id"] not in present:
@@ -163,7 +166,7 @@ def build(output):
                "old_operations": len(before["operations"]), "new_operations": len(artifact["operations"]),
                "old_cases": len(old_ids), "new_cases": len(all_ids),
                "preserved_ids": sorted(old_ids & all_ids), "added_ids": sorted(all_ids - old_ids),
-               "retired_ids": sorted(old_ids - all_ids),
+               "retired_ids": sorted(old_ids - all_ids), "old_referenced_ids": old_referenced_ids,
                "baseline_changes": "New is_active input in allocation update baselines; media alternatives declared with explicit generator selection; fresh fixture bindings are required.",
                "applicable_consumption_complete": False}
     files = {
