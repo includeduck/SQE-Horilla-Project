@@ -1,4 +1,5 @@
 import contextlib
+from collections.abc import Mapping
 
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.models import AnonymousUser
@@ -33,6 +34,14 @@ from ...api_decorators.base.decorators import (
     manager_permission_required,
 )
 from ...api_methods.base.methods import groupby_queryset
+
+
+def _request_object(request):
+    """Validate object shape before injecting server-owned identity/defaults."""
+    data = request.data
+    if not isinstance(data, Mapping):
+        raise serializers.ValidationError({"non_field_errors": [_("Expected an object body.")]})
+    return data.dict() if isinstance(data, QueryDict) else data.copy()
 
 
 class EmployeeAvailableLeaveGetAPIView(APIView):
@@ -77,7 +86,7 @@ class EmployeeLeaveRequestGetCreateAPIView(APIView):
 
     def post(self, request):
         employee_id = request.user.employee_get.id
-        data = request.data
+        data = _request_object(request)
         if isinstance(data, QueryDict):
             data = data.dict()
         data["employee_id"] = employee_id
@@ -125,7 +134,7 @@ class EmployeeLeaveRequestUpdateDeleteAPIView(APIView):
             leave_request.status == "requested"
             and leave_request.employee_id == employee_id
         ):
-            data = request.data
+            data = _request_object(request)
             if isinstance(data, QueryDict):
                 data = data.dict()
             data["employee_id"] = employee_id.id
@@ -269,8 +278,9 @@ class LeaveAllocationRequestGetCreateAPIView(APIView):
         serializer = LeaveAllocationRequestGetSerializer(page, many=True)
         return paginator.get_paginated_response(serializer.data)
 
+    @manager_or_owner_permission_required(LeaveAllocationRequest, "leave.add_leaveallocationrequest")
     def post(self, request):
-        data = request.data
+        data = _request_object(request)
         employee_id = self.get_user(request).employee_get.id
         if isinstance(data, QueryDict):
             data = data.dict()
@@ -499,7 +509,7 @@ class LeaveRequestGetCreateAPIView(APIView):
 
     @manager_or_owner_permission_required(LeaveRequest, "leave.add_leaverequest")
     def post(self, request):
-        data = request.data
+        data = _request_object(request)
         if isinstance(data, QueryDict):
             data = data.dict()
         data["end_date"] = (
@@ -548,7 +558,7 @@ class LeaveRequestGetUpdateDeleteAPIView(APIView):
     def put(self, request, pk):
         leave_request = self.get_leave_request(pk)
         if leave_request.status == "requested":
-            data = request.data
+            data = _request_object(request)
             if isinstance(data, QueryDict):
                 data = data.dict()
             data["end_date"] = (
@@ -1142,7 +1152,7 @@ class EmployeeLeaveAllocationGetCreateAPIView(APIView):
         return paginator.get_paginated_response(serializer.data)
 
     def post(self, request):
-        data = request.data
+        data = _request_object(request)
         employee_id = self.get_user(request).employee_get.id
         if isinstance(data, QueryDict):
             data = data.dict()
@@ -1173,7 +1183,7 @@ class EmployeeLeaveAllocationUpdateDeleteAPIView(APIView):
     def put(self, request, pk):
         allocation_request = self.get_allocation_request(request, pk)
         if allocation_request.status == "requested":
-            data = request.data
+            data = _request_object(request)
             employee_id = request.user.employee_get.id
             if isinstance(data, QueryDict):
                 data = data.dict()
@@ -1304,3 +1314,4 @@ class LeavePermissionCheckAPIView(APIView):
         except:
             pass
         return Response({"perm_list": perm_list}, status=200)
+
