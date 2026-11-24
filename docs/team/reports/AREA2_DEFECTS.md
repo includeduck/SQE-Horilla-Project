@@ -145,3 +145,20 @@ The fix is proposed until the actual full retest completes. Severity medium,
 priority P1, risks A2-R01/A2-R07; do not count it as retested or add it to the
 earlier four-defect Pareto population without identifying the new population.
 This agent is implementing/retesting the fix; it is not assigned to Wasay.
+
+## Two previously blocked oracle fixes implemented here
+
+The published SCOPE.md already contains Wasay's OD-01 and OD-02 decisions,
+confirmed by his issue #1 comment. This agent therefore implemented the two
+narrow corrections rather than assigning those easy fixes back to Wasay:
+reject ordinary rejection of cancelled leave before refund/state mutation;
+reject an allocation matching employee/type/days/description of an existing
+requested allocation in the shared create serializer (both creation routes).
+The existing strict assertions remain; no xfail is added. Duplicate coverage
+also verifies distinct descriptions/amounts and non-pending history remain valid.
+
+The focused CI collection now contains those two additional regressions (16
+cases rather than the prior 14), separate from the unchanged 275 unique API
+case denominator. Actual passing retests are pending; old failing logs remain.
+This is sequential repeated-submission protection, not a claim of concurrent
+idempotency or a new database-wide uniqueness policy.

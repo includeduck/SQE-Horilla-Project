@@ -263,6 +263,21 @@ class LeaveTypeAllGetSerializer(serializers.ModelSerializer):
 class LeaveAllocationRequestCreateSerializer(serializers.ModelSerializer):
     requested_days = serializers.FloatField(required=True)
 
+    def validate(self, attrs):
+        # OD-02: a repeated identical pending request must not create another
+        # allocation. Different requests and non-pending history remain valid.
+        if LeaveAllocationRequest.objects.filter(
+            employee_id=attrs["employee_id"],
+            leave_type_id=attrs["leave_type_id"],
+            requested_days=attrs["requested_days"],
+            description=attrs["description"],
+            status="requested",
+        ).exists():
+            raise serializers.ValidationError(
+                _("An identical pending allocation request already exists.")
+            )
+        return attrs
+
     class Meta:
         model = LeaveAllocationRequest
         fields = [

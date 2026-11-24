@@ -845,6 +845,8 @@ class LeaveRequestRejectAPIView(APIView):
             raise serializers.ValidationError(
                 _("Decide on the pending cancellation request instead.")
             )
+        if leave_request.status == "cancelled":
+            raise serializers.ValidationError(_("A cancelled leave request is terminal."))
         if leave_request.status != "rejected":
             reason = reject_reason_from(request)
             if reason:
