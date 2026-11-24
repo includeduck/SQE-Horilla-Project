@@ -2,7 +2,7 @@ name: Phase D verification
 
 on:
   push:
-    branches: [rayyan/phase-c-evidence, sqe-team]
+    branches: [sqe-team]
     paths: ["tests/team/**", ".github/workflows/phase-d-verification.yml"]
   pull_request:
     branches: [sqe-team]

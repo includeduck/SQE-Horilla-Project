@@ -63,3 +63,12 @@ new job completes. Completion report, evidence index, final progress/risk/GQM,
 viva exercise and package manifest are being assembled by this agent before any
 new handoff. Existing C/group dependencies remain visible; no additional D task
 is automatically assigned to Wasay merely because implementation takes work.
+
+## First browser runtime failure and correction
+
+The first push run 45348178607 browser job reached ten setup errors before UI
+assertions: Playwright's synchronous driver kept an event loop active while
+Django attempted synchronous database fixture setup. This is a harness error,
+not ten product defects. The browser fixture/flows now use async Playwright;
+ORM corroboration uses sync_to_async, and Django's async-safety guard remains
+enabled. The original job log is preserved separately; passing retest is pending.
