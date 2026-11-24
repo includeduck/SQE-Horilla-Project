@@ -49,6 +49,12 @@ jobs:
         run: |
           set -o pipefail
           python -m pytest -c tests/team/pytest-area2.ini leave/tests/test_carryforward.py leave/tests/test_approve_balance.py horilla_widgets/tests/test_pretty_file_name.py -v --junitxml=docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}-targeted/upstream.xml 2>&1 | tee docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}-targeted/upstream.txt
+      - name: Verify newly consumed generated update file and pagination cases
+        env:
+          PYTHONPATH: tests/team:tests/team/api:.
+        run: |
+          set -o pipefail
+          python -m pytest -c tests/team/pytest-area2.ini tests/team/api/test_generated_inputs.py tests/team/api/test_generated_attachments.py tests/team/api/test_queries_and_auth.py -v -s -o junit_family=xunit1 --junitxml=docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}-targeted/expanded.xml 2>&1 | tee docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}-targeted/expanded.txt
       - name: Verify Area 2 twice with reversed second API order
         run: python tests/team/run_area2.py --evidence docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Retain real results on success or failure

@@ -1,5 +1,23 @@
 # Area 2 endpoint findings and triage
 
+## Verified result update - 24 November 2026
+
+This update supersedes the earlier static/pending labels below. PR #2 was merged
+as `2242c502090c81031e20df912b49809a03a1f523`. Run 45197384096 passed 14 focused
+regressions and eight affected upstream tests; full API result was 176 passed /
+2 failed. A2-D01, A2-D02, A2-D03 and A2-D09 are **corrected and retested on that
+merged build**. A2-D04 and A2-D05 still fail their unresolved provisional
+oracles. A2-D06/D07/D08 remain policy questions/candidates, not retested fixes.
+
+See [AREA2_RCA_CONTRIBUTION.md](AREA2_RCA_CONTRIBUTION.md) for two major-defect
+5 Whys/cause diagrams, corrective/preventive actions and a Pareto table over
+four confirmed defects. Nine failing cases before correction represented four
+confirmed defects plus two oracle disputes; do not equate case failures to
+unique defects. Raw merged-run evidence is in
+`../evidence/area2/phase-c/ci-45197384096-job.log`. The original failed run is
+retained separately. Product Issues/closure/triage and final group reporting
+remain mandatory Wasay handoffs. No new Issue was posted during this turn.
+
 Syed Muhammad Rayyan Hassan, **24I-3000**, 23 November 2026.
 
 This ledger separates **static candidates**, **reproduced failures** and
@@ -9,11 +27,11 @@ or in the C status before changing a candidate's verification state.
 
 | ID | Expected behavior and source | Static observation / reproducer | Severity / priority / risk | Verification and triage |
 |---|---|---|---|---|
-| A2-D01 | FR-09: rejecting approved leave restores its requester's deducted days; `LeaveRequestRejectAPIView.leave_calculation` and cancellation refund helper identify the balance being restored | `put` passes `request.user.employee_get` into the refund lookup. `test_refund_belongs_to_requester` sets requester 5→2 and approver 7, then expects requester 5 / approver 7 | High / P1 / A2-R-BALANCE | Static candidate; regression implemented; real observed result/retest pending retrieval. Do not claim correction yet. |
+| A2-D01 | FR-09: rejecting approved leave restores its requester's deducted days; `LeaveRequestRejectAPIView.leave_calculation` and cancellation refund helper identify the balance being restored | `put` passes `request.user.employee_get` into the refund lookup. `test_refund_belongs_to_requester` sets requester 5â†’2 and approver 7, then expects requester 5 / approver 7 | High / P1 / A2-R-BALANCE | Static candidate; regression implemented; real observed result/retest pending retrieval. Do not claim correction yet. |
 | A2-D02 | BR-04: non-owners receive controlled access denial, consistent with generic allocation ownership decorator | `EmployeeLeaveAllocationUpdateDeleteAPIView.get_allocation_request` returns None for an existing foreign-owned record; PUT/DELETE dereference `.status`. Two `test_nonowner_self_allocation_route_denied` cases expect 403 and unchanged state | Medium / P1 / A2-R-OWNERSHIP | Static candidate; real HTTP result pending. Proposed correction: explicit existing permission/ownership denial, preserving valid owner behavior. |
 | A2-D03 | FR-06 / BR-01: effective balance respects policy/cap/forecast, per `LeaveRequest.clean` | `leave_Validations` adds raw available+carry-forward; cap regression uses available 0, carry 5, cap 1, request 3 | High / P1 / A2-R-BALANCE | Static candidate; real outcome pending. Any fix must preserve source-backed forecast/employee holiday semantics and run affected regressions. |
 | A2-D04 | Assignment repetition/no-duplicates expectation needs a defined logical identity | Identical pending employee/type/amount/description submissions have no visible deduplication/idempotency contract. `test_allocation_duplicate_creation_contract` explicitly proposes a 400 rejection with no extra row | Provisional medium / P2 / A2-R-DUPLICATE | **Oracle decision open.** Do not introduce a new uniqueness policy merely to pass. Owner must choose rejection/idempotent behavior consistent with scope; retain any real failing evidence. |
-| A2-D05 | Draft BR-03 treats cancelled/rejected states as terminal | Ordinary leave rejection excludes rejected/cancel_requested but apparently allows cancelled→rejected. State catalog expects terminal refusal | Provisional medium / P2 / A2-R-STATE | **Oracle reconciliation open.** Source/draft disagreement is visible; no acceptance by teammates or instructor is invented. |
+| A2-D05 | Draft BR-03 treats cancelled/rejected states as terminal | Ordinary leave rejection excludes rejected/cancel_requested but apparently allows cancelledâ†’rejected. State catalog expects terminal refusal | Provisional medium / P2 / A2-R-STATE | **Oracle reconciliation open.** Source/draft disagreement is visible; no acceptance by teammates or instructor is invented. |
 | A2-D06 | Positive allocation policy is not established by current API/schema | Required FloatField has no positive minimum or finite maximum; generated negative/zero classes currently document schema acceptance | Policy question / unscored / A2-R-CONTRACT | Do not fabricate a >0 allocation rule or maximum ten. Distinguish allocation amount from the documented positive effective leave-duration rule. |
 | A2-D07 | BR-01 requires positive effective duration; date exclusions should use employee context | Serializer computes effective days without employee argument and lacks the model's positive-effective check; model includes capped carry-forward and forecast | High candidate / P1 / A2-R-BALANCE | Additional real zero-effective/employee-holiday/forecast reproducers still needed; assigned completion H-03/H-04. |
 | A2-D08 | Optional rejection-reason compatibility must reconcile helper versus persistence | Helper trims/ignores nonstring/caps at 1000; leave request model reason has a different declared bound | Contract candidate / P2 / A2-R-CONTRACT | Missing generated normalization/persistence coverage remains H-03, not a fabricated defect result. |
@@ -39,7 +57,7 @@ retest. The required two major-defect 5 Whys/fishbone analyses, Pareto categorie
 and fixed/blocked PR evidence must use actual results. No fictional RCA meeting,
 closed/reopened issue, PR or passing-after result is recorded here.
 
-## Attachment failure and protected-branch update — 23 November 2026
+## Attachment failure and protected-branch update â€” 23 November 2026
 
 Remote run 45183086568 reproduced storage exceptions for generated allocation
 attachment filename boundaries 99 and 100 (log lines 1720/1816). The original
@@ -58,7 +76,7 @@ issue #1 comment 7102792706. Further proposed corrections/evidence use the same
 review branch; owner review/merge and group gate remain required.
 
 
-## Final first-pass evidence and corrective proposals — 23 November 2026
+## Final first-pass evidence and corrective proposals â€” 23 November 2026
 
 Build `1948e0f`, run 45183086568 completed: W1/W2 preflight **1 passed**;
 full collection **169 passed, 9 failed**, 184 warnings, 1038.66 seconds.

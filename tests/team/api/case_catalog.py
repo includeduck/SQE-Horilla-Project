@@ -79,15 +79,16 @@ def state_rows():
 
 
 def selected_generated_cases(artifact):
-    """Expand supported self-create body classes; no unknown case is hidden.
+    """Expand supported self-create/update body classes; no unknown case is hidden.
 
-    Path/query/action/update coverage is separately inventoried as unfinished.
+    Path/action/generic and remaining query coverage stay explicitly unfinished.
     File inputs are exercised separately by the multipart B consumer, because
     JSON cannot represent an uploaded file. Non-file cases use an otherwise
     valid baseline without the optional attachment. This deliberate scenario
     binding is recorded in the HTTP lineage rather than called a raw replay.
     """
-    operations = {"self_allocation_create", "self_leave_create"}
+    operations = {"self_allocation_create", "self_leave_create",
+                  "self_allocation_update", "self_leave_update"}
     already_in_b = {
         "self_allocation_create:body:requested_days:EP:valid",
         "self_allocation_create:body:requested_days:EP:nonnumeric",

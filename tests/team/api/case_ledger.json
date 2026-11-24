@@ -2,8 +2,8 @@
   "format_version": 1,
   "spec_sha256": "45e37bfbcd255fc567d5923b13076637f8777bbc4c48bb239f6c2e3fe398f0db",
   "data_sha256": "38d69c57a2e33ede9682bb8b6b165d7c1398b578711983ecf05cd3f8e59e3521",
-  "implemented_api_cases": 178,
-  "referenced_generated_case_ids": 82,
+  "implemented_api_cases": 275,
+  "referenced_generated_case_ids": 179,
   "generated_data_cases": 578,
   "entries": [
     {
@@ -1484,6 +1484,588 @@
       "file": "test_queries_and_auth.py",
       "generated": false,
       "execution_status": "pending-current-build"
+    },
+    {
+      "case_id": "self_allocation_update:body:leave_type_id:EP:valid",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_update:body:leave_type_id:EP:missing",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_update:body:leave_type_id:EP:null",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_update:body:leave_type_id:EP:wrong-type",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_update:body:leave_type_id:EP:nonnumeric",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_update:body:leave_type_id:EP:fraction",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_update:body:leave_type_id:EP:missing-record",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_update:body:requested_days:EP:valid",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_update:body:requested_days:EP:missing",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_update:body:requested_days:EP:null",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_update:body:requested_days:EP:wrong-type",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_update:body:requested_days:EP:nonnumeric",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_update:body:requested_days:EP:negative",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_update:body:requested_days:EP:zero",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_update:body:requested_days:EP:positive",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_update:body:description:EP:valid",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_update:body:description:EP:missing",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_update:body:description:EP:null",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_update:body:description:EP:wrong-type",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_update:body:description:EP:empty",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_update:body:description:EP:whitespace",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_update:body:description:BVA:minLength-below",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_update:body:description:BVA:minLength-at",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_update:body:description:BVA:minLength-above",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:leave_type_id:EP:valid",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:leave_type_id:EP:missing",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:leave_type_id:EP:null",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:leave_type_id:EP:wrong-type",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:leave_type_id:EP:nonnumeric",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:leave_type_id:EP:fraction",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:leave_type_id:EP:missing-record",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:start_date:EP:valid",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:start_date:EP:missing",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:start_date:EP:null",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:start_date:EP:wrong-type",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:start_date:EP:empty",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:start_date:EP:bad-date",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:end_date:EP:valid",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:end_date:EP:missing",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:end_date:EP:null",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:end_date:EP:wrong-type",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:end_date:EP:empty",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:end_date:EP:bad-date",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:start_date_breakdown:EP:valid",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:start_date_breakdown:EP:missing",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:start_date_breakdown:EP:null",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:start_date_breakdown:EP:wrong-type",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:start_date_breakdown:EP:enum-0",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:start_date_breakdown:EP:enum-1",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:start_date_breakdown:EP:enum-2",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:start_date_breakdown:EP:outside-enum",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:start_date_breakdown:EP:empty",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:end_date_breakdown:EP:valid",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:end_date_breakdown:EP:missing",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:end_date_breakdown:EP:null",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:end_date_breakdown:EP:wrong-type",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:end_date_breakdown:EP:enum-0",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:end_date_breakdown:EP:enum-1",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:end_date_breakdown:EP:enum-2",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:end_date_breakdown:EP:outside-enum",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:end_date_breakdown:EP:empty",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:description:EP:valid",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:description:EP:missing",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:description:EP:null",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:description:EP:wrong-type",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:description:EP:empty",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:description:EP:whitespace",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:description:BVA:minLength-below",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:description:BVA:minLength-at",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:description:BVA:minLength-above",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:end_date:BVA:date-order-below",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:end_date:BVA:date-order-at",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_update:body:end_date:BVA:date-order-above",
+      "file": "test_generated_inputs.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_create:body:attachment:EP:valid",
+      "file": "test_generated_attachments.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_create:body:attachment:EP:missing",
+      "file": "test_generated_attachments.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_create:body:attachment:EP:null",
+      "file": "test_generated_attachments.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_create:body:attachment:EP:wrong-type",
+      "file": "test_generated_attachments.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_create:body:attachment:EP:empty-file",
+      "file": "test_generated_attachments.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_create:body:attachment:EP:empty-filename",
+      "file": "test_generated_attachments.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_create:body:attachment:EP:valid",
+      "file": "test_generated_attachments.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_create:body:attachment:EP:missing",
+      "file": "test_generated_attachments.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_create:body:attachment:EP:null",
+      "file": "test_generated_attachments.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_create:body:attachment:EP:wrong-type",
+      "file": "test_generated_attachments.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_create:body:attachment:EP:empty-file",
+      "file": "test_generated_attachments.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_create:body:attachment:EP:empty-filename",
+      "file": "test_generated_attachments.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_create:body:attachment:BVA:x-filename-maxLength-below",
+      "file": "test_generated_attachments.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_create:body:attachment:BVA:x-filename-maxLength-at",
+      "file": "test_generated_attachments.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_leave_create:body:attachment:BVA:x-filename-maxLength-above",
+      "file": "test_generated_attachments.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_list:query:page_size:EP:valid",
+      "file": "test_queries_and_auth.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_list:query:page_size:EP:missing",
+      "file": "test_queries_and_auth.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_list:query:page_size:EP:null",
+      "file": "test_queries_and_auth.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_list:query:page_size:EP:wrong-type",
+      "file": "test_queries_and_auth.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_list:query:page_size:EP:nonnumeric",
+      "file": "test_queries_and_auth.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_list:query:page_size:EP:fraction",
+      "file": "test_queries_and_auth.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_list:query:page_size:BVA:minimum-below",
+      "file": "test_queries_and_auth.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_list:query:page_size:BVA:minimum-at",
+      "file": "test_queries_and_auth.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
+    },
+    {
+      "case_id": "self_allocation_list:query:page_size:BVA:minimum-above",
+      "file": "test_queries_and_auth.py",
+      "generated": true,
+      "execution_status": "pending-2026-11-24-runtime"
     }
   ],
   "infeasible_decision_rows": [
@@ -1967,21 +2549,6 @@
     "leave_update:body:end_date:BVA:date-order-below",
     "leave_update:body:end_date:BVA:date-order-at",
     "leave_update:body:end_date:BVA:date-order-above",
-    "self_allocation_list:query:page_size:EP:valid",
-    "self_allocation_list:query:page_size:EP:missing",
-    "self_allocation_list:query:page_size:EP:null",
-    "self_allocation_list:query:page_size:EP:wrong-type",
-    "self_allocation_list:query:page_size:EP:nonnumeric",
-    "self_allocation_list:query:page_size:EP:fraction",
-    "self_allocation_list:query:page_size:BVA:minimum-below",
-    "self_allocation_list:query:page_size:BVA:minimum-at",
-    "self_allocation_list:query:page_size:BVA:minimum-above",
-    "self_allocation_create:body:attachment:EP:valid",
-    "self_allocation_create:body:attachment:EP:missing",
-    "self_allocation_create:body:attachment:EP:null",
-    "self_allocation_create:body:attachment:EP:wrong-type",
-    "self_allocation_create:body:attachment:EP:empty-file",
-    "self_allocation_create:body:attachment:EP:empty-filename",
     "self_allocation_delete:path:pk:EP:valid",
     "self_allocation_delete:path:pk:EP:missing",
     "self_allocation_delete:path:pk:EP:null",
@@ -1996,30 +2563,6 @@
     "self_allocation_update:path:pk:EP:nonnumeric",
     "self_allocation_update:path:pk:EP:fraction",
     "self_allocation_update:path:pk:EP:missing-record",
-    "self_allocation_update:body:leave_type_id:EP:valid",
-    "self_allocation_update:body:leave_type_id:EP:missing",
-    "self_allocation_update:body:leave_type_id:EP:null",
-    "self_allocation_update:body:leave_type_id:EP:wrong-type",
-    "self_allocation_update:body:leave_type_id:EP:nonnumeric",
-    "self_allocation_update:body:leave_type_id:EP:fraction",
-    "self_allocation_update:body:leave_type_id:EP:missing-record",
-    "self_allocation_update:body:requested_days:EP:valid",
-    "self_allocation_update:body:requested_days:EP:missing",
-    "self_allocation_update:body:requested_days:EP:null",
-    "self_allocation_update:body:requested_days:EP:wrong-type",
-    "self_allocation_update:body:requested_days:EP:nonnumeric",
-    "self_allocation_update:body:requested_days:EP:negative",
-    "self_allocation_update:body:requested_days:EP:zero",
-    "self_allocation_update:body:requested_days:EP:positive",
-    "self_allocation_update:body:description:EP:valid",
-    "self_allocation_update:body:description:EP:missing",
-    "self_allocation_update:body:description:EP:null",
-    "self_allocation_update:body:description:EP:wrong-type",
-    "self_allocation_update:body:description:EP:empty",
-    "self_allocation_update:body:description:EP:whitespace",
-    "self_allocation_update:body:description:BVA:minLength-below",
-    "self_allocation_update:body:description:BVA:minLength-at",
-    "self_allocation_update:body:description:BVA:minLength-above",
     "self_allocation_update:body:attachment:EP:valid",
     "self_allocation_update:body:attachment:EP:missing",
     "self_allocation_update:body:attachment:EP:null",
@@ -2041,15 +2584,6 @@
     "self_leave_list:query:page_size:BVA:x-clamp-maximum-below",
     "self_leave_list:query:page_size:BVA:x-clamp-maximum-at",
     "self_leave_list:query:page_size:BVA:x-clamp-maximum-above",
-    "self_leave_create:body:attachment:EP:valid",
-    "self_leave_create:body:attachment:EP:missing",
-    "self_leave_create:body:attachment:EP:null",
-    "self_leave_create:body:attachment:EP:wrong-type",
-    "self_leave_create:body:attachment:EP:empty-file",
-    "self_leave_create:body:attachment:EP:empty-filename",
-    "self_leave_create:body:attachment:BVA:x-filename-maxLength-below",
-    "self_leave_create:body:attachment:BVA:x-filename-maxLength-at",
-    "self_leave_create:body:attachment:BVA:x-filename-maxLength-above",
     "self_leave_delete:path:pk:EP:valid",
     "self_leave_delete:path:pk:EP:missing",
     "self_leave_delete:path:pk:EP:null",
@@ -2071,52 +2605,6 @@
     "self_leave_update:path:pk:EP:nonnumeric",
     "self_leave_update:path:pk:EP:fraction",
     "self_leave_update:path:pk:EP:missing-record",
-    "self_leave_update:body:leave_type_id:EP:valid",
-    "self_leave_update:body:leave_type_id:EP:missing",
-    "self_leave_update:body:leave_type_id:EP:null",
-    "self_leave_update:body:leave_type_id:EP:wrong-type",
-    "self_leave_update:body:leave_type_id:EP:nonnumeric",
-    "self_leave_update:body:leave_type_id:EP:fraction",
-    "self_leave_update:body:leave_type_id:EP:missing-record",
-    "self_leave_update:body:start_date:EP:valid",
-    "self_leave_update:body:start_date:EP:missing",
-    "self_leave_update:body:start_date:EP:null",
-    "self_leave_update:body:start_date:EP:wrong-type",
-    "self_leave_update:body:start_date:EP:empty",
-    "self_leave_update:body:start_date:EP:bad-date",
-    "self_leave_update:body:end_date:EP:valid",
-    "self_leave_update:body:end_date:EP:missing",
-    "self_leave_update:body:end_date:EP:null",
-    "self_leave_update:body:end_date:EP:wrong-type",
-    "self_leave_update:body:end_date:EP:empty",
-    "self_leave_update:body:end_date:EP:bad-date",
-    "self_leave_update:body:start_date_breakdown:EP:valid",
-    "self_leave_update:body:start_date_breakdown:EP:missing",
-    "self_leave_update:body:start_date_breakdown:EP:null",
-    "self_leave_update:body:start_date_breakdown:EP:wrong-type",
-    "self_leave_update:body:start_date_breakdown:EP:enum-0",
-    "self_leave_update:body:start_date_breakdown:EP:enum-1",
-    "self_leave_update:body:start_date_breakdown:EP:enum-2",
-    "self_leave_update:body:start_date_breakdown:EP:outside-enum",
-    "self_leave_update:body:start_date_breakdown:EP:empty",
-    "self_leave_update:body:end_date_breakdown:EP:valid",
-    "self_leave_update:body:end_date_breakdown:EP:missing",
-    "self_leave_update:body:end_date_breakdown:EP:null",
-    "self_leave_update:body:end_date_breakdown:EP:wrong-type",
-    "self_leave_update:body:end_date_breakdown:EP:enum-0",
-    "self_leave_update:body:end_date_breakdown:EP:enum-1",
-    "self_leave_update:body:end_date_breakdown:EP:enum-2",
-    "self_leave_update:body:end_date_breakdown:EP:outside-enum",
-    "self_leave_update:body:end_date_breakdown:EP:empty",
-    "self_leave_update:body:description:EP:valid",
-    "self_leave_update:body:description:EP:missing",
-    "self_leave_update:body:description:EP:null",
-    "self_leave_update:body:description:EP:wrong-type",
-    "self_leave_update:body:description:EP:empty",
-    "self_leave_update:body:description:EP:whitespace",
-    "self_leave_update:body:description:BVA:minLength-below",
-    "self_leave_update:body:description:BVA:minLength-at",
-    "self_leave_update:body:description:BVA:minLength-above",
     "self_leave_update:body:attachment:EP:valid",
     "self_leave_update:body:attachment:EP:missing",
     "self_leave_update:body:attachment:EP:null",
@@ -2125,10 +2613,7 @@
     "self_leave_update:body:attachment:EP:empty-filename",
     "self_leave_update:body:attachment:BVA:x-filename-maxLength-below",
     "self_leave_update:body:attachment:BVA:x-filename-maxLength-at",
-    "self_leave_update:body:attachment:BVA:x-filename-maxLength-above",
-    "self_leave_update:body:end_date:BVA:date-order-below",
-    "self_leave_update:body:end_date:BVA:date-order-at",
-    "self_leave_update:body:end_date:BVA:date-order-above"
+    "self_leave_update:body:attachment:BVA:x-filename-maxLength-above"
   ],
   "note": "Implementation inventory only. Match actual JUnit case_id properties to execution results; no passing status inferred. Case counts are once per executable API scenario."
 }

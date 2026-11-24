@@ -68,6 +68,45 @@ def xml_totals(path):
             "skipped": sum(case.find("skipped") is not None for case in cases)}
 
 
+def run_stages(commands, evidence, env):
+    """Keep dependency failures blocking, but collect both independent API runs.
+
+    Each API invocation starts a new process and disposable settings/database.
+    A failed first collection must stay failed while reverse-order evidence is
+    still collected. Scope verification is independent of product assertions.
+    """
+    results, failure, exit_code = [], None, 0
+    for name, command in commands:
+        independent_after_api = (failure in {"api-first", "api-reversed"}
+                                 and name in {"api-reversed", "complete-scope"})
+        if failure and not independent_after_api:
+            results.append({"name": name, "command": command, "status": "blocked", "blocked_by": failure})
+            continue
+        stage = execute_stage(name, command, evidence, env=env)
+        if name.startswith("api-") and stage["exit_code"] == 0:
+            try:
+                totals = xml_totals(evidence / (name + ".xml"))
+                valid = totals and totals["cases"] > 0 and not any(
+                    totals[key] for key in ("failures", "errors", "skipped"))
+            except (ET.ParseError, OSError) as error:
+                valid = False
+                stage["result_error"] = str(error)
+            if not valid:
+                stage.update(exit_code=4, status="failed",
+                             validation_error="Missing, malformed, empty, failed, errored or skipped API results")
+        results.append(stage)
+        if stage["exit_code"] and failure is None:
+            failure, exit_code = name, stage["exit_code"]
+    return results, failure, exit_code
+
+
+def manifest_totals(path):
+    try:
+        return xml_totals(path)
+    except (ET.ParseError, OSError) as error:
+        return {"invalid": True, "error": str(error)}
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--evidence", required=True, help="New directory; refuses to overwrite an earlier run")
@@ -80,30 +119,15 @@ def main(argv=None):
     env["PYTHONPATH"] = os.pathsep.join([str(TEAM), str(TEAM / "api"), str(REPO)])
     env["PYTHONIOENCODING"] = "utf-8"
     env["PYTHONUNBUFFERED"] = "1"
-    results = []
-    failure = None
-    exit_code = 0
-    for name, command in stage_commands(evidence):
-        if failure:
-            results.append({"name": name, "command": command, "status": "blocked", "blocked_by": failure})
-            continue
-        stage = execute_stage(name, command, evidence, env=env)
-        results.append(stage)
-        if stage["exit_code"]:
-            failure, exit_code = name, stage["exit_code"]
-        # A skipped API case does not satisfy required coverage.
-        if name.startswith("api-") and not failure:
-            totals = xml_totals(evidence / (name + ".xml"))
-            if not totals or totals["cases"] == 0 or totals["skipped"]:
-                failure, exit_code = name + ":empty-or-skipped-results", 4
+    results, failure, exit_code = run_stages(stage_commands(evidence), evidence, env)
     manifest = {
         "owner": "Syed Muhammad Rayyan Hassan", "roll": "24I-3000",
         "python": sys.version, "repository": str(REPO),
         "spec_sha256": artifact["spec_sha256"], "data_sha256": artifact["data_sha256"],
         "coverage_complete": artifact["coverage_complete"], "stages": results,
-        "api_preflight": xml_totals(evidence / "api-preflight.xml"),
-        "api_first": xml_totals(evidence / "api-first.xml"),
-        "api_reversed": xml_totals(evidence / "api-reversed.xml"),
+        "api_preflight": manifest_totals(evidence / "api-preflight.xml"),
+        "api_first": manifest_totals(evidence / "api-first.xml"),
+        "api_reversed": manifest_totals(evidence / "api-reversed.xml"),
         "exit_code": exit_code, "accepted": exit_code == 0 and artifact["coverage_complete"],
     }
     (evidence / "run-manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")

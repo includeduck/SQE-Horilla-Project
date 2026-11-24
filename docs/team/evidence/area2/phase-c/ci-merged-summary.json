@@ -1,0 +1,32 @@
+{
+  "run_id": 45197384096,
+  "job_id": 137771377131,
+  "build_sha": "2242c502090c81031e20df912b49809a03a1f523",
+  "conclusion": "failure",
+  "focused": {
+    "passed": 14
+  },
+  "upstream": {
+    "passed": 8
+  },
+  "tooling": {
+    "passed": 41
+  },
+  "preflight": {
+    "passed": 1
+  },
+  "api_first": {
+    "passed": 176,
+    "failed": 2,
+    "cases": 178,
+    "seconds": 1233.52
+  },
+  "api_reversed": "blocked",
+  "completeness": "blocked",
+  "failures": [
+    "STATE-LEAVE-cancelled-reject",
+    "GAP-ALLOCATION-DUPLICATE-001"
+  ],
+  "log": "ci-45197384096-job.log",
+  "note": "Historical merged build; new 275-case implementation is not certified by these results."
+}

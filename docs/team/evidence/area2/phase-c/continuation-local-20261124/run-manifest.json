@@ -1,0 +1,151 @@
+{
+  "owner": "Syed Muhammad Rayyan Hassan",
+  "roll": "24I-3000",
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "repository": "D:\\RAYYAN\\ASSIGNMENTS\\Software Quality Engineering\\project\\SQE-Horilla-Project",
+  "spec_sha256": "45e37bfbcd255fc567d5923b13076637f8777bbc4c48bb239f6c2e3fe398f0db",
+  "data_sha256": "38d69c57a2e33ede9682bb8b6b165d7c1398b578711983ecf05cd3f8e59e3521",
+  "coverage_complete": false,
+  "stages": [
+    {
+      "name": "generator",
+      "command": [
+        "C:\\Users\\rayya\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "D:\\RAYYAN\\ASSIGNMENTS\\Software Quality Engineering\\project\\SQE-Horilla-Project\\tests\\team\\generator",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 2.291
+    },
+    {
+      "name": "freshness",
+      "command": [
+        "C:\\Users\\rayya\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "D:\\RAYYAN\\ASSIGNMENTS\\Software Quality Engineering\\project\\SQE-Horilla-Project\\tests\\team\\generator\\generate.py",
+        "--spec",
+        "D:\\RAYYAN\\ASSIGNMENTS\\Software Quality Engineering\\project\\SQE-Horilla-Project\\tests\\team\\generator\\openapi.json",
+        "--bindings",
+        "D:\\RAYYAN\\ASSIGNMENTS\\Software Quality Engineering\\project\\SQE-Horilla-Project\\tests\\team\\generator\\bindings.json",
+        "--output",
+        "D:\\RAYYAN\\ASSIGNMENTS\\Software Quality Engineering\\project\\SQE-Horilla-Project\\tests\\team\\generator\\generated_cases.json",
+        "--check"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.195
+    },
+    {
+      "name": "schema",
+      "command": [
+        "C:\\Users\\rayya\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "-c",
+        "import json; from openapi_spec_validator import validate; validate(json.load(open('tests/team/generator/openapi.json', encoding='utf-8'))); print('OpenAPI validated')"
+      ],
+      "exit_code": 1,
+      "status": "failed",
+      "elapsed_seconds": 0.132
+    },
+    {
+      "name": "django",
+      "command": [
+        "C:\\Users\\rayya\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "manage.py",
+        "check",
+        "--settings=area2_settings"
+      ],
+      "status": "blocked",
+      "blocked_by": "schema"
+    },
+    {
+      "name": "api-preflight",
+      "command": [
+        "C:\\Users\\rayya\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "-m",
+        "pytest",
+        "-c",
+        "D:\\RAYYAN\\ASSIGNMENTS\\Software Quality Engineering\\project\\SQE-Horilla-Project\\tests\\team\\pytest-area2.ini",
+        "-p",
+        "area2_order",
+        "-v",
+        "-s",
+        "-o",
+        "junit_family=xunit1",
+        "D:\\RAYYAN\\ASSIGNMENTS\\Software Quality Engineering\\project\\SQE-Horilla-Project\\tests\\team\\api\\test_workflows.py::test_w1_to_w2_shared_balance",
+        "--maxfail=1",
+        "--junitxml=D:\\RAYYAN\\ASSIGNMENTS\\Software Quality Engineering\\project\\SQE-Horilla-Project\\docs\\team\\evidence\\area2\\phase-c\\continuation-local-20261124\\api-preflight.xml"
+      ],
+      "status": "blocked",
+      "blocked_by": "schema"
+    },
+    {
+      "name": "api-first",
+      "command": [
+        "C:\\Users\\rayya\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "-m",
+        "pytest",
+        "-c",
+        "D:\\RAYYAN\\ASSIGNMENTS\\Software Quality Engineering\\project\\SQE-Horilla-Project\\tests\\team\\pytest-area2.ini",
+        "-p",
+        "area2_order",
+        "-v",
+        "-s",
+        "-o",
+        "junit_family=xunit1",
+        "D:\\RAYYAN\\ASSIGNMENTS\\Software Quality Engineering\\project\\SQE-Horilla-Project\\tests\\team\\api",
+        "--junitxml=D:\\RAYYAN\\ASSIGNMENTS\\Software Quality Engineering\\project\\SQE-Horilla-Project\\docs\\team\\evidence\\area2\\phase-c\\continuation-local-20261124\\api-first.xml"
+      ],
+      "status": "blocked",
+      "blocked_by": "schema"
+    },
+    {
+      "name": "api-reversed",
+      "command": [
+        "C:\\Users\\rayya\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "-m",
+        "pytest",
+        "-c",
+        "D:\\RAYYAN\\ASSIGNMENTS\\Software Quality Engineering\\project\\SQE-Horilla-Project\\tests\\team\\pytest-area2.ini",
+        "-p",
+        "area2_order",
+        "-v",
+        "-s",
+        "-o",
+        "junit_family=xunit1",
+        "D:\\RAYYAN\\ASSIGNMENTS\\Software Quality Engineering\\project\\SQE-Horilla-Project\\tests\\team\\api",
+        "--area2-reverse",
+        "--junitxml=D:\\RAYYAN\\ASSIGNMENTS\\Software Quality Engineering\\project\\SQE-Horilla-Project\\docs\\team\\evidence\\area2\\phase-c\\continuation-local-20261124\\api-reversed.xml"
+      ],
+      "status": "blocked",
+      "blocked_by": "schema"
+    },
+    {
+      "name": "complete-scope",
+      "command": [
+        "C:\\Users\\rayya\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "D:\\RAYYAN\\ASSIGNMENTS\\Software Quality Engineering\\project\\SQE-Horilla-Project\\tests\\team\\generator\\generate.py",
+        "--spec",
+        "D:\\RAYYAN\\ASSIGNMENTS\\Software Quality Engineering\\project\\SQE-Horilla-Project\\tests\\team\\generator\\openapi.json",
+        "--bindings",
+        "D:\\RAYYAN\\ASSIGNMENTS\\Software Quality Engineering\\project\\SQE-Horilla-Project\\tests\\team\\generator\\bindings.json",
+        "--output",
+        "D:\\RAYYAN\\ASSIGNMENTS\\Software Quality Engineering\\project\\SQE-Horilla-Project\\tests\\team\\generator\\generated_cases.json",
+        "--check",
+        "--require-complete"
+      ],
+      "status": "blocked",
+      "blocked_by": "schema"
+    }
+  ],
+  "api_preflight": null,
+  "api_first": null,
+  "api_reversed": null,
+  "exit_code": 1,
+  "accepted": false
+}

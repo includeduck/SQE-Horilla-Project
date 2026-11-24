@@ -1,5 +1,56 @@
 # SQE owner handoff
 
+## Current continuation - 24 November 2026
+
+This section supersedes earlier pending-result statements below. Phase C is
+**partially implemented; Hold remains in effect**. Wasay merged
+[PR #2](https://github.com/includeduck/SQE-Horilla-Project/pull/2) on 23 November.
+Remote `sqe-team` build is `2242c502090c81031e20df912b49809a03a1f523`;
+local Git HEAD is still `da76b337190ceb67f1a7c43ee4d5f8eca4ddc8a0` with preserved
+uncommitted files. No local pull/reset is claimed.
+
+[Run 45197384096](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45197384096)
+completed on the merged build: **14 focused regressions passed**, **8 affected
+upstream tests passed**, **41 independent tooling tests passed**, W1/W2 preflight
+**1 passed**, full API collection **176 passed / 2 failed / 178 total**.
+The focused collection includes four storage-only tests and repeated API tests;
+these counts are separate populations and must not be added together.
+Reversed execution and completeness were blocked by the old fail-fast runner.
+Raw evidence: `docs/team/evidence/area2/phase-c/ci-45197384096-job.log`.
+
+The two genuine remaining failures are
+`STATE-LEAVE-cancelled-reject` (expected 400, observed 200) and
+`GAP-ALLOCATION-DUPLICATE-001` (proposed 400, observed 200 plus another row).
+Their business-rule oracles remain unresolved; neither assertion was weakened.
+Requester refund, foreign-owner allocation PUT/DELETE, capped carry-forward and
+extensionless attachment corrections now have actual passing-after evidence.
+
+This continuation adds **97 executable API cases**: 73 generated self-service
+update body cases, 15 additional attachment classes/boundaries, and nine further
+pagination classes/minimum boundaries. Inventory is now **275 unique API cases**,
+referencing **179/578 generated IDs**, with **399 unconsumed IDs** explicitly
+listed in `tests/team/api/case_ledger.json`. New cases are pending runtime
+verification; the 176/178 result belongs to the older merged build only.
+Spec/data fingerprints are unchanged. Dynamic record IDs are bound after real
+HTTP creation; update tests assert identity/count preservation and unchanged
+balances on rejection. Files use real multipart bytes; null/omission/invalid
+file JSON bindings are recorded. Pagination expectations explicitly model DRF's
+fallback/clamp rather than pretending every schema-invalid query is rejected.
+
+The producer now attempts the independent reversed API pass and completeness
+check after an API collection failure, preserving the first nonzero exit.
+Prerequisite/preflight failures still block dependent execution. Zero child exit
+cannot hide missing/malformed/empty/failed/errored/skipped JUnit. New subprocess
+regressions exercise these cases. Disposable test settings use Django's fast
+MD5 test hasher for synthetic users, retaining password verification/JWT over
+HTTP; this is no production hashing or password-security claim.
+
+Local dependency installation was retried on 24 November and failed to resolve
+pytest; Django/pytest remain absent and Docker's Linux engine is unavailable.
+No local HTTP pass is claimed. The complete free remote runtime remains the
+verification route. See the final continuation evidence below for this build's
+actual checks/publication and any new runtime outcome.
+
 Updated 23 November 2026. Requested by **Syed Muhammad Rayyan Hassan, 24I-3000**,
 GitHub `rayyanhasan899`. Repository owner: **Muhammad Wasay Tariq**, `includeduck`.
 
@@ -43,7 +94,7 @@ Update this handoff as tasks are accepted, implemented, tested and published.
 Do not mark a task complete because code or a report exists. Rayyan's two
 personal use-case/Phase D implementation has not automatically started.
 
-## Phase C verification checkpoint — 23 November 2026
+## Phase C verification checkpoint â€” 23 November 2026
 
 Remote runtime installation is now successful. Runs 45179588790 and 45181052750
 stopped at a fixture guard (171/178 setup errors), before product assertions.
@@ -64,7 +115,7 @@ Published checkpoints after the initial three: `aa600a2` B evidence/handoff,
 `1948e0f` fixture guard and streaming preflight. Verified Rayyan author and
 committer throughout; local Git staging/pull restrictions remain unresolved.
 
-Wasay/his agent: H-01 remote installation is resolved, but H-02–H-06 still require
+Wasay/his agent: H-01 remote installation is resolved, but H-02â€“H-06 still require
 completion where blocked, including final result evaluation, coverage/oracle
 reconciliation, genuine product fixes/retests and group CI integration. Owner
 issue #1 was delivered and assigned to includeduck; acceptance is unobserved.
@@ -72,7 +123,7 @@ This is Rayyan's explicit mandatory execution reassignment, preserving actual
 contribution history. Phase D has not started.
 
 
-## Attachment failure and protected-branch update — 23 November 2026
+## Attachment failure and protected-branch update â€” 23 November 2026
 
 Remote run 45183086568 reproduced storage exceptions for generated allocation
 attachment filename boundaries 99 and 100 (log lines 1720/1816). The original
@@ -91,7 +142,7 @@ issue #1 comment 7102792706. Further proposed corrections/evidence use the same
 review branch; owner review/merge and group gate remain required.
 
 
-## Final first-pass evidence and corrective proposals — 23 November 2026
+## Final first-pass evidence and corrective proposals â€” 23 November 2026
 
 Build `1948e0f`, run 45183086568 completed: W1/W2 preflight **1 passed**;
 full collection **169 passed, 9 failed**, 184 warnings, 1038.66 seconds.
@@ -116,3 +167,46 @@ marked as successful. The targeted corrective retest additionally runs affected
 upstream balance/carry-forward/file-display tests separately. Actual passing-after
 results and full clean/reversed acceptance remain pending.
 
+
+## Mandatory remaining execution assigned to Wasay / his agent - 24 November
+
+Rayyan reaffirms that all unfinished work he cannot complete is assigned to
+Wasay / his agent and is mandatory. It is no longer Rayyan's remaining execution
+assignment. Preserve the authorship of completed contributions; do not infer
+Wasay's acceptance or rewrite the course's per-member assessment rules.
+
+| ID | Mandatory action and acceptance evidence | State |
+|---|---|---|
+| H-02 | Recover A archive or create fresh reproducible foundation; reconcile live Swagger, scope and complete accepted oracles | Open; historical archive unavailable |
+| H-03 | Execute new 275-case suite twice from disposable starting state, inspect both orders/JUnit, finish all remaining 399 generated IDs and input/media/reference/action/filter/reason/relational gaps | New consumers implemented; actual new-build results pending |
+| H-04 | Complete positive-effective-day, employee-specific holiday and forecast reproductions/fixes; retain fails-before/passes-after team and impacted upstream evidence; finish genuine Issues/RCA/Pareto | Four earlier corrections verified; remaining candidates open |
+| H-05 | Wire producer plus Sonar/all tests/mutation into every PR and enforce justified required merge/deploy gates; retain a genuinely blocked PR and corrected PR | Group gate remains Wasay's ownership; push workflow is insufficient |
+| H-06 | Provide a synchronized working checkout with permitted Git metadata/network access; preserve this checkout's existing files | CLI DNS/thread and Docker failures persist; connected publication is available |
+| H-07 | Decide duplicate allocation identity/rejection-versus-idempotency and cancelled-to-rejected terminal policy, document rationale in SCOPE/basis, implement accepted rule and rerun both failing assertions | Mandatory unresolved business decisions; do not mask failures |
+| H-08 | Finish shared risk/traceability/GQM/effort and final report using actual populations, plus required two major RCA and Pareto; use unavailable for unknown effort/density/reopen metrics | Evidence contribution supplied; no invented hours or approvals |
+
+**Next prompt:** `docs/team/SQE_IMPLEMENTATION_PHASE_D.md`, after C's actual
+coverage/oracle results are reconciled. D has not started. Independent document
+review can proceed; regeneration/browser/final acceptance dependent on C remain
+pending. Zain retains his specialist work and recovery evaluation.
+
+## Final local continuation verification - 24 November 2026
+
+- `python -W error::ResourceWarning -m unittest discover -s tests/team/generator -p 'test_*.py' -v`: **45 passed**, no failures or skips; raw output `docs/team/evidence/area2/phase-c/continuation-independent-20261124.txt`.
+- `python -m compileall -q tests/team/api tests/team/generator tests/team/run_area2.py tests/team/area2_settings.py`: exit zero; compilation only, not application imports.
+- `git diff --check`: exit zero (line-ending conversion notices only).
+- `python tests/team/run_area2.py --evidence docs/team/evidence/area2/phase-c/continuation-local-20261124`: 45 independent checks and freshness passed; formal schema stage failed because `openapi_spec_validator` is absent; dependent Django/API stages blocked, no API XML or local HTTP pass. Actual manifest/logs are preserved in that new directory.
+- A remote publication attempt was rejected by automatic approval review: it did not recognize authorization to upload this source/log/document set to the repository. No remote commit/ref update/PR or new CI run succeeded in this continuation. Explicit publication approval was requested; until granted, verification of the 97 new API cases is blocked. Do not treat prior write access or PR #2 as new publication evidence.
+
+The source-backed two-major-defect 5 Whys/cause diagrams and four-defect Pareto
+contribution is in `docs/team/reports/AREA2_RCA_CONTRIBUTION.md`. It uses real
+before/after build populations, marks causal inferences and leaves Wasay's
+human triage, product-Issue reconciliation and group final reporting pending.
+
+## Publication authorization - 24 November 2026
+
+Rayyan explicitly approved publishing the prepared Phase C changes to
+`includeduck/SQE-Horilla-Project`, branch `rayyan/phase-c-evidence`, opening a
+continuation PR and triggering its free GitHub Actions tests. This supersedes
+the earlier authorization blocker. Publication and runtime results will be
+recorded after they are actually observed; no completion is inferred here.

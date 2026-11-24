@@ -1,5 +1,56 @@
 # Area 2 test basis: Phase B prerequisite reconstruction
 
+## Current continuation - 24 November 2026
+
+This section supersedes earlier pending-result statements below. Phase C is
+**partially implemented; Hold remains in effect**. Wasay merged
+[PR #2](https://github.com/includeduck/SQE-Horilla-Project/pull/2) on 23 November.
+Remote `sqe-team` build is `2242c502090c81031e20df912b49809a03a1f523`;
+local Git HEAD is still `da76b337190ceb67f1a7c43ee4d5f8eca4ddc8a0` with preserved
+uncommitted files. No local pull/reset is claimed.
+
+[Run 45197384096](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45197384096)
+completed on the merged build: **14 focused regressions passed**, **8 affected
+upstream tests passed**, **41 independent tooling tests passed**, W1/W2 preflight
+**1 passed**, full API collection **176 passed / 2 failed / 178 total**.
+The focused collection includes four storage-only tests and repeated API tests;
+these counts are separate populations and must not be added together.
+Reversed execution and completeness were blocked by the old fail-fast runner.
+Raw evidence: `docs/team/evidence/area2/phase-c/ci-45197384096-job.log`.
+
+The two genuine remaining failures are
+`STATE-LEAVE-cancelled-reject` (expected 400, observed 200) and
+`GAP-ALLOCATION-DUPLICATE-001` (proposed 400, observed 200 plus another row).
+Their business-rule oracles remain unresolved; neither assertion was weakened.
+Requester refund, foreign-owner allocation PUT/DELETE, capped carry-forward and
+extensionless attachment corrections now have actual passing-after evidence.
+
+This continuation adds **97 executable API cases**: 73 generated self-service
+update body cases, 15 additional attachment classes/boundaries, and nine further
+pagination classes/minimum boundaries. Inventory is now **275 unique API cases**,
+referencing **179/578 generated IDs**, with **399 unconsumed IDs** explicitly
+listed in `tests/team/api/case_ledger.json`. New cases are pending runtime
+verification; the 176/178 result belongs to the older merged build only.
+Spec/data fingerprints are unchanged. Dynamic record IDs are bound after real
+HTTP creation; update tests assert identity/count preservation and unchanged
+balances on rejection. Files use real multipart bytes; null/omission/invalid
+file JSON bindings are recorded. Pagination expectations explicitly model DRF's
+fallback/clamp rather than pretending every schema-invalid query is rejected.
+
+The producer now attempts the independent reversed API pass and completeness
+check after an API collection failure, preserving the first nonzero exit.
+Prerequisite/preflight failures still block dependent execution. Zero child exit
+cannot hide missing/malformed/empty/failed/errored/skipped JUnit. New subprocess
+regressions exercise these cases. Disposable test settings use Django's fast
+MD5 test hasher for synthetic users, retaining password verification/JWT over
+HTTP; this is no production hashing or password-security claim.
+
+Local dependency installation was retried on 24 November and failed to resolve
+pytest; Django/pytest remain absent and Docker's Linux engine is unavailable.
+No local HTTP pass is claimed. The complete free remote runtime remains the
+verification route. See the final continuation evidence below for this build's
+actual checks/publication and any new runtime outcome.
+
 Owner: Syed Muhammad Rayyan Hassan, **24I-3000**, `rayyanhasan899`. Date: 23 November 2026.
 
 ## Authority and status

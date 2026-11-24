@@ -26,6 +26,10 @@ DATABASES = {
 MEDIA_ROOT = str(AREA2_TEMP_ROOT / "media")
 STORAGES = {**STORAGES, "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"}}  # noqa: F405
 EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
+# These accounts are disposable synthetic fixtures. Use Django's fast test
+# hasher while retaining real password verification and JWT issuance over HTTP.
+# Production password configuration and password-security evaluation are unchanged.
+PASSWORD_HASHERS = ["django.contrib.auth.hashers.MD5PasswordHasher"]
 CACHES = {"default": {"BACKEND": "django.core.cache.backends.locmem.LocMemCache"}}
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "testserver"]
 CSRF_TRUSTED_ORIGINS = ["http://localhost", "http://127.0.0.1"]

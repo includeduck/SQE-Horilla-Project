@@ -95,3 +95,21 @@ through tee; actual XML/logs are always uploaded. This nine-case targeted
 collection is separate from the 178-case API ledger and repeats five existing
 API cases; do not add nine to the unique API denominator. Proposed correction
 build: a1cfb4ab81c993684f6917c4db4d43d4d7e1fd83. Actual result remains pending.
+
+## Continuation producer contract - 24 November 2026
+
+The runner now collects reversed-order evidence even if api-first fails, and
+checks completeness independently after API failures. It retains the first
+failure exit; it never converts two failing runs into acceptance. Failed
+schema/runtime/preflight still blocks dependent stages. Missing, malformed,
+empty, skipped, failed or errored JUnit with child exit zero also fails.
+
+Current inventory: 275 distinct API cases / 179 of 578 generated IDs; full
+coverage is still false. New-build runtime evidence must be inspected. The
+focused expansion step writes `expanded.xml` before the full producer. The
+old merged-build results are 14 focused passes, 8 upstream passes and 176/178
+API passes; these are separate populations.
+
+Synthetic disposable users use MD5PasswordHasher only in area2_settings to
+reduce fixture/authentication time. Password checks, JWT issuance and actual
+role/permission handling remain enabled. Production settings are untouched.

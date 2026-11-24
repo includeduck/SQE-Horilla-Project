@@ -7,8 +7,7 @@ import pytest
 
 ARTIFACT = json.loads((Path(__file__).resolve().parents[1] / "generator/generated_cases.json").read_text(encoding="utf-8"))
 PAGE_CASE_IDS = [case["id"] for case in ARTIFACT["cases"]
-                 if case["operation"] == "self_allocation_list" and case["location"] == "query"
-                 and case["class"].startswith("x-clamp-maximum-")]
+                 if case["operation"] == "self_allocation_list" and case["location"] == "query"]
 
 
 @pytest.mark.parametrize("case_id", PAGE_CASE_IDS, ids=PAGE_CASE_IDS)
@@ -19,6 +18,13 @@ def test_generated_page_size_clamp(leave_http, case_id):
     case = h.case(case_id)
     h.lineage(case_id)
     cap = case["provenance"]["schema"]["x-clamp-maximum"]
+    default = case["provenance"]["schema"]["default"]
+    # DRF's positive-integer parser falls back on omitted/null/invalid/zero
+    # query values. A query null is omitted by Requests; record this wire fact.
+    value = case["value"]
+    expected_size = min(value, cap) if isinstance(value, int) and value > 0 else default
+    h.record_property("bound_oracle", "positive-integer-clamp-otherwise-default")
+    h.record_property("null_query_omitted_by_requests", value is None and not case["omitted"])
     # This is setup only: the operation under test is the real GET paginator.
     LeaveAllocationRequest.objects.bulk_create([
         LeaveAllocationRequest(employee_id=h.context["employee"], leave_type_id=h.context["leave_type"],
@@ -30,12 +36,13 @@ def test_generated_page_size_clamp(leave_http, case_id):
     assert response.status_code == 200, response.text[:500]
     body = response.json()
     assert body["count"] == cap + 1
-    assert len(body["results"]) == case["expected"]["normalized_value"]
+    assert len(body["results"]) == expected_size
     assert body["next"] is not None
     assert all(row["employee_id"]["id"] == h.context["employee"].pk for row in body["results"])
     assert list(LeaveAllocationRequest.objects.order_by("id").values_list("id", flat=True)) == before_ids
     assert h.balance() == (0.0, 0.0)
     assert h.balance("approver") == (7.0, 0.0)
+    assert h.balance("outsider") == (9.0, 0.0)
 
 
 @pytest.mark.parametrize("token", [None, "synthetic-invalid-token"], ids=["missing-token", "invalid-token"])
