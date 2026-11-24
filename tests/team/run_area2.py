@@ -33,8 +33,8 @@ def stage_commands(evidence):
         ("api-preflight", pytest_base + [str(TEAM / "api/test_workflows.py") + "::test_w1_to_w2_shared_balance", "--maxfail=1", "--junitxml=" + str(evidence / "api-preflight.xml")]),
         ("api-first", pytest_base + [str(TEAM / "api"), "--junitxml=" + str(evidence / "api-first.xml")]),
         ("api-reversed", pytest_base + [str(TEAM / "api"), "--area2-reverse", "--junitxml=" + str(evidence / "api-reversed.xml")]),
-        ("complete-scope", [py, str(generator / "generate.py"), "--spec", str(generator / "openapi.json"),
-                            "--bindings", str(generator / "bindings.json"), "--output", str(generator / "generated_cases.json"), "--check", "--require-complete"]),
+        ("complete-scope", [py, str(generator / "coverage_guard.py"), "--junit", str(evidence / "api-first.xml"),
+                            "--junit", str(evidence / "api-reversed.xml"), "--output", str(evidence / "coverage-ledger.json"), "--require-complete"]),
     ]
 
 

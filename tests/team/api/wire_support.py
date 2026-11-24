@@ -165,8 +165,10 @@ def run_wire(h,case):
             expected=400 if label in {"null","array","scalar","malformed_JSON"} else success(case)
         else: expected=success(case) if label=="unknown_property" else 400
     elif category=="injection_integrity":
-        body["employee_id"]=h.context["outsider"].pk if case["operation"].startswith("self_") else h.context["employee"].pk if label=="employee_id_binding" else body.get("employee_id",h.context["employee"].pk)
-        if label!="employee_id_binding": body[label]=2147483647
+        if label=="employee_id_binding":
+            body["employee_id"]=h.context["outsider"].pk if case["operation"].startswith("self_") else h.context["employee"].pk
+        else:
+            body[label]=2147483647
     elif category=="multipart_array":
         if label in {"repeated_form_keys","duplicate_ids"}:
             body["employee_ids"]*=2; body["leave_type_ids"]*=2

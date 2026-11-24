@@ -5,6 +5,11 @@ on:
     paths: ["tests/team/api/**", "tests/team/generator/**", "tests/team/area2_order.py", ".github/workflows/finish02-coverage.yml"]
 permissions:
   contents: read
+concurrency:
+  group: finish02-${{ github.ref }}
+  cancel-in-progress: true
+env:
+  AREA2_SOURCE_SHA: ${{ github.event.pull_request.head.sha }}
 jobs:
   api:
     strategy:
@@ -28,6 +33,7 @@ jobs:
           python -m pip install -r tests/team/requirements-area2.txt
       - name: Validate canonical and bookkeeping
         run: |
+          python tests/team/generator/build_case_ledger.py --wire-output docs/team/finish-line/WIRE_CASES.json
           python -m unittest discover -s tests/team/generator -p 'test_*.py' -v
           python tests/team/generator/generate.py --spec tests/team/generator/openapi.json --bindings tests/team/generator/bindings.json --output tests/team/generator/generated_cases.json --check
           python -c "import json; from openapi_spec_validator import validate; validate(json.load(open('tests/team/generator/openapi.json')))"
@@ -42,5 +48,71 @@ jobs:
         if: always()
         with:
           name: finish02-${{ github.run_id }}-shard-${{ matrix.shard }}
-          path: docs/team/evidence/area2/finish-02/ci-*/
+          path: |
+            docs/team/evidence/area2/finish-02/ci-*/
+            tests/team/api/case_ledger.json
+            docs/team/finish-line/WIRE_CASES.json
+          if-no-files-found: error
+
+  coverage:
+    needs: api
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: finish02-${{ github.run_id }}-shard-*
+          path: docs/team/evidence/area2/finish-02/download
+          merge-multiple: true
+      - name: Enforce real results for the full distributed stage
+        run: |
+          python tests/team/generator/build_case_ledger.py
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess, sys
+          paths=sorted(Path("docs/team/evidence/area2/finish-02/download").rglob("shard-*.xml"))
+          if len(paths)!=8:
+              raise SystemExit("Missing one or more shard result files")
+          command=[sys.executable,"tests/team/generator/coverage_guard.py","--stage2","--output","docs/team/evidence/area2/finish-02/coverage-result.json"]
+          for path in paths:
+              command+=["--junit",str(path)]
+          raise SystemExit(subprocess.call(command))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: finish02-coverage-${{ github.run_id }}
+          path: docs/team/evidence/area2/finish-02/coverage-result.json
+          if-no-files-found: error
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install unchanged complete runtime
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf-2.0-0 libffi8 shared-mime-info
+          bash .github/scripts/install-requirements.sh
+          python -m pip install -r tests/team/requirements-area2.txt
+      - name: Diagnose malformed inputs separately from the full collection
+        env:
+          PYTHONPATH: tests/team:tests/team/api:.
+        run: |
+          mkdir -p docs/team/evidence/area2/finish-02/probe-${{ github.run_id }}
+          set -o pipefail
+          python -m pytest -c tests/team/pytest-area2.ini tests/team/api/test_runtime_wire.py -k "nonfinite_string or invalid_field or (whole and (array or scalar or null)) or (allocation_create and foreign_owner)" --maxfail=8 -v -s -o junit_family=xunit1 --junitxml=docs/team/evidence/area2/finish-02/probe-${{ github.run_id }}/probe.xml 2>&1 | tee docs/team/evidence/area2/finish-02/probe-${{ github.run_id }}/probe.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: finish02-probe-${{ github.run_id }}
+          path: docs/team/evidence/area2/finish-02/probe-*/
           if-no-files-found: error

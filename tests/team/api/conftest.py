@@ -58,8 +58,11 @@ def area2_http():
 
 
 @pytest.fixture
-def runtime_cases(area2_seed, tmp_path):
+def runtime_cases(area2_seed, tmp_path, record_property):
     """Consume checked-in output, then generate/read a real fixture-bound artifact."""
+    source = os.environ.get("AREA2_SOURCE_SHA") or os.environ.get("GITHUB_SHA", "local-unpublished")
+    record_property("source_sha", source)
+    record_property("checkout_sha", os.environ.get("GITHUB_SHA", source))
     folder = TEAM / "generator"
     document = generator.load_json(folder / "openapi.json")
     bindings = generator.load_json(folder / "bindings.json")

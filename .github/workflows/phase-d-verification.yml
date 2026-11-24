@@ -11,6 +11,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: phase-d-verification-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   phase-d:
     strategy:

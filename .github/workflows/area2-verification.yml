@@ -39,6 +39,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: area2-verification-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   area2:
     runs-on: ubuntu-latest

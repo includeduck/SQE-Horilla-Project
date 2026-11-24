@@ -8,6 +8,10 @@ on:
     paths: ["tests/team/contract/**", ".github/workflows/finish01-contract.yml", "tests/team/generator/openapi.json"]
 permissions:
   contents: read
+concurrency:
+  group: finish01-contract-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   contract:
     strategy:
