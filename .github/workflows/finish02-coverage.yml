@@ -1,0 +1,46 @@
+name: Finish 02 generated and wire coverage
+on:
+  pull_request:
+    branches: [sqe-team]
+    paths: ["tests/team/api/**", "tests/team/generator/**", "tests/team/area2_order.py", ".github/workflows/finish02-coverage.yml"]
+permissions:
+  contents: read
+jobs:
+  api:
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install unchanged application runtime
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf-2.0-0 libffi8 shared-mime-info
+          bash .github/scripts/install-requirements.sh
+          python -m pip install -r tests/team/requirements-area2.txt
+      - name: Validate canonical and bookkeeping
+        run: |
+          python -m unittest discover -s tests/team/generator -p 'test_*.py' -v
+          python tests/team/generator/generate.py --spec tests/team/generator/openapi.json --bindings tests/team/generator/bindings.json --output tests/team/generator/generated_cases.json --check
+          python -c "import json; from openapi_spec_validator import validate; validate(json.load(open('tests/team/generator/openapi.json')))"
+      - name: Execute the full API population distributed without dropping cases
+        env:
+          PYTHONPATH: tests/team:tests/team/api:.
+        run: |
+          mkdir -p docs/team/evidence/area2/finish-02/ci-${{ github.run_id }}
+          set -o pipefail
+          python -m pytest -c tests/team/pytest-area2.ini -p area2_order tests/team/api --area2-shards=8 --area2-shard=${{ matrix.shard }} -v -s -o junit_family=xunit1 --junitxml=docs/team/evidence/area2/finish-02/ci-${{ github.run_id }}/shard-${{ matrix.shard }}.xml 2>&1 | tee docs/team/evidence/area2/finish-02/ci-${{ github.run_id }}/shard-${{ matrix.shard }}.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: finish02-${{ github.run_id }}-shard-${{ matrix.shard }}
+          path: docs/team/evidence/area2/finish-02/ci-*/
+          if-no-files-found: error
