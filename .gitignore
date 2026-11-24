@@ -167,3 +167,5 @@ CLAUDE.md
 
 # SQE team: local DB snapshot used by scripts/team/reset.ps1
 tests/team/.baseline.sqlite3
+# SonarQube scanner work dir
+.scannerwork/
