@@ -159,3 +159,27 @@ from the initial form rather than changing disabled controls. This is a real
 normal-user omission flow, not a manufactured DOM state. The remaining six
 flows were not reached under fail-fast. Raw log is retained and another real
 retest continues here. No D browser debugging has been assigned to Wasay.
+
+## Fifth browser result and product correction
+
+Run 45353554904 / browser job 138305655757 on 8593715e verified the first four
+allocation flows, including E1 required-type validation. UC-RAY-01-E2 failed:
+blank requested_days was accepted and the real allocation table displayed a
+new requested record with None days. The other five leave flows were not reached
+under the then-enabled maxfail=1. This is a product validation failure, not a
+selector error. Raw evidence: ci-45353554904-browser-fifth.log.
+
+A2-D10: LeaveAllocationRequestForm inherited the model's nullable/blank amount
+without overriding requiredness. The API serializer and bulk allocation form
+already require requested_days. FR-01 and the existing amount contract support
+requiring it in the individual form too. The narrow correction marks only that
+form field required; no model migration, positive minimum, maximum or production
+password/auth change is introduced. The unchanged browser E2 assertion is the
+regression and the four passing creation/correction/file flows protect valid use.
+
+With fixture/login setup now verified, the next browser job executes every flow
+instead of stopping on the first failure, retaining all independent results.
+The fix is proposed until the actual full retest completes. Severity medium,
+priority P1, risks A2-R01/A2-R07; do not count it as retested or add it to the
+earlier four-defect Pareto population without identifying the new population.
+This agent is implementing/retesting the fix; it is not assigned to Wasay.

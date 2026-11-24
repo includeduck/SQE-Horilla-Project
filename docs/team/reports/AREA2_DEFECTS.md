@@ -101,3 +101,47 @@ marked as successful. The targeted corrective retest additionally runs affected
 upstream balance/carry-forward/file-display tests separately. Actual passing-after
 results and full clean/reversed acceptance remain pending.
 
+## Retrieved owner decision - 24 November 2026
+
+Issue #1 contains a 23 November comment by includeduck confirming both strict
+400 oracles: cancelled leave must not be rejected again (BR-03 / OD-01), and
+an identical pending allocation must not create a duplicate (OD-02). This
+supersedes earlier statements that Wasay had not answered those two policies.
+The comment's D04/D05 labels reverse this ledger's existing labels; match by
+behavior and test name, preserving existing IDs rather than silently renumbering.
+
+The existing tests still assert 400 and unchanged persistent state. The current
+Phase D instruction requires genuine failures to remain visible, so the owner's
+requested xfail markers have not been added. No product correction or retest
+is inferred from a comment. The concrete remaining work is the two narrow
+product fixes and strict passing retests, not asking for the same decision again.
+The same comment confirms merged PRs #2/#7 and requests evidence-backed closure
+of Issues #3-#6. Their technical fixes/retests already exist; issue lifecycle
+changes require the authorized owner workflow.
+
+Source: https://github.com/includeduck/SQE-Horilla-Project/issues/1 (includeduck
+comment updated 2026-11-23T14:46:01Z). No new external message was sent here.
+
+## Fifth browser result and product correction
+
+Run 45353554904 / browser job 138305655757 on 8593715e verified the first four
+allocation flows, including E1 required-type validation. UC-RAY-01-E2 failed:
+blank requested_days was accepted and the real allocation table displayed a
+new requested record with None days. The other five leave flows were not reached
+under the then-enabled maxfail=1. This is a product validation failure, not a
+selector error. Raw evidence: ci-45353554904-browser-fifth.log.
+
+A2-D10: LeaveAllocationRequestForm inherited the model's nullable/blank amount
+without overriding requiredness. The API serializer and bulk allocation form
+already require requested_days. FR-01 and the existing amount contract support
+requiring it in the individual form too. The narrow correction marks only that
+form field required; no model migration, positive minimum, maximum or production
+password/auth change is introduced. The unchanged browser E2 assertion is the
+regression and the four passing creation/correction/file flows protect valid use.
+
+With fixture/login setup now verified, the next browser job executes every flow
+instead of stopping on the first failure, retaining all independent results.
+The fix is proposed until the actual full retest completes. Severity medium,
+priority P1, risks A2-R01/A2-R07; do not count it as retested or add it to the
+earlier four-defect Pareto population without identifying the new population.
+This agent is implementing/retesting the fix; it is not assigned to Wasay.

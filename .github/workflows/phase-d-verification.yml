@@ -3,10 +3,10 @@ name: Phase D verification
 on:
   push:
     branches: [sqe-team]
-    paths: ["tests/team/**", ".github/workflows/phase-d-verification.yml"]
+    paths: ["tests/team/**", "leave/forms.py", ".github/workflows/phase-d-verification.yml"]
   pull_request:
     branches: [sqe-team]
-    paths: ["tests/team/**", ".github/workflows/phase-d-verification.yml"]
+    paths: ["tests/team/**", "leave/forms.py", ".github/workflows/phase-d-verification.yml"]
 
 permissions:
   contents: read
@@ -45,7 +45,7 @@ jobs:
         run: |
           mkdir -p "$AREA2_BROWSER_EVIDENCE"
           set -o pipefail
-          python -m pytest -c tests/team/pytest-area2.ini tests/team/e2e --maxfail=1 -v -s -o junit_family=xunit1 --junitxml="$AREA2_BROWSER_EVIDENCE/browser.xml" 2>&1 | tee "$AREA2_BROWSER_EVIDENCE/browser.txt"
+          python -m pytest -c tests/team/pytest-area2.ini tests/team/e2e -v -s -o junit_family=xunit1 --junitxml="$AREA2_BROWSER_EVIDENCE/browser.xml" 2>&1 | tee "$AREA2_BROWSER_EVIDENCE/browser.txt"
       - name: Render genuine browser completion report
         if: always() && matrix.activity == 'browser'
         run: python tests/team/browser_report.py --junit docs/team/evidence/area2/phase-d/ci-${{ github.run_id }}-${{ github.run_attempt }}-browser/browser.xml --output docs/team/evidence/area2/phase-d/ci-${{ github.run_id }}-${{ github.run_attempt }}-browser/browser.html
