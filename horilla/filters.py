@@ -379,7 +379,13 @@ class HorillaFilterSet(FilterSet):
                 placeholder=config.get("placeholder", ""),
             )
             if selected_values:
-                field.queryset = field.queryset.filter(pk__in=selected_values)
+                # Widget choice population precedes form validation. Malformed
+                # raw IDs must reach the form's ordinary invalid-choice handling
+                # instead of crashing queryset construction here.
+                try:
+                    field.queryset = field.queryset.filter(pk__in=selected_values)
+                except (TypeError, ValueError, ValidationError, OverflowError):
+                    field.queryset = field.queryset.none()
             else:
                 field.queryset = field.queryset.none()
 
@@ -565,3 +571,4 @@ class HorillaFilterSet(FilterSet):
 
         ids = list(filter(None, map(_icontains, queryset)))
         return queryset.filter(id__in=ids)
+

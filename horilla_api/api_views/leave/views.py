@@ -3,6 +3,7 @@ from collections.abc import Mapping
 
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.models import AnonymousUser
+from django.core.exceptions import ValidationError as DjangoValidationError
 from django.db.models import Count
 from django.http import Http404, QueryDict
 from django.utils.decorators import method_decorator
@@ -44,6 +45,14 @@ def _request_object(request):
     return data.dict() if isinstance(data, QueryDict) else data.copy()
 
 
+def _filtered_queryset(filterset):
+    """Translate malformed custom filter values at the API boundary."""
+    try:
+        return filterset.qs
+    except DjangoValidationError as error:
+        raise serializers.ValidationError({"filters": error.messages}) from error
+
+
 class EmployeeAvailableLeaveGetAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -79,8 +88,8 @@ class EmployeeLeaveRequestGetCreateAPIView(APIView):
         field_name = request.GET.get("groupby_field", None)
         if field_name:
             url = request.build_absolute_uri()
-            return groupby_queryset(request, url, field_name, filterset.qs)
-        page = paginator.paginate_queryset(filterset.qs, request)
+            return groupby_queryset(request, url, field_name, _filtered_queryset(filterset))
+        page = paginator.paginate_queryset(_filtered_queryset(filterset), request)
         serializer = userLeaveRequestGetAllSerilaizer(page, many=True)
         return paginator.get_paginated_response(serializer.data)
 
@@ -183,7 +192,7 @@ class LeaveTypeGetCreateAPIView(APIView):
         leave_type = LeaveType.objects.all()
         filterset = self.filterset_class(request.GET, queryset=leave_type)
         paginator = HorillaPageNumberPagination()
-        page = paginator.paginate_queryset(filterset.qs, request)
+        page = paginator.paginate_queryset(_filtered_queryset(filterset), request)
         serializer = LeaveTypeAllGetSerializer(page, many=True)
         return paginator.get_paginated_response(serializer.data)
 
@@ -273,8 +282,8 @@ class LeaveAllocationRequestGetCreateAPIView(APIView):
         field_name = request.GET.get("groupby_field", None)
         if field_name:
             url = request.build_absolute_uri()
-            return groupby_queryset(request, url, field_name, filterset.qs)
-        page = paginator.paginate_queryset(filterset.qs, request)
+            return groupby_queryset(request, url, field_name, _filtered_queryset(filterset))
+        page = paginator.paginate_queryset(_filtered_queryset(filterset), request)
         serializer = LeaveAllocationRequestGetSerializer(page, many=True)
         return paginator.get_paginated_response(serializer.data)
 
@@ -391,8 +400,8 @@ class AssignLeaveGetCreateAPIView(APIView):
         field_name = request.GET.get("groupby_field", None)
         if field_name:
             url = request.build_absolute_uri()
-            return groupby_queryset(request, url, field_name, filterset.qs)
-        page = paginator.paginate_queryset(filterset.qs, request)
+            return groupby_queryset(request, url, field_name, _filtered_queryset(filterset))
+        page = paginator.paginate_queryset(_filtered_queryset(filterset), request)
         serializer = AssignLeaveGetSerializer(page, many=True)
         return paginator.get_paginated_response(serializer.data)
 
@@ -500,8 +509,8 @@ class LeaveRequestGetCreateAPIView(APIView):
         field_name = request.GET.get("groupby_field", None)
         if field_name:
             url = request.build_absolute_uri()
-            return groupby_queryset(request, url, field_name, filterset.qs)
-        page = paginator.paginate_queryset(filterset.qs, request)
+            return groupby_queryset(request, url, field_name, _filtered_queryset(filterset))
+        page = paginator.paginate_queryset(_filtered_queryset(filterset), request)
         serializer = LeaveRequestGetAllSerilaizer(
             page, context={"request": request}, many=True
         )
@@ -1146,8 +1155,8 @@ class EmployeeLeaveAllocationGetCreateAPIView(APIView):
         field_name = request.GET.get("groupby_field", None)
         if field_name:
             url = request.build_absolute_uri()
-            return groupby_queryset(request, url, field_name, filterset.qs)
-        page = paginator.paginate_queryset(filterset.qs, request)
+            return groupby_queryset(request, url, field_name, _filtered_queryset(filterset))
+        page = paginator.paginate_queryset(_filtered_queryset(filterset), request)
         serializer = LeaveAllocationRequestGetSerializer(page, many=True)
         return paginator.get_paginated_response(serializer.data)
 

@@ -228,7 +228,11 @@ def run_filter(h,case):
                     bound=next(v["limit_value"] for v in meta["validators"] if v["class"]=="MaxValueValidator")
                     with localcontext() as precision:
                         precision.prec=100
-                        token=str(Decimal(bound)+{"validator_below":-1,"validator_at":0,"validator_above":1}[label])
+                        # The live MaxValueValidator stores a Python float;
+                        # Decimal(str(1e50))+1 is still below that float's actual
+                        # value. Use its exact representation for +/-1 BVA.
+                        exact=Decimal.from_float(float(bound))
+                        token=str(exact+{"validator_below":-1,"validator_at":0,"validator_above":1}[label])
                 expected=ids if label=="validator_above" else [r.pk for r in records if compare(value_at(r,path),token,lookup)]
         elif kind in {"DateField","DateTimeField"}:
             anchor=actual.date() if isinstance(actual,datetime) and kind=="DateField" else actual

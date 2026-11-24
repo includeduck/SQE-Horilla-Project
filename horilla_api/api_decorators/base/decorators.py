@@ -86,7 +86,7 @@ def manager_or_owner_permission_required(model_class, perm):
         def wrapper(self, request, pk=None, *args, **kwargs):
             employee = request.user.employee_get
 
-            if pk:
+            if pk is not None:
                 target = model_class.objects.filter(pk=pk).first()
                 if target is None:
                     # 404 only for a caller who could legitimately act on the
@@ -126,7 +126,7 @@ def manager_or_owner_permission_required(model_class, perm):
                     raise ValidationError({"employee_id": _("A valid employee identifier is required.")}) from error
 
             if request.user.has_perm(perm) or check_manager(employee, target):
-                if pk:
+                if pk is not None:
                     return func(self, request, pk, *args, **kwargs)
                 return func(self, request, *args, **kwargs)
 
@@ -265,3 +265,4 @@ def permission_required(function, perm):
             return Response({"message": _("No permission")}, status=401)
 
     return _function
+

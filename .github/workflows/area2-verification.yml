@@ -19,6 +19,12 @@ on:
       - "horilla_api/api_serializers/leave/**"
       - "horilla/models.py"
       - ".github/workflows/area2-verification.yml"
+      - "horilla_api/api_decorators/base/decorators.py"
+      - "horilla_api/api_methods/base/methods.py"
+      - "horilla/filters.py"
+      - "horilla/config.py"
+      - "leave/filters.py"
+      - ".github/workflows/finish02-coverage.yml"
   pull_request:
     branches: [sqe-team]
     paths:
@@ -35,6 +41,12 @@ on:
       - "horilla_api/api_serializers/leave/**"
       - "horilla/models.py"
       - ".github/workflows/area2-verification.yml"
+      - "horilla_api/api_decorators/base/decorators.py"
+      - "horilla_api/api_methods/base/methods.py"
+      - "horilla/filters.py"
+      - "horilla/config.py"
+      - "leave/filters.py"
+      - ".github/workflows/finish02-coverage.yml"
 
 permissions:
   contents: read
@@ -44,11 +56,10 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  area2:
+  focused:
     runs-on: ubuntu-latest
-    # The full/reversed producer plus focused/upstream/expanded populations
-    # exceeded 90 minutes after 275 clean first-order passes (run 45355537962).
-    # Allow both complete orders; never truncate or suppress their assertions.
+    # Focused populations remain separate; the two full collections run in
+    # fresh distributed jobs below with independent coverage enforcement.
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
@@ -86,8 +97,6 @@ jobs:
         run: |
           set -o pipefail
           python -m pytest -c tests/team/pytest-area2.ini tests/team/api/test_generated_inputs.py tests/team/api/test_generated_attachments.py tests/team/api/test_queries_and_auth.py -v -s -o junit_family=xunit1 --junitxml=docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}-targeted/expanded.xml 2>&1 | tee docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}-targeted/expanded.txt
-      - name: Verify Area 2 twice with reversed second API order
-        run: python tests/team/run_area2.py --evidence docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Retain real results on success or failure
         if: always()
         uses: actions/upload-artifact@v4
@@ -95,3 +104,22 @@ jobs:
           name: area2-${{ github.run_id }}-${{ github.run_attempt }}
           path: docs/team/evidence/area2/ci-*/
           if-no-files-found: warn
+
+
+  distributed:
+    uses: ./.github/workflows/finish02-coverage.yml
+    with:
+      full_scope: true
+
+  area2:
+    needs: [focused, distributed]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Preserve every failed or incomplete requirement
+        env:
+          FOCUSED_RESULT: ${{ needs.focused.result }}
+          DISTRIBUTED_RESULT: ${{ needs.distributed.result }}
+        run: |
+          test "$FOCUSED_RESULT" = success
+          test "$DISTRIBUTED_RESULT" = success
