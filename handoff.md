@@ -226,3 +226,27 @@ The previous automatic approval rejection is historical and is now resolved.
 Mandatory Wasay handoffs H-02 through H-08 remain in force until their required
 evidence is completed. Local Git metadata/HEAD remain unchanged; no pull or
 local commit is claimed. Phase D remains unstarted.
+
+## Phase D maximum independent execution - 24 November 2026
+
+Rayyan requested that this agent do the maximum before assigning more work to
+Wasay. This supersedes any interpretation that all new implementation/debugging
+is automatically an owner handoff. This agent has implemented the two-constraint
+regeneration demonstration, all ten personal browser flows and use-case specs,
+report/evidence/viva contributions, eight-product/two-project risk register and
+three measurable proposed criteria. It is actively fixing its own test-harness
+issues and running real CI before deciding any unavoidable remaining handoff.
+
+The C expanded subset actually returned 172 passed / five failed / 177 on run
+45342013246. Those five failures used the wrong optional creator-FK oracle for
+LeaveRequest; that source-backed test correction is now in 8a9ca964. D's first
+browser run hit ten setup errors, not product assertions; async Playwright plus
+sync_to_async ORM correction is being retested. Raw logs remain genuine.
+
+H-02 now has Rayyan's previously missing use-case specifications supplied.
+H-08 now has concrete risk/criteria/GQM/traceability/report and RCA contributions;
+Wasay should integrate actual group results rather than redo these documents.
+H-03/H-04 known implementation/debugging is being advanced here where possible.
+Existing unresolved policy/complete-scope/overall gate/archival dependencies
+remain open; none is marked complete solely because a script/report exists.
+No new D task is assigned to Wasay at this in-progress checkpoint.

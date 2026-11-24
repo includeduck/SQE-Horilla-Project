@@ -16,3 +16,5 @@ Independent subprocess checks exercise failure retention/reversed execution;
 new API assertions require real runtime verification. No disputed duplicate or
 terminal-state oracle was changed. Incomplete mandatory execution is assigned
 to Wasay/his agent in handoff.md; human review/viva remains unverified.
+
+| 5 | 2026-11-24 | Syed Muhammad Rayyan Hassan (24I-3000) | ChatGPT / Codex | Execute attached Phase D, maximize independent work before new owner handoffs | Controlled two-constraint generator/HTTP experiment, two personal use-case specs and ten Playwright flows, test-only static serving, workflow/report/evidence/risk/criteria/viva contributions | Read attachment and official brief; 47 independent checks pass; real C run exposed wrong creator-FK assertion and source-backed correction; first browser runtime exposed event-loop setup errors, corrected to async Playwright plus sync_to_async without disabling Django safety. New HTTP/browser outcomes require actual CI verification. Human review, effort and viva are not inferred. |

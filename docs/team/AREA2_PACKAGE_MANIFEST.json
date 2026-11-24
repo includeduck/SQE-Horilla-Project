@@ -1,0 +1,318 @@
+{
+  "contributor": "Syed Muhammad Rayyan Hassan",
+  "roll": "24I-3000",
+  "section": "SE-5B",
+  "upstream_baseline": "6c15617b8297b7a6775daa6c29aefcc48b1eb29f",
+  "runtime_source_checkpoint": "8c0c8f323effb65da6ab1d9dc930026c0e9c7b61",
+  "files": [
+    {
+      "path": ".github/workflows/area2-verification.yml",
+      "bytes": 4148,
+      "sha256": "fd7732b0771961cd367650de92fa974549a24a4dd344c49a3c0423633449ed3d"
+    },
+    {
+      "path": ".github/workflows/phase-d-verification.yml",
+      "bytes": 2265,
+      "sha256": "25e3cae6ed09829468438858b49702695dee7a7a7aef66228f6c6bf3eb9bee49"
+    },
+    {
+      "path": "docs/team/AI_USE_RECORD.md",
+      "bytes": 4024,
+      "sha256": "6b1699efb3790184b60c27d46d2571ce686713d1d716878e81c0fb9d62397151"
+    },
+    {
+      "path": "docs/team/API_COVERAGE_MATRIX.md",
+      "bytes": 13197,
+      "sha256": "76d4ae4d5ff86f3e2b5beb40bf56eefca84b67940635d90431200ce24074a89b"
+    },
+    {
+      "path": "docs/team/AREA2_CI_HANDOFF.md",
+      "bytes": 6591,
+      "sha256": "15af7bd29369a0efce9a3d6704c6715b275e6d4ae584d0061bde7b97385b7d21"
+    },
+    {
+      "path": "docs/team/AREA2_EVIDENCE_INDEX.md",
+      "bytes": 3419,
+      "sha256": "cb59453ea7441299f379788a6092abcf1ba5ae4a950f6014d3145596b8f03ce7"
+    },
+    {
+      "path": "docs/team/AREA2_MANAGEMENT.md",
+      "bytes": 18826,
+      "sha256": "94b0dc0863146655ee8234a317ff4c5e6e0a607da01cccee409d643f4428e24e"
+    },
+    {
+      "path": "docs/team/AREA2_TEST_BASIS.md",
+      "bytes": 11111,
+      "sha256": "41dbcd591ee4810d2599414899e2b51b2f2a00430b1894a54af3e2ef185ea572"
+    },
+    {
+      "path": "docs/team/AREA2_VIVA_REHEARSAL.md",
+      "bytes": 4630,
+      "sha256": "39a7fec87bde8395ad0e91fc46fbab492e0f255b4848e3c6b82b2953fee53678"
+    },
+    {
+      "path": "docs/team/RAYYAN_USE_CASES.md",
+      "bytes": 5050,
+      "sha256": "04e918b1b0d544b52c443460c0576aecc520c0ff80924dfeb8fe53de5b39b694"
+    },
+    {
+      "path": "docs/team/reports/AREA2_COMPLETION_REPORT.md",
+      "bytes": 6952,
+      "sha256": "23d8bab3be378e9c307252d2f6320264c2cff220b0128ea683ae61b9576ae542"
+    },
+    {
+      "path": "docs/team/reports/AREA2_DEFECTS.md",
+      "bytes": 9244,
+      "sha256": "eb22505b9bd202a2bf01095b81ae8fc21acb2b9739126a45889230643f285449"
+    },
+    {
+      "path": "docs/team/reports/AREA2_RCA_CONTRIBUTION.md",
+      "bytes": 6477,
+      "sha256": "f4a5c54a9288ce702198d63ff92c374f184c556849bf99db8e595102c9e195aa"
+    },
+    {
+      "path": "docs/team/reports/SQE_IMPLEMENTATION_PHASE_A_STATUS.md",
+      "bytes": 2306,
+      "sha256": "42f5cb04170b63f292e1b00a7e362936fcdcfca0f627e7f80433484e5afa11d8"
+    },
+    {
+      "path": "docs/team/reports/SQE_IMPLEMENTATION_PHASE_B_STATUS.md",
+      "bytes": 15753,
+      "sha256": "805d5f51c1ec1e1fa4b6971bb2a4f5cf64b2c18be73b4bae87d29b46fb755197"
+    },
+    {
+      "path": "docs/team/reports/SQE_IMPLEMENTATION_PHASE_C_STATUS.md",
+      "bytes": 26942,
+      "sha256": "e96fe1849504d81ab0262d8d4f27fc7fee1e5771860efb96d96f9eb7effb9ddc"
+    },
+    {
+      "path": "docs/team/reports/SQE_IMPLEMENTATION_PHASE_D_STATUS.md",
+      "bytes": 4398,
+      "sha256": "78676ce3893d103bf0fdac1981c263c69ef4616d611987533a73b40c2b8be1c2"
+    },
+    {
+      "path": "docs/team/SCOPE.md",
+      "bytes": 6957,
+      "sha256": "814813967af6dc504273dd1592dbe17ea857f812cc592ac79a6ca2ef7081c6d6"
+    },
+    {
+      "path": "docs/team/SETUP.md",
+      "bytes": 5002,
+      "sha256": "74b5189691e7c8d357776a77d0001ea25d2f7242d78669ad1fd7885c1046e4fa"
+    },
+    {
+      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_A.md",
+      "bytes": 14805,
+      "sha256": "003f0c0b3e1c65e3a8bf5c96bc04a5ffba6f2df8e1f36b1fb59db8a0f527ee2e"
+    },
+    {
+      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_B.md",
+      "bytes": 12618,
+      "sha256": "84dc0322571e2344e2a49bb9172b72906242394a64994313d9cc5681dc5819ea"
+    },
+    {
+      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_C.md",
+      "bytes": 15786,
+      "sha256": "81a2a53ce763ad108c4237b86a02d8b6a1b9c56c9fc406b43e54b9313ade660d"
+    },
+    {
+      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_D.md",
+      "bytes": 16447,
+      "sha256": "1d627100738894c1bdf01a788b25f19af76d2250e1782cde05c45c3505f39e00"
+    },
+    {
+      "path": "docs/team/SQE_PHASE_1_PERSONAL_AUDIT.md",
+      "bytes": 53708,
+      "sha256": "681bec4a39e09a4208cdbf518f1bc70654e63b162be692b6d05a4412078d00cb"
+    },
+    {
+      "path": "docs/team/SQE_PHASE_2_IMPLEMENTATION_ROADMAP.md",
+      "bytes": 36122,
+      "sha256": "68057f190ef1475303bf9ffae3fcf64b4455d6e1c7402192f0a6451603f6eb35"
+    },
+    {
+      "path": "docs/team/TEAM.md",
+      "bytes": 1589,
+      "sha256": "e382fe736eaaa5f5a8a199ecefb772b4b2073ecbe5bb24bc946a577b65831bfc"
+    },
+    {
+      "path": "handoff.md",
+      "bytes": 18817,
+      "sha256": "243e3f85cf45a7d61dd6c70529fca5fd2e3d1bed01afbe9572943a689aa8d2af"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 6796,
+      "sha256": "c17a095df7503606373ee97251f53a6469930435272f7ebf9bbf2599fd938230"
+    },
+    {
+      "path": "tests/team/api/case_catalog.py",
+      "bytes": 5320,
+      "sha256": "9e89711c011b087ee641dec947373cc03d881a77d7a6dacb18500eb441264e35"
+    },
+    {
+      "path": "tests/team/api/case_ledger.json",
+      "bytes": 87314,
+      "sha256": "3c909816d7355b18d4a9a18656ba7b63bf6171e658b6324de1abd3e6fb9bf66c"
+    },
+    {
+      "path": "tests/team/api/conftest.py",
+      "bytes": 4883,
+      "sha256": "1962f6ca43c1000d3c8ad973f3ad812a06ace4df7d152b72ec895c4b21c5a12b"
+    },
+    {
+      "path": "tests/team/api/http_support.py",
+      "bytes": 6100,
+      "sha256": "5be0736c1730738f85cdd2c2189f01cbd28485abdf5efda27429ba298af302a9"
+    },
+    {
+      "path": "tests/team/api/test_generated_attachments.py",
+      "bytes": 3460,
+      "sha256": "0876b486dfae964e906805211429c111006fe23b7e944df8af3e1259f9f7196c"
+    },
+    {
+      "path": "tests/team/api/test_generated_inputs.py",
+      "bytes": 4652,
+      "sha256": "88f860d9e0b809fc7f2cf24c9c1b68e6c93ceff8a5280eef241ce559a0918bd4"
+    },
+    {
+      "path": "tests/team/api/test_generated_slice.py",
+      "bytes": 5010,
+      "sha256": "84ede6f3a53be712d60d5a7c61bb485eabb13f31baa49d74e97b43a0835174d6"
+    },
+    {
+      "path": "tests/team/api/test_queries_and_auth.py",
+      "bytes": 4060,
+      "sha256": "792418516f85ace1199049c40be7150182827b607cdfb5782637a687e0a28e03"
+    },
+    {
+      "path": "tests/team/api/test_states_and_decisions.py",
+      "bytes": 6686,
+      "sha256": "44c47e4b36eb867bd2c16ab890b1a30da58d6b84a89dd57bb9db85beb760f13f"
+    },
+    {
+      "path": "tests/team/api/test_workflows.py",
+      "bytes": 6213,
+      "sha256": "5373374f5f24df326695eb61659701cfc40e638a0f1556bbe35476138c1515f6"
+    },
+    {
+      "path": "tests/team/area2_order.py",
+      "bytes": 324,
+      "sha256": "408bd7511b6ae8a8b6281f855bfeb03c1384ee2eddb0b9fda406fe1c80b69ae0"
+    },
+    {
+      "path": "tests/team/area2_settings.py",
+      "bytes": 1590,
+      "sha256": "4ac189516005ef61576d69003970d712be54c99e19935ee90fadc64d512a35a8"
+    },
+    {
+      "path": "tests/team/area2_urls.py",
+      "bytes": 268,
+      "sha256": "16093584e74306eb57d10a3b00b8a276847a160c2ddd23530872a6769d6b7e8d"
+    },
+    {
+      "path": "tests/team/e2e/conftest.py",
+      "bytes": 2192,
+      "sha256": "46b0163ac07beb673a079faac3fd48cedefed91a51f6be47fcf96e0d7598b080"
+    },
+    {
+      "path": "tests/team/e2e/test_rayyan_use_cases.py",
+      "bytes": 7578,
+      "sha256": "1693cde8db3d4163a71494b15e71fa59c54f22cc8084670fe963270f959d23a5"
+    },
+    {
+      "path": "tests/team/generator/bindings.json",
+      "bytes": 195,
+      "sha256": "2cf7eb58c3baed287ace815764674c9fe7f034a091e5d4351df012ada1150dfd"
+    },
+    {
+      "path": "tests/team/generator/demonstrate_regeneration.py",
+      "bytes": 4253,
+      "sha256": "bea0de642ee908cb6b2c9db8f23cb9e7d41b0d15a37d12ce4770d150c1db1576"
+    },
+    {
+      "path": "tests/team/generator/generate.py",
+      "bytes": 26699,
+      "sha256": "bb7978955c065c9c2f65b1faba4e6bb306536fd955c3c4d747c0b1d87119de92"
+    },
+    {
+      "path": "tests/team/generator/generated_cases.json",
+      "bytes": 1202931,
+      "sha256": "80223562b143289fbc6e77c85ddd00549660a07d3ad9bd8fac9cf27de4ae0bc0"
+    },
+    {
+      "path": "tests/team/generator/openapi.json",
+      "bytes": 48940,
+      "sha256": "94b87354bd08d1f785d2c9e079906dff4977bef4dc0210c30b7810d1b714efc5"
+    },
+    {
+      "path": "tests/team/generator/test_case_catalog.py",
+      "bytes": 4503,
+      "sha256": "a3b956fb8cf99cd0d60e01cd064145649c3fd682edf70ed4cb0d9b9ae15dbcb1"
+    },
+    {
+      "path": "tests/team/generator/test_generate.py",
+      "bytes": 16992,
+      "sha256": "665d6fc74d6f70eec51eb271cf645e91c77cd3bc195c9d71b9c33d22b49ffbfd"
+    },
+    {
+      "path": "tests/team/generator/test_regeneration.py",
+      "bytes": 1876,
+      "sha256": "449acd0eb4c26b8bfc2fd1d6702c659eb814c1304a6ed7995a906f446af207da"
+    },
+    {
+      "path": "tests/team/generator/test_runner.py",
+      "bytes": 5725,
+      "sha256": "4936e8ef8df00d2c4c768b9821843b32e495d47ecfc9b9bafc122db036f2ecc3"
+    },
+    {
+      "path": "tests/team/pytest-area2.ini",
+      "bytes": 104,
+      "sha256": "74895d2627499e26def9761da1f8a5afeba84157296eaf5c43fe6b13de252282"
+    },
+    {
+      "path": "tests/team/regeneration/conftest.py",
+      "bytes": 1238,
+      "sha256": "ca0912bcc7a7ff5c625a450cab076d1981124175568823f99ef64c459a904bf2"
+    },
+    {
+      "path": "tests/team/regeneration/test_consuming_experiment.py",
+      "bytes": 1680,
+      "sha256": "df2e57823ffdbd1dbb3f0110b0f9c040ae4f7d49ac5c1d54c14beec3ac450803"
+    },
+    {
+      "path": "tests/team/requirements-area2.txt",
+      "bytes": 259,
+      "sha256": "43133e040a459a900fc1c408570b579150182b176beac271ac060ca4b33ae311"
+    },
+    {
+      "path": "tests/team/requirements-phase-d.txt",
+      "bytes": 73,
+      "sha256": "e8806228d517ca3f7e426ec26e3673c299b7b3c2cc2bac8787eeaeca3ba254e9"
+    },
+    {
+      "path": "tests/team/run_area2.py",
+      "bytes": 7026,
+      "sha256": "21adfe93d9ddf6c23d1eabaf44540fb442476eca227137f48576a7cc7176eac6"
+    },
+    {
+      "path": "tests/team/run_phase_d.py",
+      "bytes": 3138,
+      "sha256": "02021d12a30112eab2ba585a29974597a315f960c36a61ca6ee07edb40083647"
+    },
+    {
+      "path": "tests/team/storage/test_upload_path.py",
+      "bytes": 1121,
+      "sha256": "1d176b32ffe55f3daa334f4cfe0cfcdd87d6eeb996b1e8f75c40dc9f96253bb8"
+    }
+  ],
+  "group_archive_requirements": [
+    "Include .git from the synchronized final accepted checkout",
+    "Include actual CI evidence artifacts and final group PDF",
+    "Reconcile and include Wasay Area 1/gate and Zain specialist evidence",
+    "Exclude secrets, real-user DBs, local virtualenv/node_modules and unverified artifacts"
+  ],
+  "group_pdf_zip_complete": false,
+  "local_git_history_is_current": false,
+  "note": "Area 2 contribution inventory with raw-byte hashes, not a complete group submission. This manifest excludes itself to avoid a circular hash. Regenerate after later content edits."
+}

@@ -112,3 +112,98 @@ The source-backed two-major-defect 5 Whys/cause diagrams and four-defect Pareto
 contribution is in `docs/team/reports/AREA2_RCA_CONTRIBUTION.md`. It uses real
 before/after build populations, marks causal inferences and leaves Wasay's
 human triage, product-Issue reconciliation and group final reporting pending.
+
+## Phase D test-plan and management contribution - 24 November 2026
+
+This current section supersedes earlier inventory/pending-publication statements.
+Scope: selected W1/W2 HTTP contract/generation, real persisted balances/ownership,
+and Rayyan's two personal browser cases. New browser scaffolding and test-oracle
+errors are being repaired by this agent before any owner handoff. Wasay retains
+Area 1 and complete CI enforcement; Zain retains broad Area 3 evaluations.
+
+Approach: highest balance/ownership risks receive separate normal-user balances,
+rejection/repetition/readback, state and authorization matrices. Contract inputs
+receive generated one-dimension EP and real-limit BVA with fingerprints. Browser
+flows use the actual login/list/modal/form and independent HTTP/ORM readback.
+Synthetic fixture setup is disposable; no production DB or credential is used.
+
+Entry: supported runtime, unchanged application dependencies, guarded isolated
+SQLite/media, fresh canonical generated data and source-backed expected result.
+Suspend a dependent check on failed setup, stale data or unresolved contract;
+retain raw output and continue independent tasks. Resume after a targeted fix
+and fresh execution. Failed required assertions/exclusions prevent completion.
+
+### Risk register contribution: eight product and two project risks
+
+Likelihood and impact are provisional 1-5 assessment scores, not measured failure
+probabilities or team-approved ratings. Score = likelihood * impact. Priorities:
+15-25 high, 8-14 medium, 1-7 low. Residual statuses reflect observed evidence.
+
+| ID | Type / risk | L | I | Score | Technique / control | Residual status |
+|---|---|---:|---:|---:|---|---|
+| A2-R01 | Product: incorrect effective balance grants excess leave | 4 | 5 | 20 | Cap/forecast/positive-duration BVA and connected state readback | Cap corrected; forecast/employee-holiday/positive-effective gaps remain |
+| A2-R02 | Product: refund or access affects another employee | 3 | 5 | 15 | Distinct owner/approver/outsider, authorization table and non-owner assertions | Refund/foreign allocation fixes retested; full scope incomplete |
+| A2-R03 | Product: repeated creation/approval duplicates records or effects | 4 | 3 | 12 | Repeated HTTP creation/approval plus count/balance readback | Approval guards tested; allocation creation policy unresolved |
+| A2-R04 | Product: invalid terminal transition corrupts history/balance | 4 | 3 | 12 | All scoped state transitions and invalid actions per state | Cancelled-to-rejected oracle unresolved |
+| A2-R05 | Product: stale/incomplete spec produces misleading test data | 4 | 4 | 16 | Regeneration/fingerprint checks; explicit exclusions; changed-spec experiment | Freshness passes; 399 generated IDs unconsumed |
+| A2-R06 | Product: attachment boundaries cause storage failure/data loss | 3 | 3 | 9 | Generated filename BVA, file bytes, real FileSystemStorage regressions | Upload fix retested; expanded creator test error corrected, retest pending |
+| A2-R07 | Product: browser error/success display disagrees with stored state | 4 | 4 | 16 | Ten Playwright flows with visible and persistent assertions | Implemented; real UI verification ongoing |
+| A2-R08 | Product: date/breakdown/overlap/reference inputs bypass validation | 3 | 4 | 12 | Generated EP/date BVA, 32-row BR-02 table, invalid references | Implemented subset; full contract scope incomplete |
+| A2-J01 | Project: unavailable runtime/Git prevents reproduction | 4 | 5 | 20 | Free isolated CI, raw artifacts, own-account commit verification | Remote execution available; laptop dependencies/Git remain constrained |
+| A2-J02 | Project: unclear oracles/ownership delays accepted evidence | 4 | 4 | 16 | Explicit oracle ledger, stable IDs, dated contribution and owner records | Two policy decisions and team review remain pending |
+
+Five-by-five matrix positions (row impact / column likelihood):
+
+| Impact / Likelihood | 1 | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|---|
+| 5 | - | - | R02 | R01, J01 | - |
+| 4 | - | - | R08 | R05, R07, J02 | - |
+| 3 | - | - | R06 | R03, R04 | - |
+| 2 | - | - | - | - | - |
+| 1 | - | - | - | - | - |
+
+IDs Rnn/Jnn abbreviate the A2- prefix. These controls contribute the required
+risk population; shared acceptance and other areas' risks still need team review.
+
+### Three measurable proposed release criteria
+
+| Criterion | Risk link | Target | Current actual / decision |
+|---|---|---|---|
+| EC-1 balance correctness | R01/R02, highest product risks | Every scoped balance/refund/decision case passes twice with exact owner/readback; zero unresolved high-severity balance defects | Four corrections retested on old build; full scope/forecast/positive-duration incomplete: FAIL/HOLD |
+| EC-2 contract and repeatability | R05/J01, high reproduction risk | Canonical freshness passes; all required generated input classes consumed or justified N/A; two isolated full API runs with zero failures/errors/skips | Freshness passes; 179/578 IDs referenced, 399 remaining; complete runs pending: FAIL/HOLD |
+| EC-3 personal browser/regeneration | R07/R05 | Ten of ten UI flows pass visible/persistent checks; six baseline HTTP cases pass; variant yields exactly two predicted strict mismatches with zero other failures/errors/skips | Implemented; runtime retests pending: NOT MET/HOLD |
+
+These are measurable proposals, not retrospective team-approved targets. Two
+criteria explicitly address highest-scored risks. Other areas' release thresholds
+must come from their own measured work, not these Area 2 results.
+
+### Dated progress, GQM and effort
+
+| Date / build | Actual progress / control action |
+|---|---|
+| 23 November / 2242c502 | Four reproduced corrections merged; full collection improved to 176/178, two disputed oracles retained |
+| 24 November / b848025 | Expanded subset 172/177; diagnosed all five new failures as an incorrect optional creator-FK assertion |
+| 24 November / 8a9ca964 | Corrected creator oracle, implemented regeneration and ten UI flows, published actual sources and independent evidence |
+| 24 November / first D browser | Ten setup errors exposed a sync Playwright/Django event-loop conflict; converted browser lifecycle to async API plus sync_to_async ORM reads, preserving safety guards |
+
+GQM goal: expose and reduce balance/ownership/contract risk using reproducible
+assertions. Questions: does each owned transition preserve the right balances;
+does generated output follow supported spec edits; do UI outcomes match state?
+Metrics: accepted FRs/10 remains undetermined, not 10/10 inferred from test tags;
+implemented generated references 179/578=30.97% (inventory only); old full-build
+API pass fraction 176/178=98.88% (run-specific, not release readiness); current
+independent checks 47/47; browser verified pass fraction awaits actual results.
+Confirmed-defect Pareto population is four; density needs a measured size and
+reopen rate needs real closed/reopened lifecycle counts, both unavailable.
+
+No original D pre-implementation estimate or trustworthy human timesheet is
+available. Do not invent either or replace them with CI duration. For remaining
+runtime debugging/report finalization only, current provisional forecast is
+O=1, M=3, P=6 hours, PERT=(1+4*3+6)/6=3.17 hours; this is a forecast made after
+implementation began, excludes queue/access delays and requires revision after
+new evidence. Human actual-vs-original-estimate variance remains unavailable.
+No fictional weekly history or team signoff is backfilled.
+
+Existing defect-risk aliases are preserved: A2-R-BALANCE maps to A2-R01,
+A2-R-OWNERSHIP to A2-R02, A2-R-DUPLICATE to A2-R03, A2-R-STATE to A2-R04 and
+A2-R-CONTRACT to A2-R05. Earlier evidence remains linked; no FR/BR ID changes.
