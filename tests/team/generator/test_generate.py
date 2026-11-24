@@ -40,7 +40,7 @@ class GeneratorTests(unittest.TestCase):
         second = generator.generate(copy.deepcopy(doc), dict(reversed(list(bindings.items()))))
         self.assertEqual(first, second)
         self.assertEqual(json.loads(json.dumps(first)), first)
-        self.assertEqual(len(first["operations"]), 27)
+        self.assertEqual(len(first["operations"]), 34)
         self.assertFalse(first["coverage_complete"])
         self.assertTrue(first["exclusions"])
         self.assertEqual(len(first["cases"]), len({c["id"] for c in first["cases"]}))

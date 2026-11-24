@@ -45,6 +45,8 @@ def filters_for(cls):
     for name, field in filter_class.base_filters.items():
         row = {"class": type(field).__name__, "field_name": field.field_name,
                "lookup_expr": field.lookup_expr,
+               "validators": [{"class": type(v).__name__, "limit_value": str(getattr(v, "limit_value", ""))} for v in field.field.validators],
+               "static_choices": [str(k) for k, _ in field.field.choices] if type(field.field).__name__ == "ChoiceField" else [],
                "method": field.method if isinstance(field.method, str) else None}
         try:
             row.update(form_field=type(field.field).__name__, required=field.field.required)
@@ -109,6 +111,7 @@ def test_fresh_foundation_and_live_contract(leave_http, record_property):
             result["routes"].append({"operation": operation["operationId"], "method": method.upper(),
                                      "route": route, "view": cls.__name__,
                                      "parsers": [p.media_type for p in cls().get_parsers()],
+                                     "renderers": [renderer.media_type for renderer in cls().get_renderers()],
                                      "filters": filters_for(cls) if method == "get" else {}})
     for route in ("/api/v1/leave/assign-leave/", "/api/v1/leave/assign-leave/999999/",
                   "/api/v1/leave/leave-type/", "/api/v1/leave/employee-leave-type/999999/"):

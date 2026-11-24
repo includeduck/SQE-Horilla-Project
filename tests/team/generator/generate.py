@@ -305,7 +305,7 @@ def set_value(request, location, path, value, omit=False):
 def generate(document, bindings):
     if document.get("openapi") != "3.0.3":
         raise ContractError("Supported dialect is OpenAPI 3.0.3 JSON")
-    unknown_extensions = {key for key in document if key.startswith("x-")} - {"x-exclusions"}
+    unknown_extensions = {key for key in document if key.startswith("x-")} - {"x-exclusions", "x-input-inventory"}
     if unknown_extensions:
         raise ContractError(f"Unsupported root extensions: {sorted(unknown_extensions)}")
     cases, inventory, operations = [], [], []
@@ -321,7 +321,7 @@ def generate(document, bindings):
                 raise ContractError("Every operation needs a unique operationId")
             seen_ids.add(operation_id)
             operations.append(operation_id)
-            if any(key.startswith("x-") and key not in {"x-role", "x-requirements", "x-source", "x-exclusions", "x-date-order"}
+            if any(key.startswith("x-") and key not in {"x-role", "x-requirements", "x-source", "x-exclusions", "x-date-order", "x-generator-media-type", "x-media-consumption-status"}
                    for key in operation):
                 raise ContractError(f"Unsupported operation extension: {operation_id}")
             baseline = {"body": {}, "path": {}, "query": {}}
@@ -349,9 +349,21 @@ def generate(document, bindings):
             if "requestBody" in operation:
                 body = resolve(document, operation["requestBody"])
                 content = body.get("content", {})
-                if len(content) != 1:
-                    raise ContractError("Scoped operation must select exactly one request media type")
-                media_type, media = next(iter(content.items()))
+                preferred = operation.get("x-generator-media-type")
+                if preferred is None:
+                    if len(content) != 1:
+                        raise ContractError("Multiple media require an explicit x-generator-media-type")
+                    media_type, media = next(iter(content.items()))
+                else:
+                    if preferred not in content:
+                        raise ContractError("Preferred generator media absent from declared content")
+                    if set(content) - {"application/json", "application/x-www-form-urlencoded", "multipart/form-data"}:
+                        raise ContractError("Unsupported declared alternative media")
+                    if any(candidate.get("schema") != content[preferred].get("schema")
+                           or set(candidate) - {"schema", "example", "examples"}
+                           for candidate in content.values()):
+                        raise ContractError("Alternative media need identical schemas; encodings/distinct schemas require a reader")
+                    media_type, media = preferred, content[preferred]
                 if set(media) - {"schema", "example", "examples"}:
                     raise ContractError("Unsupported media encoding/options")
                 if media_type not in {"application/json", "multipart/form-data"}:

@@ -38,10 +38,17 @@ jobs:
           mkdir -p "$(dirname "$AREA2_CONTRACT_EVIDENCE")"
           set -o pipefail
           python -m pytest -c tests/team/pytest-area2.ini tests/team/contract/test_foundation.py -v -s -o junit_family=xunit1 --junitxml="$(dirname "$AREA2_CONTRACT_EVIDENCE")/foundation.xml" 2>&1 | tee "$(dirname "$AREA2_CONTRACT_EVIDENCE")/foundation.txt"
+      - name: Smoke-test reconciled generated consumers
+        env:
+          PYTHONPATH: tests/team/contract:tests/team:tests/team/api:.
+        run: |
+          python -m pytest -c tests/team/pytest-area2.ini tests/team/api/test_generated_inputs.py -k "self_allocation_update and is_active" -v -s --junitxml=docs/team/evidence/area2/finish-01/smoke-${{ github.run_id }}-${{ matrix.initialization }}.xml
       - name: Retain actual evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: finish01-${{ matrix.initialization }}-${{ github.run_id }}-${{ github.run_attempt }}
-          path: docs/team/evidence/area2/finish-01/ci-*/
+          path: |
+            docs/team/evidence/area2/finish-01/ci-*/
+            docs/team/evidence/area2/finish-01/smoke-*.xml
           if-no-files-found: error
