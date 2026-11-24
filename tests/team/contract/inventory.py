@@ -121,14 +121,15 @@ def build():
     runtime_routes = {}
     for row in runtime["routes"]:
         route = row["route"].replace("999999", "{pk}")
-        runtime_routes[route] = row
+        for method in row.get("methods", [row.get("method")]):
+            runtime_routes[(route, method)] = row
     for route, item in doc["paths"].items():
         for method, operation in item.items():
             if method not in ("get", "post", "put", "delete", "patch"):
                 continue
             key = (route, method.upper())
             assert key in routes, key
-            rt = runtime_routes.get(route, {})
+            rt = runtime_routes.get(key, {})
             scope[operation["operationId"]] = {
                 "operation": operation["operationId"], "route": route, "method": method.upper(),
                 "requirements": operation.get("x-requirements", []),
@@ -219,6 +220,14 @@ def build():
         source_inventory.append({"route": route, "method": method, **source, "selected": included,
             "scope_reason": "W1/W2 core, assignment setup administration or type reference read" if included else
             "Not selected: leave-type/holiday/company configuration writes, bulk workflow variants, status dashboard or permission-check UI helpers; fixture prerequisites are recorded separately. Revisit only if accepted workflow scope changes."})
+    expected_filters = {(row["route"].replace("999999", "{pk}"), name)
+                        for row in runtime["routes"]
+                        if row.get("method") == "GET" or "GET" in row.get("methods", [])
+                        for name in row.get("filters", {})}
+    actual_filters = {(scope[row["operation"]]["route"], row["field"])
+                      for row in families.values() if row["category"] == "runtime_filter"}
+    if actual_filters != expected_filters:
+        raise ValueError("Runtime GET filters lost across shared method routes")
     # Live Swagger is observation, not authority over custom hand-rolled views.
     live = {}
     for schema in runtime["schemas"]:
@@ -292,6 +301,8 @@ def validate(outputs, cases, old_unconsumed):
         raise ValueError("Duplicate required input identity")
     if any(r["status"] == "justified_not_applicable" and not r.get("evidence") for r in inputs):
         raise ValueError("Unsupported N/A assertion")
+    if not all(r.get("evidence") and r.get("dependencies") and r.get("phase") for r in inputs):
+        raise ValueError("Input lacks traceability/dependency/phase")
     if any(not r["acceptance"] or not r["current_executor"] for r in inputs):
         raise ValueError("Unassigned or untestable obligation")
 
