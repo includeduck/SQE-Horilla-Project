@@ -11,11 +11,20 @@ from wire_catalog import build
 def build_ledger():
     path=TEAM/"api/case_ledger.json"
     ledger=json.loads(path.read_text(encoding="utf-8"))
+    previous={row["case_id"]:row for row in ledger["entries"]}
     ledger["entries"]=[r for r in ledger["entries"] if r["file"]!="test_runtime_wire.py"]
     wire=build()
-    ledger["entries"] += [dict(case_id=r["id"],file="test_runtime_wire.py",generated=False,
+    ledger["entries"] += [dict(previous.get(r["id"],{}),case_id=r["id"],file="test_runtime_wire.py",generated=False,
                                 applicability="mandatory",implementation_status="implemented",
-                                execution_status="pending-current-build",input_family=r["input_id"]) for r in wire["cases"]]
+                                input_family=r["input_id"]) for r in wire["cases"]]
+    for row in ledger["entries"]:
+        row.setdefault("applicability","mandatory")
+        row.setdefault("implementation_status","implemented")
+        row.setdefault("execution_status","not-yet-observed")
+    ledger["generated_statuses"]=[
+        dict(case_id=case_id,applicability="mandatory",implementation_status="planned-Prompt-3",
+             execution_status="not-yet-observed",stage=3)
+        for case_id in ledger["unconsumed_generated_case_ids"]]
     ledger["implemented_api_cases"]=len(ledger["entries"])
     ledger["wire_cases"]=len(wire["cases"])
     ledger["mandatory_input_families"]=wire["mandatory_input_families"]
@@ -34,3 +43,4 @@ if __name__=="__main__":
         path.write_text(json.dumps(ledger,indent=2)+"\n",encoding="utf-8")
     if args.wire_output: Path(args.wire_output).write_text(json.dumps(wire,indent=2)+"\n",encoding="utf-8")
     print("WIRE_LEDGER "+json.dumps({k:ledger[k] for k in ("implemented_api_cases","wire_cases","mandatory_input_families")}))
+

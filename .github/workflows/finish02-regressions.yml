@@ -43,3 +43,33 @@ jobs:
           path: docs/team/evidence/area2/finish-02/validation-*/
           if-no-files-found: error
 
+
+  advanced:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install unchanged runtime
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf-2.0-0 libffi8 shared-mime-info
+          bash .github/scripts/install-requirements.sh
+          python -m pip install -r tests/team/requirements-area2.txt
+      - name: Recheck malformed advanced-query values
+        env:
+          PYTHONPATH: tests/team:tests/team/api:.
+        run: |
+          mkdir -p docs/team/evidence/area2/finish-02/advanced-${{ github.run_id }}
+          set -o pipefail
+          python -m pytest -c tests/team/pytest-area2.ini tests/team/api/test_runtime_wire.py -k "custom_field and malformed_value" -v -s -o junit_family=xunit1 --junitxml=docs/team/evidence/area2/finish-02/advanced-${{ github.run_id }}/validation.xml 2>&1 | tee docs/team/evidence/area2/finish-02/advanced-${{ github.run_id }}/validation.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: finish02-advanced-${{ github.run_id }}
+          path: docs/team/evidence/area2/finish-02/advanced-*/
+          if-no-files-found: error
+

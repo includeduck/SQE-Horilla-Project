@@ -4,6 +4,8 @@ Only fixture setup uses ORM writes. The operation being tested always traverses
 Requests -> live server -> real view/serializer/database. No mocked responses.
 """
 import copy
+import hashlib
+import json
 from datetime import date
 from pathlib import Path
 from urllib.parse import quote
@@ -103,6 +105,12 @@ def send(h, ctx, body, *, query=None, headers=None, encoding="json", raw=None):
     elif body is not None:
         kwargs["json"] = payload
     h.record_property("wire_binding", "real-multipart-file" if files else encoding)
+    provenance = dict(method=ctx["method"], route=ctx["route"], role=ctx["role"],
+                      body=body, query=query, encoding=encoding, raw=raw,
+                      headers={key: value for key, value in (headers or {}).items()
+                               if key.lower() != "authorization"})
+    h.record_property("bound_request_sha256", hashlib.sha256(
+        json.dumps(provenance, sort_keys=True, default=str).encode("utf-8")).hexdigest())
     return h.session.request(ctx["method"], h.base + ctx["route"], **kwargs)
 
 
@@ -121,16 +129,22 @@ def assert_result(h, case, ctx, response, before, before_balances, body, expecte
     """Exact wire status plus persisted identities, fields, state and balances."""
     from leave.models import AvailableLeave
     operation = ctx["operation"]
-    assert response.status_code == expected_status, (case["id"], response.status_code, response.text[:1200])
     after = state()
+    after_balances = balances(h)
+    if response.status_code != expected_status:
+        print("HTTP_REPRODUCTION "+json.dumps(dict(case_id=case["id"],operation=operation,
+            expected_status=expected_status,actual_status=response.status_code,request_body=body,
+            before=before,after=after,before_balances=before_balances,after_balances=after_balances),
+            default=str,sort_keys=True),flush=True)
+    assert response.status_code == expected_status, (case["id"], response.status_code, response.text[:1200])
     if expected_status >= 400:
         assert after == before, (case["id"], "rejected operation changed persisted state")
-        assert balances(h) == before_balances
+        assert after_balances == before_balances
         assert response.content, "Controlled refusal must provide a response"
         return
     if ctx["method"] == "GET":
         assert after == before
-        assert balances(h) == before_balances
+        assert after_balances == before_balances
         return
     family = "assignments" if operation.startswith("assignment_") else "allocations" if "allocation" in operation else "leaves"
     old = {row["id"]: row for row in before[family]}
@@ -223,7 +237,7 @@ def assert_result(h, case, ctx, response, before, before_balances, body, expecte
             if other_family == "assignments" and row["employee_id_id"] == h.context["employee"].pk:
                 continue
             assert row in after[other_family], (case["id"], "unrelated row changed", other_family, row["id"])
-    assert balances(h) == expected_balances, (case["id"], balances(h), expected_balances)
+    assert after_balances == expected_balances, (case["id"], after_balances, expected_balances)
 
 
 def generated_oracle(case, ctx):

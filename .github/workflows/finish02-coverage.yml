@@ -14,9 +14,9 @@ jobs:
   api:
     strategy:
       fail-fast: false
-      max-parallel: 8
+      max-parallel: 16
       matrix:
-        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -43,7 +43,7 @@ jobs:
         run: |
           mkdir -p docs/team/evidence/area2/finish-02/ci-${{ github.run_id }}
           set -o pipefail
-          python -m pytest -c tests/team/pytest-area2.ini -p area2_order tests/team/api --area2-shards=8 --area2-shard=${{ matrix.shard }} -v -s -o junit_family=xunit1 --junitxml=docs/team/evidence/area2/finish-02/ci-${{ github.run_id }}/shard-${{ matrix.shard }}.xml 2>&1 | tee docs/team/evidence/area2/finish-02/ci-${{ github.run_id }}/shard-${{ matrix.shard }}.log
+          python -m pytest -c tests/team/pytest-area2.ini -p area2_order tests/team/api --area2-shards=16 --area2-shard=${{ matrix.shard }} -v -s -o junit_family=xunit1 --junitxml=docs/team/evidence/area2/finish-02/ci-${{ github.run_id }}/shard-${{ matrix.shard }}.xml 2>&1 | tee docs/team/evidence/area2/finish-02/ci-${{ github.run_id }}/shard-${{ matrix.shard }}.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -75,7 +75,7 @@ jobs:
           from pathlib import Path
           import subprocess, sys
           paths=sorted(Path("docs/team/evidence/area2/finish-02/download").rglob("shard-*.xml"))
-          if len(paths)!=8:
+          if len(paths)!=16:
               raise SystemExit("Missing one or more shard result files")
           command=[sys.executable,"tests/team/generator/coverage_guard.py","--stage2","--output","docs/team/evidence/area2/finish-02/coverage-result.json"]
           for path in paths:
@@ -109,10 +109,11 @@ jobs:
         run: |
           mkdir -p docs/team/evidence/area2/finish-02/probe-${{ github.run_id }}
           set -o pipefail
-          python -m pytest -c tests/team/pytest-area2.ini tests/team/api/test_runtime_wire.py -k "nonfinite_string or invalid_field or (whole and (array or scalar or null)) or (allocation_create and foreign_owner)" --maxfail=8 -v -s -o junit_family=xunit1 --junitxml=docs/team/evidence/area2/finish-02/probe-${{ github.run_id }}/probe.xml 2>&1 | tee docs/team/evidence/area2/finish-02/probe-${{ github.run_id }}/probe.log
+          python -m pytest -c tests/team/pytest-area2.ini tests/team/api/test_runtime_wire.py -k "nonfinite_string or invalid_field or (whole and (array or scalar or null)) or (allocation_create and foreign_owner)" -v -s -o junit_family=xunit1 --junitxml=docs/team/evidence/area2/finish-02/probe-${{ github.run_id }}/probe.xml 2>&1 | tee docs/team/evidence/area2/finish-02/probe-${{ github.run_id }}/probe.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: finish02-probe-${{ github.run_id }}
           path: docs/team/evidence/area2/finish-02/probe-*/
           if-no-files-found: error
+

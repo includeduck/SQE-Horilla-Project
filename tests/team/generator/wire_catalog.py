@@ -52,6 +52,8 @@ def classes(row):
         "advanced_query":["valid","unknown_key","unknown_lookup","malformed_value","empty","parallel_rows","unequal_arrays"],
         "ordering":["omitted","id","-id","invalid"]}
     if category in fixed:
+        if category=="advanced_query":
+            return fixed[category]+[key+":"+label for key in row["details"]["keys"][1:] for label in fixed[category]]
         return fixed[category]
     if category=="declared_generated_input":
         if row["location"]=="path":
@@ -76,7 +78,7 @@ def classes(row):
             if any(v["class"]=="MaxValueValidator" for v in meta.get("validators",[])):
                 result+=["validator_below","validator_at","validator_above"]
         elif kind in {"DateField","DateTimeField"}:
-            result+=["invalid_calendar","before","at","after"]
+            result+=["invalid_calendar","leap_day","before","at","after"]
         elif "MultipleChoice" in kind:
             result+=["repeated_keys","mixed_valid_missing"]
         elif kind=="ChoiceField":
@@ -85,6 +87,8 @@ def classes(row):
             result+=["true","false","null","one","zero"]
         else:
             result+=["whitespace","unicode","case","partial"]
+            if row["field"]=="name_or_badge":
+                result+=["badge","comma_terms"]
         return result
     raise ValueError("Unsupported mandatory reader: "+category)
 
@@ -125,3 +129,4 @@ if __name__=="__main__":
     else:
         path.write_text(json.dumps(result,indent=2)+"\n",encoding="utf-8")
     print(json.dumps({"wire_cases":len(result["cases"]),"input_families":result["mandatory_input_families"]}))
+

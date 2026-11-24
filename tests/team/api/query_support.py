@@ -1,6 +1,7 @@
 """Independent fixtures/predicates for the existing real-server query consumers."""
 from datetime import date, datetime, timedelta
 from decimal import Decimal, localcontext
+import json
 
 from contract_support import balances, prepare, send, state
 
@@ -115,7 +116,7 @@ def read_fixture(h,case,count=2):
             body=h.shifted_leave(i*7); body["description"]=f"Wire leave {i}"
             h.create_leave(body)
         LeaveRequest.objects.create(employee_id=h.context["outsider"],leave_type_id=h.context["leave_type"],
-                                    start_date="2031-01-01",end_date="2031-01-01",description="Wire foreign")
+                                    start_date=date(2031,1,1),end_date=date(2031,1,1),description="Wire foreign")
         # Query-only fixture: distinguish current approved versus future rows.
         first=LeaveRequest.objects.entire().filter(employee_id=h.context["employee"]).order_by("pk").first()
         LeaveRequest.objects.entire().filter(pk=first.pk).update(start_date=date.today(),end_date=date.today(),status="approved")
@@ -138,6 +139,11 @@ def fetch(h,ctx,query=None):
 def assert_read(h,case,ctx,query,expected,*,status=200,ordered=False):
     before,amounts=state(),balances(h)
     response=send(h,ctx,None,query=query)
+    after,after_amounts=state(),balances(h)
+    if response.status_code!=status:
+        print("HTTP_REPRODUCTION "+json.dumps(dict(case_id=case["id"],query=query,
+            expected_status=status,actual_status=response.status_code,before=before,after=after,
+            before_balances=amounts,after_balances=after_amounts),default=str,sort_keys=True),flush=True)
     assert response.status_code==status,(case["id"],query,response.status_code,response.text[:1200])
     if status==200:
         actual=[r["id"] for r in response.json()["results"]]
@@ -145,7 +151,7 @@ def assert_read(h,case,ctx,query,expected,*,status=200,ordered=False):
         assert len(actual)==len(set(actual))
     else:
         assert response.content
-    assert state()==before and balances(h)==amounts
+    assert after==before and after_amounts==amounts
 
 
 def run_filter(h,case):
@@ -160,12 +166,18 @@ def run_filter(h,case):
         return assert_read(h,case,ctx,query,expected)
     custom=meta.get("method"); path=meta["field_name"]
     if field in {"search","name_or_badge"} and op!="leave_type_list" and not(op=="self_leave_list" and field=="search"):
+        if label=="badge":
+            employee=h.context["employee"]; employee.badge_id="WIRE-001"
+            employee.save(update_fields=["badge_id"])
         token="Employee" if label in {"matching","case","partial","whitespace"} else "NO-SUCH-WIRE"
         if label=="case": token=token.lower()
         if label=="partial": token="mploy"
         if label=="whitespace": token="  Employee  "
-        expected=[r.pk for r in records if token.strip().casefold() in (
-            str(r.employee_id.employee_first_name)+" "+str(r.employee_id.employee_last_name)+" "+str(r.employee_id.badge_id)).casefold()]
+        if label=="badge": token="WIRE-001"
+        if label=="comma_terms": token=" Employee, Outsider "
+        terms=[term.strip().casefold() for term in token.split(",")] if field=="name_or_badge" else [token.strip().casefold()]
+        expected=[r.pk for r in records if any(term in (
+            str(r.employee_id.employee_first_name)+" "+str(r.employee_id.employee_last_name)+" "+str(r.employee_id.badge_id)).casefold() for term in terms)]
     elif field=="search_field":
         token="description" if label=="matching" else "not_a_real_field"
         if label=="unicode": token="غیرموجود"
@@ -179,7 +191,7 @@ def run_filter(h,case):
         today=date.today()
         expected=[r.pk for r in records if r.status in {"approved","cancel_requested"} and r.start_date<=today<=r.end_date]
     elif field=="today_leave":
-        token="true" if label in {"matching","true","one"} else "false" if label in {"nonmatching","false","zero"} else "unknown"
+        token={"matching":"true","true":"true","one":"1","nonmatching":"false","false":"false","zero":"0","null":"null"}.get(label,"unknown")
         expected=[r.pk for r in records if r.start_date<=date.today()<=(r.end_date or r.start_date)] if token=="true" else ids
     elif field=="payment" and op=="leave_list":
         token=label.split(":",1)[1] if label.startswith("choice:") else "paid" if label=="matching" else "unpaid" if label=="nonmatching" else "invalid-choice"
@@ -225,6 +237,7 @@ def run_filter(h,case):
                 token="2030-02-30"; expected=ids
             else:
                 if label in {"before","after"}: token=(anchor+timedelta(days=-1 if label=="before" else 1)).isoformat()
+                elif label=="leap_day": token="2032-02-29T00:00:00+05:00" if kind=="DateTimeField" else "2032-02-29"
                 elif label=="nonmatching": token="2099-12-31"
                 if custom=="filter_from_date":
                     bound=date.fromisoformat(token)
@@ -291,7 +304,10 @@ def run_query(h,case):
         assert state()==before and balances(h)==amounts
         return
     if category=="advanced_query":
-        key=case["details"]["keys"][0]; number=key in {"carryforward_max","total_days"}
+        key=case["details"]["keys"][0]
+        if ":" in label:
+            key,label=label.split(":",1)
+        number=key in {"carryforward_max","total_days"}
         token="0" if number else "2000-01-01"
         query.update(custom_field=[key],custom_lookup=["gte"],custom_value=[token])
         if label=="unknown_key": query["custom_field"]=["not_a_real_field"]

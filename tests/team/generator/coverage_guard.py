@@ -84,6 +84,10 @@ def main():
         report=validate(artifact,ledger,build(),args.junit,stage2=args.stage2,
                         expected_source=os.environ.get("AREA2_SOURCE_SHA") or os.environ.get("GITHUB_SHA"))
         Path(args.output).write_text(json.dumps(report,indent=2)+"\n",encoding="utf-8")
+        # Preserve actual JUnit identity and provenance in decoded job logs too.
+        # Artifact bytes remain authoritative; these rows are labelled derived.
+        for case_id, observations in sorted(report["results"].items()):
+            print("COVERAGE_RESULT "+json.dumps(dict(case_id=case_id, observations=observations)),flush=True)
         print("COVERAGE_SUMMARY "+json.dumps({k:v for k,v in report.items() if k!="results"}),flush=True)
         good=report["complete_scope_accepted"] if args.require_complete else report["stage2_accepted"]
         return 0 if good else 3

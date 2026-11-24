@@ -165,7 +165,13 @@ def run_wire(h,case):
         else:
             body[label]=2147483647
     elif category=="multipart_array":
-        if label in {"repeated_form_keys","duplicate_ids"}:
+        if label=="cartesian_idempotence":
+            from leave.models import LeaveType
+            extra=LeaveType.objects.create(name="Wire Cartesian Type",total_days=2,
+                limit_leave=True,require_approval="yes",require_attachment="no",company_id=h.context["company"])
+            body["employee_ids"]=[h.context["employee"].pk,h.context["outsider"].pk]
+            body["leave_type_ids"]=[h.context["leave_type"].pk,extra.pk]
+        elif label in {"repeated_form_keys","duplicate_ids"}:
             body["employee_ids"]*=2; body["leave_type_ids"]*=2
             if label=="repeated_form_keys": encoding="form"
         elif label in {"invalid_item","mixed_valid_missing"}:
