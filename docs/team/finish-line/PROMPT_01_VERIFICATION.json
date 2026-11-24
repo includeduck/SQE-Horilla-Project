@@ -1,0 +1,84 @@
+{
+  "label": "Derived Prompt 1 verification summary; actual logs/XML/schema artifacts are linked, not reconstructed",
+  "canonical_spec_sha256": "a9685a28c60f2b4484cff36fe0e0d11e723a222fa92fc20483d069d70fe20ae7",
+  "canonical_data_sha256": "1520883464d23872d139d0817a926ef49d345651579c072da1c1e3b3e947e0a4",
+  "source_sha": "0ce4478b2d21a4f5be04d00b75e0cb34566feb76",
+  "tested_merge_sha": "93d40f46fddd669b9ae000b35b89c24caa132708",
+  "run_id": 45416915820,
+  "foundation_initializations": [
+    {
+      "name": "fresh-a",
+      "job_id": 138525522511,
+      "passed": 1,
+      "seconds": 258,
+      "database": "/tmp/sqe-area2-6rmmr5pp/test.sqlite3",
+      "artifact_id": 14933137449,
+      "raw_log": "docs/team/evidence/area2/finish-01/ci-45416915820-fresh-a-passed.log"
+    },
+    {
+      "name": "fresh-b",
+      "job_id": 138525523026,
+      "passed": 1,
+      "seconds": 274.47,
+      "database": "/tmp/sqe-area2-5i8gwubp/test.sqlite3",
+      "artifact_id": 14932868040,
+      "raw_log": "docs/team/evidence/area2/finish-01/ci-45416915820-fresh-b-passed.log"
+    }
+  ],
+  "smoke_retest": {
+    "all_selected_passed": true,
+    "unique_cases": 5,
+    "each_job_passed": 5,
+    "failures": 0,
+    "errors": 0,
+    "required_skips": 0,
+    "seconds": {
+      "fresh_a": 269.17,
+      "fresh_b": 255.78
+    },
+    "binding": "Actual normal-role JSON PUT; optional upload omitted, real fixture record IDs. Persisted identities, inactive and normal HTTP readback and unchanged balances checked. Runtime bound artifact/request hashes differ from the checked-in canonical parent and are retained per case in actual evidence."
+  },
+  "verified_generated_ids": [
+    "self_allocation_update:body:is_active:EP:valid",
+    "self_allocation_update:body:is_active:EP:missing",
+    "self_allocation_update:body:is_active:EP:null",
+    "self_allocation_update:body:is_active:EP:wrong-type",
+    "self_allocation_update:body:is_active:EP:false"
+  ],
+  "integrity": {
+    "run_id": 45416915816,
+    "job_id": 138525521452,
+    "source_sha": "0ce4478b2d21a4f5be04d00b75e0cb34566feb76",
+    "tested_merge_sha": "93d40f46fddd669b9ae000b35b89c24caa132708",
+    "artifact_id": 14932238527,
+    "existing_checks_passed": 49,
+    "new_reader_checks_passed": 4,
+    "formal_schema": "passed",
+    "freshness": "passed",
+    "inventory_validation": "passed"
+  },
+  "browser_regeneration": {
+    "source_sha": "eb203f7e685379d937460cb7bd7300946de1ad65",
+    "run_id": 45414664482,
+    "tested_merge_sha": "15d38109ac219c79909157f63c21f14fa2486ec9",
+    "browser": {
+      "passed": 10,
+      "job_id": 138517529182,
+      "artifact_id": 14932497628
+    },
+    "regeneration": {
+      "job_id": 138517528721,
+      "baseline_passed": 6,
+      "variant_passed": 4,
+      "variant_predicted_strict_failures": 2,
+      "errors": 0,
+      "skips": 0,
+      "experiment_demonstrated": true,
+      "artifact_id": 14933045078
+    }
+  },
+  "coverage_complete": false,
+  "acceptance": "Prompt 1 foundation/audit prerequisites verified. Five selected generated JSON contexts verified, not all 713 IDs or all 329 required families.",
+  "remaining_input_family_count": 329,
+  "remaining_assignment": "Codex for Rayyan in Prompts 2–4, genuine shared/owner dependencies separately recorded"
+}

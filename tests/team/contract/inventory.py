@@ -84,6 +84,24 @@ def wire_plan(case):
             "schema_predicate_is_http_oracle": False}
 
 
+def body_wire_classes(schema):
+    kind = schema.get("type")
+    classes = ["omitted", "null", "object", "array", "scalar_type_mismatch"]
+    if kind in ("number", "integer"):
+        classes += ["number", "numeric_string", "whitespace_numeric_string", "fractional", "negative", "zero", "boolean", "nonfinite", "huge_exponent", "real_reference_or_missing_if_FK"]
+    elif kind == "boolean":
+        classes += ["true", "false", "zero", "one", "boolean_string_tokens", "blank_string", "unrecognized_string"]
+    elif kind == "string":
+        classes += ["empty", "whitespace", "trimmed", "unicode", "numeric_coercion", "boolean_not_string", "source_length_below_at_above_if_bounded"]
+        if schema.get("format") == "date":
+            classes += ["ISO_date", "datetime_string", "invalid_calendar", "leap_day", "parser_date_edges_0001_9999", "falsy_end_date_normalization"]
+        if schema.get("format") == "binary":
+            classes += ["real_multipart_file", "JSON_null_vs_omission", "text_descriptor_not_upload", "empty_bytes", "unicode_and_long_filename", "extensionless_and_extension_variants"]
+    elif kind == "array":
+        classes += ["empty", "singleton", "multiple", "duplicate_items", "null_item", "mixed_valid_invalid", "repeated_form_keys", "comma_string_is_not_JSON_array"]
+    return classes
+
+
 def filter_classes(meta):
     """Wire partitions derive from the actual Django form field, never an invented domain bound."""
     common = ["omitted", "empty", "matching", "nonmatching", "malformed"]
@@ -113,6 +131,14 @@ def build():
     lineage_path = FINISH / "CONTRACT_LINEAGE.json"
     lineage = read(lineage_path) if lineage_path.exists() else {}
     cases = artifact["cases"]
+    verification_path = FINISH / "PROMPT_01_VERIFICATION.json"
+    verification = read(verification_path) if verification_path.exists() else {}
+    verified_ids = set(verification.get("verified_generated_ids", []))
+    if verified_ids:
+        assert verification["canonical_spec_sha256"] == artifact["spec_sha256"]
+        assert verification["canonical_data_sha256"] == artifact["data_sha256"]
+        assert verified_ids <= {case["id"] for case in cases}
+        assert verification["smoke_retest"]["all_selected_passed"] is True
     refs = {r["case_id"]: r for r in ledger["entries"] if r["generated"]}
     old_refs = set(lineage.get("old_referenced_ids", refs))
     old_unconsumed = set(lineage.get("preserved_ids", [c["id"] for c in cases])) - old_refs
@@ -161,7 +187,9 @@ def build():
         op, location = case["operation"], case["location"]
         field = ".".join(str(v) for v in case["field"])
         family = add(op, location, field, "declared_generated_input",
-                     {"source": case["provenance"]["source"], "schema": case["provenance"]["schema"]},
+                     {"source": case["provenance"]["source"], "schema": case["provenance"]["schema"],
+                      "wire_partition_plan": body_wire_classes(case["provenance"]["schema"]) if location == "body" else ["schema classes plus routing/query encoding and independently bound role/model/state"],
+                      "wire_plan_status": "mandatory additional coercion/encoding partitions; generated IDs alone do not exhaust this family"},
                      3 if case["field"] == ["reason"] or case["expected"]["oracle"] == "date-order" else 2)
         family["generated_ids"].append(case["id"])
         if case["id"] in refs:
@@ -176,7 +204,9 @@ def build():
                       "lookup_caveat": "403 on ungranted generic delete permission precedes object lookup; do not call it a fully authorized missing-ID oracle." if op in ("leave_delete", "allocation_delete") else None,
                       "consumer": refs.get(case["id"]), "planned_consumer": "existing parameterized module if referenced; otherwise tests/team/api contract consumer in Prompt " + str(family["stage"]),
                       "applicability": "mandatory_applicable_requires_context_binding",
-                      "execution_status": "pending_reconciled_contract", "baseline_evidence": {"run_id": 45388276552, "previously_referenced": case["id"] in old_refs,
+                      "execution_status": "verified_selected_json_context" if case["id"] in verified_ids else "pending_reconciled_contract",
+                      "current_execution_evidence": "docs/team/finish-line/PROMPT_01_VERIFICATION.json" if case["id"] in verified_ids else None,
+                      "baseline_evidence": {"run_id": 45388276552, "previously_referenced": case["id"] in old_refs,
                           "meaning": "Previous all-pass collection only, not execution of this reconciled request/hash"},
                       "old_399_member": case["id"] in old_unconsumed, "disposition_stage": family["stage"]})
     for op, operation in scope.items():
@@ -261,6 +291,7 @@ def build():
                "required_input_families": len(required_rows),
                "required_families_without_generated_ids": sum(not row["generated_ids"] for row in required_rows),
                "input_families_by_stage": dict(Counter(row["stage"] for row in required_rows)),
+               "verified_generated_ids_selected_context": len(verified_ids),
                "new_contract_executed_all": False, "coverage_complete": False}
     outputs = {
         "GENERATED_CASE_AUDIT.json": {"summary": summary, "spec_sha256": artifact["spec_sha256"],
@@ -287,6 +318,13 @@ def build():
                                "closure_policy": "Prompts 2-4 finish feasible technical work. Only genuine residual execution is mandatory Wasay work after Prompt 4; no fifth Rayyan prompt.",
                                "historical_archive": "Unavailable original A archive is not reconstructed; fresh runtime evidence establishes a new foundation, not fabricated history."},
     }
+    for item in outputs["REMAINING_WORK.json"]["mandatory_external_items"]:
+        item["mandatory"] = True
+        item["requirements"] = sorted({fr for operation in scope.values() for fr in operation["requirements"]})
+        item["operation_links"] = sorted(scope)
+        item["input_links"] = "All relevant Area 2 inputs plus genuine shared-area obligations"
+        item["evidence"] = ["handoff.md", "docs/team/reports/RAYYAN_FINISH_01_STATUS.md"]
+        item["dependencies"] = ["Actual owner permissions or genuine teammate evidence; not another Rayyan permission prompt"]
     validate(outputs, cases, old_unconsumed)
     return outputs
 

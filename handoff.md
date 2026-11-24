@@ -1,5 +1,21 @@
 # SQE owner handoff
 
+## Prompt 1 executed — authoritative current assignment
+
+Prompt 1's contract/runtime foundation and complete input audit are delivered. See [status](docs/team/reports/RAYYAN_FINISH_01_STATUS.md), [reconciliation](docs/team/finish-line/CONTRACT_RECONCILIATION.md) and [mandatory work ledger](docs/team/finish-line/REMAINING_WORK.json). This supersedes earlier text saying all four prompts are unexecuted or every feasible item has already been transferred.
+
+Canonical scope is now 34 operations, 88 generated inputs, 713 IDs; 184 referenced, 529 unconsumed. Every old 399 ID is individually accounted for, with no loss or unsupported N/A. The broader input denominator is 329 families including 241 outside generated cases. Real runtime evidence and exact tested sources are in the status; inventory does not certify full coverage.
+
+| Owner / executor | Remaining assignment after Prompt 1 |
+|---|---|
+| Codex for Rayyan — Prompt 2 | Bind/execute all applicable generated cases and undeclared input/filter/media/query/auth families; enforce honest completeness accounting. |
+| Codex for Rayyan — Prompt 3 | Finish duration/holiday/forecast/reason/state/action assertions and reproduce/fix established defects with strict retests. |
+| Codex for Rayyan — Prompt 4 | Finish feasible carryover; final changed-build verification, coverage/report/package reconciliation and definitive ownership closeout. No fifth prompt. |
+| Wasay / agent — genuine shared dependencies | Owner-controlled overall Sonar/mutation/required merge/deployment gate administration; missing authentic Area 1/3 group-package inputs with Zain. Local checkout remains disconnected; connected CI/publication works. |
+
+Rayyan's final no-further-execution statement is due after Prompt 4's actual completion attempts. It is not asserted prematurely here. Personal assessed viva/human review cannot be certified by an agent. Existing completed browser/regeneration/API contributions remain Rayyan's; no teammate acceptance is assumed.
+
+
 ## New four-prompt finish-line instruction - 24 November 2026
 
 Rayyan has authorized Codex to complete all technically feasible remaining work

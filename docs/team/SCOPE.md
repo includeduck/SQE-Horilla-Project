@@ -95,3 +95,13 @@ Team decisions on expected behaviour where the code and documentation do not set
 | OD-02 | 2026-11-23 | Submit an allocation request identical to the same employee's existing **pending** request (same leave type, days, description) | Reject with **HTTP 400**; no second record created | Brief §2: repeated requests must not create duplicates | Duplicate accepted → **defect / endpoint weakness** |
 
 Tests for open decisions are marked `xfail(strict=True)` with the defect issue number, so they stay visible as known failures and turn into an error (XPASS) once the defect is fixed.
+
+## 8. Prompt 1 technical scope supplement — 24 November 2026
+
+Technical reconciliation is completed as documented in finish-line/CONTRACT_RECONCILIATION.md and reports/RAYYAN_FINISH_01_STATUS.md; this does not invent human scope approval. Preserve sections 1–7 and OD-01/OD-02. The existing strict corrected regressions remain active without xfail.
+
+The versioned W1/W2 contract now selects 34 method/route operations (previously 27). Added operations are assignment list/create/detail/update/delete plus leave-type reference and employee-available-type reference reads, required by FR-01 assignment and W1/W2 type binding. Active source exposes 56 leave method/route operations; all 22 non-selected configuration-write/bulk/status/helper operations have explicit reasons in finish-line/OPERATION_INPUT_INVENTORY.json.
+
+One canonical OpenAPI 3.0.3 JSON remains in tests/team/generator/openapi.json. Generated 713 IDs cover 88 operation/input entries; the complete inventory has 329 mandatory families, 241 outside generation. All old IDs and the old 399 dispositions remain traceable. Current references/collection totals are 184/713 and 280 scenarios, not full executed coverage. The full contract remains mandatory across Prompts 2–4. Actual production Swagger 2.0 is compared semantically with resolver/serializer/model behavior; it is not a competing canonical contract.
+
+No additional policy approval was invented. Full runtime/coercion/filter/media and source-backed state/decision plans are technical test-basis work; exact consumption and new relational outcomes remain pending. Overall release HOLD and team signoff obligations remain.

@@ -49,3 +49,9 @@ exit one; experiment_demonstrated true. Current raw log and labelled summary are
 ci-45388276537-regeneration-passed.log and regeneration-current-verified-summary.json
 under docs/team/evidence/area2/phase-d/. These results complete this personal
 contribution's EC-3 evidence; overall required scope and group release remain HOLD.
+
+## Prompt 1 execution disclosure — 24 November 2026
+
+Rayyan instructed Codex to execute PROMPT_01_CONTRACT_AND_SCOPE.md completely. Codex inspected live remote scope/owner decisions, source and current evidence; created isolated CI foundation/schema/introspection probes; reconciled canonical operations/media/fields; regenerated data with preserved identity lineage; audited every old 399 and all 713 current IDs; produced a 329-family required-input plan; updated handoff/test basis/status and published meaningful commits with the connected Rayyan identity. The local execution environment became unavailable; no interrupted local write/test is counted as complete.
+
+Verification used actual normal-role HTTP/state/ORM assertions, production Swagger HTTP 200, two fresh databases, formal OpenAPI validation, 49 existing and four new reader checks, deterministic freshness, ID-partition assertions and real consumer smoke (exact final results in RAYYAN_FINISH_01_STATUS.md). A strict reader-extension candidate failure was retained and corrected; it is not a product defect. Evidence summaries are derived, never fabricated JUnit. No production source or required assertion was weakened, no xfail/required skip was added, no new policy or human acceptance was invented. Prompts 2–4 remain actual work; whole-project coverage stays incomplete. Human members must truthfully review/understand their assessed contributions.

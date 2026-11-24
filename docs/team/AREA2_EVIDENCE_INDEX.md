@@ -1,9 +1,24 @@
 # Area 2 evidence index
 
+## Prompt 1 completed — current contract checkpoint (24 November 2026)
+
+The contract foundation is reconciled using two independent fresh runtime initializations, live production Swagger, active source/serializer/model introspection and actual role/state HTTP probes. See [Prompt 1 status](reports/RAYYAN_FINISH_01_STATUS.md) and [contract reconciliation](finish-line/CONTRACT_RECONCILIATION.md) for exact tested builds, commands and limitations.
+
+Current canonical scope is **34 operations / 88 generated inputs / 713 IDs**; **184 IDs referenced, 529 unconsumed**, and **280 parametrized API scenarios**. All old 578 IDs survive and all old 399 unconsumed IDs have individual dispositions. The complete required-input inventory is **329 families**, including **241 outside generation**. All consumption and relational plans remain mandatory; inventory is not a pass. The old 275 first/reversed API passes belong to source 7189656a and are preserved separately.
+
+[REMAINING_WORK.json](finish-line/REMAINING_WORK.json) assigns feasible remaining consumers to Codex for Rayyan in Prompt 2 and business-rule assertions/fixes in Prompt 3, with final verification/closure in Prompt 4. Overall release remains HOLD. Historical blocked/partial labels below describe earlier checkpoints; this section supersedes their current contract/runtime status without claiming teammate review or recovering the missing original A archive.
+
+
 24 November 2026. Syed Muhammad Rayyan Hassan, 24I-3000.
 Paths in tables below are relative to docs/team/evidence/area2 unless stated
 otherwise. Decoded raw job logs are genuine retrievals; summary JSON files are
 explicitly derived records, not reconstructed JUnit.
+
+## Prompt 1 evidence files
+
+Actual and explicitly derived evidence is under evidence/area2/finish-01/. PROMPT_01_VERIFICATION.json in finish-line/ records final source, merge, jobs, artifacts and the five smoke IDs; GENERATED_CASE_AUDIT.json links those specific verified JSON contexts while retaining pending full-contract status elsewhere. Earlier failed candidate/inventory/smoke logs remain available. No summary JSON substitutes for real JUnit retained in CI artifacts.
+
+New canonical-build browser/regeneration run 45414664482 passed both jobs: ten browser flows (artifact 14932497628), six regeneration baseline passes and four variant passes with exactly two predicted strict failures (artifact 14933045078); no required skips/errors. The full final acceptance remains Prompt 4 work.
 
 ## Current verified populations
 

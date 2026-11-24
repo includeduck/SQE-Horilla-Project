@@ -1,5 +1,21 @@
 # Remaining execution checklist: Phases A-D
 
+## Prompt 1 execution checkpoint — supersedes historical scope counts
+
+- [x] Execute two independent fresh normal-role W1/W2 foundations; retain real logs, versions, schema/system/auth/state evidence.
+- [x] Retrieve production Swagger HTTP 200 and reconcile dialect/resolver/serializer/model behavior with one canonical JSON contract.
+- [x] Correct source-backed missing assignment/type operations, allocation is_active, reasons and explicit media selection; preserve all 578 old case IDs.
+- [x] Audit every old 399 unconsumed ID; partition all 713 current IDs without duplicates/loss or unsupported N/A.
+- [x] Inventory all 329 mandatory input families, including 241 outside generation; document role/state/decision/EP/BVA/media plans.
+- [x] Formal schema, deterministic freshness and 49 prior plus four new reader checks; actual smoke results and sources in RAYYAN_FINISH_01_STATUS.md.
+- [ ] Prompt 2: execute applicable consumers for 529 currently unconsumed IDs and uncovered input families; 184 references are not complete execution.
+- [ ] Prompt 3: finish all 15 relational/reason families plus existing business/state carryover and strict fixes/retests.
+- [ ] Prompt 4: final changed-build/full-scope validation, reports/package reconciliation and definitive Wasay residual handoff.
+- [ ] Wasay/shared: genuine owner gates, authentic Area 1/3/package inputs and synchronized final history.
+
+The old baseline's BOTH 275-case orders passed (run 45388276552); complete-scope failed honestly. New collection is 280 scenarios. Do not repeat an obsolete cancelled-reverse label as the latest baseline. Feasible work remains assigned to Codex across the numbered sequence. See ../finish-line/REMAINING_WORK.json for input-level owners and acceptance.
+
+
 24 November 2026. This is the current checklist; it supersedes historical open
 labels in appended status/handoff notes. It records Rayyan's explicit assignment
 of unfinished execution to Wasay / his agent. It does not invent Wasay's
