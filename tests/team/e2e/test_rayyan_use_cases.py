@@ -15,7 +15,10 @@ async def login(page, h):
     assert response.status == 200
     await page.get_by_label("Username", exact=True).fill("team_employee")
     await page.get_by_label("Password", exact=True).fill("TeamEmploy#2026")
-    await page.get_by_role("button", name="Secure Sign-in").click()
+    # The active horilla_theme overrides the legacy login label with "Sign In".
+    # Locate the actual credential form's visible submit control in either theme.
+    credential_form = page.locator("form").filter(has=page.locator('input[name="username"]'))
+    await credential_form.locator('button[type="submit"]').click()
     await page.wait_for_url(lambda url: "/login/" not in str(url))
 
 
@@ -92,7 +95,7 @@ async def test_rayyan_allocation_request(ray_page, leave_http, flow, record_prop
         form = page.locator(f'form[hx-post^="{route}"]')
         await form.locator('[name="description"]').fill(description)
         await submit(page, form, route)
-    await expect(page.locator(".oh-alert--success, .oh-alert.success").first).to_be_visible()
+    await expect(page.get_by_text(re.compile(r"New leave allocation request created|Leave allocation request updated", re.I)).first).to_be_visible()
     assert len(h.allocations()) == 1
     row = h.allocations()[0]
     detail = h.allocation_detail(row["id"])
@@ -143,7 +146,7 @@ async def test_rayyan_leave_request(ray_page, leave_http, flow, record_property)
         form = page.locator(f'form[hx-post^="{route}"]')
         await form.locator('[name="end_date"]').fill((anchor + timedelta(days=2)).isoformat())
         await submit(page, form, route)
-    await expect(page.locator(".oh-alert--success, .oh-alert.success").first).to_be_visible()
+    await expect(page.get_by_text("Leave request created successfully", exact=False).first).to_be_visible()
     assert len(h.leaves()) == 1
     detail = h.leave_detail(h.leaves()[0]["id"])
     assert detail["description"] == description and detail["status"] == "requested"

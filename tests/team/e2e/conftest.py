@@ -1,10 +1,10 @@
 """Minimal Python Playwright setup reusing the isolated Area 2 HTTP fixtures."""
 
 import importlib.util
+import importlib.metadata
 import os
 from pathlib import Path
 
-import pytest
 import pytest_asyncio
 from playwright.async_api import async_playwright
 
@@ -14,6 +14,11 @@ shared = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(shared)
 for name in ("area2_seed", "area2_http", "runtime_cases", "c_context", "leave_http"):
     globals()[name] = getattr(shared, name)
+
+
+def pytest_terminal_summary(terminalreporter):
+    for name in ("Django", "djangorestframework", "pytest", "pytest-django", "requests", "playwright", "pytest-asyncio"):
+        terminalreporter.write_line(name + "=" + importlib.metadata.version(name))
 
 
 @pytest_asyncio.fixture
@@ -30,6 +35,8 @@ async def ray_page(leave_http, request):
         page.set_default_navigation_timeout(30000)
         assert leave_http.base.startswith("http://localhost:") or leave_http.base.startswith("http://127.0.0.1:")
         yield page
+        print("BROWSER_FINAL_URL", page.url)
+        print("BROWSER_VISIBLE_TEXT", (await page.locator("body").inner_text())[:2500])
         folder = Path(os.environ.get("AREA2_BROWSER_EVIDENCE", str(TEAM / "browser-results")))
         folder.mkdir(parents=True, exist_ok=True)
         name = request.node.name.replace("[", "-").replace("]", "").replace(":", "-")

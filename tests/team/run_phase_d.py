@@ -1,7 +1,7 @@
 """Run the controlled strict HTTP regeneration experiment with exact failure accounting."""
 
 import argparse
-import importlib.util
+import importlib.metadata
 import json
 import os
 import sys
@@ -47,7 +47,10 @@ def main():
     demonstrated = (stages[0]["exit_code"] == 0 and baseline == {"cases": 6, "failures": 0, "errors": 0, "skipped": 0}
                     and stages[1]["exit_code"] == 1 and variant == {"cases": 6, "failures": 2, "errors": 0, "skipped": 0}
                     and actual_failed == expected_failed)
+    versions = {name: importlib.metadata.version(name) for name in (
+        "Django", "djangorestframework", "pytest", "pytest-django", "requests", "playwright", "pytest-asyncio")}
     manifest = {"stages": stages, "baseline": baseline, "variant": variant,
+                "python": sys.version, "tool_versions": versions,
                 "actual_failed_ids": actual_failed, "expected_failed_ids": expected_failed,
                 "experiment_demonstrated": demonstrated, "application_scope_complete": False,
                 "interpretation": "Two predicted spec-only incompatibilities must fail strict pytest assertions. Every additional failure/setup error/skip/missing result makes this demonstration fail."}

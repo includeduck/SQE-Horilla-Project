@@ -72,3 +72,36 @@ Django attempted synchronous database fixture setup. This is a harness error,
 not ten product defects. The browser fixture/flows now use async Playwright;
 ORM corroboration uses sync_to_async, and Django's async-safety guard remains
 enabled. The original job log is preserved separately; passing retest is pending.
+
+## Verified real HTTP regeneration result - 24 November 2026
+
+Run 45348178607, regeneration job 138287747685 on source 8a9ca964, completed
+successfully. Six strict baseline HTTP cases passed. The variant produced four
+passes and exactly two genuine failed strict assertions, with pytest exit one:
+`self_allocation_create:body:description:BVA:minLength-below` and
+`self_allocation_create:body:attachment:BVA:x-filename-maxLength-above`.
+The driver inspected exact failed IDs and zero errors/skips and recorded
+experiment_demonstrated true. This is the predicted spec/server mismatch, not
+an assertion that production enforces the hypothetical stricter spec.
+Raw job output: docs/team/evidence/area2/phase-d/ci-45348178607-regeneration.log.
+The canonical spec/data remain unchanged. This independently completes the
+controlled regeneration/consumption demonstration; browser verification and
+whole Area 2 acceptance remain separate.
+
+## Second browser observation and targeted selector correction
+
+Async Playwright repaired setup: run 45348808900 reached all ten test bodies,
+but all ten timed out at the legacy login button label. Source review located
+the active horilla_theme login override, whose button reads Sign In instead of
+Secure Sign-in. Login now locates the credential form's actual submit control;
+success assertions target the operation's specific text, not a stale login
+notification. No authentication or permission bypass is introduced. The original
+10-failure log is retained. Subsequent runs stop at the first unexpected browser
+failure, with missing flows explicitly not counted as passes, so iteration does
+not repeat the same broken setup across ten cases.
+
+Area 2 workflow wiring now includes relevant PRs to sqe-team, preserving the
+existing producer and failure exits. The complete Sonar/mutation gate is still
+Wasay's architecture. Reading classic branch protection returned 403 (integration
+lacks access); the accessible ruleset list was empty. That does not prove merge
+or deployment protection is absent, and no enforcement claim is fabricated.

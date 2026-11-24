@@ -4,7 +4,23 @@ name: Area 2 verification
 # all-tests/Sonar/mutation merge gate and its required-check configuration.
 on:
   push:
-    branches: [sqe-team, rayyan/phase-c-evidence]
+    branches: [sqe-team]
+    paths:
+      - "tests/team/api/**"
+      - "tests/team/generator/**"
+      - "tests/team/storage/**"
+      - "tests/team/run_area2.py"
+      - "tests/team/area2_order.py"
+      - "tests/team/area2_settings.py"
+      - "tests/team/area2_urls.py"
+      - "tests/team/pytest-area2.ini"
+      - "tests/team/requirements-area2.txt"
+      - "horilla_api/api_views/leave/**"
+      - "horilla_api/api_serializers/leave/**"
+      - "horilla/models.py"
+      - ".github/workflows/area2-verification.yml"
+  pull_request:
+    branches: [sqe-team]
     paths:
       - "tests/team/api/**"
       - "tests/team/generator/**"

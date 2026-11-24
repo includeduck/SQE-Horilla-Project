@@ -1,6 +1,5 @@
 """Independent experiment integrity checks, separate from HTTP assertions."""
 
-import json
 import sys
 import tempfile
 import unittest
@@ -8,7 +7,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from demonstrate_regeneration import build_experiment
-from generate import load_json, verify_fresh
+from generate import load_json
 
 
 class RegenerationTests(unittest.TestCase):
