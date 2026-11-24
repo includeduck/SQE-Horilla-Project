@@ -74,7 +74,9 @@ async def test_rayyan_allocation_request(ray_page, leave_http, flow, record_prop
     await login(page, h)
     form, route = await open_form(page, h, "allocation")
     await select_field(form, "leave_type_id", h.context["leave_type"].pk)
-    await select_field(form, "employee_id", h.context["employee"].pk)
+    # The normal employee form binds its own identity in a hidden control.
+    # Assert that binding; do not try to operate an administrator's dropdown.
+    await expect(form.locator('[name="employee_id"]')).to_have_value(str(h.context["employee"].pk))
     await form.locator('[name="requested_days"]').fill("5")
     description = "Synthetic " + case_id
     await form.locator('[name="description"]').fill("" if flow == "A2" else description)

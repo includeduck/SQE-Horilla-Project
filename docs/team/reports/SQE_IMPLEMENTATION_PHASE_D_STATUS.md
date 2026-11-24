@@ -105,3 +105,36 @@ existing producer and failure exits. The complete Sonar/mutation gate is still
 Wasay's architecture. Reading classic branch protection returned 403 (integration
 lacks access); the accessible ruleset list was empty. That does not prove merge
 or deployment protection is absent, and no enforcement claim is fabricated.
+
+## Current Phase D verified progress
+
+Independent checks now total 49 passing tests, including browser-report checks
+that reject missing/failed/errored/skipped/extra cases and escape untrusted
+failure text. Raw output is independent-tests-final.txt. The strict HTTP
+regeneration demonstration is verified on run 45348178607 (six baseline passes;
+variant four passes and exactly two predicted strict failures, no errors/skips).
+A later async-source regeneration run 45348808900 also completed successfully;
+its browser activity failed separately on the legacy login label.
+
+Current browser retest is run 45350628323 on 476b15d6. It uses the active-theme
+credential form submit control, operation-specific confirmation text, async
+Playwright/ORM handling, maxfail=1 and a genuine HTML/JUnit report. At this dated
+checkpoint the result is still pending. Missing flows after fail-fast are not
+counted as passes. C retests remain independent populations.
+
+The relevant-PR Area 2 and Phase D producer wiring is implemented. Classic
+protection inspection returned 403; required-check/merge/deploy enforcement is
+therefore not certified. This owner-only verification is distinct from the
+producer/source work completed here. No new owner handoff is made while this
+agent continues its browser debugging and report/evidence finalization.
+
+## Third browser observation and own-employee binding
+
+Run 45350628323 passed real UI login and opened the actual allocation modal.
+Its first flow then timed out looking for an employee select. The normal-user
+form binds employee_id as a hidden control; BaseModelForm sets it from the
+request user, while the visible modal contains type/days/file/description. The
+test now asserts that own-employee binding instead of attempting an admin-style
+dropdown. No hidden value is changed and role restrictions are preserved. The
+first flow failed and the other nine were not executed under maxfail=1; the
+HTML report marks this incomplete. Another genuine retest is being run here.

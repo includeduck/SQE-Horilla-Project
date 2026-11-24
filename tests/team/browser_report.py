@@ -27,9 +27,11 @@ def render(junit, output):
         result = results.get(key, {"status": "not executed", "detail": "No JUnit result; this is not a pass", "seconds": "-"})
         rows.append("<tr><td>" + html.escape(key) + "</td><td>" + html.escape(result["status"]) + "</td><td>" + html.escape(result["seconds"]) + "</td><td><pre>" + html.escape(result["detail"]) + "</pre></td></tr>")
     passed = sum(results.get(key, {}).get("status") == "passed" for key in EXPECTED)
+    complete = passed == 10 and set(results) == set(EXPECTED)
     document = "<!doctype html><html lang='en'><meta charset='utf-8'><title>Rayyan Playwright report</title><style>body{font:16px system-ui;margin:32px;max-width:1200px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccc;padding:10px;text-align:left;vertical-align:top}pre{white-space:pre-wrap;max-width:720px;font-size:12px}</style><h1>Rayyan personal Playwright flows</h1><p>Syed Muhammad Rayyan Hassan · 24I-3000</p><p>Verified passes: " + str(passed) + "/10. Missing, failed, errored or skipped results do not satisfy completion.</p><table><tr><th>Flow</th><th>Actual status</th><th>Seconds</th><th>Evidence / assertion</th></tr>" + "".join(rows) + "</table><p>Raw JUnit, logs, screenshots and traces accompany this report. These are browser flows, separate from API and tooling counts.</p></html>"
+    document = document.replace("<table>", "<p>Overall: " + ("PASS" if complete else "HOLD") + ". Unexpected case IDs: " + html.escape(", ".join(sorted(set(results) - set(EXPECTED))) or "none") + "</p><table>", 1)
     Path(output).write_text(document, encoding="utf-8")
-    return passed == 10 and set(results) == set(EXPECTED)
+    return complete
 
 
 if __name__ == "__main__":
