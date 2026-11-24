@@ -181,11 +181,13 @@ def build():
                       "old_399_member": case["id"] in old_unconsumed, "disposition_stage": family["stage"]})
     for op, operation in scope.items():
         route, method = operation["route"], operation["method"]
-        rt = runtime_routes.get(route, {})
+        rt = runtime_routes.get((route, method), {})
         for field, meta in rt.get("filters", {}).items() if method == "GET" else ():
             add(op, "query", field, "runtime_filter", {"filter": meta, "classes": filter_classes(meta),
                 "binding": "Use actual Filter.field semantics and fixture relations; invalid filters may be ignored by .qs rather than become HTTP 400. Do not assume schema validity equals filter semantics."})
         if method == "GET" and ("list" in op or op == "own_balance"):
+            active = add(op, "query", "is_active", "manager_query", {"source": "base/horilla_company_manager.py:HorillaCompanyManager.all", "classes": ["omitted", "true", "false", "False", "all", "invalid"], "expected": "Manager .all defaults active-only; false/False selects inactive. Existing django-filter is_active can further interact. Employee-specific type list applies this to AvailableLeave before LeaveType filtering. Assert real persisted identities, not just list length."})
+            active["details"]["manager_selector"] = "HorillaCompanyManager.all active/inactive selection precedes serializer/filter rendering"
             add(op, "query", "page", "pagination", {"classes": ["omitted", "1", "last", "beyond_last", "zero", "negative", "malformed"],
                 "expected": "DRF page-number parse / NotFound behavior; actual list population and links"})
         for field in operation["source"]["explicit_query_reads"]:
