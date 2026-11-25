@@ -31,7 +31,7 @@ def results(paths):
     return observed,failures,total
 
 
-def validate(artifact,ledger,wire,paths,*,stage2=False,expected_source=None):
+def validate(artifact,ledger,wire,paths,*,stage2=False,expected_source=None,required_business=None):
     entries=ledger["entries"]; ids=[r["case_id"] for r in entries]
     if len(ids)!=len(set(ids)): raise ValueError("Duplicate consumer mapping")
     generated={r["id"] for r in artifact["cases"]}
@@ -43,6 +43,9 @@ def validate(artifact,ledger,wire,paths,*,stage2=False,expected_source=None):
     expected_wire={r["id"] for r in wire["cases"]}
     actual_wire={r["case_id"] for r in entries if r["file"]=="test_runtime_wire.py"}
     if expected_wire!=actual_wire: raise ValueError("Missing mandatory wire reader/consumer")
+    if required_business is not None:
+        actual={r["case_id"] for r in entries if r["file"]=="test_business_rules.py"}
+        if actual!=set(required_business): raise ValueError("Missing or unexpected business reader/consumer")
     for row in entries:
         if row.get("applicability")=="not_applicable" and not row.get("evidence"): raise ValueError("Invented N/A")
         if row.get("implementation_status")=="unsupported": raise ValueError("Required reader unsupported")
@@ -81,8 +84,11 @@ def main():
     try:
         artifact=json.loads((TEAM/"generator/generated_cases.json").read_text(encoding="utf-8"))
         ledger=json.loads((TEAM/"api/case_ledger.json").read_text(encoding="utf-8"))
+        sys.path.insert(0,str(TEAM/"api"))
+        from business_catalog import business_entries
         report=validate(artifact,ledger,build(),args.junit,stage2=args.stage2,
-                        expected_source=os.environ.get("AREA2_SOURCE_SHA") or os.environ.get("GITHUB_SHA"))
+                        expected_source=os.environ.get("AREA2_SOURCE_SHA") or os.environ.get("GITHUB_SHA"),
+                        required_business=[r["case_id"] for r in business_entries(artifact)])
         Path(args.output).write_text(json.dumps(report,indent=2)+"\n",encoding="utf-8")
         # Preserve actual JUnit identity and provenance in decoded job logs too.
         # Artifact bytes remain authoritative; these rows are labelled derived.

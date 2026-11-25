@@ -205,6 +205,17 @@ def run_filter(h,case):
             if label=="nonmatching":
                 related=type(actual)
                 other=related._base_manager.exclude(pk=ref).first() or create_reference(related,h,force_new=True)
+                if op=="self_leave_list" and field=="leave_type_id":
+                    # UserLeaveRequestFilter restricts choices to types in the
+                    # caller's requests. An unused type is an invalid choice and
+                    # is ignored, so bind a distinct VALID type to a second row.
+                    # The filter must then exclude the first row and select the
+                    # second exactly, rather than weakening the result oracle.
+                    assert len(records)>=2
+                    from leave.models import AvailableLeave
+                    AvailableLeave.objects.get_or_create(employee_id=h.context["employee"],leave_type_id=other)
+                    type(records[1]).objects.entire().filter(pk=records[1].pk).update(leave_type_id=other)
+                    records[1].refresh_from_db()
                 token=[other.pk]
                 expected=[r.pk for r in records if scalar(value_at(r,path))==other.pk]
             elif label in {"malformed","mixed_valid_missing"}:

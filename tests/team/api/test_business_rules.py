@@ -5,7 +5,7 @@ from datetime import date, timedelta
 
 import pytest
 
-from business_catalog import business_rows, reason_rows
+from business_catalog import business_rows, reason_rows, role_state_rows
 from contract_support import balances, grant_operation_permissions, run_generated, state
 
 
@@ -191,3 +191,76 @@ def test_malformed_approved_allocation_rejection_is_atomic(leave_http):
     h=leave_http; pk=h.grant(5); before,amounts=state(),balances(h)
     response=h.request("PUT",f"/api/v1/leave/allocation-reject/{pk}/","approver",[])
     observe(h,"REJECT-ALLOCATION:malformed-approved-body","BR-03:allocation-reject",[],response,before,amounts,400,requirements=["FR-03","BR-03"])
+
+
+@pytest.mark.parametrize("row",role_state_rows(),ids=lambda r:r["id"])
+def test_state_role_and_repeated_decision(leave_http,row):
+    from employee.models import EmployeeWorkInformation
+    from test_states_and_decisions import setup_state
+    h=leave_http; transition=row["transition"]; pk=setup_state(h,transition)
+    role=row["role"]; actor="approver" if role in {"manager","permission"} else role
+    if role=="manager": h.context["approver_user"].user_permissions.clear()
+    if role=="permission":
+        EmployeeWorkInformation.objects.filter(employee_id=h.context["employee"]).update(reporting_manager_id=None)
+    action=transition["action"]
+    name=("allocation-" if transition["kind"]=="allocation" else "")+action
+    route=f"/api/v1/leave/{name}/{pk}/"
+    if action=="cancel": expected=200 if role=="employee" and transition["allowed"] else 400
+    elif role in {"manager","permission"}: expected=transition["expected_status"]
+    else: expected=403
+    before,amounts=state(),balances(h)
+    response=h.request("PUT",route,actor,{})
+    observe(h,row["id"],"BR-03/BR-04:state-role",{},response,before,amounts,expected,requirements=row["requirements"])
+    if expected==200:
+        detail=h.allocation_detail(pk) if transition["kind"]=="allocation" else h.leave_detail(pk)
+        assert detail["status"]==transition["target"]
+        target=amounts["employee"]
+        if transition["kind"]=="allocation" and action=="approve": target=(5.,0.)
+        if transition["kind"]=="allocation" and action=="reject" and transition["state"]=="approved": target=(0.,0.)
+        if transition["kind"]=="leave" and action=="approve": target=(2.,0.)
+        if transition["kind"]=="leave" and action=="reject" and transition["state"]=="approved": target=(5.,0.)
+        if action=="cancellation-approve": target=(5.,0.)
+        assert h.balance()==target
+        assert h.balance("approver")==amounts["approver"] and h.balance("outsider")==amounts["outsider"]
+        stable,stable_amounts=state(),balances(h)
+        repeated=h.request("PUT",route,actor,{})
+        assert repeated.status_code==400,repeated.text[:1000]
+        assert state()==stable and balances(h)==stable_amounts
+
+
+@pytest.mark.parametrize("kind",["allocation","leave"])
+def test_owner_cannot_retarget_generic_update(leave_http,kind):
+    h=leave_http; h.grant(5)
+    pk=h.create_allocation({**h.baseline("allocation"),"description":"Synthetic transfer setup"}) if kind=="allocation" else h.create_leave()
+    body=h.baseline(kind); body["employee_id"]=h.context["outsider"].pk
+    route=f"/api/v1/leave/{'allocation-request' if kind=='allocation' else 'request'}/{pk}/"
+    before,amounts=state(),balances(h)
+    response=h.request("PUT",route,"employee",body)
+    observe(h,f"REFERENCE:{kind}:owner-transfer","BR-04:target-reference",body,response,before,amounts,403,requirements=["FR-04" if kind=="allocation" else "FR-05","BR-04"])
+
+
+@pytest.mark.parametrize("reverse",["reject","cancellation-approve"])
+def test_w1_w2_carry_split_and_exact_refund(leave_http,reverse):
+    from leave.models import AvailableLeave,LeaveType
+    h=leave_http; h.grant(2)
+    LeaveType.objects.filter(pk=h.context["leave_type"].pk).update(reset=False,carryforward_type="carryforward",carryforward_max=1)
+    AvailableLeave.objects.filter(employee_id=h.context["employee"],leave_type_id=h.context["leave_type"]).update(carryforward_days=1,total_leave_days=3)
+    case_id="INTEGRATION:CARRY-SPLIT:"+reverse; h.lineage(case_id)
+    h.record_property("asserted_requirements",json.dumps(["FR-01","FR-02","FR-05","FR-06","FR-08","FR-09","FR-10","BR-01","BR-03"]))
+    pk=h.create_leave(); h.approve_leave(pk)
+    assert h.balance()==(0.,0.)
+    from leave.models import LeaveRequest
+    row=LeaveRequest.objects.get(pk=pk)
+    assert row.approved_available_days==2 and row.approved_carryforward_days==1
+    before=h.snapshot()
+    assert h.request("POST","/api/v1/leave/user-request/",body=h.shifted_leave(14)).status_code==400
+    assert h.snapshot()==before
+    if reverse=="cancellation-approve":
+        assert h.request("PUT",f"/api/v1/leave/cancel/{pk}/",body={"reason":"Synthetic split refund"}).status_code==200
+        assert h.balance()==(0.,0.)
+    assert h.request("PUT",f"/api/v1/leave/{reverse}/{pk}/","approver",{}).status_code==200
+    assert h.balance()==(2.,1.)
+    stable=h.snapshot()
+    assert h.request("PUT",f"/api/v1/leave/{reverse}/{pk}/","approver",{}).status_code==400
+    assert h.snapshot()==stable
+    assert h.balance("approver")== (7.,0.) and h.balance("outsider")== (9.,0.)

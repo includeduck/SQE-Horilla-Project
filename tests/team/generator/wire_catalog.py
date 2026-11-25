@@ -22,6 +22,11 @@ def source_inventory():
 def supplements(inventory):
     ops = {r["operation"]:r for r in inventory["operations"]}
     extra = []
+    extra.append(dict(id="INPUT:cancel:body:reason",operation="cancel",field="reason",location="body",
+        category="declared_generated_input",stage=3,requirements=["FR-09","BR-03"],
+        details={"source":"LeaveRequestCancelAPIView.put calls reject_reason_from before request_leave_cancellation",
+                 "schema":{"type":"string","nullable":True},
+                 "note":"Prompt 3 source-discovered optional reason; real normalization/persistence covered by business consumers."}))
     for op, keys in {"allocation_list":["requested_date","created_at"], "self_allocation_list":["requested_date","created_at"],
                      "leave_list":["created_at"], "leave_type_list":["carryforward_max","total_days"]}.items():
         for name in ("custom_field","custom_lookup","custom_value"):

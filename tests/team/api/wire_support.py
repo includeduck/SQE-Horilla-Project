@@ -2,7 +2,7 @@
 import copy
 import json
 
-from contract_support import assert_result, balances, bound_body, prepare, send, state
+from contract_support import assert_result, balances, bound_body, model_for, prepare, send, state
 from query_support import assert_read, fetch, query_model, read_fixture, run_query
 
 IGNORES_BODY={"allocation_approve","cancellation_approve"}
@@ -63,9 +63,15 @@ def run_auth(h,case):
     expected=auth_status(case,label)
     assert_result(h,case,ctx,response,before,amounts,body,expected)
     if expected==200 and case["method"]=="GET" and case["operation"].startswith("self_"):
-        model=query_model(case["operation"])
+        model=query_model(case["operation"]) if "list" in case["operation"] else model_for(case["operation"])
         own=set(model.objects.entire().filter(employee_id=h.context[actor]).values_list("id",flat=True))
-        assert {r["id"] for r in response.json()["results"]}==own
+        payload=response.json()
+        if "list" in case["operation"]:
+            assert {r["id"] for r in payload["results"]}==own
+        else:
+            # Detail handlers return an object, with the same exact ownership
+            # assertion; treating it as a page was a harness KeyError.
+            assert payload["id"]==ctx["pk"] and payload["id"] in own
 
 
 def field_wire(h,case,proto,ctx,body):

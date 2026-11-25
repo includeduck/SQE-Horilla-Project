@@ -68,3 +68,32 @@ def reason_rows():
                  requirements=["FR-03" if action=="allocation_reject" else "FR-09", "BR-03"])
             for action in ("allocation_reject","reject","cancel","cancellation_reject")
             for label,value in samples]
+
+
+def role_state_rows():
+    from case_catalog import state_rows
+    return [dict(id=f"ROLE:{row['id']}:{role}", transition=row, role=role,
+                 requirements=["FR-02","FR-03","FR-08","FR-09","BR-03","BR-04"])
+            for row in state_rows() if row["action"] not in {"self-approve","update","delete"}
+            for role in ("employee","manager","permission","outsider")]
+
+
+def business_entries(artifact):
+    entries=[]
+    for row in business_rows()+reason_rows()+role_state_rows():
+        family=row.get("input_family") or (f"INPUT:{row['action']}:body:reason" if "action" in row else "BR-03/BR-04:state-role")
+        entries.append(dict(case_id=row["id"],file="test_business_rules.py",generated=False,
+            input_family=family,requirements=row["requirements"]))
+    for case in artifact["cases"]:
+        if case["field"]==["reason"] or (case["operation"] in {"leave_create","leave_update"} and case["expected"]["oracle"]=="date-order"):
+            entries.append(dict(case_id=case["id"],file="test_business_rules.py",generated=True,
+                input_family="INPUT:"+case["operation"]+":"+case["location"]+":"+".".join(map(str,case["field"])),
+                requirements=["FR-03" if case["operation"]=="allocation_reject" else "FR-09"] if case["field"]==["reason"] else ["FR-05","BR-02"]))
+    for policy,cap in (("no carryforward",10),("carryforward",1),("carryforward",3)):
+        entries.append(dict(case_id=f"APPROVE-POLICY:{policy}:{cap}",file="test_business_rules.py",generated=False,requirements=["FR-08","BR-01","BR-03"]))
+    entries.append(dict(case_id="REJECT-ALLOCATION:malformed-approved-body",file="test_business_rules.py",generated=False,requirements=["FR-03","BR-03"]))
+    for kind in ("allocation","leave"):
+        entries.append(dict(case_id=f"REFERENCE:{kind}:owner-transfer",file="test_business_rules.py",generated=False,requirements=["FR-04" if kind=="allocation" else "FR-05","BR-04"]))
+    for action in ("reject","cancellation-approve"):
+        entries.append(dict(case_id="INTEGRATION:CARRY-SPLIT:"+action,file="test_business_rules.py",generated=False,requirements=["FR-01","FR-02","FR-05","FR-06","FR-08","FR-09","FR-10","BR-01","BR-03"]))
+    return entries

@@ -81,3 +81,26 @@ class CoverageGuardTests(unittest.TestCase):
         changed=copy.deepcopy(inventory); changed["inputs"][0]["category"]="unsupported"
         with self.assertRaises(ValueError): build(changed)
 
+    def test_business_registration_cannot_be_dropped_even_with_passing_xml(self):
+        a,l,w=self.small()
+        with tempfile.TemporaryDirectory() as folder:
+            path=Path(folder)/"actual.xml";path.write_text(self.xml(),encoding="utf-8")
+            with self.assertRaisesRegex(ValueError,"business reader"):
+                guard.validate(a,l,w,[path],stage2=True,required_business=["G"])
+            l["entries"][0]["file"]="test_business_rules.py"
+            self.assertTrue(guard.validate(a,l,w,[path],stage2=True,required_business=["G"])["stage2_accepted"])
+            with self.assertRaisesRegex(ValueError,"business reader"):
+                guard.validate(a,l,w,[path],stage2=True,required_business=["G","REQUIRED"])
+
+    def test_all_stage3_input_families_have_specific_business_consumers(self):
+        import json,sys
+        sys.path.insert(0,str(TEAM/"api"))
+        from business_catalog import business_entries
+        from wire_catalog import source_inventory,supplements
+        artifact=json.loads((TEAM/"generator/generated_cases.json").read_text(encoding="utf-8"))
+        entries=business_entries(artifact)
+        inventory=source_inventory()
+        required={r["id"] for r in inventory["inputs"]+supplements(inventory) if r["stage"]==3}
+        self.assertLessEqual(required,{r.get("input_family") for r in entries})
+        self.assertEqual(len(entries),len({r["case_id"] for r in entries}))
+
