@@ -1,14 +1,21 @@
 {
-  "format_version": 2,
+  "format_version": 4,
   "contributor": "Syed Muhammad Rayyan Hassan",
   "roll": "24I-3000",
   "section": "SE-5B",
-  "upstream_baseline": "6c15617b8297b7a6775daa6c29aefcc48b1eb29f",
-  "runtime_source_checkpoint": "0ce4478b2d21a4f5be04d00b75e0cb34566feb76",
-  "inventory_tree_sha": "521c9a398e4872e74f963248a83e3aa2feef0fe0",
-  "inventory_origin": "Authoritative non-truncated GitHub Git tree; byte sizes and Git blob identities describe published bytes, not the laptop's stale HEAD or CRLF working copies.",
-  "hash_algorithm": "Git SHA-1 blob identity (includes Git blob header); separate from canonical JSON SHA-256 fingerprints",
-  "file_count": 184,
+  "label": "Final contribution source snapshot; not whole-group release",
+  "inventory_tree_sha": "bea4cc8a96e28201ae65a80965cc8561968585ae",
+  "inventory_origin": "Complete untruncated public Git tree after final substantive content edits; exact Git blob bytes. Manifest self and external publication index excluded to avoid circular hashes.",
+  "hash_algorithm": "Git SHA-1 blob identity includes blob header; SHA256 for every archive payload is in deliverables package_manifest.json",
+  "tested_application_sha": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+  "source_equivalence": {
+    "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+    "candidate_tree": "bea4cc8a96e28201ae65a80965cc8561968585ae",
+    "critical_blob_count": 1558,
+    "differences": [],
+    "scope": "All horilla*/leave application files and Area2 API/generator/contract/runtime/browser consumers unchanged; separate CI/package tooling changes verified independently"
+  },
+  "file_count": 277,
   "files": [
     {
       "path": ".github/scripts/install-requirements.sh",
@@ -17,13 +24,28 @@
     },
     {
       "path": ".github/workflows/area2-verification.yml",
-      "bytes": 5083,
-      "git_blob_sha": "269d532da2129f797bc575fa4e3db990f03d9ae1"
+      "bytes": 5868,
+      "git_blob_sha": "1d25477ad12e0657480f6c988152df614eaab54c"
+    },
+    {
+      "path": ".github/workflows/codeql.yml",
+      "bytes": 1113,
+      "git_blob_sha": "803eb51ec14f5508f84b0ef4df3617daa7f03197"
+    },
+    {
+      "path": ".github/workflows/docker-ci.yml",
+      "bytes": 5030,
+      "git_blob_sha": "3af88dd96bd63fd940291767be3902546251bc15"
+    },
+    {
+      "path": ".github/workflows/docker-publish.yml",
+      "bytes": 15569,
+      "git_blob_sha": "bd1cf0b37071966bc2964bbd5aa255be17359cd7"
     },
     {
       "path": ".github/workflows/finish01-contract.yml",
-      "bytes": 2748,
-      "git_blob_sha": "da8848bc14122ff21b8f3067ee8b0ebcce884ddf"
+      "bytes": 2834,
+      "git_blob_sha": "b96e128dc6b6150b53fdc30825e23bb3240a96da"
     },
     {
       "path": ".github/workflows/finish01-reconcile.yml",
@@ -31,49 +53,154 @@
       "git_blob_sha": "0acf390c590243c1e752135b213282329f987b1a"
     },
     {
+      "path": ".github/workflows/finish02-coverage.yml",
+      "bytes": 6055,
+      "git_blob_sha": "9933db726e3f576ff701835e7a6e65a10ffadc38"
+    },
+    {
+      "path": ".github/workflows/finish02-regressions.yml",
+      "bytes": 5078,
+      "git_blob_sha": "17e270c50ae371b34285b468850f861f8e6f986c"
+    },
+    {
+      "path": ".github/workflows/finish03-business.yml",
+      "bytes": 4697,
+      "git_blob_sha": "60af490699416941b166f41b7f97e615ccafeb49"
+    },
+    {
+      "path": ".github/workflows/finish03-evidence.yml",
+      "bytes": 4058,
+      "git_blob_sha": "abe5aa3e35eea15ec354836c9717582ecaa09dff"
+    },
+    {
+      "path": ".github/workflows/finish04-harvest.yml",
+      "bytes": 2611,
+      "git_blob_sha": "71e680f1ac5a0d969a5b8731fb7eb4e42bd14eac"
+    },
+    {
+      "path": ".github/workflows/finish04-package.yml",
+      "bytes": 8730,
+      "git_blob_sha": "caa5eb371c194f2c57d97fd744733b2eae384b2a"
+    },
+    {
       "path": ".github/workflows/phase-d-verification.yml",
-      "bytes": 2682,
-      "git_blob_sha": "dd6382e400e1e8783877fa9af4c0eaa815edb1e3"
+      "bytes": 2771,
+      "git_blob_sha": "94b135d78585d990ad66d0986820c79f150df902"
+    },
+    {
+      "path": ".github/workflows/quality.yml",
+      "bytes": 8755,
+      "git_blob_sha": "fcae14cbf0c075ef1584c59fd47c844260710716"
+    },
+    {
+      "path": ".github/workflows/team-quality-gate.yml",
+      "bytes": 4435,
+      "git_blob_sha": "76494a04da04def87c4e6aa4a3220887e68002bb"
+    },
+    {
+      "path": ".github/workflows/unit-tests.yml",
+      "bytes": 4156,
+      "git_blob_sha": "58d55ea54908df070cdc7dfb9a7e96f131988a77"
     },
     {
       "path": "Communication.md",
-      "bytes": 17920,
-      "git_blob_sha": "0ec67e40caf7061916b6472a1b5049cc1662d2bd"
+      "bytes": 20995,
+      "git_blob_sha": "dc578ac56d3691e86b5cc5803ec022b0ab46272a"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 26526,
+      "git_blob_sha": "8000a6faacf471c537530805ab29523c7732e11a"
+    },
+    {
+      "path": "README.md",
+      "bytes": 11051,
+      "git_blob_sha": "b21439c17d27d411763e82105fb34b8dc0d7c516"
     },
     {
       "path": "docs/team/AI_USE_RECORD.md",
-      "bytes": 7873,
-      "git_blob_sha": "5582ad31a1036f94eecf47ba246521ea2b172c92"
+      "bytes": 14308,
+      "git_blob_sha": "f47800a78dd570ad608bc073d28ce57e16597725"
     },
     {
       "path": "docs/team/API_COVERAGE_MATRIX.md",
-      "bytes": 16658,
-      "git_blob_sha": "c1beb78657f163692136ccb320efec2812e13bff"
+      "bytes": 21775,
+      "git_blob_sha": "bf0014716342436909700fc3ec3c8fe736163483"
     },
     {
       "path": "docs/team/AREA2_CI_HANDOFF.md",
-      "bytes": 8638,
-      "git_blob_sha": "4cd398b723488d9405b4a9753677e29dfa78594b"
+      "bytes": 12075,
+      "git_blob_sha": "03e54f6edc6e8c5178ceda7bcc43221a412767a1"
     },
     {
       "path": "docs/team/AREA2_EVIDENCE_INDEX.md",
-      "bytes": 10460,
-      "git_blob_sha": "c1a87d5e1e2a80bd09441dd6de8fbcdd3c90386f"
+      "bytes": 16532,
+      "git_blob_sha": "50633c46af6f50cb7c9504ce6e2b16fa9cfdbd30"
     },
     {
       "path": "docs/team/AREA2_MANAGEMENT.md",
-      "bytes": 20819,
-      "git_blob_sha": "a422778a543805833a7301b9bb94706411dd54ed"
+      "bytes": 29146,
+      "git_blob_sha": "e8b8ea9c7cf9664140d6386c99ad38326e15f82a"
     },
     {
       "path": "docs/team/AREA2_TEST_BASIS.md",
-      "bytes": 12426,
-      "git_blob_sha": "b9cd092f7affc7fb4eec4600ed667bb897705a42"
+      "bytes": 19586,
+      "git_blob_sha": "3d2a222c24f3f3134cb16e249c1b679390d65ffe"
     },
     {
       "path": "docs/team/AREA2_VIVA_REHEARSAL.md",
-      "bytes": 4750,
-      "git_blob_sha": "17b121665132636e928beaebba55226469176b0a"
+      "bytes": 7400,
+      "git_blob_sha": "facbf9f7c8821dfbb693508b131ace387e46e4de"
+    },
+    {
+      "path": "docs/team/RAYYAN_USE_CASES.md",
+      "bytes": 8384,
+      "git_blob_sha": "07f55b8dc8c1c7bd620306f9351a68fbed14da43"
+    },
+    {
+      "path": "docs/team/SCOPE.md",
+      "bytes": 15480,
+      "git_blob_sha": "5b0c02b22db9eaccedc92b8d126cd153b3cf1432"
+    },
+    {
+      "path": "docs/team/SETUP.md",
+      "bytes": 5002,
+      "git_blob_sha": "e08914571edc976c1c30dded8c93750ad567c9ad"
+    },
+    {
+      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_A.md",
+      "bytes": 14805,
+      "git_blob_sha": "67d5b17874e077985eac826b9e411219fe09b25e"
+    },
+    {
+      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_B.md",
+      "bytes": 12618,
+      "git_blob_sha": "dec9410de0fb8a87e0e96b7248455e9e20ed87c5"
+    },
+    {
+      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_C.md",
+      "bytes": 15786,
+      "git_blob_sha": "5988aaf3852fa3bbed2bfa2847066a6b954b842b"
+    },
+    {
+      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_D.md",
+      "bytes": 16447,
+      "git_blob_sha": "7bfa7957cb8279087d40b61088f34bf4a9aec5a5"
+    },
+    {
+      "path": "docs/team/SQE_PHASE_1_PERSONAL_AUDIT.md",
+      "bytes": 55847,
+      "git_blob_sha": "823c504970929cc7500e20e3e508720738b35ce6"
+    },
+    {
+      "path": "docs/team/SQE_PHASE_2_IMPLEMENTATION_ROADMAP.md",
+      "bytes": 36122,
+      "git_blob_sha": "071c955d4365d9137b891e7f7f48f64ed26e7f15"
+    },
+    {
+      "path": "docs/team/TEAM.md",
+      "bytes": 1589,
+      "git_blob_sha": "5f850db3258ed02c20a6227866c0a26889297c18"
     },
     {
       "path": "docs/team/env.example",
@@ -144,6 +271,56 @@
       "path": "docs/team/evidence/area2/finish-01/runtime-contract-current.json",
       "bytes": 236108,
       "git_blob_sha": "e7125f92e10cf66d34d5c48f9f310ba28289cd78"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-02/ci-45425553419-shard-0-failed.log",
+      "bytes": 274281,
+      "git_blob_sha": "61ff73809f9a38a15c8576314eeb542c3f80862d"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-02/ci-45425553419-shard-2-failed.log",
+      "bytes": 321381,
+      "git_blob_sha": "db8609f21003a2643aeff0674acdd5aa7f9f32bb"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-03/baseline-execution-summary.json",
+      "bytes": 1714,
+      "git_blob_sha": "beb71b68705562108ca055eec825316f4deb06e7"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-03/before-45544239475-job-138969868529.log",
+      "bytes": 610051,
+      "git_blob_sha": "80d133a8b77b583fddfcf79499e53369c6a6889c"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-03/before-45544239475-job-138969868953.log",
+      "bytes": 537552,
+      "git_blob_sha": "d703dddc1a4973079d30e94e4f2b370a7c15d3be"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-03/before-45544239475-job-138969869008.log",
+      "bytes": 563904,
+      "git_blob_sha": "6c0d57118fa6afa174af8181bb4bde4c0804018d"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-03/before-45544239475-job-138969869010.log",
+      "bytes": 455875,
+      "git_blob_sha": "f69bd7f54d826c3c263efef2bd6109f9370fb6a8"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-03/before-45544984779-job-138972520699.log",
+      "bytes": 607711,
+      "git_blob_sha": "1048f59d0f41f45b00613617b4109f92a1ebcb12"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-03/date-order-before-excerpt.log",
+      "bytes": 4587,
+      "git_blob_sha": "c824cabb9202f915526f67f0f410ceb0582b0567"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-03/date-order-before.json",
+      "bytes": 1030,
+      "git_blob_sha": "bb86f40e97518867385628c026297c19a66a6742"
     },
     {
       "path": "docs/team/evidence/area2/phase-b/checkpoint-manifest.json",
@@ -396,6 +573,11 @@
       "git_blob_sha": "834e03a419a05bf694e8076bb6d5ae2e2237e686"
     },
     {
+      "path": "docs/team/evidence/area2/phase-d/REGENERATION_DEMONSTRATION.md",
+      "bytes": 4466,
+      "git_blob_sha": "1218a74e39b1d70ef2b758efa8f78d491e3539f5"
+    },
+    {
       "path": "docs/team/evidence/area2/phase-d/browser-verified-summary.json",
       "bytes": 1487,
       "git_blob_sha": "8d0ed11dcfad63fa89bcd2a5502252f1d22b1aa3"
@@ -451,9 +633,29 @@
       "git_blob_sha": "a43e32cd0a2c2035af9d94b1012f00203eaba4ec"
     },
     {
+      "path": "docs/team/evidence/area2/phase-d/independent-regeneration-20261124/baseline.cases.json",
+      "bytes": 1162492,
+      "git_blob_sha": "b880584bef972546313d1e9d429802f4a17305ec"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/independent-regeneration-20261124/baseline.openapi.json",
+      "bytes": 47451,
+      "git_blob_sha": "53624f1a59f2ab3dcc67c1c110c6663176bbe151"
+    },
+    {
       "path": "docs/team/evidence/area2/phase-d/independent-regeneration-20261124/comparison.json",
       "bytes": 61819,
       "git_blob_sha": "a788be710129743ff5bcbf2d8db6cdf9796b5bb0"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/independent-regeneration-20261124/variant.cases.json",
+      "bytes": 1162372,
+      "git_blob_sha": "760c4f56d427fdf47bf2200a576c33a3e9549a7d"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/independent-regeneration-20261124/variant.openapi.json",
+      "bytes": 47450,
+      "git_blob_sha": "f8d25c69e9d2cc52513436229aed682b65e60716"
     },
     {
       "path": "docs/team/evidence/area2/phase-d/independent-tests-20261124.txt",
@@ -471,11 +673,6 @@
       "git_blob_sha": "1571eba20b574352bbe025252de8fc06b7decc9c"
     },
     {
-      "path": "docs/team/evidence/area2/phase-d/REGENERATION_DEMONSTRATION.md",
-      "bytes": 4466,
-      "git_blob_sha": "1218a74e39b1d70ef2b758efa8f78d491e3539f5"
-    },
-    {
       "path": "docs/team/evidence/area2/phase-d/regeneration-32621b42-summary.json",
       "bytes": 2976,
       "git_blob_sha": "7b36c9ecf53fb4b1a91fe153a73faacf69c4253a"
@@ -484,6 +681,26 @@
       "path": "docs/team/evidence/area2/phase-d/regeneration-current-verified-summary.json",
       "bytes": 2983,
       "git_blob_sha": "c40d50fde861acaabe2f34cdd326cda7da15c382"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/regeneration-verified-summary.json",
+      "bytes": 530,
+      "git_blob_sha": "eab6a6661e88ac851238526ff7d6c3321167a912"
+    },
+    {
+      "path": "docs/team/evidence/sonar/baseline-issues.json",
+      "bytes": 166168,
+      "git_blob_sha": "7eedc5b40de97307e8697cdd79b4989c2827da56"
+    },
+    {
+      "path": "docs/team/evidence/sonar/baseline-measures.jsonl",
+      "bytes": 9187,
+      "git_blob_sha": "fda66b75d4c44f08bd9f257837f26fc5df940d3d"
+    },
+    {
+      "path": "docs/team/evidence/unit-coverage-scope.txt",
+      "bytes": 1835,
+      "git_blob_sha": "3b559c4ad3f63e5f2ddb3d3ee48c7fe9cee4b9ff"
     },
     {
       "path": "docs/team/finish-line/BASELINE_VERIFICATION.json",
@@ -497,18 +714,73 @@
     },
     {
       "path": "docs/team/finish-line/CONTRACT_RECONCILIATION.md",
-      "bytes": 11779,
-      "git_blob_sha": "6a1e43661abc6728c9b349cc7bed61fdeddd5b8b"
+      "bytes": 13887,
+      "git_blob_sha": "0f306b7a8e1c508f2be3969c713348a5650afe41"
+    },
+    {
+      "path": "docs/team/finish-line/FINAL_CLOSEOUT_DATA.json",
+      "bytes": 52800,
+      "git_blob_sha": "afd3523d490af85361398e483bdf34b6abb5a370"
     },
     {
       "path": "docs/team/finish-line/GENERATED_CASE_AUDIT.json",
-      "bytes": 2021290,
-      "git_blob_sha": "17bbd2e02cf55628873a6bfc8d892caaf7080a3e"
+      "bytes": 684339,
+      "git_blob_sha": "729c3ce3051f91af87e200c19c28b3554752bc45"
     },
     {
       "path": "docs/team/finish-line/OPERATION_INPUT_INVENTORY.json",
-      "bytes": 818828,
-      "git_blob_sha": "32713fd9c966dcd0b15028f3051262b1207a23ac"
+      "bytes": 694215,
+      "git_blob_sha": "1f7b5537c5b4f005b352f79dfb8e56eb680a2a9c"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT03_DEFECT_POPULATION.json",
+      "bytes": 11207,
+      "git_blob_sha": "126d29ecbd51b2c6b2aa01e2c5d42a4e991eb198"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT03_EVIDENCE_SNAPSHOTS.json",
+      "bytes": 322,
+      "git_blob_sha": "db6d8b1ecdef3ca86e2b89e80ccc652481749779"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT03_EXCLUSION_RECONCILIATION.json",
+      "bytes": 40820,
+      "git_blob_sha": "8d2c0b6c4f0198d2ad300da52a165b562259256c"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT03_EXECUTION_SUMMARY.json",
+      "bytes": 1153,
+      "git_blob_sha": "d653481bd9fc91c563b5d7165b7563627e3dd1d9"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT03_GENERATED_LEDGER.json",
+      "bytes": 776455,
+      "git_blob_sha": "7265553ccd700aaae07916e4742ce5ab15bb690b"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT03_INPUT_LEDGER.json",
+      "bytes": 336066,
+      "git_blob_sha": "ca84defd0606da799bffca4f8dd752b384c5aff1"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT03_PREVIOUS_OPENAPI.json",
+      "bytes": 67142,
+      "git_blob_sha": "084860556b8995b0c68706df6c05576d41548f6d"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT03_REQUIREMENT_EVIDENCE.json",
+      "bytes": 127161,
+      "git_blob_sha": "0726dec71ba76f5859a2d28563c3a878f6c345e4"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT03_VERIFICATION.json",
+      "bytes": 29188,
+      "git_blob_sha": "4875ddbeacb6185fa4518a86bfac5a2edf39037c"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT04_VERIFICATION.json",
+      "bytes": 67390,
+      "git_blob_sha": "f5a624425d0aac22281ba021e1298a4534608947"
     },
     {
       "path": "docs/team/finish-line/PROMPT_01_CONTRACT_AND_SCOPE.md",
@@ -537,18 +809,48 @@
     },
     {
       "path": "docs/team/finish-line/README.md",
-      "bytes": 8777,
-      "git_blob_sha": "439834e9ddafea845d5eee3e96bc2f9e6b048445"
+      "bytes": 9743,
+      "git_blob_sha": "d238c3e20a2cbc825561319a5520a5fc417edc46"
     },
     {
       "path": "docs/team/finish-line/REMAINING_WORK.json",
-      "bytes": 640544,
-      "git_blob_sha": "e9613ce66d6293517ecc061d14107c3bab7a070c"
+      "bytes": 586373,
+      "git_blob_sha": "ced1a25781a110c713f61955696fafdd927d1476"
     },
     {
-      "path": "docs/team/RAYYAN_USE_CASES.md",
-      "bytes": 5316,
-      "git_blob_sha": "7c9bce33913dcb1db70a77fefa8e6a71a07f4aa5"
+      "path": "docs/team/finish-line/WIRE_CASES.json",
+      "bytes": 1714747,
+      "git_blob_sha": "ad8614b2f27c9031d271ed7b8fc007a0bfe857d6"
+    },
+    {
+      "path": "docs/team/history/PHASES_A_D_before_final_closeout.md",
+      "bytes": 13650,
+      "git_blob_sha": "8cb6352709873c4b40773b70241cf3e9ff763cf8"
+    },
+    {
+      "path": "docs/team/history/SQE_IMPLEMENTATION_PHASE_A_before_final_closeout.md",
+      "bytes": 3386,
+      "git_blob_sha": "e25ff0617f7000da925cc1b88f412634964534e9"
+    },
+    {
+      "path": "docs/team/history/SQE_IMPLEMENTATION_PHASE_B_before_final_closeout.md",
+      "bytes": 15765,
+      "git_blob_sha": "eccfcf2c4413f3b5ea6b0ed992b37712d52384bb"
+    },
+    {
+      "path": "docs/team/history/SQE_IMPLEMENTATION_PHASE_C_before_final_closeout.md",
+      "bytes": 29770,
+      "git_blob_sha": "e3c62434b029a2fccdd883145fed03ae657799aa"
+    },
+    {
+      "path": "docs/team/history/SQE_IMPLEMENTATION_PHASE_D_before_final_closeout.md",
+      "bytes": 11206,
+      "git_blob_sha": "f92ff2880bbb328ebe0a2c1bcc59122891ebd3c2"
+    },
+    {
+      "path": "docs/team/history/handoff-before-final-closeout.md",
+      "bytes": 33376,
+      "git_blob_sha": "a532b0fd787ba06da5f9dce85d28f8e090200bba"
     },
     {
       "path": "docs/team/reports/.gitkeep",
@@ -557,23 +859,33 @@
     },
     {
       "path": "docs/team/reports/AREA2_COMPLETION_REPORT.md",
-      "bytes": 9605,
-      "git_blob_sha": "b92e5fdd04b80abc6cdc5b44d170791be97cfae1"
+      "bytes": 13929,
+      "git_blob_sha": "525e01b08d050b1da6dc02b2a1619747c2e2d6c0"
     },
     {
       "path": "docs/team/reports/AREA2_DEFECTS.md",
-      "bytes": 15138,
-      "git_blob_sha": "895556e0f5ac501a4641f0b54f55d65242392c2e"
+      "bytes": 27058,
+      "git_blob_sha": "b81a7542813e346b9b7e9cdaf2216d7dadcb0c07"
     },
     {
       "path": "docs/team/reports/AREA2_RCA_CONTRIBUTION.md",
-      "bytes": 8254,
-      "git_blob_sha": "e41d5aabb3cd5ddc7096a09a11ee68eac04691b7"
+      "bytes": 17049,
+      "git_blob_sha": "8db862ce3fade3e84fc183e8568ebf64c2f0d1ea"
+    },
+    {
+      "path": "docs/team/reports/MCC_MCDC_TABLES.md",
+      "bytes": 8675,
+      "git_blob_sha": "084601b08474ce5034268af979947b6451e2ef42"
     },
     {
       "path": "docs/team/reports/PHASES_A_D_REMAINING_CHECKLIST.md",
-      "bytes": 9368,
-      "git_blob_sha": "3c34b09248b6e6c7c22d2a02ec4cdbebfb9a06db"
+      "bytes": 5138,
+      "git_blob_sha": "ea0924ddf84b0383c738ac21ccfd5cb0579ecee9"
+    },
+    {
+      "path": "docs/team/reports/RAYYAN_FINAL_CLOSEOUT.md",
+      "bytes": 36298,
+      "git_blob_sha": "9ba428fe71a0bfdd45c9c3b6472925a8478bdd90"
     },
     {
       "path": "docs/team/reports/RAYYAN_FINISH_01_STATUS.md",
@@ -581,89 +893,89 @@
       "git_blob_sha": "ea2a21eb4ba1226ecfea26fcf19e14edda78c7b9"
     },
     {
+      "path": "docs/team/reports/RAYYAN_FINISH_02_STATUS.md",
+      "bytes": 11302,
+      "git_blob_sha": "a86fd92a1b8bdc474a0a1edeb40852de1b522486"
+    },
+    {
+      "path": "docs/team/reports/RAYYAN_FINISH_03_STATUS.md",
+      "bytes": 10137,
+      "git_blob_sha": "4405cda8b750c3f8c5e820347d482faa4abfe5ad"
+    },
+    {
+      "path": "docs/team/reports/RAYYAN_FINISH_04_STATUS.md",
+      "bytes": 2585,
+      "git_blob_sha": "1835db90fd044e33597671c783318a5575299894"
+    },
+    {
+      "path": "docs/team/reports/SONARQUBE_BASELINE.md",
+      "bytes": 11430,
+      "git_blob_sha": "0934edad8316f65ba2efcc5fa171273e75803414"
+    },
+    {
       "path": "docs/team/reports/SQE_IMPLEMENTATION_PHASE_A_STATUS.md",
-      "bytes": 3247,
-      "git_blob_sha": "76c0218bf972fcc92ab541749dc6293572f363cf"
+      "bytes": 876,
+      "git_blob_sha": "6591aee4ecbae522edef70fe12df8b3b60f91a01"
     },
     {
       "path": "docs/team/reports/SQE_IMPLEMENTATION_PHASE_B_STATUS.md",
-      "bytes": 15626,
-      "git_blob_sha": "409764332f6c64a8ea04d1409dd56401bd34b5b4"
+      "bytes": 870,
+      "git_blob_sha": "70ed9832322ec6dc21377652552a76b0f0c5826e"
     },
     {
       "path": "docs/team/reports/SQE_IMPLEMENTATION_PHASE_C_STATUS.md",
-      "bytes": 29631,
-      "git_blob_sha": "ec07ed7081bc2a0a746b9ab8c68b533d0de12269"
+      "bytes": 859,
+      "git_blob_sha": "0f996a503fc6bc8d02a3f6026545322c0f471156"
     },
     {
       "path": "docs/team/reports/SQE_IMPLEMENTATION_PHASE_D_STATUS.md",
-      "bytes": 11067,
-      "git_blob_sha": "01fe6159c42ee82b749dd8507991722f77a3cab0"
+      "bytes": 908,
+      "git_blob_sha": "dadcf5099faf00086fc91eae3485a75ee257bb6e"
     },
     {
-      "path": "docs/team/SCOPE.md",
-      "bytes": 9710,
-      "git_blob_sha": "fa608fa4a5576a69455f2e17a9e23c4f1f40987f"
-    },
-    {
-      "path": "docs/team/SETUP.md",
-      "bytes": 5002,
-      "git_blob_sha": "e08914571edc976c1c30dded8c93750ad567c9ad"
-    },
-    {
-      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_A.md",
-      "bytes": 14805,
-      "git_blob_sha": "67d5b17874e077985eac826b9e411219fe09b25e"
-    },
-    {
-      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_B.md",
-      "bytes": 12618,
-      "git_blob_sha": "dec9410de0fb8a87e0e96b7248455e9e20ed87c5"
-    },
-    {
-      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_C.md",
-      "bytes": 15786,
-      "git_blob_sha": "5988aaf3852fa3bbed2bfa2847066a6b954b842b"
-    },
-    {
-      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_D.md",
-      "bytes": 16447,
-      "git_blob_sha": "7bfa7957cb8279087d40b61088f34bf4a9aec5a5"
-    },
-    {
-      "path": "docs/team/SQE_PHASE_1_PERSONAL_AUDIT.md",
-      "bytes": 53708,
-      "git_blob_sha": "e0860ad7753c443003232884c261c287b51d1b1b"
-    },
-    {
-      "path": "docs/team/SQE_PHASE_2_IMPLEMENTATION_ROADMAP.md",
-      "bytes": 36122,
-      "git_blob_sha": "071c955d4365d9137b891e7f7f48f64ed26e7f15"
-    },
-    {
-      "path": "docs/team/TEAM.md",
-      "bytes": 1589,
-      "git_blob_sha": "5f850db3258ed02c20a6227866c0a26889297c18"
+      "path": "docs/team/reports/WHITEBOX_UNIT_TESTING.md",
+      "bytes": 11001,
+      "git_blob_sha": "a2a2c2ef9a1bec7e578bde438e80f77a9e5b4bc9"
     },
     {
       "path": "handoff.md",
-      "bytes": 28622,
-      "git_blob_sha": "2ee8b821a10ed8a0cca27cf61a04682b484ffa8a"
+      "bytes": 24719,
+      "git_blob_sha": "1297b73a3d6c8a9861b29080df7507cd7fdb22c2"
     },
     {
-      "path": "horilla_api/api_serializers/leave/serializers.py",
-      "bytes": 17845,
-      "git_blob_sha": "16750359a9123c3472b6224c6a25498af5b8ea57"
+      "path": "horilla/config.py",
+      "bytes": 5150,
+      "git_blob_sha": "301057e2e27dfe5c98175de15fb30af89b7b38fe"
     },
     {
-      "path": "horilla_api/api_views/leave/views.py",
-      "bytes": 54303,
-      "git_blob_sha": "630a088ec4158324a1e56790eca676e6911ae7b9"
+      "path": "horilla/filters.py",
+      "bytes": 24837,
+      "git_blob_sha": "73222cc79c2e9f6f2ace4ce7bc6a30ae7ce98d10"
     },
     {
       "path": "horilla/models.py",
       "bytes": 9892,
       "git_blob_sha": "e77339b19b07773ddc0d18d5bdd58a66ddd6eff1"
+    },
+    {
+      "path": "horilla_api/api_decorators/base/decorators.py",
+      "bytes": 12224,
+      "git_blob_sha": "c1a7cb26d1a5ef0fb232b77cdef43212d549b1ba"
+    },
+    {
+      "path": "horilla_api/api_methods/base/methods.py",
+      "bytes": 4144,
+      "git_blob_sha": "d5c7daa8d448b782c72c5187caacd14e2deb537a"
+    },
+    {
+      "path": "horilla_api/api_serializers/leave/serializers.py",
+      "bytes": 18700,
+      "git_blob_sha": "d4679886b735f03045d3c67fd4c76c2459e3ee1b"
+    },
+    {
+      "path": "horilla_api/api_views/leave/views.py",
+      "bytes": 55552,
+      "git_blob_sha": "76e18cd560b29c45fca1aa5a364f602a6312495a"
     },
     {
       "path": "leave/forms.py",
@@ -674,6 +986,16 @@
       "path": "requirements.txt",
       "bytes": 6796,
       "git_blob_sha": "024de6288fcc0b2850a2db7ab77d9c731ea9b9f6"
+    },
+    {
+      "path": "scripts/team/build_rayyan_contribution.py",
+      "bytes": 15000,
+      "git_blob_sha": "16cd1ec539da920930cf2d871c0df0eb9b0ec1b6"
+    },
+    {
+      "path": "scripts/team/final_quality_gate.py",
+      "bytes": 7986,
+      "git_blob_sha": "a1166dfbb4881376d01b4ce0e813401c31c1641e"
     },
     {
       "path": "scripts/team/reset.ps1",
@@ -691,9 +1013,24 @@
       "git_blob_sha": "2c2e45cded6936eebc015774110e9efdbbdbabff"
     },
     {
+      "path": "sonar-project.properties",
+      "bytes": 1095,
+      "git_blob_sha": "a052c6b302225b4a9436d5428867dfb697375142"
+    },
+    {
+      "path": "tests/team/README.md",
+      "bytes": 12372,
+      "git_blob_sha": "7ada3fbd1f2c23b8689bbc0aeedeb5afc9f5a7fe"
+    },
+    {
       "path": "tests/team/api/.gitkeep",
       "bytes": 0,
       "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "tests/team/api/business_catalog.py",
+      "bytes": 6063,
+      "git_blob_sha": "4cb888f474446181addbebefa29fa9a5a50b8125"
     },
     {
       "path": "tests/team/api/case_catalog.py",
@@ -702,18 +1039,43 @@
     },
     {
       "path": "tests/team/api/case_ledger.json",
-      "bytes": 92599,
-      "git_blob_sha": "167953a82f9b9565e30ff9f9405f4adc6ab5adb2"
+      "bytes": 1231441,
+      "git_blob_sha": "b97624c3c984bb11b3c266353344ba04f267be1f"
     },
     {
       "path": "tests/team/api/conftest.py",
-      "bytes": 4883,
-      "git_blob_sha": "c7099875b68e97368f9961499758c498af54f5dc"
+      "bytes": 5117,
+      "git_blob_sha": "991922ecdfd0c7b4d2d7834cc64fcc39752e242a"
+    },
+    {
+      "path": "tests/team/api/contract_support.py",
+      "bytes": 17832,
+      "git_blob_sha": "a8d91141e09c76c925caba281c4f4186daba84a3"
     },
     {
       "path": "tests/team/api/http_support.py",
       "bytes": 6100,
       "git_blob_sha": "10d7a81f3291d50a1e0497828ba84d5265a92dc9"
+    },
+    {
+      "path": "tests/team/api/legacy_generated_ids.json",
+      "bytes": 10921,
+      "git_blob_sha": "49da8430c314b3a16f20dd4f89f86a5f5a7f1871"
+    },
+    {
+      "path": "tests/team/api/query_support.py",
+      "bytes": 19015,
+      "git_blob_sha": "6d074aa15b1559cee65aab28b758d2a572d2640c"
+    },
+    {
+      "path": "tests/team/api/test_business_rules.py",
+      "bytes": 17571,
+      "git_blob_sha": "252dd0257646f4254dc0e638c8822db073e0d3b4"
+    },
+    {
+      "path": "tests/team/api/test_contract_inputs.py",
+      "bytes": 841,
+      "git_blob_sha": "a23126d8c6df170c86989d522afa093596824671"
     },
     {
       "path": "tests/team/api/test_generated_attachments.py",
@@ -736,6 +1098,11 @@
       "git_blob_sha": "4fab99b7267301dd451607eb35708c3c0b66e9de"
     },
     {
+      "path": "tests/team/api/test_runtime_wire.py",
+      "bytes": 346,
+      "git_blob_sha": "d7847749cc6a0899ea892fc14a3a5ba957ccc930"
+    },
+    {
       "path": "tests/team/api/test_states_and_decisions.py",
       "bytes": 6686,
       "git_blob_sha": "ea116c925a835e82329db4d3b1b09943b120a542"
@@ -746,9 +1113,14 @@
       "git_blob_sha": "278aa2d872642aead3c19614126fa1b1ec015bfc"
     },
     {
+      "path": "tests/team/api/wire_support.py",
+      "bytes": 11749,
+      "git_blob_sha": "840c5a036569a438a47a00ce942b3e2942bc8083"
+    },
+    {
       "path": "tests/team/area2_order.py",
-      "bytes": 324,
-      "git_blob_sha": "1015ea22aaa871b215263ed55e2c0b00c2fd09b8"
+      "bytes": 938,
+      "git_blob_sha": "91f85d67f5fb500d88d2ed49e13a1a506c9d9e59"
     },
     {
       "path": "tests/team/area2_settings.py",
@@ -766,6 +1138,11 @@
       "git_blob_sha": "7d1746f3d93c06ad89cc039b488520fa879dd2cd"
     },
     {
+      "path": "tests/team/ci/test_final_quality_gate.py",
+      "bytes": 2656,
+      "git_blob_sha": "d6ad7cf965283a29e381089f3178751e49d6929a"
+    },
+    {
       "path": "tests/team/contract/conftest.py",
       "bytes": 481,
       "git_blob_sha": "510d6e158f1cb5b9fe0265085f5346fa7d10f499"
@@ -777,8 +1154,8 @@
     },
     {
       "path": "tests/team/contract/inventory.py",
-      "bytes": 28744,
-      "git_blob_sha": "e82693b826a785be9c4b36ae9cbe8c3c09d79c7d"
+      "bytes": 32045,
+      "git_blob_sha": "962f83c3c7b5ead353c412b9e9bfa476dfb8d85c"
     },
     {
       "path": "tests/team/contract/prepare_contract.py",
@@ -821,6 +1198,16 @@
       "git_blob_sha": "37ba8e53387852656108ff78e3f3023df0a0fca2"
     },
     {
+      "path": "tests/team/generator/build_case_ledger.py",
+      "bytes": 3022,
+      "git_blob_sha": "ae72559e918776f1f8e30892d14d76830d4839e4"
+    },
+    {
+      "path": "tests/team/generator/coverage_guard.py",
+      "bytes": 6685,
+      "git_blob_sha": "48d63a072f90a3885102d014d3ad6be9016188d2"
+    },
+    {
       "path": "tests/team/generator/demonstrate_regeneration.py",
       "bytes": 4253,
       "git_blob_sha": "01897b9d44ad768736ce596f7761f077515cd57f"
@@ -832,13 +1219,23 @@
     },
     {
       "path": "tests/team/generator/generated_cases.json",
-      "bytes": 1392206,
-      "git_blob_sha": "1814baac09bf6e25fad9033de8e6a11cdb150aec"
+      "bytes": 1391407,
+      "git_blob_sha": "577752e5671964a674b6254cc957191e68037681"
     },
     {
       "path": "tests/team/generator/openapi.json",
-      "bytes": 67141,
-      "git_blob_sha": "2b4daeeea003c538c2b843d6129fbea05f77a255"
+      "bytes": 66565,
+      "git_blob_sha": "5b7579c4ca75baa787189f5e54a184057997b579"
+    },
+    {
+      "path": "tests/team/generator/record_execution.py",
+      "bytes": 8826,
+      "git_blob_sha": "0fcb4d7f758b5d0a6ce84185139803e9762a4e98"
+    },
+    {
+      "path": "tests/team/generator/requirement_evidence.py",
+      "bytes": 7451,
+      "git_blob_sha": "9400ecfc374f73f852eb4753b66d81907e3a76ff"
     },
     {
       "path": "tests/team/generator/test_browser_report.py",
@@ -851,9 +1248,19 @@
       "git_blob_sha": "b6111d324e587c0eea4c278055202380c0126588"
     },
     {
+      "path": "tests/team/generator/test_contract_lineage.py",
+      "bytes": 1765,
+      "git_blob_sha": "313294de016765a0634b7339fc376c2ba1088d35"
+    },
+    {
+      "path": "tests/team/generator/test_coverage_guard.py",
+      "bytes": 7054,
+      "git_blob_sha": "9e4475cd755bcf4bd6988cb60eaab59e25d73b72"
+    },
+    {
       "path": "tests/team/generator/test_generate.py",
-      "bytes": 16992,
-      "git_blob_sha": "0df570a39a71e93381ae6ae74f718e98ff1ec403"
+      "bytes": 17719,
+      "git_blob_sha": "c2b0e61c08a0b6521f0833f432524a1c1e57a078"
     },
     {
       "path": "tests/team/generator/test_regeneration.py",
@@ -861,9 +1268,24 @@
       "git_blob_sha": "65dfab71ff5128f6bbbb831de68a00d9a0e5ae2f"
     },
     {
+      "path": "tests/team/generator/test_requirement_evidence.py",
+      "bytes": 1604,
+      "git_blob_sha": "b7904d38e758d712a3be3ccd9472595903869486"
+    },
+    {
       "path": "tests/team/generator/test_runner.py",
       "bytes": 5725,
       "git_blob_sha": "f28a98e80dca05c9d2aaea109966268bd8ef0266"
+    },
+    {
+      "path": "tests/team/generator/wire_catalog.py",
+      "bytes": 7932,
+      "git_blob_sha": "1df893f2056450d2fb1c6f9cdb11b8b5b4327a1b"
+    },
+    {
+      "path": "tests/team/generator/wire_inputs.json",
+      "bytes": 181703,
+      "git_blob_sha": "da32027967d9038e4bdcc362ff53074ffcb1e748"
     },
     {
       "path": "tests/team/perf/.gitkeep",
@@ -876,9 +1298,9 @@
       "git_blob_sha": "3be001fd5cae1467eab5464cd3ab63272a07f009"
     },
     {
-      "path": "tests/team/README.md",
-      "bytes": 11692,
-      "git_blob_sha": "c231dde7a7c21bd8a8ef4b0f74cd0337c81cb764"
+      "path": "tests/team/pytest-unit.ini",
+      "bytes": 146,
+      "git_blob_sha": "bae44220ae0d29b24d37a0e0860e8f2086f2d3d9"
     },
     {
       "path": "tests/team/recovery/.gitkeep",
@@ -906,9 +1328,14 @@
       "git_blob_sha": "0c4a59f2864a8ad16499fe422df2495aeac22cdf"
     },
     {
+      "path": "tests/team/requirements-unit.txt",
+      "bytes": 160,
+      "git_blob_sha": "2e934a81bb22cb2678c364ba7a5438ea9e789720"
+    },
+    {
       "path": "tests/team/run_area2.py",
-      "bytes": 7026,
-      "git_blob_sha": "c47ea3a0e218c808dd18b0bf11c1471a1587f016"
+      "bytes": 7020,
+      "git_blob_sha": "735aaad46c04d9c9ef8f1ab3edf4d5629234240f"
     },
     {
       "path": "tests/team/run_phase_d.py",
@@ -929,179 +1356,58 @@
       "path": "tests/team/unit/.gitkeep",
       "bytes": 0,
       "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "tests/team/unit/__init__.py",
+      "bytes": 0,
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "tests/team/unit/conftest.py",
+      "bytes": 3959,
+      "git_blob_sha": "63db616b7ddb51be4d69d95261a3a457ff2d24d8"
+    },
+    {
+      "path": "tests/team/unit/coverage_scope.py",
+      "bytes": 4462,
+      "git_blob_sha": "b1358d5af8b7c275039fba6d8d5f61d425543940"
+    },
+    {
+      "path": "tests/team/unit/mcc_tables.py",
+      "bytes": 7658,
+      "git_blob_sha": "730d5f677e6ad6e744509812d74e57b9e780d33e"
+    },
+    {
+      "path": "tests/team/unit/test_approval_and_allocation.py",
+      "bytes": 10015,
+      "git_blob_sha": "5d9084f54a7d4db272096dd00516842d2e102569"
+    },
+    {
+      "path": "tests/team/unit/test_day_counting.py",
+      "bytes": 5103,
+      "git_blob_sha": "497956946c090d7cb635d0e7e4fc02614ee106e1"
+    },
+    {
+      "path": "tests/team/unit/test_leave_request_clean.py",
+      "bytes": 16911,
+      "git_blob_sha": "cc58542b4ed3df99a775ed8aebc07ef508e00e63"
+    },
+    {
+      "path": "tests/team/unit/test_smoke.py",
+      "bytes": 306,
+      "git_blob_sha": "e201e846074fe3f1f15c5bb777e60902258baa5b"
+    },
+    {
+      "path": "tests/team/unit_settings.py",
+      "bytes": 740,
+      "git_blob_sha": "8dc2feb2d32a148ca6abd262f244aded6d82543b"
     }
   ],
-  "verification_command": "git ls-tree -r --long 521c9a398e4872e74f963248a83e3aa2feef0fe0",
-  "tested_populations": {
-    "personal_browser": {
-      "source": "7189656a7b118565f42004770ff9a9f8bbcd3a09",
-      "run_id": 45388276537,
-      "passed": 10,
-      "total": 10,
-      "artifact_id": 14917252664
-    },
-    "regeneration": {
-      "source": "7189656a7b118565f42004770ff9a9f8bbcd3a09",
-      "run_id": 45388276537,
-      "job_id": 138424862957,
-      "artifact_id": 14918471972,
-      "baseline_passed": 6,
-      "variant_passed": 4,
-      "variant_strict_predicted_failed": 2,
-      "experiment_demonstrated": true
-    },
-    "api_verification": {
-      "source": "7189656a7b118565f42004770ff9a9f8bbcd3a09",
-      "run_id": 45388276552,
-      "artifact_id": 14921788926,
-      "first_order": {
-        "passed": 275,
-        "total": 275
-      },
-      "reversed_order": {
-        "passed": 275,
-        "total": 275
-      },
-      "complete_scope_exit": 3,
-      "accepted": false
-    },
-    "prompt_01_foundation_and_smoke": {
-      "label": "Derived Prompt 1 verification summary; actual logs/XML/schema artifacts are linked, not reconstructed",
-      "canonical_spec_sha256": "a9685a28c60f2b4484cff36fe0e0d11e723a222fa92fc20483d069d70fe20ae7",
-      "canonical_data_sha256": "1520883464d23872d139d0817a926ef49d345651579c072da1c1e3b3e947e0a4",
-      "source_sha": "0ce4478b2d21a4f5be04d00b75e0cb34566feb76",
-      "tested_merge_sha": "93d40f46fddd669b9ae000b35b89c24caa132708",
-      "run_id": 45416915820,
-      "foundation_initializations": [
-        {
-          "name": "fresh-a",
-          "job_id": 138525522511,
-          "passed": 1,
-          "seconds": 258,
-          "database": "/tmp/sqe-area2-6rmmr5pp/test.sqlite3",
-          "artifact_id": 14933137449,
-          "raw_log": "docs/team/evidence/area2/finish-01/ci-45416915820-fresh-a-passed.log"
-        },
-        {
-          "name": "fresh-b",
-          "job_id": 138525523026,
-          "passed": 1,
-          "seconds": 274.47,
-          "database": "/tmp/sqe-area2-5i8gwubp/test.sqlite3",
-          "artifact_id": 14932868040,
-          "raw_log": "docs/team/evidence/area2/finish-01/ci-45416915820-fresh-b-passed.log"
-        }
-      ],
-      "smoke_retest": {
-        "all_selected_passed": true,
-        "unique_cases": 5,
-        "each_job_passed": 5,
-        "failures": 0,
-        "errors": 0,
-        "required_skips": 0,
-        "seconds": {
-          "fresh_a": 269.17,
-          "fresh_b": 255.78
-        },
-        "binding": "Actual normal-role JSON PUT; optional upload omitted, real fixture record IDs. Persisted identities, inactive and normal HTTP readback and unchanged balances checked. Runtime bound artifact/request hashes differ from the checked-in canonical parent and are retained per case in actual evidence."
-      },
-      "verified_generated_ids": [
-        "self_allocation_update:body:is_active:EP:valid",
-        "self_allocation_update:body:is_active:EP:missing",
-        "self_allocation_update:body:is_active:EP:null",
-        "self_allocation_update:body:is_active:EP:wrong-type",
-        "self_allocation_update:body:is_active:EP:false"
-      ],
-      "integrity": {
-        "run_id": 45416915816,
-        "job_id": 138525521452,
-        "source_sha": "0ce4478b2d21a4f5be04d00b75e0cb34566feb76",
-        "tested_merge_sha": "93d40f46fddd669b9ae000b35b89c24caa132708",
-        "artifact_id": 14932238527,
-        "existing_checks_passed": 49,
-        "new_reader_checks_passed": 4,
-        "formal_schema": "passed",
-        "freshness": "passed",
-        "inventory_validation": "passed"
-      },
-      "browser_regeneration": {
-        "source_sha": "eb203f7e685379d937460cb7bd7300946de1ad65",
-        "run_id": 45414664482,
-        "tested_merge_sha": "15d38109ac219c79909157f63c21f14fa2486ec9",
-        "browser": {
-          "passed": 10,
-          "job_id": 138517529182,
-          "artifact_id": 14932497628
-        },
-        "regeneration": {
-          "job_id": 138517528721,
-          "baseline_passed": 6,
-          "variant_passed": 4,
-          "variant_predicted_strict_failures": 2,
-          "errors": 0,
-          "skips": 0,
-          "experiment_demonstrated": true,
-          "artifact_id": 14933045078
-        }
-      },
-      "coverage_complete": false,
-      "acceptance": "Prompt 1 foundation/audit prerequisites verified. Five selected generated JSON contexts verified, not all 713 IDs or all 329 required families.",
-      "remaining_input_family_count": 329,
-      "remaining_assignment": "Codex for Rayyan in Prompts 2–4, genuine shared/owner dependencies separately recorded",
-      "final_inventory_integrity": {
-        "source_sha": "3caa7741d39fef7b1db43a401145ade8a6043e8a",
-        "tested_merge_sha": "651707776fcd71e9eaf323ed3708a36044ce010b",
-        "run_id": 45419333975,
-        "job_id": 138534203584,
-        "artifact_id": 14933018094,
-        "formal_schema": "passed",
-        "existing_checks_passed": 49,
-        "new_reader_checks_passed": 4,
-        "freshness": "passed",
-        "input_and_id_audit": "passed",
-        "verified_generated_ids_selected_context": 5
-      }
-    },
-    "canonical_input_plan": {
-      "canonical_operations": 34,
-      "canonical_generated_inputs": 88,
-      "generated_cases": 713,
-      "referenced_generated_ids": 184,
-      "unconsumed_generated_ids": 529,
-      "old_399_accounted": 399,
-      "retired_old_ids": 0,
-      "required_input_families": 329,
-      "required_families_without_generated_ids": 241,
-      "input_families_by_stage": {
-        "2": 314,
-        "3": 15
-      },
-      "verified_generated_ids_selected_context": 5,
-      "new_contract_executed_all": false,
-      "coverage_complete": false
-    }
-  },
-  "group_archive_requirements": [
-    "Include .git from the synchronized final accepted checkout",
-    "Include actual complete CI artifacts and final group PDF",
-    "Reconcile Wasay Area 1/gate and Zain specialist evidence",
-    "Exclude secrets, real-user DBs, virtualenv/node_modules and unverified artifacts"
+  "exclusions": [
+    "docs/team/AREA2_PACKAGE_MANIFEST.json",
+    "docs/team/finish-line/FINAL_PUBLICATION.json"
   ],
-  "group_pdf_zip_complete": false,
-  "local_git_history_is_current": false,
-  "overall_release": "HOLD",
-  "note": "Contribution/dependency/evidence inventory, not an all-area submission or exclusive authorship claim. Prompt 1 is verified; full input consumption/business/final acceptance remain Prompts 2–4. This manifest excludes itself and records exact published bytes in its pre-manifest tree; no synchronized local checkout or final group ZIP is claimed.",
-  "finish_line_sequence": {
-    "status": "prompt_01_completed",
-    "completed_prompts": [
-      1
-    ],
-    "remaining_prompts": [
-      2,
-      3,
-      4
-    ],
-    "index": "docs/team/finish-line/README.md",
-    "last_prompt_requires_final_assignment_closeout": true
-  }
+  "package_files_reference": "deliverables/rayyan/package_manifest.json",
+  "release": "HOLD",
+  "assignment_closed": true
 }

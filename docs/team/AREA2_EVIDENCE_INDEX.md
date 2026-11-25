@@ -1,3 +1,35 @@
+## Final execution closeout — 25 November 2026
+
+Rayyan's project execution assignment is finished. **Whole-project release: HOLD.** No further technical execution or additional prompt is expected from Rayyan.
+
+The final application/API verification source is `aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e`; Actions checked synthetic merge `801351079aada8c399db2212d9c033737e032e0d` with `sqe-team` base `0a5ac6443dadb50ab5fd6ea749f41dd108a19486`. [Run 45627793460](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460) verifies **3,433/3,433 API cases in each of two orders**, with zero failures/errors/skips/missing IDs and strict complete-scope acceptance. Each collection is the exact union of 16 fresh isolated deterministic shards; reversal occurs within each shard, not a claim of one monolithic reversed process.
+
+**713/713 generated IDs, all former 399 missing IDs, 350/350 mandatory input families, FR-01–FR-10 and BR-01–BR-04 are verified** from real source-bound assertions. Ten personal browser flows pass; the consuming regeneration has six baseline passes and exactly two predicted strict variant failures with four passes. Separate overlapping populations and full links are in [RAYYAN_FINAL_CLOSEOUT.md](reports/RAYYAN_FINAL_CLOSEOUT.md), the final evidence index and machine ledger. Never sum them into a fictitious unique-test total.
+
+All remaining project execution is **Wasay / Wasay's agent — mandatory**, with exact attempts, dependencies and acceptance in root [handoff.md](../../handoff.md) and `finish-line/REMAINING_WORK.json`. Current shared gate evidence is genuinely red for missing Sonar service/credentials and mutation runner/policy; supplied units pass. No independent review, merged PR #8, required branch/deploy enforcement, teammate authorship, human effort or passed viva is inferred.
+
+The PDF/ZIP is a **Rayyan contribution, not the final group submission**. Earlier dated results/ownership below are historical and superseded by the final handoff; they do not assign new execution to Rayyan.
+
+---
+
+### Final immutable producer index
+
+- [45627793460: Final full API, strict complete guards and focused regressions](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460)
+- [45627793417: Ten browser flows and actual consuming regeneration](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793417)
+- [45627793425: 482 business cases, 82 upstream and 24 original units](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793425)
+- [45627793437: 68 tooling + 4 media controls, inventory/schema/freshness](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793437)
+- [45627793546: Two clean foundations and W1/W2 smoke](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793546)
+- [45627793476: 238 validation, 7 advanced, 27 upstream +2 subtests](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793476)
+- [45633245200: Shared quality gate: units pass, missing Sonar/mutation correctly fail aggregate](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45633245200)
+- [45609322121: Preserved previous successful Prompt 3 full source](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121)
+- [45549984738: Retained strict before: 3,431 pass /2 date-order failures per collection](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45549984738)
+
+Artifact IDs/digests, source/merge identities and job timestamps are in finish-line/PROMPT04_VERIFICATION.json; final package/manifests are in finish-line/FINAL_PUBLICATION.json. Original failures and earlier snapshots below remain historical. The experiment variant's strict nonzero XML is retained as a distinct controlled population.
+
+---
+
+## Historical dated appendix (not current ownership or pending work)
+
 ## Verified Prompt 3 result — 25 November 2026
 
 This source-specific result supersedes historical incomplete-input, pending-retest

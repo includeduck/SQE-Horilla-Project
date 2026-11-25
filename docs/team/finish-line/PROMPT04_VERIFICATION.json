@@ -1,0 +1,1449 @@
+{
+  "label": "Final actual source-bound verification; project release HOLD, Rayyan execution closed",
+  "tested_source_sha": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+  "checkout_merge_sha": "801351079aada8c399db2212d9c033737e032e0d",
+  "base_branch_sha": "0a5ac6443dadb50ab5fd6ea749f41dd108a19486",
+  "api_scope_accepted": true,
+  "requirements_verified": true,
+  "summary": {
+    "label": "Derived from actual source-bound JUnit; mappings alone are not passes",
+    "tested_source_sha": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+    "run_id": 45627793460,
+    "evidence": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460",
+    "spec_sha256": "a7fb5df79983a4947ac4c79a4255b2778e3825965d679991d72152d5018be7a4",
+    "data_sha256": "c8714857008c706b39a8aa2149d85911d6b2742fd9c28632a7f6bba48cfc4143",
+    "canonical_generated_cases": 713,
+    "generated_statuses": {
+      "verified-on-recorded-source": 713
+    },
+    "api_cases": 3433,
+    "wire_cases": 2256,
+    "mandatory_input_families": 350,
+    "input_stages": {
+      "2": 334,
+      "3": 16
+    },
+    "input_execution_statuses": {
+      "verified-on-recorded-source": 350
+    },
+    "complete_input_statuses": {
+      "verified-on-recorded-source": 350
+    },
+    "old_399_statuses": {
+      "verified-on-recorded-source": 399
+    },
+    "collections": [
+      {
+        "actual_testcase_count": 3433,
+        "observed_unique_ids": 3433,
+        "stage2_accepted": false,
+        "complete_scope_accepted": true,
+        "failed_error_or_skipped_ids": [],
+        "missing_ids": []
+      },
+      {
+        "actual_testcase_count": 3433,
+        "observed_unique_ids": 3433,
+        "stage2_accepted": false,
+        "complete_scope_accepted": true,
+        "failed_error_or_skipped_ids": [],
+        "missing_ids": []
+      }
+    ],
+    "full_scope_accepted": true
+  },
+  "raw_evidence": {
+    "run_id": 45627793460,
+    "artifact_id": 15033223954,
+    "artifact_digest": "sha256:99a7bf5572bd49df8be2abba4b7559308a7968a0032545a7667b6083c5ce63e4",
+    "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15033223954"
+  },
+  "browser_flows": [
+    {
+      "id": "UC-RAY-01-MAIN",
+      "result": "passed",
+      "oracle": "Five-day requested allocation; zero balance",
+      "run_id": 45627793417
+    },
+    {
+      "id": "UC-RAY-01-A1",
+      "result": "passed",
+      "oracle": "Uploaded synthetic file bytes match owned record",
+      "run_id": 45627793417
+    },
+    {
+      "id": "UC-RAY-01-A2",
+      "result": "passed",
+      "oracle": "Description error then one successful corrected record",
+      "run_id": 45627793417
+    },
+    {
+      "id": "UC-RAY-01-E1",
+      "result": "passed",
+      "oracle": "Missing type refused; no row or balance mutation",
+      "run_id": 45627793417
+    },
+    {
+      "id": "UC-RAY-01-E2",
+      "result": "passed",
+      "oracle": "Missing amount refused; no row or balance mutation",
+      "run_id": 45627793417
+    },
+    {
+      "id": "UC-RAY-02-MAIN",
+      "result": "passed",
+      "oracle": "Three-day requested leave; unchanged five-day balance",
+      "run_id": 45627793417
+    },
+    {
+      "id": "UC-RAY-02-A1",
+      "result": "passed",
+      "oracle": "Same-day matching half produces exactly0.5 requested day",
+      "run_id": 45627793417
+    },
+    {
+      "id": "UC-RAY-02-A2",
+      "result": "passed",
+      "oracle": "Insufficient-balance error then one corrected three-day leave",
+      "run_id": 45627793417
+    },
+    {
+      "id": "UC-RAY-02-E1",
+      "result": "passed",
+      "oracle": "Insufficient balance refused; unchanged records/funds",
+      "run_id": 45627793417
+    },
+    {
+      "id": "UC-RAY-02-E2",
+      "result": "passed",
+      "oracle": "End-before-start refused; unchanged records/funds",
+      "run_id": 45627793417
+    }
+  ],
+  "regeneration": {
+    "baseline_passed": 6,
+    "variant_passed": 4,
+    "variant_expected_failures": 2,
+    "unexpected_failures": 0,
+    "variant_is_canonical": false
+  },
+  "scope_limits": [
+    "Two complete API unions of16 independent fresh deterministic shards, second reversed within shard; not one monolithic process",
+    "Raw failure logs retained; no source-inventory mapping promoted into a pass",
+    "Unit coverage is feasible declared15-function scope, not whole project",
+    "Shared Sonar/mutation/aggregate are actual failures; no owner acceptance or remote merge/deploy enforcement inferred"
+  ],
+  "runs": [
+    {
+      "run_id": 45627793460,
+      "name": "Area 2 verification",
+      "head_sha": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "event": "pull_request",
+      "conclusion": "success",
+      "created_at": "2026-11-25T13:51:08Z",
+      "updated_at": "2026-11-25T14:52:49Z",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460",
+      "jobs": [
+        {
+          "id": 139252527267,
+          "name": "focused",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:51:10Z",
+          "completed_at": "2026-11-25T14:15:25Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252527267"
+        },
+        {
+          "id": 139252528021,
+          "name": "distributed / api (first, 10)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:51:10Z",
+          "completed_at": "2026-11-25T14:16:23Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528021"
+        },
+        {
+          "id": 139252528026,
+          "name": "distributed / api (first, 4)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:57:25Z",
+          "completed_at": "2026-11-25T14:20:37Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528026"
+        },
+        {
+          "id": 139252528041,
+          "name": "distributed / api (first, 3)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:51:22Z",
+          "completed_at": "2026-11-25T14:08:12Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528041"
+        },
+        {
+          "id": 139252528044,
+          "name": "distributed / api (first, 6)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:51:26Z",
+          "completed_at": "2026-11-25T14:06:46Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528044"
+        },
+        {
+          "id": 139252528048,
+          "name": "distributed / api (first, 0)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:51:23Z",
+          "completed_at": "2026-11-25T14:16:27Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528048"
+        },
+        {
+          "id": 139252528054,
+          "name": "distributed / api (first, 2)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:51:21Z",
+          "completed_at": "2026-11-25T14:13:11Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528054"
+        },
+        {
+          "id": 139252528099,
+          "name": "distributed / api (reversed, 4)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:13:13Z",
+          "completed_at": "2026-11-25T14:29:14Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528099"
+        },
+        {
+          "id": 139252528108,
+          "name": "distributed / api (first, 11)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:58:33Z",
+          "completed_at": "2026-11-25T14:19:57Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528108"
+        },
+        {
+          "id": 139252528142,
+          "name": "distributed / api (reversed, 7)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:16:25Z",
+          "completed_at": "2026-11-25T14:38:48Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528142"
+        },
+        {
+          "id": 139252528177,
+          "name": "distributed / api (first, 9)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:01:04Z",
+          "completed_at": "2026-11-25T14:23:46Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528177"
+        },
+        {
+          "id": 139252528183,
+          "name": "distributed / api (first, 13)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:51:10Z",
+          "completed_at": "2026-11-25T14:07:25Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528183"
+        },
+        {
+          "id": 139252528187,
+          "name": "distributed / api (first, 5)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:06:42Z",
+          "completed_at": "2026-11-25T14:32:56Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528187"
+        },
+        {
+          "id": 139252528192,
+          "name": "distributed / api (first, 15)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:51:27Z",
+          "completed_at": "2026-11-25T14:12:39Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528192"
+        },
+        {
+          "id": 139252528195,
+          "name": "distributed / api (reversed, 5)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:13:37Z",
+          "completed_at": "2026-11-25T14:33:39Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528195"
+        },
+        {
+          "id": 139252528198,
+          "name": "distributed / api (reversed, 8)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:16:28Z",
+          "completed_at": "2026-11-25T14:34:14Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528198"
+        },
+        {
+          "id": 139252528202,
+          "name": "distributed / api (first, 7)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:57:57Z",
+          "completed_at": "2026-11-25T14:13:35Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528202"
+        },
+        {
+          "id": 139252528217,
+          "name": "distributed / api (first, 12)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:00:32Z",
+          "completed_at": "2026-11-25T14:15:49Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528217"
+        },
+        {
+          "id": 139252528218,
+          "name": "distributed / api (first, 1)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:01:45Z",
+          "completed_at": "2026-11-25T14:23:04Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528218"
+        },
+        {
+          "id": 139252528238,
+          "name": "distributed / api (reversed, 9)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:18:01Z",
+          "completed_at": "2026-11-25T14:34:45Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528238"
+        },
+        {
+          "id": 139252528239,
+          "name": "distributed / api (reversed, 1)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:07:26Z",
+          "completed_at": "2026-11-25T14:28:36Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528239"
+        },
+        {
+          "id": 139252528244,
+          "name": "distributed / api (reversed, 0)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:06:48Z",
+          "completed_at": "2026-11-25T14:29:48Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528244"
+        },
+        {
+          "id": 139252528270,
+          "name": "distributed / api (reversed, 3)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:12:41Z",
+          "completed_at": "2026-11-25T14:35:24Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528270"
+        },
+        {
+          "id": 139252528271,
+          "name": "distributed / api (reversed, 2)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:08:14Z",
+          "completed_at": "2026-11-25T14:29:57Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528271"
+        },
+        {
+          "id": 139252528280,
+          "name": "distributed / api (reversed, 6)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:15:51Z",
+          "completed_at": "2026-11-25T14:35:41Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528280"
+        },
+        {
+          "id": 139252528301,
+          "name": "distributed / api (first, 14)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:04:52Z",
+          "completed_at": "2026-11-25T14:26:38Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528301"
+        },
+        {
+          "id": 139252528316,
+          "name": "distributed / api (first, 8)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:00:42Z",
+          "completed_at": "2026-11-25T14:17:59Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252528316"
+        },
+        {
+          "id": 139252530351,
+          "name": "distributed / api (reversed, 11)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:20:39Z",
+          "completed_at": "2026-11-25T14:38:35Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252530351"
+        },
+        {
+          "id": 139252530493,
+          "name": "distributed / api (reversed, 10)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:19:59Z",
+          "completed_at": "2026-11-25T14:41:55Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252530493"
+        },
+        {
+          "id": 139252530589,
+          "name": "distributed / api (reversed, 12)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:23:06Z",
+          "completed_at": "2026-11-25T14:40:54Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252530589"
+        },
+        {
+          "id": 139252530765,
+          "name": "distributed / api (reversed, 13)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:23:48Z",
+          "completed_at": "2026-11-25T14:47:11Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252530765"
+        },
+        {
+          "id": 139252530993,
+          "name": "distributed / api (reversed, 15)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:28:38Z",
+          "completed_at": "2026-11-25T14:51:51Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252530993"
+        },
+        {
+          "id": 139252531088,
+          "name": "distributed / api (reversed, 14)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:26:39Z",
+          "completed_at": "2026-11-25T14:52:21Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139252531088"
+        },
+        {
+          "id": 139291385713,
+          "name": "distributed / coverage",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:52:23Z",
+          "completed_at": "2026-11-25T14:52:44Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139291385713"
+        },
+        {
+          "id": 139291641629,
+          "name": "area2",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:52:45Z",
+          "completed_at": "2026-11-25T14:52:48Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/job/139291641629"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 15033965232,
+          "name": "finish02-45627793460-reversed-shard-7",
+          "size_bytes": 133175,
+          "digest": "sha256:b7834cc18460e8b0c3287ff60101079289aff47c20e04213179368d0e1183a53",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15033965232"
+        },
+        {
+          "id": 15033920675,
+          "name": "finish02-45627793460-reversed-shard-12",
+          "size_bytes": 132160,
+          "digest": "sha256:a94b5a5028bdc852b0e1737c5cdb9a7479124ee18b3710befa23ed19f3da1e25",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15033920675"
+        },
+        {
+          "id": 15033421989,
+          "name": "finish02-45627793460-reversed-shard-15",
+          "size_bytes": 134879,
+          "digest": "sha256:c19ee954add53fc6a9ced15310d7c6eeacb6465286c5d85d5cc009514748d399",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15033421989"
+        },
+        {
+          "id": 15033223954,
+          "name": "finish02-coverage-45627793460",
+          "size_bytes": 1934307,
+          "digest": "sha256:99a7bf5572bd49df8be2abba4b7559308a7968a0032545a7667b6083c5ce63e4",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15033223954"
+        },
+        {
+          "id": 15033220726,
+          "name": "finish02-45627793460-reversed-shard-3",
+          "size_bytes": 133235,
+          "digest": "sha256:f5a92ceb0ce3c8fcb80e2b78c093bb68366f497a043239f5ccb0e5c0eeb7b442",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15033220726"
+        },
+        {
+          "id": 15033063164,
+          "name": "finish02-45627793460-reversed-shard-13",
+          "size_bytes": 136320,
+          "digest": "sha256:090230a741a514a285cb0feab5f4ad8b25b6b31425023462bc949f7e446d288a",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15033063164"
+        },
+        {
+          "id": 15033012517,
+          "name": "finish02-45627793460-reversed-shard-10",
+          "size_bytes": 130976,
+          "digest": "sha256:fa3f983a1f3357ec16b7952a290009aa7cc36f48072dfba44c4fd4df8e112ea8",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15033012517"
+        },
+        {
+          "id": 15032989384,
+          "name": "finish02-45627793460-reversed-shard-14",
+          "size_bytes": 140639,
+          "digest": "sha256:09316ad5c47c51b1758cdc6d464803f190345dbd62f9a3377734e5c0d8f2846a",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15032989384"
+        },
+        {
+          "id": 15032940916,
+          "name": "finish02-45627793460-first-shard-14",
+          "size_bytes": 140646,
+          "digest": "sha256:97f09dfa62e2e6399a9998eacb04d394a2ba2bd7dedd63eebd1fa4313956afa8",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15032940916"
+        },
+        {
+          "id": 15032882903,
+          "name": "finish02-45627793460-reversed-shard-11",
+          "size_bytes": 128193,
+          "digest": "sha256:040a240e458fcbbc4d56f2a0d7407e920e7799bbd8a9a629e5e2746abfb08821",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15032882903"
+        },
+        {
+          "id": 15032675734,
+          "name": "finish02-45627793460-first-shard-9",
+          "size_bytes": 131701,
+          "digest": "sha256:c6b3f0425093f2d49c88fab192aa9d21b2b9bd4f91bc57b122948a4b96a90eb5",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15032675734"
+        },
+        {
+          "id": 15032621694,
+          "name": "finish02-45627793460-reversed-shard-1",
+          "size_bytes": 127864,
+          "digest": "sha256:b9dbe9dd23a48b743e164f7858c566257ea1f4b15825b677a3fb0a8f35fd9c18",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15032621694"
+        },
+        {
+          "id": 15032530698,
+          "name": "finish02-45627793460-first-shard-4",
+          "size_bytes": 135015,
+          "digest": "sha256:f73fba84a80efc37931f5cdb716c606d110c36c9ab882160534b81c90250d615",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15032530698"
+        },
+        {
+          "id": 15032263903,
+          "name": "finish02-45627793460-reversed-shard-5",
+          "size_bytes": 135212,
+          "digest": "sha256:9ab4b4442882af4560e5c085a07d314b7a15b346966f7f799fdc32e5f10c011f",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15032263903"
+        },
+        {
+          "id": 15032263223,
+          "name": "finish02-45627793460-reversed-shard-0",
+          "size_bytes": 139103,
+          "digest": "sha256:b73e2690345ead359a8c5e89048b575d5f51740da1902cd7a123ae0ac0bf2775",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15032263223"
+        },
+        {
+          "id": 15032252005,
+          "name": "finish02-45627793460-first-shard-1",
+          "size_bytes": 127732,
+          "digest": "sha256:2248fa2954e1874a23df86ee6404ba7172f0983754adecc280facb38f9aefc69",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15032252005"
+        },
+        {
+          "id": 15031985846,
+          "name": "finish02-45627793460-first-shard-0",
+          "size_bytes": 138950,
+          "digest": "sha256:b621b7a162e0d0c922db3cef29c3b721bff65395df9c47ac9c553fabb06904d5",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15031985846"
+        },
+        {
+          "id": 15031985162,
+          "name": "finish02-45627793460-first-shard-15",
+          "size_bytes": 134838,
+          "digest": "sha256:0c1eb61e723620b502099fc862bfbd8cd41a7e4c92dcb0b81402421aa1eb4101",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15031985162"
+        },
+        {
+          "id": 15031930696,
+          "name": "area2-45627793460-1",
+          "size_bytes": 57526,
+          "digest": "sha256:9246927450d7ce2bf97f76b688a54fdd0c385bf24802cd7171c4887f646274f0",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15031930696"
+        },
+        {
+          "id": 15031911456,
+          "name": "finish02-45627793460-first-shard-11",
+          "size_bytes": 128101,
+          "digest": "sha256:15051de5ddb572e1a392cf40e8623c36091d2187dd37bd73ff900df4beabb9bb",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15031911456"
+        },
+        {
+          "id": 15031888219,
+          "name": "finish02-45627793460-reversed-shard-4",
+          "size_bytes": 135019,
+          "digest": "sha256:5a7ccca09d81a6da4bb21e6033d664e5a678f45209907234c813e20dda8a095e",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15031888219"
+        },
+        {
+          "id": 15031816067,
+          "name": "finish02-45627793460-first-shard-10",
+          "size_bytes": 131156,
+          "digest": "sha256:663229d702b7e08fc3ae4293703e492f598733da7f9dd37d4fa21974a81b39e5",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15031816067"
+        },
+        {
+          "id": 15031771230,
+          "name": "finish02-45627793460-first-shard-8",
+          "size_bytes": 132638,
+          "digest": "sha256:3c3637cb7dd3675e2ddb3d7ae2218eeac62252d135acd72d9c63c94b59ae7acd",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15031771230"
+        },
+        {
+          "id": 15031615636,
+          "name": "finish02-45627793460-first-shard-7",
+          "size_bytes": 133272,
+          "digest": "sha256:d8dc09e18d242c6ef6b9957dc7f2958ac1d3a6a5191c83d26f9f53fe4835dd01",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15031615636"
+        },
+        {
+          "id": 15031575575,
+          "name": "finish02-45627793460-first-shard-2",
+          "size_bytes": 130623,
+          "digest": "sha256:329519c2bc518e88f4d690581738fb2f1e8222c8989ecf0981cf482b2c5f8b68",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15031575575"
+        },
+        {
+          "id": 15031574609,
+          "name": "finish02-45627793460-reversed-shard-9",
+          "size_bytes": 131807,
+          "digest": "sha256:db15f77fa2d388670db068bf8421ae3efa015ddb964ca189a9c9912e296b2cfa",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15031574609"
+        },
+        {
+          "id": 15031534066,
+          "name": "finish02-45627793460-first-shard-5",
+          "size_bytes": 135130,
+          "digest": "sha256:b517da742c7e88a3823ffab22202f97a1eb52317ba379c863967351d24adcd91",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15031534066"
+        },
+        {
+          "id": 15031356531,
+          "name": "finish02-45627793460-first-shard-12",
+          "size_bytes": 132278,
+          "digest": "sha256:459bd6cda5ec93fc6945e8eb18f69d94187a0d719f1817e71d82665d895d8c87",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15031356531"
+        },
+        {
+          "id": 15031029051,
+          "name": "finish02-45627793460-reversed-shard-6",
+          "size_bytes": 122958,
+          "digest": "sha256:bd41870d729fc0b175484a0c868615c61a593f3bffb92fea06494381c294e7da",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15031029051"
+        },
+        {
+          "id": 15030943888,
+          "name": "finish02-45627793460-reversed-shard-2",
+          "size_bytes": 130679,
+          "digest": "sha256:8accda7ee3565b6979e79ad7d8234b6203e787aa8a4628d21f34ee05746386e9",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15030943888"
+        },
+        {
+          "id": 15030735946,
+          "name": "finish02-45627793460-first-shard-6",
+          "size_bytes": 122998,
+          "digest": "sha256:55b50efcba38480ecf9622eafc221b2c0907b7ec4fe5c4dfef57c852b921e025",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15030735946"
+        },
+        {
+          "id": 15030584737,
+          "name": "finish02-45627793460-reversed-shard-8",
+          "size_bytes": 132394,
+          "digest": "sha256:364d48b0ece8150484ab71386e1b8d992f6a38abb6f5aa40056bbd073f09f179",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15030584737"
+        },
+        {
+          "id": 15030144185,
+          "name": "finish02-45627793460-first-shard-3",
+          "size_bytes": 133161,
+          "digest": "sha256:12b7d99a932f630c22d410d5b4738dfcdcf624d9ddb39216b93e26069b122757",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15030144185"
+        },
+        {
+          "id": 15028794664,
+          "name": "finish02-45627793460-first-shard-13",
+          "size_bytes": 136282,
+          "digest": "sha256:32330989357e726d801be4185db7e8fe6534aeade734049999fc183f88c6623e",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460/artifacts/15028794664"
+        }
+      ]
+    },
+    {
+      "run_id": 45627793417,
+      "name": "Phase D verification",
+      "head_sha": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "event": "pull_request",
+      "conclusion": "success",
+      "created_at": "2026-11-25T13:51:08Z",
+      "updated_at": "2026-11-25T14:01:03Z",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793417",
+      "jobs": [
+        {
+          "id": 139252526783,
+          "name": "phase-d (browser)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:51:10Z",
+          "completed_at": "2026-11-25T14:00:31Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793417/job/139252526783"
+        },
+        {
+          "id": 139252526965,
+          "name": "phase-d (regeneration)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:51:10Z",
+          "completed_at": "2026-11-25T14:01:02Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793417/job/139252526965"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 15028958305,
+          "name": "phase-d-regeneration-45627793417-1",
+          "size_bytes": 97553,
+          "digest": "sha256:1269bac2cfaf3f5b1a06ec6b71de81a8d9f9993ee40e886aa3169807ad68c86d",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793417/artifacts/15028958305"
+        },
+        {
+          "id": 15028818326,
+          "name": "phase-d-browser-45627793417-1",
+          "size_bytes": 41275954,
+          "digest": "sha256:a74749630ef65cbae99716a2eb68f433219e03f65f58c1e543ba3eb74b388f36",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793417/artifacts/15028818326"
+        }
+      ]
+    },
+    {
+      "run_id": 45627793425,
+      "name": "Finish 03 business rules",
+      "head_sha": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "event": "pull_request",
+      "conclusion": "success",
+      "created_at": "2026-11-25T13:51:08Z",
+      "updated_at": "2026-11-25T14:08:21Z",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793425",
+      "jobs": [
+        {
+          "id": 139252526826,
+          "name": "business (3)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:51:33Z",
+          "completed_at": "2026-11-25T14:08:20Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793425/job/139252526826"
+        },
+        {
+          "id": 139252527054,
+          "name": "upstream",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:51:10Z",
+          "completed_at": "2026-11-25T13:57:23Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793425/job/139252527054"
+        },
+        {
+          "id": 139252527106,
+          "name": "business (1)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:51:10Z",
+          "completed_at": "2026-11-25T14:07:08Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793425/job/139252527106"
+        },
+        {
+          "id": 139252527107,
+          "name": "business (2)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:51:09Z",
+          "completed_at": "2026-11-25T14:01:43Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793425/job/139252527107"
+        },
+        {
+          "id": 139252527188,
+          "name": "business (0)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:51:10Z",
+          "completed_at": "2026-11-25T14:06:40Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793425/job/139252527188"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 15031380636,
+          "name": "finish03-45627793425-0",
+          "size_bytes": 45550,
+          "digest": "sha256:ef38e4a325e919949ec8337efc1811067859df09a5c67f7c45c0db62bd426d9e",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793425/artifacts/15031380636"
+        },
+        {
+          "id": 15030585430,
+          "name": "finish03-45627793425-2",
+          "size_bytes": 37166,
+          "digest": "sha256:2843beaf609708360152f4a29346bd288e67e6d82745e742d1f98a445e8d0a7e",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793425/artifacts/15030585430"
+        },
+        {
+          "id": 15029278923,
+          "name": "finish03-45627793425-1",
+          "size_bytes": 44142,
+          "digest": "sha256:0e88e51b90fce6f63cc8c6731cb5c08622ba4ef76cedf972f98ac7f683a53240",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793425/artifacts/15029278923"
+        },
+        {
+          "id": 15028954639,
+          "name": "finish03-45627793425-3",
+          "size_bytes": 45738,
+          "digest": "sha256:807d64258d454d3a1f977fe2912d1d2a6426ef5d5a24f03e2fdeaad6c27b21d6",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793425/artifacts/15028954639"
+        },
+        {
+          "id": 15028209690,
+          "name": "finish03-upstream-45627793425",
+          "size_bytes": 10366,
+          "digest": "sha256:662f79258460ba9ebf0aa43d67fb8cd6a303504eda581ea13d0f5d25f832015a",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793425/artifacts/15028209690"
+        }
+      ]
+    },
+    {
+      "run_id": 45627793437,
+      "name": "Finish 01 contract integrity",
+      "head_sha": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "event": "pull_request",
+      "conclusion": "success",
+      "created_at": "2026-11-25T13:51:08Z",
+      "updated_at": "2026-11-25T13:51:32Z",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793437",
+      "jobs": [
+        {
+          "id": 139252526199,
+          "name": "candidate",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:51:10Z",
+          "completed_at": "2026-11-25T13:51:31Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793437/job/139252526199"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 15028841808,
+          "name": "finish01-inventory-45627793437",
+          "size_bytes": 142581,
+          "digest": "sha256:200adf05de19cb5e7ad3c804c51e66b2ac9e9a8db912a7a6e92ab7b3b5d5b5ec",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793437/artifacts/15028841808"
+        }
+      ]
+    },
+    {
+      "run_id": 45627793546,
+      "name": "Finish 01 contract foundation",
+      "head_sha": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "event": "pull_request",
+      "conclusion": "success",
+      "created_at": "2026-11-25T13:51:08Z",
+      "updated_at": "2026-11-25T14:04:51Z",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793546",
+      "jobs": [
+        {
+          "id": 139252526836,
+          "name": "contract (fresh-b)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:51:10Z",
+          "completed_at": "2026-11-25T14:04:50Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793546/job/139252526836"
+        },
+        {
+          "id": 139252527191,
+          "name": "contract (fresh-a)",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:51:10Z",
+          "completed_at": "2026-11-25T14:00:41Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793546/job/139252527191"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 15030072963,
+          "name": "finish01-fresh-a-45627793546-1",
+          "size_bytes": 57032,
+          "digest": "sha256:709627777dca203b25a7301a9e08422d93ec4ffb2c645a0be3b3ab1361caf041",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793546/artifacts/15030072963"
+        },
+        {
+          "id": 15029268622,
+          "name": "finish01-fresh-b-45627793546-1",
+          "size_bytes": 57024,
+          "digest": "sha256:3756b9277805e310f50a2331c1b0e092cd58d4f778516dc2f1bb18c2c855587c",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793546/artifacts/15029268622"
+        }
+      ]
+    },
+    {
+      "run_id": 45627793476,
+      "name": "Finish 02 validation regressions",
+      "head_sha": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "event": "pull_request",
+      "conclusion": "success",
+      "created_at": "2026-11-25T13:51:08Z",
+      "updated_at": "2026-11-25T14:16:10Z",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793476",
+      "jobs": [
+        {
+          "id": 139252526985,
+          "name": "upstream",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:51:10Z",
+          "completed_at": "2026-11-25T13:57:55Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793476/job/139252526985"
+        },
+        {
+          "id": 139252527259,
+          "name": "validation",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:51:10Z",
+          "completed_at": "2026-11-25T14:16:09Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793476/job/139252527259"
+        },
+        {
+          "id": 139252527363,
+          "name": "advanced",
+          "conclusion": "success",
+          "started_at": "2026-11-25T13:51:10Z",
+          "completed_at": "2026-11-25T13:58:32Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793476/job/139252527363"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 15031161892,
+          "name": "finish02-validation-45627793476",
+          "size_bytes": 59276,
+          "digest": "sha256:81f909fd803b7d682917f6fb92ceddb07885cf37d884f66e04e378495ff98d7a",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793476/artifacts/15031161892"
+        },
+        {
+          "id": 15029842509,
+          "name": "finish02-upstream-45627793476",
+          "size_bytes": 3519,
+          "digest": "sha256:7bf460588de8bcaaffc84b6f961f7693cf5f6f9baf12b6c0f06989fe6e49ac89",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793476/artifacts/15029842509"
+        },
+        {
+          "id": 15028803177,
+          "name": "finish02-advanced-45627793476",
+          "size_bytes": 4718,
+          "digest": "sha256:28e166e403e882fa1d1d61bb4706bf7b79d234d7b283b88a3abb037655d59dd8",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793476/artifacts/15028803177"
+        }
+      ]
+    },
+    {
+      "run_id": 45633245200,
+      "name": "SQE team quality gate",
+      "head_sha": "51f89abc40320730509ef42c57b067665d4efdcf",
+      "event": "push",
+      "conclusion": "failure",
+      "created_at": "2026-11-25T14:21:57Z",
+      "updated_at": "2026-11-25T14:23:48Z",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45633245200",
+      "jobs": [
+        {
+          "id": 139271790258,
+          "name": "unit",
+          "conclusion": "success",
+          "started_at": "2026-11-25T14:21:59Z",
+          "completed_at": "2026-11-25T14:23:37Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45633245200/job/139271790258"
+        },
+        {
+          "id": 139271790972,
+          "name": "sonar",
+          "conclusion": "failure",
+          "started_at": "2026-11-25T14:21:59Z",
+          "completed_at": "2026-11-25T14:22:09Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45633245200/job/139271790972"
+        },
+        {
+          "id": 139271791026,
+          "name": "mutation",
+          "conclusion": "failure",
+          "started_at": "2026-11-25T14:22:00Z",
+          "completed_at": "2026-11-25T14:22:09Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45633245200/job/139271791026"
+        },
+        {
+          "id": 139272864125,
+          "name": "team-gate",
+          "conclusion": "failure",
+          "started_at": "2026-11-25T14:23:39Z",
+          "completed_at": "2026-11-25T14:23:47Z",
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45633245200/job/139272864125"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 15032790459,
+          "name": "final-unit-45633245200",
+          "size_bytes": 122724,
+          "digest": "sha256:8af9e8db67e0c04286ecb595d6772e78e524c748804af2adbed23060e0c6374f",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45633245200/artifacts/15032790459"
+        },
+        {
+          "id": 15032461316,
+          "name": "final-sonar-45633245200",
+          "size_bytes": 331,
+          "digest": "sha256:aa687ec1b08566105c60165f5ab59b7a25c86cfa58681dbe0f2fc96b5b30ecf2",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45633245200/artifacts/15032461316"
+        },
+        {
+          "id": 15031987106,
+          "name": "final-team-gate-45633245200",
+          "size_bytes": 348,
+          "digest": "sha256:c271df8b5caa4a91342280b88142013ebf5455e635b140d5a66f52cfadae0060",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45633245200/artifacts/15031987106"
+        },
+        {
+          "id": 15030663142,
+          "name": "final-mutation-45633245200",
+          "size_bytes": 319,
+          "digest": "sha256:abc33604949be5343f06ca5ec761d0134f19b1976679d9ef5491d514bfbeac93",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45633245200/artifacts/15030663142"
+        }
+      ]
+    }
+  ],
+  "remaining": [
+    {
+      "id": "F4-REVIEW",
+      "phase": "C-D",
+      "priority": "P1",
+      "original_owner": "Wasay / repository owner",
+      "references": [
+        "FR-01..FR-10",
+        "BR-01..BR-04",
+        "PR #8",
+        "Issues #14..#31"
+      ],
+      "work": "Independently review the delivered corrections and contribution, merge only after actual required checks/reviews permit it, and close the 18 proposed-fix product Issues only when warranted.",
+      "why": "No independent review exists in the accessible PR reviews collection; protected integration cannot be replaced by this agent approving its own contribution.",
+      "attempts": [
+        "Published source/fixes and full before/after evidence under rayyanhasan899",
+        "Reconciled all 22 Area 2 defect identities; original four accepted Issues closed, remaining 18 kept open"
+      ],
+      "next_action": "Independently review the ready PR #8's actual final diff, source-bound evidence and required checks; resolve owner concerns, then perform protected merge/retest and factual Issue lifecycle updates.",
+      "acceptance": "Actual independent accepted review + permitted merged commit + actual post-integration checks and warranted Issue states.",
+      "evidence": [
+        "https://github.com/includeduck/SQE-Horilla-Project/pull/8",
+        "docs/team/finish-line/PROMPT03_DEFECT_POPULATION.json"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-SONAR",
+      "phase": "D / Area 1",
+      "priority": "P1",
+      "original_owner": "Wasay / Area 1",
+      "references": [
+        "Shared CI gate",
+        "BR-01..BR-04"
+      ],
+      "work": "Provide a reachable configured Sonar service/token, run an actual scan of the final implementation and enforce the supplied proposed new-code quality conditions.",
+      "why": "The local service refused connection; Docker Linux engine is unavailable and WSL reports access denied. Live CI returned a concrete missing SONAR_HOST_URL/SONAR_TOKEN refusal. Historical Sonar baseline is genuine but is not a current-source CI gate.",
+      "attempts": [
+        "Read actual Sonar 26.10 baseline/profile/threshold proposal and raw metrics",
+        "Attempted localhost service and Docker/WSL alternatives",
+        "Implemented exact-revision live server gate, nonempty conditions and no-weaker-than-proposed threshold checks; missing evidence fails"
+      ],
+      "next_action": "Configure SONAR_HOST_URL and SONAR_TOKEN for the existing free service, scan the exact reviewed source using sonar-project.properties, configure the actual proposed conditions and rerun sonar + team-gate.",
+      "acceptance": "Live analysis revision equals reviewed source; gate OK with explicit duplication <=3%, reliability/security A and zero new blocker/high conditions; immutable raw server responses retained.",
+      "evidence": [
+        ".github/workflows/team-quality-gate.yml",
+        "scripts/team/final_quality_gate.py",
+        "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45633245200",
+        "docs/team/reports/SONARQUBE_BASELINE.md"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-MUTATION",
+      "phase": "D / Area 1",
+      "priority": "P1",
+      "original_owner": "Wasay / Area 1",
+      "references": [
+        "BR-01..BR-04",
+        "Mutation and CI brief section 2"
+      ],
+      "work": "Supply and execute the actual business-rule mutation runner, two implemented custom operators, >=15 genuine baseline survivor analyses, kill the killable survivors and justify the mutation threshold from actual results.",
+      "why": "No mutation runner, policy, custom operators or results are present in the published repository; mutation threshold was explicitly deferred in the supplied Sonar report. Those measured results and specialist inputs cannot be invented.",
+      "attempts": [
+        "Audited full tracked tree for mutation tooling and reports",
+        "Implemented a fail-closed invocation/metadata/raw-hash/score/operator/survivor-analysis contract; demonstrated missing-input failure"
+      ],
+      "next_action": "Implement scripts/team/run_mutation.py with --source and --output, add docs/team/mutation_policy.json with measured minimum_score and justification, produce the required raw/hash/source/analysis schema and run the mutation CI job.",
+      "acceptance": "Actual mutmut/Cosmic Ray outputs on reviewed source; two business-rule operators; >=15 unique analysed baseline survivors; all killable survivors killed; measured justified score passes strict gate.",
+      "evidence": [
+        "scripts/team/final_quality_gate.py",
+        ".github/workflows/team-quality-gate.yml",
+        "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45633245200"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-GATE-ADMIN",
+      "phase": "D / shared",
+      "priority": "P1",
+      "original_owner": "Wasay / repository administrator",
+      "references": [
+        "Every-PR CI",
+        "Required merge/deployment checks"
+      ],
+      "work": "Require the actual team-gate check and independent review on sqe-team and enforce equivalent deployment prerequisites; align mandatory producers with every-PR triggering.",
+      "why": "Classic protection access returned HTTP 403 to the integration. An empty ruleset response is not proof of absent protection. Deployment policy/target and administrative authority are not supplied.",
+      "attempts": [
+        "Inspected branch/ref/ruleset/workflow and review metadata",
+        "Added every-PR team unit/Sonar/mutation aggregate with exact-source Area 2/browser/contract dependencies",
+        "Retained real red producer/aggregate evidence without claiming remote merge blocking"
+      ],
+      "next_action": "As repository administrator, inspect actual protection, require observed team-gate and review conditions, ensure all required producers run or have a legitimate exact-source reuse policy on each PR, and enforce deploy gating; demonstrate blocked and corrected PR outcomes.",
+      "acceptance": "Actual settings and remote blocked merge/deployment evidence, then a genuine successful corrected gate; no continue-on-error, forced exits or self-approval.",
+      "evidence": [
+        ".github/workflows/team-quality-gate.yml",
+        "docs/team/AREA2_CI_HANDOFF.md",
+        "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45633245200"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-A1-FINDINGS",
+      "phase": "Area 1 / shared",
+      "priority": "P2",
+      "original_owner": "Wasay / Area 1",
+      "references": [
+        "Issues #11/#12/#13",
+        "BR-01/BR-02",
+        "Unit scope"
+      ],
+      "work": "Resolve the three inherited Area 1 findings and reconcile final unit scope/justified gaps and Sonar findings against the accepted final source.",
+      "why": "These remain actual open Area 1 records: direct model clean with nullable end date, dead month/year code, and invalid stored carry policy. HTTP date normalization and valid choice constraints must be distinguished from a new model-policy decision; no stronger policy or owner triage is invented.",
+      "attempts": [
+        "Ran all supplied 127 team units and the existing 15-function feasible coverage gate",
+        "Preserved real known-behavior reproducers/justified gaps and separated them from the clean HTTP input results",
+        "Did not count Area 1 records in the 22-defect Area 2 Pareto"
+      ],
+      "next_action": "Triage #11-#13 by actual model/form/API reachability; apply source-backed accepted fixes or documented dispositions, adjust justified gaps/critical MCC tables as warranted and retest affected scopes.",
+      "acceptance": "Actual accepted dispositions or strict before/after corrections, accurate current 100%-scope argument and source-bound unit/Sonar evidence; no hidden new uncovered business logic.",
+      "evidence": [
+        "https://github.com/includeduck/SQE-Horilla-Project/issues/11",
+        "https://github.com/includeduck/SQE-Horilla-Project/issues/12",
+        "https://github.com/includeduck/SQE-Horilla-Project/issues/13",
+        "tests/team/unit/coverage_scope.py"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-MEMBER-USECASES",
+      "phase": "D / shared Area 3",
+      "priority": "P1",
+      "original_owner": "Wasay and Zain / their member-attributed contributions",
+      "references": [
+        "Two use cases per member",
+        "W1/W2"
+      ],
+      "work": "Supply the other members' genuine attributed use-case specifications and Playwright flow evidence; retain Rayyan's two cases and ten verified flows.",
+      "why": "The accessible e2e collection contains only the ten Rayyan flows. No authentic other-member use-case/flow contributions are supplied; authorship or their review cannot be fabricated.",
+      "attempts": [
+        "Audited tests/team/e2e and use-case documents; completed and reverified Rayyan's two cases/ten flows"
+      ],
+      "next_action": "Coordinate the remaining member-attributed cases and automate each main/at least two alternative/two exception flows with visible and persisted assertions.",
+      "acceptance": "At least two genuine cases per member across the agreed workflows, all required flows automated and attributed with actual reports and commits.",
+      "evidence": [
+        "docs/team/RAYYAN_USE_CASES.md",
+        "tests/team/e2e/test_rayyan_use_cases.py",
+        "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793417"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-ACCESSIBILITY",
+      "phase": "Area 3",
+      "priority": "P1",
+      "original_owner": "Zain / Area 3, coordinated by Wasay",
+      "references": [
+        "Both workflow screens",
+        "Accessibility/usability brief section 3"
+      ],
+      "work": "Supply keyboard task assertions, Lighthouse and full axe-core scans, deduplicate findings and demonstrate one screen correction with actual before/after reports.",
+      "why": "No Lighthouse/axe scripts or reports and no Area 3 usability contribution are present in the tracked tree. Rayyan's ordinary visible/persisted flow assertions do not establish these distinct measurements.",
+      "attempts": [
+        "Inspected published tests/evidence and preserved the ten passing Rayyan browser flows as completed work"
+      ],
+      "next_action": "Run both workflow tasks including the required correction and keyboard path; scan key screens with Lighthouse and axe, fix one screen and rerun both.",
+      "acceptance": "Actual scripts, focus/keyboard assertions, issue impact/fix records and original before/after Lighthouse/axe/Playwright reports.",
+      "evidence": [
+        "tests/team/e2e",
+        "docs/team/TEAM.md"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-SECURITY",
+      "phase": "Area 3",
+      "priority": "P1",
+      "original_owner": "Zain / Area 3, coordinated by Wasay",
+      "references": [
+        "BR-04",
+        "W1/W2",
+        "Defensive security brief section 4"
+      ],
+      "work": "Supply the browser access matrix/checks, passive ZAP evidence, at least two corroborated security controls and scoped dependency audit.",
+      "why": "Security directory is a placeholder and no authentic passive/dependency/browser-matrix reports are supplied. The strict API authorization matrix is useful completed evidence but does not replace the distinct browser/passive tasks.",
+      "attempts": [
+        "Completed API self/manager/permission/nonowner assertions with unchanged-state checks",
+        "Inspected existing upstream dependency workflow, which targets upstream branches rather than proving the required team assessment"
+      ],
+      "next_action": "Coordinate four browser access checks with at least one allowed and denied action, collect passive ZAP observations for both workflows, corroborate controls and run/interpret the dependency audit.",
+      "acceptance": "Actual role/action expected/observed evidence, passive ZAP and checked package/version findings, risk/root cause/fix records without active attacks or real data.",
+      "evidence": [
+        "tests/team/security",
+        "tests/team/api/test_states_and_decisions.py",
+        "docs/team/TEAM.md"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-PERFORMANCE",
+      "phase": "Area 3",
+      "priority": "P2",
+      "original_owner": "Zain / Area 3, coordinated by Wasay",
+      "references": [
+        "W1/W2 selected operation",
+        "Performance brief section 5"
+      ],
+      "work": "Supply justified pre-run thresholds and comparable k6 runs at one and at least five concurrent users, each setup twice for >=60 seconds after reaching load.",
+      "why": "Performance directory is a placeholder; no genuine pre-run targets, scripts or measured load outputs are supplied. API pytest elapsed time is not a p95/load result.",
+      "attempts": [
+        "Audited available source/evidence; retained test elapsed times only as tool timings"
+      ],
+      "next_action": "Define future p95 and unexpected-error limits before load; execute four controlled comparable k6 runs with the same build/machine/starting data.",
+      "acceptance": "Original scripts/output/environment plus p95, throughput and unexpected failures per run, interpretation against honestly predeclared targets.",
+      "evidence": [
+        "tests/team/perf",
+        "docs/team/TEAM.md"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-RECOVERY",
+      "phase": "Area 3",
+      "priority": "P1",
+      "original_owner": "Zain / Area 3, coordinated by Wasay",
+      "references": [
+        "W1/W2 state-changing operation",
+        "Recovery brief section 5"
+      ],
+      "work": "Supply controlled dependency-failure/recovery automation with persisted failure-state readback, restoration, retry and no duplicate final records/effects.",
+      "why": "Recovery directory is a placeholder and no controlled dependency-failure test is supplied. The completed malformed-body refusal/atomicity regression is not relabelled as a dependency outage experiment.",
+      "attempts": [
+        "Completed state/refund/repetition/invalid-body atomicity checks and preserved their exact boundaries"
+      ],
+      "next_action": "Inject a justified dependency failure before a write, assert persisted state, restore dependency, retry and assert exact successful state/no duplicates.",
+      "acceptance": "Actual deterministic script, failure and recovery observations, source/fixture identity and persisted assertions.",
+      "evidence": [
+        "tests/team/recovery",
+        "tests/team/api/test_business_rules.py",
+        "docs/team/TEAM.md"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-REGISTRATION",
+      "phase": "A / shared administration",
+      "priority": "P2",
+      "original_owner": "Team / Wasay",
+      "references": [
+        "Brief section 1 registration",
+        "SE-5B"
+      ],
+      "work": "Retain the authentic section-sheet repository registration and resolve final human scope acceptance.",
+      "why": "Repository records still carry an unverified registration TODO and no accessible authoritative sheet entry/link or genuine approval record is supplied. Historical facts cannot be created retroactively.",
+      "attempts": [
+        "Checked current team/audit/AI records and reused actual OD-01/OD-02 rather than ask already answered policies"
+      ],
+      "next_action": "Locate the actual registration entry/confirmation and record genuine scope review decisions, or honestly report any historical absence.",
+      "acceptance": "Authentic available registration/scope evidence or explicit truthful unavailable/not-completed disclosure; no invented backdated approval.",
+      "evidence": [
+        "docs/team/AI_USE_RECORD.md",
+        "docs/team/SQE_PHASE_1_PERSONAL_AUDIT.md",
+        "docs/team/SCOPE.md"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-GROUP-PACKAGE",
+      "phase": "D / final submission",
+      "priority": "P1",
+      "original_owner": "Shared, coordinated by Wasay",
+      "references": [
+        "Brief section 6",
+        "All areas",
+        "Final PDF/ZIP/.git"
+      ],
+      "work": "After genuine missing inputs and accepted integration are available, assemble/verify the combined group PDF and ZIP with synchronized accepted .git history and confirmed section filename token.",
+      "why": "Area 3/mutation/current shared gate/accepted history are incomplete. The source checkout on the laptop is stale with preserved uncommitted changes and protected metadata. A clearly labelled Rayyan contribution cannot be called the final group submission.",
+      "attempts": [
+        "Prepared the complete Rayyan contribution, genuine shared unit inputs, actual CI artifacts, PDF, source/evidence whitelist and exact payload/Git-identity manifest",
+        "Excluded active databases, credentials, virtualenvs and unsynchronized .git; did not reset the laptop"
+      ],
+      "next_action": "Coordinate all authentic Area 1/3 results, resolve accepted reviews/gates, confirm whether the official suffix is B or SE-5B, obtain accepted history through permitted clone/fetch and verify the final group package.",
+      "acceptance": "Correct three-roll/section naming, complete evidence-backed all-area PDF, public repo link, reproducible source/scripts/tools, synchronized .git, verified ZIP/payload hashes and honest release/HOLD decision.",
+      "evidence": [
+        "docs/team/AREA2_PACKAGE_MANIFEST.json",
+        "docs/team/reports/RAYYAN_FINAL_CLOSEOUT.md",
+        "handoff.md"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-HUMAN-RECORDS",
+      "phase": "Shared management",
+      "priority": "P2",
+      "original_owner": "Each human contributor / coordinated by Wasay",
+      "references": [
+        "Estimation/GQM/AI disclosure",
+        "Brief sections 2/7"
+      ],
+      "work": "Collect genuine effort, review and progress records if they exist; retain unavailable labels where historical records cannot be substantiated.",
+      "why": "No trustworthy original human timesheet/actual-versus-original-estimate history is supplied. Automated runtime cannot prove personal effort, a human RCA meeting, individual review or a passed viva.",
+      "attempts": [
+        "Disclosed agent use and exact checks; retained actual CI timings as tool durations and kept unmeasured metrics unavailable"
+      ],
+      "next_action": "Coordinate genuine existing human records and truthful shared AI/review acknowledgement; preserve actual authorship and unavailable facts.",
+      "acceptance": "Substantiated records or explicit unavailable labels, never fabricated hours, meetings, retroactive estimates, review or assessment outcomes.",
+      "evidence": [
+        "docs/team/AI_USE_RECORD.md",
+        "docs/team/AREA2_MANAGEMENT.md"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    }
+  ],
+  "rayyan_assignment_closed": true,
+  "project_release": "HOLD",
+  "ownership_statement": "Rayyan will no longer do any further project implementation, testing, integration, documentation, packaging or follow-up execution work. Rayyan's project execution assignment is finished. Every remaining project execution item in the final handoff is now assigned to Muhammad Wasay Tariq / Wasay's agent, and its completion is mandatory for the project. No further technical execution or additional prompt is expected from Rayyan.",
+  "commit_identity_verified": {
+    "author": "rayyanhasan899",
+    "committer": "rayyanhasan899",
+    "sha": "3d104ff3207c70fc57f7e00fde0a630ab63e44a7"
+  },
+  "integration": {
+    "pr": 8,
+    "source_branch": "rayyan/phase-c-evidence",
+    "target": "sqe-team",
+    "independent_reviews": 0,
+    "merge_status": "unmerged",
+    "classic_protection_read": "403 Resource not accessible by integration; enforcement unverified",
+    "rulesets_interpretation": "Empty returned list does not prove no classic protection"
+  },
+  "artifact_harvest": {
+    "run": 45636134082,
+    "initial_failure": "Transient GitHub HTTP500 in summary polling; data was not accepted",
+    "recovery": "Reran only failed collection after pinned full API completed; actual summary/generated exports passed",
+    "product_defect": false
+  }
+}

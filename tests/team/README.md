@@ -1,3 +1,7 @@
+# Final contribution verification
+
+Rayyan execution is closed; all remaining project execution is Wasay / Wasay's agent — mandatory. [Final report](../../docs/team/reports/RAYYAN_FINAL_CLOSEOUT.md) and [handoff](../../handoff.md) are current. API source aeed7b7b verifies 3,433 cases per sharded order, 713 generated IDs, 350 families and 14 assertion-selected requirements. Ten browser flows and the exact controlled regeneration are separately verified. Shared quality failures remain failures; see team-quality-gate.yml. Package reproduction is in finish04-package.yml. No fifth Rayyan prompt is expected. Below is historical technical setup, not current pending ownership.
+
 # Team tests (SE3002 SQE Final Project)
 
 Everything in this folder is written by our team. Upstream tests (e.g. `leave/tests/`) earn no marks and are not counted.

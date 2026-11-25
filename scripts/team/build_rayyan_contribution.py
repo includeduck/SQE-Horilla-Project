@@ -35,6 +35,9 @@ def verify_evidence(root,source):
         assert len(ids)==len(expected) and len(set(ids))==len(ids) and set(ids)==expected
     browser=xml(unique(Path(root)/"browser","browser.xml"))
     assert len(browser)==10 and not any(bad(r) for r in browser)
+    expected_ui={f"UC-RAY-{number:02d}-{flow}" for number in (1,2) for flow in ("MAIN","A1","A2","E1","E2")}
+    observed_ui={re.search(r"UC-RAY-\d{2}-(?:MAIN|A[12]|E[12])",row.get("name","")).group(0) for row in browser}
+    assert observed_ui==expected_ui
     baseline=xml(unique(Path(root)/"regeneration","baseline.xml"))
     variant=xml(unique(Path(root)/"regeneration","variant.xml"))
     assert len(baseline)==len(variant)==6 and not any(bad(r) for r in baseline)
@@ -102,6 +105,7 @@ def make_pdf(path,data,verified,requirements):
     table(["Population","Actual / denominator","Interpretation"],data["coverage"],[145,125,225])
     text("Each complete API collection contains "+str(verified["api_cases"])+" unique cases. The two orders and focused/upstream populations overlap and are never added into a fictitious unique total.")
     table(["Requirement","Required cases per order","Result"],[[r["requirement"],len(r["required_case_ids"]),r["status"]] for r in requirements["requirements"]],[95,130,270])
+    table(["Browser flow","Verified result","Persisted / visible oracle"],[[r["id"],r["result"],r["oracle"]] for r in data["browser_flows"]],[100,70,325])
     head("3. Commands, versions and immutable evidence")
     for command in data["commands"]:text(command)
     for row in data["runs"]:text(str(row["id"])+" | "+row["name"]+" | "+row["url"])
@@ -150,7 +154,7 @@ def main():
     data=read("docs/team/finish-line/FINAL_CLOSEOUT_DATA.json")
     verified,req=verify_evidence(a.evidence,data["tested_source"])
     pdf=out/"Rayyan_24I-3000_Final_Contribution.pdf";make_pdf(pdf,data,verified,req)
-    allowed_prefix=("tests/team/","scripts/team/","docs/team/",".github/workflows/")
+    allowed_prefix=("tests/team/","scripts/team/","docs/team/",".github/workflows/",".github/scripts/")
     exact={"Communication.md","handoff.md","requirements.txt","sonar-project.properties","LICENSE","README.md",
         "horilla/config.py","horilla/filters.py","horilla/models.py","horilla_api/api_decorators/base/decorators.py",
         "horilla_api/api_methods/base/methods.py","horilla_api/api_serializers/leave/serializers.py","horilla_api/api_views/leave/views.py","leave/forms.py"}
@@ -159,6 +163,7 @@ def main():
     deny={".db",".sqlite",".sqlite3",".sql",".pem",".key",".pfx"}
     for name in paths:
         if not name or not(name in exact or name.startswith(allowed_prefix)):continue
+        if name=="docs/team/finish-line/FINAL_PUBLICATION.json":continue
         path=Path(name)
         if path.suffix.lower() in deny or path.name==".env" or any(x in path.parts for x in (".git",".venv","node_modules","media","__pycache__")):continue
         if path.is_file():payload["source/"+name]=path.read_bytes()

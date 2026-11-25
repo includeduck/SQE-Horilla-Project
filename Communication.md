@@ -1,3 +1,13 @@
+# Final execution allocation — 25 November 2026
+
+Rayyan will no longer do any further project implementation, testing, integration, documentation, packaging or follow-up execution work. Rayyan's project execution assignment is finished. Every remaining project execution item in the final handoff is now assigned to Muhammad Wasay Tariq / Wasay's agent, and its completion is mandatory for the project. No further technical execution or additional prompt is expected from Rayyan.
+
+This repository publication records allocation, not teammate acceptance or private messaging. PR8 and Issue1 link the [closeout](docs/team/reports/RAYYAN_FINAL_CLOSEOUT.md), [handoff](handoff.md) and [checklist](docs/team/reports/PHASES_A_D_REMAINING_CHECKLIST.md). Project HOLD remains for thirteen stable F4 obligations; personal assessment remains separate.
+
+---
+
+## Historical dated communication
+
 ## Verified Prompt 3 result — 25 November 2026
 
 This source-specific result supersedes historical incomplete-input, pending-retest

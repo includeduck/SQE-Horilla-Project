@@ -1,3 +1,13 @@
+# Final evidence qualification —25 November 2026
+
+Actual final supplied-unit execution is 127 passed (no required xfail) on 51f89abc, run 45633245200. Existing declared15-function scope meets100% feasible statement/branch conditions with the recorded1line/2branch infeasibility exclusions. This is not whole-project coverage or an independent approval. Seven meaningful synthetic gate controls pass separately; they are not product or mutation results. Area1 Issues11–13 remain open with mandatory Wasay disposition in the final handoff.
+
+[Final closeout](RAYYAN_FINAL_CLOSEOUT.md) and [handoff](../../../handoff.md) are authoritative. Rayyan execution is closed; no additional technical prompt or execution is expected.
+
+---
+
+## Attributed historical report
+
 # White-box Unit Testing (Area 1)
 
 Owner: Muhammad Wasay Tariq (24I-3071). Brief §2, Unit level: "100% statement and branch coverage of all server-side business logic; justify any uncovered code. Critical module: complete MCC, then MC/DC pairs from the MCC tables. Cover all four business rules."

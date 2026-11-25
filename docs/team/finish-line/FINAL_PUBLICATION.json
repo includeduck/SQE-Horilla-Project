@@ -1,0 +1,11 @@
+{
+  "label": "External publication index; package snapshots exclude this self-referential runtime record",
+  "source_verified": true,
+  "tested_application_sha": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+  "api_run": 45627793460,
+  "assignment_closed": true,
+  "project_release": "HOLD",
+  "package_workflow": ".github/workflows/finish04-package.yml",
+  "package_status": "See actual workflow/artifact results and final publication update; no fabricated PDF/ZIP result",
+  "no_further_rayyan_execution": true
+}

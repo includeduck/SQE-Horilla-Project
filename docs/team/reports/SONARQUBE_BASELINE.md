@@ -1,3 +1,13 @@
+# Final evidence qualification —25 November 2026
+
+The baseline below is genuine historical analysis, not a current-source CI acceptance. Actual run 45633245200 rejects missing SONAR_HOST_URL/SONAR_TOKEN; no live current metrics or remote enforced merge/deploy block is claimed. Current-service analysis, proposed condition enforcement and administrative requirements remain mandatory Wasay work (F4-SONAR/F4-GATE-ADMIN).
+
+[Final closeout](RAYYAN_FINAL_CLOSEOUT.md) and [handoff](../../../handoff.md) are authoritative. Rayyan execution is closed; no additional technical prompt or execution is expected.
+
+---
+
+## Attributed historical report
+
 # SonarQube Baseline Analysis (Area 1)
 
 Owner: Muhammad Wasay Tariq (24I-3071). Brief §2: "Run SonarQube on the project. Report the relevant metrics … and explain what each shows. Hand-calculate cyclomatic complexity for one business-rule function from its CFG and compare it with SonarQube."

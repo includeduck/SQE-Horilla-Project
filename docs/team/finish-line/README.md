@@ -1,3 +1,13 @@
+# Final state of Rayyan's four-prompt sequence
+
+25 November 2026: all four prompts reach definitive assignment closeout. No fifth prompt or additional technical execution is expected from Rayyan. [Closeout](../reports/RAYYAN_FINAL_CLOSEOUT.md) and [handoff](../../../handoff.md) state actual verification, mandatory remaining work and project HOLD. FINAL_PUBLICATION.json records exact package/publication provenance. Historical prompts remain history, not new pending tasks.
+
+Rayyan will no longer do any further project implementation, testing, integration, documentation, packaging or follow-up execution work. Rayyan's project execution assignment is finished. Every remaining project execution item in the final handoff is now assigned to Muhammad Wasay Tariq / Wasay's agent, and its completion is mandatory for the project. No further technical execution or additional prompt is expected from Rayyan.
+
+---
+
+## Historical execution contract and authorization
+
 # Rayyan's four-prompt technical completion sequence
 
 Prepared 24 November 2026 for includeduck/SQE-Horilla-Project.

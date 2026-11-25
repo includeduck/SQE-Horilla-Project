@@ -1,0 +1,1028 @@
+{
+  "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+  "scope": [
+    "Rayyan owns the Area 2 contract/generator/API contribution and two personal use cases. Attributed shared Area 1 files are incorporated as supplied; other members' authorship or acceptance is not claimed.",
+    "Selected scope retains FR-01 to FR-10 and BR-01 to BR-04, 34 operation IDs, W1 allocation and W2 leave lifecycles, original generated identities and existing OD-01/OD-02 decisions.",
+    "Expected values come from inspected serializer/model/helper rules and independently computed fixtures. Real HTTP, JWT, multipart storage, exact field errors, object identity, row counts and requester/actor/outsider balances distinguish execution from a mapped inventory.",
+    "Fresh disposable SQLite/media foundations and independent shard jobs protect existing user data. No PostgreSQL, concurrent idempotency or arbitrary new allocation-positive policy is claimed.",
+    "Optional normalized reasons, 1,000-character helper truncation and LeaveRequest TextField's 255 metadata are documented separately. Real backend results prevail over a mistaken standalone TextField.clean assumption."
+  ],
+  "stages": [
+    [
+      "A",
+      "Fresh foundations twice, source/tool configuration, W1/W2 smoke and contract provenance.",
+      "Original unavailable archive and retrospective human approvals are not fabricated."
+    ],
+    [
+      "B",
+      "Canonical reader, deterministic regeneration, schema/freshness/negative controls; all 713 labels traced.",
+      "Supported dialect and explicit source rules bound the scope."
+    ],
+    [
+      "C",
+      "All 3,433 API cases twice; 350 families and 14 requirements; 22 defect identities reconciled.",
+      "18 corrections still await independent accepted integration."
+    ],
+    [
+      "D",
+      "Ten personal browser flows; consuming regeneration; CI failure propagation; final reports and contribution package.",
+      "Missing genuine group inputs and administrative release proof are mandatory Wasay work."
+    ]
+  ],
+  "coverage": [
+    [
+      "Complete API",
+      "3,433 / 3,433 each order",
+      "16 isolated deterministic shards per order; first then reverse within shard; no missing, skipped, failed or duplicate IDs."
+    ],
+    [
+      "Generated identity",
+      "713 / 713",
+      "Includes all 399 formerly missing IDs; retains all 578 originals plus 135 added labels."
+    ],
+    [
+      "Mandatory inputs",
+      "350 / 350",
+      "334 contract/wire plus 16 business/reason families, with actual assertions."
+    ],
+    [
+      "FR and BR",
+      "10 / 10; 4 / 4",
+      "Explicit assertion selectors, both complete orders, correct source/spec lineage."
+    ],
+    [
+      "Wire encodings",
+      "2,256 cases",
+      "Supplementary wire corpus within the unique API population; not an extra unique total."
+    ],
+    [
+      "Decision/state",
+      "24 feasible + 8 infeasible; 8 role rows; 50 base state cases",
+      "Current added business/role cases extend these preserved original populations."
+    ],
+    [
+      "Business/role/lifecycle",
+      "482 / 482",
+      "Four strict shards; overlaps complete API."
+    ],
+    [
+      "Affected upstream/team",
+      "82 upstream + 24 original team",
+      "Separate regression collection; not added to API unique denominator."
+    ],
+    [
+      "Focused/expanded",
+      "16; 8 upstream; 182 expanded",
+      "Separate, overlapping coverage."
+    ],
+    [
+      "Validation/filter/upstream",
+      "238; 7; 27 + 2 subtests",
+      "Separate populations with retained reports."
+    ],
+    [
+      "Personal UI",
+      "10 / 10",
+      "Two use cases with basic/alternate/exception paths; screenshots/traces/readback."
+    ],
+    [
+      "Controlled edit",
+      "6 baseline pass; variant 4 pass / 2 predicted failures",
+      "Actual consumer mismatches retained; variant is not a production all-pass run."
+    ],
+    [
+      "Independent tools/storage",
+      "68 + 4",
+      "Includes negative producer, stale-reader, malformed/empty/missing-result controls."
+    ],
+    [
+      "Fresh foundations",
+      "2 x (1 foundation + 5 smoke)",
+      "Isolated runtime/database/media with genuine smoke XML."
+    ],
+    [
+      "Supplied unit / gate controls",
+      "127 pass; 100% feasible declared scope; 7 controls",
+      "Measured on 51f89abc; excludes whole-project coverage claims."
+    ]
+  ],
+  "commands": [
+    "python tests/team/contract/inventory.py --output <fresh-evidence-directory> (source inventory only; execution is reconciled separately)",
+    "python tests/team/generator/generate.py --spec tests/team/generator/openapi.json --bindings tests/team/generator/bindings.json --output tests/team/generator/generated_cases.json --check",
+    "python -m unittest discover -s tests/team/generator -p 'test_*.py' -v; OpenAPI schema validator; media reader controls",
+    "python -m pytest -c tests/team/pytest-area2.ini -p area2_order tests/team/api [--area2-reverse] --area2-shards=16 --area2-shard=N -v -s -o junit_family=xunit1 --junitxml=<order>-shard-N.xml (N=0..15, fresh jobs)",
+    "python tests/team/generator/coverage_guard.py --require-complete --junit <all first XML> --output coverage-first.json; repeat reversed and combined",
+    "python tests/team/generator/record_execution.py --stage 3 --source <tested source> --run 45627793460 --report coverage-first.json --report coverage-reversed.json --evidence <run URL>",
+    "python tests/team/generator/requirement_evidence.py --source <tested source> --report coverage-first.json --report coverage-reversed.json --output PROMPT03_REQUIREMENT_EVIDENCE.json",
+    "Browser and regeneration exact commands, environments and actual exit codes are in .github/workflows/phase-d-verification.yml and pinned raw logs.",
+    "python -m pytest -c tests/team/pytest-unit.ini tests/team/unit --cov=leave --cov=horilla_api.api_views.leave --cov-branch --cov-report=json:coverage.json --cov-report=xml:coverage.xml; python tests/team/unit/coverage_scope.py coverage.json",
+    "python -m unittest discover -s tests/team/ci -p 'test_*.py' -v; final_quality_gate.py sonar|mutation|aggregate --source <source> --output <raw JSON>",
+    "python scripts/team/build_rayyan_contribution.py --evidence <downloaded pinned artifacts> --output <out>; unzip/check every payload SHA256 and tracked Git blob identity."
+  ],
+  "runs": [
+    {
+      "id": 45627793460,
+      "name": "Final full API, strict complete guards and focused regressions",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460"
+    },
+    {
+      "id": 45627793417,
+      "name": "Ten browser flows and actual consuming regeneration",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793417"
+    },
+    {
+      "id": 45627793425,
+      "name": "482 business cases, 82 upstream and 24 original units",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793425"
+    },
+    {
+      "id": 45627793437,
+      "name": "68 tooling + 4 media controls, inventory/schema/freshness",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793437"
+    },
+    {
+      "id": 45627793546,
+      "name": "Two clean foundations and W1/W2 smoke",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793546"
+    },
+    {
+      "id": 45627793476,
+      "name": "238 validation, 7 advanced, 27 upstream +2 subtests",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793476"
+    },
+    {
+      "id": 45633245200,
+      "name": "Shared quality gate: units pass, missing Sonar/mutation correctly fail aggregate",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45633245200"
+    },
+    {
+      "id": 45609322121,
+      "name": "Preserved previous successful Prompt 3 full source",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121"
+    },
+    {
+      "id": 45549984738,
+      "name": "Retained strict before: 3,431 pass /2 date-order failures per collection",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45549984738"
+    }
+  ],
+  "version_notes": [
+    "Final runtime logs record CPython 3.12.16, Django 5.2.19, DRF 3.18.3, pytest 9.2.0, pytest-django 4.14.0, OpenAPI validator 0.7.2; original application requirements were not rewritten.",
+    "Browser logs record Playwright 1.65.2 and Chromium 159.0.8154.6 (build v1255). ReportLab 4.0.9 builds this report. Exact installed package outputs and warnings remain raw evidence.",
+    "Actual synthetic merge checkout: 801351079aada8c399db2212d9c033737e032e0d, merging aeed7b7b into sqe-team 0a5ac644. API JUnit source_sha records the PR head, not a claim that sqe-team is already merged.",
+    "Final CI/report/packaging commits are separately recorded by the exact Git revision and package manifest; application/API consumer source remains the tested source. Documentation publication does not imply another full product run.",
+    "Historical Sonar baseline (2242c502, Community 26.10.0.133078 / pysonar 1.11.0.6012) is retained but cannot certify a current-source quality gate."
+  ],
+  "defect_summary": "22 distinct confirmed Area 2 product defects across dated builds: four original merged/closed corrections and eighteen strictly retested proposals awaiting independent integration. This is not a count of failures in the final passing build. Fix SHAs and before/after references are in PROMPT03_DEFECT_POPULATION.json and AREA2_DEFECTS.md.",
+  "defects": [
+    {
+      "id": "A2-D01",
+      "issue": 4,
+      "category": "Balance and effective entitlement",
+      "fix": "546cb62042ae5284a030c9b65fb249d532a77322",
+      "title": "A2-D01: rejecting approved leave refunds the acting approver instead of requester",
+      "state": "Merged / Issue closed",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/4",
+      "final_retest_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "final_retest_run": 45627793460
+    },
+    {
+      "id": "A2-D02",
+      "issue": 5,
+      "category": "Ownership and authorization",
+      "fix": "546cb62042ae5284a030c9b65fb249d532a77322",
+      "title": "A2-D02: foreign-owned self-allocation PUT and DELETE return 500",
+      "state": "Merged / Issue closed",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/5",
+      "final_retest_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "final_retest_run": 45627793460
+    },
+    {
+      "id": "A2-D03",
+      "issue": 6,
+      "category": "Balance and effective entitlement",
+      "fix": "546cb62042ae5284a030c9b65fb249d532a77322",
+      "title": "A2-D03: API leave creation ignores carry-forward policy cap",
+      "state": "Merged / Issue closed",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/6",
+      "final_retest_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "final_retest_run": 45627793460
+    },
+    {
+      "id": "A2-D04",
+      "issue": 29,
+      "category": "State, duplication and refusal atomicity",
+      "fix": "32621b42b6ec9a64f81f4540eea151ede4acbb2e",
+      "title": "A2-D04: Identical pending allocation submissions create duplicate records",
+      "state": "Retested proposed fix; Issue open pending integration",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/29",
+      "final_retest_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "final_retest_run": 45627793460
+    },
+    {
+      "id": "A2-D05",
+      "issue": 30,
+      "category": "State, duplication and refusal atomicity",
+      "fix": "32621b42b6ec9a64f81f4540eea151ede4acbb2e",
+      "title": "A2-D05: Ordinary rejection accepts an already cancelled leave request",
+      "state": "Retested proposed fix; Issue open pending integration",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/30",
+      "final_retest_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "final_retest_run": 45627793460
+    },
+    {
+      "id": "A2-D09",
+      "issue": 3,
+      "category": "Attachment path construction",
+      "fix": "a1cfb4ab81c993684f6917c4db4d43d4d7e1fd83",
+      "title": "A2-D09: accepted extensionless attachment filenames fail storage at 99/100 characters",
+      "state": "Merged / Issue closed",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/3",
+      "final_retest_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "final_retest_run": 45627793460
+    },
+    {
+      "id": "A2-D10",
+      "issue": 31,
+      "category": "Form amount requiredness",
+      "fix": "bf44fe6c5a30a206f0a2b40f251b5b4d01f8c82c",
+      "title": "A2-D10: Browser allocation form accepts an empty requested-days amount",
+      "state": "Retested proposed fix; Issue open pending integration",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/31",
+      "final_retest_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "final_retest_run": 45627793460
+    },
+    {
+      "id": "A2-P2-01",
+      "issue": 21,
+      "category": "Input, lookup, filter and renderer errors",
+      "fix": "a8a7a7d0106cd0abfbef9fecf91e1911c38a0013",
+      "title": "A2-P2-01: Malformed employee identifiers crash the target permission lookup",
+      "state": "Retested proposed fix; Issue open pending integration",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/21",
+      "final_retest_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "final_retest_run": 45627793460
+    },
+    {
+      "id": "A2-P2-02",
+      "issue": 22,
+      "category": "Input, lookup, filter and renderer errors",
+      "fix": "59537e7e9e9fe6e8cf7dd6e1f2eb3c79cd2d4a82",
+      "title": "A2-P2-02: Non-object API bodies crash server-owned identity injection",
+      "state": "Retested proposed fix; Issue open pending integration",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/22",
+      "final_retest_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "final_retest_run": 45627793460
+    },
+    {
+      "id": "A2-P2-03",
+      "issue": 23,
+      "category": "Input, lookup, filter and renderer errors",
+      "fix": "59537e7e9e9fe6e8cf7dd6e1f2eb3c79cd2d4a82",
+      "title": "A2-P2-03: Invalid groupby_field escapes as an API server error",
+      "state": "Retested proposed fix; Issue open pending integration",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/23",
+      "final_retest_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "final_retest_run": 45627793460
+    },
+    {
+      "id": "A2-P2-04",
+      "issue": 24,
+      "category": "Ownership and authorization",
+      "fix": "59537e7e9e9fe6e8cf7dd6e1f2eb3c79cd2d4a82",
+      "title": "A2-P2-04: Generic allocation creation accepts an unauthorized foreign employee",
+      "state": "Retested proposed fix; Issue open pending integration",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/24",
+      "final_retest_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "final_retest_run": 45627793460
+    },
+    {
+      "id": "A2-P2-05",
+      "issue": 25,
+      "category": "Input, lookup, filter and renderer errors",
+      "fix": "796b84bdadb887dfeec92e3e1a8e36cbf054b670",
+      "title": "A2-P2-05: Zero detail IDs lose the route argument in permission dispatch",
+      "state": "Retested proposed fix; Issue open pending integration",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/25",
+      "final_retest_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "final_retest_run": 45627793460
+    },
+    {
+      "id": "A2-P2-06",
+      "issue": 26,
+      "category": "Input, lookup, filter and renderer errors",
+      "fix": "796b84bdadb887dfeec92e3e1a8e36cbf054b670",
+      "title": "A2-P2-06: Malformed AJAX relation filter choices crash before form validation",
+      "state": "Retested proposed fix; Issue open pending integration",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/26",
+      "final_retest_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "final_retest_run": 45627793460
+    },
+    {
+      "id": "A2-P2-07",
+      "issue": 27,
+      "category": "Input, lookup, filter and renderer errors",
+      "fix": "796b84bdadb887dfeec92e3e1a8e36cbf054b670",
+      "title": "A2-P2-07: Sessionless JWT HTML API responses crash sidebar menu construction",
+      "state": "Retested proposed fix; Issue open pending integration",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/27",
+      "final_retest_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "final_retest_run": 45627793460
+    },
+    {
+      "id": "A2-P2-08",
+      "issue": 28,
+      "category": "Input, lookup, filter and renderer errors",
+      "fix": "796b84bdadb887dfeec92e3e1a8e36cbf054b670",
+      "title": "A2-P2-08: Malformed registered advanced date filters return 500",
+      "state": "Retested proposed fix; Issue open pending integration",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/28",
+      "final_retest_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "final_retest_run": 45627793460
+    },
+    {
+      "id": "A2-P3-01",
+      "issue": 14,
+      "category": "Balance and effective entitlement",
+      "fix": "e4d6f3ce5e0f57ce9e20667096bf30a58a2b50e2",
+      "followup": "4a719a178941f1a935c4acf29ad7170dc0005dac",
+      "title": "A2-P3-01: API accepts zero and negative effective leave duration",
+      "state": "Retested proposed fix; Issue open pending integration",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/14",
+      "final_retest_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "final_retest_run": 45627793460
+    },
+    {
+      "id": "A2-P3-02",
+      "issue": 15,
+      "category": "Balance and effective entitlement",
+      "fix": "e4d6f3ce5e0f57ce9e20667096bf30a58a2b50e2",
+      "followup": null,
+      "title": "A2-P3-02: API excludes another employee's specific holiday and accepts an over-balance request",
+      "state": "Retested proposed fix; Issue open pending integration",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/15",
+      "final_retest_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "final_retest_run": 45627793460
+    },
+    {
+      "id": "A2-P3-03",
+      "issue": 16,
+      "category": "Balance and effective entitlement",
+      "fix": "e4d6f3ce5e0f57ce9e20667096bf30a58a2b50e2",
+      "followup": null,
+      "title": "A2-P3-03: API refuses valid forecast entitlement at and after the reset boundary",
+      "state": "Retested proposed fix; Issue open pending integration",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/16",
+      "final_retest_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "final_retest_run": 45627793460
+    },
+    {
+      "id": "A2-P3-04",
+      "issue": 17,
+      "category": "Breakdown-aware overlap",
+      "fix": "e4d6f3ce5e0f57ce9e20667096bf30a58a2b50e2",
+      "followup": null,
+      "title": "A2-P3-04: API rejects complementary non-overlapping half-day leave requests",
+      "state": "Retested proposed fix; Issue open pending integration",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/17",
+      "final_retest_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "final_retest_run": 45627793460
+    },
+    {
+      "id": "A2-P3-05",
+      "issue": 18,
+      "category": "Balance and effective entitlement",
+      "fix": "e4d6f3ce5e0f57ce9e20667096bf30a58a2b50e2",
+      "followup": null,
+      "title": "A2-P3-05: Approval ignores current carry-forward policy/cap",
+      "state": "Retested proposed fix; Issue open pending integration",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/18",
+      "final_retest_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "final_retest_run": 45627793460
+    },
+    {
+      "id": "A2-P3-06",
+      "issue": 19,
+      "category": "State, duplication and refusal atomicity",
+      "fix": "e4d6f3ce5e0f57ce9e20667096bf30a58a2b50e2",
+      "followup": null,
+      "title": "A2-P3-06: Malformed approved-allocation rejection deducts balance before returning 400",
+      "state": "Retested proposed fix; Issue open pending integration",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/19",
+      "final_retest_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "final_retest_run": 45627793460
+    },
+    {
+      "id": "A2-P3-07",
+      "issue": 20,
+      "category": "Ownership and authorization",
+      "fix": "e4d6f3ce5e0f57ce9e20667096bf30a58a2b50e2",
+      "followup": "83666052c12d483b01d3f373fdf665b32b9f48ab",
+      "title": "A2-P3-07: Generic update lets an ordinary owner transfer a request to another employee",
+      "state": "Retested proposed fix; Issue open pending integration",
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/20",
+      "final_retest_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+      "final_retest_run": 45627793460
+    }
+  ],
+  "defect_notes": [
+    "Original four/seven-defect tables and failed-build artifacts are preserved as dated history. The P3 date-order diagnostic correction is part of A2-P3-01, not a 23rd defect.",
+    "Area 1 Issues #11-#13 are separate inherited findings; Issue #1 is coordination. Harness mistakes, duplicate parametrizations and controlled variant failures are excluded.",
+    "OD-01 terminal cancellation and OD-02 pending duplicate behavior reuse existing owner decisions. No human triage, independent review, merge or personal assessment is inferred."
+  ],
+  "rca": [
+    {
+      "title": "A2-D01: approved-leave rejection refunded the actor instead of requester (Issue #4)",
+      "whys": [
+        "Requester balance was not restored on approved rejection.",
+        "The refund lookup selected the authenticated acting employee.",
+        "The actor can be the approver while request.employee_id is a different employee.",
+        "Correct status alone did not establish the balance-owner invariant.",
+        "A status-only test cannot detect the cross-user credit; this last point is a test-design inference, not a claim about past human practice."
+      ],
+      "factors": [
+        "Actor lookup",
+        "Owner identity",
+        "Split refund",
+        "State-only oracle"
+      ],
+      "control": "Correction 546cb620 uses the request owner and stored available/carry split. Distinct requester/actor/outsider snapshots and exact debit/refund/repeat controls now pass; source-backed observed chain, no invented organizational cause."
+    },
+    {
+      "title": "A2-D03: submission used raw carry balance instead of policy cap (Issue #6)",
+      "whys": [
+        "Leave exceeding effective entitlement was accepted.",
+        "The submission calculation used raw stored carry-forward.",
+        "Stored carry can be five while current policy cap is one.",
+        "Submission and existing policy calculation could diverge.",
+        "An under-cap fixture cannot distinguish these rules; this is a logical boundary-testing inference."
+      ],
+      "factors": [
+        "Stored carry",
+        "Policy cap",
+        "Submission",
+        "Boundary fixture"
+      ],
+      "control": "Correction 546cb620 applies the existing carry policy at submission; P3 current-policy approval checks prevent a later over-cap grant. Independent capped/no-carry/forecast/expiry fixtures assert rejection and unchanged funds; no new arbitrary policy is invented."
+    }
+  ],
+  "pareto": [
+    [
+      "Input, lookup, filter and renderer errors",
+      "7",
+      "31.82%",
+      "31.82%"
+    ],
+    [
+      "Balance and effective entitlement",
+      "6",
+      "27.27%",
+      "59.09%"
+    ],
+    [
+      "Ownership and authorization",
+      "3",
+      "13.64%",
+      "72.73%"
+    ],
+    [
+      "State, duplication and refusal atomicity",
+      "3",
+      "13.64%",
+      "86.36%"
+    ],
+    [
+      "Attachment path construction",
+      "1",
+      "4.55%",
+      "90.91%"
+    ],
+    [
+      "Form amount requiredness",
+      "1",
+      "4.55%",
+      "95.45%"
+    ],
+    [
+      "Breakdown-aware overlap",
+      "1",
+      "4.55%",
+      "100.00%"
+    ]
+  ],
+  "risks": [
+    [
+      "R01",
+      "4 x 5 = 20",
+      "Duration, target holidays, capped/no-carry/forecast/expiry/current approval and exact funds verified; accepted integration pending."
+    ],
+    [
+      "R02",
+      "3 x 5 = 15",
+      "Distinct requester/actor/outsider balances, original/new-target authorization verified; concurrent guarantees not claimed."
+    ],
+    [
+      "R03",
+      "3 x 4 = 12",
+      "OD-02 sequential duplicate refusal and repeat grant/debit/refund verified; concurrency outside accepted scope."
+    ],
+    [
+      "R04",
+      "3 x 4 = 12",
+      "OD-01 terminal rules, complete original graph and refusal atomicity verified; independent graph acceptance pending."
+    ],
+    [
+      "R05",
+      "4 x 4 = 16",
+      "713 IDs, 350 families, complete two-order guards, schema and regeneration controls verified; honest exact package provenance."
+    ],
+    [
+      "R06",
+      "3 x 3 = 9",
+      "Filename bounds and uploaded-byte readback verified; original correction merged."
+    ],
+    [
+      "R07",
+      "4 x 4 = 16",
+      "Ten visible/persisted UI flows verified; human review/viva and other members' genuine flows remain separate."
+    ],
+    [
+      "R08",
+      "3 x 4 = 12",
+      "Dates/breakdowns/filter/query/reference/media/decision controls verified; shared Area 3 evidence absent."
+    ],
+    [
+      "J01",
+      "4 x 5 = 20",
+      "Free Actions substituted for unavailable runtime; original local dirty/stale checkout preserved. Owner must preserve it during integration."
+    ],
+    [
+      "J02",
+      "4 x 4 = 16",
+      "Exact Issue/fix/evidence/handoff preserved; review, live services, administration and authentic group inputs remain mandatory dependencies."
+    ]
+  ],
+  "criteria": [
+    [
+      "EC-1",
+      "All scoped balance/refund/decision cases twice; zero unresolved high-severity balance defects",
+      "Technical cases MET. Accepted-integration/no-unresolved-high criterion HOLD while eighteen proposed fixes await review/merge."
+    ],
+    [
+      "EC-2",
+      "Fresh canonical data, every required family consumed or justified N/A; two full isolated orders with zero failures/errors/skips",
+      "Technical target MET: 713 labels, 350 families, 3,433 cases per order; scope-specific, not whole-project release."
+    ],
+    [
+      "EC-3",
+      "10 UI flows; six baseline consuming cases; exactly two predicted variant mismatches and no other failure/error/skip",
+      "MET for Rayyan contribution on pinned source."
+    ],
+    [
+      "Shared gate",
+      "Actual current Sonar, justified mutation and required unit/API/browser gate, enforced remotely",
+      "NOT MET. Units pass; missing service/runner/policy correctly fail CI. Remote branch/deploy enforcement unverified (administration 403)."
+    ]
+  ],
+  "gqm": [
+    "Goal: expose balance, owner, state and contract risks with repeatable persisted assertions. Questions: do transitions affect only the right owner; do supported spec edits reach actual consumers; do UI outcomes match persisted state?",
+    "Measured scope metrics: API passes 3433/3433=100% in each order; generated labels 713/713=100%; former missing labels399/399; mandatory families350/350=100%; verified explicit FR10/10 and BR4/4; UI10/10. These denominators overlap and are not summed.",
+    "Distinct confirmed defects22 across dated builds; 4 merged/closed and18 retested proposals. Defect density needs a defined measured size; reopened/closed rate needs authentic lifecycle history, both unavailable.",
+    "Human actual hours, original estimates, variance, historical weekly records, human RCA meeting/review and viva results are unavailable unless genuine records are supplied. CI seconds are runtime, not personal effort. Risk scores remain provisional; passes do not invent lower likelihoods."
+  ],
+  "ownership_statement": "Rayyan will no longer do any further project implementation, testing, integration, documentation, packaging or follow-up execution work. Rayyan's project execution assignment is finished. Every remaining project execution item in the final handoff is now assigned to Muhammad Wasay Tariq / Wasay's agent, and its completion is mandatory for the project. No further technical execution or additional prompt is expected from Rayyan.",
+  "remaining": [
+    {
+      "id": "F4-REVIEW",
+      "phase": "C-D",
+      "priority": "P1",
+      "original_owner": "Wasay / repository owner",
+      "references": [
+        "FR-01..FR-10",
+        "BR-01..BR-04",
+        "PR #8",
+        "Issues #14..#31"
+      ],
+      "work": "Independently review the delivered corrections and contribution, merge only after actual required checks/reviews permit it, and close the 18 proposed-fix product Issues only when warranted.",
+      "why": "No independent review exists in the accessible PR reviews collection; protected integration cannot be replaced by this agent approving its own contribution.",
+      "attempts": [
+        "Published source/fixes and full before/after evidence under rayyanhasan899",
+        "Reconciled all 22 Area 2 defect identities; original four accepted Issues closed, remaining 18 kept open"
+      ],
+      "next_action": "Independently review the ready PR #8's actual final diff, source-bound evidence and required checks; resolve owner concerns, then perform protected merge/retest and factual Issue lifecycle updates.",
+      "acceptance": "Actual independent accepted review + permitted merged commit + actual post-integration checks and warranted Issue states.",
+      "evidence": [
+        "https://github.com/includeduck/SQE-Horilla-Project/pull/8",
+        "docs/team/finish-line/PROMPT03_DEFECT_POPULATION.json"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-SONAR",
+      "phase": "D / Area 1",
+      "priority": "P1",
+      "original_owner": "Wasay / Area 1",
+      "references": [
+        "Shared CI gate",
+        "BR-01..BR-04"
+      ],
+      "work": "Provide a reachable configured Sonar service/token, run an actual scan of the final implementation and enforce the supplied proposed new-code quality conditions.",
+      "why": "The local service refused connection; Docker Linux engine is unavailable and WSL reports access denied. Live CI returned a concrete missing SONAR_HOST_URL/SONAR_TOKEN refusal. Historical Sonar baseline is genuine but is not a current-source CI gate.",
+      "attempts": [
+        "Read actual Sonar 26.10 baseline/profile/threshold proposal and raw metrics",
+        "Attempted localhost service and Docker/WSL alternatives",
+        "Implemented exact-revision live server gate, nonempty conditions and no-weaker-than-proposed threshold checks; missing evidence fails"
+      ],
+      "next_action": "Configure SONAR_HOST_URL and SONAR_TOKEN for the existing free service, scan the exact reviewed source using sonar-project.properties, configure the actual proposed conditions and rerun sonar + team-gate.",
+      "acceptance": "Live analysis revision equals reviewed source; gate OK with explicit duplication <=3%, reliability/security A and zero new blocker/high conditions; immutable raw server responses retained.",
+      "evidence": [
+        ".github/workflows/team-quality-gate.yml",
+        "scripts/team/final_quality_gate.py",
+        "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45633245200",
+        "docs/team/reports/SONARQUBE_BASELINE.md"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-MUTATION",
+      "phase": "D / Area 1",
+      "priority": "P1",
+      "original_owner": "Wasay / Area 1",
+      "references": [
+        "BR-01..BR-04",
+        "Mutation and CI brief section 2"
+      ],
+      "work": "Supply and execute the actual business-rule mutation runner, two implemented custom operators, >=15 genuine baseline survivor analyses, kill the killable survivors and justify the mutation threshold from actual results.",
+      "why": "No mutation runner, policy, custom operators or results are present in the published repository; mutation threshold was explicitly deferred in the supplied Sonar report. Those measured results and specialist inputs cannot be invented.",
+      "attempts": [
+        "Audited full tracked tree for mutation tooling and reports",
+        "Implemented a fail-closed invocation/metadata/raw-hash/score/operator/survivor-analysis contract; demonstrated missing-input failure"
+      ],
+      "next_action": "Implement scripts/team/run_mutation.py with --source and --output, add docs/team/mutation_policy.json with measured minimum_score and justification, produce the required raw/hash/source/analysis schema and run the mutation CI job.",
+      "acceptance": "Actual mutmut/Cosmic Ray outputs on reviewed source; two business-rule operators; >=15 unique analysed baseline survivors; all killable survivors killed; measured justified score passes strict gate.",
+      "evidence": [
+        "scripts/team/final_quality_gate.py",
+        ".github/workflows/team-quality-gate.yml",
+        "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45633245200"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-GATE-ADMIN",
+      "phase": "D / shared",
+      "priority": "P1",
+      "original_owner": "Wasay / repository administrator",
+      "references": [
+        "Every-PR CI",
+        "Required merge/deployment checks"
+      ],
+      "work": "Require the actual team-gate check and independent review on sqe-team and enforce equivalent deployment prerequisites; align mandatory producers with every-PR triggering.",
+      "why": "Classic protection access returned HTTP 403 to the integration. An empty ruleset response is not proof of absent protection. Deployment policy/target and administrative authority are not supplied.",
+      "attempts": [
+        "Inspected branch/ref/ruleset/workflow and review metadata",
+        "Added every-PR team unit/Sonar/mutation aggregate with exact-source Area 2/browser/contract dependencies",
+        "Retained real red producer/aggregate evidence without claiming remote merge blocking"
+      ],
+      "next_action": "As repository administrator, inspect actual protection, require observed team-gate and review conditions, ensure all required producers run or have a legitimate exact-source reuse policy on each PR, and enforce deploy gating; demonstrate blocked and corrected PR outcomes.",
+      "acceptance": "Actual settings and remote blocked merge/deployment evidence, then a genuine successful corrected gate; no continue-on-error, forced exits or self-approval.",
+      "evidence": [
+        ".github/workflows/team-quality-gate.yml",
+        "docs/team/AREA2_CI_HANDOFF.md",
+        "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45633245200"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-A1-FINDINGS",
+      "phase": "Area 1 / shared",
+      "priority": "P2",
+      "original_owner": "Wasay / Area 1",
+      "references": [
+        "Issues #11/#12/#13",
+        "BR-01/BR-02",
+        "Unit scope"
+      ],
+      "work": "Resolve the three inherited Area 1 findings and reconcile final unit scope/justified gaps and Sonar findings against the accepted final source.",
+      "why": "These remain actual open Area 1 records: direct model clean with nullable end date, dead month/year code, and invalid stored carry policy. HTTP date normalization and valid choice constraints must be distinguished from a new model-policy decision; no stronger policy or owner triage is invented.",
+      "attempts": [
+        "Ran all supplied 127 team units and the existing 15-function feasible coverage gate",
+        "Preserved real known-behavior reproducers/justified gaps and separated them from the clean HTTP input results",
+        "Did not count Area 1 records in the 22-defect Area 2 Pareto"
+      ],
+      "next_action": "Triage #11-#13 by actual model/form/API reachability; apply source-backed accepted fixes or documented dispositions, adjust justified gaps/critical MCC tables as warranted and retest affected scopes.",
+      "acceptance": "Actual accepted dispositions or strict before/after corrections, accurate current 100%-scope argument and source-bound unit/Sonar evidence; no hidden new uncovered business logic.",
+      "evidence": [
+        "https://github.com/includeduck/SQE-Horilla-Project/issues/11",
+        "https://github.com/includeduck/SQE-Horilla-Project/issues/12",
+        "https://github.com/includeduck/SQE-Horilla-Project/issues/13",
+        "tests/team/unit/coverage_scope.py"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-MEMBER-USECASES",
+      "phase": "D / shared Area 3",
+      "priority": "P1",
+      "original_owner": "Wasay and Zain / their member-attributed contributions",
+      "references": [
+        "Two use cases per member",
+        "W1/W2"
+      ],
+      "work": "Supply the other members' genuine attributed use-case specifications and Playwright flow evidence; retain Rayyan's two cases and ten verified flows.",
+      "why": "The accessible e2e collection contains only the ten Rayyan flows. No authentic other-member use-case/flow contributions are supplied; authorship or their review cannot be fabricated.",
+      "attempts": [
+        "Audited tests/team/e2e and use-case documents; completed and reverified Rayyan's two cases/ten flows"
+      ],
+      "next_action": "Coordinate the remaining member-attributed cases and automate each main/at least two alternative/two exception flows with visible and persisted assertions.",
+      "acceptance": "At least two genuine cases per member across the agreed workflows, all required flows automated and attributed with actual reports and commits.",
+      "evidence": [
+        "docs/team/RAYYAN_USE_CASES.md",
+        "tests/team/e2e/test_rayyan_use_cases.py",
+        "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793417"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-ACCESSIBILITY",
+      "phase": "Area 3",
+      "priority": "P1",
+      "original_owner": "Zain / Area 3, coordinated by Wasay",
+      "references": [
+        "Both workflow screens",
+        "Accessibility/usability brief section 3"
+      ],
+      "work": "Supply keyboard task assertions, Lighthouse and full axe-core scans, deduplicate findings and demonstrate one screen correction with actual before/after reports.",
+      "why": "No Lighthouse/axe scripts or reports and no Area 3 usability contribution are present in the tracked tree. Rayyan's ordinary visible/persisted flow assertions do not establish these distinct measurements.",
+      "attempts": [
+        "Inspected published tests/evidence and preserved the ten passing Rayyan browser flows as completed work"
+      ],
+      "next_action": "Run both workflow tasks including the required correction and keyboard path; scan key screens with Lighthouse and axe, fix one screen and rerun both.",
+      "acceptance": "Actual scripts, focus/keyboard assertions, issue impact/fix records and original before/after Lighthouse/axe/Playwright reports.",
+      "evidence": [
+        "tests/team/e2e",
+        "docs/team/TEAM.md"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-SECURITY",
+      "phase": "Area 3",
+      "priority": "P1",
+      "original_owner": "Zain / Area 3, coordinated by Wasay",
+      "references": [
+        "BR-04",
+        "W1/W2",
+        "Defensive security brief section 4"
+      ],
+      "work": "Supply the browser access matrix/checks, passive ZAP evidence, at least two corroborated security controls and scoped dependency audit.",
+      "why": "Security directory is a placeholder and no authentic passive/dependency/browser-matrix reports are supplied. The strict API authorization matrix is useful completed evidence but does not replace the distinct browser/passive tasks.",
+      "attempts": [
+        "Completed API self/manager/permission/nonowner assertions with unchanged-state checks",
+        "Inspected existing upstream dependency workflow, which targets upstream branches rather than proving the required team assessment"
+      ],
+      "next_action": "Coordinate four browser access checks with at least one allowed and denied action, collect passive ZAP observations for both workflows, corroborate controls and run/interpret the dependency audit.",
+      "acceptance": "Actual role/action expected/observed evidence, passive ZAP and checked package/version findings, risk/root cause/fix records without active attacks or real data.",
+      "evidence": [
+        "tests/team/security",
+        "tests/team/api/test_states_and_decisions.py",
+        "docs/team/TEAM.md"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-PERFORMANCE",
+      "phase": "Area 3",
+      "priority": "P2",
+      "original_owner": "Zain / Area 3, coordinated by Wasay",
+      "references": [
+        "W1/W2 selected operation",
+        "Performance brief section 5"
+      ],
+      "work": "Supply justified pre-run thresholds and comparable k6 runs at one and at least five concurrent users, each setup twice for >=60 seconds after reaching load.",
+      "why": "Performance directory is a placeholder; no genuine pre-run targets, scripts or measured load outputs are supplied. API pytest elapsed time is not a p95/load result.",
+      "attempts": [
+        "Audited available source/evidence; retained test elapsed times only as tool timings"
+      ],
+      "next_action": "Define future p95 and unexpected-error limits before load; execute four controlled comparable k6 runs with the same build/machine/starting data.",
+      "acceptance": "Original scripts/output/environment plus p95, throughput and unexpected failures per run, interpretation against honestly predeclared targets.",
+      "evidence": [
+        "tests/team/perf",
+        "docs/team/TEAM.md"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-RECOVERY",
+      "phase": "Area 3",
+      "priority": "P1",
+      "original_owner": "Zain / Area 3, coordinated by Wasay",
+      "references": [
+        "W1/W2 state-changing operation",
+        "Recovery brief section 5"
+      ],
+      "work": "Supply controlled dependency-failure/recovery automation with persisted failure-state readback, restoration, retry and no duplicate final records/effects.",
+      "why": "Recovery directory is a placeholder and no controlled dependency-failure test is supplied. The completed malformed-body refusal/atomicity regression is not relabelled as a dependency outage experiment.",
+      "attempts": [
+        "Completed state/refund/repetition/invalid-body atomicity checks and preserved their exact boundaries"
+      ],
+      "next_action": "Inject a justified dependency failure before a write, assert persisted state, restore dependency, retry and assert exact successful state/no duplicates.",
+      "acceptance": "Actual deterministic script, failure and recovery observations, source/fixture identity and persisted assertions.",
+      "evidence": [
+        "tests/team/recovery",
+        "tests/team/api/test_business_rules.py",
+        "docs/team/TEAM.md"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-REGISTRATION",
+      "phase": "A / shared administration",
+      "priority": "P2",
+      "original_owner": "Team / Wasay",
+      "references": [
+        "Brief section 1 registration",
+        "SE-5B"
+      ],
+      "work": "Retain the authentic section-sheet repository registration and resolve final human scope acceptance.",
+      "why": "Repository records still carry an unverified registration TODO and no accessible authoritative sheet entry/link or genuine approval record is supplied. Historical facts cannot be created retroactively.",
+      "attempts": [
+        "Checked current team/audit/AI records and reused actual OD-01/OD-02 rather than ask already answered policies"
+      ],
+      "next_action": "Locate the actual registration entry/confirmation and record genuine scope review decisions, or honestly report any historical absence.",
+      "acceptance": "Authentic available registration/scope evidence or explicit truthful unavailable/not-completed disclosure; no invented backdated approval.",
+      "evidence": [
+        "docs/team/AI_USE_RECORD.md",
+        "docs/team/SQE_PHASE_1_PERSONAL_AUDIT.md",
+        "docs/team/SCOPE.md"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-GROUP-PACKAGE",
+      "phase": "D / final submission",
+      "priority": "P1",
+      "original_owner": "Shared, coordinated by Wasay",
+      "references": [
+        "Brief section 6",
+        "All areas",
+        "Final PDF/ZIP/.git"
+      ],
+      "work": "After genuine missing inputs and accepted integration are available, assemble/verify the combined group PDF and ZIP with synchronized accepted .git history and confirmed section filename token.",
+      "why": "Area 3/mutation/current shared gate/accepted history are incomplete. The source checkout on the laptop is stale with preserved uncommitted changes and protected metadata. A clearly labelled Rayyan contribution cannot be called the final group submission.",
+      "attempts": [
+        "Prepared the complete Rayyan contribution, genuine shared unit inputs, actual CI artifacts, PDF, source/evidence whitelist and exact payload/Git-identity manifest",
+        "Excluded active databases, credentials, virtualenvs and unsynchronized .git; did not reset the laptop"
+      ],
+      "next_action": "Coordinate all authentic Area 1/3 results, resolve accepted reviews/gates, confirm whether the official suffix is B or SE-5B, obtain accepted history through permitted clone/fetch and verify the final group package.",
+      "acceptance": "Correct three-roll/section naming, complete evidence-backed all-area PDF, public repo link, reproducible source/scripts/tools, synchronized .git, verified ZIP/payload hashes and honest release/HOLD decision.",
+      "evidence": [
+        "docs/team/AREA2_PACKAGE_MANIFEST.json",
+        "docs/team/reports/RAYYAN_FINAL_CLOSEOUT.md",
+        "handoff.md"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    },
+    {
+      "id": "F4-HUMAN-RECORDS",
+      "phase": "Shared management",
+      "priority": "P2",
+      "original_owner": "Each human contributor / coordinated by Wasay",
+      "references": [
+        "Estimation/GQM/AI disclosure",
+        "Brief sections 2/7"
+      ],
+      "work": "Collect genuine effort, review and progress records if they exist; retain unavailable labels where historical records cannot be substantiated.",
+      "why": "No trustworthy original human timesheet/actual-versus-original-estimate history is supplied. Automated runtime cannot prove personal effort, a human RCA meeting, individual review or a passed viva.",
+      "attempts": [
+        "Disclosed agent use and exact checks; retained actual CI timings as tool durations and kept unmeasured metrics unavailable"
+      ],
+      "next_action": "Coordinate genuine existing human records and truthful shared AI/review acknowledgement; preserve actual authorship and unavailable facts.",
+      "acceptance": "Substantiated records or explicit unavailable labels, never fabricated hours, meetings, retroactive estimates, review or assessment outcomes.",
+      "evidence": [
+        "docs/team/AI_USE_RECORD.md",
+        "docs/team/AREA2_MANAGEMENT.md"
+      ],
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "status": "transferred",
+      "requirement_status": "open",
+      "mandatory": true,
+      "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+    }
+  ],
+  "limits": [
+    "Every remaining project execution row has current executor Wasay / Wasay's agent - mandatory. Original attribution is preserved. Completion remains required for the project; it is not deferred to a fifth Rayyan prompt.",
+    "Rayyan's personal viva/learning/review obligations cannot be certified by automation or impersonated by another member. They are assessment facts, not outstanding project implementation assignments.",
+    "This PDF/ZIP is clearly a Rayyan contribution, not a complete group submission. Authentic Area 3/mutation/current gate evidence and accepted synchronized history are missing. The final group filename section token must be confirmed instead of guessed.",
+    "No payment, secret bypass, fabricated measurement, retrospective human approval, self-approval, forced protected merge or destructive reset was used."
+  ],
+  "browser_flows": [
+    {
+      "id": "UC-RAY-01-MAIN",
+      "result": "passed",
+      "oracle": "Five-day requested allocation; zero balance",
+      "run_id": 45627793417
+    },
+    {
+      "id": "UC-RAY-01-A1",
+      "result": "passed",
+      "oracle": "Uploaded synthetic file bytes match owned record",
+      "run_id": 45627793417
+    },
+    {
+      "id": "UC-RAY-01-A2",
+      "result": "passed",
+      "oracle": "Description error then one successful corrected record",
+      "run_id": 45627793417
+    },
+    {
+      "id": "UC-RAY-01-E1",
+      "result": "passed",
+      "oracle": "Missing type refused; no row or balance mutation",
+      "run_id": 45627793417
+    },
+    {
+      "id": "UC-RAY-01-E2",
+      "result": "passed",
+      "oracle": "Missing amount refused; no row or balance mutation",
+      "run_id": 45627793417
+    },
+    {
+      "id": "UC-RAY-02-MAIN",
+      "result": "passed",
+      "oracle": "Three-day requested leave; unchanged five-day balance",
+      "run_id": 45627793417
+    },
+    {
+      "id": "UC-RAY-02-A1",
+      "result": "passed",
+      "oracle": "Same-day matching half produces exactly0.5 requested day",
+      "run_id": 45627793417
+    },
+    {
+      "id": "UC-RAY-02-A2",
+      "result": "passed",
+      "oracle": "Insufficient-balance error then one corrected three-day leave",
+      "run_id": 45627793417
+    },
+    {
+      "id": "UC-RAY-02-E1",
+      "result": "passed",
+      "oracle": "Insufficient balance refused; unchanged records/funds",
+      "run_id": 45627793417
+    },
+    {
+      "id": "UC-RAY-02-E2",
+      "result": "passed",
+      "oracle": "End-before-start refused; unchanged records/funds",
+      "run_id": 45627793417
+    }
+  ]
+}
