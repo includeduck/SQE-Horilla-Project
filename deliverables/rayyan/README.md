@@ -1,0 +1,9 @@
+# Rayyan's final contribution
+
+This is **Rayyan's contribution**, not the final group submission. Project release remains **HOLD**; [root handoff](../../handoff.md) assigns every remaining execution item to Muhammad Wasay Tariq / Wasay's agent, mandatory. No further technical execution or additional prompt is expected from Rayyan.
+
+The verified PDF, ZIP, payload manifest and validation outputs are in [the immutable package artifact](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45641527409/artifacts/15033619081) from [successful run45641527409](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45641527409), source `fb28a6ccafb229193adc0a9430ae05078074c267`. The outer artifact ZIP contains the contribution ZIP `Rayyan_24I-3000_SE5B_Contribution.zip` and its original PDF.
+
+Contribution ZIP:49,210,580 bytes; SHA256 `e6946b68a4d4dcb639ef3a1ad87475727edcdd5c405ccbc4beeb943a04db91f9`. All439 payload files were verified, plus the manifest's intentional self-hash exclusion. [package_manifest.json](package_manifest.json) lists every payload SHA256 and every source Git blob identity. Manifest hashes apply to archive payloads. The separately delivered PDF is normalized by the file service; its10 pages were checked for identical text and rendered pixels against the original PDF inside the ZIP.
+
+[Full closeout](../../docs/team/reports/RAYYAN_FINAL_CLOSEOUT.md), [final status](../../docs/team/reports/RAYYAN_FINISH_04_STATUS.md), and [publication provenance](../../docs/team/finish-line/FINAL_PUBLICATION.json) preserve source/CI identities, actual criteria, old failures and all mandatory Wasay dependencies. The archive contains no stale.git, real-user database, environment secrets or virtual environment. Group packaging, accepted history and final official filename remain Wasay's mandatory obligations.
