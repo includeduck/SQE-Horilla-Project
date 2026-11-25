@@ -1,5 +1,10 @@
 name: Finish 03 evidence reconciliation
 on:
+  push:
+    branches: [rayyan/prompt3-report-reader]
+    paths:
+      - ".github/workflows/finish03-evidence.yml"
+      - "docs/team/finish-line/PROMPT03_EVIDENCE_SNAPSHOTS.json"
   pull_request:
     branches: [sqe-team]
     paths:
@@ -33,14 +38,23 @@ jobs:
         run: |
           python - <<'PY'
           import hashlib, io, json, os, urllib.request, zipfile
+          from urllib.parse import urlsplit
           from pathlib import Path
           repo=os.environ["GITHUB_REPOSITORY"]
           filename=os.environ["REPORT_FILE"]
           config=json.loads(Path("docs/team/finish-line/PROMPT03_EVIDENCE_SNAPSHOTS.json").read_text())
+          class SafeRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  redirected=super().redirect_request(req, fp, code, msg, headers, newurl)
+                  if redirected and urlsplit(req.full_url).netloc != urlsplit(newurl).netloc:
+                      redirected.remove_header("Authorization")
+                      redirected.remove_header("Accept")
+                  return redirected
+          opener=urllib.request.build_opener(SafeRedirect())
           def api(path):
               req=urllib.request.Request("https://api.github.com/repos/"+repo+"/"+path,
                   headers={"Authorization":"Bearer "+os.environ["GH_TOKEN"],"Accept":"application/vnd.github+json"})
-              with urllib.request.urlopen(req) as response: return response.read()
+              with opener.open(req) as response: return response.read()
           for snapshot in config["snapshots"]:
               run=json.loads(api(f'actions/runs/{snapshot["run"]}'))
               assert run["status"]=="completed", "Cannot reconcile an unfinished run"
