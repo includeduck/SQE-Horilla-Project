@@ -1454,6 +1454,14 @@
       "cause": "Canonical Git byte check caught CRLF checkout conversion of reset.ps1. Build tee lacked pipefail but later missing ZIP still failed workflow.",
       "correction": "Read source payload from git show HEAD:path; retain exact index blob guard; set pipefail before build pipeline. No test assertions/scope were relaxed.",
       "product_defect": false
+    },
+    {
+      "run": 45640854897,
+      "build_result": "439-file archive verified; 49,210,384 bytes; all payload hashes and canonical source identities passed",
+      "overall_result": "failure in separate optional large Git object publication",
+      "cause": "GitHub HTTP422 for49MB archive API body; PDF object publication succeeded.",
+      "correction": "Keep verified ZIP as downloadable artifact/file deliverable; publish PDF and exact manifest as small Git objects. PDF headings retain following content and Stage header gets sufficient width.",
+      "product_defect": false
     }
   ]
 }

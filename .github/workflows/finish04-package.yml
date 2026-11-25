@@ -148,7 +148,7 @@ jobs:
           import base64,json,hashlib,os,time,urllib.request,urllib.error
           from pathlib import Path
           url="https://api.github.com/repos/${{ github.repository }}/git/blobs"
-          for name in ("Rayyan_24I-3000_Final_Contribution.pdf","Rayyan_24I-3000_SE5B_Contribution.zip","package_manifest.json"):
+          for name in ("Rayyan_24I-3000_Final_Contribution.pdf","package_manifest.json"):
               raw=(Path("out")/name).read_bytes()
               assert len(raw)<95*1024*1024,"Use retained artifact rather than exceed GitHub file size"
               data=json.dumps({"content":base64.b64encode(raw).decode(),"encoding":"base64"}).encode()

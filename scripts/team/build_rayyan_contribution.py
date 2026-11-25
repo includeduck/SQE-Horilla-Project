@@ -72,7 +72,7 @@ def make_pdf(path,data,verified,requirements):
     styles.add(ParagraphStyle(name="Text",fontName=regular,fontSize=9,leading=13,spaceAfter=7))
     styles.add(ParagraphStyle(name="Cell",fontName=regular,fontSize=8,leading=11))
     styles.add(ParagraphStyle(name="Header",fontName=bold,fontSize=8,leading=11,textColor=colors.white))
-    styles.add(ParagraphStyle(name="Head",fontName=bold,fontSize=15,leading=19,textColor=navy,spaceBefore=14,spaceAfter=9))
+    styles.add(ParagraphStyle(name="Head",fontName=bold,fontSize=15,leading=19,textColor=navy,spaceBefore=14,spaceAfter=9,keepWithNext=True))
     styles.add(ParagraphStyle(name="Cover",fontName=bold,fontSize=25,leading=30,textColor=navy,spaceAfter=14))
     story=[]
     def clean(s):
@@ -100,7 +100,7 @@ def make_pdf(path,data,verified,requirements):
     text("Repository: https://github.com/includeduck/SQE-Horilla-Project | PR #8 remains subject to independent review.")
     head("1. Scope, ownership and approach")
     for line in data["scope"]:text(line)
-    table(["Stage","Verified contribution","Remaining qualification"],data["stages"],[40,305,150])
+    table(["Stage","Verified contribution","Remaining qualification"],data["stages"],[50,295,150])
     head("2. Actual coverage and results")
     table(["Population","Actual / denominator","Interpretation"],data["coverage"],[145,125,225])
     text("Each complete API collection contains "+str(verified["api_cases"])+" unique cases. The two orders and focused/upstream populations overlap and are never added into a fictitious unique total.")
