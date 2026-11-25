@@ -1,0 +1,36 @@
+{
+  "kind": "derived summary with verbatim log excerpts",
+  "tested_source": "13200cd978375ec668d86754410178f93ce7fbee",
+  "tested_merge": "bb6d892",
+  "run_id": 45549984738,
+  "classification": "validation-order regression within the positive-duration correction; not an additional independent business defect",
+  "cases": [
+    "self_leave_create:body:end_date:BVA:date-order-below",
+    "self_leave_update:body:end_date:BVA:date-order-below"
+  ],
+  "expected": {
+    "http": 400,
+    "error_field": "end_date",
+    "state": "unchanged"
+  },
+  "actual": {
+    "http": 400,
+    "body": {
+      "non_field_errors": [
+        "The effective requested days must be greater than zero."
+      ]
+    }
+  },
+  "jobs": [
+    138988864181,
+    138988864630,
+    138988865020
+  ],
+  "raw_artifacts": [
+    14994990946,
+    14995242057,
+    14994607939
+  ],
+  "strict_tests": "tests/team/api/test_generated_inputs.py:68 unchanged",
+  "fix": "Reject inverted dates before computing effective duration; retain valid zero-duration refusal."
+}

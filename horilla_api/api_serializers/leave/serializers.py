@@ -51,6 +51,13 @@ def leave_Validations(self, data):
             % {"leave_type": leave_type_id}
         )
 
+    # Refuse an inverted range before duration/holiday calculation so the
+    # established end_date field error is preserved for create and update.
+    if end_date < start_date:
+        raise serializers.ValidationError(
+            {"end_date": [_("End date should not be less than start date.")]}
+        )
+
     requested_days = calculate_requested_days(
         start_date, end_date, start_date_breakdown, end_date_breakdown
     )
@@ -102,10 +109,6 @@ def leave_Validations(self, data):
             raise serializers.ValidationError(
                 _("Requests cannot be made for past dates.")
             )
-
-    # checking if the end date is less than the start date
-    if not start_date <= end_date:
-        errors["end_date"] = [_("End date should not be less than start date.")]
 
     if start_date == end_date and start_date_breakdown != end_date_breakdown:
         raise serializers.ValidationError(

@@ -1,3 +1,7 @@
+# Prompt 3 continuation — validation-order correction
+
+The first current-build full run 45549984738 executed all 3,433 API cases in each order but retained the same two date-order field-error failures per order. Business run 45549984744 and both Phase D jobs succeeded. The narrow follow-up moves inverted-date refusal before effective-duration calculation; strict generated HTTP/state assertions are unchanged. This is a correction to the positive-duration fix, not a new policy or passing-after claim. Real retest is pending. Workspace access became unavailable; existing protected-PR publication and isolated Actions verification continue.
+
 # Rayyan finish 03: business rules and strict defect corrections
 
 25 November 2026. Syed Muhammad Rayyan Hassan, 24I-3000, SE-5B.
