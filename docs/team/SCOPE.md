@@ -1,3 +1,27 @@
+## Prompt 3 technical evidence supplement — 25 November 2026
+
+Sections 1–8 and OD-01/OD-02 are preserved. Source-backed API business consumers
+now implement duration/holiday/target/forecast/cap/expiry, reason normalization,
+all scoped state/role decisions and connected W1/W2 balance invariants. See
+AREA2_TEST_BASIS.md and finish-line/PROMPT03_REQUIREMENT_EVIDENCE.json for exact
+assertion selectors and actual source-specific outcomes. The current inventory
+is 34 operations / 88 generated input entries / 713 preserved IDs / 350 broader
+mandatory families; 3,433 API scenarios include 2,256 wire cases. Historical
+184-reference/529-unconsumed/329-family counts below describe Prompt 1 only.
+
+Reasons are optional under the existing API helper; its 1000-character strip/
+truncation and model TextField's declared 255 bound are explicitly distinguished.
+No concurrent duplicate feature, new allocation positivity rule, forecast
+credit-at-approval policy, PostgreSQL enforcement or human scope signoff is
+invented. The old instruction to mark known decisions xfail is superseded by
+the user's strict-regression instruction: the tested 400 assertions stay active.
+Current raw/derived evidence and technical completion are separate from owner
+review, protected integration, final Prompt 4 and whole-group acceptance.
+
+---
+
+Historical dated records follow. Current source-specific results above supersede their older pending/count labels.
+
 # Test Scope and Test Basis: Horilla HRMS, Leave Module
 
 > **DRAFT.** The team must review, verify against the running app, and edit this before it is used as the test basis.

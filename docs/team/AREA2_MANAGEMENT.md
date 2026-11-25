@@ -1,3 +1,54 @@
+## Prompt 3 current management and traceability — 25 November 2026
+
+This dated section supersedes older inventory, unfinished-oracle and pending
+publication statements below. Technical results are source-bound, with final
+run IDs/counts in reports/RAYYAN_FINISH_03_STATUS.md. Inventory is 3,433 unique
+API scenarios, 713 canonical generated IDs, 2,256 supplementary wire cases and
+350 mandatory input families. The 399 historical missing IDs are preserved
+individually; all passed both orders even in the retained 13200cd9 baseline.
+That baseline still failed two strict date-order assertions per order and
+cannot establish full-scope acceptance.
+
+The highest-priority controls now include positive duration, target-specific
+holidays, capped/no-carry/forecast/expiry boundaries, current-policy approval,
+body refusal before mutation, changed-target authorization and exact requester/
+actor debit/refund. Reasons and model/helper limits are documented separately.
+FR acceptance is derived from explicit assertion selectors, actual source/spec
+lineage and every selected result in both orders; tags/counts alone are excluded.
+
+| Risk | Control now implemented | Residual dependency |
+|---|---|---|
+| A2-R01, score 20 | Independent duration/funds boundaries, correct holiday target, forecast/expiry lifecycle and current approval caps | Owner acceptance/integration of the retested corrections |
+| A2-R02, score 15 | Distinct requester/actor/outsider funds, nonowner denial, new-target permission checks | Protected review/merge; no concurrent authorization guarantee claimed |
+| A2-R03, score 12 | OD-02 sequential pending-duplicate refusal and repeated grant/approve/refund checks | Concurrency/idempotency is outside accepted scope |
+| A2-R04, score 12 | OD-01 terminal refusal, complete state/role table and refusal atomicity | Owner state-graph review; no skip/xfail substitution |
+| A2-R05, score 16 | All canonical IDs retained; freshness, unsupported-reader negative controls and source-bound full guard | Final Prompt 4 package/contract reconciliation |
+| A2-R06, score 9 | Filename boundaries, real storage and uploaded-byte readback | Original fix merged; retain regression in final build |
+| A2-R07, score 16 | Ten visible/persisted browser flows including blank-amount refusal | Human review/viva remains an authentic personal obligation |
+| A2-R08, score 12 | Date/order/breakdown/reference/filter/media/decision cases with unchanged-state refusals | Whole-group acceptance is separate |
+| A2-J01, score 20 | Free isolated Actions and connected identity-safe publication | Local workspace remains disconnected; preserve its working files |
+| A2-J02, score 16 | Existing OD-01/02 reused; 22-defect/Issue mapping, dated evidence and precise remaining ownership | Owner-only review/gates and genuine Area 1/3 package inputs |
+
+The prior likelihood/impact scores remain provisional; test passes do not create
+measured new probabilities or justify arbitrarily lowering them. Technical
+EC-1/EC-2 results depend on the final source-bound full guard; EC-1's accepted
+integration/no-unresolved-high-defect criterion remains HOLD while review is
+pending. EC-3 browser/regeneration is measured separately. Release remains
+HOLD for shared gates, integration and final Prompt 4; no automated metric is
+called team approval.
+
+GQM uses verified FR selectors/10 and BR selectors/4, API passes/3,433 per order,
+verified generated IDs/713 and mandatory families/350 on one recorded source.
+These populations overlap and are never added into a larger unique total.
+The current confirmed-defect population is 22 across dated builds, with four
+merged/closed originals and eighteen retested proposals awaiting integration.
+Density needs a defined measured size; human effort/estimate variance, a human
+RCA meeting and unobserved reopen history remain unavailable, not invented zeroes.
+
+---
+
+Historical dated records follow. Current source-specific results above supersede their older pending/count labels.
+
 # Area 2 activity and management contribution
 
 ## Latest verified progress - 24 November 2026

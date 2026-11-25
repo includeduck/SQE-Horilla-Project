@@ -1,3 +1,27 @@
+## Prompt 3 current checklist — 25 November 2026
+
+This section supersedes historical incomplete-input and unanswered-decision
+labels below. Source-specific final counts/evidence are in RAYYAN_FINISH_03_STATUS.md;
+the full source-bound summary and individual remaining rows are authoritative.
+
+- [x] Preserve all 713 canonical IDs and consume all former 399 missing IDs; retain the actual two-failure 13200cd9 baseline rather than call it a full pass.
+- [x] Implement 164 effective duration/breakdown/holiday/cap/forecast/expiry/reference/attachment contexts, 72 reason cases, 124 state/role contexts and connected balance-split/refund assertions.
+- [x] Reproduce seven distinct business/ownership defects with genuine before HTTP/pre/post state; retain narrow fixes and unchanged strict regressions.
+- [x] Repair the positive-duration fix's date-order diagnostic regression without weakening the field-error assertion.
+- [x] Reconcile eight Prompt 2 product Issues, the original seven defects and three missing historical Issue records; keep pending accepted fixes open.
+- [x] Update two-major-defect RCA controls and current 22-defect Pareto while retaining the four/seven-defect historical tables.
+- [x] Reconcile optional normalized reasons, helper 1000 versus declared TextField 255, observed SQLite behavior and untested PostgreSQL scope.
+- [ ] Prompt 4: final integrated acceptance, definitive all-available-evidence/package/manifest reconciliation and final ownership closeout.
+- [ ] Owner/shared: accepted PR review/merge, complete group gates and genuine Area 1/3/group package inputs.
+
+No routine debugging is transferred as an owner permission dependency. Actual
+input-family and FR/BR verification statuses remain those in the final source's
+derived ledgers, not checkbox prose or generated-data completeness flags.
+
+---
+
+Historical dated records follow. Current source-specific results above supersede their older pending/count labels.
+
 # Remaining execution checklist: Phases A-D
 
 ## Prompt 1 execution checkpoint — supersedes historical scope counts

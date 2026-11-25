@@ -1,3 +1,72 @@
+## Prompt 3 reconciled defect records — 25 November 2026
+
+This dated mapping supersedes historical unexecuted/oracle-open labels below.
+There are **22 distinct confirmed Area 2 product defects across dated builds**:
+the historical seven, eight Prompt 2 defects and seven Prompt 3 defects. Issue
+#1 is coordination; Area 1 Issues #11–#13 and harness failures are outside this
+population. Three missing historical product records were created as #29–#31
+under rayyanhasan899; they remain open pending PR #8 integration.
+
+| Stable defect | Product Issue | Behavior | Actual correction | Lifecycle |
+|---|---|---|---|---|
+| A2-D01 | [#4](https://github.com/includeduck/SQE-Horilla-Project/issues/4) | rejecting approved leave refunds the acting approver instead of requester | `546cb620` | Merged/retested; closed |
+| A2-D02 | [#5](https://github.com/includeduck/SQE-Horilla-Project/issues/5) | foreign-owned self-allocation PUT and DELETE return 500 | `546cb620` | Merged/retested; closed |
+| A2-D03 | [#6](https://github.com/includeduck/SQE-Horilla-Project/issues/6) | API leave creation ignores carry-forward policy cap | `546cb620` | Merged/retested; closed |
+| A2-D04 | [#29](https://github.com/includeduck/SQE-Horilla-Project/issues/29) | Identical pending allocation submissions create duplicate records | `32621b42` | Retested proposal; owner merge pending |
+| A2-D05 | [#30](https://github.com/includeduck/SQE-Horilla-Project/issues/30) | Ordinary rejection accepts an already cancelled leave request | `32621b42` | Retested proposal; owner merge pending |
+| A2-D09 | [#3](https://github.com/includeduck/SQE-Horilla-Project/issues/3) | accepted extensionless attachment filenames fail storage at 99/100 characters | `a1cfb4ab` | Merged/retested; closed |
+| A2-D10 | [#31](https://github.com/includeduck/SQE-Horilla-Project/issues/31) | Browser allocation form accepts an empty requested-days amount | `bf44fe6c` | Retested proposal; owner merge pending |
+| A2-P2-01 | [#21](https://github.com/includeduck/SQE-Horilla-Project/issues/21) | Malformed employee identifiers crash the target permission lookup | `a8a7a7d0` | Retested proposal; owner merge pending |
+| A2-P2-02 | [#22](https://github.com/includeduck/SQE-Horilla-Project/issues/22) | Non-object API bodies crash server-owned identity injection | `59537e7e` | Retested proposal; owner merge pending |
+| A2-P2-03 | [#23](https://github.com/includeduck/SQE-Horilla-Project/issues/23) | Invalid groupby_field escapes as an API server error | `59537e7e` | Retested proposal; owner merge pending |
+| A2-P2-04 | [#24](https://github.com/includeduck/SQE-Horilla-Project/issues/24) | Generic allocation creation accepts an unauthorized foreign employee | `59537e7e` | Retested proposal; owner merge pending |
+| A2-P2-05 | [#25](https://github.com/includeduck/SQE-Horilla-Project/issues/25) | Zero detail IDs lose the route argument in permission dispatch | `796b84bd` | Retested proposal; owner merge pending |
+| A2-P2-06 | [#26](https://github.com/includeduck/SQE-Horilla-Project/issues/26) | Malformed AJAX relation filter choices crash before form validation | `796b84bd` | Retested proposal; owner merge pending |
+| A2-P2-07 | [#27](https://github.com/includeduck/SQE-Horilla-Project/issues/27) | Sessionless JWT HTML API responses crash sidebar menu construction | `796b84bd` | Retested proposal; owner merge pending |
+| A2-P2-08 | [#28](https://github.com/includeduck/SQE-Horilla-Project/issues/28) | Malformed registered advanced date filters return 500 | `796b84bd` | Retested proposal; owner merge pending |
+| A2-P3-01 | [#14](https://github.com/includeduck/SQE-Horilla-Project/issues/14) | API accepts zero and negative effective leave duration | `e4d6f3ce` | Retested proposal; owner merge pending |
+| A2-P3-02 | [#15](https://github.com/includeduck/SQE-Horilla-Project/issues/15) | API excludes another employee's specific holiday and accepts an over-balance request | `e4d6f3ce` | Retested proposal; owner merge pending |
+| A2-P3-03 | [#16](https://github.com/includeduck/SQE-Horilla-Project/issues/16) | API refuses valid forecast entitlement at and after the reset boundary | `e4d6f3ce` | Retested proposal; owner merge pending |
+| A2-P3-04 | [#17](https://github.com/includeduck/SQE-Horilla-Project/issues/17) | API rejects complementary non-overlapping half-day leave requests | `e4d6f3ce` | Retested proposal; owner merge pending |
+| A2-P3-05 | [#18](https://github.com/includeduck/SQE-Horilla-Project/issues/18) | Approval ignores current carry-forward policy/cap | `e4d6f3ce` | Retested proposal; owner merge pending |
+| A2-P3-06 | [#19](https://github.com/includeduck/SQE-Horilla-Project/issues/19) | Malformed approved-allocation rejection deducts balance before returning 400 | `e4d6f3ce` | Retested proposal; owner merge pending |
+| A2-P3-07 | [#20](https://github.com/includeduck/SQE-Horilla-Project/issues/20) | Generic update lets an ordinary owner transfer a request to another employee | `e4d6f3ce` | Retested proposal; owner merge pending |
+
+All seven new business defects were reproduced before source edits. Complete
+decoded before logs are in evidence/area2/finish-03/; Issues #14–#20 retain exact
+request, actual response and balance snapshots and link the tested source/run.
+The expanded ownership failure belongs to the completed shard of the later
+cancelled run 45544984779, not a completed full-suite baseline. Initial business
+baseline 45544239475: 354 cases, 315 passes, 39 failures; 27 failing cases
+represented six product defects and twelve represented the incorrect
+TextField.clean harness assumption. Multiple cases do not create extra defects.
+
+The positive-duration fix initially changed inverted-date error precedence.
+Source 13200cd9 / run 45549984738 returned HTTP 400 with non_field_errors where
+the unchanged canonical tests require end_date. Correction 4a719a17 restores
+early field-specific date-order refusal before calculating duration. It is a
+follow-up to A2-P3-01, with its before JSON/excerpt retained, not an extra
+Pareto defect. Required test assertions were not relaxed.
+
+Reject/cancel reasons are source-backed optional normalized text: null,
+omission and nonstrings are ignored, strings are stripped then capped at 1000.
+LeaveRequest.reject_reason declares TextField(max_length=255); real SQLite
+persistence and TextField.clean accept tested text above 255. The 254/255/256
+and 999/1000/1001 tests distinguish these boundaries. No PostgreSQL enforcement
+or new mandatory-reason policy is claimed; whole non-object bodies are refused
+before state/balance mutation. A2-D08 is a reconciled contract discrepancy,
+not a newly fabricated confirmed product defect. Allocation numeric positivity
+(A2-D06) remains outside the accepted effective-duration rule.
+
+Current final passing-after/full-scope evidence is recorded at the top of
+RAYYAN_FINISH_03_STATUS.md and PROMPT03_EXECUTION_SUMMARY.json. No unmerged
+Issue is closed on the strength of automated results alone; owner review and
+accepted integration remain separate from the technical retest.
+
+---
+
+Historical dated records follow. Current source-specific results above supersede their older pending/count labels.
+
 # Area 2 endpoint findings and triage
 
 ## Latest verified corrections - 24 November 2026

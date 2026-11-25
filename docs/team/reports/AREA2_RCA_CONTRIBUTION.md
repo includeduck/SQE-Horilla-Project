@@ -1,3 +1,44 @@
+## Prompt 3 current population and causal reconciliation — 25 November 2026
+
+The original four- and seven-defect tables below are historical snapshots.
+The current population is **22 distinct confirmed Area 2 product defects**,
+identified individually in ../finish-line/PROMPT03_DEFECT_POPULATION.json and
+AREA2_DEFECTS.md. It comprises the original seven, eight Prompt 2 defects
+(Issues #21–#28) and seven Prompt 3 defects (#14–#20); #29–#31 provide the
+missing historical D04/D05/D10 Issue records. It excludes Area 1 findings,
+coordination, harness/oracle errors and extra failing parametrizations.
+The date-order correction remains part of A2-P3-01, not a new defect.
+
+| Mutually exclusive category | Distinct defects | Share | Cumulative |
+|---|---:|---:|---:|
+| Input, lookup, filter and renderer errors | 7 | 31.82% | 31.82% |
+| Balance and effective entitlement | 6 | 27.27% | 59.09% |
+| Ownership and authorization | 3 | 13.64% | 72.73% |
+| State, duplication and refusal atomicity | 3 | 13.64% | 86.36% |
+| Attachment path construction | 1 | 4.55% | 90.91% |
+| Form amount requiredness | 1 | 4.55% | 95.45% |
+| Breakdown-aware overlap | 1 | 4.55% | 100.00% |
+
+Categories describe this observed contribution only. This is not a same-build
+or project-wide density, an 80/20 proof, an invented human triage meeting or a
+measurement of unobserved defects. Four original corrections are merged/closed;
+the other eighteen remain technically retested proposals pending PR #8 review
+and accepted integration.
+
+The two detailed major-defect 5 Whys/cause analyses below remain A2-D01
+(requester refund ownership) and A2-D03 (raw versus policy-capped balance).
+Current controls extend their evidenced causes: A2-P3-02 supplies target holiday
+context; A2-P3-05 rechecks the current cap at approval; A2-P3-06 validates body
+shape before reversing balance; A2-P3-07 authorizes a changed target. These are
+source-backed data-flow findings, not invented organizational/process causes.
+Strict independent requester/actor/outsider balances, stale over-cap fixtures,
+real HTTP readback and unchanged-state refusal assertions are retained as the
+preventive controls. Current source-bound retests are in RAYYAN_FINISH_03_STATUS.md.
+
+---
+
+Historical dated records follow. Current source-specific results above supersede their older pending/count labels.
+
 # Area 2 root-cause and Pareto contribution
 
 24 November 2026. Prepared from source and retained automated evidence; this is

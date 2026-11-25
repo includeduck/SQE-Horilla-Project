@@ -1,3 +1,36 @@
+## Prompt 3 technical continuation — authoritative dated update, 25 November 2026
+
+This section and reports/RAYYAN_FINISH_03_STATUS.md supersede historical
+unconsumed-ID/oracle-open/unstarted-D labels below. Codex has implemented the
+remaining scoped business, reason, state/role and connected W1/W2 consumers,
+reproduced seven new business defects, applied narrow corrections and retained
+their strict before/after evidence. Prompt 2's eight product defects are also
+mapped to real Issues and retests. The historical seven-defect contribution is
+preserved; the current Area 2 population is 22 distinct product defects, not
+a count of failing parametrizations. Owner decisions OD-01/OD-02 are resolved.
+
+Current execution and requirement acceptance must be read from
+finish-line/PROMPT03_EXECUTION_SUMMARY.json,
+finish-line/PROMPT03_REQUIREMENT_EVIDENCE.json and the input-level
+finish-line/REMAINING_WORK.json under docs/team. No whole-project acceptance,
+owner review or merged PR #8 is inferred. The local working files remain
+preserved; remote publication/CI works despite the disconnected laptop.
+
+| Next executor | Exact remaining work after this stage |
+|---|---|
+| Codex for Rayyan — Prompt 4 | Final integrated verification on the final source; reconcile definitive completion/coverage/GQM/risk reports, package manifests and available all-area artifacts; finish feasible carryover; publish the definitive ownership closeout. Do not restart completed debugging merely because historical text below says pending. |
+| Wasay / agent — owner dependency | Review and accept or factually reject PR #8 corrections; complete protected merge and actual overall Sonar/unit/mutation/required-check/deployment enforcement under available owner authority. Keep unmerged product Issues open until warranted. |
+| Wasay with Zain — shared dependency | Supply genuine Area 1/3/package inputs and human team decisions; synchronize final submission history without resetting this laptop's preserved changes. |
+| Human assessed work | Actual review/understanding and personal viva cannot be performed or certified by this agent. |
+
+Prompt 4 has not been executed here. Its final no-further-execution assignment
+statement is reserved for actual final-stage completion attempts; no fifth
+Rayyan prompt is expected.
+
+---
+
+Historical dated records follow. Current source-specific results above supersede their older pending/count labels.
+
 # SQE owner handoff
 
 ## Prompt 1 executed — authoritative current assignment

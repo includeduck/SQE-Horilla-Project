@@ -1,3 +1,49 @@
+## Prompt 3 reconciled behavior — 25 November 2026
+
+This section supersedes the historical incomplete-reader and unanswered
+OD-01/OD-02 labels below. The canonical scope has 34 operations, 88 generated
+input entries and 713 preserved IDs. The broader inventory has 350 mandatory
+families (334 input/media/filter/query families and 16 business/reason families).
+The implementation has 3,433 unique API cases including 2,256 supplementary wire
+cases; these numbers measure implementation until actual source-bound JUnit
+and requirement assertion selectors establish a pass.
+
+Effective duration uses independent expected calendar/half-day calculations,
+holiday and company-day sets with overlap removed once, and the target
+employee's specific-holiday context. Positive effective duration applies to
+leave requests. No positive allocation-amount policy is invented. Available
+funds use existing carry-forward policy/cap and model forecast at its reset
+boundary; approval rechecks current funds and does not credit future entitlement
+early. Expiry tests explicitly run the existing expire_carryforward lifecycle
+before checking validation, rather than inventing expiry by requested date.
+
+All nine same-day breakdown pairs, active versus terminal/foreign overlap,
+conditional attachment bytes, assignment, requested-only editing/deletion,
+invalid action IDs, permitted manager/permission roles, self/nonowner denials,
+repetition and connected grant/consume/refuse/refund are exercised. BR-02 keeps
+24 feasible and eight evidenced infeasible combinations; BR-04 keeps all eight
+permission/manager/self truth rows. Additional state/role cases exercise the
+existing graph under four distinct actor modes. W1/W2 readback independently
+corroborates persisted owner/status and exact available/carry debit/refund splits.
+
+Reasons follow reject_reason_from: omission/null/nonstring become empty,
+strings are stripped and capped at 1000, with actual persistence asserted.
+The LeaveRequest TextField's declared max_length=255 is separate: the tested
+SQLite persistence and explicit TextField.clean accept the tested longer text.
+The helper limit is not a serializer rejection bound, and this work makes no
+PostgreSQL claim. Optional cancel reasons are a source-discovered supplementary
+family. An incompatible future mandatory-reason policy would require an owner
+decision; it is not silently imposed here.
+
+A response alone is never the workflow oracle. Current evidence and precise
+per-FR/BR assertions are in finish-line/PROMPT03_REQUIREMENT_EVIDENCE.json,
+finish-line/PROMPT03_INPUT_LEDGER.json and reports/RAYYAN_FINISH_03_STATUS.md.
+No human approval, whole-project release or final Prompt 4 execution is inferred.
+
+---
+
+Historical dated records follow. Current source-specific results above supersede their older pending/count labels.
+
 # Area 2 test basis: Phase B prerequisite reconstruction
 
 ## Prompt 1 completed — current contract checkpoint (24 November 2026)
