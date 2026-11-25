@@ -4,13 +4,13 @@
   "roll": "24I-3000",
   "section": "SE-5B",
   "label": "Final contribution source snapshot; not whole-group release",
-  "inventory_tree_sha": "bea4cc8a96e28201ae65a80965cc8561968585ae",
+  "inventory_tree_sha": "8b1308ea101e60f4942242ff7ba17d51db471898",
   "inventory_origin": "Complete untruncated public Git tree after final substantive content edits; exact Git blob bytes. Manifest self and external publication index excluded to avoid circular hashes.",
   "hash_algorithm": "Git SHA-1 blob identity includes blob header; SHA256 for every archive payload is in deliverables package_manifest.json",
   "tested_application_sha": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
   "source_equivalence": {
     "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
-    "candidate_tree": "bea4cc8a96e28201ae65a80965cc8561968585ae",
+    "candidate_tree": "8b1308ea101e60f4942242ff7ba17d51db471898",
     "critical_blob_count": 1558,
     "differences": [],
     "scope": "All horilla*/leave application files and Area2 API/generator/contract/runtime/browser consumers unchanged; separate CI/package tooling changes verified independently"
@@ -79,8 +79,8 @@
     },
     {
       "path": ".github/workflows/finish04-package.yml",
-      "bytes": 8730,
-      "git_blob_sha": "caa5eb371c194f2c57d97fd744733b2eae384b2a"
+      "bytes": 8756,
+      "git_blob_sha": "56bc433a16bc84a1611e46cf1654f00abc9db0eb"
     },
     {
       "path": ".github/workflows/phase-d-verification.yml",
@@ -779,8 +779,8 @@
     },
     {
       "path": "docs/team/finish-line/PROMPT04_VERIFICATION.json",
-      "bytes": 67390,
-      "git_blob_sha": "f5a624425d0aac22281ba021e1298a4534608947"
+      "bytes": 67907,
+      "git_blob_sha": "ca364602f6a42b71d6a30db09b884a73c40da9c3"
     },
     {
       "path": "docs/team/finish-line/PROMPT_01_CONTRACT_AND_SCOPE.md",
@@ -989,8 +989,8 @@
     },
     {
       "path": "scripts/team/build_rayyan_contribution.py",
-      "bytes": 15000,
-      "git_blob_sha": "16cd1ec539da920930cf2d871c0df0eb9b0ec1b6"
+      "bytes": 15035,
+      "git_blob_sha": "155f59056bef46fb6438e7eebd6a5dd1b9917851"
     },
     {
       "path": "scripts/team/final_quality_gate.py",

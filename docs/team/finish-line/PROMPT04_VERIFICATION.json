@@ -1445,5 +1445,15 @@
     "initial_failure": "Transient GitHub HTTP500 in summary polling; data was not accepted",
     "recovery": "Reran only failed collection after pinned full API completed; actual summary/generated exports passed",
     "product_defect": false
-  }
+  },
+  "packaging_harness_history": [
+    {
+      "run": 45640355772,
+      "overall_result": "failure",
+      "build_result": "ZIP not produced",
+      "cause": "Canonical Git byte check caught CRLF checkout conversion of reset.ps1. Build tee lacked pipefail but later missing ZIP still failed workflow.",
+      "correction": "Read source payload from git show HEAD:path; retain exact index blob guard; set pipefail before build pipeline. No test assertions/scope were relaxed.",
+      "product_defect": false
+    }
+  ]
 }

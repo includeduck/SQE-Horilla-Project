@@ -166,7 +166,7 @@ def main():
         if name=="docs/team/finish-line/FINAL_PUBLICATION.json":continue
         path=Path(name)
         if path.suffix.lower() in deny or path.name==".env" or any(x in path.parts for x in (".git",".venv","node_modules","media","__pycache__")):continue
-        if path.is_file():payload["source/"+name]=path.read_bytes()
+        if path.is_file():payload["source/"+name]=subprocess.check_output(["git","show","HEAD:"+name])
     for path in Path(a.evidence).rglob("*"):
         if path.is_file():
             if path.suffix.lower() in deny: raise ValueError("Database/key unexpectedly present in CI evidence")
