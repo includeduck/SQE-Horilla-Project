@@ -1,0 +1,21 @@
+{
+  "run_id": 45348178607,
+  "job_id": 138287747685,
+  "source_commit": "8a9ca964fcfede2b2def665362a99270aa4c8ca8",
+  "job_conclusion": "success",
+  "baseline": {
+    "passed": 6,
+    "failures": 0
+  },
+  "variant": {
+    "passed": 4,
+    "failures": 2,
+    "pytest_exit": 1
+  },
+  "expected_failed_ids": [
+    "self_allocation_create:body:description:BVA:minLength-below",
+    "self_allocation_create:body:attachment:BVA:x-filename-maxLength-above"
+  ],
+  "experiment_demonstrated": true,
+  "application_scope_complete": false
+}
