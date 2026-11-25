@@ -110,7 +110,8 @@ def manager_or_owner_permission_required(model_class, perm):
                 # Authorize a changed owner as well as the original record.
                 # Otherwise an owner (or a manager of only the old employee)
                 # can retarget an update to somebody outside their scope.
-                data = request.data if hasattr(request.data, "get") else {}
+                data = (request.data if request.method in {"PUT", "PATCH"}
+                        and hasattr(request.data, "get") else {})
                 new_employee_id = data.get("employee_id")
                 if (request.method in {"PUT", "PATCH"}
                         and new_employee_id is not None

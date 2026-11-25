@@ -29,7 +29,7 @@ def state():
     from leave.models import AvailableLeave, LeaveAllocationRequest, LeaveRequest
     fields = {
         "allocations": (LeaveAllocationRequest, ["id", "employee_id_id", "leave_type_id_id", "requested_days", "description", "status", "is_active", "attachment", "reject_reason"]),
-        "leaves": (LeaveRequest, ["id", "employee_id_id", "leave_type_id_id", "requested_days", "description", "status", "is_active", "attachment", "reject_reason", "start_date", "end_date", "start_date_breakdown", "end_date_breakdown", "approved_available_days", "approved_carryforward_days"]),
+        "leaves": (LeaveRequest, ["id", "employee_id_id", "leave_type_id_id", "requested_days", "description", "status", "cancellation_requested", "is_active", "attachment", "reject_reason", "start_date", "end_date", "start_date_breakdown", "end_date_breakdown", "approved_available_days", "approved_carryforward_days"]),
         "assignments": (AvailableLeave, ["id", "employee_id_id", "leave_type_id_id", "available_days", "carryforward_days", "total_leave_days", "is_active"]),
     }
     return {name: list(model.objects.entire().order_by("id").values(*names))
