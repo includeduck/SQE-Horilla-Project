@@ -45,6 +45,7 @@ htmlcov/
 .cache
 nosetests.xml
 coverage.xml
+coverage.json
 *.cover
 *.py,cover
 .hypothesis/
@@ -167,3 +168,5 @@ CLAUDE.md
 
 # SQE team: local DB snapshot used by scripts/team/reset.ps1
 tests/team/.baseline.sqlite3
+# SonarQube scanner work dir
+.scannerwork/
