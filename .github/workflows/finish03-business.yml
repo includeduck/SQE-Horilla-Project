@@ -49,3 +49,32 @@ jobs:
           name: finish03-${{ github.run_id }}-${{ matrix.shard }}
           path: docs/team/evidence/area2/finish-03/ci-*/
           if-no-files-found: error
+
+  upstream:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install unchanged complete runtime
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf-2.0-0 libffi8 shared-mime-info
+          bash .github/scripts/install-requirements.sh
+          python -m pip install -r tests/team/requirements-area2.txt
+      - name: Run affected original balance holiday forecast cancellation and target-scoping tests separately
+        env:
+          PYTHONPATH: tests/team:tests/team/api:.
+        run: |
+          mkdir -p docs/team/evidence/area2/finish-03/upstream-${{ github.run_id }}
+          set -o pipefail
+          python -m pytest -c tests/team/pytest-area2.ini leave/tests/test_requested_days.py leave/tests/test_approve_balance.py leave/tests/test_allocation_approve.py leave/tests/test_forecast.py leave/tests/test_carryforward.py leave/tests/test_carryforward_expiry_method.py leave/tests/test_cancellation_request.py horilla_api/tests/test_manager_target_scoping.py horilla_api/tests/test_leave_request_write_scoping.py horilla_api/tests/test_api_write_target_scoping.py horilla_api/tests/test_manager_permission_403.py horilla_api/tests/test_leave_allocation_approval.py horilla_api/tests/test_write_permissions.py -v -s -o junit_family=xunit1 --junitxml=docs/team/evidence/area2/finish-03/upstream-${{ github.run_id }}/upstream.xml 2>&1 | tee docs/team/evidence/area2/finish-03/upstream-${{ github.run_id }}/upstream.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: finish03-upstream-${{ github.run_id }}
+          path: docs/team/evidence/area2/finish-03/upstream-*/
+          if-no-files-found: error

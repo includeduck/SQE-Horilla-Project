@@ -1026,9 +1026,11 @@ class LeaveAllocationRequestRejectAPIView(APIView):
     def put(self, request, pk):
         leave_allocation_request = self.get_leave_allocation_request(pk)
         if leave_allocation_request.status != "rejected":
+            # Validate the body before the approved-balance reversal writes.
+            # A controlled 400 must leave status and balance unchanged.
+            reason = reject_reason_from(request)
             self.reject_calculation(leave_allocation_request)
             leave_allocation_request.status = "rejected"
-            reason = reject_reason_from(request)
             if reason:
                 leave_allocation_request.reject_reason = reason
             leave_allocation_request.save()

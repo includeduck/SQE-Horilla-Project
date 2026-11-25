@@ -82,7 +82,8 @@ jobs:
               paths=sorted(Path("docs/team/evidence/area2/finish-02/download").rglob(order+"-shard-*.xml"))
               if len(paths)!=16:
                   raise SystemExit("Missing one or more "+order+" shard result files")
-              command=[sys.executable,"tests/team/generator/coverage_guard.py","--stage2","--output","docs/team/evidence/area2/finish-02/coverage-"+order+".json"]
+              mode="--require-complete" if "${{ inputs.full_scope }}"=="true" else "--stage2"
+              command=[sys.executable,"tests/team/generator/coverage_guard.py",mode,"--output","docs/team/evidence/area2/finish-02/coverage-"+order+".json"]
               for path in paths:
                   command+=["--junit",str(path)]
               code=subprocess.call(command)
@@ -93,11 +94,26 @@ jobs:
                   command+=["--junit",str(path)]
               code=subprocess.call(command)
               exit_code=exit_code or code
+          # Evidence is reconciled even after a failed collection; it cannot
+          # turn a failed/missing/skipped assertion into a verified input.
+          command=[sys.executable,"tests/team/generator/record_execution.py","--stage","3","--source","${{ env.AREA2_SOURCE_SHA }}","--run","${{ github.run_id }}","--evidence","https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"]
+          for order in ("first","reversed"):
+              command += ["--report","docs/team/evidence/area2/finish-02/coverage-"+order+".json"]
+          code=subprocess.call(command)
+          exit_code=exit_code or code
+          command=[sys.executable,"tests/team/generator/requirement_evidence.py","--source","${{ env.AREA2_SOURCE_SHA }}","--output","docs/team/finish-line/PROMPT03_REQUIREMENT_EVIDENCE.json"]
+          for order in ("first","reversed"):
+              command += ["--report","docs/team/evidence/area2/finish-02/coverage-"+order+".json"]
+          code=subprocess.call(command)
+          exit_code=exit_code or code
           raise SystemExit(exit_code)
           PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: finish02-coverage-${{ github.run_id }}
-          path: docs/team/evidence/area2/finish-02/coverage-*.json
+          path: |
+            docs/team/evidence/area2/finish-02/coverage-*.json
+            docs/team/finish-line/PROMPT03_*.json
+            docs/team/finish-line/REMAINING_WORK.json
           if-no-files-found: error

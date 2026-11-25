@@ -9,6 +9,17 @@ from leave.methods import calculate_requested_days
 from leave.models import *
 
 
+def _effective_carryforward(available_leave):
+    """Apply the existing model policy even when stored carry exceeds its cap."""
+    carry = available_leave.carryforward_days or 0
+    leave_type = available_leave.leave_type_id
+    if leave_type.carryforward_type in ["carryforward", "carryforward expire"]:
+        return min(carry, leave_type.carryforward_max or 0)
+    if leave_type.carryforward_type == "no carryforward":
+        return 0
+    return carry
+
+
 def leave_Validations(self, data):
     start_date = data.get("start_date")
     end_date = data.get("end_date")
@@ -48,23 +59,29 @@ def leave_Validations(self, data):
         end_date=end_date,
         leave_type_id=leave_type_id,
         requested_days=requested_days,
+        employee=employee,
     )
 
     # Apply the same carry-forward policy as LeaveRequest.clean(). A stale or
     # uncapped stored carry balance must not authorize excess requested days.
-    carryforward_days = available_leave.carryforward_days or 0
-    if leave_type_id.carryforward_type in ["carryforward", "carryforward expire"]:
-        carryforward_days = min(carryforward_days, leave_type_id.carryforward_max or 0)
-    elif leave_type_id.carryforward_type == "no carryforward":
-        carryforward_days = 0
-    total_leave_days = (available_leave.available_days or 0) + carryforward_days
+    carryforward_days = _effective_carryforward(available_leave)
+    total_leave_days = ((available_leave.available_days or 0) + carryforward_days
+                        + available_leave.forcasted_leaves(start_date))
     errors = {}
     # checking if there is any requested days is overlapping with the existing leave request
     # Cancelled and rejected requests don't hold the dates -- the same rule
     # LeaveRequest.clean() applies on the web.
-    leave_requests = employee.leaverequest_set.filter(
-        start_date__lte=end_date, end_date__gte=start_date
-    ).exclude(status__in=["cancelled", "rejected"])
+    candidate = LeaveRequest(
+        employee_id=employee, leave_type_id=leave_type_id,
+        start_date=start_date, end_date=end_date,
+        start_date_breakdown=start_date_breakdown,
+        end_date_breakdown=end_date_breakdown,
+    )
+    if self.instance:
+        candidate.pk = self.instance.pk
+    leave_requests = candidate.leaveoverlapping().exclude(
+        status__in=["cancelled", "rejected"]
+    )
     if self.instance:
         leave_requests = leave_requests.exclude(id=self.instance.id)
     if leave_requests:
@@ -93,6 +110,11 @@ def leave_Validations(self, data):
     if start_date == end_date and start_date_breakdown != end_date_breakdown:
         raise serializers.ValidationError(
             _("There is a mismatch in the breakdown of the start date and end date.")
+        )
+
+    if effective_requested_days <= 0:
+        raise serializers.ValidationError(
+            _("The effective requested days must be greater than zero.")
         )
 
     if not effective_requested_days <= total_leave_days:
@@ -523,7 +545,7 @@ class LeaveRequestApproveSerializer(serializers.ModelSerializer):
             leave_type_id=leave_type_id, employee_id=employee_id
         )
         total_available_leave = (
-            available_leave.available_days + available_leave.carryforward_days
+            available_leave.available_days + _effective_carryforward(available_leave)
         )
         if not total_available_leave >= leave_request.requested_days:
             raise serializers.ValidationError(
@@ -532,3 +554,4 @@ class LeaveRequestApproveSerializer(serializers.ModelSerializer):
             )
         data["available_leave"] = available_leave
         return data
+

@@ -2,20 +2,15 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Rayyan Area 2 source-reconstructed leave API subset",
-    "version": "0.2.0-source-review"
+    "version": "0.2.0-source-review",
+    "description": "Prompt 3 supplies executable readers for every declared scoped family. Declared completeness is not runtime acceptance: coverage_guard requires actual source-bound JUnit for every mandatory consumer."
   },
   "servers": [
     {
       "url": "http://127.0.0.1:8000"
     }
   ],
-  "x-exclusions": [
-    "Required runtime filter/search/grouping/page inputs are completely inventoried but not all represented/consumed by this reader; Prompt 2 must implement them.",
-    "New assignment/reference/reason/is_active classes and remaining old generated IDs need actual consumers or justified evidence-backed N/A; ID reference alone is not a pass.",
-    "All accepted media, whole-body omission/null/unknown properties, numeric/reference coercions and collection wire encodings are not exhaustively consumed.",
-    "Effective positive duration, employee-specific holidays, forecast, complete decision/state/reference/balance scenarios remain Prompt 3 work.",
-    "Reason text schema is not its wire normalization oracle; ignored/truncated values and persistence limits require Prompt 3 verification."
-  ],
+  "x-exclusions": [],
   "paths": {
     "/api/v1/leave/available-leave/": {
       "get": {

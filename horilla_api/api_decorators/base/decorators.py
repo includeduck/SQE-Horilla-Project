@@ -107,6 +107,24 @@ def manager_or_owner_permission_required(model_class, perm):
                         },
                         status=status.HTTP_403_FORBIDDEN,
                     )
+                # Authorize a changed owner as well as the original record.
+                # Otherwise an owner (or a manager of only the old employee)
+                # can retarget an update to somebody outside their scope.
+                data = request.data if hasattr(request.data, "get") else {}
+                new_employee_id = data.get("employee_id")
+                if (request.method in {"PUT", "PATCH"}
+                        and new_employee_id is not None
+                        and str(new_employee_id) != str(target.employee_id_id)):
+                    try:
+                        new_target = Employee.objects.filter(pk=new_employee_id).first()
+                    except (TypeError, ValueError, OverflowError) as error:
+                        raise ValidationError({"employee_id": _("A valid employee identifier is required.")}) from error
+                    if not (new_target == employee or request.user.has_perm(perm)
+                            or check_manager(employee, new_target)):
+                        return Response(
+                            {"error": _("You do not have permission to perform this action.")},
+                            status=status.HTTP_403_FORBIDDEN,
+                        )
                 if target.employee_id == employee:
                     return func(self, request, pk, *args, **kwargs)
             else:

@@ -2,6 +2,48 @@
 
 25 November 2026. Syed Muhammad Rayyan Hassan, 24I-3000, SE-5B.
 
+## Current evidence and corrective checkpoint
+
+The complete strict business baseline on f41dc58b (run 45544239475) executed
+354 cases across four shards: **315 passed / 39 failed / zero setup errors or
+required skips**. Of the failures, 27 demonstrated six distinct product defects;
+12 were this agent's incorrect assumption that Django TextField.clean installs
+a max-length validator. Actual >255-character SQLite persistence was already
+observed successfully before that mistaken final harness assertion. The test
+now asserts the actual clean behavior and keeps the helper's independent 1000
+limit, declared 255 metadata and untested PostgreSQL behavior distinct.
+
+An expanded-baseline full-suite shard on a021dec5 (45544984779 / 138972520699)
+completed with 211 passes and four failures, including actual unauthorized
+ownership transfer: HTTP 201 with Team Outsider persisted instead of controlled
+403. It establishes a seventh distinct product defect. The superseded whole
+run was then intentionally cancelled to release free CI capacity, retaining its
+completed failures/artifacts; it is not a completed collection or passing gate.
+The dedicated expanded baseline remains independently retained.
+
+The seven narrow source corrections address nonpositive duration, target-specific
+holidays, existing model forecast entitlement, complementary half-day overlap,
+approval's current policy/cap recheck, body validation before allocation balance
+mutation, and authorization of a changed update target. Product Issues #14-#20
+retain exact before inputs/results/balances and source/run identities. Source
+corrections remain proposed until their strict passing-after checks finish.
+
+All 713 canonical IDs and their actual request payloads are preserved. The five
+coarse unimplemented-reader flags have explicit implementation resolutions in
+PROMPT03_EXCLUSION_RECONCILIATION.json; no case or mandatory family was removed.
+Schema closure metadata changes the spec/data fingerprints to a7fb5df7/c8714857.
+Declared reader completeness does not establish a pass: actual source-bound
+JUnit for all 3,433 cases, both independent orders, every input family and every
+FR/BR assertion selector still drives the strict gates. All 64 independent
+tooling checks pass locally; generator freshness and all mapping partitions pass.
+
+Original defects #3-#6 were updated and closed using their merged PR #2 fixes
+and actual later 16-case focused plus eight-case upstream passing evidence on
+796b84bd; those populations remain separate. New fixes in PR #8 are not called
+merged or owner accepted. Final integrated acceptance is still Prompt 4 work.
+
+## Earlier implementation checkpoints
+
 Execution is in progress. This checkpoint adds 164 effective-duration, holiday,
 breakdown, balance, forecast, expiry, overlap, assignment and attachment contexts
 over all four generic/self create/update operations; 72 reason/persistence

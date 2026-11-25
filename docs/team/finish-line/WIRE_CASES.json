@@ -60089,6 +60089,26 @@
   ],
   "supplemental_inputs": [
     {
+      "id": "INPUT:cancel:body:reason",
+      "operation": "cancel",
+      "field": "reason",
+      "location": "body",
+      "category": "declared_generated_input",
+      "stage": 3,
+      "requirements": [
+        "FR-09",
+        "BR-03"
+      ],
+      "details": {
+        "source": "LeaveRequestCancelAPIView.put calls reject_reason_from before request_leave_cancellation",
+        "schema": {
+          "type": "string",
+          "nullable": true
+        },
+        "note": "Prompt 3 source-discovered optional reason; real normalization/persistence covered by business consumers."
+      }
+    },
+    {
       "id": "INPUT:allocation_list:query:custom_field",
       "operation": "allocation_list",
       "field": "custom_field",
@@ -60440,7 +60460,7 @@
       }
     }
   ],
-  "mandatory_input_families": 349,
+  "mandatory_input_families": 350,
   "source_sha256": "d173b4b1f6c899eaeec2bff32e0351ee4bbcef8d0b29dab075ed992be07bc2e8",
   "scope_complete": false
 }

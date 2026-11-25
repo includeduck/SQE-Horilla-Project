@@ -24,7 +24,9 @@ def write(path, document):
     Path(path).write_text(json.dumps(document, indent=2, ensure_ascii=True)+"\n", encoding="utf-8")
 
 
-def reconcile(reports, source, run, evidence):
+def reconcile(reports, source, run, evidence, stage=3):
+    if not reports:
+        raise ValueError("No actual result collections supplied")
     artifact=read(TEAM/"generator/generated_cases.json")
     ledger,wire=build_ledger()
     expected={row["case_id"] for row in ledger["entries"]}
@@ -64,7 +66,8 @@ def reconcile(reports, source, run, evidence):
             implementation_status="implemented" if case_id in mapping else "planned-Prompt-3",
             execution_status=outcome([case_id]),tested_source_sha=source,
             original_399_gap=case_id in old_gap,consumer=mapping.get(case_id,{}).get("file"),
-            execution_evidence=observed.get(case_id,[]),stage=2 if case_id in mapping else 3))
+            execution_evidence=observed.get(case_id,[]),
+            stage=3 if mapping.get(case_id,{}).get("file")=="test_business_rules.py" else 2))
     inventory=source_inventory()
     input_rows=inventory["inputs"]+supplements(inventory)
     families=[]
@@ -72,13 +75,15 @@ def reconcile(reports, source, run, evidence):
         ids=[case["id"] for case in wire["cases"] if case["input_id"]==row["id"]]
         canonical=[case["id"] for case in artifact["cases"] if
             "INPUT:"+case["operation"]+":"+case["location"]+":"+".".join(map(str,case["field"]))==row["id"]]
-        active=ids+[case_id for case_id in canonical if case_id in mapping]
+        business=[entry["case_id"] for entry in ledger["entries"] if
+                  entry["file"]=="test_business_rules.py" and entry.get("input_family")==row["id"]]
+        active=sorted(set(ids+[case_id for case_id in canonical if case_id in mapping]+business))
         deferred=[case_id for case_id in canonical if case_id not in mapping]
         families.append(dict(input_id=row["id"],operation=row["operation"],location=row["location"],
             field=row["field"],category=row["category"],stage=row["stage"],requirements=row["requirements"],
-            applicability="mandatory",implementation_status="implemented" if row["stage"]==2 else "planned-Prompt-3",
-            stage_execution_status=outcome(active) if row["stage"]==2 else "not-yet-observed",
-            complete_input_status="planned-Prompt-3" if row["stage"]==3 or deferred else outcome(active),
+            applicability="mandatory",implementation_status="implemented" if active else "planned",
+            stage_execution_status=outcome(active),
+            complete_input_status="planned" if deferred or not active else outcome(active),
             tested_source_sha=source,consumer_ids=active,remaining_generated_ids=deferred))
     shared=dict(label="Derived from actual source-bound JUnit; mappings alone are not passes",
                 tested_source_sha=source,run_id=run,evidence=evidence,
@@ -91,12 +96,15 @@ def reconcile(reports, source, run, evidence):
         old_399_statuses=dict(Counter(row["execution_status"] for row in generated if row["original_399_gap"])),
         collections=[{key:report[key] for key in ("actual_testcase_count","observed_unique_ids","stage2_accepted",
             "complete_scope_accepted","failed_error_or_skipped_ids","missing_ids")} for report in reports],
-        full_scope_accepted=False)
+        full_scope_accepted=(len(reports)>=2 and all(report["complete_scope_accepted"] for report in reports)
+            and all(row["complete_input_status"]=="verified-on-recorded-source" for row in families)))
     output=ROOT/"docs/team/finish-line"
-    write(output/"PROMPT02_GENERATED_LEDGER.json",dict(shared,rows=generated))
-    write(output/"PROMPT02_INPUT_LEDGER.json",dict(shared,rows=families))
-    write(output/"PROMPT02_EXECUTION_SUMMARY.json",summary)
-    write(TEAM/"api/case_ledger.json",ledger)
+    prefix=f"PROMPT{stage:02d}"
+    write(output/(prefix+"_GENERATED_LEDGER.json"),dict(shared,rows=generated))
+    write(output/(prefix+"_INPUT_LEDGER.json"),dict(shared,rows=families))
+    write(output/(prefix+"_EXECUTION_SUMMARY.json"),summary)
+    # Implementation mappings stay separate from source-specific observations.
+    write(output/(prefix+"_CASE_EXECUTION.json"),dict(shared,rows=ledger["entries"]))
     remaining=read(output/"REMAINING_WORK.json")
     indexed={row["id"]:row for row in remaining["items"]}
     for family in families:
@@ -111,7 +119,7 @@ def reconcile(reports, source, run, evidence):
             implementation_status=family["implementation_status"],
             execution_status=family["stage_execution_status"],
             status="verified" if family["stage_execution_status"]=="verified-on-recorded-source" else "planned",
-            tested_source_sha=source,evidence=[evidence,"docs/team/finish-line/PROMPT02_INPUT_LEDGER.json"],
+            tested_source_sha=source,evidence=[evidence,"docs/team/finish-line/"+prefix+"_INPUT_LEDGER.json"],
             remaining_generated_ids=family["remaining_generated_ids"],
             complete_input_status=family["complete_input_status"])
     remaining["summary"].update(summary)
@@ -120,8 +128,8 @@ def reconcile(reports, source, run, evidence):
         required_families_without_generated_ids=len(families)-len(artifact["inventory"]),
         input_families_by_stage=dict(Counter(row["stage"] for row in families)),
         verified_generated_ids_on_recorded_source=sum(row["execution_status"]=="verified-on-recorded-source" for row in generated),
-        coverage_complete=False,new_contract_executed_all=False)
-    remaining["prepared_stage"]=2
+        coverage_complete=summary["full_scope_accepted"],new_contract_executed_all=summary["full_scope_accepted"])
+    remaining["prepared_stage"]=stage
     write(output/"REMAINING_WORK.json",remaining)
     return summary
 
@@ -132,5 +140,6 @@ if __name__=="__main__":
     parser.add_argument("--source",required=True)
     parser.add_argument("--run",type=int,required=True)
     parser.add_argument("--evidence",required=True)
+    parser.add_argument("--stage",type=int,choices=(2,3),default=3)
     args=parser.parse_args()
-    print(json.dumps(reconcile([read(path) for path in args.report],args.source,args.run,args.evidence),sort_keys=True))
+    print(json.dumps(reconcile([read(path) for path in args.report],args.source,args.run,args.evidence,args.stage),sort_keys=True))

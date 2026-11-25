@@ -1,7 +1,9 @@
 """Strict HTTP/state regressions for Prompt 3. Synthetic setup only; no mocks."""
 import hashlib
 import json
+import os
 from datetime import date, timedelta
+from urllib.parse import urlsplit
 
 import pytest
 
@@ -15,6 +17,9 @@ def observe(h, case_id, family, body, response, before, amounts, expected, **ext
     h.record_property("asserted_requirements", json.dumps(extra.get("requirements", [])))
     after, after_amounts = state(), balances(h)
     print("BUSINESS_OBSERVATION "+json.dumps(dict(case_id=case_id, input_family=family,
+        source_sha=os.environ.get("AREA2_SOURCE_SHA",os.environ.get("GITHUB_SHA","local-unpublished")),
+        checkout_sha=os.environ.get("GITHUB_SHA","local-unpublished"),
+        method=response.request.method,route=urlsplit(response.request.url).path,
         request=body, expected_status=expected, actual_status=response.status_code,
         response=response.text[:1500],before=before,after=after,
         before_balances=amounts,after_balances=after_amounts,**extra),default=str,sort_keys=True),flush=True)
@@ -149,8 +154,12 @@ def reason_action(h,action,body,case_id):
     h.record_property("model_reason_max_length",str(field.max_length))
     h.record_property("helper_reason_limit","1000")
     if field.max_length and len(normalized)>field.max_length:
-        from django.core.exceptions import ValidationError
-        with pytest.raises(ValidationError): field.clean(normalized,record)
+        # Real Django TextField.clean does not install a MaxLengthValidator
+        # from this metadata. The baseline caught our opposite assumption.
+        # Keep the observed >255 SQLite persistence and helper's 1000 limit
+        # explicit; neither model validation nor PostgreSQL is inferred.
+        assert field.clean(normalized,record)==normalized
+        h.record_property("model_reason_validation","TextField.clean accepted text above declared max_length")
 
 
 @pytest.mark.parametrize("row",reason_rows(),ids=lambda r:r["id"])
