@@ -1,0 +1,51 @@
+name: Finish 03 business rules
+on:
+  pull_request:
+    branches: [sqe-team]
+    paths:
+      - "tests/team/api/test_business_rules.py"
+      - "tests/team/api/business_catalog.py"
+      - "horilla_api/api_serializers/leave/serializers.py"
+      - "horilla_api/api_views/leave/views.py"
+      - "leave/models.py"
+      - ".github/workflows/finish03-business.yml"
+permissions:
+  contents: read
+concurrency:
+  group: finish03-${{ github.ref }}
+  cancel-in-progress: false
+env:
+  AREA2_SOURCE_SHA: ${{ github.event.pull_request.head.sha }}
+jobs:
+  business:
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install unchanged complete runtime
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf-2.0-0 libffi8 shared-mime-info
+          bash .github/scripts/install-requirements.sh
+          python -m pip install -r tests/team/requirements-area2.txt
+      - name: Execute business rules over real HTTP with persisted state
+        env:
+          PYTHONPATH: tests/team:tests/team/api:.
+        run: |
+          mkdir -p docs/team/evidence/area2/finish-03/ci-${{ github.run_id }}
+          set -o pipefail
+          python -m pytest -c tests/team/pytest-area2.ini -p area2_order tests/team/api/test_business_rules.py tests/team/api/test_states_and_decisions.py tests/team/api/test_workflows.py --area2-shards=4 --area2-shard=${{ matrix.shard }} -v -s -o junit_family=xunit1 --junitxml=docs/team/evidence/area2/finish-03/ci-${{ github.run_id }}/business-${{ matrix.shard }}.xml 2>&1 | tee docs/team/evidence/area2/finish-03/ci-${{ github.run_id }}/business-${{ matrix.shard }}.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: finish03-${{ github.run_id }}-${{ matrix.shard }}
+          path: docs/team/evidence/area2/finish-03/ci-*/
+          if-no-files-found: error
