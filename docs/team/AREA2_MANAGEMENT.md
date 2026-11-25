@@ -1,3 +1,39 @@
+## Verified Prompt 3 result — 25 November 2026
+
+This source-specific result supersedes historical incomplete-input, pending-retest
+and unanswered OD-01/OD-02 labels below. On `fecac354c9b5d8ea47ac732a2b089ed3cc148620`,
+[run 45609322121](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121) passed **3,433/3,433 API
+cases in EACH independent order**, with no failures, errors, required skips or
+missing IDs. The strict complete-scope guard accepted both orders.
+**713/713 canonical generated IDs, all former 399 missing IDs, and 350/350
+mandatory input families are verified.** Explicit requirement assertion selectors
+verify FR-01–FR-10 and BR-01–BR-04; tags or mappings alone are not the evidence.
+
+The authoritative source-bound summaries and individual rows are in
+`docs/team/finish-line/PROMPT03_EXECUTION_SUMMARY.json`,
+`PROMPT03_REQUIREMENT_EVIDENCE.json`, `PROMPT03_INPUT_LEDGER.json` and
+`REMAINING_WORK.json`. The derived complete coverage, case-execution and generated-ID
+ledgers remain in [artifact 15024156843](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15024156843).
+
+Separate overlapping populations on the same source passed: 482 business/state/
+role/workflow cases; 82 affected upstream tests; 24 original team units; 16
+focused regressions; eight focused upstream tests; 182 expanded cases; 238 wire
+validation cases; seven advanced-filter cases; 27 further upstream tests plus
+two subtests; all ten personal browser flows; two fresh foundations with five
+smoke cases each; 68 tooling and four media-reader checks. Regeneration passed
+six baseline cases and retained exactly two predicted strict variant failures
+with four passes, in its separate controlled experiment. These totals are not
+added into a larger unique-case count.
+
+Prompt 3's scoped technical work is complete. **Whole-project release remains
+HOLD** pending accepted integration, owner/shared quality gates and Prompt 4's
+final integrated/report/package/ownership closeout. PR #8 remains draft/open;
+no owner approval, merge, human effort, review or viva is inferred.
+
+---
+
+Historical dated records and implementation detail follow.
+
 ## Prompt 3 current management and traceability — 25 November 2026
 
 This dated section supersedes older inventory, unfinished-oracle and pending

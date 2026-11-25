@@ -769,8 +769,9 @@
     }
   ],
   "mandatory_input_families": 350,
-  "execution_status": "Awaiting strict new-source first/reversed HTTP JUnit; failed/missing/skipped/errored cases still refuse acceptance",
+  "execution_status": "Verified on fecac354c9b5d8ea47ac732a2b089ed3cc148620 by source-bound complete first/reversed JUnit in run 45609322121",
   "not_applicable_or_removed_cases": [],
   "new_spec_sha256": "a7fb5df79983a4947ac4c79a4255b2778e3825965d679991d72152d5018be7a4",
-  "new_data_sha256": "c8714857008c706b39a8aa2149d85911d6b2742fd9c28632a7f6bba48cfc4143"
+  "new_data_sha256": "c8714857008c706b39a8aa2149d85911d6b2742fd9c28632a7f6bba48cfc4143",
+  "execution_evidence": "PROMPT03_EXECUTION_SUMMARY.json"
 }

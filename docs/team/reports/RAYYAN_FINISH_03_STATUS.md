@@ -1,89 +1,154 @@
-# Prompt 3 continuation — validation-order correction
-
-The first current-build full run 45549984738 executed all 3,433 API cases in each order but retained the same two date-order field-error failures per order. Business run 45549984744 and both Phase D jobs succeeded. The narrow follow-up moves inverted-date refusal before effective-duration calculation; strict generated HTTP/state assertions are unchanged. This is a correction to the positive-duration fix, not a new policy or passing-after claim. Real retest is pending. Workspace access became unavailable; existing protected-PR publication and isolated Actions verification continue.
-
-# Rayyan finish 03: business rules and strict defect corrections
+# Rayyan finish 03 — verified business rules and strict defect corrections
 
 25 November 2026. Syed Muhammad Rayyan Hassan, 24I-3000, SE-5B.
 
-## Current evidence and corrective checkpoint
+**Prompt 3 technical status: COMPLETE on the recorded source.**
+No failed, missing, errored or skipped required API assertion remains in either
+complete order. Prompt 4 has not been executed. Whole-project release remains
+HOLD for accepted integration, shared gates and final package/ownership closeout.
 
-The complete strict business baseline on f41dc58b (run 45544239475) executed
-354 cases across four shards: **315 passed / 39 failed / zero setup errors or
-required skips**. Of the failures, 27 demonstrated six distinct product defects;
-12 were this agent's incorrect assumption that Django TextField.clean installs
-a max-length validator. Actual >255-character SQLite persistence was already
-observed successfully before that mistaken final harness assertion. The test
-now asserts the actual clean behavior and keeps the helper's independent 1000
-limit, declared 255 metadata and untested PostgreSQL behavior distinct.
+## Actual source and final results
 
-An expanded-baseline full-suite shard on a021dec5 (45544984779 / 138972520699)
-completed with 211 passes and four failures, including actual unauthorized
-ownership transfer: HTTP 201 with Team Outsider persisted instead of controlled
-403. It establishes a seventh distinct product defect. The superseded whole
-run was then intentionally cancelled to release free CI capacity, retaining its
-completed failures/artifacts; it is not a completed collection or passing gate.
-The dedicated expanded baseline remains independently retained.
+Application/test source: `fecac354c9b5d8ea47ac732a2b089ed3cc148620`.
+Actual tested PR merge: `7c07376fa19a092cd445737ef817681413ae1e4b`,
+against `sqe-team` base `0a5ac6443dadb50ab5fd6ea749f41dd108a19486`.
+The final publication adds reports and the independently tested read-only
+evidence helper. It does not claim new application behavior or a passing
+check for an unobserved documentation commit.
 
-The seven narrow source corrections address nonpositive duration, target-specific
-holidays, existing model forecast entitlement, complementary half-day overlap,
-approval's current policy/cap recheck, body validation before allocation balance
-mutation, and authorization of a changed update target. Product Issues #14-#20
-retain exact before inputs/results/balances and source/run identities. Source
-corrections remain proposed until their strict passing-after checks finish.
+| Separate population | Actual result | Run |
+|---|---|---|
+| Full API, first order | 3,433 passed; zero failures/errors/skips/missing IDs | [45609322121](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121) |
+| Full API, reversed order | 3,433 passed; zero failures/errors/skips/missing IDs | Same run, independent 16 shards |
+| Strict complete-scope guard | Both orders accepted; overall Area 2 job passed | Same run, coverage job 139222175260 |
+| Generated IDs / former gap / input families | 713/713; 399/399; 350/350 verified | Same source-bound JUnit reconciliation |
+| Business/state/role/workflow | 482 passed in four shards: 124 / 125 / 103 / 130 | [45609322065](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322065) |
+| Affected business upstream / original team units | 82 passed / 24 passed, separately | Same business run |
+| Focused / focused upstream / expanded | 16 / 8 / 182 passed, separately | Full API run, job 139188710703 |
+| Wire validation / advanced filters | 238 / 7 passed, separately | [45609321905](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609321905) |
+| Further affected upstream | 27 passed plus two subtests | Same validation run |
+| Personal browser flows | All ten passed; strict HTML report passed | [45609321873](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609321873) |
+| Controlled regeneration | Six baseline passes; variant four passes and exactly two predicted strict failures; experiment succeeded | Same Phase D run |
+| Two independent fresh foundations | Each passed one W1/W2 foundation plus five smoke cases | [45609321841](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609321841) |
+| Schema / freshness / tooling / media reader | Passed / passed / 68 passed / four passed | [45609322104](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322104) |
 
-All 713 canonical IDs and their actual request payloads are preserved. The five
-coarse unimplemented-reader flags have explicit implementation resolutions in
-PROMPT03_EXCLUSION_RECONCILIATION.json; no case or mandatory family was removed.
-Schema closure metadata changes the spec/data fingerprints to a7fb5df7/c8714857.
-Declared reader completeness does not establish a pass: actual source-bound
-JUnit for all 3,433 cases, both independent orders, every input family and every
-FR/BR assertion selector still drives the strict gates. All 64 independent
-tooling checks pass locally; generator freshness and all mapping partitions pass.
+These overlapping populations are never added into a larger unique-case count.
+The scoped implementation is 34 operations, 88 canonical generated input entries,
+713 canonical IDs, 2,256 supplementary wire cases and 3,433 unique API scenarios.
+The 350 mandatory families comprise 334 input/media/query/filter families and
+16 business/reason families. A collected/mapped ID alone was never called a pass.
 
-Original defects #3-#6 were updated and closed using their merged PR #2 fixes
-and actual later 16-case focused plus eight-case upstream passing evidence on
-796b84bd; those populations remain separate. New fixes in PR #8 are not called
-merged or owner accepted. Final integrated acceptance is still Prompt 4 work.
+Derived complete coverage and generated/case execution ledgers
+are retained in [artifact 15024156843](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15024156843)
+Original JUnit and raw HTTP/state logs remain in the 32 shard artifacts and
+separate business artifacts indexed in PROMPT03_VERIFICATION.json.
+The repository copies the actual execution summary, requirement evidence,
+input ledger and reconciled remaining work. Evidence reader run
+[45625562265](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45625562265) independently verified source
+identity and reconstructed all five original report files without altering them.
 
-## Earlier implementation checkpoints
+## FR/BR assertion evidence
 
-Execution is in progress. This checkpoint adds 164 effective-duration, holiday,
-breakdown, balance, forecast, expiry, overlap, assignment and attachment contexts
-over all four generic/self create/update operations; 72 reason/persistence
-contexts; the remaining 21 canonical generated reason/date-order cases; three
-current-policy approval checks and an approved-allocation refusal atomicity
-regression. Existing decision/state/integration tests remain strict.
+| Requirement | Required asserted cases per order | Result |
+|---|---:|---|
+| FR-01 | 76 | Verified in both orders |
+| FR-02 | 29 | Verified in both orders |
+| FR-03 | 47 | Verified in both orders |
+| FR-04 | 9 | Verified in both orders |
+| FR-05 | 424 | Verified in both orders |
+| FR-06 | 171 | Verified in both orders |
+| FR-07 | 57 | Verified in both orders |
+| FR-08 | 286 | Verified in both orders |
+| FR-09 | 191 | Verified in both orders |
+| FR-10 | 347 | Verified in both orders |
+| BR-01 | 171 | Verified in both orders |
+| BR-02 | 188 | Verified in both orders |
+| BR-03 | 270 | Verified in both orders |
+| BR-04 | 340 | Verified in both orders |
 
-The four-shard real HTTP workflow retains source-bound JUnit and complete
-request/pre-state/post-state observations. This is a baseline reproduction
-checkpoint; no passing runtime result or new product fix is claimed yet.
-Local sources compile. Current local Django/pytest dependencies are absent;
-the existing isolated GitHub Actions runtime remains the verification route.
+Exact case IDs, consumer files, required assertions, source/spec identity and
+the empty failed/missing lists are retained in PROMPT03_REQUIREMENT_EVIDENCE.json.
+This verifies the selected assertions on the recorded source, not human scope
+signoff or an exhaustive Cartesian product of every possible application state.
 
-The conflict with sqe-team was confined to AI_USE_RECORD.md. Merge f41dc58b
-preserves all published teammate Sonar/unit files and both members' disclosures.
-Its first real baseline is run 45544239475, four independent business shards.
-The two Prompt 2 harness corrections retain exact ownership and selection
-assertions: detail responses use object identity, and the self-list filter's
-nonmatching type is bound to a distinct valid second request rather than an
-invalid form choice that the source ignores.
+## Delivered behavior, source changes and retained failures
 
-Additional implemented contexts cover all 124 decision/state/role combinations,
-two target-reference transfer denials and two split available/carry-forward
-W1/W2 refund sequences. New Prompt 3 inventory: 389 distinct cases; total 3,433
-API cases, all 713 canonical IDs mapped, 2,256 supplementary wire cases.
-The optional cancellation-request reason is one source-discovered supplementary
-input, making 350 mandatory input families (334 prior-stage and 16 business/
-reason families). This is implementation accounting, not passing execution.
+The 389 new business-file cases include 164 duration/holiday/breakdown/balance/
+reference/attachment contexts, 72 reason/persistence cases, 124 state/role cases,
+21 remaining canonical reason/date-order cases, three current-policy approvals,
+one malformed-approved-allocation atomicity case, two target-transfer denials
+and two connected available/carry split-refund sequences. Existing decision,
+state, auth, reference and W1/W2 assertions remain active.
 
-Refreshed Prompt 2 evidence: source 796b84bd, run 45455049960, completed with two
-failures in EACH 3,044-case order: self detail authentication response parsing
-and self leave-type nonmatching fixture binding. All remaining cases passed.
-These two harness/oracle contexts are being repaired here; failures are retained.
-Validation/upstream run 45455050118 and browser/regeneration run 45455049919
-completed successfully. Exact job populations will be reconciled from real logs.
+Seven genuine business defects were corrected in
+`e4d6f3ce5e0f57ce9e20667096bf30a58a2b50e2`: nonpositive effective duration,
+missing target-specific holiday context, missing existing forecast entitlement,
+complementary half-day overlap, current approval carry policy/cap, body validation
+before allocation reversal, and changed-target authorization. The target guard's
+write-only follow-up is `83666052c12d483b01d3f373fdf665b32b9f48ab`.
 
-OD-01/OD-02 and seven established corrections are retained. No xfail, required
-skip, forced exit, concurrent duplicate feature or new database uniqueness
-policy is introduced. Prompt 4 is not executed by this checkpoint.
+Failing-before business source f41dc58b / run 45544239475 executed 354 cases:
+315 passed and 39 failed; 27 failures represented six product defects and
+twelve represented this agent's incorrect TextField.clean length assumption.
+The complete decoded logs and exact HTTP/pre/post observations remain under
+evidence/area2/finish-03/. A later completed shard of run 45544984779 on a021dec5
+had 211 passes and four failures, including unauthorized persisted ownership
+transfer; the overall run was subsequently cancelled and is not called complete.
+
+The retained 13200cd9 full baseline, run 45549984738, executed all 3,433 cases in
+each order with the SAME two date-order field-error failures per order.
+It verified 711 generated IDs and 348 families; all former 399 missing IDs
+already passed. The positive-duration check had intercepted the established
+end_date error. Follow-up `4a719a178941f1a935c4acf29ad7170dc0005dac` restores
+early inverted-date refusal; the strict generated tests remain unchanged.
+The subsequent complete passing run above is the actual retest. This is a
+regression within A2-P3-01, not an additional Pareto defect.
+
+Prompt 2's object-versus-page and valid nonmatching self-list fixture repairs
+retain the same exact ownership/selection assertions. Reason tests explicitly
+distinguish helper strip/truncation at 1000 from LeaveRequest TextField's declared
+255 and observed longer SQLite persistence/clean behavior; no PostgreSQL claim
+or new mandatory-reason policy is invented. Expiry runs the existing lifecycle;
+forecast permits submission at the existing reset boundary without early credit
+at approval. OD-01/OD-02 and the seven established corrections are preserved.
+No new allocation positivity, concurrent duplicate or database uniqueness feature
+was introduced. No required xfail, skip, relaxed assertion or forced success exit
+was used. Removing the stale original-team strict xfail retained its 400 assertion.
+
+## Defects, management and publication
+
+The current population is 22 distinct confirmed Area 2 product defects across
+dated builds: seven established, eight Prompt 2 and seven Prompt 3. Behavior-to-
+Issue/actual-fix mapping is in PROMPT03_DEFECT_POPULATION.json. Missing historical
+D04/D05/D10 product records are now Issues #29/#30/#31 under rayyanhasan899.
+Issues #3–#6 remain warranted merged/retested closures; the other eighteen
+remain open pending accepted review/merge of draft PR #8. Area 1 Issues #11–#13,
+coordination #1, harness mistakes and extra failing parametrizations are excluded.
+
+Updated records include AREA2_DEFECTS, two-major-defect 5 Whys/cause controls and
+the 22-defect Pareto (retaining historical four/seven snapshots), SCOPE/test basis,
+risk/GQM/criteria, coverage/requirement matrix, evidence/AI records, prior-stage
+carryover status, Communication and handoff. FR evidence is 10/10 and BR evidence
+4/4 on this source. Human effort/estimate variance, density without measured size,
+human triage/review/viva and unobserved reopen history are not fabricated.
+
+The local workspace became unavailable; its files were preserved. Connected
+GitHub publication and free isolated Actions supplied execution. The read-only
+report helper initially failed a redirected-download authentication check;
+cd028cb9 fixed the helper, and both five-reader reconciliation runs passed.
+This is disclosed harness repair, not another product defect.
+
+## Exact final-stage and external carryover
+
+All 350 input-family rows are verified on the recorded source. Prompt 4 must
+perform final integrated verification on the final history; reconcile final
+reports/criteria, static inventory/package manifests and genuine available
+all-area artifacts; finish feasible carryover; then publish the definitive
+ownership closeout. It is not executed here and no fifth prompt is expected.
+
+Wasay/agent retains actual owner review and protected integration of PR #8,
+overall Sonar/unit/mutation/required merge/deployment administration and authentic
+Area 1/3/group-package inputs with Zain. Reconnecting/synchronizing the laptop
+must preserve existing working files. These are precise dependencies, not a
+transfer of completed routine debugging. No teammate acceptance or final
+no-further-execution statement is asserted prematurely.

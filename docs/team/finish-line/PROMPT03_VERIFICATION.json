@@ -1,0 +1,768 @@
+{
+  "label": "Derived index of actual GitHub runs and original artifacts; no synthetic JUnit",
+  "tested_source_sha": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+  "checkout_merge_sha": "7c07376fa19a092cd445737ef817681413ae1e4b",
+  "api_scope_accepted": true,
+  "requirements_verified": true,
+  "raw_input_report_identity": {
+    "run": 45609322121,
+    "source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+    "artifact": 15024156843,
+    "path": "finish-line/PROMPT03_INPUT_LEDGER.json",
+    "bytes": 419842,
+    "sha256": "153905f52d9c941e009a973cc659ae6f3517894e3b14f8996cf0b31a78e7e437",
+    "label": "Unmodified retained derived report; authoritative JUnit stays in original artifacts"
+  },
+  "raw_remaining_report_identity": {
+    "run": 45609322121,
+    "source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+    "artifact": 15024156843,
+    "path": "finish-line/REMAINING_WORK.json",
+    "bytes": 727078,
+    "sha256": "bf674d1518863baad31bef2b5cbb738d226023027bfaa8f30688ff17b806d006",
+    "label": "Unmodified retained derived report; authoritative JUnit stays in original artifacts"
+  },
+  "remaining_work_annotation": "Repository copy adds stage3_completion_note/final_stage_carryover; raw original remains in the indexed artifact",
+  "runs": [
+    {
+      "run_id": 45609321841,
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609321841",
+      "head_sha": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "conclusion": "success",
+      "event": "pull_request",
+      "created_at": "2026-11-25T11:58:21Z",
+      "updated_at": "2026-11-25T12:12:15Z",
+      "jobs": [
+        {
+          "id": 139188561522,
+          "name": "contract (fresh-a)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188562074,
+          "name": "contract (fresh-b)",
+          "conclusion": "success"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 15020146277,
+          "name": "finish01-fresh-a-45609321841-1",
+          "size_bytes": 57029,
+          "digest": "sha256:956c7b2d29a2d353814721ffe368047e0ebc9d53087c70a8060cdd40793f8045",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609321841/artifacts/15020146277"
+        },
+        {
+          "id": 15019319879,
+          "name": "finish01-fresh-b-45609321841-1",
+          "size_bytes": 57033,
+          "digest": "sha256:4df69f3034ae706b2b44c45e03ba8e74508f8afc199f2f8ed1614433dd287e3a",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609321841/artifacts/15019319879"
+        }
+      ]
+    },
+    {
+      "run_id": 45609321873,
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609321873",
+      "head_sha": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "conclusion": "success",
+      "event": "pull_request",
+      "created_at": "2026-11-25T11:58:21Z",
+      "updated_at": "2026-11-25T12:10:47Z",
+      "jobs": [
+        {
+          "id": 139188567920,
+          "name": "phase-d (regeneration)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188568271,
+          "name": "phase-d (browser)",
+          "conclusion": "success"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 15020321455,
+          "name": "phase-d-regeneration-45609321873-1",
+          "size_bytes": 97546,
+          "digest": "sha256:6d25f9352334876f4daf3c053f9c0f80ccf1daad92660cbe47e4e5eb66cd122f",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609321873/artifacts/15020321455"
+        },
+        {
+          "id": 15019218696,
+          "name": "phase-d-browser-45609321873-1",
+          "size_bytes": 41180445,
+          "digest": "sha256:005551ae8a1aa71006b4591d3b8923135e6ef920ac6fc6770063f6a2b08998ea",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609321873/artifacts/15019218696"
+        }
+      ]
+    },
+    {
+      "run_id": 45609321905,
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609321905",
+      "head_sha": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "conclusion": "success",
+      "event": "pull_request",
+      "created_at": "2026-11-25T11:58:21Z",
+      "updated_at": "2026-11-25T12:20:54Z",
+      "jobs": [
+        {
+          "id": 139188573015,
+          "name": "validation",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188573332,
+          "name": "advanced",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188573415,
+          "name": "upstream",
+          "conclusion": "success"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 15021870310,
+          "name": "finish02-validation-45609321905",
+          "size_bytes": 59225,
+          "digest": "sha256:97edc5a7c0f9f72e055f85e156ce6c6ad97d58c82627cb8a5954d1ab5e5a5ad3",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609321905/artifacts/15021870310"
+        },
+        {
+          "id": 15020345068,
+          "name": "finish02-advanced-45609321905",
+          "size_bytes": 4715,
+          "digest": "sha256:1aaf33516693accde592d8ab66a0d5aa95657b70286c6ed49f0dda3080640e54",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609321905/artifacts/15020345068"
+        },
+        {
+          "id": 15020000869,
+          "name": "finish02-upstream-45609321905",
+          "size_bytes": 3516,
+          "digest": "sha256:46a1d20c13d9c9c2f8fd560eeaeb8d46d94c6daab2df47caea93bf1f15528f4e",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609321905/artifacts/15020000869"
+        }
+      ]
+    },
+    {
+      "run_id": 45609322065,
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322065",
+      "head_sha": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "conclusion": "success",
+      "event": "pull_request",
+      "created_at": "2026-11-25T11:58:21Z",
+      "updated_at": "2026-11-25T12:33:42Z",
+      "jobs": [
+        {
+          "id": 139195915518,
+          "name": "business (3)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139195915927,
+          "name": "business (0)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139195915948,
+          "name": "business (2)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139195915978,
+          "name": "upstream",
+          "conclusion": "success"
+        },
+        {
+          "id": 139195916054,
+          "name": "business (1)",
+          "conclusion": "success"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 15022380227,
+          "name": "finish03-45609322065-1",
+          "size_bytes": 44135,
+          "digest": "sha256:2083f41c4a13020b9dbc2003880f7a447bf95d97106388d4c5025849ffa054ec",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322065/artifacts/15022380227"
+        },
+        {
+          "id": 15022011596,
+          "name": "finish03-45609322065-0",
+          "size_bytes": 45535,
+          "digest": "sha256:f8e00ca79a09a379c13276c9414adfa6443a426ae4877cc8ca68c54799715f5e",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322065/artifacts/15022011596"
+        },
+        {
+          "id": 15021671858,
+          "name": "finish03-45609322065-3",
+          "size_bytes": 45740,
+          "digest": "sha256:c0fa756131ba90faaf61cb14aeb6656d7bb74dfc7ce1eccf24ae1146c2701e38",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322065/artifacts/15021671858"
+        },
+        {
+          "id": 15021566642,
+          "name": "finish03-45609322065-2",
+          "size_bytes": 37194,
+          "digest": "sha256:5ee5c73ad4319c971f33212fd4f7e6e84b7acc3fbe2a7c81375d4ec3c566d31e",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322065/artifacts/15021566642"
+        },
+        {
+          "id": 15021500404,
+          "name": "finish03-upstream-45609322065",
+          "size_bytes": 10363,
+          "digest": "sha256:9e9ce630b97ebc4952f1f945853707590e19891a5f64957638eafdb570870f0a",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322065/artifacts/15021500404"
+        }
+      ]
+    },
+    {
+      "run_id": 45609322104,
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322104",
+      "head_sha": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "conclusion": "success",
+      "event": "pull_request",
+      "created_at": "2026-11-25T11:58:21Z",
+      "updated_at": "2026-11-25T11:58:56Z",
+      "jobs": [
+        {
+          "id": 139188421193,
+          "name": "candidate",
+          "conclusion": "success"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 15018968807,
+          "name": "finish01-inventory-45609322104",
+          "size_bytes": 142581,
+          "digest": "sha256:384b37a5c268db86d796d534cd1d597bc976919ae81d2070202992e77e023283",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322104/artifacts/15018968807"
+        }
+      ]
+    },
+    {
+      "run_id": 45609322121,
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121",
+      "head_sha": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "conclusion": "success",
+      "event": "pull_request",
+      "created_at": "2026-11-25T11:58:21Z",
+      "updated_at": "2026-11-25T13:00:06Z",
+      "jobs": [
+        {
+          "id": 139188710703,
+          "name": "focused",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711032,
+          "name": "distributed / api (reversed, 3)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711122,
+          "name": "distributed / api (first, 0)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711142,
+          "name": "distributed / api (first, 1)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711152,
+          "name": "distributed / api (first, 14)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711171,
+          "name": "distributed / api (first, 3)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711181,
+          "name": "distributed / api (first, 2)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711223,
+          "name": "distributed / api (reversed, 2)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711249,
+          "name": "distributed / api (first, 11)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711271,
+          "name": "distributed / api (first, 8)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711338,
+          "name": "distributed / api (first, 5)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711350,
+          "name": "distributed / api (reversed, 0)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711357,
+          "name": "distributed / api (first, 6)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711368,
+          "name": "distributed / api (first, 4)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711409,
+          "name": "distributed / api (reversed, 4)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711429,
+          "name": "distributed / api (first, 9)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711447,
+          "name": "distributed / api (reversed, 8)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711451,
+          "name": "distributed / api (first, 13)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711455,
+          "name": "distributed / api (reversed, 1)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711472,
+          "name": "distributed / api (reversed, 7)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711477,
+          "name": "distributed / api (reversed, 9)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711492,
+          "name": "distributed / api (reversed, 5)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711511,
+          "name": "distributed / api (first, 10)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711513,
+          "name": "distributed / api (reversed, 6)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711612,
+          "name": "distributed / api (first, 7)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711613,
+          "name": "distributed / api (first, 12)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188711614,
+          "name": "distributed / api (first, 15)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188713543,
+          "name": "distributed / api (reversed, 10)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188713613,
+          "name": "distributed / api (reversed, 12)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188713634,
+          "name": "distributed / api (reversed, 11)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188713742,
+          "name": "distributed / api (reversed, 14)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188713771,
+          "name": "distributed / api (reversed, 13)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139188714053,
+          "name": "distributed / api (reversed, 15)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139222175260,
+          "name": "distributed / coverage",
+          "conclusion": "success"
+        },
+        {
+          "id": 139222349980,
+          "name": "area2",
+          "conclusion": "success"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 15024156843,
+          "name": "finish02-coverage-45609322121",
+          "size_bytes": 1926971,
+          "digest": "sha256:6aa27e69f71d2284322c0f8bd8e57fdaf9e0c52979cb55d18b3ff64bceab0742",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15024156843"
+        },
+        {
+          "id": 15024140314,
+          "name": "finish02-45609322121-reversed-shard-13",
+          "size_bytes": 136312,
+          "digest": "sha256:bca64189591363224f7675ac39797713eb91d1be31b44a8ed3dc8c453d793542",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15024140314"
+        },
+        {
+          "id": 15023515619,
+          "name": "finish02-45609322121-reversed-shard-8",
+          "size_bytes": 132462,
+          "digest": "sha256:896b09b9fbd6d275a6d2ed394413b205e98194cf4095e5e7656cf9f0b83b835a",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15023515619"
+        },
+        {
+          "id": 15023151030,
+          "name": "finish02-45609322121-reversed-shard-11",
+          "size_bytes": 128190,
+          "digest": "sha256:15bf1d0ac8c6f77f85edc3ff51cc9937b0ac5b4c4de484b7aa6ebf61ffcc000c",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15023151030"
+        },
+        {
+          "id": 15023125506,
+          "name": "finish02-45609322121-reversed-shard-9",
+          "size_bytes": 131814,
+          "digest": "sha256:bf602719e5d649d89e1463729436504467f624fa26ec1335e2b057f375bd1cc5",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15023125506"
+        },
+        {
+          "id": 15023071048,
+          "name": "finish02-45609322121-reversed-shard-7",
+          "size_bytes": 133076,
+          "digest": "sha256:096e8ae599f5ca3b5bc46025917441251f1195ae8579e3ca02bc4613d1e26ee0",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15023071048"
+        },
+        {
+          "id": 15023003082,
+          "name": "finish02-45609322121-reversed-shard-15",
+          "size_bytes": 134946,
+          "digest": "sha256:a9ba7f83a4057a3caf51535311209fb1443dc6962931f5a8f3ffde6a8cadee77",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15023003082"
+        },
+        {
+          "id": 15022682068,
+          "name": "finish02-45609322121-reversed-shard-12",
+          "size_bytes": 132206,
+          "digest": "sha256:51abf3f24324164e691c19b1ff97ddf650c2fdf7360e499b64028a5b117da893",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15022682068"
+        },
+        {
+          "id": 15022336656,
+          "name": "finish02-45609322121-reversed-shard-2",
+          "size_bytes": 130707,
+          "digest": "sha256:0ac9e66417a3d439c4d2793d031bc260a461e0a15e8ebc8c9a6d5a2fa3961e11",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15022336656"
+        },
+        {
+          "id": 15022301610,
+          "name": "finish02-45609322121-reversed-shard-0",
+          "size_bytes": 139091,
+          "digest": "sha256:722567162b952097925a693c63f1898caef5711935fc0221b54c05a54e26b952",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15022301610"
+        },
+        {
+          "id": 15022226108,
+          "name": "finish02-45609322121-first-shard-12",
+          "size_bytes": 132284,
+          "digest": "sha256:0879e896cd4706296078a0c9acc81c7b85c2ff919d50031f8cd042db7e86f3f5",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15022226108"
+        },
+        {
+          "id": 15022059368,
+          "name": "finish02-45609322121-reversed-shard-14",
+          "size_bytes": 140662,
+          "digest": "sha256:d083727d2a4931ff7a32f32544e8366485e2fcf0d966c1a0c4513b1a3650a6fb",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15022059368"
+        },
+        {
+          "id": 15021984104,
+          "name": "finish02-45609322121-reversed-shard-10",
+          "size_bytes": 130997,
+          "digest": "sha256:14c43bdf0c15e4ed1fc6a1f8bea5e86bc4ff3f39bb40170ae1238b7a7df468c1",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15021984104"
+        },
+        {
+          "id": 15021905261,
+          "name": "finish02-45609322121-first-shard-4",
+          "size_bytes": 134958,
+          "digest": "sha256:8203001fa16e5497660975a1757ff37e586167e6ccf469b4f049f15a37225c2c",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15021905261"
+        },
+        {
+          "id": 15021874832,
+          "name": "finish02-45609322121-reversed-shard-5",
+          "size_bytes": 135172,
+          "digest": "sha256:32ea67d4c6d46bfc2da8b2d92c52e0b8a7685c47922023d3c74f83aa58078ac7",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15021874832"
+        },
+        {
+          "id": 15021730187,
+          "name": "finish02-45609322121-first-shard-8",
+          "size_bytes": 132601,
+          "digest": "sha256:1a961916b89bc45441d00aa6e2ec8a24b8c7b8e581cbbc509bf95d26c51f60a3",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15021730187"
+        },
+        {
+          "id": 15021675405,
+          "name": "finish02-45609322121-first-shard-6",
+          "size_bytes": 123048,
+          "digest": "sha256:267d5b0df2f41c3a10c4857dc0c875fa36ba41673fb2f8cac5ef664e10da24b1",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15021675405"
+        },
+        {
+          "id": 15021584602,
+          "name": "finish02-45609322121-reversed-shard-3",
+          "size_bytes": 133238,
+          "digest": "sha256:93415f5b7ad2a65a27ad744a6ba81cf91b2b3931a7bc77da450fa17dfe58527a",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15021584602"
+        },
+        {
+          "id": 15021430519,
+          "name": "finish02-45609322121-first-shard-9",
+          "size_bytes": 131746,
+          "digest": "sha256:bdd3863501b624a1797c321cd48eb169b487824ddca31a6eb1dd52698ed101eb",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15021430519"
+        },
+        {
+          "id": 15021253212,
+          "name": "area2-45609322121-1",
+          "size_bytes": 57554,
+          "digest": "sha256:18797e1d280f6ac81fd953a320322a2a33130b34b988241f1cf182acbaf94d9b",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15021253212"
+        },
+        {
+          "id": 15021162391,
+          "name": "finish02-45609322121-first-shard-0",
+          "size_bytes": 138976,
+          "digest": "sha256:920d2543da56f271b7eabec2c1975773520c40bfd4697199e6c30e619999ab97",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15021162391"
+        },
+        {
+          "id": 15021018680,
+          "name": "finish02-45609322121-reversed-shard-1",
+          "size_bytes": 127869,
+          "digest": "sha256:04476460226bae6946bc90e19b0781412e0019e6039581dba50ee0dd713c3619",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15021018680"
+        },
+        {
+          "id": 15020991982,
+          "name": "finish02-45609322121-first-shard-2",
+          "size_bytes": 130645,
+          "digest": "sha256:a3e66039c582deb968bb96b2986da6f0fb991532850013acddeefcb59a0c7d1a",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15020991982"
+        },
+        {
+          "id": 15020887169,
+          "name": "finish02-45609322121-first-shard-15",
+          "size_bytes": 134837,
+          "digest": "sha256:f27cb77640ccc8980b0976e5d27f2a147283558a7c934aaf63ea439ca006a5b8",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15020887169"
+        },
+        {
+          "id": 15020674478,
+          "name": "finish02-45609322121-reversed-shard-4",
+          "size_bytes": 135039,
+          "digest": "sha256:dc47f913639bbc82f6bcb63b49c96f6cdc29c9b170d6cae8b757544ca2d0bf09",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15020674478"
+        },
+        {
+          "id": 15020626878,
+          "name": "finish02-45609322121-first-shard-1",
+          "size_bytes": 127722,
+          "digest": "sha256:ba47a101c73ac97b4ba4af2a7670c4619551e60f53ad660aed1f3f544031fa57",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15020626878"
+        },
+        {
+          "id": 15020571944,
+          "name": "finish02-45609322121-first-shard-14",
+          "size_bytes": 140605,
+          "digest": "sha256:dd0be1561a7dab40ad92a0bad19d42a7f2afb97ec7f0406329c3d11404c60da6",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15020571944"
+        },
+        {
+          "id": 15020546702,
+          "name": "finish02-45609322121-first-shard-11",
+          "size_bytes": 128093,
+          "digest": "sha256:96cdd325d3f900020f520a6cc838147a78cada9875b2e6f2a6e867ddd872b63f",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15020546702"
+        },
+        {
+          "id": 15020544052,
+          "name": "finish02-45609322121-first-shard-10",
+          "size_bytes": 131168,
+          "digest": "sha256:b6ae194b59e88bc9618d0850c9688a8690950c298406787fca8c79e0cedd3be4",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15020544052"
+        },
+        {
+          "id": 15020453914,
+          "name": "finish02-45609322121-first-shard-7",
+          "size_bytes": 133262,
+          "digest": "sha256:5f9834c97511254b54cdc9b611d0895d120c5239565f2e9c6f716d77b5f6283a",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15020453914"
+        },
+        {
+          "id": 15020337964,
+          "name": "finish02-45609322121-first-shard-13",
+          "size_bytes": 136287,
+          "digest": "sha256:0714d601525ed72c57e320f707f970fb80aabca8684c342ca0af0364e94b7ed3",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15020337964"
+        },
+        {
+          "id": 15020264938,
+          "name": "finish02-45609322121-reversed-shard-6",
+          "size_bytes": 123002,
+          "digest": "sha256:304308d858d420a3380005de2a54061047a53fa88e505299113cffa5c1f3ebf0",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15020264938"
+        },
+        {
+          "id": 15019819356,
+          "name": "finish02-45609322121-first-shard-5",
+          "size_bytes": 135063,
+          "digest": "sha256:20ee92315894ebe290d91da1ae633552eea8cbb831f8c943b4b68803c740222e",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15019819356"
+        },
+        {
+          "id": 15018499898,
+          "name": "finish02-45609322121-first-shard-3",
+          "size_bytes": 133085,
+          "digest": "sha256:fffb468c39ad72863083f589e8dfaad4b36122d897cbbe4fa133278314258e3e",
+          "expired": false,
+          "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15018499898"
+        }
+      ]
+    },
+    {
+      "run_id": 45625562265,
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45625562265",
+      "head_sha": "81e0b25304299c25c91ef3cb236dc7d7f02f1708",
+      "conclusion": "success",
+      "event": "push",
+      "created_at": "2026-11-25T13:37:54Z",
+      "updated_at": "2026-11-25T13:38:19Z",
+      "jobs": [
+        {
+          "id": 139244689713,
+          "name": "reconcile (PROMPT03_INPUT_LEDGER.json)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139244690025,
+          "name": "reconcile (PROMPT03_GENERATED_LEDGER.json)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139244690051,
+          "name": "reconcile (PROMPT03_REQUIREMENT_EVIDENCE.json)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139244690309,
+          "name": "reconcile (REMAINING_WORK.json)",
+          "conclusion": "success"
+        },
+        {
+          "id": 139244690418,
+          "name": "reconcile (PROMPT03_EXECUTION_SUMMARY.json)",
+          "conclusion": "success"
+        }
+      ],
+      "artifacts": []
+    }
+  ],
+  "raw_generated_report_identity": {
+    "run": 45609322121,
+    "source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+    "artifact": 15024156843,
+    "path": "finish-line/PROMPT03_GENERATED_LEDGER.json",
+    "bytes": 1424497,
+    "sha256": "794494eb4a636700851f4d6ec03fca63a4c4a860a329df74b8e59ae84666ede0",
+    "label": "Unmodified retained derived report; authoritative JUnit stays in original artifacts"
+  }
+}

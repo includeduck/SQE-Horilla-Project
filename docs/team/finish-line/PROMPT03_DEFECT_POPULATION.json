@@ -18,7 +18,9 @@
       "fix": "546cb62042ae5284a030c9b65fb249d532a77322",
       "title": "A2-D01: rejecting approved leave refunds the acting approver instead of requester",
       "state": "closed",
-      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/4"
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/4",
+      "final_retest_source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "final_retest_run": 45609322121
     },
     {
       "id": "A2-D02",
@@ -27,7 +29,9 @@
       "fix": "546cb62042ae5284a030c9b65fb249d532a77322",
       "title": "A2-D02: foreign-owned self-allocation PUT and DELETE return 500",
       "state": "closed",
-      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/5"
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/5",
+      "final_retest_source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "final_retest_run": 45609322121
     },
     {
       "id": "A2-D03",
@@ -36,7 +40,9 @@
       "fix": "546cb62042ae5284a030c9b65fb249d532a77322",
       "title": "A2-D03: API leave creation ignores carry-forward policy cap",
       "state": "closed",
-      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/6"
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/6",
+      "final_retest_source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "final_retest_run": 45609322121
     },
     {
       "id": "A2-D04",
@@ -45,7 +51,9 @@
       "fix": "32621b42b6ec9a64f81f4540eea151ede4acbb2e",
       "title": "A2-D04: Identical pending allocation submissions create duplicate records",
       "state": "open",
-      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/29"
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/29",
+      "final_retest_source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "final_retest_run": 45609322121
     },
     {
       "id": "A2-D05",
@@ -54,7 +62,9 @@
       "fix": "32621b42b6ec9a64f81f4540eea151ede4acbb2e",
       "title": "A2-D05: Ordinary rejection accepts an already cancelled leave request",
       "state": "open",
-      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/30"
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/30",
+      "final_retest_source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "final_retest_run": 45609322121
     },
     {
       "id": "A2-D09",
@@ -63,7 +73,9 @@
       "fix": "a1cfb4ab81c993684f6917c4db4d43d4d7e1fd83",
       "title": "A2-D09: accepted extensionless attachment filenames fail storage at 99/100 characters",
       "state": "closed",
-      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/3"
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/3",
+      "final_retest_source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "final_retest_run": 45609322121
     },
     {
       "id": "A2-D10",
@@ -72,7 +84,9 @@
       "fix": "bf44fe6c5a30a206f0a2b40f251b5b4d01f8c82c",
       "title": "A2-D10: Browser allocation form accepts an empty requested-days amount",
       "state": "open",
-      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/31"
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/31",
+      "final_retest_source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "final_retest_run": 45609322121
     },
     {
       "id": "A2-P2-01",
@@ -81,7 +95,9 @@
       "fix": "a8a7a7d0106cd0abfbef9fecf91e1911c38a0013",
       "title": "A2-P2-01: Malformed employee identifiers crash the target permission lookup",
       "state": "open",
-      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/21"
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/21",
+      "final_retest_source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "final_retest_run": 45609322121
     },
     {
       "id": "A2-P2-02",
@@ -90,7 +106,9 @@
       "fix": "59537e7e9e9fe6e8cf7dd6e1f2eb3c79cd2d4a82",
       "title": "A2-P2-02: Non-object API bodies crash server-owned identity injection",
       "state": "open",
-      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/22"
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/22",
+      "final_retest_source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "final_retest_run": 45609322121
     },
     {
       "id": "A2-P2-03",
@@ -99,7 +117,9 @@
       "fix": "59537e7e9e9fe6e8cf7dd6e1f2eb3c79cd2d4a82",
       "title": "A2-P2-03: Invalid groupby_field escapes as an API server error",
       "state": "open",
-      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/23"
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/23",
+      "final_retest_source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "final_retest_run": 45609322121
     },
     {
       "id": "A2-P2-04",
@@ -108,7 +128,9 @@
       "fix": "59537e7e9e9fe6e8cf7dd6e1f2eb3c79cd2d4a82",
       "title": "A2-P2-04: Generic allocation creation accepts an unauthorized foreign employee",
       "state": "open",
-      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/24"
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/24",
+      "final_retest_source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "final_retest_run": 45609322121
     },
     {
       "id": "A2-P2-05",
@@ -117,7 +139,9 @@
       "fix": "796b84bdadb887dfeec92e3e1a8e36cbf054b670",
       "title": "A2-P2-05: Zero detail IDs lose the route argument in permission dispatch",
       "state": "open",
-      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/25"
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/25",
+      "final_retest_source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "final_retest_run": 45609322121
     },
     {
       "id": "A2-P2-06",
@@ -126,7 +150,9 @@
       "fix": "796b84bdadb887dfeec92e3e1a8e36cbf054b670",
       "title": "A2-P2-06: Malformed AJAX relation filter choices crash before form validation",
       "state": "open",
-      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/26"
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/26",
+      "final_retest_source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "final_retest_run": 45609322121
     },
     {
       "id": "A2-P2-07",
@@ -135,7 +161,9 @@
       "fix": "796b84bdadb887dfeec92e3e1a8e36cbf054b670",
       "title": "A2-P2-07: Sessionless JWT HTML API responses crash sidebar menu construction",
       "state": "open",
-      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/27"
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/27",
+      "final_retest_source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "final_retest_run": 45609322121
     },
     {
       "id": "A2-P2-08",
@@ -144,7 +172,9 @@
       "fix": "796b84bdadb887dfeec92e3e1a8e36cbf054b670",
       "title": "A2-P2-08: Malformed registered advanced date filters return 500",
       "state": "open",
-      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/28"
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/28",
+      "final_retest_source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "final_retest_run": 45609322121
     },
     {
       "id": "A2-P3-01",
@@ -154,7 +184,9 @@
       "followup": "4a719a178941f1a935c4acf29ad7170dc0005dac",
       "title": "A2-P3-01: API accepts zero and negative effective leave duration",
       "state": "open",
-      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/14"
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/14",
+      "final_retest_source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "final_retest_run": 45609322121
     },
     {
       "id": "A2-P3-02",
@@ -164,7 +196,9 @@
       "followup": null,
       "title": "A2-P3-02: API excludes another employee's specific holiday and accepts an over-balance request",
       "state": "open",
-      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/15"
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/15",
+      "final_retest_source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "final_retest_run": 45609322121
     },
     {
       "id": "A2-P3-03",
@@ -174,7 +208,9 @@
       "followup": null,
       "title": "A2-P3-03: API refuses valid forecast entitlement at and after the reset boundary",
       "state": "open",
-      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/16"
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/16",
+      "final_retest_source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "final_retest_run": 45609322121
     },
     {
       "id": "A2-P3-04",
@@ -184,7 +220,9 @@
       "followup": null,
       "title": "A2-P3-04: API rejects complementary non-overlapping half-day leave requests",
       "state": "open",
-      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/17"
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/17",
+      "final_retest_source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "final_retest_run": 45609322121
     },
     {
       "id": "A2-P3-05",
@@ -194,7 +232,9 @@
       "followup": null,
       "title": "A2-P3-05: Approval ignores current carry-forward policy/cap",
       "state": "open",
-      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/18"
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/18",
+      "final_retest_source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "final_retest_run": 45609322121
     },
     {
       "id": "A2-P3-06",
@@ -204,17 +244,21 @@
       "followup": null,
       "title": "A2-P3-06: Malformed approved-allocation rejection deducts balance before returning 400",
       "state": "open",
-      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/19"
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/19",
+      "final_retest_source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "final_retest_run": 45609322121
     },
     {
       "id": "A2-P3-07",
       "issue": 20,
       "category": "Ownership and authorization",
       "fix": "e4d6f3ce5e0f57ce9e20667096bf30a58a2b50e2",
-      "followup": "83666052",
+      "followup": "83666052c12d483b01d3f373fdf665b32b9f48ab",
       "title": "A2-P3-07: Generic update lets an ordinary owner transfer a request to another employee",
       "state": "open",
-      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/20"
+      "url": "https://github.com/includeduck/SQE-Horilla-Project/issues/20",
+      "final_retest_source": "fecac354c9b5d8ea47ac732a2b089ed3cc148620",
+      "final_retest_run": 45609322121
     }
   ]
 }

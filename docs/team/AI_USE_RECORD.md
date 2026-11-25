@@ -67,3 +67,32 @@ new HTTP baseline and source-bound workflow are published before product fixes;
 actual before/after results and limitations belong to RAYYAN_FINISH_03_STATUS.md.
 Rayyan explicitly approved this stage's public repository publication. No
 teammate review, human effort or viva is inferred.
+
+
+## Prompt 3 verified completion — 25 November 2026
+
+Codex implemented/reviewed the business catalog, real HTTP/state consumers,
+strict baseline reproductions, seven narrow product corrections, generated/wire
+carryover, requirement evidence selectors, source-bound coverage reconciliation
+and defect/RCA/management/handoff records. Rayyan explicitly approved publication.
+Actual output checks: all 3,433 API cases passed in BOTH orders on fecac354c9b5d8ea47ac732a2b089ed3cc148620,
+all 350 input families and 713 generated IDs verified, and all 14 FR/BR selectors
+passed; exact separate populations and run/artifact links are in the Prompt 3
+status. No required test was skipped, xfailed or weakened.
+
+Corrections to the agent's own work are disclosed: object versus page parsing,
+a valid nonmatching self-list fixture, the mistaken TextField.clean length oracle,
+and the positive-duration fix's date-order error precedence. The latter was
+repaired by 4a719a17 without changing the strict end_date assertion. The optional
+reason helper's 1000 limit, model's declared 255 and observed SQLite behavior
+remain distinct. A stale original-team strict xfail marker was removed after its
+unchanged 400 assertion passed. The report-retrieval helper's redirected-download
+401 was repaired and its five readers passed independently in run 45625562265;
+it is a harness failure, not a product defect.
+
+The connected account authored repository commits and necessary factual Issues/
+PR updates. No unrelated messages, paid services, invented historical JUnit,
+human review, effort, RCA meeting, teammate approval or viva were claimed.
+The disconnected local workspace and its uncommitted files were preserved.
+Prompt 4 remains unexecuted; final integrated verification/packaging/assignment
+closeout and genuine owner/shared dependencies are precisely retained.

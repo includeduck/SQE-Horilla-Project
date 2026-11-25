@@ -1,3 +1,87 @@
+## Verified Prompt 3 result — 25 November 2026
+
+This source-specific result supersedes historical incomplete-input, pending-retest
+and unanswered OD-01/OD-02 labels below. On `fecac354c9b5d8ea47ac732a2b089ed3cc148620`,
+[run 45609322121](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121) passed **3,433/3,433 API
+cases in EACH independent order**, with no failures, errors, required skips or
+missing IDs. The strict complete-scope guard accepted both orders.
+**713/713 canonical generated IDs, all former 399 missing IDs, and 350/350
+mandatory input families are verified.** Explicit requirement assertion selectors
+verify FR-01–FR-10 and BR-01–BR-04; tags or mappings alone are not the evidence.
+
+The authoritative source-bound summaries and individual rows are in
+`docs/team/finish-line/PROMPT03_EXECUTION_SUMMARY.json`,
+`PROMPT03_REQUIREMENT_EVIDENCE.json`, `PROMPT03_INPUT_LEDGER.json` and
+`REMAINING_WORK.json`. The original JUnit, full case execution and generated-ID
+ledgers remain in [artifact 15024156843](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15024156843).
+
+Separate overlapping populations on the same source passed: 482 business/state/
+role/workflow cases; 82 affected upstream tests; 24 original team units; 16
+focused regressions; eight focused upstream tests; 182 expanded cases; 238 wire
+validation cases; seven advanced-filter cases; 27 further upstream tests plus
+two subtests; all ten personal browser flows; two fresh foundations with five
+smoke cases each; 68 tooling and four media-reader checks. Regeneration passed
+six baseline cases and retained exactly two predicted strict variant failures
+with four passes, in its separate controlled experiment. These totals are not
+added into a larger unique-case count.
+
+Prompt 3's scoped technical work is complete. **Whole-project release remains
+HOLD** pending accepted integration, owner/shared quality gates and Prompt 4's
+final integrated/report/package/ownership closeout. PR #8 remains draft/open;
+no owner approval, merge, human effort, review or viva is inferred.
+
+
+## Current causal controls for the two major defects
+
+The original A2-D01/A2-D03 five-why analyses below remain grounded in the exact
+failing-before/merged-fix evidence. Their final prevention controls now pass on
+the recorded source, including the 482 business cases, both complete orders,
+and separate affected upstream tests. The updated 22-defect Pareto below
+preserves the historical four/seven-defect populations.
+
+For A2-D01, the evidenced chain is: requester not restored; lookup selected
+actor; actor differs from owner; status mutation did not prove owner credit;
+a response-only check could miss that corruption. The final point is a
+test-design inference, not an invented claim about prior human practice.
+The correction uses request.employee_id and the recorded available/carry split.
+
+```mermaid
+flowchart TD
+    E["Request owner E"] --> L["Refund balance lookup"]
+    A["Acting approver A"] --> P["Permission check"]
+    P --> L
+    L --> B["Persist E's balance"]
+    T["Distinct E and A fixtures"] --> C["Assert refund and actor invariant"]
+    B --> C
+```
+
+For A2-D03, the evidenced chain is: excess leave accepted; raw carry five used;
+policy cap one omitted; serializer/model rules differed; ordinary under-cap
+fixtures would not distinguish them. The final point is a logical inference
+from the boundary fixture. Current controls apply the existing policy at
+submission and separately recheck current capped funds at approval, protecting
+against A2-P3-05 without prematurely crediting forecast entitlement.
+
+```mermaid
+flowchart TD
+    R["Stored carry five"] --> C["Apply current policy cap one"]
+    P["Carry policy"] --> C
+    C --> S["Submission balance check"]
+    V["Available and forecast entitlement"] --> S
+    C --> A["Approval balance recheck"]
+    F["Currently available funds"] --> A
+    T["Independent boundary fixtures"] --> X["Assert refusal and unchanged funds"]
+    S --> X
+    A --> X
+```
+
+These diagrams describe observed source data flow and automated controls.
+No unobserved organizational cause, human RCA meeting or owner acceptance is
+invented. The actual fixed/closed originals remain distinct from proposed
+unmerged corrections in PR #8.
+
+---
+
 ## Prompt 3 current population and causal reconciliation — 25 November 2026
 
 The original four- and seven-defect tables below are historical snapshots.
