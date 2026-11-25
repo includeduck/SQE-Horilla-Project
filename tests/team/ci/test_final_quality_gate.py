@@ -10,6 +10,15 @@ class GateTests(unittest.TestCase):
         with self.assertRaises(ValueError):gate.validate_sonar({"analyses":[{"revision":"s","key":"a"}]},{"projectStatus":{"status":"OK","conditions":[]}},"s")
     def test_failed_server_gate_refused(self):
         with self.assertRaises(ValueError):gate.validate_sonar({"analyses":[{"revision":"s"}]},{"projectStatus":{"status":"ERROR"}},"s")
+    def test_realistic_server_conditions_pass_but_weaker_threshold_fails(self):
+        analyses={"analyses":[{"revision":"s","key":"actual-analysis-id"}]}
+        conditions=[{"metricKey":key,"status":"OK","errorThreshold":str(limit)} for key,limit in
+            (("new_duplicated_lines_density",3),("new_reliability_rating",1),("new_security_rating",1),
+             ("new_blocker_violations",0),("new_critical_violations",0))]
+        data={"projectStatus":{"status":"OK","conditions":conditions}}
+        self.assertEqual(gate.validate_sonar(analyses,data,"s")["status"],"OK")
+        conditions[0]["errorThreshold"]="10"
+        with self.assertRaises(ValueError):gate.validate_sonar(analyses,data,"s")
     def test_missing_mutation_threshold_not_defaulted(self):
         with self.assertRaises(KeyError):gate.validate_mutation({"source_sha":"s","tool":"mutmut"},{}, "s")
     def test_wrong_mutation_source_refused(self):

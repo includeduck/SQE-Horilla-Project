@@ -1,5 +1,5 @@
 """Fail-closed shared CI integration. Missing team inputs are never passes."""
-import argparse, base64, hashlib, json, os, subprocess, sys, urllib.parse, urllib.request
+import argparse, base64, hashlib, json, os, subprocess, sys, time, urllib.parse, urllib.request
 from pathlib import Path
 
 REQUIRED = ("Area 2 verification", "Phase D verification", "Finish 01 contract integrity",
@@ -51,6 +51,10 @@ def validate_sonar(analyses, gate, source):
         conditions=[metrics[k] for k in alternatives if k in metrics]
         if not conditions or any(c["status"]!="OK" for c in conditions):
             raise ValueError("Missing/nonpassing proposed owner gate condition: "+"/".join(alternatives))
+    for alternatives, maximum in zip(families, (3,1,1,0,0)):
+        for key in alternatives:
+            if key in metrics and float(metrics[key]["errorThreshold"])>maximum:
+                raise ValueError("Sonar threshold weaker than the supplied proposal: "+key)
     if float(metrics["new_duplicated_lines_density"]["errorThreshold"])>3:
         raise ValueError("Sonar duplication threshold exceeds the supplied <=3% proposal")
     return dict(analysis_id=rows[0]["key"],status=status["status"],conditions=status["conditions"])
@@ -83,13 +87,21 @@ def main():
             result["dependencies"]=states
             if any(v!="success" for v in states.values()): raise ValueError("Required shared producer failed, skipped or missing")
             repository=os.environ["GITHUB_REPOSITORY"];token=os.environ["GH_TOKEN"]
-            req=urllib.request.Request("https://api.github.com/repos/"+repository+"/actions/runs?head_sha="+a.source+"&per_page=100",
-                headers={"Authorization":"Bearer "+token,"Accept":"application/vnd.github+json"})
-            with urllib.request.urlopen(req,timeout=30) as response: runs=json.load(response)["workflow_runs"]
-            selected={name:max([r for r in runs if r["name"]==name],key=lambda r:r["id"],default=None) for name in REQUIRED}
-            result["required_runs"]={name:None if row is None else {k:row[k] for k in ("id","status","conclusion","head_sha","html_url")} for name,row in selected.items()}
-            if any(r is None or r["status"]!="completed" or r["conclusion"]!="success" for r in selected.values()):
-                raise ValueError("Mandatory Area 2/browser/contract producer missing, unfinished or failed for this source")
+            started=time.monotonic()
+            while True:
+                req=urllib.request.Request("https://api.github.com/repos/"+repository+"/actions/runs?head_sha="+a.source+"&per_page=100",
+                    headers={"Authorization":"Bearer "+token,"Accept":"application/vnd.github+json"})
+                with urllib.request.urlopen(req,timeout=30) as response: runs=json.load(response)["workflow_runs"]
+                selected={name:max([r for r in runs if r["name"]==name],key=lambda r:r["id"],default=None) for name in REQUIRED}
+                result["required_runs"]={name:None if row is None else {k:row[k] for k in ("id","status","conclusion","head_sha","html_url")} for name,row in selected.items()}
+                if all(r and r["status"]=="completed" and r["conclusion"]=="success" for r in selected.values()): break
+                if any(r and r["status"]=="completed" and r["conclusion"]!="success" for r in selected.values()):
+                    raise ValueError("A mandatory exact-source producer failed")
+                if any(r is None for r in selected.values()) and time.monotonic()-started>300:
+                    raise ValueError("Mandatory workflow did not run for this source")
+                if time.monotonic()-started>9000: raise ValueError("Required producer did not finish within the explicit budget")
+                write(a.output,result)
+                time.sleep(20)
         result["accepted"]=True
     except Exception as error:
         result["reason"]=str(error);write(a.output,result);print(json.dumps(result,sort_keys=True));return 1

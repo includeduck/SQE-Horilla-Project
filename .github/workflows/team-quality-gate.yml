@@ -35,6 +35,7 @@ jobs:
           set -o pipefail
           python tests/team/unit/coverage_scope.py coverage.json 2>&1 | tee docs/team/evidence/finish-04/unit-scope.log
           python -m unittest discover -s tests/team/ci -p 'test_*.py' -v
+          python -m py_compile scripts/team/build_rayyan_contribution.py scripts/team/final_quality_gate.py
           python tests/team/unit/mcc_tables.py > docs/team/evidence/finish-04/MCC_MCDC_TABLES.md
       - uses: actions/upload-artifact@v4
         if: always()
@@ -81,6 +82,7 @@ jobs:
           path: docs/team/evidence/finish-04/
           if-no-files-found: error
   team-gate:
+    timeout-minutes: 180
     needs: [unit, sonar, mutation]
     if: always()
     runs-on: ubuntu-latest
