@@ -1,6 +1,7 @@
 """Reproducible complete scope/input and generated-ID audit; never a pass counter."""
 import argparse
 import ast
+import copy
 import importlib.util
 import json
 from collections import Counter
@@ -14,6 +15,33 @@ RUNTIME = ROOT / "docs/team/evidence/area2/finish-01/runtime-contract-current.js
 
 def read(path):
     return json.loads(path.read_text(encoding="utf-8-sig"))
+
+
+def historical_verified_ids(artifact,doc,verification,closure,previous,bindings):
+    """Prove metadata-only lineage without promoting old smoke to new passes."""
+    ids=set(verification.get("verified_generated_ids",[]))
+    if not ids: return ids
+    assert verification["smoke_retest"]["all_selected_passed"] is True
+    assert ids <= {case["id"] for case in artifact["cases"]}
+    if (verification["canonical_spec_sha256"]==artifact["spec_sha256"]
+            and verification["canonical_data_sha256"]==artifact["data_sha256"]):
+        return ids
+    module_spec=importlib.util.spec_from_file_location("lineage_generator",TEAM/"generator/generate.py")
+    generator=importlib.util.module_from_spec(module_spec);module_spec.loader.exec_module(generator)
+    old=generator.generate(previous,bindings)
+    assert old["spec_sha256"]==verification["canonical_spec_sha256"]==closure["old_spec_sha256"]
+    assert old["data_sha256"]==verification["canonical_data_sha256"]==closure["old_data_sha256"]
+    assert artifact["spec_sha256"]==closure["new_spec_sha256"]
+    assert artifact["data_sha256"]==closure["new_data_sha256"]
+    left,right=copy.deepcopy(previous),copy.deepcopy(doc)
+    for obj in (left,right):
+        obj.pop("x-exclusions",None);obj["info"].pop("description",None)
+    assert left==right,"A metadata closure must not change API constraints"
+    assert [(c["id"],c["request"],c["expected"]) for c in old["cases"]]==[(c["id"],c["request"],c["expected"]) for c in artifact["cases"]]
+    assert set(closure["preserved_canonical_ids"])=={c["id"] for c in artifact["cases"]}
+    # The historical smoke is still real evidence, but belongs to its old
+    # source/contract. Fresh Prompt 3 JUnit establishes current-build passes.
+    return set()
 
 
 def source_routes():
@@ -133,12 +161,11 @@ def build():
     cases = artifact["cases"]
     verification_path = FINISH / "PROMPT_01_VERIFICATION.json"
     verification = read(verification_path) if verification_path.exists() else {}
-    verified_ids = set(verification.get("verified_generated_ids", []))
-    if verified_ids:
-        assert verification["canonical_spec_sha256"] == artifact["spec_sha256"]
-        assert verification["canonical_data_sha256"] == artifact["data_sha256"]
-        assert verified_ids <= {case["id"] for case in cases}
-        assert verification["smoke_retest"]["all_selected_passed"] is True
+    closure_path=FINISH/"PROMPT03_EXCLUSION_RECONCILIATION.json"
+    previous_path=FINISH/"PROMPT03_PREVIOUS_OPENAPI.json"
+    verified_ids=historical_verified_ids(artifact,doc,verification,
+        read(closure_path) if closure_path.exists() else {},
+        read(previous_path) if previous_path.exists() else {},read(TEAM/"generator/bindings.json"))
     refs = {r["case_id"]: r for r in ledger["entries"] if r["generated"]}
     old_refs = set(lineage.get("old_referenced_ids", refs))
     old_unconsumed = set(lineage.get("preserved_ids", [c["id"] for c in cases])) - old_refs
@@ -363,3 +390,4 @@ if __name__ == "__main__":
                 print("INVENTORY_FILE_CHUNK " + json.dumps({"path": "docs/team/finish-line/" + name,
                     "index": i // 10000, "total": (len(text) + 9999) // 10000, "text": text[i:i + 10000]}), flush=True)
     print("INVENTORY_SUMMARY " + json.dumps(outputs["REMAINING_WORK.json"]["summary"]), flush=True)
+
