@@ -104,3 +104,12 @@ class CoverageGuardTests(unittest.TestCase):
         self.assertLessEqual(required,{r.get("input_family") for r in entries})
         self.assertEqual(len(entries),len({r["case_id"] for r in entries}))
 
+
+    def test_supplementary_inventory_is_idempotent_without_double_counting(self):
+        from wire_catalog import build,source_inventory,supplements
+        inventory=source_inventory();complete=copy.deepcopy(inventory)
+        complete["inputs"]+=supplements(inventory)
+        self.assertEqual(supplements(complete),[])
+        original,expanded=build(inventory),build(complete)
+        self.assertEqual(original["mandatory_input_families"],expanded["mandatory_input_families"])
+        self.assertEqual(original["cases"],expanded["cases"])

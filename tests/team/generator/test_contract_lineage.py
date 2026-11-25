@@ -25,3 +25,11 @@ class ContractLineageTests(unittest.TestCase):
         body["required"]=not body.get("required",False)
         with self.assertRaisesRegex(AssertionError,"API constraints"):
             inventory.historical_verified_ids(*args)
+
+    def test_complete_inventory_has_consumers_without_promoting_plans_to_passes(self):
+        outputs=inventory.build()
+        rows=outputs["OPERATION_INPUT_INVENTORY.json"]["inputs"]
+        self.assertEqual(len(rows),350)
+        self.assertEqual(len({r["id"] for r in rows}),350)
+        self.assertTrue(all(r["consumer_ids"] for r in rows))
+        self.assertFalse(outputs["REMAINING_WORK.json"]["summary"]["coverage_complete"])

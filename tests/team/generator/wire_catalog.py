@@ -39,7 +39,8 @@ def supplements(inventory):
             extra.append(dict(id=f"INPUT:{name}:query:ordering", operation=name, field="ordering", location="query",
                               category="ordering", stage=2, requirements=op["requirements"],
                               details={"source":"Active APIViews have explicit queryset order and no OrderingFilter"}))
-    return extra
+    existing={row["id"] for row in inventory["inputs"]}
+    return [row for row in extra if row["id"] not in existing]
 
 
 def classes(row):

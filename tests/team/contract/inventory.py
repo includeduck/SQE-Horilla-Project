@@ -307,9 +307,25 @@ def build():
     spec = importlib.util.spec_from_file_location("inventory_case_catalog", TEAM / "api/case_catalog.py")
     catalog = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(catalog)
+    # Source-discovered selectors and cancellation reason share one inventory.
+    # The adapter is idempotent for saved snapshots.
+    import sys
+    sys.path.insert(0,str(TEAM/"generator"))
+    from wire_catalog import supplements
+    for extra in supplements({"operations":list(scope.values()),"inputs":list(families.values())}):
+        families[extra["id"]]=dict(extra,mandatory=True,phase="B-C" if extra["stage"]==2 else "C",
+            original_owner="Rayyan / Area 2",current_executor="Codex for Rayyan",status="planned",
+            generated_ids=[],referenced_ids=[],
+            evidence=["tests/team/generator/wire_catalog.py",extra["details"].get("source","Active filter/source registry")],
+            dependencies=["Isolated real HTTP fixture","Actual source-bound JUnit collection"],
+            acceptance="Every applicable wire/business class with exact response and persistent state/balance assertions; metadata is not a pass")
     required_rows = list(families.values())
+    case_families={c["id"]:"INPUT:"+c["operation"]+":"+c["location"]+":"+".".join(map(str,c["field"])) for c in cases}
     for row in required_rows:
         row["remaining_generated_ids"] = sorted(set(row["generated_ids"]) - set(row["referenced_ids"]))
+        row["consumer_ids"]=[entry["case_id"] for entry in ledger["entries"] if
+            entry.get("input_family",case_families.get(entry["case_id"]))==row["id"]]
+        row["implementation_status"]="implemented" if row["consumer_ids"] else "planned"
     summary = {"canonical_operations": len(scope), "canonical_generated_inputs": len(artifact["inventory"]),
                "generated_cases": len(cases), "referenced_generated_ids": len(refs),
                "unconsumed_generated_ids": len(cases) - len(refs),
@@ -319,6 +335,8 @@ def build():
                "required_families_without_generated_ids": sum(not row["generated_ids"] for row in required_rows),
                "input_families_by_stage": dict(Counter(row["stage"] for row in required_rows)),
                "verified_generated_ids_selected_context": len(verified_ids),
+               "historical_smoke_ids_preserved": len(verification.get("verified_generated_ids",[])),
+               "implementation_mapped_input_families":sum(bool(row["consumer_ids"]) for row in required_rows),
                "new_contract_executed_all": False, "coverage_complete": False}
     outputs = {
         "GENERATED_CASE_AUDIT.json": {"summary": summary, "spec_sha256": artifact["spec_sha256"],
@@ -330,7 +348,7 @@ def build():
                                          "decision_plan": catalog.decision_rows(), "authorization_plan": catalog.authorization_rows(),
                                          "state_plan": catalog.state_rows(),
                                          "BVA_applicability": artifact["inventory"]},
-        "REMAINING_WORK.json": {"summary": summary, "prepared_stage": 1,
+        "REMAINING_WORK.json": {"summary": summary, "prepared_stage": 3 if closure_path.exists() else 1,
                                "items": required_rows,
                                "mandatory_external_items": [
                                    {"id": "SHARED-CI-OWNER", "phase": "D", "original_owner": "Wasay", "current_executor": "Wasay / agent",
