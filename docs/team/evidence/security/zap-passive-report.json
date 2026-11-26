@@ -1,0 +1,1899 @@
+{
+	"@programName": "ZAP",
+	"@version": "2.17.0",
+	"@generated": "Thu, 26 Nov 2026 18:31:35",
+	"created": "2026-11-26T13:31:35.838019600Z",
+	"insights":[
+		{
+			"level": "Low",
+			"reason": "Warning",
+			"site": "",
+			"key": "insight.log.warn",
+			"description": "ZAP warnings logged - see the zap.log file for details",
+			"statistic": "15"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://localhost:8000",
+			"key": "insight.code.2xx",
+			"description": "Percentage of responses with status code 2xx",
+			"statistic": "96"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://localhost:8000",
+			"key": "insight.code.3xx",
+			"description": "Percentage of responses with status code 3xx",
+			"statistic": "2"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://localhost:8000",
+			"key": "insight.endpoint.ctype.application/javascript",
+			"description": "Percentage of endpoints with content type application/javascript",
+			"statistic": "29"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://localhost:8000",
+			"key": "insight.endpoint.ctype.application/json",
+			"description": "Percentage of endpoints with content type application/json",
+			"statistic": "21"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://localhost:8000",
+			"key": "insight.endpoint.ctype.application/octet-stream",
+			"description": "Percentage of endpoints with content type application/octet-stream",
+			"statistic": "3"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://localhost:8000",
+			"key": "insight.endpoint.ctype.image/jpeg",
+			"description": "Percentage of endpoints with content type image/jpeg",
+			"statistic": "1"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://localhost:8000",
+			"key": "insight.endpoint.ctype.image/png",
+			"description": "Percentage of endpoints with content type image/png",
+			"statistic": "1"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://localhost:8000",
+			"key": "insight.endpoint.ctype.image/svg+xml",
+			"description": "Percentage of endpoints with content type image/svg+xml",
+			"statistic": "22"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://localhost:8000",
+			"key": "insight.endpoint.ctype.text/css",
+			"description": "Percentage of endpoints with content type text/css",
+			"statistic": "10"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://localhost:8000",
+			"key": "insight.endpoint.ctype.text/html",
+			"description": "Percentage of endpoints with content type text/html",
+			"statistic": "8"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://localhost:8000",
+			"key": "insight.endpoint.ctype.text/javascript",
+			"description": "Percentage of endpoints with content type text/javascript",
+			"statistic": "1"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://localhost:8000",
+			"key": "insight.endpoint.method.GET",
+			"description": "Percentage of endpoints with method GET",
+			"statistic": "94"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://localhost:8000",
+			"key": "insight.endpoint.method.POST",
+			"description": "Percentage of endpoints with method POST",
+			"statistic": "3"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://localhost:8000",
+			"key": "insight.endpoint.total",
+			"description": "Count of total endpoints",
+			"statistic": "134"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://localhost:8000",
+			"key": "insight.response.slow",
+			"description": "Percentage of slow responses",
+			"statistic": "16"
+		}
+	],
+	"site":[ 
+		{
+			"@name": "http://localhost:8000",
+			"@host": "localhost",
+			"@port": "8000",
+			"@ssl": "false",
+			"alerts": [ 
+				{
+					"pluginid": "10003",
+					"alertRef": "10003",
+					"alert": "Vulnerable JS Library",
+					"name": "Vulnerable JS Library",
+					"riskcode": "3",
+					"confidence": "2",
+					"riskdesc": "High (Medium)",
+					"desc": "<p>The identified library appears to be vulnerable.</p>",
+					"instances":[ 
+						{
+							"id": "223",
+							"uri": "http://localhost:8000/static/build/js/moment.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/build\/js\/moment.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ".version=\"2.29.1\",e=Tt,f.fn=pn,f.min=function(){return Rt(\"isBefore\",[].slice.call(arguments,0))},f.max=function(){return Rt(\"isAfter\",[].slice.call(arguments,0))},f.now=function(){return Date.now?Date.now():+new Date},f.utc=_,f.unix=function(e){return Tt(1e3*e)},f.months=function(e,t){return Dn(e,t,\"months\")},f.isDate=a,f.locale=lt,f.invalid=w,f.duration=Zt,f.isMoment=",
+							"otherinfo": "The identified library moment.js, version 2.29.1 is vulnerable.\nCVE-2022-31129\nCVE-2022-24785\nhttps://github.com/moment/moment/security/advisories/GHSA-wc69-rhjr-hc9g\nhttps://security.snyk.io/vuln/SNYK-JS-MOMENT-2944238\nhttps://github.com/moment/moment/security/advisories/GHSA-8hfj-j24r-96c4\n"
+						},
+						{
+							"id": "274",
+							"uri": "http://localhost:8000/static/cdn/ajax/scripts/moment-with-locales.min.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/cdn\/ajax\/scripts\/moment-with-locales.min.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ".version=\"2.29.1\",e=Ha,M.fn=yt,M.min=function(){return Pa(\"isBefore\",[].slice.call(arguments,0))},M.max=function(){return Pa(\"isAfter\",[].slice.call(arguments,0))},M.now=function(){return Date.now?Date.now():+new Date},M.utc=c,M.unix=function(e){return Ha(1e3*e)},M.months=function(e,a){return Dt(e,a,\"months\")},M.isDate=d,M.locale=oa,M.invalid=y,M.duration=Ga,M.isMoment=",
+							"otherinfo": "The identified library moment.js, version 2.29.1 is vulnerable.\nCVE-2022-31129\nCVE-2022-24785\nhttps://github.com/moment/moment/security/advisories/GHSA-wc69-rhjr-hc9g\nhttps://security.snyk.io/vuln/SNYK-JS-MOMENT-2944238\nhttps://github.com/moment/moment/security/advisories/GHSA-8hfj-j24r-96c4\n"
+						}
+					],
+					"count": "2",
+					"systemic": false,
+					"solution": "<p>Upgrade to the latest version of the affected library.</p>",
+					"otherinfo": "<p>The identified library moment.js, version 2.29.1 is vulnerable.</p><p>CVE-2022-31129</p><p>CVE-2022-24785</p><p>https://github.com/moment/moment/security/advisories/GHSA-wc69-rhjr-hc9g</p><p>https://security.snyk.io/vuln/SNYK-JS-MOMENT-2944238</p><p>https://github.com/moment/moment/security/advisories/GHSA-8hfj-j24r-96c4</p><p></p>",
+					"reference": "<p>https://owasp.org/Top10/2021/A06_2021-Vulnerable_and_Outdated_Components/</p>",
+					"cweid": "1395",
+					"wascid": "-1",
+					"sourceid": "93"
+				},
+				{
+					"pluginid": "10038",
+					"alertRef": "10038-1",
+					"alert": "Content Security Policy (CSP) Header Not Set",
+					"name": "Content Security Policy (CSP) Header Not Set",
+					"riskcode": "2",
+					"confidence": "3",
+					"riskdesc": "Medium (High)",
+					"desc": "<p>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page \u2014 covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</p>",
+					"instances":[ 
+						{
+							"id": "217",
+							"uri": "http://localhost:8000/leave/user-request-view/",
+							"nodeName": "http:\/\/localhost:8000\/leave\/user-request-view\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "0",
+							"uri": "http://localhost:8000/login/",
+							"nodeName": "http:\/\/localhost:8000\/login\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "58",
+							"uri": "http://localhost:8000/my-dashboard/",
+							"nodeName": "http:\/\/localhost:8000\/my-dashboard\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "159",
+							"uri": "http://localhost:8000/my-dashboard/api/monthly-summary/?month=2026-11",
+							"nodeName": "http:\/\/localhost:8000\/my-dashboard\/api\/monthly-summary\/ (month)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "198",
+							"uri": "http://localhost:8000/notifications/",
+							"nodeName": "http:\/\/localhost:8000\/notifications\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "5",
+					"systemic": true,
+					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
+					"cweid": "693",
+					"wascid": "15",
+					"sourceid": "163"
+				},
+				{
+					"pluginid": "90003",
+					"alertRef": "90003",
+					"alert": "Sub Resource Integrity Attribute Missing",
+					"name": "Sub Resource Integrity Attribute Missing",
+					"riskcode": "2",
+					"confidence": "3",
+					"riskdesc": "Medium (High)",
+					"desc": "<p>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content.</p>",
+					"instances":[ 
+						{
+							"id": "729",
+							"uri": "http://localhost:8000/dashboard/",
+							"nodeName": "http:\/\/localhost:8000\/dashboard\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://cdn.jsdelivr.net/npm/apexcharts@7.8.0/dist/apexcharts.min.js\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"id": "88",
+							"uri": "http://localhost:8000/my-dashboard/",
+							"nodeName": "http:\/\/localhost:8000\/my-dashboard\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://cdn.jsdelivr.net/npm/apexcharts@7.8.0/dist/apexcharts.min.js\"></script>",
+							"otherinfo": ""
+						}
+					],
+					"count": "2",
+					"systemic": false,
+					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Subresource_Integrity</p>",
+					"cweid": "345",
+					"wascid": "15",
+					"sourceid": "332"
+				},
+				{
+					"pluginid": "10010",
+					"alertRef": "10010",
+					"alert": "Cookie No HttpOnly Flag",
+					"name": "Cookie No HttpOnly Flag",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.</p>",
+					"instances":[ 
+						{
+							"id": "230",
+							"uri": "http://localhost:8000/leave/user-request-filter/",
+							"nodeName": "http:\/\/localhost:8000\/leave\/user-request-filter\/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "Set-Cookie: csrftoken",
+							"otherinfo": ""
+						},
+						{
+							"id": "218",
+							"uri": "http://localhost:8000/leave/user-request-view/",
+							"nodeName": "http:\/\/localhost:8000\/leave\/user-request-view\/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "Set-Cookie: csrftoken",
+							"otherinfo": ""
+						},
+						{
+							"id": "1",
+							"uri": "http://localhost:8000/login/",
+							"nodeName": "http:\/\/localhost:8000\/login\/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "Set-Cookie: csrftoken",
+							"otherinfo": ""
+						},
+						{
+							"id": "59",
+							"uri": "http://localhost:8000/my-dashboard/",
+							"nodeName": "http:\/\/localhost:8000\/my-dashboard\/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "Set-Cookie: csrftoken",
+							"otherinfo": ""
+						},
+						{
+							"id": "20",
+							"uri": "http://localhost:8000/login/",
+							"nodeName": "http:\/\/localhost:8000\/login\/ ()(csrfmiddlewaretoken,password,username)",
+							"method": "POST",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "Set-Cookie: csrftoken",
+							"otherinfo": ""
+						}
+					],
+					"count": "5",
+					"systemic": true,
+					"solution": "<p>Ensure that the HttpOnly flag is set for all cookies.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
+					"cweid": "1004",
+					"wascid": "13",
+					"sourceid": "173"
+				},
+				{
+					"pluginid": "10017",
+					"alertRef": "10017",
+					"alert": "Cross-Domain JavaScript Source File Inclusion",
+					"name": "Cross-Domain JavaScript Source File Inclusion",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>The page includes one or more script files from a third-party domain.</p>",
+					"instances":[ 
+						{
+							"id": "691",
+							"uri": "http://localhost:8000/dashboard/",
+							"nodeName": "http:\/\/localhost:8000\/dashboard\/",
+							"method": "GET",
+							"param": "https://cdn.jsdelivr.net/npm/apexcharts@7.8.0/dist/apexcharts.min.js",
+							"attack": "",
+							"evidence": "<script src=\"https://cdn.jsdelivr.net/npm/apexcharts@7.8.0/dist/apexcharts.min.js\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"id": "60",
+							"uri": "http://localhost:8000/my-dashboard/",
+							"nodeName": "http:\/\/localhost:8000\/my-dashboard\/",
+							"method": "GET",
+							"param": "https://cdn.jsdelivr.net/npm/apexcharts@7.8.0/dist/apexcharts.min.js",
+							"attack": "",
+							"evidence": "<script src=\"https://cdn.jsdelivr.net/npm/apexcharts@7.8.0/dist/apexcharts.min.js\"></script>",
+							"otherinfo": ""
+						}
+					],
+					"count": "2",
+					"systemic": false,
+					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "829",
+					"wascid": "15",
+					"sourceid": "332"
+				},
+				{
+					"pluginid": "10036",
+					"alertRef": "10036-2",
+					"alert": "Server Leaks Version Information via \"Server\" HTTP Response Header Field",
+					"name": "Server Leaks Version Information via \"Server\" HTTP Response Header Field",
+					"riskcode": "1",
+					"confidence": "3",
+					"riskdesc": "Low (High)",
+					"desc": "<p>The web/application server is leaking version information via the \"Server\" HTTP response header. Access to such information may facilitate attackers identifying other vulnerabilities your web/application server is subject to.</p>",
+					"instances":[ 
+						{
+							"id": "4",
+							"uri": "http://localhost:8000/login/",
+							"nodeName": "http:\/\/localhost:8000\/login\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "WSGIServer/0.2 CPython/3.12.10",
+							"otherinfo": ""
+						},
+						{
+							"id": "6",
+							"uri": "http://localhost:8000/static/horilla_theme/assets/css/global.css",
+							"nodeName": "http:\/\/localhost:8000\/static\/horilla_theme\/assets\/css\/global.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "WSGIServer/0.2 CPython/3.12.10",
+							"otherinfo": ""
+						},
+						{
+							"id": "7",
+							"uri": "http://localhost:8000/static/horilla_theme/assets/css/tailwind.css",
+							"nodeName": "http:\/\/localhost:8000\/static\/horilla_theme\/assets\/css\/tailwind.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "WSGIServer/0.2 CPython/3.12.10",
+							"otherinfo": ""
+						},
+						{
+							"id": "10",
+							"uri": "http://localhost:8000/static/horilla_theme/assets/css/v1_styles.css",
+							"nodeName": "http:\/\/localhost:8000\/static\/horilla_theme\/assets\/css\/v1_styles.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "WSGIServer/0.2 CPython/3.12.10",
+							"otherinfo": ""
+						},
+						{
+							"id": "2",
+							"uri": "http://localhost:8000/static/images/ionicons/ui_icons/ionicons/ionicons.esm.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/images\/ionicons\/ui_icons\/ionicons\/ionicons.esm.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "WSGIServer/0.2 CPython/3.12.10",
+							"otherinfo": ""
+						}
+					],
+					"count": "5",
+					"systemic": true,
+					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to suppress the \"Server\" header or provide generic details.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://httpd.apache.org/docs/current/mod/core.html#servertokens</p><p>https://learn.microsoft.com/en-us/previous-versions/msp-n-p/ff648552(v=pandp.10)</p><p>https://www.troyhunt.com/shhh-dont-let-your-response-headers/</p>",
+					"cweid": "497",
+					"wascid": "13",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10021",
+					"alertRef": "10021",
+					"alert": "X-Content-Type-Options Header Missing",
+					"name": "X-Content-Type-Options Header Missing",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>",
+					"instances":[ 
+						{
+							"id": "8",
+							"uri": "http://localhost:8000/static/horilla_theme/assets/css/global.css",
+							"nodeName": "http:\/\/localhost:8000\/static\/horilla_theme\/assets\/css\/global.css",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"id": "9",
+							"uri": "http://localhost:8000/static/horilla_theme/assets/css/tailwind.css",
+							"nodeName": "http:\/\/localhost:8000\/static\/horilla_theme\/assets\/css\/tailwind.css",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"id": "11",
+							"uri": "http://localhost:8000/static/horilla_theme/assets/css/v1_styles.css",
+							"nodeName": "http:\/\/localhost:8000\/static\/horilla_theme\/assets\/css\/v1_styles.css",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"id": "3",
+							"uri": "http://localhost:8000/static/images/ionicons/ui_icons/ionicons/ionicons.esm.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/images\/ionicons\/ui_icons\/ionicons\/ionicons.esm.js",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"id": "14",
+							"uri": "http://localhost:8000/static/images/ionicons/ui_icons/ionicons/p-006dba1a.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/images\/ionicons\/ui_icons\/ionicons\/p-006dba1a.js",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						}
+					],
+					"count": "5",
+					"systemic": true,
+					"solution": "<p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>",
+					"otherinfo": "<p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p><p>At \"High\" threshold this scan rule will not alert on client or server error responses.</p>",
+					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p><p>https://owasp.org/www-community/Security_Headers</p>",
+					"cweid": "693",
+					"wascid": "15",
+					"sourceid": "9"
+				},
+				{
+					"pluginid": "10111",
+					"alertRef": "10111",
+					"alert": "Authentication Request Identified",
+					"name": "Authentication Request Identified",
+					"riskcode": "0",
+					"confidence": "3",
+					"riskdesc": "Informational (High)",
+					"desc": "<p>The given request has been identified as an authentication request. The 'Other Info' field contains a set of key=value lines which identify any relevant fields. If the request is in a context which has an Authentication Method set to \"Auto-Detect\" then this rule will change the authentication to match the request identified.</p>",
+					"instances":[ 
+						{
+							"id": "292",
+							"uri": "http://localhost:8000/api/auth/login/",
+							"nodeName": "http:\/\/localhost:8000\/api\/auth\/login\/ ()({username,password})",
+							"method": "POST",
+							"param": "username",
+							"attack": "",
+							"evidence": "password",
+							"otherinfo": "userParam=username\nuserValue=team_employee\npasswordParam=password"
+						},
+						{
+							"id": "24",
+							"uri": "http://localhost:8000/login/",
+							"nodeName": "http:\/\/localhost:8000\/login\/ ()(csrfmiddlewaretoken,password,username)",
+							"method": "POST",
+							"param": "username",
+							"attack": "",
+							"evidence": "password",
+							"otherinfo": "userParam=username\nuserValue=team_employee\npasswordParam=password\nreferer=http://localhost:8000/login/"
+						}
+					],
+					"count": "2",
+					"systemic": false,
+					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
+					"otherinfo": "<p>userParam=username</p><p>userValue=team_employee</p><p>passwordParam=password</p>",
+					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/auth-req-id/</p>",
+					"cweid": "-1",
+					"wascid": "-1",
+					"sourceid": "190"
+				},
+				{
+					"pluginid": "10024",
+					"alertRef": "10024",
+					"alert": "Information Disclosure - Sensitive Information in URL",
+					"name": "Information Disclosure - Sensitive Information in URL",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The request appeared to contain sensitive information leaked in the URL. This can violate PCI and most organizational compliance policies. You can configure the list of strings for this check to add or remove values specific to your environment.</p>",
+					"instances":[ 
+						{
+							"id": "153",
+							"uri": "http://localhost:8000/settings/get-date-format/?csrfmiddlewaretoken=GfBSTowZasRHi7TES937inETZnCrjVQd",
+							"nodeName": "http:\/\/localhost:8000\/settings\/get-date-format\/ (csrfmiddlewaretoken)",
+							"method": "GET",
+							"param": "csrfmiddlewaretoken",
+							"attack": "",
+							"evidence": "csrfmiddlewaretoken",
+							"otherinfo": "The URL contains potentially sensitive information. The following string was found via the pattern: token\ncsrfmiddlewaretoken"
+						},
+						{
+							"id": "156",
+							"uri": "http://localhost:8000/settings/get-time-format/?csrfmiddlewaretoken=GfBSTowZasRHi7TES937inETZnCrjVQd",
+							"nodeName": "http:\/\/localhost:8000\/settings\/get-time-format\/ (csrfmiddlewaretoken)",
+							"method": "GET",
+							"param": "csrfmiddlewaretoken",
+							"attack": "",
+							"evidence": "csrfmiddlewaretoken",
+							"otherinfo": "The URL contains potentially sensitive information. The following string was found via the pattern: token\ncsrfmiddlewaretoken"
+						}
+					],
+					"count": "2",
+					"systemic": false,
+					"solution": "<p>Do not pass sensitive information in URIs.</p>",
+					"otherinfo": "<p>The URL contains potentially sensitive information. The following string was found via the pattern: token</p><p>csrfmiddlewaretoken</p>",
+					"reference": "",
+					"cweid": "598",
+					"wascid": "13",
+					"sourceid": "136"
+				},
+				{
+					"pluginid": "10027",
+					"alertRef": "10027",
+					"alert": "Information Disclosure - Suspicious Comments",
+					"name": "Information Disclosure - Suspicious Comments",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The response appears to contain suspicious comments which may help an attacker.</p>",
+					"instances":[ 
+						{
+							"id": "723",
+							"uri": "http://localhost:8000/dashboard/",
+							"nodeName": "http:\/\/localhost:8000\/dashboard\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/ once whenever the user had selected everyt",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected 6 times, the first in likely comment: \"// once whenever the user had selected everything.\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "724",
+							"uri": "http://localhost:8000/dashboard/",
+							"nodeName": "http:\/\/localhost:8000\/dashboard\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "// \"Select (N)\" is redundant o",
+							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected in likely comment: \"// \"Select (N)\" is redundant once every row is already selected --\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "725",
+							"uri": "http://localhost:8000/dashboard/",
+							"nodeName": "http:\/\/localhost:8000\/dashboard\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ge highlight: clear from every module button",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 10 times, the first in likely comment: \"// Persistent current-page highlight: clear from every module button, then\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "721",
+							"uri": "http://localhost:8000/dashboard/",
+							"nodeName": "http:\/\/localhost:8000\/dashboard\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "localStorage first, DB fallback, else role",
+							"otherinfo": "The following pattern was used: \\bDB\\b and was detected 3 times, the first in likely comment: \"// Apply saved preferences on load (localStorage first, DB fallback, else role defaults)\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "720",
+							"uri": "http://localhost:8000/dashboard/",
+							"nodeName": "http:\/\/localhost:8000\/dashboard\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "this move (a moment later), pull it inside it",
+							"otherinfo": "The following pattern was used: \\bLATER\\b and was detected in likely comment: \"// After Apex has placed the tooltip for this move (a moment later), pull it inside its card.\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "726",
+							"uri": "http://localhost:8000/dashboard/",
+							"nodeName": "http:\/\/localhost:8000\/dashboard\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ts it past the edge where the page clips it.\n",
+							"otherinfo": "The following pattern was used: \\bWHERE\\b and was detected in likely comment: \"/* Keep every chart tooltip inside its card. Apex flips a wide tooltip to the left of the\n   bar and, near the card's left edge,\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "722",
+							"uri": "http://localhost:8000/dashboard/",
+							"nodeName": "http:\/\/localhost:8000\/dashboard\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "urs Balance) have a query string baked",
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected 5 times, the first in likely comment: \"// Some submenu links (e.g. Hours Balance) have a query string baked\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "249",
+							"uri": "http://localhost:8000/leave/my-leave-request-nav/",
+							"nodeName": "http:\/\/localhost:8000\/leave\/my-leave-request-nav\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "// A single <select> always has SOME op",
+							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected 7 times, the first in likely comment: \"// A single <select> always has SOME option selected --\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "246",
+							"uri": "http://localhost:8000/leave/my-leave-request-nav/",
+							"nodeName": "http:\/\/localhost:8000\/leave\/my-leave-request-nav\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "// usually emitted later in the same templat",
+							"otherinfo": "The following pattern was used: \\bLATER\\b and was detected in likely comment: \"// usually emitted later in the same template.\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "250",
+							"uri": "http://localhost:8000/leave/my-leave-request-nav/",
+							"nodeName": "http:\/\/localhost:8000\/leave\/my-leave-request-nav\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "e boolean attribute from `type`.",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 4 times, the first in likely comment: \"// separate boolean attribute from `type`.\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "247",
+							"uri": "http://localhost:8000/leave/my-leave-request-nav/",
+							"nodeName": "http:\/\/localhost:8000\/leave\/my-leave-request-nav\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ons don't match the query.",
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected 3 times, the first in likely comment: \"// checkbox/segmented options don't match the query.\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "248",
+							"uri": "http://localhost:8000/leave/my-leave-request-nav/",
+							"nodeName": "http:\/\/localhost:8000\/leave\/my-leave-request-nav\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "s alone can't tell \"user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected 2 times, the first in likely comment: \"// marked, so `.value` truthiness alone can't tell \"user\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "232",
+							"uri": "http://localhost:8000/leave/user-request-filter/",
+							"nodeName": "http:\/\/localhost:8000\/leave\/user-request-filter\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": " the empty template from the initial page lo",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in likely comment: \"// so we don't accidentally grab the empty template from the initial page load!\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "240",
+							"uri": "http://localhost:8000/leave/user-request-view/",
+							"nodeName": "http:\/\/localhost:8000\/leave\/user-request-view\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/ once whenever the user had selected everyt",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected 5 times, the first in likely comment: \"// once whenever the user had selected everything.\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "241",
+							"uri": "http://localhost:8000/leave/user-request-view/",
+							"nodeName": "http:\/\/localhost:8000\/leave\/user-request-view\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "// \"Select (N)\" is redundant o",
+							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected in likely comment: \"// \"Select (N)\" is redundant once every row is already selected --\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "242",
+							"uri": "http://localhost:8000/leave/user-request-view/",
+							"nodeName": "http:\/\/localhost:8000\/leave\/user-request-view\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ge highlight: clear from every module button",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 8 times, the first in likely comment: \"// Persistent current-page highlight: clear from every module button, then\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "239",
+							"uri": "http://localhost:8000/leave/user-request-view/",
+							"nodeName": "http:\/\/localhost:8000\/leave\/user-request-view\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "urs Balance) have a query string baked",
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected 5 times, the first in likely comment: \"// Some submenu links (e.g. Hours Balance) have a query string baked\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "83",
+							"uri": "http://localhost:8000/my-dashboard/",
+							"nodeName": "http:\/\/localhost:8000\/my-dashboard\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/ once whenever the user had selected everyt",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected 4 times, the first in likely comment: \"// once whenever the user had selected everything.\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "84",
+							"uri": "http://localhost:8000/my-dashboard/",
+							"nodeName": "http:\/\/localhost:8000\/my-dashboard\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "// \"Select (N)\" is redundant o",
+							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected in likely comment: \"// \"Select (N)\" is redundant once every row is already selected --\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "85",
+							"uri": "http://localhost:8000/my-dashboard/",
+							"nodeName": "http:\/\/localhost:8000\/my-dashboard\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ge highlight: clear from every module button",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 7 times, the first in likely comment: \"// Persistent current-page highlight: clear from every module button, then\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "82",
+							"uri": "http://localhost:8000/my-dashboard/",
+							"nodeName": "http:\/\/localhost:8000\/my-dashboard\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "urs Balance) have a query string baked",
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected 5 times, the first in likely comment: \"// Some submenu links (e.g. Hours Balance) have a query string baked\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "164",
+							"uri": "http://localhost:8000/my-dashboard/api/monthly-summary/?month=2026-11",
+							"nodeName": "http:\/\/localhost:8000\/my-dashboard\/api\/monthly-summary\/ (month)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "reakdown \u2014 separate from the day-count strip",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in likely comment: \"<!-- \u2500\u2500 Hours breakdown \u2014 separate from the day-count strip above \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 -->\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "128",
+							"uri": "http://localhost:8000/static/attendance/actions.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/attendance\/actions.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "attendance requests select all functions",
+							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected in likely comment: \"// attendance requests select all functions\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "129",
+							"uri": "http://localhost:8000/static/attendance/actions.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/attendance\/actions.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ping of month names from different languages",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in likely comment: \"// Create a mapping of month names from different languages to English\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "127",
+							"uri": "http://localhost:8000/static/attendance/actions.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/attendance\/actions.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "the dictionary to a query string",
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in likely comment: \"// Convert the dictionary to a query string\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "97",
+							"uri": "http://localhost:8000/static/base/date_formatting.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/base\/date_formatting.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "elected date format from localStorage",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in likely comment: \"// Retrieve the selected date format from localStorage\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "94",
+							"uri": "http://localhost:8000/static/base/time_formatting.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/base\/time_formatting.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "elected time format from localStorage",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in likely comment: \"// Retrieve the selected time format from localStorage\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "46",
+							"uri": "http://localhost:8000/static/build/js/clearFilter.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/build\/js\/clearFilter.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": " a date range built from __gte + __lte) also",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in likely comment: \"// A merged tag (e.g. a date range built from __gte + __lte) also carries\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "45",
+							"uri": "http://localhost:8000/static/build/js/clearFilter.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/build\/js\/clearFilter.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "// the extra query key it stands for -",
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected 2 times, the first in likely comment: \"// the extra query key it stands for -- clear that one first, then fall\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "76",
+							"uri": "http://localhost:8000/static/build/js/orgChart.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/build\/js\/orgChart.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": " so we can work out later if this was a 'pres",
+							"otherinfo": "The following pattern was used: \\bLATER\\b and was detected 2 times, the first in likely comment: \"// this is so we can work out later if this was a 'press' or a 'drag' touch\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "79",
+							"uri": "http://localhost:8000/static/build/js/orgChart.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/build\/js\/orgChart.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "// TODO: This assumes all n",
+							"otherinfo": "The following pattern was used: \\bTODO\\b and was detected in likely comment: \"// TODO: This assumes all nodes are droppable: it doesn't run the custom isDroppable function - it should!\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "77",
+							"uri": "http://localhost:8000/static/build/js/orgChart.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/build\/js\/orgChart.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "// when user drops the node, it ",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected 2 times, the first in likely comment: \"// when user drops the node, it will be removed from original parent node and be added to new parent node\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "78",
+							"uri": "http://localhost:8000/static/build/js/orgChart.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/build\/js\/orgChart.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ut I can't reach it from here",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in likely comment: \"// would like to just call 'dropZoneHandler', but I can't reach it from here\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "105",
+							"uri": "http://localhost:8000/static/build/js/tourController.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/build\/js\/tourController.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "s\n *\n * Loads tours from the server for the ",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 3 times, the first in likely comment: \"/**\n * tourController.js\n *\n * Loads tours from the server for the current page, auto-starts any pending\n * auto-start tour, and\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "211",
+							"uri": "http://localhost:8000/static/cbv/my_leave_request/my_leave_request.js?v=2",
+							"nodeName": "http:\/\/localhost:8000\/static\/cbv\/my_leave_request\/my_leave_request.js (v)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "//   return Array.from(new Set(list));",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 3 times, the first in likely comment: \"//   return Array.from(new Set(list));\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "100",
+							"uri": "http://localhost:8000/static/horilla_theme/assets/js/footerScripts.js?v=2",
+							"nodeName": "http:\/\/localhost:8000\/static\/horilla_theme\/assets\/js\/footerScripts.js (v)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/ A form swapped in later (the change-passwor",
+							"otherinfo": "The following pattern was used: \\bLATER\\b and was detected in likely comment: \"// A form swapped in later (the change-password page opens in place) has no direct\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "102",
+							"uri": "http://localhost:8000/static/horilla_theme/assets/js/footerScripts.js?v=2",
+							"nodeName": "http:\/\/localhost:8000\/static\/horilla_theme\/assets\/js\/footerScripts.js (v)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "// stops it from reacting to those s",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 5 times, the first in likely comment: \"// stops it from reacting to those synthetic hovers; \"scroll\" doesn't\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "101",
+							"uri": "http://localhost:8000/static/horilla_theme/assets/js/footerScripts.js?v=2",
+							"nodeName": "http:\/\/localhost:8000\/static\/horilla_theme\/assets\/js\/footerScripts.js (v)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "// whatever the user had just expanded.",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in likely comment: \"// whatever the user had just expanded.\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "54",
+							"uri": "http://localhost:8000/static/horilla_theme/assets/js/global.js?v=2",
+							"nodeName": "http:\/\/localhost:8000\/static\/horilla_theme\/assets\/js\/global.js (v)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "// from ever scaling to zer",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in likely comment: \"// from ever scaling to zero: the traffic looks like real usage.\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "53",
+							"uri": "http://localhost:8000/static/horilla_theme/assets/js/global.js?v=2",
+							"nodeName": "http:\/\/localhost:8000\/static\/horilla_theme\/assets\/js\/global.js (v)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "// so a returning user sees current data i",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in likely comment: \"// so a returning user sees current data instead of waiting out the interval.\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "161",
+							"uri": "http://localhost:8000/static/horilla_theme/assets/js/htmxSelect2.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/horilla_theme\/assets\/js\/htmxSelect2.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "// A select is unclearable when",
+							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected 7 times, the first in likely comment: \"// A select is unclearable when required: the `required` attribute, a\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "160",
+							"uri": "http://localhost:8000/static/horilla_theme/assets/js/htmxSelect2.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/horilla_theme\/assets\/js\/htmxSelect2.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "// Only real user clicks count as \"ou",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in likely comment: \"// Only real user clicks count as \"outside\" clicks. Script-made\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "162",
+							"uri": "http://localhost:8000/static/horilla_theme/assets/js/htmxSelect2.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/horilla_theme\/assets\/js\/htmxSelect2.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "dropdown and redraw from the reset value.",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 4 times, the first in likely comment: \"// label shown in the field. Close the dropdown and redraw from the reset value.\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "121",
+							"uri": "http://localhost:8000/static/htmx/htmx.min.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/htmx\/htmx.min.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "// TODO remove when IE goes",
+							"otherinfo": "The following pattern was used: \\bTODO\\b and was detected 3 times, the first in likely comment: \"// TODO remove when IE goes away\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "119",
+							"uri": "http://localhost:8000/static/htmx/htmx.min.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/htmx\/htmx.min.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "// select-oob swaps",
+							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected 7 times, the first in likely comment: \"// select-oob swaps\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "120",
+							"uri": "http://localhost:8000/static/htmx/htmx.min.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/htmx\/htmx.min.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eceiving a response from the server and doin",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 15 times, the first in likely comment: \"/**\n       * The default delay between receiving a response from the server and doing the swap.\n       * @type number\n       * @\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "117",
+							"uri": "http://localhost:8000/static/htmx/htmx.min.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/htmx\/htmx.min.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "n click see https://bugs.webkit.org/show_bug",
+							"otherinfo": "The following pattern was used: \\bBUGS\\b and was detected in likely comment: \"//   click - on OSX buttons do not focus on click see https://bugs.webkit.org/show_bug.cgi?id=13724\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "118",
+							"uri": "http://localhost:8000/static/htmx/htmx.min.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/htmx\/htmx.min.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "row an error if the user didn't include this",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in likely comment: \"// what's the best way to throw an error if the user didn't include this\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "116",
+							"uri": "http://localhost:8000/static/htmx/htmx.min.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/htmx\/htmx.min.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "rt** or **Try Again Later**.\n       * @type {",
+							"otherinfo": "The following pattern was used: \\bLATER\\b and was detected 2 times, the first in likely comment: \"/**\n       * The default implementation of **getWebSocketReconnectDelay** for reconnecting after unexpected connection loss by t\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "122",
+							"uri": "http://localhost:8000/static/htmx/htmx.min.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/htmx\/htmx.min.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ture to be disabled where hx-history=\"false\"",
+							"otherinfo": "The following pattern was used: \\bWHERE\\b and was detected in likely comment: \"// Allow history snapshot feature to be disabled where hx-history=\"false\"\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "73",
+							"uri": "http://localhost:8000/static/index/country.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/index\/country.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "on labels below are user-facing. gettext() c",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in likely comment: \"// Option labels below are user-facing. gettext() comes from Django's JS catalog,\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "111",
+							"uri": "http://localhost:8000/static/index/index.js?v=39",
+							"nodeName": "http:\/\/localhost:8000\/static\/index\/index.js (v)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": " that appears after Select stays visible.",
+							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected 21 times, the first in likely comment: \"// them so Unselect / Export chrome that appears after Select stays visible.\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "108",
+							"uri": "http://localhost:8000/static/index/index.js?v=39",
+							"nodeName": "http:\/\/localhost:8000\/static\/index\/index.js (v)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Export forms arrive later (htmx modals, tab c",
+							"otherinfo": "The following pattern was used: \\bLATER\\b and was detected 2 times, the first in likely comment: \"// Export forms arrive later (htmx modals, tab content) and are rebuilt when a\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "109",
+							"uri": "http://localhost:8000/static/index/index.js?v=39",
+							"nodeName": "http:\/\/localhost:8000\/static\/index\/index.js (v)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Query data object / query string, htmx parame",
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in likely comment: \"// the caller (jQuery data object / query string, htmx parameters).\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "110",
+							"uri": "http://localhost:8000/static/index/index.js?v=39",
+							"nodeName": "http:\/\/localhost:8000\/static\/index\/index.js (v)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ed out whatever the user had selected. Mirro",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected 5 times, the first in likely comment: \"// reload silently wiped out whatever the user had selected. Mirroring the\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "112",
+							"uri": "http://localhost:8000/static/index/index.js?v=39",
+							"nodeName": "http:\/\/localhost:8000\/static\/index\/index.js (v)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "s, so selections\n * from one tab (e.g. My Ti",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 17 times, the first in likely comment: \"/**\n * Clear list-row selections when switching Horilla tabs. Lists may use a\n * custom store (#selectedTickets, etc.) instead o\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "113",
+							"uri": "http://localhost:8000/static/index/index.js?v=39",
+							"nodeName": "http:\/\/localhost:8000\/static\/index\/index.js (v)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "which left a window where hitting reload",
+							"otherinfo": "The following pattern was used: \\bWHERE\\b and was detected 3 times, the first in likely comment: \"// (fires on the next microtask), which left a window where hitting reload\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "257",
+							"uri": "http://localhost:8000/static/jquery/ajax.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/jquery\/ajax.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "\t\tdataType: null,\n\t\tusername: null,\n\t\tpassword: ",
+							"otherinfo": "The following pattern was used: \\bUSERNAME\\b and was detected in likely comment: \"/*\n\t\ttimeout: 0,\n\t\tdata: null,\n\t\tdataType: null,\n\t\tusername: null,\n\t\tpassword: null,\n\t\tcache: null,\n\t\tthrows: false,\n\t\ttradition\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "259",
+							"uri": "http://localhost:8000/static/jquery/ajax.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/jquery\/ajax.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": " be adjusted by the user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected 9 times, the first in likely comment: \"// Can be adjusted by the user\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "262",
+							"uri": "http://localhost:8000/static/jquery/ajax.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/jquery\/ajax.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "// TODO: identify versions",
+							"otherinfo": "The following pattern was used: \\bTODO\\b and was detected 4 times, the first in likely comment: \"// TODO: identify versions\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "256",
+							"uri": "http://localhost:8000/static/jquery/ajax.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/jquery\/ajax.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "// https://bugs.jquery.com/ticket/4",
+							"otherinfo": "The following pattern was used: \\bBUGS\\b and was detected 9 times, the first in likely comment: \"// https://bugs.jquery.com/ticket/4833\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "263",
+							"uri": "http://localhost:8000/static/jquery/ajax.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/jquery\/ajax.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "S-like environments where a proper `window`",
+							"otherinfo": "The following pattern was used: \\bWHERE\\b and was detected 10 times, the first in likely comment: \"// For CommonJS and CommonJS-like environments where a proper `window`\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "260",
+							"uri": "http://localhost:8000/static/jquery/ajax.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/jquery\/ajax.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "or POS matching in `select`",
+							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected 4 times, the first in likely comment: \"// We use this for POS matching in `select`\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "254",
+							"uri": "http://localhost:8000/static/jquery/ajax.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/jquery\/ajax.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "re and will not see later tests",
+							"otherinfo": "The following pattern was used: \\bLATER\\b and was detected 8 times, the first in likely comment: \"// IE8 throws error here and will not see later tests\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "258",
+							"uri": "http://localhost:8000/static/jquery/ajax.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/jquery\/ajax.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ts on a `[name='']` query in some cases.",
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected 3 times, the first in likely comment: \"// IE 11/Edge don't find elements on a `[name='']` query in some cases.\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "261",
+							"uri": "http://localhost:8000/static/jquery/ajax.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/jquery\/ajax.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ust the one element from the set",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 53 times, the first in likely comment: \"// Return just the one element from the set\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "255",
+							"uri": "http://localhost:8000/static/jquery/ajax.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/jquery\/ajax.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "w this because of a bug in IE8/9 that throw",
+							"otherinfo": "The following pattern was used: \\bBUG\\b and was detected 7 times, the first in likely comment: \"// We allow this because of a bug in IE8/9 that throws an error\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "284",
+							"uri": "http://localhost:8000/static/jquery/jqueryui.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/jquery\/jqueryui.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "// Select the wrapper - make ",
+							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected 9 times, the first in likely comment: \"// Select the wrapper - make it overflow: hidden and absolute positioned based on\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "286",
+							"uri": "http://localhost:8000/static/jquery/jqueryui.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/jquery\/jqueryui.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "// TODO: remove support for",
+							"otherinfo": "The following pattern was used: \\bTODO\\b and was detected 24 times, the first in likely comment: \"// TODO: remove support for widgetEventPrefix\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "282",
+							"uri": "http://localhost:8000/static/jquery/jqueryui.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/jquery\/jqueryui.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "et/JZSMt/3/ https://bugs.webkit.org/show_bug",
+							"otherinfo": "The following pattern was used: \\bBUGS\\b and was detected 6 times, the first in likely comment: \"// see: http://jsfiddle.net/JZSMt/3/ https://bugs.webkit.org/show_bug.cgi?id=107380\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "283",
+							"uri": "http://localhost:8000/static/jquery/jqueryui.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/jquery\/jqueryui.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "gested words as the user is typing.",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected 8 times, the first in likely comment: \"//>>description: Lists suggested words as the user is typing.\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "285",
+							"uri": "http://localhost:8000/static/jquery/jqueryui.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/jquery\/jqueryui.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "idgets that inherit from this widget in case",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 85 times, the first in likely comment: \"// Track widgets that inherit from this widget in case this widget is\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "287",
+							"uri": "http://localhost:8000/static/jquery/jqueryui.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/jquery\/jqueryui.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "is is the only case where we allow nulls for ",
+							"otherinfo": "The following pattern was used: \\bWHERE\\b and was detected 10 times, the first in likely comment: \"// this is the only case where we allow nulls for ALL properties.\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "280",
+							"uri": "http://localhost:8000/static/jquery/jqueryui.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/jquery\/jqueryui.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "redefine the widget later",
+							"otherinfo": "The following pattern was used: \\bLATER\\b and was detected 7 times, the first in likely comment: \"// redefine the widget later\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "281",
+							"uri": "http://localhost:8000/static/jquery/jqueryui.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/jquery\/jqueryui.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "t causes a very odd bug in IE 8 (see #6720)",
+							"otherinfo": "The following pattern was used: \\bBUG\\b and was detected 7 times, the first in likely comment: \"// it causes a very odd bug in IE 8 (see #6720)\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "61",
+							"uri": "http://localhost:8000/static/notifications/notify.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/notifications\/notify.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ain, so a returning user sees the",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in likely comment: \"// Refresh as soon as the tab is focused again, so a returning user sees the\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "69",
+							"uri": "http://localhost:8000/static/src/js/componentForm.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/src\/js\/componentForm.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "// Errors come back from the server against ",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 3 times, the first in likely comment: \"// Errors come back from the server against fields that may be on a step that\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "70",
+							"uri": "http://localhost:8000/static/src/js/componentForm.js",
+							"nodeName": "http:\/\/localhost:8000\/static\/src\/js\/componentForm.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "bute on the button, where it could not be rea",
+							"otherinfo": "The following pattern was used: \\bWHERE\\b and was detected in likely comment: \"// hx-on attribute on the button, where it could not be read or reused.\", see evidence field for the suspicious comment/snippet."
+						}
+					],
+					"count": "78",
+					"systemic": false,
+					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
+					"otherinfo": "<p>The following pattern was used: \\bUSER\\b and was detected 6 times, the first in likely comment: \"// once whenever the user had selected everything.\", see evidence field for the suspicious comment/snippet.</p>",
+					"reference": "",
+					"cweid": "615",
+					"wascid": "13",
+					"sourceid": "332"
+				},
+				{
+					"pluginid": "10109",
+					"alertRef": "10109",
+					"alert": "Modern Web Application",
+					"name": "Modern Web Application",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The application appears to be a modern web application. If you need to explore it automatically then the Client Spider may well be more effective than the standard one.</p>",
+					"instances":[ 
+						{
+							"id": "727",
+							"uri": "http://localhost:8000/dashboard/",
+							"nodeName": "http:\/\/localhost:8000\/dashboard\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"#\" class=\"oh-sidebar__company-link truncate\" style=\"font-size: 10px\">\n                            My Company\n                        </a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"id": "251",
+							"uri": "http://localhost:8000/leave/my-leave-request-nav/",
+							"nodeName": "http:\/\/localhost:8000\/leave\/my-leave-request-nav\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a\n                                    class=\"px-4 py-1.5 hover:text-primary-600 transition duration-300 text-xs gap-4 items-center flex w-full\"\n                                    \n                    class=\"delete\"\n                    onclick=\"\n                    myLeaveRequestBulkDelete();\n                    \"\n                    data-action =\"delete\"\n                    style=\"cursor: pointer; color:red !important\"\n                \n                                >\n                                    Delete\n                                </a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"id": "233",
+							"uri": "http://localhost:8000/leave/user-request-filter/",
+							"nodeName": "http:\/\/localhost:8000\/leave\/user-request-filter\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script>\n            if (!$(\".HTV\").length) {\n                reloadMessage(null);\n            }\n        </script>",
+							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
+						},
+						{
+							"id": "243",
+							"uri": "http://localhost:8000/leave/user-request-view/",
+							"nodeName": "http:\/\/localhost:8000\/leave\/user-request-view\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"#\" class=\"oh-sidebar__company-link truncate\" style=\"font-size: 10px\">\n                            My Company\n                        </a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"id": "86",
+							"uri": "http://localhost:8000/my-dashboard/",
+							"nodeName": "http:\/\/localhost:8000\/my-dashboard\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"#\" class=\"oh-sidebar__company-link truncate\" style=\"font-size: 10px\">\n                            My Company\n                        </a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						}
+					],
+					"count": "5",
+					"systemic": false,
+					"solution": "<p>This is an informational alert and so no changes are required.</p>",
+					"otherinfo": "<p>Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</p>",
+					"reference": "",
+					"cweid": "-1",
+					"wascid": "-1",
+					"sourceid": "332"
+				},
+				{
+					"pluginid": "10112",
+					"alertRef": "10112",
+					"alert": "Session Management Response Identified",
+					"name": "Session Management Response Identified",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The given response has been identified as containing a session management token. The 'Other Info' field contains a set of header tokens that can be used in the Header Based Session Management Method. If the request is in a context which has a Session Management Method set to \"Auto-Detect\" then this rule will change the session management to use the tokens identified.</p>",
+					"instances":[ 
+						{
+							"id": "23",
+							"uri": "http://localhost:8000/",
+							"nodeName": "http:\/\/localhost:8000\/",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "730",
+							"uri": "http://localhost:8000/dashboard/",
+							"nodeName": "http:\/\/localhost:8000\/dashboard\/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "csrftoken",
+							"otherinfo": "cookie:csrftoken\ncookie:sessionid"
+						},
+						{
+							"id": "776",
+							"uri": "http://localhost:8000/dashboard/api/announcements/",
+							"nodeName": "http:\/\/localhost:8000\/dashboard\/api\/announcements\/",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "785",
+							"uri": "http://localhost:8000/dashboard/api/attendance-overview/",
+							"nodeName": "http:\/\/localhost:8000\/dashboard\/api\/attendance-overview\/",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "794",
+							"uri": "http://localhost:8000/dashboard/api/birthdays-anniversaries/",
+							"nodeName": "http:\/\/localhost:8000\/dashboard\/api\/birthdays-anniversaries\/",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "781",
+							"uri": "http://localhost:8000/dashboard/api/departments/",
+							"nodeName": "http:\/\/localhost:8000\/dashboard\/api\/departments\/",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "783",
+							"uri": "http://localhost:8000/dashboard/api/gender/?view=overall",
+							"nodeName": "http:\/\/localhost:8000\/dashboard\/api\/gender\/ (view)",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "790",
+							"uri": "http://localhost:8000/dashboard/api/kpi/",
+							"nodeName": "http:\/\/localhost:8000\/dashboard\/api\/kpi\/",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "779",
+							"uri": "http://localhost:8000/dashboard/api/leave-breakdown/?from_date=2026-11-01&to_date=2026-11-30",
+							"nodeName": "http:\/\/localhost:8000\/dashboard\/api\/leave-breakdown\/ (from_date,to_date)",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "788",
+							"uri": "http://localhost:8000/dashboard/api/leave-trends/?group=department&count=requests&bucket=week&from_date=2026-11-01&to_date=2026-11-30",
+							"nodeName": "http:\/\/localhost:8000\/dashboard\/api\/leave-trends\/ (bucket,count,from_date,group,to_date)",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "798",
+							"uri": "http://localhost:8000/dashboard/api/pending-approvals/?from_date=2026-11-01&to_date=2026-11-30",
+							"nodeName": "http:\/\/localhost:8000\/dashboard\/api\/pending-approvals\/ (from_date,to_date)",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "202",
+							"uri": "http://localhost:8000/get-horilla-installed-apps/",
+							"nodeName": "http:\/\/localhost:8000\/get-horilla-installed-apps\/",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "208",
+							"uri": "http://localhost:8000/inbox/notifications/api/unread_list/?max=5",
+							"nodeName": "http:\/\/localhost:8000\/inbox\/notifications\/api\/unread_list\/ (max)",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "517",
+							"uri": "http://localhost:8000/leave/leave-allocation-request-approve/1/",
+							"nodeName": "http:\/\/localhost:8000\/leave\/leave-allocation-request-approve\/1\/",
+							"method": "GET",
+							"param": "messages",
+							"attack": "",
+							"evidence": "messages",
+							"otherinfo": "cookie:messages\ncookie:sessionid"
+						},
+						{
+							"id": "253",
+							"uri": "http://localhost:8000/leave/my-leave-request-nav/",
+							"nodeName": "http:\/\/localhost:8000\/leave\/my-leave-request-nav\/",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "235",
+							"uri": "http://localhost:8000/leave/user-request-filter/",
+							"nodeName": "http:\/\/localhost:8000\/leave\/user-request-filter\/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "csrftoken",
+							"otherinfo": "cookie:csrftoken\ncookie:sessionid"
+						},
+						{
+							"id": "245",
+							"uri": "http://localhost:8000/leave/user-request-view/",
+							"nodeName": "http:\/\/localhost:8000\/leave\/user-request-view\/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "csrftoken",
+							"otherinfo": "cookie:csrftoken\ncookie:sessionid"
+						},
+						{
+							"id": "5",
+							"uri": "http://localhost:8000/login/",
+							"nodeName": "http:\/\/localhost:8000\/login\/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "csrftoken",
+							"otherinfo": "cookie:csrftoken"
+						},
+						{
+							"id": "89",
+							"uri": "http://localhost:8000/my-dashboard/",
+							"nodeName": "http:\/\/localhost:8000\/my-dashboard\/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "csrftoken",
+							"otherinfo": "cookie:csrftoken\ncookie:sessionid"
+						},
+						{
+							"id": "148",
+							"uri": "http://localhost:8000/my-dashboard/api/announcements/?from_date=2026-11-01&to_date=2026-11-30",
+							"nodeName": "http:\/\/localhost:8000\/my-dashboard\/api\/announcements\/ (from_date,to_date)",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "146",
+							"uri": "http://localhost:8000/my-dashboard/api/birthdays/",
+							"nodeName": "http:\/\/localhost:8000\/my-dashboard\/api\/birthdays\/",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "150",
+							"uri": "http://localhost:8000/my-dashboard/api/interviews/",
+							"nodeName": "http:\/\/localhost:8000\/my-dashboard\/api\/interviews\/",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "144",
+							"uri": "http://localhost:8000/my-dashboard/api/kpi/?from_date=2026-11-01&to_date=2026-11-30",
+							"nodeName": "http:\/\/localhost:8000\/my-dashboard\/api\/kpi\/ (from_date,to_date)",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "194",
+							"uri": "http://localhost:8000/my-dashboard/api/monthly-summary/?month=2026-11",
+							"nodeName": "http:\/\/localhost:8000\/my-dashboard\/api\/monthly-summary\/ (month)",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "152",
+							"uri": "http://localhost:8000/my-dashboard/api/upcoming/?from_date=2026-11-01&to_date=2026-11-30",
+							"nodeName": "http:\/\/localhost:8000\/my-dashboard\/api\/upcoming\/ (from_date,to_date)",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "200",
+							"uri": "http://localhost:8000/notifications/",
+							"nodeName": "http:\/\/localhost:8000\/notifications\/",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "238",
+							"uri": "http://localhost:8000/reload-messages/",
+							"nodeName": "http:\/\/localhost:8000\/reload-messages\/",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "155",
+							"uri": "http://localhost:8000/settings/get-date-format/?csrfmiddlewaretoken=GfBSTowZasRHi7TES937inETZnCrjVQd",
+							"nodeName": "http:\/\/localhost:8000\/settings\/get-date-format\/ (csrfmiddlewaretoken)",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "158",
+							"uri": "http://localhost:8000/settings/get-time-format/?csrfmiddlewaretoken=GfBSTowZasRHi7TES937inETZnCrjVQd",
+							"nodeName": "http:\/\/localhost:8000\/settings\/get-time-format\/ (csrfmiddlewaretoken)",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "196",
+							"uri": "http://localhost:8000/tour/api/active/?page=&path=%2Fmy-dashboard%2F",
+							"nodeName": "http:\/\/localhost:8000\/tour\/api\/active\/ (page,path)",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "25",
+							"uri": "http://localhost:8000/login/",
+							"nodeName": "http:\/\/localhost:8000\/login\/ ()(csrfmiddlewaretoken,password,username)",
+							"method": "POST",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "csrftoken",
+							"otherinfo": "cookie:csrftoken\ncookie:messages\ncookie:sessionid"
+						},
+						{
+							"id": "210",
+							"uri": "http://localhost:8000/tour/api/progress/",
+							"nodeName": "http:\/\/localhost:8000\/tour\/api\/progress\/ ()(multipart:tour_id)",
+							"method": "POST",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "sessionid",
+							"otherinfo": "cookie:sessionid"
+						},
+						{
+							"id": "296",
+							"uri": "http://localhost:8000/api/auth/login/",
+							"nodeName": "http:\/\/localhost:8000\/api\/auth\/login\/ ()({username,password})",
+							"method": "POST",
+							"param": "access",
+							"attack": "",
+							"evidence": "access",
+							"otherinfo": "json:access"
+						},
+						{
+							"id": "647",
+							"uri": "http://localhost:8000/login/",
+							"nodeName": "http:\/\/localhost:8000\/login\/ ()(csrfmiddlewaretoken,password,username)",
+							"method": "POST",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "csrftoken",
+							"otherinfo": "cookie:csrftoken"
+						},
+						{
+							"id": "26",
+							"uri": "http://localhost:8000/login/",
+							"nodeName": "http:\/\/localhost:8000\/login\/ ()(csrfmiddlewaretoken,password,username)",
+							"method": "POST",
+							"param": "messages",
+							"attack": "",
+							"evidence": "messages",
+							"otherinfo": "cookie:messages"
+						}
+					],
+					"count": "35",
+					"systemic": false,
+					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
+					"otherinfo": "<p>cookie:sessionid</p>",
+					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id/</p>",
+					"cweid": "-1",
+					"wascid": "-1",
+					"sourceid": "32"
+				},
+				{
+					"pluginid": "10031",
+					"alertRef": "10031",
+					"alert": "User Controllable HTML Element Attribute (Potential XSS)",
+					"name": "User Controllable HTML Element Attribute (Potential XSS)",
+					"riskcode": "0",
+					"confidence": "1",
+					"riskdesc": "Informational (Low)",
+					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
+					"instances":[ 
+						{
+							"id": "166",
+							"uri": "http://localhost:8000/my-dashboard/api/monthly-summary/?month=2026-11",
+							"nodeName": "http:\/\/localhost:8000\/my-dashboard\/api\/monthly-summary\/ (month)",
+							"method": "GET",
+							"param": "month",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttp://localhost:8000/my-dashboard/api/monthly-summary/?month=2026-11\n\nappears to include user input in:\na(n) [div] tag [data-from] attribute\n\nThe user input found was:\nmonth=2026-11\n\nThe user-controlled value was:\n2026-11-01"
+						}
+					],
+					"count": "1",
+					"systemic": false,
+					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>http://localhost:8000/my-dashboard/api/monthly-summary/?month=2026-11</p><p></p><p>appears to include user input in:</p><p>a(n) [div] tag [data-from] attribute</p><p></p><p>The user input found was:</p><p>month=2026-11</p><p></p><p>The user-controlled value was:</p><p>2026-11-01</p>",
+					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
+					"cweid": "20",
+					"wascid": "20",
+					"sourceid": "142"
+				}
+			]
+		}
+	],
+	"sequences":[
+	]
+
+}
