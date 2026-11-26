@@ -68,11 +68,9 @@ def database_down_on(model):
     "failing_write,model",
     [
         ("1st write: balance credit", AvailableLeave),
-        pytest.param(
-            "2nd write: request status", LeaveAllocationRequest,
-            marks=pytest.mark.xfail(strict=True, reason="REC-01 (#46): approval is not atomic; a failure after the "
-                                    "balance credit leaves it committed and the retry credits again"),
-        ),
+        # Was a strict xfail until #46 was fixed: the credit stayed committed and
+        # the retry credited a second time (5 -> 8 -> 11).
+        ("2nd write: request status", LeaveAllocationRequest),
     ],
 )
 def test_approval_recovers_without_duplicate_credit(approver, allocation, employee, leave_type, available_leave, failing_write, model):
@@ -108,18 +106,35 @@ def test_second_retry_after_success_is_refused(approver, allocation, employee, l
     assert persisted(allocation, employee, leave_type) == ("approved", 1, available_leave.available_days + DAYS)
 
 
-def test_observed_partial_failure_then_retry_credits_twice(approver, allocation, employee, leave_type, available_leave):
-    """Characterisation of the current (defective) behaviour, kept as evidence.
+# --- Leave approval (W2): same two-write pattern, fixed with #46 -----------------
+@pytest.fixture
+def leave_request(employee, leave_type, available_leave):
+    from datetime import date
 
-    When the database fails between the two writes, the balance credit is
-    already committed (Horilla does not wrap the approval in a transaction and
-    ATOMIC_REQUESTS is not enabled). The request is still 'requested', so the
-    retry passes the status check and credits the balance a second time.
-    """
-    start = available_leave.available_days
-    patch, _ = database_down_on(LeaveAllocationRequest)
+    from leave.models import LeaveRequest
+
+    return LeaveRequest.objects.bulk_create([LeaveRequest(
+        employee_id=employee, leave_type_id=leave_type, start_date=date(2031, 3, 3), end_date=date(2031, 3, 4),
+        requested_days=2, description="recovery test", reject_reason="", status="requested",
+    )])[0]
+
+
+@pytest.mark.parametrize(
+    "failing_write,model_name",
+    [("1st write: balance debit", "AvailableLeave"), ("2nd write: request status", "LeaveRequest")],
+)
+def test_leave_approval_recovers_without_double_debit(approver, leave_request, employee, leave_type, available_leave, failing_write, model_name):
+    from leave import models as leave_models
+
+    start = available_leave.available_days  # 5
+    patch, _ = database_down_on(getattr(leave_models, model_name))
     with patch:
-        assert approve(approver, allocation.pk).status_code == 500
-    assert persisted(allocation, employee, leave_type) == ("requested", 1, start + DAYS)
-    assert approve(approver, allocation.pk).status_code == 200
-    assert persisted(allocation, employee, leave_type) == ("approved", 1, start + 2 * DAYS)  # credited twice
+        assert approver.put(f"/api/leave/approve/{leave_request.pk}/", {}, format="json").status_code == 500
+    leave_request.refresh_from_db()
+    assert leave_request.status == "requested"
+    assert AvailableLeave.objects.get(employee_id=employee, leave_type_id=leave_type).available_days == start
+
+    assert approver.put(f"/api/leave/approve/{leave_request.pk}/", {}, format="json").status_code == 200
+    leave_request.refresh_from_db()
+    assert leave_request.status == "approved"
+    assert AvailableLeave.objects.get(employee_id=employee, leave_type_id=leave_type).available_days == start - 2

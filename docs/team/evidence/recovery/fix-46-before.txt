@@ -1,0 +1,18 @@
+tests/team/recovery/test_allocation_approve_recovery.py::test_approval_recovers_without_duplicate_credit[1st write: balance credit-AvailableLeave] PASSED [ 20%]
+tests/team/recovery/test_allocation_approve_recovery.py::test_approval_recovers_without_duplicate_credit[2nd write: request status-LeaveAllocationRequest] FAILED [ 40%]
+tests/team/recovery/test_allocation_approve_recovery.py::test_second_retry_after_success_is_refused PASSED [ 60%]
+tests/team/recovery/test_allocation_approve_recovery.py::test_leave_approval_recovers_without_double_debit[1st write: balance debit-AvailableLeave] PASSED [ 80%]
+tests/team/recovery/test_allocation_approve_recovery.py::test_leave_approval_recovers_without_double_debit[2nd write: request status-LeaveRequest] FAILED [100%]
+            failed = approve(approver, allocation.pk)
+        assert failed.status_code == 500
+            f"after a failed approval the balance must be unchanged ({start_balance}), "
+E       AssertionError: after a failed approval the balance must be unchanged (5.0), but it is 8.0: the credit was committed without the status change
+E       assert 8.0 == 5.0
+E       assert 3.0 == 5.0
+E        +  where 3.0 = <AvailableLeave: Emp Test  | Unit Annual>.available_days
+E        +    where <AvailableLeave: Emp Test  | Unit Annual> = get(employee_id=<Employee: Emp Test >, leave_type_id=<LeaveType: Unit Annual>)
+E        +      where get = <base.horilla_company_manager.HorillaCompanyManager object at 0x7fb7b34676b0>.get
+E        +        where <base.horilla_company_manager.HorillaCompanyManager object at 0x7fb7b34676b0> = AvailableLeave.objects
+FAILED tests/team/recovery/test_allocation_approve_recovery.py::test_approval_recovers_without_duplicate_credit[2nd write: request status-LeaveAllocationRequest]
+FAILED tests/team/recovery/test_allocation_approve_recovery.py::test_leave_approval_recovers_without_double_debit[2nd write: request status-LeaveRequest]
+========================= 2 failed, 3 passed in 1.61s ==========================
