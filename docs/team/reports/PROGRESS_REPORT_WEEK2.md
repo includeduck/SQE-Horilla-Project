@@ -53,6 +53,6 @@ Defect discovery by day: 23 Nov: 4, 24 Nov: 3, 25 Nov: 18 (generated API inputs)
 | C2-2 | Merge the waiting PRs in dependency order (#48 → #49, then #37, #45, #47, #35); resolve the `AI_USE_RECORD.md` conflict as each lands | Wasay | 27 Nov | In progress |
 | C2-3 | Reduce CI load: run Area 2's separate `phase-d` / `area2-verification` workflows only on push or manually, since the quality gate already runs the same API and browser tests on every PR | Rayyan, Wasay | 27 Nov | Proposed |
 | C2-4 | `reset.ps1` removes `-wal`/`-shm` files and checkpoints before saving a snapshot | Wasay | 26 Nov | Done (PR #47) |
-| C2-5 | Decide on #46 before the completion report: fix (`transaction.atomic` + `select_for_update`) or release on HOLD | Team | 28 Nov | Open |
+| C2-5 | Decide on #46 before the completion report: fix (`transaction.atomic` + `select_for_update`) or release on HOLD | Team | 28 Nov | Done: fixed in PR #51 (fails before, passes after) |
 | C2-6 | Renumber the AI-use record once all PRs are merged | Wasay | 28 Nov | Open |
 | C2-7 | Each member fills the **actual effort** column in `TEST_PLAN.md` §8 | All | 28 Nov | Open |

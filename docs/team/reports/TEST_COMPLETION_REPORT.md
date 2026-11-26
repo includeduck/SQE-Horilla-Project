@@ -6,14 +6,14 @@ SE3002 SQE project, section SE-5B. System: Horilla HRMS 2.4.0, leave module (W1 
 
 All 14 requirements (FR-01–FR-10, BR-01–BR-04) are covered by passing automated tests, each at two or more test levels. Testing found **33 defects** (10 high); **22 are fixed and verified** by regression tests in the required CI gate and **11 are open**, one of them high severity (#46, REC-01: a failed approval plus a retry credits the balance twice).
 
-**Recommendation: HOLD.** Two of the three release criteria are met; EC-2 is not, because of the open high-severity defect #46 in the highest-scored risk (PR-01, wrong balance changes). The fix is small and well understood (§6); with it merged and the gate green, the recommendation becomes **RELEASE**.
+**Recommendation: RELEASE once PR #51 is merged** (HOLD until then). Two of the three release criteria are met outright; EC-2 depended on the open high-severity defect #46 in the highest-scored risk (PR-01, wrong balance changes). The fix is in PR #51: it failed before (2 recovery tests red) and passes after (5/5), with the unit, coverage and mutation gates unchanged.
 
 ## 2. Release criteria: actual vs target
 
 | Criterion | Target | Actual | Met? |
 |---|---|---|---|
 | **EC-1** Business-logic test strength (PR-01, PR-02) | 100% statement + branch coverage of the 15 scoped functions, mutation score ≥ 95%, 0 unexplained survivors | 100% statement + branch (2 infeasible branches justified); mutation **97.9%**, 465/475 killed, **0 unexplained** survivors (10 documented equivalents) | **Yes** |
-| **EC-2** Cross-employee access and state safety (PR-03, PR-04, PR-01) | 100% of access-matrix and state-transition tests pass; **0 open high-severity** defects in PR-01/PR-03/PR-04 | Access matrix 6/6 pass; state-transition API cases all pass (two orders); use-case flows 20/20 pass; **1 open high-severity defect (#46, PR-01)** | **No** |
+| **EC-2** Cross-employee access and state safety (PR-03, PR-04, PR-01) | 100% of access-matrix and state-transition tests pass; **0 open high-severity** defects in PR-01/PR-03/PR-04 | Access matrix 6/6 pass; state-transition API cases all pass (two orders); use-case flows 20/20 pass; high-severity #46 **fixed in PR #51** (recovery tests 5/5 after, 2 failing before) | **Yes, once PR #51 is merged** (No on the current `sqe-team`) |
 | **EC-3** Performance of the selected operation (PR-10) | p95 ≤ 500 ms and < 1% unexpected failures at 5 concurrent users | Worst run at 5 users: **p95 39.1 ms, 0.0%** failures (4 runs) | **Yes** |
 
 Other exit criteria:
@@ -62,7 +62,7 @@ Other exit criteria:
 
 | Defect | Severity | Risk | Decision |
 |---|---|---|---|
-| #46 REC-01 approval not atomic, retry double-credits | **High** | PR-01, PR-06 | **Fix before release** (blocks EC-2) |
+| #46 REC-01 approval not atomic, retry double-credits | **High** | PR-01, PR-06 | **Fixed in PR #51** (all four API approve/reject endpoints and the web allocation approval made atomic); closes on merge |
 | #38 SEC-01 allocation approval on GET (CSRF) | Medium | PR-03 | Fix in the next cycle; mitigated by SameSite=Lax cookies for cross-site sub-requests |
 | #39 SEC-02 no Content-Security-Policy | Medium | PR-03 | Next cycle (report-only first) |
 | #40 SEC-03 moment.js 2.29.1 | Medium | PR-09 | Next cycle (library upgrade) |
@@ -78,12 +78,12 @@ Other exit criteria:
 
 | Risk | Initial score | Testing done | Open defects | Residual risk |
 |---|---|---|---|---|
-| PR-01 wrong balance changes | 25 | White-box, MC/DC, mutation, API read-back, use cases, recovery test | **#46 (high)** | **High** until #46 is fixed, then **Low** |
+| PR-01 wrong balance changes | 25 | White-box, MC/DC, mutation, API read-back, use cases, recovery tests | #46 fixed in PR #51 | **Low** once PR #51 is merged (High until then) |
 | PR-02 balance boundary | 20 | BVA at unit/API, forecast and cap tests, mutation | #13 (low) | Low |
 | PR-03 cross-employee access | 20 | Access matrix, API ownership tests, use-case E2 flows | #38 (medium), #39, #44 | Medium (CSRF on the web approval link) |
 | PR-04 invalid state transitions | 16 | State-transition tests (all allowed + disallowed), OD-01 fix | none | Low |
 | PR-05 malformed input → 500 | 15 | Generated invalid inputs on every API input | #11 (fix in PR #35) | Low once #35 is merged |
-| PR-06 duplicates | 12 | Repeated-request tests, OD-02 fix, recovery retry | #46 (duplicate credit on retry) | Tied to #46 |
+| PR-06 duplicates | 12 | Repeated-request tests, OD-02 fix, recovery retry | none after PR #51 | Low |
 | PR-07 day counting | 12 | Basis-path, holiday/company-leave tests, custom mutants | none | Low |
 | PR-08 overlap | 12 | 20-row MCC of the half-day exception | none | Low |
 | PR-09 dependencies | 9 | pip-audit, ZAP library check | #40, #41, #42, #43 | Medium (client-side libraries) |
@@ -98,9 +98,8 @@ Three-point estimate (TEST_PLAN §8): **102.8 ± 12.9 person-hours**. Actual hou
 
 ## 8. Recommendation
 
-**HOLD** the release of the tested leave workflows.
+**RELEASE** the tested leave workflows **once PR #51 (fix for #46) is merged and the required gate is green on `sqe-team`**; until then, **HOLD**.
 
-- Met: EC-1 (test strength), EC-3 (performance), EC-4, EC-5.
-- Not met: **EC-2**, one open high-severity defect in PR-01 (#46).
-- To release: merge a fix for #46 (`transaction.atomic()` around the approval writes, `select_for_update` on the request) with the strict-xfail recovery test turned into a passing test, and see the required gate pass on `sqe-team`. Merging PR #35 (#11) is recommended in the same cycle.
-- The medium-severity security findings (#38–#41) do not block this release decision under the agreed criteria, but #38 (state change on GET) should be first in the next cycle because it touches the same high-risk area (PR-03).
+- Met: EC-1 (test strength), EC-3 (performance), EC-4, EC-5; EC-2 with PR #51.
+- Merge PR #35 (#11, missing end date) in the same cycle.
+- The open medium-severity security findings (#38–#41) do not block this release under the agreed criteria. #38 (state change on GET) should be first in the next cycle because it touches the same high-risk area (PR-03).
