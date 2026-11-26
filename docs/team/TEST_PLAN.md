@@ -94,20 +94,28 @@ Effort in person-hours. Expected **E = (O + 4M + P) / 6**, standard deviation **
 
 | Area | Optimistic O | Most likely M | Pessimistic P | Expected E | σ | Actual |
 |---|---|---|---|---|---|---|
-| Setup, scope, registration | 3 | 5 | 10 | 5.5 | 1.2 | _to record_ |
-| Static analysis + cyclomatic complexity | 2 | 4 | 8 | 4.3 | 1.0 | _to record_ |
-| White-box unit, MCC, MC/DC | 8 | 14 | 24 | 14.7 | 2.7 | _to record_ |
-| Mutation testing | 4 | 8 | 16 | 8.7 | 2.0 | _to record_ |
-| CI quality gate | 4 | 8 | 16 | 8.7 | 2.0 | _to record_ |
-| API testing + data generator | 10 | 18 | 30 | 18.7 | 3.3 | _to record_ |
-| Use cases + automation | 6 | 10 | 18 | 10.7 | 2.0 | _to record_ |
-| Usability and accessibility | 3 | 6 | 10 | 6.2 | 1.2 | _to record_ |
-| Security | 3 | 6 | 12 | 6.5 | 1.5 | _to record_ |
-| Performance and recovery | 3 | 6 | 10 | 6.2 | 1.2 | _to record_ |
-| Test management and report | 8 | 12 | 20 | 12.7 | 2.0 | _to record_ |
-| **Total** | **54** | **97** | **174** | **102.8** | **6.4** | |
+| Setup, scope, registration | 3 | 5 | 10 | 5.5 | 1.2 | not split by area |
+| Static analysis + cyclomatic complexity | 2 | 4 | 8 | 4.3 | 1.0 | not split by area |
+| White-box unit, MCC, MC/DC | 8 | 14 | 24 | 14.7 | 2.7 | not split by area |
+| Mutation testing | 4 | 8 | 16 | 8.7 | 2.0 | not split by area |
+| CI quality gate | 4 | 8 | 16 | 8.7 | 2.0 | not split by area |
+| API testing + data generator | 10 | 18 | 30 | 18.7 | 3.3 | not split by area |
+| Use cases + automation | 6 | 10 | 18 | 10.7 | 2.0 | not split by area |
+| Usability and accessibility | 3 | 6 | 10 | 6.2 | 1.2 | not split by area |
+| Security | 3 | 6 | 12 | 6.5 | 1.5 | not split by area |
+| Performance and recovery | 3 | 6 | 10 | 6.2 | 1.2 | not split by area |
+| Test management and report | 8 | 12 | 20 | 12.7 | 2.0 | not split by area |
+| **Total** | **54** | **97** | **174** | **102.8** | **6.4** | **21–23** |
 
-Total σ = √(Σσ²) = √41.6 ≈ 6.4 h, so the plan is 102.8 ± 12.9 h at about 95% confidence. **Actual effort is recorded by each member for their own areas** (not estimated by tools) and compared in the completion report.
+Total σ = √(Σσ²) = √41.6 ≈ 6.4 h, so the plan is 102.8 ± 12.9 h at about 95% confidence. **Actual effort** was reported by each member (not estimated by tools). Members tracked their hours per day, not per area, so the actual is given per member:
+
+| Member | Before 26 Nov (18, 23–25 Nov) | 26 Nov | Actual total |
+|---|---|---|---|
+| Muhammad Wasay Tariq (24I-3071) | 6 h | 4–5 h | **10–11 h** |
+| Syed Muhammad Rayyan Hassan (24I-3000) | 5 h | 6–7 h | **11–12 h** |
+| **Team** | 11 h | 10–12 h | **21–23 h** |
+
+The comparison with the estimate is in the completion report §7.
 
 ## 9. Deliverables
 

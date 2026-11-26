@@ -79,7 +79,7 @@ The test-management documents are reproduced in full in the appendices: [test pl
 | Schedule | 18–28 Nov 2026; testing ran 23–26 Nov, finalisation 27–28 Nov (progress reports) |
 | Entry / exit | Entry: seeded build starts and smoke test passes. Exit: EC-1 – EC-5 (§3.3) |
 
-**Estimation (three-point, person-hours):** expected effort **E = 102.8 h**, σ = 6.4 h, so **102.8 ± 12.9 h** at about 95% confidence (TEST_PLAN §8). Actual hours are being recorded by each member for their own areas (control action C2-7); the calendar indicator is 6 working days used against 10 planned.
+**Estimation (three-point, person-hours):** expected effort **E = 102.8 h**, σ = 6.4 h, so **102.8 ± 12.9 h** at about 95% confidence (TEST_PLAN §8). **Actual effort, as reported by each member: 21–23 h** (Wasay 10–11 h, Rayyan 11–12 h), about 21% of the estimate, over 5 working days instead of the 10 planned. The estimate assumed hand-written tests and reports; AI assistants generated most of the code and first drafts, and the team's time went into directing, reviewing and checking it (completion report §7).
 
 ## 3.2 Risk register summary
 

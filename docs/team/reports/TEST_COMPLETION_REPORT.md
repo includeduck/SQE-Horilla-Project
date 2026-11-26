@@ -92,7 +92,14 @@ Other exit criteria:
 
 ## 7. Effort: estimate vs actual
 
-Three-point estimate (TEST_PLAN §8): **102.8 ± 12.9 person-hours**. Actual hours are recorded by each member for their own areas (TEST_PLAN §8 "Actual" column, control action C2-7) and compared here when complete. Calendar indicator: the work was delivered in 6 working days (18, 23–26 Nov plus finalisation), against 10 planned days (18–28 Nov).
+Three-point estimate (TEST_PLAN §8): **102.8 ± 12.9 person-hours**. Actual, as reported by each member (TEST_PLAN §8): Wasay **10–11 h**, Rayyan **11–12 h**, team **21–23 h**. That is about **21% of the expected effort**, far below the lower 95% bound (89.9 h).
+
+| | Estimate | Actual | Deviation |
+|---|---|---|---|
+| Effort (person-hours) | 102.8 ± 12.9 | 21–23 (midpoint 22) | about −79% |
+| Calendar (working days) | 10 (18–28 Nov) | 5 (18, 23–26 Nov) | −50% |
+
+Why the estimate was so far off: the estimate assumed the tests, scripts and reports would be written by hand. In practice, AI coding assistants (Claude Code, ChatGPT/Codex; see `AI_USE_RECORD.md`) generated most of the code and first drafts, and the team's hours went into directing, reviewing, running and checking that work. Members also recorded hours per day rather than per area, so the per-area estimate cannot be checked row by row. For a next estimate: estimate with AI assistance as the baseline, add explicit review and viva-preparation time (understanding generated work, risk PJ-03), and record hours per area as the work happens.
 
 ## 8. Recommendation
 
