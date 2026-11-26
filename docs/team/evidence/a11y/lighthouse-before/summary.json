@@ -1,0 +1,41 @@
+{
+  "allocation-requests": {
+    "url": "http://localhost:8000/leave/leave-allocation-request-view/",
+    "accessibility": 71,
+    "best_practices": 100,
+    "seo": 82,
+    "failing_audits": [
+      "valid-source-maps",
+      "aria-input-field-name",
+      "button-name",
+      "color-contrast",
+      "html-has-lang",
+      "label",
+      "landmark-one-main",
+      "link-name",
+      "target-size",
+      "meta-description",
+      "crawlable-anchors"
+    ]
+  },
+  "my-leave-requests": {
+    "url": "http://localhost:8000/leave/user-request-view/",
+    "accessibility": 71,
+    "best_practices": 100,
+    "seo": 82,
+    "failing_audits": [
+      "valid-source-maps",
+      "aria-input-field-name",
+      "button-name",
+      "color-contrast",
+      "heading-order",
+      "html-has-lang",
+      "label",
+      "landmark-one-main",
+      "link-name",
+      "target-size",
+      "meta-description",
+      "crawlable-anchors"
+    ]
+  }
+}

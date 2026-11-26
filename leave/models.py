@@ -2065,6 +2065,11 @@ class LeaveRequest(HorillaModel):
                 }
             )
 
+        # A missing end date is a single-day request, as in requested_dates();
+        # default it before the dates are compared (issue #11).
+        if self.end_date is None:
+            self.end_date = self.start_date
+
         # Date validations
         if self.start_date > self.end_date:
             raise ValidationError(_("End date should not be less than start date."))

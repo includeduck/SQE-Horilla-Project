@@ -6,7 +6,10 @@ on:
         type: boolean
         default: false
 concurrency:
-  group: finish02-${{ github.ref }}
+  # Include the caller: this reusable workflow is called by both the quality
+  # gate and Area 2 verification on the same ref; one group made each call
+  # cancel the other's shards.
+  group: finish02-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 permissions:
   contents: read

@@ -1,0 +1,71 @@
+{% load i18n %}
+{% comment %}
+SQE project (Area 3) accessibility fixes for the "My Leave Requests" screen.
+Found by axe-core and Lighthouse; see docs/team/reports/ACCESSIBILITY_TESTING.md.
+Included once at the end of index.html, after the theme styles, so these rules win.
+{% endcomment %}
+<style>
+    /* A11Y-03 colour contrast (WCAG 1.4.3, 4.5:1). White text on the brand red
+       #E54F38 is 3.81:1; the theme's own darker token --primary-800 (#AC3B2A)
+       gives 6.15:1, and 5.69:1 as text on the #F6F6F6 toolbar. */
+    .oh-btn--secondary,
+    .oh-btn--secondary:disabled,
+    .bg-brand-600,
+    .sideboxmain.sidebox-current {
+        background-color: var(--primary-800, #AC3B2A) !important;
+        border-color: var(--primary-800, #AC3B2A) !important;
+    }
+    .oh-breadcrumb-current > a,
+    #select_deleteleavedata,
+    #select_deleteleavedata > .label {
+        color: var(--primary-800, #AC3B2A) !important;
+    }
+    /* Grey helper text: #9CA3AF (2.53:1) and #999 (2.84:1) -> 4.8:1 and 5.3:1. */
+    .oh-leave-card__hint > span { color: #6b7280 !important; }
+    .sidebar-version__label,
+    .sidebar-version > .font-medium { color: #6b6b6b !important; }
+    /* Attendance clock: #15CA0C on #E9FAE8 (2.03:1) -> 5.07:1. */
+    .at-work-seconds { color: #0f7a0a !important; }
+</style>
+<script>
+    // A11Y-04 to A11Y-06: controls generated at runtime by third-party widgets
+    // (Ionicons, Select2) and title-only checkboxes get accessible names here,
+    // on first load and after every HTMX swap.
+    (function () {
+        function labelFor(select) {
+            var label = select.id && document.querySelector('label[for="' + select.id + '"]');
+            return (label && label.textContent.trim()) || select.getAttribute("aria-label") || select.name || "";
+        }
+        function fix(root) {
+            root = root || document;
+            // Decorative icons: Ionicons give themselves role="img" with no name.
+            root.querySelectorAll("ion-icon:not([aria-label]):not([aria-hidden])").forEach(function (icon) {
+                icon.setAttribute("aria-hidden", "true");
+            });
+            // Select2 replaces <select>: name the combobox/textbox it renders.
+            root.querySelectorAll("select.select2-hidden-accessible").forEach(function (select) {
+                var container = select.nextElementSibling;
+                if (!container || !container.classList.contains("select2")) return;
+                var name = labelFor(select);
+                container.querySelectorAll(".select2-selection, .select2-selection__rendered[role=textbox], .select2-search__field")
+                    .forEach(function (el) { if (name && !el.getAttribute("aria-label")) el.setAttribute("aria-label", name); });
+            });
+            // Row-selection checkboxes that only had a title tooltip.
+            root.querySelectorAll("input[type=checkbox][title]:not([aria-label])").forEach(function (box) {
+                box.setAttribute("aria-label", box.getAttribute("title"));
+            });
+        }
+        document.addEventListener("DOMContentLoaded", function () { fix(document); });
+        document.addEventListener("htmx:afterSettle", function (e) { fix(e.target); });
+        // Select2's search box is created when the dropdown opens.
+        if (window.jQuery) {
+            window.jQuery(document).on("select2:open", function () {
+                document.querySelectorAll(".select2-container--open .select2-search__field:not([aria-label])").forEach(function (el) {
+                    el.setAttribute("aria-label", "{% trans 'Search options' %}");
+                });
+            });
+        }
+        // Ionicons hydrate after DOMContentLoaded; run once more when they have.
+        window.addEventListener("load", function () { setTimeout(function () { fix(document); }, 300); });
+    })();
+</script>

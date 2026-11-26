@@ -1,0 +1,165 @@
+unit/test_approval_and_allocation.py::test_allocation_clean_allows_requested
+unit/test_approval_and_allocation.py::test_allocation_clean_blocks_after_decision[approved]
+unit/test_approval_and_allocation.py::test_allocation_clean_blocks_after_decision[rejected]
+unit/test_approval_and_allocation.py::test_leave_approve_calculation_split[below: 2 < 5 from available only-5-3-2-3-3-2-0]
+unit/test_approval_and_allocation.py::test_leave_approve_calculation_split[at: 5 = 5 uses all available, no carry-5-3-5-0-3-5-0]
+unit/test_approval_and_allocation.py::test_leave_approve_calculation_split[above: 6 > 5 spills 1 into carry-forward-5-3-6-0-2-5-1]
+unit/test_approval_and_allocation.py::test_reject_approved_leave_refunds_requester
+unit/test_approval_and_allocation.py::test_reject_without_reason_keeps_reason_empty
+unit/test_approval_and_allocation.py::test_reject_pending_cancellation_is_refused
+unit/test_approval_and_allocation.py::test_reject_already_rejected_is_refused
+unit/test_approval_and_allocation.py::test_reject_cancelled_leave_is_refused
+unit/test_approval_and_allocation.py::test_approve_allocation_credits_balance
+unit/test_approval_and_allocation.py::test_approve_allocation_creates_balance_row_when_missing
+unit/test_approval_and_allocation.py::test_approve_allocation_twice_or_after_reject_refused[approved]
+unit/test_approval_and_allocation.py::test_approve_allocation_twice_or_after_reject_refused[rejected]
+unit/test_approval_and_allocation.py::test_reject_requested_allocation_leaves_balance
+unit/test_approval_and_allocation.py::test_reject_approved_allocation_takes_days_back[balance above allocation-5-3-2]
+unit/test_approval_and_allocation.py::test_reject_approved_allocation_takes_days_back[balance equals allocation-3-3-0]
+unit/test_approval_and_allocation.py::test_reject_approved_allocation_takes_days_back[balance below allocation floors at 0-2-3-0]
+unit/test_approval_and_allocation.py::test_reject_rejected_allocation_refused
+unit/test_approval_and_allocation.py::test_owner_gets_own_allocation
+unit/test_approval_and_allocation.py::test_non_owner_denied
+unit/test_approval_and_allocation.py::test_anonymous_user_gets_404
+unit/test_approval_and_allocation.py::test_missing_allocation_is_validation_error
+unit/test_leave_request_clean.py::test_no_leave_type_returns_early
+unit/test_leave_request_clean.py::test_leave_type_not_assigned_rejected
+unit/test_leave_request_clean.py::test_end_before_start_rejected
+unit/test_leave_request_clean.py::test_c1_single_day_breakdown_mismatch_mcc[C1-1 A=T B=T-True-first_half-second_half-True]
+unit/test_leave_request_clean.py::test_c1_single_day_breakdown_mismatch_mcc[C1-2 A=T B=F-True-first_half-first_half-False]
+unit/test_leave_request_clean.py::test_c1_single_day_breakdown_mismatch_mcc[C1-3 A=F B=T-False-first_half-second_half-False]
+unit/test_leave_request_clean.py::test_c1_single_day_breakdown_mismatch_mcc[C1-4 A=F B=F-False-full_day-full_day-False]
+unit/test_leave_request_clean.py::test_missing_end_date_is_a_single_day_request
+unit/test_leave_request_clean.py::test_missing_end_date_still_checks_balance
+unit/test_leave_request_clean.py::test_c2_attachment_required_mcc[C2-1 L=T R=T N=T-yes-None-True]
+unit/test_leave_request_clean.py::test_c2_attachment_required_mcc[C2-2 L=T R=T N=F-yes-doc/proof.pdf-False]
+unit/test_leave_request_clean.py::test_c2_attachment_required_mcc[C2-3 L=T R=F N=T-no-None-False]
+unit/test_leave_request_clean.py::test_c2_attachment_required_mcc[C2-4 L=T R=F N=F-no-doc/proof.pdf-False]
+unit/test_leave_request_clean.py::test_overlap_with_active_request_rejected
+unit/test_leave_request_clean.py::test_overlap_with_cancelled_or_rejected_request_allowed[cancelled]
+unit/test_leave_request_clean.py::test_overlap_with_cancelled_or_rejected_request_allowed[rejected]
+unit/test_leave_request_clean.py::test_overlap_boundary_adjacent_day_is_not_overlap
+unit/test_leave_request_clean.py::test_leaveoverlapping_half_day_exception_mcc[row1-TTTTT->T]
+unit/test_leave_request_clean.py::test_leaveoverlapping_half_day_exception_mcc[row2-TTTTF->F]
+unit/test_leave_request_clean.py::test_leaveoverlapping_half_day_exception_mcc[row3-TTTFT->F]
+unit/test_leave_request_clean.py::test_leaveoverlapping_half_day_exception_mcc[row4-TTTFF->F]
+unit/test_leave_request_clean.py::test_leaveoverlapping_half_day_exception_mcc[row5-TTFTT->F]
+unit/test_leave_request_clean.py::test_leaveoverlapping_half_day_exception_mcc[row6-TTFTF->F]
+unit/test_leave_request_clean.py::test_leaveoverlapping_half_day_exception_mcc[row9-TFTTT->F]
+unit/test_leave_request_clean.py::test_leaveoverlapping_half_day_exception_mcc[row10-TFTTF->F]
+unit/test_leave_request_clean.py::test_leaveoverlapping_half_day_exception_mcc[row15-TFFFT->F]
+unit/test_leave_request_clean.py::test_leaveoverlapping_half_day_exception_mcc[row16-TFFFF->F]
+unit/test_leave_request_clean.py::test_leaveoverlapping_half_day_exception_mcc[row17-FTTTT->F]
+unit/test_leave_request_clean.py::test_leaveoverlapping_half_day_exception_mcc[row18-FTTTF->F]
+unit/test_leave_request_clean.py::test_leaveoverlapping_half_day_exception_mcc[row19-FTTFT->F]
+unit/test_leave_request_clean.py::test_leaveoverlapping_half_day_exception_mcc[row20-FTTFF->F]
+unit/test_leave_request_clean.py::test_leaveoverlapping_half_day_exception_mcc[row21-FTFTT->F]
+unit/test_leave_request_clean.py::test_leaveoverlapping_half_day_exception_mcc[row22-FTFTF->F]
+unit/test_leave_request_clean.py::test_leaveoverlapping_half_day_exception_mcc[row25-FFTTT->F]
+unit/test_leave_request_clean.py::test_leaveoverlapping_half_day_exception_mcc[row26-FFTTF->F]
+unit/test_leave_request_clean.py::test_leaveoverlapping_half_day_exception_mcc[row31-FFFFT->F]
+unit/test_leave_request_clean.py::test_leaveoverlapping_half_day_exception_mcc[row32-FFFFF->F]
+unit/test_leave_request_clean.py::test_leaveoverlapping_no_existing_requests
+unit/test_leave_request_clean.py::test_c3_past_date_restriction_mcc[C3-1 R=T P=T-True-True-True]
+unit/test_leave_request_clean.py::test_c3_past_date_restriction_mcc[C3-2 R=T P=F-True-False-False]
+unit/test_leave_request_clean.py::test_c3_past_date_restriction_mcc[C3-3 R=F P=T-False-True-False]
+unit/test_leave_request_clean.py::test_c3_past_date_restriction_mcc[C3-4 R=F P=F-False-False-False]
+unit/test_leave_request_clean.py::test_past_date_boundary_today_is_allowed
+unit/test_leave_request_clean.py::test_superuser_skips_past_date_restriction
+unit/test_leave_request_clean.py::test_zero_effective_days_rejected
+unit/test_leave_request_clean.py::test_balance_boundary_bva[below (4 < 5)-4-False]
+unit/test_leave_request_clean.py::test_balance_boundary_bva[at (5 = 5)-5-False]
+unit/test_leave_request_clean.py::test_balance_boundary_bva[above (6 > 5)-6-True]
+unit/test_leave_request_clean.py::test_half_day_just_above_balance_rejected
+unit/test_leave_request_clean.py::test_carryforward_types[2151 T: carry capped at max (5+2=7 ok)-carryforward-2-4-7-False]
+unit/test_leave_request_clean.py::test_carryforward_types[2151 T: cap enforced (8 > 5+2)-carryforward-2-4-8-True]
+unit/test_leave_request_clean.py::test_carryforward_types[2151 T: expire type also capped-carryforward expire-2-4-8-True]
+unit/test_leave_request_clean.py::test_carryforward_types[2151 T: carry below max used fully-carryforward-10-1-6-False]
+unit/test_leave_request_clean.py::test_carryforward_types[2153 T: no carryforward ignores stored carry-no carryforward-10-4-6-True]
+unit/test_leave_request_clean.py::test_carryforward_types[2153 F: unknown type keeps stored carry uncapped-legacy-0-4-9-False]
+unit/test_leave_request_clean.py::test_superuser_skips_restricted_dates
+unit/test_leave_request_clean.py::test_no_restrictions_configured
+unit/test_leave_request_clean.py::test_c4_restriction_applicability[2182 T: include_all, nothing excluded-True-False-False-False-True]
+unit/test_leave_request_clean.py::test_c4_restriction_applicability[2184 T: other type excluded, ours not-False-False-True-False-True]
+unit/test_leave_request_clean.py::test_c4_restriction_applicability[2184 F (2nd cond) -> 2186 F: ours excluded-True-True-False-False-False]
+unit/test_leave_request_clean.py::test_c4_restriction_applicability[2186 T: ours specifically listed-False-False-False-True-True]
+unit/test_leave_request_clean.py::test_c4_restriction_applicability[2186 F: nothing matches-False-False-False-False-False]
+unit/test_leave_request_clean.py::test_restriction_with_empty_date_range_is_skipped
+unit/test_leave_request_clean.py::test_restriction_on_other_dates_does_not_block
+unit/test_leave_request_clean.py::test_restriction_boundary_first_restricted_day_blocks
+unit/test_leave_request_clean.py::test_c5_restriction_targets_department_or_job_mcc[row2-TTTTF->T]
+unit/test_leave_request_clean.py::test_c5_restriction_targets_department_or_job_mcc[row4-TTTFF->T]
+unit/test_leave_request_clean.py::test_c5_restriction_targets_department_or_job_mcc[row5-TTFTT->T]
+unit/test_leave_request_clean.py::test_c5_restriction_targets_department_or_job_mcc[row6-TTFTF->F]
+unit/test_leave_request_clean.py::test_c5_restriction_targets_department_or_job_mcc[row8-TTFFF->F]
+unit/test_leave_request_clean.py::test_c5_restriction_targets_department_or_job_mcc[row10-TFTTF->F]
+unit/test_leave_request_clean.py::test_c5_restriction_targets_department_or_job_mcc[row12-TFTFF->F]
+unit/test_leave_request_clean.py::test_c5_restriction_targets_department_or_job_mcc[row13-TFFTT->T]
+unit/test_leave_request_clean.py::test_c5_restriction_targets_department_or_job_mcc[row14-TFFTF->F]
+unit/test_leave_request_clean.py::test_c5_restriction_targets_department_or_job_mcc[row16-TFFFF->F]
+unit/test_leave_request_clean.py::test_c5_restriction_targets_department_or_job_mcc[row26-FFTTF->F]
+unit/test_leave_request_clean.py::test_c5_restriction_targets_department_or_job_mcc[row28-FFTFF->F]
+unit/test_leave_request_clean.py::test_c5_restriction_targets_department_or_job_mcc[row29-FFFTT->T]
+unit/test_leave_request_clean.py::test_c5_restriction_targets_department_or_job_mcc[row30-FFFTF->F]
+unit/test_leave_request_clean.py::test_c5_restriction_targets_department_or_job_mcc[row32-FFFFF->F]
+unit/test_leave_request_clean.py::test_employee_without_work_info_is_not_blocked
+unit/test_leave_request_clean.py::test_valid_request_passes_all_checks
+unit/test_mutation_killers.py::test_exact_not_assigned_message_and_field
+unit/test_mutation_killers.py::test_exact_end_before_start_message
+unit/test_mutation_killers.py::test_exact_breakdown_mismatch_message
+unit/test_mutation_killers.py::test_exact_attachment_message_and_field
+unit/test_mutation_killers.py::test_exact_overlap_message
+unit/test_mutation_killers.py::test_exact_past_date_message
+unit/test_mutation_killers.py::test_exact_zero_days_message
+unit/test_mutation_killers.py::test_exact_insufficient_balance_message
+unit/test_mutation_killers.py::test_exact_restricted_message
+unit/test_mutation_killers.py::test_exact_allocation_edit_lock_message[approved]
+unit/test_mutation_killers.py::test_exact_allocation_edit_lock_message[rejected]
+unit/test_mutation_killers.py::test_exact_ownership_errors
+unit/test_mutation_killers.py::test_not_assigned_even_if_other_rows_exist
+unit/test_mutation_killers.py::test_balance_lookup_uses_employee_and_type
+unit/test_mutation_killers.py::test_reject_leave_refunds_only_matching_row
+unit/test_mutation_killers.py::test_reject_approved_allocation_debits_only_matching_row
+unit/test_mutation_killers.py::test_disabled_past_date_restriction_is_ignored
+unit/test_mutation_killers.py::test_past_date_restriction_of_other_company_is_ignored
+unit/test_mutation_killers.py::test_other_employees_request_is_not_an_overlap
+unit/test_mutation_killers.py::test_existing_request_after_new_end_is_not_an_overlap
+unit/test_mutation_killers.py::test_saved_request_does_not_overlap_itself
+unit/test_mutation_killers.py::test_end_breakdown_is_passed_to_day_count
+unit/test_mutation_killers.py::test_end_date_is_passed_to_effective_day_count
+unit/test_mutation_killers.py::test_specific_holiday_of_other_employee_is_not_excluded
+unit/test_mutation_killers.py::test_specific_holiday_of_this_employee_is_excluded
+unit/test_mutation_killers.py::test_company_leave_dates_called_with_request_range
+unit/test_mutation_killers.py::test_balance_defaults_do_not_add_a_day[S57 available 0 is not treated as 1-no carryforward-None-0-0-1]
+unit/test_mutation_killers.py::test_balance_defaults_do_not_add_a_day[S58 carry 0 is not treated as 1-carryforward-5-2-0-3]
+unit/test_mutation_killers.py::test_balance_defaults_do_not_add_a_day[S59 missing carry max caps carry at 0, not 1-carryforward-None-2-3-3]
+unit/test_mutation_killers.py::test_forecast_of_next_reset_counts_towards_balance
+unit/test_mutation_killers.py::test_unrelated_restriction_does_not_stop_later_checks
+unit/test_mutation_killers.py::test_empty_restriction_does_not_stop_later_checks
+unit/test_smoke.py::test_database_builds_and_leave_models_work
+recovery/test_allocation_approve_recovery.py::test_approval_recovers_without_duplicate_credit[1st write: balance credit-AvailableLeave]
+recovery/test_allocation_approve_recovery.py::test_approval_recovers_without_duplicate_credit[2nd write: request status-LeaveAllocationRequest]
+recovery/test_allocation_approve_recovery.py::test_second_retry_after_success_is_refused
+recovery/test_allocation_approve_recovery.py::test_leave_approval_recovers_without_double_debit[1st write: balance debit-AvailableLeave]
+recovery/test_allocation_approve_recovery.py::test_leave_approval_recovers_without_double_debit[2nd write: request status-LeaveRequest]
+unit/test_day_counting.py::test_calculate_requested_days_paths[P1 D1=T D2=T D3=T-start0-end0-full_day-full_day-1]
+unit/test_day_counting.py::test_calculate_requested_days_paths[P2 D1=T D2=F (short-circuit)-start1-end1-first_half-full_day-0.5]
+unit/test_day_counting.py::test_calculate_requested_days_paths[P3 D1=T D2=T D3=F-start2-end2-full_day-second_half-0.5]
+unit/test_day_counting.py::test_calculate_requested_days_paths[P4 D1=F D4=T D5=T-start3-end3-full_day-full_day-3]
+unit/test_day_counting.py::test_calculate_requested_days_paths[P5 D1=F D4=F D5=T-start4-end4-second_half-full_day-2.5]
+unit/test_day_counting.py::test_calculate_requested_days_paths[P6 D1=F D4=T D5=F-start5-end5-full_day-first_half-2.5]
+unit/test_day_counting.py::test_calculate_requested_days_paths[P7 D1=F D4=F D5=F-start6-end6-second_half-first_half-1]
+unit/test_day_counting.py::test_calculate_requested_days_adjacent_full_days_has_zero_middle_days
+unit/test_day_counting.py::test_leave_requested_dates_end_none_means_single_day
+unit/test_day_counting.py::test_leave_requested_dates_inclusive_range
+unit/test_day_counting.py::test_cal_effective_requested_days_exclusions[yes-yes-3-E2=T: union removes both]
+unit/test_day_counting.py::test_cal_effective_requested_days_exclusions[no-yes-4-E2=F E3=T E4=F: holiday only]
+unit/test_day_counting.py::test_cal_effective_requested_days_exclusions[yes-no-4-E2=F E3=F E4=T: company leave only]
+unit/test_day_counting.py::test_cal_effective_requested_days_exclusions[no-no-5-E2=F E3=F E4=F: nothing excluded]
+unit/test_day_counting.py::test_cal_effective_requested_days_overlapping_holiday_and_company_leave_counted_once
+unit/test_day_counting.py::test_cal_effective_requested_days_employee_filters_specific_holidays
+unit/test_day_counting.py::test_forcasted_leaves_string_date_is_parsed
+unit/test_day_counting.py::test_forcasted_leaves_no_reset_scheduled
+unit/test_day_counting.py::test_forcasted_leaves_reset_exactly_on_date_counts
+unit/test_day_counting.py::test_forcasted_leaves_reset_after_date_does_not_count
+unit/test_day_counting.py::test_forcasted_leaves_reset_before_date_counts

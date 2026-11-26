@@ -1,0 +1,410 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Projects\\Projects\\SQE-Project\\horilla\\tests\\team\\a11y\\node_modules\\@playwright\\test\\cli.js",
+      "test"
+    ],
+    "configFile": "C:\\Projects\\Projects\\SQE-Project\\horilla\\tests\\team\\a11y\\playwright.config.mjs",
+    "rootDir": "C:/Projects/Projects/SQE-Project/horilla/tests/team/a11y/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Projects/Projects/SQE-Project/horilla/tests/team/a11y/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "C:/Projects/Projects/SQE-Project/horilla/tests/team/a11y/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Projects\\Projects\\SQE-Project\\horilla\\tests\\team\\a11y\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "C:\\Projects\\Projects\\SQE-Project\\horilla\\tests\\team\\a11y\\tests",
+        "snapshotDir": "C:\\Projects\\Projects\\SQE-Project\\horilla\\tests\\team\\a11y\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 90000,
+        "use": {
+          "browserName": "chromium",
+          "viewport": {
+            "width": 1280,
+            "height": 800
+          },
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "../../../docs/team/evidence/a11y/playwright-report-before",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../../docs/team/evidence/a11y/playwright-results-before.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "axe-scan.spec.mjs",
+      "file": "axe-scan.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "axe: allocation-list",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [
+                {
+                  "type": "violations",
+                  "description": "serious aria-input-field-name (1); critical button-name (2); serious color-contrast (7); serious html-has-lang (1); minor image-redundant-alt (1); critical label (1); moderate landmark-one-main (1); serious link-name (1); serious nested-interactive (1); moderate page-has-heading-one (1); moderate region (23); serious role-img-alt (7)"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4281,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T14:00:28.225Z",
+                  "annotations": [
+                    {
+                      "type": "violations",
+                      "description": "serious aria-input-field-name (1); critical button-name (2); serious color-contrast (7); serious html-has-lang (1); minor image-redundant-alt (1); critical label (1); moderate landmark-one-main (1); serious link-name (1); serious nested-interactive (1); moderate page-has-heading-one (1); moderate region (23); serious role-img-alt (7)"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7c316e6ec6f3f48a7c87-7098989b5d16407d3fd5",
+          "file": "axe-scan.spec.mjs",
+          "line": 24,
+          "column": 3
+        },
+        {
+          "title": "axe: allocation-form",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [
+                {
+                  "type": "violations",
+                  "description": "serious aria-dialog-name (1); serious color-contrast (2)"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3996,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T14:00:32.608Z",
+                  "annotations": [
+                    {
+                      "type": "violations",
+                      "description": "serious aria-dialog-name (1); serious color-contrast (2)"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7c316e6ec6f3f48a7c87-c4e40449afd8326ddb27",
+          "file": "axe-scan.spec.mjs",
+          "line": 24,
+          "column": 3
+        },
+        {
+          "title": "axe: leave-request-list",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [
+                {
+                  "type": "violations",
+                  "description": "serious aria-input-field-name (1); critical button-name (2); serious color-contrast (9); moderate heading-order (1); serious html-has-lang (1); minor image-redundant-alt (2); serious label-title-only (3); critical label (1); moderate landmark-one-main (1); serious link-name (1); serious nested-interactive (1); moderate page-has-heading-one (1); moderate region (37); serious role-img-alt (13)"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4954,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T14:00:36.611Z",
+                  "annotations": [
+                    {
+                      "type": "violations",
+                      "description": "serious aria-input-field-name (1); critical button-name (2); serious color-contrast (9); moderate heading-order (1); serious html-has-lang (1); minor image-redundant-alt (2); serious label-title-only (3); critical label (1); moderate landmark-one-main (1); serious link-name (1); serious nested-interactive (1); moderate page-has-heading-one (1); moderate region (37); serious role-img-alt (13)"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7c316e6ec6f3f48a7c87-f692b3c2189e0e04ce95",
+          "file": "axe-scan.spec.mjs",
+          "line": 24,
+          "column": 3
+        },
+        {
+          "title": "axe: leave-request-form",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [
+                {
+                  "type": "violations",
+                  "description": "serious color-contrast (1)"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4727,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T14:00:41.573Z",
+                  "annotations": [
+                    {
+                      "type": "violations",
+                      "description": "serious color-contrast (1)"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7c316e6ec6f3f48a7c87-cdacaf476d0a7c95037d",
+          "file": "axe-scan.spec.mjs",
+          "line": 24,
+          "column": 3
+        }
+      ]
+    },
+    {
+      "title": "w1-allocation-keyboard.spec.mjs",
+      "file": "w1-allocation-keyboard.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "W1: employee requests an allocation using only the keyboard",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [
+                {
+                  "type": "tab order",
+                  "description": "select2:select2-id_leave_type_id-container -> requested_days -> attachment -> description -> button:save_and_add_another -> button:Save -> BODY"
+                },
+                {
+                  "type": "confirmation shown",
+                  "description": "Leave allocation request updated"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4803,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T14:00:46.325Z",
+                  "annotations": [
+                    {
+                      "type": "tab order",
+                      "description": "select2:select2-id_leave_type_id-container -> requested_days -> attachment -> description -> button:save_and_add_another -> button:Save -> BODY"
+                    },
+                    {
+                      "type": "confirmation shown",
+                      "description": "Leave allocation request updated"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "736343253e26de1f3a6d-3be8a0fb92fed02ca12a",
+          "file": "w1-allocation-keyboard.spec.mjs",
+          "line": 8,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "w2-leave-request-correction.spec.mjs",
+      "file": "w2-leave-request-correction.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "W2: over-balance request is rejected with a clear error, then corrected",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [
+                {
+                  "type": "error shown",
+                  "description": "Does not have sufficient leave balance for the requested dates."
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6696,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T14:00:51.153Z",
+                  "annotations": [
+                    {
+                      "type": "error shown",
+                      "description": "Does not have sufficient leave balance for the requested dates."
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d308404c4f97eb48ee9e-e0c0027321cef819c1e4",
+          "file": "w2-leave-request-correction.spec.mjs",
+          "line": 7,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-26T14:00:27.752Z",
+    "duration": 30246.268,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

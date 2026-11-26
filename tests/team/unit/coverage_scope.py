@@ -39,16 +39,16 @@ SCOPE = [
 # key: (file, function) -> {"lines": [...], "branches": [[from, to], ...], "reason": str}
 JUSTIFIED_GAPS: dict = {
     ("leave/models.py", "LeaveRequest.clean"): {
-        "lines": [2142],
-        "branches": [[2087, 2097], [2141, 2142]],
+        "lines": [2147],
+        "branches": [[2092, 2102], [2146, 2147]],
         "reason": (
-            "2141->2142 infeasible: the condition tests the string f'{month}-{year}' "
+            "2146->2147 infeasible: the condition tests the string f'{month}-{year}' "
             "(e.g. '3-2031') against a list built as f'{year}-{MM}' (e.g. '2031-03'); "
             "a 4-digit year can never equal a 1-2 digit month, so line 2142 is dead "
             "code (and unique_dates is never used afterwards). "
-            "2087->2097 infeasible: the False branch needs start_date or end_date to be "
-            "None, but line 2069 compares them first and raises TypeError "
-            "(see test_missing_end_date_crashes_before_validation)."
+            "2092->2102 infeasible: the False branch needs start_date or end_date to be "
+            "None, but start_date is non-nullable and a missing end_date is defaulted "
+            "to start_date first (issue #11 fix, line 2071)."
         ),
     },
 }

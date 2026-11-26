@@ -1,0 +1,10 @@
+date: 2026-11-26T18:43:42+05:00
+commit: 2ceca1ee73cafd77fa38edf9d8b4092a50f03f7f
+cpu: 12th Gen Intel(R) Core(TM) i7-1265U (10 cores / 12 threads)
+ram_gb: 31.4
+os: Microsoft Windows 11 Pro 10.0.26300
+python: Python 3.12.10
+django: 5.2.19
+server: manage.py runserver 127.0.0.1:8000 --noreload (Django dev server, threaded), DEBUG=True, SQLite TestDB.sqlite3 restored from tests/team/.baseline.sqlite3
+k6: k6.exe v2.4.0 (commit/dd9395906d, go1.26.11, windows/amd64)
+client and server on the same machine (localhost)

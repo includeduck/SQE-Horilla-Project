@@ -41,15 +41,17 @@
             {% endif %}
             <button
                 id="themeToggleButton"
+                type="button"
+                aria-label="{% trans 'Toggle theme' %}"
                 class="md:block p-2 group text-primary-600 w-12 h-12 bg-primary-100 hover:bg-primary-600 rounded-full transition duration-300 flex items-center justify-center"
             >
-                <a href="#" aria-label="{% trans 'Toggle theme' %}" onclick="return false">
+                <span aria-hidden="true">
                     {% if request.session.theme == "dark" %}
                         <i class="fa-solid fa-lightbulb transition duration-300 group-hover:text-white"></i>
                     {% else %}
                         <i class="fa-solid fa-moon transition duration-300 group-hover:text-white"></i>
                     {% endif %}
-                </a>
+                </span>
             </button>
             {% if show_section %}
                 <button class="md:block p-2 group text-primary-600 w-12 h-12 bg-primary-100 hover:bg-primary-600 rounded-full transition duration-300 flex items-center justify-center">
@@ -88,6 +90,7 @@
                     hx-get="{% url 'notifications' %}"
                     hx-target="#notificationContainer"
                     hx-trigger="load"
+                    aria-label="{% trans 'Notifications' %}"
                 >
                     <i class="fas fa-bell transition duration-300 group-hover:text-white"></i>
                     {% notifications_unread as unread_count %}
@@ -168,6 +171,7 @@
     <div class="flex justify-between items-center mb-4">
         <h3 class="font-semibold flex items-center gap-2">
             <button
+                aria-label="{% trans 'Close notifications' %}"
                 class="closebtn closeSidemenu cursor-pointer text-xs group text-primary-600 w-6 h-6 bg-primary-100 hover:bg-primary-600 hover:text-white rounded-full transition duration-300 flex items-center justify-center"
                 data-sidebar="sidebarModal3"
             >

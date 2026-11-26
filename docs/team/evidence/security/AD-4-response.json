@@ -1,0 +1,4 @@
+{
+  "status": 403,
+  "body": "{\"error\":\"You cannot approve or reject your own request.\"}"
+}
