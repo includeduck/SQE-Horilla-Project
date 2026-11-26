@@ -1,0 +1,75 @@
+{
+  "_doc": "Documented equivalent mutants (justified in docs/team/reports/MUTATION_TESTING.md section 5). Matched by function + changed lines.",
+  "equivalents": [
+    {
+      "function": "LeaveRequestApproveAPIView.leave_approve_calculation",
+      "change": [
+        "-if leave_request.requested_days > available_leave.available_days:",
+        "+if leave_request.requested_days >= available_leave.available_days:"
+      ]
+    },
+    {
+      "function": "LeaveRequest.clean",
+      "change": [
+        "-cleaned_data = super().clean()",
+        "+cleaned_data = None"
+      ]
+    },
+    {
+      "function": "LeaveRequest.clean",
+      "change": [
+        "-attachment = getattr(self, \"attachment\", None)",
+        "+attachment = getattr(self, \"attachment\", )"
+      ]
+    },
+    {
+      "function": "LeaveRequest.clean",
+      "change": [
+        "-request = getattr(horilla_middlewares._thread_locals, \"request\", None)",
+        "+request = getattr(horilla_middlewares._thread_locals, \"request\", )"
+      ]
+    },
+    {
+      "function": "LeaveRequest.clean",
+      "change": [
+        "-if self.start_date and self.end_date:",
+        "+if self.start_date or self.end_date:"
+      ]
+    },
+    {
+      "function": "LeaveRequest.clean",
+      "change": [
+        "-overlapping_requests = self.leaveoverlapping().exclude(id=self.id)",
+        "+overlapping_requests = self.leaveoverlapping().exclude(id=None)"
+      ]
+    },
+    {
+      "function": "LeaveRequest.clean",
+      "change": [
+        "-leave_dates = leave_requested_dates(self.start_date, self.end_date)",
+        "+leave_dates = leave_requested_dates(self.start_date, None)"
+      ]
+    },
+    {
+      "function": "LeaveRequest.clean",
+      "change": [
+        "-month_year = [f\"{date.year}-{date.strftime('%m')}\" for date in leave_dates]",
+        "+month_year = [f\"{date.year}-{date.strftime('XX%mXX')}\" for date in leave_dates]"
+      ]
+    },
+    {
+      "function": "LeaveRequest.clean",
+      "change": [
+        "-month_year = [f\"{date.year}-{date.strftime('%m')}\" for date in leave_dates]",
+        "+month_year = [f\"{date.year}-{date.strftime('%M')}\" for date in leave_dates]"
+      ]
+    },
+    {
+      "function": "LeaveRequest.clean",
+      "change": [
+        "-is_restricted = False",
+        "+is_restricted = None"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "_doc": "Area 1 CI quality gate thresholds. Justification: docs/team/reports/CI_QUALITY_GATE.md section 3. Change only with a documented reason.",
+  "unit": {
+    "scoped_statement_and_branch_coverage_percent": 100
+  },
+  "mutation": {
+    "min_score_percent": 95,
+    "equivalents_file": "docs/team/ci/mutation-equivalents.json"
+  },
+  "sonar": {
+    "gate_name": "SQE Gate",
+    "conditions": [
+      {"metric": "bugs", "op": "GT", "error": "38", "why": "no new bugs: baseline 38 (2026-11-25 scan)"},
+      {"metric": "vulnerabilities", "op": "GT", "error": "62", "why": "no new vulnerabilities: baseline 62"},
+      {"metric": "code_smells", "op": "GT", "error": "45", "why": "no new code smells: baseline 45"},
+      {"metric": "duplicated_lines_density", "op": "GT", "error": "3.0", "why": "duplication must stay at the baseline 2.9% (0.1 tolerance for rounding)"},
+      {"metric": "coverage", "op": "LT", "error": "2.0", "why": "coverage report must be imported: baseline 2.3% from the unit run, 0% if coverage.xml is missing"}
+    ]
+  }
+}

@@ -38,6 +38,12 @@ def changed_fragments(diff):
     return a, b, frags
 
 
+def signature(diff):
+    """Stable identity of a mutant: its changed lines (mutant numbers shift when code changes)."""
+    return [line[0] + line[1:].strip() for line in diff.splitlines()
+            if line[:1] in "+-" and not line.startswith(("---", "+++"))]
+
+
 def classify(diff):
     a, b, frags = changed_fragments(diff)
     lits_a = re.findall(r"""["']([a-z_]+)["']""", a)
@@ -90,6 +96,7 @@ def main():
         "mutants": len(status_of), "status": dict(totals), "score_percent": round(score, 1),
         "per_function": {k: dict(v) for k, v in per_func.items()},
         "per_operator": {k: dict(v) for k, v in per_op.items()},
+        "survivors": [{"function": x["function"], "change": signature(x["diff"]), "key": x["key"]} for x in survivors],
     }
     (out / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False))
     with open(out / "survivors.md", "w", encoding="utf-8") as fh:
