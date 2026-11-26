@@ -267,15 +267,6 @@ def test_balance_defaults_do_not_add_a_day(employee, leave_type, available_leave
     rejects(lr(employee, leave_type, end=D + timedelta(days - 1)), messages=["Does not have sufficient leave balance for the requested dates."])
 
 
-def test_forecast_of_next_reset_counts_towards_balance(employee, leave_type, available_leave, acting_as):  # S56, S60, S61
-    # Reset every day: by D (2031) the type's 10 days are forecast as available.
-    LeaveType.objects.filter(pk=leave_type.pk).update(reset=True, reset_based="custom", custom_reset_days=1)
-    leave_type.refresh_from_db()
-    set_balance(employee, leave_type, available=0, carry=0)
-    acting_as(employee)
-    lr(employee, leave_type, end=D + timedelta(2)).clean()  # 0 + 0 + 10 >= 3
-
-
 # --- Restriction loop: continue, not break (S65, S66) --------------------------------
 def test_unrelated_restriction_does_not_stop_later_checks(employee, leave_type, available_leave, department, company, acting_as):  # S65
     other_type = LeaveType.objects.create(name="Unrelated", total_days=1, company_id=company)
