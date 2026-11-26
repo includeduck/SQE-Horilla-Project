@@ -120,13 +120,13 @@ pip-audit checked **178 installed packages** (list with exact versions: [`audite
 
 | ID | Finding | Root cause | Severity | Risk | Fix |
 |---|---|---|---|---|---|
-| SEC-01 | Web allocation approval changes state on GET (CSRF bypass) | View has no method restriction; approval implemented as a link | **Medium** | PR-03, PR-01 | Require POST (`@require_POST`) and send the CSRF token from the button (HTMX `hx-post`) |
-| SEC-02 | No Content-Security-Policy on any page | No CSP middleware or header configured, production included | Medium | PR-03 | Add a CSP (e.g. `django-csp`) with `script-src 'self'` plus the needed CDN hosts/hashes |
-| SEC-03 | Vulnerable moment.js 2.29.1 bundled | Vendored static file not updated | Medium | PR-09 | Upgrade to 2.30.1 |
-| SEC-04 | CDN scripts loaded without Subresource Integrity | `<script src="https://cdn.jsdelivr.net/…">` without `integrity`/`crossorigin` | Medium | PR-09 | Add SRI hashes or self-host the scripts |
-| SEC-05 | `pdfkit` 1.0.0 advisory, no upstream fix | Unmaintained library with local file access enabled | Low (not in our workflows; compensating XSS guard) | PR-09 | Replace pdfkit, or disable local file access |
-| SEC-06 | `svglib` 1.5.1 DoS advisory | Unpinned transitive dependency | Low | PR-09 | Pin `svglib>=2.3.1` |
-| SEC-07 | CSRF token sent in a GET query string | Front-end request to `/settings/get-date-format/` serialises the form including the token | Low | PR-03 | Send the token in the `X-CSRFToken` header, not the URL |
+| SEC-01 (#38) | Web allocation approval changes state on GET (CSRF bypass) | View has no method restriction; approval implemented as a link | **Medium** | PR-03, PR-01 | Require POST (`@require_POST`) and send the CSRF token from the button (HTMX `hx-post`) |
+| SEC-02 (#39) | No Content-Security-Policy on any page | No CSP middleware or header configured, production included | Medium | PR-03 | Add a CSP (e.g. `django-csp`) with `script-src 'self'` plus the needed CDN hosts/hashes |
+| SEC-03 (#40) | Vulnerable moment.js 2.29.1 bundled | Vendored static file not updated | Medium | PR-09 | Upgrade to 2.30.1 |
+| SEC-04 (#41) | CDN scripts loaded without Subresource Integrity | `<script src="https://cdn.jsdelivr.net/…">` without `integrity`/`crossorigin` | Medium | PR-09 | Add SRI hashes or self-host the scripts |
+| SEC-05 (#42) | `pdfkit` 1.0.0 advisory, no upstream fix | Unmaintained library with local file access enabled | Low (not in our workflows; compensating XSS guard) | PR-09 | Replace pdfkit, or disable local file access |
+| SEC-06 (#43) | `svglib` 1.5.1 DoS advisory | Unpinned transitive dependency | Low | PR-09 | Pin `svglib>=2.3.1` |
+| SEC-07 (#44) | CSRF token sent in a GET query string | Front-end request to `/settings/get-date-format/` serialises the form including the token | Low | PR-03 | Send the token in the `X-CSRFToken` header, not the URL |
 
 **Verified controls (no finding):** session cookie HttpOnly + SameSite + bounded lifetime; Secure flags and nosniff in production mode; X-Frame-Options; self-approval refused (API and web); manager/permission checks on approval; ownership check on allocation requests (#5 fix holds); lockout on login (django-axes).
 
