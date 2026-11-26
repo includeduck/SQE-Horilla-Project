@@ -1,0 +1,34 @@
+issue,title,state,category,severity,priority,triage,source,status,created,closed
+3,A2-D09: accepted extensionless attachment filenames fail storage at 99/100 characters,closed,input-validation,medium,P3,accepted,api,fixed-verified,2026-11-23,2026-11-25
+4,A2-D01: rejecting approved leave refunds the acting approver instead of requester,closed,leave-rule-logic,high,P1,accepted,api,fixed-verified,2026-11-23,2026-11-25
+5,A2-D02: foreign-owned self-allocation PUT and DELETE return 500,closed,access-control,high,P1,accepted,api,fixed-verified,2026-11-23,2026-11-25
+6,A2-D03: API leave creation ignores carry-forward policy cap,closed,leave-rule-logic,high,P2,accepted,api,fixed-verified,2026-11-23,2026-11-25
+11,A1-D01: leave request without end date crashes validation with TypeError,open,input-validation,medium,P2,accepted,white-box,open,2026-11-24,
+12,A1-D02: dead code in LeaveRequest.clean month/year comparison (line 2141),open,maintainability,low,P3,deferred,white-box,open,2026-11-24,
+13,A1-D03: unknown carry-forward type adds stored carry-forward days uncapped,open,leave-rule-logic,low,P3,accepted,white-box,open,2026-11-24,
+14,A2-P3-01: API accepts zero and negative effective leave duration,closed,leave-rule-logic,high,P1,accepted,api,fixed-verified,2026-11-25,2026-11-26
+15,A2-P3-02: API excludes another employee's specific holiday and accepts an over-balance request,closed,leave-rule-logic,high,P2,accepted,api,fixed-verified,2026-11-25,2026-11-26
+16,A2-P3-03: API refuses valid forecast entitlement at and after the reset boundary,closed,leave-rule-logic,medium,P2,accepted,api,fixed-verified,2026-11-25,2026-11-26
+17,A2-P3-04: API rejects complementary non-overlapping half-day leave requests,closed,leave-rule-logic,medium,P3,accepted,api,fixed-verified,2026-11-25,2026-11-26
+18,A2-P3-05: Approval ignores current carry-forward policy/cap,closed,leave-rule-logic,high,P2,accepted,api,fixed-verified,2026-11-25,2026-11-26
+19,A2-P3-06: Malformed approved-allocation rejection deducts balance before returning 400,closed,data-integrity,high,P1,accepted,api,fixed-verified,2026-11-25,2026-11-26
+20,A2-P3-07: Generic update lets an ordinary owner transfer a request to another employee,closed,access-control,high,P1,accepted,api,fixed-verified,2026-11-25,2026-11-26
+21,A2-P2-01: Malformed employee identifiers crash the target permission lookup,closed,input-validation,medium,P2,accepted,api,fixed-verified,2026-11-25,2026-11-26
+22,A2-P2-02: Non-object API bodies crash server-owned identity injection,closed,input-validation,medium,P2,accepted,api,fixed-verified,2026-11-25,2026-11-26
+23,A2-P2-03: Invalid groupby_field escapes as an API server error,closed,input-validation,low,P3,accepted,api,fixed-verified,2026-11-25,2026-11-26
+24,A2-P2-04: Generic allocation creation accepts an unauthorized foreign employee,closed,access-control,high,P1,accepted,api,fixed-verified,2026-11-25,2026-11-26
+25,A2-P2-05: Zero detail IDs lose the route argument in permission dispatch,closed,access-control,medium,P2,accepted,api,fixed-verified,2026-11-25,2026-11-26
+26,A2-P2-06: Malformed AJAX relation filter choices crash before form validation,closed,input-validation,low,P3,accepted,api,fixed-verified,2026-11-25,2026-11-26
+27,A2-P2-07: Sessionless JWT HTML API responses crash sidebar menu construction,closed,input-validation,low,P3,accepted,api,fixed-verified,2026-11-25,2026-11-26
+28,A2-P2-08: Malformed registered advanced date filters return 500,closed,input-validation,low,P3,accepted,api,fixed-verified,2026-11-25,2026-11-26
+29,A2-D04: Identical pending allocation submissions create duplicate records,closed,state-transition,medium,P2,accepted,api,fixed-verified,2026-11-25,2026-11-26
+30,A2-D05: Ordinary rejection accepts an already cancelled leave request,closed,state-transition,medium,P2,accepted,api,fixed-verified,2026-11-25,2026-11-26
+31,A2-D10: Browser allocation form accepts an empty requested-days amount,closed,input-validation,medium,P2,accepted,browser,fixed-verified,2026-11-25,2026-11-26
+38,SEC-01: web allocation approval changes state on a plain GET (CSRF bypass),open,security-config,medium,P2,accepted,security,open,2026-11-26,
+39,SEC-02: no Content-Security-Policy header on any page,open,security-config,medium,P2,accepted,security,open,2026-11-26,
+40,SEC-03: vulnerable moment.js 2.29.1 bundled in static files,open,dependency,medium,P3,accepted,security,open,2026-11-26,
+41,SEC-04: CDN scripts loaded without Subresource Integrity,open,dependency,medium,P3,accepted,security,open,2026-11-26,
+42,SEC-05: pdfkit 1.0.0 advisory (PYSEC-2026-2860) with no upstream fix,open,dependency,low,P3,deferred,security,open,2026-11-26,
+43,SEC-06: svglib 1.5.1 DoS advisory (fixed in 2.3.1),open,dependency,low,P3,accepted,security,open,2026-11-26,
+44,SEC-07: CSRF token sent in a GET query string,open,security-config,low,P3,accepted,security,open,2026-11-26,
+46,REC-01: allocation approval is not atomic; a failed write plus retry credits the balance twice,open,data-integrity,high,P1,accepted,recovery,open,2026-11-26,
