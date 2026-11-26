@@ -290,7 +290,7 @@ All defects are GitHub issues in the public repository, labelled with severity, 
 
 | Issue | Finding | Root cause | Severity | Risk | Fix / status |
 |---|---|---|---|---|---|
-| [#11](https://github.com/includeduck/SQE-Horilla-Project/issues/11) A1-D01 | Leave request without an end date crashes validation (`TypeError`) | `clean()` compares dates before the end date is defaulted | Medium | PR-05 | Default end date to start date in `clean()` (PR #35); closes with PR #52 |
+| [#11](https://github.com/includeduck/SQE-Horilla-Project/issues/11) A1-D01 | Leave request without an end date crashes validation (`TypeError`) | `clean()` compares dates before the end date is defaulted | Medium | PR-05 | Default end date to start date in `clean()` (PR #35, merged through PR #52); fixed, verified |
 | [#12](https://github.com/includeduck/SQE-Horilla-Project/issues/12) A1-D02 | Dead code in the month/year comparison | Condition can never be true (found by branch coverage) | Low | maintainability | Deferred |
 | [#13](https://github.com/includeduck/SQE-Horilla-Project/issues/13) A1-D03 | Unknown carry-forward type adds carry-forward uncapped | Fall-through branch with no cap | Low | PR-02 | Accepted for release (needs invalid data) |
 
@@ -326,7 +326,7 @@ These are recorded in the accessibility report (Appendix K) rather than as issue
 | Issue | Finding | Root cause | Severity | Risk | Fix / status |
 |---|---|---|---|---|---|
 | (none) | Balance read meets both limits (worst p95 39.1 ms, 0% failures) | n/a | n/a | PR-10 | No action |
-| [#46](https://github.com/includeduck/SQE-Horilla-Project/issues/46) REC-01 | A failed approval plus a retry credits (or debits) the balance twice | Two dependent writes without `transaction.atomic`; `ATOMIC_REQUESTS` off | **High** | PR-01, PR-06 | `@transaction.atomic` + `select_for_update()` (PR #51); fails before, passes after; closes with PR #52 |
+| [#46](https://github.com/includeduck/SQE-Horilla-Project/issues/46) REC-01 | A failed approval plus a retry credits (or debits) the balance twice | Two dependent writes without `transaction.atomic`; `ATOMIC_REQUESTS` off | **High** | PR-01, PR-06 | `@transaction.atomic` + `select_for_update()` (PR #51, merged through PR #52); fails before, passes after; fixed, verified |
 
 # 7. Defect analysis
 
@@ -347,7 +347,7 @@ Two categories, **input validation** and **leave-rule logic**, account for most 
 
 ![Fishbone, issue #46](../defects/fishbone-issue-46.png)
 
-**Metrics (GQM):** defect density 2.1 per KLOC in the scoped code (high severity 0.64/KLOC); requirements coverage 14/14; reopen rate **0%**; 22 of 33 defects closed before the integration merge, and #11 and #46 close with it.
+**Metrics (GQM):** defect density 2.1 per KLOC in the scoped code (high severity 0.64/KLOC); requirements coverage 14/14; reopen rate **0%**; **24 of 33** defects closed as fixed and verified; 9 open, none of them high severity.
 
 # 8. Release decision
 
@@ -356,7 +356,7 @@ Two categories, **input validation** and **leave-rule logic**, account for most 
 | Criterion | Target | Actual | Met? |
 |---|---|---|---|
 | **EC-1** Business-logic test strength | 100% statement + branch of the 15 scoped functions; mutation ≥ 95%; 0 unexplained survivors | **100%** statement + branch (1 line and 2 branches infeasible, justified); mutation **97.9%** (465/475), **0** unexplained survivors | **Yes** |
-| **EC-2** Access and state safety | 100% of access-matrix and state-transition tests pass; 0 open high-severity defects in PR-01/03/04 | Access matrix **6/6**; all state-transition API cases pass in both orders; use-case flows **20/20**; the only open high defect, **#46, is fixed** (recovery tests 2 failing before, 5/5 after) and closes when PR #52 is merged | **Yes, with PR #52 merged** |
+| **EC-2** Access and state safety | 100% of access-matrix and state-transition tests pass; 0 open high-severity defects in PR-01/03/04 | Access matrix **6/6**; all state-transition API cases pass in both orders; use-case flows **20/20**; the high-severity defect **#46 is fixed and verified** (recovery tests 2 failing before, 5/5 after; merged through PR #52); **0 open high-severity defects** | **Yes** |
 | **EC-3** Performance | p95 ≤ 500 ms and < 1% unexpected failures at 5 users | Worst of 4 runs: **p95 39.1 ms**, **0.0%** failures | **Yes** |
 | EC-4 No 500 on invalid input | 0 HTTP 500 across generated invalid inputs | 3,433 API cases pass in both orders; all seven 500 defects fixed and verified | Yes |
 | EC-5 Accessibility of the fixed screen | 0 critical/serious axe violations | **0 / 0** (was 2 / 7); Lighthouse 71 → 99 | Yes |
@@ -372,7 +372,7 @@ Two categories, **input validation** and **leave-rule logic**, account for most 
 {{DECISION_TEXT}}
 
 - **Open defects that do not block the release:** #38 – #41 (medium, security hardening) and #12, #13, #42 – #44 (low). #38 (state change on GET) should come first in the next cycle because it is in the same high-risk area, PR-03.
-- **Residual risk:** PR-03 and PR-09 stay **medium** until the security findings are fixed. PR-01 is **low** once the #46 fix is merged. Behaviour on PostgreSQL and in production configuration was not tested; this matters for the locking in the #46 fix.
+- **Residual risk:** PR-03 and PR-09 stay **medium** until the security findings are fixed. PR-01 is **low** now that the #46 fix is merged. Behaviour on PostgreSQL and in production configuration was not tested; this matters for the locking in the #46 fix.
 
 # 9. AI-use record
 
