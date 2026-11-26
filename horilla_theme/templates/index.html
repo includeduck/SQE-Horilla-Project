@@ -3,7 +3,7 @@
 {% load horillafilters %}
 {% get_company as theme_obj %}
 <!DOCTYPE html>
-<html class="{% if request.session.theme == 'dark' %}dark{% endif %}">
+<html lang="{{ request.LANGUAGE_CODE|default:'en' }}" class="{% if request.session.theme == 'dark' %}dark{% endif %}">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -335,7 +335,7 @@
                     {% include "horilla_theme/components/header.html" %}
                 </div>
 
-                <div id="ohMainContent" class="p-6 pt-24">
+                <div id="ohMainContent" class="p-6 pt-24" role="main">
                     {% block content %}
                         {% include "horilla_theme/components/dashboard.html" %}
                     {% endblock %}
@@ -406,5 +406,6 @@
                 if (b) b.click();
             });
         </script>
+        {% include "horilla_theme/components/a11y_fixes.html" %}
     </body>
 </html>
