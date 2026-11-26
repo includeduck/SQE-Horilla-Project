@@ -1,118 +1,309 @@
-# SQE owner handoff
+Rayyan will no longer do any further project implementation, testing, integration, documentation, packaging or follow-up execution work. Rayyan's project execution assignment is finished. Every remaining project execution item in the final handoff is now assigned to Muhammad Wasay Tariq / Wasay's agent, and its completion is mandatory for the project. No further technical execution or additional prompt is expected from Rayyan.
 
-Updated 23 November 2026. Requested by **Syed Muhammad Rayyan Hassan, 24I-3000**,
-GitHub `rayyanhasan899`. Repository owner: **Muhammad Wasay Tariq**, `includeduck`.
+# Definitive execution handoff —25 November 2026
 
-## Execution reassignment
+**Rayyan assignment CLOSED. Whole-project release HOLD.** Completed contribution:3,433 API cases in each isolated sharded order,713 generated IDs including former399,350 families,10 FR/4 BR explicit assertion sets,10 browser flows and controlled consuming regeneration. [Closeout](docs/team/reports/RAYYAN_FINAL_CLOSEOUT.md), [evidence index](docs/team/AREA2_EVIDENCE_INDEX.md), [PR8](https://github.com/includeduck/SQE-Horilla-Project/pull/8). No future project execution is assigned to Rayyan.
 
-Rayyan explicitly assigns the blocked, unfinished work below to **Wasay / his
-agent**, with completion mandatory for the project. This is Rayyan's requested
-execution allocation; acceptance by Wasay has not yet been observed. Preserve
-actual authorship and test results. This does not retroactively attribute
-Rayyan's implemented generator/tests to Wasay or certify any course requirement.
+The current backlog below replaces the older handoff, archived at docs/team/history/handoff-before-final-closeout.md. Incomplete requirements remain OPEN and transferred; they are not passes or Wasay acceptance. The mandatory current executor for EVERY row is **Wasay / Wasay's agent — mandatory**. Original authorship remains unchanged.
 
-| ID | Mandatory work now assigned to Wasay / his agent | Completion evidence | Current state |
-|---|---|---|---|
-| H-01 | Supply/use a permitted complete Horilla runtime; install unchanged root requirements and scoped Area 2 test tools | Actual Python/Django/DRF/tool versions, successful setup/schema checks and disposable DB/server verification | Remote setup resolved: unchanged application/test dependencies installed in CI; laptop runtime remains unavailable |
-| H-02 | Recover the original Phase A archive if available, or finish and reconcile its missing live foundation/oracles | Verified original archive or fresh two-initialization/authentication/balance/schema evidence, one reconciled contract | Open; archive details are in Communication.md; no historical logs may be fabricated |
-| H-03 | Execute and finish all blocked B/C API coverage, including generated input classes and dynamic balance/filter/reason gaps | Clean full suite twice, reverse/order independence, real HTTP plus persisted-state assertions, complete coverage denominators | In progress: current remote run reaches HTTP assertions; full/reversed acceptance and remaining scope are open |
-| H-04 | Reproduce candidate defects, apply only source-backed minimal fixes, rerun affected team/upstream tests and produce actual defect/PR evidence | Genuine failing-before/passing-after logs, Issue/PR links, triage/RCA and retest | Attachment storage failure reproduced; narrow source fix and focused retest proposed in PR #2; other candidates need actual results |
-| H-05 | Integrate the Area 2 producer command with the group's all-tests/PR gate | Required-check names, actual failed gate and successful retest; no failure suppression | Open; Wasay retains overall CI ownership |
-| H-06 | Resolve laptop Git metadata/network restrictions or provide an approved synchronized checkout | Working fetch/pull and identity-safe local commits/push, preserving uncommitted files and concurrent history | Open locally; GitHub connected-app object/ref writes now work under Rayyan's identity |
+## F4-REVIEW —P1 —C-D
 
-## Current publication and contribution evidence
+Original owner: Wasay / repository owner. **NOW: Wasay / Wasay's agent — mandatory. Requirement OPEN / execution transferred.**
 
-The GitHub connection recovered during the Phase C access check. These commits
-were published to `sqe-team` and author/committer login verified as
-`rayyanhasan899`:
+References: FR-01..FR-10; BR-01..BR-04; PR #8; Issues #14..#31. Tested contribution source: `aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e`.
 
-- `44384b129156059d63647f6d9b8324813b668ae0`: audit, roadmap, prompts and roll correction.
-- `cbe4b74282213732b176ae5e3b4519044b7b6a1e`: OpenAPI/EP/BVA generator and source basis.
-- `905f08909a6b8bb3bda70a94a28c42bc8c1a7455`: initial generated HTTP slice and isolated fixtures.
+Required deliverable: Independently review the delivered corrections and contribution, merge only after actual required checks/reviews permit it, and close the 18 proposed-fix product Issues only when warranted.
 
-These are meaningful published checkpoints, not proof of passing API tests.
-Local `.git` remains read-only; `git pull --ff-only` failed on FETCH_HEAD and
-the CLI push dry-run failed with a connection reset. No destructive Git action
-or force push was used.
+Actual attempts:
 
-## Continuation
+- Published source/fixes and full before/after evidence under rayyanhasan899
+- Reconciled all 22 Area 2 defect identities; original four accepted Issues closed, remaining 18 kept open
 
-Use `Communication.md`, `docs/team/reports/SQE_IMPLEMENTATION_PHASE_B_STATUS.md`
-and the subsequent C status report for exact files, commands and evidence.
-Update this handoff as tasks are accepted, implemented, tested and published.
-Do not mark a task complete because code or a report exists. Rayyan's two
-personal use-case/Phase D implementation has not automatically started.
+Why still open: No independent review exists in the accessible PR reviews collection; protected integration cannot be replaced by this agent approving its own contribution.
 
-## Phase C verification checkpoint — 23 November 2026
+Next owner action: Independently review the ready PR #8's actual final diff, source-bound evidence and required checks; resolve owner concerns, then perform protected merge/retest and factual Issue lifecycle updates.
 
-Remote runtime installation is now successful. Runs 45179588790 and 45181052750
-stopped at a fixture guard (171/178 setup errors), before product assertions.
-Commit `1948e0fdf85ec3824e5f472176688e994307928a` repaired that guard while
-retaining the explicit isolated-settings marker and exact temporary SQLite
-path checks. Run 45183086568 is executing real generated-input HTTP assertions;
-passing cases were observed live. Final and reversed-run results are pending.
-Do not treat this in-progress observation as full acceptance.
+Dependency: No independent review exists in the accessible PR reviews collection; protected integration cannot be replaced by this agent approving its own contribution. No additional Rayyan technical prompt or execution is a prerequisite.
 
-There are 178 unique API scenarios, with 82 of 578 generated IDs referenced and
-496 unconsumed. Scope completeness remains false. All 41 independent generator,
-catalog and runner checks passed locally with ResourceWarning treated as an
-error; these are distinct from product API tests. Application source is unchanged.
-See `docs/team/reports/SQE_IMPLEMENTATION_PHASE_C_STATUS.md` for evidence.
+Measurable acceptance: Actual independent accepted review + permitted merged commit + actual post-integration checks and warranted Issue states.
 
-Published checkpoints after the initial three: `aa600a2` B evidence/handoff,
-`5a5df40` C suite/producer/workflow, `7fba8ee` pagination/unique ledger,
-`1948e0f` fixture guard and streaming preflight. Verified Rayyan author and
-committer throughout; local Git staging/pull restrictions remain unresolved.
+Evidence/files: [source](https://github.com/includeduck/SQE-Horilla-Project/pull/8); `docs/team/finish-line/PROMPT03_DEFECT_POPULATION.json`.
 
-Wasay/his agent: H-01 remote installation is resolved, but H-02–H-06 still require
-completion where blocked, including final result evaluation, coverage/oracle
-reconciliation, genuine product fixes/retests and group CI integration. Owner
-issue #1 was delivered and assigned to includeduck; acceptance is unobserved.
-This is Rayyan's explicit mandatory execution reassignment, preserving actual
-contribution history. Phase D has not started.
+## F4-SONAR —P1 —D / Area 1
 
+Original owner: Wasay / Area 1. **NOW: Wasay / Wasay's agent — mandatory. Requirement OPEN / execution transferred.**
 
-## Attachment failure and protected-branch update — 23 November 2026
+References: Shared CI gate; BR-01..BR-04. Tested contribution source: `aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e`.
 
-Remote run 45183086568 reproduced storage exceptions for generated allocation
-attachment filename boundaries 99 and 100 (log lines 1720/1816). The original
-`horilla.models.upload_path` treated a filename without a dot as an extension,
-leaving storage no basename to shorten within the FileField path budget.
-A narrow correction now retains extensionless input as the basename; dotted
-names retain their suffix. Four real FileSystemStorage regressions and the
-existing five HTTP slice cases are configured as a targeted remote retest.
-The source fix is proposed, not verified until those tests actually finish.
-This supersedes earlier statements that application source is unchanged.
+Required deliverable: Provide a reachable configured Sonar service/token, run an actual scan of the final implementation and enforce the supplied proposed new-code quality conditions.
 
-Branch protection now requires PRs. Evidence commit `b6e298ae646738e1122528b2835d7aa08f1f7015`
-was published on `rayyan/phase-c-evidence` in PR #2, after its direct update to
-`sqe-team` was rejected. Do not bypass protection. Wasay was notified through
-issue #1 comment 7102792706. Further proposed corrections/evidence use the same
-review branch; owner review/merge and group gate remain required.
+Actual attempts:
 
+- Read actual Sonar 26.10 baseline/profile/threshold proposal and raw metrics
+- Attempted localhost service and Docker/WSL alternatives
+- Implemented exact-revision live server gate, nonempty conditions and no-weaker-than-proposed threshold checks; missing evidence fails
 
-## Final first-pass evidence and corrective proposals — 23 November 2026
+Why still open: The local service refused connection; Docker Linux engine is unavailable and WSL reports access denied. Live CI returned a concrete missing SONAR_HOST_URL/SONAR_TOKEN refusal. Historical Sonar baseline is genuine but is not a current-source CI gate.
 
-Build `1948e0f`, run 45183086568 completed: W1/W2 preflight **1 passed**;
-full collection **169 passed, 9 failed**, 184 warnings, 1038.66 seconds.
-There were no setup errors in this collection. Reverse and completeness stages
-were blocked by the failing first pass. Raw log: `ci-45183086568-job.log`;
-summary: `ci-third-summary.json`; remote artifact 14824755317. Preflight repeats
-one API scenario and does not increase the 178 unique-case denominator.
+Next owner action: Configure SONAR_HOST_URL and SONAR_TOKEN for the existing free service, scan the exact reviewed source using sonar-project.properties, configure the actual proposed conditions and rerun sonar + team-gate.
 
-Confirmed failures: A2-D01 refund leaves requester balance at 2 instead of 5;
-A2-D02 non-owner PUT/DELETE return 500 instead of controlled 403; A2-D03 raw
-carry-forward accepts three days (201) despite effective cap one; A2-D09 valid
-99/100 extensionless attachments trigger storage failure. Proposed narrow fixes
-restore the requester, explicitly deny a foreign owner, apply existing model
-carry-forward cap/policy in the serializer, and correctly split upload names.
-Forecast/employee-holiday scope remains unfinished; this cap correction does
-not claim to implement those separate gaps.
+Dependency: The local service refused connection; Docker Linux engine is unavailable and WSL reports access denied. Live CI returned a concrete missing SONAR_HOST_URL/SONAR_TOKEN refusal. Historical Sonar baseline is genuine but is not a current-source CI gate. No additional Rayyan technical prompt or execution is a prerequisite.
 
-A2-D04 duplicate allocation and A2-D05 cancelled-to-rejected behavior also fail
-the provisional tests. Their oracles conflict with current behavior and require
-Wasay's explicit business-rule reconciliation. They are not silently fixed or
-marked as successful. The targeted corrective retest additionally runs affected
-upstream balance/carry-forward/file-display tests separately. Actual passing-after
-results and full clean/reversed acceptance remain pending.
+Measurable acceptance: Live analysis revision equals reviewed source; gate OK with explicit duplication <=3%, reliability/security A and zero new blocker/high conditions; immutable raw server responses retained.
 
+Evidence/files: `.github/workflows/team-quality-gate.yml`; `scripts/team/final_quality_gate.py`; [source](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45633245200); `docs/team/reports/SONARQUBE_BASELINE.md`.
+
+## F4-MUTATION —P1 —D / Area 1
+
+Original owner: Wasay / Area 1. **NOW: Wasay / Wasay's agent — mandatory. Requirement OPEN / execution transferred.**
+
+References: BR-01..BR-04; Mutation and CI brief section 2. Tested contribution source: `aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e`.
+
+Required deliverable: Supply and execute the actual business-rule mutation runner, two implemented custom operators, >=15 genuine baseline survivor analyses, kill the killable survivors and justify the mutation threshold from actual results.
+
+Actual attempts:
+
+- Audited full tracked tree for mutation tooling and reports
+- Implemented a fail-closed invocation/metadata/raw-hash/score/operator/survivor-analysis contract; demonstrated missing-input failure
+
+Why still open: No mutation runner, policy, custom operators or results are present in the published repository; mutation threshold was explicitly deferred in the supplied Sonar report. Those measured results and specialist inputs cannot be invented.
+
+Next owner action: Implement scripts/team/run_mutation.py with --source and --output, add docs/team/mutation_policy.json with measured minimum_score and justification, produce the required raw/hash/source/analysis schema and run the mutation CI job.
+
+Dependency: No mutation runner, policy, custom operators or results are present in the published repository; mutation threshold was explicitly deferred in the supplied Sonar report. Those measured results and specialist inputs cannot be invented. No additional Rayyan technical prompt or execution is a prerequisite.
+
+Measurable acceptance: Actual mutmut/Cosmic Ray outputs on reviewed source; two business-rule operators; >=15 unique analysed baseline survivors; all killable survivors killed; measured justified score passes strict gate.
+
+Evidence/files: `scripts/team/final_quality_gate.py`; `.github/workflows/team-quality-gate.yml`; [source](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45633245200).
+
+## F4-GATE-ADMIN —P1 —D / shared
+
+Original owner: Wasay / repository administrator. **NOW: Wasay / Wasay's agent — mandatory. Requirement OPEN / execution transferred.**
+
+References: Every-PR CI; Required merge/deployment checks. Tested contribution source: `aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e`.
+
+Required deliverable: Require the actual team-gate check and independent review on sqe-team and enforce equivalent deployment prerequisites; align mandatory producers with every-PR triggering.
+
+Actual attempts:
+
+- Inspected branch/ref/ruleset/workflow and review metadata
+- Added every-PR team unit/Sonar/mutation aggregate with exact-source Area 2/browser/contract dependencies
+- Retained real red producer/aggregate evidence without claiming remote merge blocking
+
+Why still open: Classic protection access returned HTTP 403 to the integration. An empty ruleset response is not proof of absent protection. Deployment policy/target and administrative authority are not supplied.
+
+Next owner action: As repository administrator, inspect actual protection, require observed team-gate and review conditions, ensure all required producers run or have a legitimate exact-source reuse policy on each PR, and enforce deploy gating; demonstrate blocked and corrected PR outcomes.
+
+Dependency: Classic protection access returned HTTP 403 to the integration. An empty ruleset response is not proof of absent protection. Deployment policy/target and administrative authority are not supplied. No additional Rayyan technical prompt or execution is a prerequisite.
+
+Measurable acceptance: Actual settings and remote blocked merge/deployment evidence, then a genuine successful corrected gate; no continue-on-error, forced exits or self-approval.
+
+Evidence/files: `.github/workflows/team-quality-gate.yml`; `docs/team/AREA2_CI_HANDOFF.md`; [source](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45633245200).
+
+## F4-A1-FINDINGS —P2 —Area 1 / shared
+
+Original owner: Wasay / Area 1. **NOW: Wasay / Wasay's agent — mandatory. Requirement OPEN / execution transferred.**
+
+References: Issues #11/#12/#13; BR-01/BR-02; Unit scope. Tested contribution source: `aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e`.
+
+Required deliverable: Resolve the three inherited Area 1 findings and reconcile final unit scope/justified gaps and Sonar findings against the accepted final source.
+
+Actual attempts:
+
+- Ran all supplied 127 team units and the existing 15-function feasible coverage gate
+- Preserved real known-behavior reproducers/justified gaps and separated them from the clean HTTP input results
+- Did not count Area 1 records in the 22-defect Area 2 Pareto
+
+Why still open: These remain actual open Area 1 records: direct model clean with nullable end date, dead month/year code, and invalid stored carry policy. HTTP date normalization and valid choice constraints must be distinguished from a new model-policy decision; no stronger policy or owner triage is invented.
+
+Next owner action: Triage #11-#13 by actual model/form/API reachability; apply source-backed accepted fixes or documented dispositions, adjust justified gaps/critical MCC tables as warranted and retest affected scopes.
+
+Dependency: These remain actual open Area 1 records: direct model clean with nullable end date, dead month/year code, and invalid stored carry policy. HTTP date normalization and valid choice constraints must be distinguished from a new model-policy decision; no stronger policy or owner triage is invented. No additional Rayyan technical prompt or execution is a prerequisite.
+
+Measurable acceptance: Actual accepted dispositions or strict before/after corrections, accurate current 100%-scope argument and source-bound unit/Sonar evidence; no hidden new uncovered business logic.
+
+Evidence/files: [source](https://github.com/includeduck/SQE-Horilla-Project/issues/11); [source](https://github.com/includeduck/SQE-Horilla-Project/issues/12); [source](https://github.com/includeduck/SQE-Horilla-Project/issues/13); `tests/team/unit/coverage_scope.py`.
+
+## F4-MEMBER-USECASES —P1 —D / shared Area 3
+
+Original owner: Wasay and Zain / their member-attributed contributions. **NOW: Wasay / Wasay's agent — mandatory. Requirement OPEN / execution transferred.**
+
+References: Two use cases per member; W1/W2. Tested contribution source: `aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e`.
+
+Required deliverable: Supply the other members' genuine attributed use-case specifications and Playwright flow evidence; retain Rayyan's two cases and ten verified flows.
+
+Actual attempts:
+
+- Audited tests/team/e2e and use-case documents; completed and reverified Rayyan's two cases/ten flows
+
+Why still open: The accessible e2e collection contains only the ten Rayyan flows. No authentic other-member use-case/flow contributions are supplied; authorship or their review cannot be fabricated.
+
+Next owner action: Coordinate the remaining member-attributed cases and automate each main/at least two alternative/two exception flows with visible and persisted assertions.
+
+Dependency: The accessible e2e collection contains only the ten Rayyan flows. No authentic other-member use-case/flow contributions are supplied; authorship or their review cannot be fabricated. No additional Rayyan technical prompt or execution is a prerequisite.
+
+Measurable acceptance: At least two genuine cases per member across the agreed workflows, all required flows automated and attributed with actual reports and commits.
+
+Evidence/files: `docs/team/RAYYAN_USE_CASES.md`; `tests/team/e2e/test_rayyan_use_cases.py`; [source](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793417).
+
+## F4-ACCESSIBILITY —P1 —Area 3
+
+Original owner: Zain / Area 3, coordinated by Wasay. **NOW: Wasay / Wasay's agent — mandatory. Requirement OPEN / execution transferred.**
+
+References: Both workflow screens; Accessibility/usability brief section 3. Tested contribution source: `aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e`.
+
+Required deliverable: Supply keyboard task assertions, Lighthouse and full axe-core scans, deduplicate findings and demonstrate one screen correction with actual before/after reports.
+
+Actual attempts:
+
+- Inspected published tests/evidence and preserved the ten passing Rayyan browser flows as completed work
+
+Why still open: No Lighthouse/axe scripts or reports and no Area 3 usability contribution are present in the tracked tree. Rayyan's ordinary visible/persisted flow assertions do not establish these distinct measurements.
+
+Next owner action: Run both workflow tasks including the required correction and keyboard path; scan key screens with Lighthouse and axe, fix one screen and rerun both.
+
+Dependency: No Lighthouse/axe scripts or reports and no Area 3 usability contribution are present in the tracked tree. Rayyan's ordinary visible/persisted flow assertions do not establish these distinct measurements. No additional Rayyan technical prompt or execution is a prerequisite.
+
+Measurable acceptance: Actual scripts, focus/keyboard assertions, issue impact/fix records and original before/after Lighthouse/axe/Playwright reports.
+
+Evidence/files: `tests/team/e2e`; `docs/team/TEAM.md`.
+
+## F4-SECURITY —P1 —Area 3
+
+Original owner: Zain / Area 3, coordinated by Wasay. **NOW: Wasay / Wasay's agent — mandatory. Requirement OPEN / execution transferred.**
+
+References: BR-04; W1/W2; Defensive security brief section 4. Tested contribution source: `aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e`.
+
+Required deliverable: Supply the browser access matrix/checks, passive ZAP evidence, at least two corroborated security controls and scoped dependency audit.
+
+Actual attempts:
+
+- Completed API self/manager/permission/nonowner assertions with unchanged-state checks
+- Inspected existing upstream dependency workflow, which targets upstream branches rather than proving the required team assessment
+
+Why still open: Security directory is a placeholder and no authentic passive/dependency/browser-matrix reports are supplied. The strict API authorization matrix is useful completed evidence but does not replace the distinct browser/passive tasks.
+
+Next owner action: Coordinate four browser access checks with at least one allowed and denied action, collect passive ZAP observations for both workflows, corroborate controls and run/interpret the dependency audit.
+
+Dependency: Security directory is a placeholder and no authentic passive/dependency/browser-matrix reports are supplied. The strict API authorization matrix is useful completed evidence but does not replace the distinct browser/passive tasks. No additional Rayyan technical prompt or execution is a prerequisite.
+
+Measurable acceptance: Actual role/action expected/observed evidence, passive ZAP and checked package/version findings, risk/root cause/fix records without active attacks or real data.
+
+Evidence/files: `tests/team/security`; `tests/team/api/test_states_and_decisions.py`; `docs/team/TEAM.md`.
+
+## F4-PERFORMANCE —P2 —Area 3
+
+Original owner: Zain / Area 3, coordinated by Wasay. **NOW: Wasay / Wasay's agent — mandatory. Requirement OPEN / execution transferred.**
+
+References: W1/W2 selected operation; Performance brief section 5. Tested contribution source: `aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e`.
+
+Required deliverable: Supply justified pre-run thresholds and comparable k6 runs at one and at least five concurrent users, each setup twice for >=60 seconds after reaching load.
+
+Actual attempts:
+
+- Audited available source/evidence; retained test elapsed times only as tool timings
+
+Why still open: Performance directory is a placeholder; no genuine pre-run targets, scripts or measured load outputs are supplied. API pytest elapsed time is not a p95/load result.
+
+Next owner action: Define future p95 and unexpected-error limits before load; execute four controlled comparable k6 runs with the same build/machine/starting data.
+
+Dependency: Performance directory is a placeholder; no genuine pre-run targets, scripts or measured load outputs are supplied. API pytest elapsed time is not a p95/load result. No additional Rayyan technical prompt or execution is a prerequisite.
+
+Measurable acceptance: Original scripts/output/environment plus p95, throughput and unexpected failures per run, interpretation against honestly predeclared targets.
+
+Evidence/files: `tests/team/perf`; `docs/team/TEAM.md`.
+
+## F4-RECOVERY —P1 —Area 3
+
+Original owner: Zain / Area 3, coordinated by Wasay. **NOW: Wasay / Wasay's agent — mandatory. Requirement OPEN / execution transferred.**
+
+References: W1/W2 state-changing operation; Recovery brief section 5. Tested contribution source: `aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e`.
+
+Required deliverable: Supply controlled dependency-failure/recovery automation with persisted failure-state readback, restoration, retry and no duplicate final records/effects.
+
+Actual attempts:
+
+- Completed state/refund/repetition/invalid-body atomicity checks and preserved their exact boundaries
+
+Why still open: Recovery directory is a placeholder and no controlled dependency-failure test is supplied. The completed malformed-body refusal/atomicity regression is not relabelled as a dependency outage experiment.
+
+Next owner action: Inject a justified dependency failure before a write, assert persisted state, restore dependency, retry and assert exact successful state/no duplicates.
+
+Dependency: Recovery directory is a placeholder and no controlled dependency-failure test is supplied. The completed malformed-body refusal/atomicity regression is not relabelled as a dependency outage experiment. No additional Rayyan technical prompt or execution is a prerequisite.
+
+Measurable acceptance: Actual deterministic script, failure and recovery observations, source/fixture identity and persisted assertions.
+
+Evidence/files: `tests/team/recovery`; `tests/team/api/test_business_rules.py`; `docs/team/TEAM.md`.
+
+## F4-REGISTRATION —P2 —A / shared administration
+
+Original owner: Team / Wasay. **NOW: Wasay / Wasay's agent — mandatory. Requirement OPEN / execution transferred.**
+
+References: Brief section 1 registration; SE-5B. Tested contribution source: `aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e`.
+
+Required deliverable: Retain the authentic section-sheet repository registration and resolve final human scope acceptance.
+
+Actual attempts:
+
+- Checked current team/audit/AI records and reused actual OD-01/OD-02 rather than ask already answered policies
+
+Why still open: Repository records still carry an unverified registration TODO and no accessible authoritative sheet entry/link or genuine approval record is supplied. Historical facts cannot be created retroactively.
+
+Next owner action: Locate the actual registration entry/confirmation and record genuine scope review decisions, or honestly report any historical absence.
+
+Dependency: Repository records still carry an unverified registration TODO and no accessible authoritative sheet entry/link or genuine approval record is supplied. Historical facts cannot be created retroactively. No additional Rayyan technical prompt or execution is a prerequisite.
+
+Measurable acceptance: Authentic available registration/scope evidence or explicit truthful unavailable/not-completed disclosure; no invented backdated approval.
+
+Evidence/files: `docs/team/AI_USE_RECORD.md`; `docs/team/SQE_PHASE_1_PERSONAL_AUDIT.md`; `docs/team/SCOPE.md`.
+
+## F4-GROUP-PACKAGE —P1 —D / final submission
+
+Original owner: Shared, coordinated by Wasay. **NOW: Wasay / Wasay's agent — mandatory. Requirement OPEN / execution transferred.**
+
+References: Brief section 6; All areas; Final PDF/ZIP/.git. Tested contribution source: `aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e`.
+
+Required deliverable: After genuine missing inputs and accepted integration are available, assemble/verify the combined group PDF and ZIP with synchronized accepted .git history and confirmed section filename token.
+
+Actual attempts:
+
+- Prepared the complete Rayyan contribution, genuine shared unit inputs, actual CI artifacts, PDF, source/evidence whitelist and exact payload/Git-identity manifest
+- Excluded active databases, credentials, virtualenvs and unsynchronized .git; did not reset the laptop
+
+Why still open: Area 3/mutation/current shared gate/accepted history are incomplete. The source checkout on the laptop is stale with preserved uncommitted changes and protected metadata. A clearly labelled Rayyan contribution cannot be called the final group submission.
+
+Next owner action: Coordinate all authentic Area 1/3 results, resolve accepted reviews/gates, confirm whether the official suffix is B or SE-5B, obtain accepted history through permitted clone/fetch and verify the final group package.
+
+Dependency: Area 3/mutation/current shared gate/accepted history are incomplete. The source checkout on the laptop is stale with preserved uncommitted changes and protected metadata. A clearly labelled Rayyan contribution cannot be called the final group submission. No additional Rayyan technical prompt or execution is a prerequisite.
+
+Measurable acceptance: Correct three-roll/section naming, complete evidence-backed all-area PDF, public repo link, reproducible source/scripts/tools, synchronized .git, verified ZIP/payload hashes and honest release/HOLD decision.
+
+Evidence/files: `docs/team/AREA2_PACKAGE_MANIFEST.json`; `docs/team/reports/RAYYAN_FINAL_CLOSEOUT.md`; `handoff.md`.
+
+## F4-HUMAN-RECORDS —P2 —Shared management
+
+Original owner: Each human contributor / coordinated by Wasay. **NOW: Wasay / Wasay's agent — mandatory. Requirement OPEN / execution transferred.**
+
+References: Estimation/GQM/AI disclosure; Brief sections 2/7. Tested contribution source: `aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e`.
+
+Required deliverable: Collect genuine effort, review and progress records if they exist; retain unavailable labels where historical records cannot be substantiated.
+
+Actual attempts:
+
+- Disclosed agent use and exact checks; retained actual CI timings as tool durations and kept unmeasured metrics unavailable
+
+Why still open: No trustworthy original human timesheet/actual-versus-original-estimate history is supplied. Automated runtime cannot prove personal effort, a human RCA meeting, individual review or a passed viva.
+
+Next owner action: Coordinate genuine existing human records and truthful shared AI/review acknowledgement; preserve actual authorship and unavailable facts.
+
+Dependency: No trustworthy original human timesheet/actual-versus-original-estimate history is supplied. Automated runtime cannot prove personal effort, a human RCA meeting, individual review or a passed viva. No additional Rayyan technical prompt or execution is a prerequisite.
+
+Measurable acceptance: Substantiated records or explicit unavailable labels, never fabricated hours, meetings, retroactive estimates, review or assessment outcomes.
+
+Evidence/files: `docs/team/AI_USE_RECORD.md`; `docs/team/AREA2_MANAGEMENT.md`.
+
+## Personal assessment facts
+
+Personal viva, learning and authentic individual human review cannot be impersonated or certified by this execution. They are not project implementation/testing/documentation/packaging backlog for Rayyan. Genuine missing historical effort/review records stay unavailable unless substantiated; automated runtimes never become human hours.
+
+Rayyan will no longer do any further project implementation, testing, integration, documentation, packaging or follow-up execution work. Rayyan's project execution assignment is finished. Every remaining project execution item in the final handoff is now assigned to Muhammad Wasay Tariq / Wasay's agent, and its completion is mandatory for the project. No further technical execution or additional prompt is expected from Rayyan.

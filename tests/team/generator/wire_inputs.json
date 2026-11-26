@@ -1,0 +1,7002 @@
+{
+  "source": {
+    "repository": "includeduck/SQE-Horilla-Project",
+    "commit": "2553d590ae99d07387222d7e8875d00cd8eb49ef",
+    "path": "docs/team/finish-line/OPERATION_INPUT_INVENTORY.json",
+    "capture_run": 45414665978
+  },
+  "operations": [
+    {
+      "operation": "own_balance",
+      "route": "/api/v1/leave/available-leave/",
+      "method": "GET",
+      "role": "employee",
+      "requirements": [
+        "FR-10"
+      ]
+    },
+    {
+      "operation": "allocation_list",
+      "route": "/api/v1/leave/allocation-request/",
+      "method": "GET",
+      "role": "approver",
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ]
+    },
+    {
+      "operation": "allocation_create",
+      "route": "/api/v1/leave/allocation-request/",
+      "method": "POST",
+      "role": "approver",
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ]
+    },
+    {
+      "operation": "allocation_detail",
+      "route": "/api/v1/leave/allocation-request/{pk}/",
+      "method": "GET",
+      "role": "approver",
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ]
+    },
+    {
+      "operation": "allocation_update",
+      "route": "/api/v1/leave/allocation-request/{pk}/",
+      "method": "PUT",
+      "role": "approver",
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ]
+    },
+    {
+      "operation": "allocation_delete",
+      "route": "/api/v1/leave/allocation-request/{pk}/",
+      "method": "DELETE",
+      "role": "approver",
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ]
+    },
+    {
+      "operation": "self_allocation_list",
+      "route": "/api/v1/leave/user-allocation-request/",
+      "method": "GET",
+      "role": "employee",
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ]
+    },
+    {
+      "operation": "self_allocation_create",
+      "route": "/api/v1/leave/user-allocation-request/",
+      "method": "POST",
+      "role": "employee",
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ]
+    },
+    {
+      "operation": "self_allocation_update",
+      "route": "/api/v1/leave/user-allocation-request/{pk}/",
+      "method": "PUT",
+      "role": "employee",
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ]
+    },
+    {
+      "operation": "self_allocation_delete",
+      "route": "/api/v1/leave/user-allocation-request/{pk}/",
+      "method": "DELETE",
+      "role": "employee",
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ]
+    },
+    {
+      "operation": "leave_list",
+      "route": "/api/v1/leave/request/",
+      "method": "GET",
+      "role": "approver",
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ]
+    },
+    {
+      "operation": "leave_create",
+      "route": "/api/v1/leave/request/",
+      "method": "POST",
+      "role": "approver",
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ]
+    },
+    {
+      "operation": "leave_detail",
+      "route": "/api/v1/leave/request/{pk}/",
+      "method": "GET",
+      "role": "approver",
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ]
+    },
+    {
+      "operation": "leave_update",
+      "route": "/api/v1/leave/request/{pk}/",
+      "method": "PUT",
+      "role": "approver",
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ]
+    },
+    {
+      "operation": "leave_delete",
+      "route": "/api/v1/leave/request/{pk}/",
+      "method": "DELETE",
+      "role": "approver",
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ]
+    },
+    {
+      "operation": "self_leave_list",
+      "route": "/api/v1/leave/user-request/",
+      "method": "GET",
+      "role": "employee",
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ]
+    },
+    {
+      "operation": "self_leave_create",
+      "route": "/api/v1/leave/user-request/",
+      "method": "POST",
+      "role": "employee",
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ]
+    },
+    {
+      "operation": "self_leave_detail",
+      "route": "/api/v1/leave/user-request/{pk}/",
+      "method": "GET",
+      "role": "employee",
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ]
+    },
+    {
+      "operation": "self_leave_update",
+      "route": "/api/v1/leave/user-request/{pk}/",
+      "method": "PUT",
+      "role": "employee",
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ]
+    },
+    {
+      "operation": "self_leave_delete",
+      "route": "/api/v1/leave/user-request/{pk}/",
+      "method": "DELETE",
+      "role": "employee",
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ]
+    },
+    {
+      "operation": "approve",
+      "route": "/api/v1/leave/approve/{pk}/",
+      "method": "PUT",
+      "role": "approver",
+      "requirements": [
+        "FR-08"
+      ]
+    },
+    {
+      "operation": "reject",
+      "route": "/api/v1/leave/reject/{pk}/",
+      "method": "PUT",
+      "role": "approver",
+      "requirements": [
+        "FR-09"
+      ]
+    },
+    {
+      "operation": "cancel",
+      "route": "/api/v1/leave/cancel/{pk}/",
+      "method": "PUT",
+      "role": "employee",
+      "requirements": [
+        "BR-03"
+      ]
+    },
+    {
+      "operation": "cancellation_approve",
+      "route": "/api/v1/leave/cancellation-approve/{pk}/",
+      "method": "PUT",
+      "role": "approver",
+      "requirements": [
+        "BR-03"
+      ]
+    },
+    {
+      "operation": "cancellation_reject",
+      "route": "/api/v1/leave/cancellation-reject/{pk}/",
+      "method": "PUT",
+      "role": "approver",
+      "requirements": [
+        "BR-03"
+      ]
+    },
+    {
+      "operation": "allocation_approve",
+      "route": "/api/v1/leave/allocation-approve/{pk}/",
+      "method": "PUT",
+      "role": "approver",
+      "requirements": [
+        "FR-02"
+      ]
+    },
+    {
+      "operation": "allocation_reject",
+      "route": "/api/v1/leave/allocation-reject/{pk}/",
+      "method": "PUT",
+      "role": "approver",
+      "requirements": [
+        "FR-03"
+      ]
+    },
+    {
+      "operation": "assignment_list",
+      "route": "/api/v1/leave/assign-leave/",
+      "method": "GET",
+      "role": "approver",
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ]
+    },
+    {
+      "operation": "assignment_create",
+      "route": "/api/v1/leave/assign-leave/",
+      "method": "POST",
+      "role": "approver",
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ]
+    },
+    {
+      "operation": "assignment_detail",
+      "route": "/api/v1/leave/assign-leave/{pk}/",
+      "method": "GET",
+      "role": "approver",
+      "requirements": [
+        "FR-10",
+        "BR-04"
+      ]
+    },
+    {
+      "operation": "assignment_update",
+      "route": "/api/v1/leave/assign-leave/{pk}/",
+      "method": "PUT",
+      "role": "approver",
+      "requirements": [
+        "FR-10",
+        "BR-04"
+      ]
+    },
+    {
+      "operation": "assignment_delete",
+      "route": "/api/v1/leave/assign-leave/{pk}/",
+      "method": "DELETE",
+      "role": "approver",
+      "requirements": [
+        "FR-10",
+        "BR-04"
+      ]
+    },
+    {
+      "operation": "leave_type_list",
+      "route": "/api/v1/leave/leave-type/",
+      "method": "GET",
+      "role": "employee",
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ]
+    },
+    {
+      "operation": "employee_leave_type_list",
+      "route": "/api/v1/leave/employee-leave-type/{pk}/",
+      "method": "GET",
+      "role": "employee",
+      "requirements": [
+        "FR-01",
+        "FR-05",
+        "BR-04"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "id": "INPUT:allocation_approve:path:pk",
+      "operation": "allocation_approve",
+      "location": "path",
+      "field": "pk",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-02"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "allocation_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_reject:path:pk",
+      "operation": "allocation_reject",
+      "location": "path",
+      "field": "pk",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-03"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "allocation_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_reject:body:reason",
+      "operation": "allocation_reject",
+      "location": "body",
+      "field": "reason",
+      "category": "declared_generated_input",
+      "stage": 3,
+      "requirements": [
+        "FR-03"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "nullable": true,
+          "example": "Synthetic rejection",
+          "x-source": "reject_reason_from: optional text, strip, truncate to 1000, ignore nonstrings; persistence separately constrained",
+          "x-wire-coercion": "Non-string/null/missing/blank is ignored, not schema-rejected. This schema is the text interpretation; Prompt 3 binds actual wire outcomes."
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_list:query:page_size",
+      "operation": "allocation_list",
+      "location": "query",
+      "field": "page_size",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_create:body:leave_type_id",
+      "operation": "allocation_create",
+      "location": "body",
+      "field": "leave_type_id",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "leave_type_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
+          "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_create:body:employee_id",
+      "operation": "allocation_create",
+      "location": "body",
+      "field": "employee_id",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "employee_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
+          "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_create:body:requested_days",
+      "operation": "allocation_create",
+      "location": "body",
+      "field": "requested_days",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "number",
+          "example": 5,
+          "x-source": "horilla_api/api_serializers/leave/serializers.py LeaveAllocationRequestCreateSerializer.requested_days required FloatField, no min/max",
+          "x-wire-coercion": "Finite numeric strings accepted by DRF FloatField; nonnumeric representative rejects"
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_create:body:description",
+      "operation": "allocation_create",
+      "location": "body",
+      "field": "description",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "minLength": 1,
+          "example": "Synthetic Area 2 allocation",
+          "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
+          "x-trim-whitespace": true
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_create:body:attachment",
+      "operation": "allocation_create",
+      "location": "body",
+      "field": "attachment",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "format": "binary",
+          "nullable": true,
+          "x-filename-maxLength": 100,
+          "x-allow-empty-file": false,
+          "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_delete:path:pk",
+      "operation": "allocation_delete",
+      "location": "path",
+      "field": "pk",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "allocation_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_detail:path:pk",
+      "operation": "allocation_detail",
+      "location": "path",
+      "field": "pk",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "allocation_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_update:path:pk",
+      "operation": "allocation_update",
+      "location": "path",
+      "field": "pk",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "allocation_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_update:body:leave_type_id",
+      "operation": "allocation_update",
+      "location": "body",
+      "field": "leave_type_id",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "leave_type_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
+          "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_update:body:employee_id",
+      "operation": "allocation_update",
+      "location": "body",
+      "field": "employee_id",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "employee_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
+          "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_update:body:requested_days",
+      "operation": "allocation_update",
+      "location": "body",
+      "field": "requested_days",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "number",
+          "example": 5,
+          "x-source": "horilla_api/api_serializers/leave/serializers.py LeaveAllocationRequestCreateSerializer.requested_days required FloatField, no min/max",
+          "x-wire-coercion": "Finite numeric strings accepted by DRF FloatField; nonnumeric representative rejects",
+          "nullable": true
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_update:body:description",
+      "operation": "allocation_update",
+      "location": "body",
+      "field": "description",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "minLength": 1,
+          "example": "Synthetic Area 2 allocation",
+          "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
+          "x-trim-whitespace": true
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_update:body:attachment",
+      "operation": "allocation_update",
+      "location": "body",
+      "field": "attachment",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "format": "binary",
+          "nullable": true,
+          "x-filename-maxLength": 100,
+          "x-allow-empty-file": false,
+          "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_update:body:is_active",
+      "operation": "allocation_update",
+      "location": "body",
+      "field": "is_active",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "boolean",
+          "example": true,
+          "x-source": "Runtime LeaveAllocationRequestSerilaizer.is_active: writable BooleanField, optional, non-null"
+        }
+      }
+    },
+    {
+      "id": "INPUT:approve:path:pk",
+      "operation": "approve",
+      "location": "path",
+      "field": "pk",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-08"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "leave_request_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+        }
+      }
+    },
+    {
+      "id": "INPUT:assignment_list:query:page_size",
+      "operation": "assignment_list",
+      "location": "query",
+      "field": "page_size",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        }
+      }
+    },
+    {
+      "id": "INPUT:assignment_create:body:employee_ids",
+      "operation": "assignment_create",
+      "location": "body",
+      "field": "employee_ids",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "integer",
+            "x-binding": "employee_id",
+            "x-reference": {
+              "missing-binding": "missing_id"
+            },
+            "x-source": "Runtime related field / int:pk route; existence and ownership bound separately"
+          },
+          "x-source": "AssignLeaveCreateSerializer.validate_employee_ids rejects empty, despite child allow_empty=True"
+        }
+      }
+    },
+    {
+      "id": "INPUT:assignment_create:body:leave_type_ids",
+      "operation": "assignment_create",
+      "location": "body",
+      "field": "leave_type_ids",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "integer",
+            "x-binding": "leave_type_id",
+            "x-reference": {
+              "missing-binding": "missing_id"
+            },
+            "x-source": "Runtime related field / int:pk route; existence and ownership bound separately"
+          },
+          "x-source": "AssignLeaveCreateSerializer.validate_leave_type_ids rejects empty"
+        }
+      }
+    },
+    {
+      "id": "INPUT:assignment_delete:path:pk",
+      "operation": "assignment_delete",
+      "location": "path",
+      "field": "pk",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "available_leave_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-source": "Runtime related field / int:pk route; existence and ownership bound separately"
+        }
+      }
+    },
+    {
+      "id": "INPUT:assignment_detail:path:pk",
+      "operation": "assignment_detail",
+      "location": "path",
+      "field": "pk",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "available_leave_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-source": "Runtime related field / int:pk route; existence and ownership bound separately"
+        }
+      }
+    },
+    {
+      "id": "INPUT:assignment_detail:query:page_size",
+      "operation": "assignment_detail",
+      "location": "query",
+      "field": "page_size",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        }
+      }
+    },
+    {
+      "id": "INPUT:assignment_update:path:pk",
+      "operation": "assignment_update",
+      "location": "path",
+      "field": "pk",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "available_leave_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-source": "Runtime related field / int:pk route; existence and ownership bound separately"
+        }
+      }
+    },
+    {
+      "id": "INPUT:assignment_update:body:available_days",
+      "operation": "assignment_update",
+      "location": "body",
+      "field": "available_days",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "number",
+          "example": 5,
+          "x-source": "Runtime AvailableLeaveUpdateSerializer: required, non-null, no declared numeric bounds"
+        }
+      }
+    },
+    {
+      "id": "INPUT:assignment_update:body:carryforward_days",
+      "operation": "assignment_update",
+      "location": "body",
+      "field": "carryforward_days",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "number",
+          "example": 0,
+          "x-source": "Runtime AvailableLeaveUpdateSerializer: optional, non-null, no declared numeric bounds"
+        }
+      }
+    },
+    {
+      "id": "INPUT:own_balance:query:page_size",
+      "operation": "own_balance",
+      "location": "query",
+      "field": "page_size",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-10"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        }
+      }
+    },
+    {
+      "id": "INPUT:cancel:path:pk",
+      "operation": "cancel",
+      "location": "path",
+      "field": "pk",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "BR-03"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "leave_request_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+        }
+      }
+    },
+    {
+      "id": "INPUT:cancellation_approve:path:pk",
+      "operation": "cancellation_approve",
+      "location": "path",
+      "field": "pk",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "BR-03"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "leave_request_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+        }
+      }
+    },
+    {
+      "id": "INPUT:cancellation_reject:path:pk",
+      "operation": "cancellation_reject",
+      "location": "path",
+      "field": "pk",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "BR-03"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "leave_request_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+        }
+      }
+    },
+    {
+      "id": "INPUT:cancellation_reject:body:reason",
+      "operation": "cancellation_reject",
+      "location": "body",
+      "field": "reason",
+      "category": "declared_generated_input",
+      "stage": 3,
+      "requirements": [
+        "BR-03"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "nullable": true,
+          "example": "Synthetic rejection",
+          "x-source": "reject_reason_from: optional text, strip, truncate to 1000, ignore nonstrings; persistence separately constrained",
+          "x-wire-coercion": "Non-string/null/missing/blank is ignored, not schema-rejected. This schema is the text interpretation; Prompt 3 binds actual wire outcomes."
+        }
+      }
+    },
+    {
+      "id": "INPUT:employee_leave_type_list:path:pk",
+      "operation": "employee_leave_type_list",
+      "location": "path",
+      "field": "pk",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05",
+        "BR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "employee_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-source": "Runtime related field / int:pk route; existence and ownership bound separately"
+        }
+      }
+    },
+    {
+      "id": "INPUT:employee_leave_type_list:query:page_size",
+      "operation": "employee_leave_type_list",
+      "location": "query",
+      "field": "page_size",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05",
+        "BR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:page_size",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "page_size",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        }
+      }
+    },
+    {
+      "id": "INPUT:reject:path:pk",
+      "operation": "reject",
+      "location": "path",
+      "field": "pk",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-09"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "leave_request_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+        }
+      }
+    },
+    {
+      "id": "INPUT:reject:body:reason",
+      "operation": "reject",
+      "location": "body",
+      "field": "reason",
+      "category": "declared_generated_input",
+      "stage": 3,
+      "requirements": [
+        "FR-09"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "nullable": true,
+          "example": "Synthetic rejection",
+          "x-source": "reject_reason_from: optional text, strip, truncate to 1000, ignore nonstrings; persistence separately constrained",
+          "x-wire-coercion": "Non-string/null/missing/blank is ignored, not schema-rejected. This schema is the text interpretation; Prompt 3 binds actual wire outcomes."
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_list:query:page_size",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "page_size",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_create:body:employee_id",
+      "operation": "leave_create",
+      "location": "body",
+      "field": "employee_id",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "employee_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
+          "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_create:body:leave_type_id",
+      "operation": "leave_create",
+      "location": "body",
+      "field": "leave_type_id",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "leave_type_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
+          "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_create:body:start_date",
+      "operation": "leave_create",
+      "location": "body",
+      "field": "start_date",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "format": "date",
+          "x-binding": "start_date",
+          "x-source": "leave/models.py:1383"
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_create:body:end_date",
+      "operation": "leave_create",
+      "location": "body",
+      "field": "end_date",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "format": "date",
+          "nullable": true,
+          "x-binding": "end_date",
+          "x-source": "leave/models.py:1390; employee create normalizes missing/null end date to start"
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_create:body:start_date_breakdown",
+      "operation": "leave_create",
+      "location": "body",
+      "field": "start_date_breakdown",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "enum": [
+            "full_day",
+            "first_half",
+            "second_half"
+          ],
+          "default": "full_day",
+          "x-source": "leave/models.py BREAKDOWN and LeaveRequest start/end_date_breakdown"
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_create:body:end_date_breakdown",
+      "operation": "leave_create",
+      "location": "body",
+      "field": "end_date_breakdown",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "enum": [
+            "full_day",
+            "first_half",
+            "second_half"
+          ],
+          "default": "full_day",
+          "x-source": "leave/models.py BREAKDOWN and LeaveRequest start/end_date_breakdown"
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_create:body:description",
+      "operation": "leave_create",
+      "location": "body",
+      "field": "description",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "minLength": 1,
+          "example": "Synthetic Area 2 allocation",
+          "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
+          "x-trim-whitespace": true
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_create:body:attachment",
+      "operation": "leave_create",
+      "location": "body",
+      "field": "attachment",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "format": "binary",
+          "nullable": true,
+          "x-filename-maxLength": 100,
+          "x-allow-empty-file": false,
+          "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_delete:path:pk",
+      "operation": "leave_delete",
+      "location": "path",
+      "field": "pk",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "leave_request_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_detail:path:pk",
+      "operation": "leave_detail",
+      "location": "path",
+      "field": "pk",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "leave_request_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_update:path:pk",
+      "operation": "leave_update",
+      "location": "path",
+      "field": "pk",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "leave_request_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_update:body:employee_id",
+      "operation": "leave_update",
+      "location": "body",
+      "field": "employee_id",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "employee_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
+          "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_update:body:leave_type_id",
+      "operation": "leave_update",
+      "location": "body",
+      "field": "leave_type_id",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "leave_type_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
+          "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_update:body:start_date",
+      "operation": "leave_update",
+      "location": "body",
+      "field": "start_date",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "format": "date",
+          "x-binding": "start_date",
+          "x-source": "leave/models.py:1383"
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_update:body:end_date",
+      "operation": "leave_update",
+      "location": "body",
+      "field": "end_date",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "format": "date",
+          "nullable": true,
+          "x-binding": "end_date",
+          "x-source": "leave/models.py:1390; employee create normalizes missing/null end date to start"
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_update:body:start_date_breakdown",
+      "operation": "leave_update",
+      "location": "body",
+      "field": "start_date_breakdown",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "enum": [
+            "full_day",
+            "first_half",
+            "second_half"
+          ],
+          "default": "full_day",
+          "x-source": "leave/models.py BREAKDOWN and LeaveRequest start/end_date_breakdown"
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_update:body:end_date_breakdown",
+      "operation": "leave_update",
+      "location": "body",
+      "field": "end_date_breakdown",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "enum": [
+            "full_day",
+            "first_half",
+            "second_half"
+          ],
+          "default": "full_day",
+          "x-source": "leave/models.py BREAKDOWN and LeaveRequest start/end_date_breakdown"
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_update:body:description",
+      "operation": "leave_update",
+      "location": "body",
+      "field": "description",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "minLength": 1,
+          "example": "Synthetic Area 2 allocation",
+          "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
+          "x-trim-whitespace": true
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_update:body:attachment",
+      "operation": "leave_update",
+      "location": "body",
+      "field": "attachment",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "format": "binary",
+          "nullable": true,
+          "x-filename-maxLength": 100,
+          "x-allow-empty-file": false,
+          "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_allocation_list:query:page_size",
+      "operation": "self_allocation_list",
+      "location": "query",
+      "field": "page_size",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_allocation_create:body:leave_type_id",
+      "operation": "self_allocation_create",
+      "location": "body",
+      "field": "leave_type_id",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "leave_type_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
+          "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_allocation_create:body:requested_days",
+      "operation": "self_allocation_create",
+      "location": "body",
+      "field": "requested_days",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "number",
+          "example": 5,
+          "x-source": "horilla_api/api_serializers/leave/serializers.py LeaveAllocationRequestCreateSerializer.requested_days required FloatField, no min/max",
+          "x-wire-coercion": "Finite numeric strings accepted by DRF FloatField; nonnumeric representative rejects"
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_allocation_create:body:description",
+      "operation": "self_allocation_create",
+      "location": "body",
+      "field": "description",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "minLength": 1,
+          "example": "Synthetic Area 2 allocation",
+          "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
+          "x-trim-whitespace": true
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_allocation_create:body:attachment",
+      "operation": "self_allocation_create",
+      "location": "body",
+      "field": "attachment",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "format": "binary",
+          "nullable": true,
+          "x-filename-maxLength": 100,
+          "x-allow-empty-file": false,
+          "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_allocation_delete:path:pk",
+      "operation": "self_allocation_delete",
+      "location": "path",
+      "field": "pk",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "allocation_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_allocation_update:path:pk",
+      "operation": "self_allocation_update",
+      "location": "path",
+      "field": "pk",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "allocation_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_allocation_update:body:leave_type_id",
+      "operation": "self_allocation_update",
+      "location": "body",
+      "field": "leave_type_id",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "leave_type_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
+          "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_allocation_update:body:requested_days",
+      "operation": "self_allocation_update",
+      "location": "body",
+      "field": "requested_days",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "number",
+          "example": 5,
+          "x-source": "horilla_api/api_serializers/leave/serializers.py LeaveAllocationRequestCreateSerializer.requested_days required FloatField, no min/max",
+          "x-wire-coercion": "Finite numeric strings accepted by DRF FloatField; nonnumeric representative rejects",
+          "nullable": true
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_allocation_update:body:description",
+      "operation": "self_allocation_update",
+      "location": "body",
+      "field": "description",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "minLength": 1,
+          "example": "Synthetic Area 2 allocation",
+          "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
+          "x-trim-whitespace": true
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_allocation_update:body:attachment",
+      "operation": "self_allocation_update",
+      "location": "body",
+      "field": "attachment",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "format": "binary",
+          "nullable": true,
+          "x-filename-maxLength": 100,
+          "x-allow-empty-file": false,
+          "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_allocation_update:body:is_active",
+      "operation": "self_allocation_update",
+      "location": "body",
+      "field": "is_active",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "schema": {
+          "type": "boolean",
+          "example": true,
+          "x-source": "Runtime LeaveAllocationRequestSerilaizer.is_active: writable BooleanField, optional, non-null"
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_list:query:page_size",
+      "operation": "self_leave_list",
+      "location": "query",
+      "field": "page_size",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20,
+          "x-clamp-maximum": 100,
+          "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+          "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_create:body:leave_type_id",
+      "operation": "self_leave_create",
+      "location": "body",
+      "field": "leave_type_id",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "leave_type_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
+          "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_create:body:start_date",
+      "operation": "self_leave_create",
+      "location": "body",
+      "field": "start_date",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "format": "date",
+          "x-binding": "start_date",
+          "x-source": "leave/models.py:1383"
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_create:body:end_date",
+      "operation": "self_leave_create",
+      "location": "body",
+      "field": "end_date",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "format": "date",
+          "nullable": true,
+          "x-binding": "end_date",
+          "x-source": "leave/models.py:1390; employee create normalizes missing/null end date to start"
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_create:body:start_date_breakdown",
+      "operation": "self_leave_create",
+      "location": "body",
+      "field": "start_date_breakdown",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "enum": [
+            "full_day",
+            "first_half",
+            "second_half"
+          ],
+          "default": "full_day",
+          "x-source": "leave/models.py BREAKDOWN and LeaveRequest start/end_date_breakdown"
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_create:body:end_date_breakdown",
+      "operation": "self_leave_create",
+      "location": "body",
+      "field": "end_date_breakdown",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "enum": [
+            "full_day",
+            "first_half",
+            "second_half"
+          ],
+          "default": "full_day",
+          "x-source": "leave/models.py BREAKDOWN and LeaveRequest start/end_date_breakdown"
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_create:body:description",
+      "operation": "self_leave_create",
+      "location": "body",
+      "field": "description",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "minLength": 1,
+          "example": "Synthetic Area 2 allocation",
+          "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
+          "x-trim-whitespace": true
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_create:body:attachment",
+      "operation": "self_leave_create",
+      "location": "body",
+      "field": "attachment",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "format": "binary",
+          "nullable": true,
+          "x-filename-maxLength": 100,
+          "x-allow-empty-file": false,
+          "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_delete:path:pk",
+      "operation": "self_leave_delete",
+      "location": "path",
+      "field": "pk",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "leave_request_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_detail:path:pk",
+      "operation": "self_leave_detail",
+      "location": "path",
+      "field": "pk",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "leave_request_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_update:path:pk",
+      "operation": "self_leave_update",
+      "location": "path",
+      "field": "pk",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "leave_request_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_update:body:leave_type_id",
+      "operation": "self_leave_update",
+      "location": "body",
+      "field": "leave_type_id",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "integer",
+          "x-binding": "leave_type_id",
+          "x-reference": {
+            "missing-binding": "missing_id"
+          },
+          "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
+          "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_update:body:start_date",
+      "operation": "self_leave_update",
+      "location": "body",
+      "field": "start_date",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "format": "date",
+          "x-binding": "start_date",
+          "x-source": "leave/models.py:1383"
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_update:body:end_date",
+      "operation": "self_leave_update",
+      "location": "body",
+      "field": "end_date",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "format": "date",
+          "nullable": true,
+          "x-binding": "end_date",
+          "x-source": "leave/models.py:1390; employee create normalizes missing/null end date to start"
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_update:body:start_date_breakdown",
+      "operation": "self_leave_update",
+      "location": "body",
+      "field": "start_date_breakdown",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "enum": [
+            "full_day",
+            "first_half",
+            "second_half"
+          ],
+          "default": "full_day",
+          "x-source": "leave/models.py BREAKDOWN and LeaveRequest start/end_date_breakdown"
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_update:body:end_date_breakdown",
+      "operation": "self_leave_update",
+      "location": "body",
+      "field": "end_date_breakdown",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "enum": [
+            "full_day",
+            "first_half",
+            "second_half"
+          ],
+          "default": "full_day",
+          "x-source": "leave/models.py BREAKDOWN and LeaveRequest start/end_date_breakdown"
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_update:body:description",
+      "operation": "self_leave_update",
+      "location": "body",
+      "field": "description",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "minLength": 1,
+          "example": "Synthetic Area 2 allocation",
+          "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
+          "x-trim-whitespace": true
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_update:body:attachment",
+      "operation": "self_leave_update",
+      "location": "body",
+      "field": "attachment",
+      "category": "declared_generated_input",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "schema": {
+          "type": "string",
+          "format": "binary",
+          "nullable": true,
+          "x-filename-maxLength": 100,
+          "x-allow-empty-file": false,
+          "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+        }
+      }
+    },
+    {
+      "id": "INPUT:own_balance:query:is_active",
+      "operation": "own_balance",
+      "location": "query",
+      "field": "is_active",
+      "category": "manager_query",
+      "stage": 2,
+      "requirements": [
+        "FR-10"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:own_balance:query:page",
+      "operation": "own_balance",
+      "location": "query",
+      "field": "page",
+      "category": "pagination",
+      "stage": 2,
+      "requirements": [
+        "FR-10"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:own_balance:header:Authorization",
+      "operation": "own_balance",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-10"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:own_balance:header:Accept",
+      "operation": "own_balance",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-10"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_list:query:created_by",
+      "operation": "allocation_list",
+      "location": "query",
+      "field": "created_by",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "ModelMultipleChoiceFilter",
+          "field_name": "created_by__employee_get",
+          "form_field": "ModelMultipleChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_list:query:employee_id",
+      "operation": "allocation_list",
+      "location": "query",
+      "field": "employee_id",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "ModelMultipleChoiceFilter",
+          "field_name": "employee_id",
+          "form_field": "ModelMultipleChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_list:query:id",
+      "operation": "allocation_list",
+      "location": "query",
+      "field": "id",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "NumberFilter",
+          "field_name": "id",
+          "form_field": "DecimalField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "DecimalValidator",
+              "limit_value": ""
+            },
+            {
+              "class": "MaxValueValidator",
+              "limit_value": "1e+50"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_list:query:leave_type",
+      "operation": "allocation_list",
+      "location": "query",
+      "field": "leave_type",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "CharFilter",
+          "field_name": "leave_type_id__name",
+          "form_field": "CharField",
+          "lookup_expr": "icontains",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "ProhibitNullCharactersValidator",
+              "limit_value": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_list:query:leave_type_id",
+      "operation": "allocation_list",
+      "location": "query",
+      "field": "leave_type_id",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "ModelMultipleChoiceFilter",
+          "field_name": "leave_type_id",
+          "form_field": "ModelMultipleChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_list:query:name_or_badge",
+      "operation": "allocation_list",
+      "location": "query",
+      "field": "name_or_badge",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "CharFilter",
+          "field_name": "name_or_badge",
+          "form_field": "CharField",
+          "lookup_expr": "exact",
+          "method": "filter_name_or_badge",
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "ProhibitNullCharactersValidator",
+              "limit_value": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_list:query:number_of_days_more_than",
+      "operation": "allocation_list",
+      "location": "query",
+      "field": "number_of_days_more_than",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "NumberFilter",
+          "field_name": "requested_days",
+          "form_field": "DecimalField",
+          "lookup_expr": "gte",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "DecimalValidator",
+              "limit_value": ""
+            },
+            {
+              "class": "MaxValueValidator",
+              "limit_value": "1e+50"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_list:query:number_of_days_up_to",
+      "operation": "allocation_list",
+      "location": "query",
+      "field": "number_of_days_up_to",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "NumberFilter",
+          "field_name": "requested_days",
+          "form_field": "DecimalField",
+          "lookup_expr": "lte",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "DecimalValidator",
+              "limit_value": ""
+            },
+            {
+              "class": "MaxValueValidator",
+              "limit_value": "1e+50"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_list:query:search",
+      "operation": "allocation_list",
+      "location": "query",
+      "field": "search",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "CharFilter",
+          "field_name": "search",
+          "form_field": "CharField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "ProhibitNullCharactersValidator",
+              "limit_value": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_list:query:status",
+      "operation": "allocation_list",
+      "location": "query",
+      "field": "status",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "ChoiceFilter",
+          "field_name": "status",
+          "form_field": "ChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [
+            "",
+            "requested",
+            "approved",
+            "rejected"
+          ],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:allocation_list:query:is_active",
+      "operation": "allocation_list",
+      "location": "query",
+      "field": "is_active",
+      "category": "manager_query",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_list:query:page",
+      "operation": "allocation_list",
+      "location": "query",
+      "field": "page",
+      "category": "pagination",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_list:query:groupby_field",
+      "operation": "allocation_list",
+      "location": "query",
+      "field": "groupby_field",
+      "category": "view_query",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_list:header:Authorization",
+      "operation": "allocation_list",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_list:header:Accept",
+      "operation": "allocation_list",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_create:header:Authorization",
+      "operation": "allocation_create",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_create:header:Accept",
+      "operation": "allocation_create",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_create:header:Content-Type",
+      "operation": "allocation_create",
+      "location": "header",
+      "field": "Content-Type",
+      "category": "request_media",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_create:body:$whole",
+      "operation": "allocation_create",
+      "location": "body",
+      "field": "$whole",
+      "category": "whole_body",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_create:body:$server_managed_fields",
+      "operation": "allocation_create",
+      "location": "body",
+      "field": "$server_managed_fields",
+      "category": "injection_integrity",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_detail:header:Authorization",
+      "operation": "allocation_detail",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_detail:header:Accept",
+      "operation": "allocation_detail",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_update:header:Authorization",
+      "operation": "allocation_update",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_update:header:Accept",
+      "operation": "allocation_update",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_update:header:Content-Type",
+      "operation": "allocation_update",
+      "location": "header",
+      "field": "Content-Type",
+      "category": "request_media",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_update:body:$whole",
+      "operation": "allocation_update",
+      "location": "body",
+      "field": "$whole",
+      "category": "whole_body",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_update:body:$server_managed_fields",
+      "operation": "allocation_update",
+      "location": "body",
+      "field": "$server_managed_fields",
+      "category": "injection_integrity",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_delete:header:Authorization",
+      "operation": "allocation_delete",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_delete:header:Accept",
+      "operation": "allocation_delete",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_allocation_list:query:created_by",
+      "operation": "self_allocation_list",
+      "location": "query",
+      "field": "created_by",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "ModelMultipleChoiceFilter",
+          "field_name": "created_by__employee_get",
+          "form_field": "ModelMultipleChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_allocation_list:query:employee_id",
+      "operation": "self_allocation_list",
+      "location": "query",
+      "field": "employee_id",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "ModelMultipleChoiceFilter",
+          "field_name": "employee_id",
+          "form_field": "ModelMultipleChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_allocation_list:query:id",
+      "operation": "self_allocation_list",
+      "location": "query",
+      "field": "id",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "NumberFilter",
+          "field_name": "id",
+          "form_field": "DecimalField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "DecimalValidator",
+              "limit_value": ""
+            },
+            {
+              "class": "MaxValueValidator",
+              "limit_value": "1e+50"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_allocation_list:query:leave_type",
+      "operation": "self_allocation_list",
+      "location": "query",
+      "field": "leave_type",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "CharFilter",
+          "field_name": "leave_type_id__name",
+          "form_field": "CharField",
+          "lookup_expr": "icontains",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "ProhibitNullCharactersValidator",
+              "limit_value": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_allocation_list:query:leave_type_id",
+      "operation": "self_allocation_list",
+      "location": "query",
+      "field": "leave_type_id",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "ModelMultipleChoiceFilter",
+          "field_name": "leave_type_id",
+          "form_field": "ModelMultipleChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_allocation_list:query:name_or_badge",
+      "operation": "self_allocation_list",
+      "location": "query",
+      "field": "name_or_badge",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "CharFilter",
+          "field_name": "name_or_badge",
+          "form_field": "CharField",
+          "lookup_expr": "exact",
+          "method": "filter_name_or_badge",
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "ProhibitNullCharactersValidator",
+              "limit_value": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_allocation_list:query:number_of_days_more_than",
+      "operation": "self_allocation_list",
+      "location": "query",
+      "field": "number_of_days_more_than",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "NumberFilter",
+          "field_name": "requested_days",
+          "form_field": "DecimalField",
+          "lookup_expr": "gte",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "DecimalValidator",
+              "limit_value": ""
+            },
+            {
+              "class": "MaxValueValidator",
+              "limit_value": "1e+50"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_allocation_list:query:number_of_days_up_to",
+      "operation": "self_allocation_list",
+      "location": "query",
+      "field": "number_of_days_up_to",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "NumberFilter",
+          "field_name": "requested_days",
+          "form_field": "DecimalField",
+          "lookup_expr": "lte",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "DecimalValidator",
+              "limit_value": ""
+            },
+            {
+              "class": "MaxValueValidator",
+              "limit_value": "1e+50"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_allocation_list:query:search",
+      "operation": "self_allocation_list",
+      "location": "query",
+      "field": "search",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "CharFilter",
+          "field_name": "search",
+          "form_field": "CharField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "ProhibitNullCharactersValidator",
+              "limit_value": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_allocation_list:query:status",
+      "operation": "self_allocation_list",
+      "location": "query",
+      "field": "status",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "ChoiceFilter",
+          "field_name": "status",
+          "form_field": "ChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [
+            "",
+            "requested",
+            "approved",
+            "rejected"
+          ],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_allocation_list:query:is_active",
+      "operation": "self_allocation_list",
+      "location": "query",
+      "field": "is_active",
+      "category": "manager_query",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_allocation_list:query:page",
+      "operation": "self_allocation_list",
+      "location": "query",
+      "field": "page",
+      "category": "pagination",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_allocation_list:query:groupby_field",
+      "operation": "self_allocation_list",
+      "location": "query",
+      "field": "groupby_field",
+      "category": "view_query",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_allocation_list:header:Authorization",
+      "operation": "self_allocation_list",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_allocation_list:header:Accept",
+      "operation": "self_allocation_list",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_allocation_create:header:Authorization",
+      "operation": "self_allocation_create",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_allocation_create:header:Accept",
+      "operation": "self_allocation_create",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_allocation_create:header:Content-Type",
+      "operation": "self_allocation_create",
+      "location": "header",
+      "field": "Content-Type",
+      "category": "request_media",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_allocation_create:body:$whole",
+      "operation": "self_allocation_create",
+      "location": "body",
+      "field": "$whole",
+      "category": "whole_body",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_allocation_create:body:$server_managed_fields",
+      "operation": "self_allocation_create",
+      "location": "body",
+      "field": "$server_managed_fields",
+      "category": "injection_integrity",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_allocation_update:header:Authorization",
+      "operation": "self_allocation_update",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_allocation_update:header:Accept",
+      "operation": "self_allocation_update",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_allocation_update:header:Content-Type",
+      "operation": "self_allocation_update",
+      "location": "header",
+      "field": "Content-Type",
+      "category": "request_media",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_allocation_update:body:$whole",
+      "operation": "self_allocation_update",
+      "location": "body",
+      "field": "$whole",
+      "category": "whole_body",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_allocation_update:body:$server_managed_fields",
+      "operation": "self_allocation_update",
+      "location": "body",
+      "field": "$server_managed_fields",
+      "category": "injection_integrity",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_allocation_delete:header:Authorization",
+      "operation": "self_allocation_delete",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_allocation_delete:header:Accept",
+      "operation": "self_allocation_delete",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_list:query:department_name",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "department_name",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "CharFilter",
+          "field_name": "employee_id__employee_work_info__department_id__department",
+          "form_field": "CharField",
+          "lookup_expr": "icontains",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "ProhibitNullCharactersValidator",
+              "limit_value": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_list:query:employee_id",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "employee_id",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "ModelMultipleChoiceFilter",
+          "field_name": "employee_id",
+          "form_field": "ModelMultipleChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_list:query:employee_id__employee_work_info__company_id",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "employee_id__employee_work_info__company_id",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "ModelMultipleChoiceFilter",
+          "field_name": "employee_id__employee_work_info__company_id",
+          "form_field": "ModelMultipleChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_list:query:employee_id__employee_work_info__department_id",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "employee_id__employee_work_info__department_id",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "ModelMultipleChoiceFilter",
+          "field_name": "employee_id__employee_work_info__department_id",
+          "form_field": "ModelMultipleChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_list:query:employee_id__employee_work_info__employee_type_id",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "employee_id__employee_work_info__employee_type_id",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "ModelMultipleChoiceFilter",
+          "field_name": "employee_id__employee_work_info__employee_type_id",
+          "form_field": "ModelMultipleChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_list:query:employee_id__employee_work_info__job_position_id",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "employee_id__employee_work_info__job_position_id",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "ModelMultipleChoiceFilter",
+          "field_name": "employee_id__employee_work_info__job_position_id",
+          "form_field": "ModelMultipleChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_list:query:employee_id__employee_work_info__job_role_id",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "employee_id__employee_work_info__job_role_id",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "ModelMultipleChoiceFilter",
+          "field_name": "employee_id__employee_work_info__job_role_id",
+          "form_field": "ModelMultipleChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_list:query:employee_id__employee_work_info__reporting_manager_id",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "employee_id__employee_work_info__reporting_manager_id",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "ModelMultipleChoiceFilter",
+          "field_name": "employee_id__employee_work_info__reporting_manager_id",
+          "form_field": "ModelMultipleChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_list:query:employee_id__employee_work_info__shift_id",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "employee_id__employee_work_info__shift_id",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "ModelMultipleChoiceFilter",
+          "field_name": "employee_id__employee_work_info__shift_id",
+          "form_field": "ModelMultipleChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_list:query:employee_id__employee_work_info__work_type_id",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "employee_id__employee_work_info__work_type_id",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "ModelMultipleChoiceFilter",
+          "field_name": "employee_id__employee_work_info__work_type_id",
+          "form_field": "ModelMultipleChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_list:query:from_date",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "from_date",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "DateFilter",
+          "field_name": "from_date",
+          "form_field": "DateField",
+          "lookup_expr": "exact",
+          "method": "filter_from_date",
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_list:query:id",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "id",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "NumberFilter",
+          "field_name": "id",
+          "form_field": "DecimalField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "DecimalValidator",
+              "limit_value": ""
+            },
+            {
+              "class": "MaxValueValidator",
+              "limit_value": "1e+50"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_list:query:leave_type_id",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "leave_type_id",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "ModelMultipleChoiceFilter",
+          "field_name": "leave_type_id",
+          "form_field": "ModelMultipleChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_list:query:name_or_badge",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "name_or_badge",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "CharFilter",
+          "field_name": "name_or_badge",
+          "form_field": "CharField",
+          "lookup_expr": "exact",
+          "method": "filter_name_or_badge",
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "ProhibitNullCharactersValidator",
+              "limit_value": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_list:query:overall_leave",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "overall_leave",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "CharFilter",
+          "field_name": "overall_leave",
+          "form_field": "CharField",
+          "lookup_expr": "exact",
+          "method": "overall_leave_filter",
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "ProhibitNullCharactersValidator",
+              "limit_value": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_list:query:payment",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "payment",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "ChoiceFilter",
+          "field_name": "payment",
+          "form_field": "ChoiceField",
+          "lookup_expr": "exact",
+          "method": "filter_payment",
+          "required": false,
+          "static_choices": [
+            "",
+            "paid",
+            "unpaid"
+          ],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_list:query:search",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "search",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "CharFilter",
+          "field_name": "search",
+          "form_field": "CharField",
+          "lookup_expr": "exact",
+          "method": "filter_by_name",
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "ProhibitNullCharactersValidator",
+              "limit_value": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_list:query:search_field",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "search_field",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "CharFilter",
+          "field_name": "search_field",
+          "form_field": "CharField",
+          "lookup_expr": "exact",
+          "method": "search_in",
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "ProhibitNullCharactersValidator",
+              "limit_value": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_list:query:start_date_gte",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "start_date_gte",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "DateFilter",
+          "field_name": "start_date",
+          "form_field": "DateField",
+          "lookup_expr": "gte",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_list:query:status",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "status",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "ChoiceFilter",
+          "field_name": "status",
+          "form_field": "ChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [
+            "",
+            "requested",
+            "approved",
+            "cancel_requested",
+            "cancelled",
+            "rejected"
+          ],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_list:query:to_date",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "to_date",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "DateFilter",
+          "field_name": "start_date",
+          "form_field": "DateField",
+          "lookup_expr": "lte",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_list:query:today_leave",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "today_leave",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "BooleanFilter",
+          "field_name": "today_leave",
+          "form_field": "NullBooleanField",
+          "lookup_expr": "exact",
+          "method": "filter_today_leave",
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_list:query:is_active",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "is_active",
+      "category": "manager_query",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_list:query:page",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "page",
+      "category": "pagination",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_list:query:groupby_field",
+      "operation": "leave_list",
+      "location": "query",
+      "field": "groupby_field",
+      "category": "view_query",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_list:header:Authorization",
+      "operation": "leave_list",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_list:header:Accept",
+      "operation": "leave_list",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_create:header:Authorization",
+      "operation": "leave_create",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_create:header:Accept",
+      "operation": "leave_create",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_create:header:Content-Type",
+      "operation": "leave_create",
+      "location": "header",
+      "field": "Content-Type",
+      "category": "request_media",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_create:body:$whole",
+      "operation": "leave_create",
+      "location": "body",
+      "field": "$whole",
+      "category": "whole_body",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_create:body:$server_managed_fields",
+      "operation": "leave_create",
+      "location": "body",
+      "field": "$server_managed_fields",
+      "category": "injection_integrity",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_create:relational:$effective_duration",
+      "operation": "leave_create",
+      "location": "relational",
+      "field": "$effective_duration",
+      "category": "business_rule",
+      "stage": 3,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_create:relational:$holidays",
+      "operation": "leave_create",
+      "location": "relational",
+      "field": "$holidays",
+      "category": "business_rule",
+      "stage": 3,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_create:relational:$breakdown_overlap_attachment",
+      "operation": "leave_create",
+      "location": "relational",
+      "field": "$breakdown_overlap_attachment",
+      "category": "business_rule",
+      "stage": 3,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_detail:header:Authorization",
+      "operation": "leave_detail",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_detail:header:Accept",
+      "operation": "leave_detail",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_update:header:Authorization",
+      "operation": "leave_update",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_update:header:Accept",
+      "operation": "leave_update",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_update:header:Content-Type",
+      "operation": "leave_update",
+      "location": "header",
+      "field": "Content-Type",
+      "category": "request_media",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_update:body:$whole",
+      "operation": "leave_update",
+      "location": "body",
+      "field": "$whole",
+      "category": "whole_body",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_update:body:$server_managed_fields",
+      "operation": "leave_update",
+      "location": "body",
+      "field": "$server_managed_fields",
+      "category": "injection_integrity",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_update:relational:$effective_duration",
+      "operation": "leave_update",
+      "location": "relational",
+      "field": "$effective_duration",
+      "category": "business_rule",
+      "stage": 3,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_update:relational:$holidays",
+      "operation": "leave_update",
+      "location": "relational",
+      "field": "$holidays",
+      "category": "business_rule",
+      "stage": 3,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_update:relational:$breakdown_overlap_attachment",
+      "operation": "leave_update",
+      "location": "relational",
+      "field": "$breakdown_overlap_attachment",
+      "category": "business_rule",
+      "stage": 3,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_delete:header:Authorization",
+      "operation": "leave_delete",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_delete:header:Accept",
+      "operation": "leave_delete",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_list:query:from_date",
+      "operation": "self_leave_list",
+      "location": "query",
+      "field": "from_date",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "DateFilter",
+          "field_name": "end_date",
+          "form_field": "DateField",
+          "lookup_expr": "gte",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_list:query:leave_type",
+      "operation": "self_leave_list",
+      "location": "query",
+      "field": "leave_type",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "CharFilter",
+          "field_name": "leave_type_id__name",
+          "form_field": "CharField",
+          "lookup_expr": "icontains",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "ProhibitNullCharactersValidator",
+              "limit_value": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_list:query:leave_type_id",
+      "operation": "self_leave_list",
+      "location": "query",
+      "field": "leave_type_id",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "ModelMultipleChoiceFilter",
+          "field_name": "leave_type_id",
+          "form_field": "ModelMultipleChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_list:query:search",
+      "operation": "self_leave_list",
+      "location": "query",
+      "field": "search",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "CharFilter",
+          "field_name": "leave_type_id__name",
+          "form_field": "CharField",
+          "lookup_expr": "icontains",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "ProhibitNullCharactersValidator",
+              "limit_value": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_list:query:start_date_gte",
+      "operation": "self_leave_list",
+      "location": "query",
+      "field": "start_date_gte",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "DateFilter",
+          "field_name": "start_date",
+          "form_field": "DateField",
+          "lookup_expr": "gte",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_list:query:status",
+      "operation": "self_leave_list",
+      "location": "query",
+      "field": "status",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "ChoiceFilter",
+          "field_name": "status",
+          "form_field": "ChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [
+            "",
+            "requested",
+            "approved",
+            "cancel_requested",
+            "cancelled",
+            "rejected"
+          ],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_list:query:to_date",
+      "operation": "self_leave_list",
+      "location": "query",
+      "field": "to_date",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {
+        "filter": {
+          "class": "DateFilter",
+          "field_name": "start_date",
+          "form_field": "DateField",
+          "lookup_expr": "lte",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:self_leave_list:query:is_active",
+      "operation": "self_leave_list",
+      "location": "query",
+      "field": "is_active",
+      "category": "manager_query",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_list:query:page",
+      "operation": "self_leave_list",
+      "location": "query",
+      "field": "page",
+      "category": "pagination",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_list:query:groupby_field",
+      "operation": "self_leave_list",
+      "location": "query",
+      "field": "groupby_field",
+      "category": "view_query",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_list:header:Authorization",
+      "operation": "self_leave_list",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_list:header:Accept",
+      "operation": "self_leave_list",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_create:header:Authorization",
+      "operation": "self_leave_create",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_create:header:Accept",
+      "operation": "self_leave_create",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_create:header:Content-Type",
+      "operation": "self_leave_create",
+      "location": "header",
+      "field": "Content-Type",
+      "category": "request_media",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_create:body:$whole",
+      "operation": "self_leave_create",
+      "location": "body",
+      "field": "$whole",
+      "category": "whole_body",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_create:body:$server_managed_fields",
+      "operation": "self_leave_create",
+      "location": "body",
+      "field": "$server_managed_fields",
+      "category": "injection_integrity",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_create:relational:$effective_duration",
+      "operation": "self_leave_create",
+      "location": "relational",
+      "field": "$effective_duration",
+      "category": "business_rule",
+      "stage": 3,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_create:relational:$holidays",
+      "operation": "self_leave_create",
+      "location": "relational",
+      "field": "$holidays",
+      "category": "business_rule",
+      "stage": 3,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_create:relational:$breakdown_overlap_attachment",
+      "operation": "self_leave_create",
+      "location": "relational",
+      "field": "$breakdown_overlap_attachment",
+      "category": "business_rule",
+      "stage": 3,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_detail:header:Authorization",
+      "operation": "self_leave_detail",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_detail:header:Accept",
+      "operation": "self_leave_detail",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_update:header:Authorization",
+      "operation": "self_leave_update",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_update:header:Accept",
+      "operation": "self_leave_update",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_update:header:Content-Type",
+      "operation": "self_leave_update",
+      "location": "header",
+      "field": "Content-Type",
+      "category": "request_media",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_update:body:$whole",
+      "operation": "self_leave_update",
+      "location": "body",
+      "field": "$whole",
+      "category": "whole_body",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_update:body:$server_managed_fields",
+      "operation": "self_leave_update",
+      "location": "body",
+      "field": "$server_managed_fields",
+      "category": "injection_integrity",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_update:relational:$effective_duration",
+      "operation": "self_leave_update",
+      "location": "relational",
+      "field": "$effective_duration",
+      "category": "business_rule",
+      "stage": 3,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_update:relational:$holidays",
+      "operation": "self_leave_update",
+      "location": "relational",
+      "field": "$holidays",
+      "category": "business_rule",
+      "stage": 3,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_update:relational:$breakdown_overlap_attachment",
+      "operation": "self_leave_update",
+      "location": "relational",
+      "field": "$breakdown_overlap_attachment",
+      "category": "business_rule",
+      "stage": 3,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_delete:header:Authorization",
+      "operation": "self_leave_delete",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:self_leave_delete:header:Accept",
+      "operation": "self_leave_delete",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:approve:header:Authorization",
+      "operation": "approve",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-08"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:approve:header:Accept",
+      "operation": "approve",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-08"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:approve:header:Content-Type",
+      "operation": "approve",
+      "location": "header",
+      "field": "Content-Type",
+      "category": "request_media",
+      "stage": 2,
+      "requirements": [
+        "FR-08"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:approve:body:$whole",
+      "operation": "approve",
+      "location": "body",
+      "field": "$whole",
+      "category": "whole_body",
+      "stage": 2,
+      "requirements": [
+        "FR-08"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:reject:header:Authorization",
+      "operation": "reject",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-09"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:reject:header:Accept",
+      "operation": "reject",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-09"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:reject:header:Content-Type",
+      "operation": "reject",
+      "location": "header",
+      "field": "Content-Type",
+      "category": "request_media",
+      "stage": 2,
+      "requirements": [
+        "FR-09"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:reject:body:$whole",
+      "operation": "reject",
+      "location": "body",
+      "field": "$whole",
+      "category": "whole_body",
+      "stage": 2,
+      "requirements": [
+        "FR-09"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:cancel:header:Authorization",
+      "operation": "cancel",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "BR-03"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:cancel:header:Accept",
+      "operation": "cancel",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "BR-03"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:cancel:header:Content-Type",
+      "operation": "cancel",
+      "location": "header",
+      "field": "Content-Type",
+      "category": "request_media",
+      "stage": 2,
+      "requirements": [
+        "BR-03"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:cancel:body:$whole",
+      "operation": "cancel",
+      "location": "body",
+      "field": "$whole",
+      "category": "whole_body",
+      "stage": 2,
+      "requirements": [
+        "BR-03"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:cancellation_approve:header:Authorization",
+      "operation": "cancellation_approve",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "BR-03"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:cancellation_approve:header:Accept",
+      "operation": "cancellation_approve",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "BR-03"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:cancellation_approve:header:Content-Type",
+      "operation": "cancellation_approve",
+      "location": "header",
+      "field": "Content-Type",
+      "category": "request_media",
+      "stage": 2,
+      "requirements": [
+        "BR-03"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:cancellation_approve:body:$whole",
+      "operation": "cancellation_approve",
+      "location": "body",
+      "field": "$whole",
+      "category": "whole_body",
+      "stage": 2,
+      "requirements": [
+        "BR-03"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:cancellation_reject:header:Authorization",
+      "operation": "cancellation_reject",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "BR-03"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:cancellation_reject:header:Accept",
+      "operation": "cancellation_reject",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "BR-03"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:cancellation_reject:header:Content-Type",
+      "operation": "cancellation_reject",
+      "location": "header",
+      "field": "Content-Type",
+      "category": "request_media",
+      "stage": 2,
+      "requirements": [
+        "BR-03"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:cancellation_reject:body:$whole",
+      "operation": "cancellation_reject",
+      "location": "body",
+      "field": "$whole",
+      "category": "whole_body",
+      "stage": 2,
+      "requirements": [
+        "BR-03"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_approve:header:Authorization",
+      "operation": "allocation_approve",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-02"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_approve:header:Accept",
+      "operation": "allocation_approve",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-02"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_approve:header:Content-Type",
+      "operation": "allocation_approve",
+      "location": "header",
+      "field": "Content-Type",
+      "category": "request_media",
+      "stage": 2,
+      "requirements": [
+        "FR-02"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_approve:body:$whole",
+      "operation": "allocation_approve",
+      "location": "body",
+      "field": "$whole",
+      "category": "whole_body",
+      "stage": 2,
+      "requirements": [
+        "FR-02"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_approve:body:$server_managed_fields",
+      "operation": "allocation_approve",
+      "location": "body",
+      "field": "$server_managed_fields",
+      "category": "injection_integrity",
+      "stage": 2,
+      "requirements": [
+        "FR-02"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_reject:header:Authorization",
+      "operation": "allocation_reject",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-03"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_reject:header:Accept",
+      "operation": "allocation_reject",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-03"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_reject:header:Content-Type",
+      "operation": "allocation_reject",
+      "location": "header",
+      "field": "Content-Type",
+      "category": "request_media",
+      "stage": 2,
+      "requirements": [
+        "FR-03"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_reject:body:$whole",
+      "operation": "allocation_reject",
+      "location": "body",
+      "field": "$whole",
+      "category": "whole_body",
+      "stage": 2,
+      "requirements": [
+        "FR-03"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:allocation_reject:body:$server_managed_fields",
+      "operation": "allocation_reject",
+      "location": "body",
+      "field": "$server_managed_fields",
+      "category": "injection_integrity",
+      "stage": 2,
+      "requirements": [
+        "FR-03"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:assignment_list:query:assigned_date",
+      "operation": "assignment_list",
+      "location": "query",
+      "field": "assigned_date",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "DateFilter",
+          "field_name": "assigned_date",
+          "form_field": "DateField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:assignment_list:query:available_days",
+      "operation": "assignment_list",
+      "location": "query",
+      "field": "available_days",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "NumberFilter",
+          "field_name": "available_days",
+          "form_field": "DecimalField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "DecimalValidator",
+              "limit_value": ""
+            },
+            {
+              "class": "MaxValueValidator",
+              "limit_value": "1e+50"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:assignment_list:query:available_days__gte",
+      "operation": "assignment_list",
+      "location": "query",
+      "field": "available_days__gte",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "NumberFilter",
+          "field_name": "available_days",
+          "form_field": "DecimalField",
+          "lookup_expr": "gte",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "DecimalValidator",
+              "limit_value": ""
+            },
+            {
+              "class": "MaxValueValidator",
+              "limit_value": "1e+50"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:assignment_list:query:available_days__lte",
+      "operation": "assignment_list",
+      "location": "query",
+      "field": "available_days__lte",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "NumberFilter",
+          "field_name": "available_days",
+          "form_field": "DecimalField",
+          "lookup_expr": "lte",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "DecimalValidator",
+              "limit_value": ""
+            },
+            {
+              "class": "MaxValueValidator",
+              "limit_value": "1e+50"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:assignment_list:query:carryforward_days",
+      "operation": "assignment_list",
+      "location": "query",
+      "field": "carryforward_days",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "NumberFilter",
+          "field_name": "carryforward_days",
+          "form_field": "DecimalField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "DecimalValidator",
+              "limit_value": ""
+            },
+            {
+              "class": "MaxValueValidator",
+              "limit_value": "1e+50"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:assignment_list:query:carryforward_days__gte",
+      "operation": "assignment_list",
+      "location": "query",
+      "field": "carryforward_days__gte",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "NumberFilter",
+          "field_name": "carryforward_days",
+          "form_field": "DecimalField",
+          "lookup_expr": "gte",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "DecimalValidator",
+              "limit_value": ""
+            },
+            {
+              "class": "MaxValueValidator",
+              "limit_value": "1e+50"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:assignment_list:query:carryforward_days__lte",
+      "operation": "assignment_list",
+      "location": "query",
+      "field": "carryforward_days__lte",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "NumberFilter",
+          "field_name": "carryforward_days",
+          "form_field": "DecimalField",
+          "lookup_expr": "lte",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "DecimalValidator",
+              "limit_value": ""
+            },
+            {
+              "class": "MaxValueValidator",
+              "limit_value": "1e+50"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:assignment_list:query:employee_id",
+      "operation": "assignment_list",
+      "location": "query",
+      "field": "employee_id",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "ModelMultipleChoiceFilter",
+          "field_name": "employee_id",
+          "form_field": "ModelMultipleChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:assignment_list:query:leave_type_id",
+      "operation": "assignment_list",
+      "location": "query",
+      "field": "leave_type_id",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "ModelMultipleChoiceFilter",
+          "field_name": "leave_type_id",
+          "form_field": "ModelMultipleChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:assignment_list:query:name_or_badge",
+      "operation": "assignment_list",
+      "location": "query",
+      "field": "name_or_badge",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "CharFilter",
+          "field_name": "name_or_badge",
+          "form_field": "CharField",
+          "lookup_expr": "exact",
+          "method": "filter_name_or_badge",
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "ProhibitNullCharactersValidator",
+              "limit_value": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:assignment_list:query:search",
+      "operation": "assignment_list",
+      "location": "query",
+      "field": "search",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "CharFilter",
+          "field_name": "search",
+          "form_field": "CharField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "ProhibitNullCharactersValidator",
+              "limit_value": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:assignment_list:query:total_leave_days",
+      "operation": "assignment_list",
+      "location": "query",
+      "field": "total_leave_days",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "NumberFilter",
+          "field_name": "total_leave_days",
+          "form_field": "DecimalField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "DecimalValidator",
+              "limit_value": ""
+            },
+            {
+              "class": "MaxValueValidator",
+              "limit_value": "1e+50"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:assignment_list:query:total_leave_days__gte",
+      "operation": "assignment_list",
+      "location": "query",
+      "field": "total_leave_days__gte",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "NumberFilter",
+          "field_name": "total_leave_days",
+          "form_field": "DecimalField",
+          "lookup_expr": "gte",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "DecimalValidator",
+              "limit_value": ""
+            },
+            {
+              "class": "MaxValueValidator",
+              "limit_value": "1e+50"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:assignment_list:query:total_leave_days__lte",
+      "operation": "assignment_list",
+      "location": "query",
+      "field": "total_leave_days__lte",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {
+        "filter": {
+          "class": "NumberFilter",
+          "field_name": "total_leave_days",
+          "form_field": "DecimalField",
+          "lookup_expr": "lte",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "DecimalValidator",
+              "limit_value": ""
+            },
+            {
+              "class": "MaxValueValidator",
+              "limit_value": "1e+50"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:assignment_list:query:is_active",
+      "operation": "assignment_list",
+      "location": "query",
+      "field": "is_active",
+      "category": "manager_query",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:assignment_list:query:page",
+      "operation": "assignment_list",
+      "location": "query",
+      "field": "page",
+      "category": "pagination",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:assignment_list:query:groupby_field",
+      "operation": "assignment_list",
+      "location": "query",
+      "field": "groupby_field",
+      "category": "view_query",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:assignment_list:header:Authorization",
+      "operation": "assignment_list",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:assignment_list:header:Accept",
+      "operation": "assignment_list",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:assignment_create:header:Authorization",
+      "operation": "assignment_create",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:assignment_create:header:Accept",
+      "operation": "assignment_create",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:assignment_create:header:Content-Type",
+      "operation": "assignment_create",
+      "location": "header",
+      "field": "Content-Type",
+      "category": "request_media",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:assignment_create:body:$whole",
+      "operation": "assignment_create",
+      "location": "body",
+      "field": "$whole",
+      "category": "whole_body",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:assignment_create:body:$collection_encoding",
+      "operation": "assignment_create",
+      "location": "body",
+      "field": "$collection_encoding",
+      "category": "multipart_array",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:assignment_detail:header:Authorization",
+      "operation": "assignment_detail",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:assignment_detail:header:Accept",
+      "operation": "assignment_detail",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:assignment_update:header:Authorization",
+      "operation": "assignment_update",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:assignment_update:header:Accept",
+      "operation": "assignment_update",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:assignment_update:header:Content-Type",
+      "operation": "assignment_update",
+      "location": "header",
+      "field": "Content-Type",
+      "category": "request_media",
+      "stage": 2,
+      "requirements": [
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:assignment_update:body:$whole",
+      "operation": "assignment_update",
+      "location": "body",
+      "field": "$whole",
+      "category": "whole_body",
+      "stage": 2,
+      "requirements": [
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:assignment_delete:header:Authorization",
+      "operation": "assignment_delete",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:assignment_delete:header:Accept",
+      "operation": "assignment_delete",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-10",
+        "BR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_type_list:query:carryforward_expire_date",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "carryforward_expire_date",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "DateFilter",
+          "field_name": "carryforward_expire_date",
+          "form_field": "DateField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:carryforward_expire_in",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "carryforward_expire_in",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "NumberFilter",
+          "field_name": "carryforward_expire_in",
+          "form_field": "DecimalField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "DecimalValidator",
+              "limit_value": ""
+            },
+            {
+              "class": "MaxValueValidator",
+              "limit_value": "1e+50"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:carryforward_expire_period",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "carryforward_expire_period",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "ChoiceFilter",
+          "field_name": "carryforward_expire_period",
+          "form_field": "ChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [
+            "",
+            "day",
+            "month",
+            "year"
+          ],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:carryforward_expiry_method",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "carryforward_expiry_method",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "ChoiceFilter",
+          "field_name": "carryforward_expiry_method",
+          "form_field": "ChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [
+            "",
+            "first_expiry_date",
+            "assignment_date"
+          ],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:carryforward_max",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "carryforward_max",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "NumberFilter",
+          "field_name": "carryforward_max",
+          "form_field": "DecimalField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "DecimalValidator",
+              "limit_value": ""
+            },
+            {
+              "class": "MaxValueValidator",
+              "limit_value": "1e+50"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:carryforward_type",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "carryforward_type",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "ChoiceFilter",
+          "field_name": "carryforward_type",
+          "form_field": "ChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [
+            "",
+            "no carryforward",
+            "carryforward",
+            "carryforward expire"
+          ],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:company_id",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "company_id",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "ModelMultipleChoiceFilter",
+          "field_name": "company_id",
+          "form_field": "ModelMultipleChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:conditions",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "conditions",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "ModelMultipleChoiceFilter",
+          "field_name": "conditions",
+          "form_field": "ModelMultipleChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:count",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "count",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "NumberFilter",
+          "field_name": "count",
+          "form_field": "DecimalField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "DecimalValidator",
+              "limit_value": ""
+            },
+            {
+              "class": "MaxValueValidator",
+              "limit_value": "1e+50"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:created_at",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "created_at",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "DateTimeFilter",
+          "field_name": "created_at",
+          "form_field": "DateTimeField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:created_by",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "created_by",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "ModelMultipleChoiceFilter",
+          "field_name": "created_by",
+          "form_field": "ModelMultipleChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:custom_reset_days",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "custom_reset_days",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "NumberFilter",
+          "field_name": "custom_reset_days",
+          "form_field": "DecimalField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "DecimalValidator",
+              "limit_value": ""
+            },
+            {
+              "class": "MaxValueValidator",
+              "limit_value": "1e+50"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:exclude_company_leave",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "exclude_company_leave",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "ChoiceFilter",
+          "field_name": "exclude_company_leave",
+          "form_field": "ChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [
+            "",
+            "yes",
+            "no"
+          ],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:exclude_holiday",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "exclude_holiday",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "ChoiceFilter",
+          "field_name": "exclude_holiday",
+          "form_field": "ChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [
+            "",
+            "yes",
+            "no"
+          ],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:is_active",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "is_active",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "BooleanFilter",
+          "field_name": "is_active",
+          "form_field": "NullBooleanField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:is_compensatory_leave",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "is_compensatory_leave",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "BooleanFilter",
+          "field_name": "is_compensatory_leave",
+          "form_field": "NullBooleanField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:is_encashable",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "is_encashable",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "BooleanFilter",
+          "field_name": "is_encashable",
+          "form_field": "NullBooleanField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:limit_leave",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "limit_leave",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "BooleanFilter",
+          "field_name": "limit_leave",
+          "form_field": "NullBooleanField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:modified_by",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "modified_by",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "ModelMultipleChoiceFilter",
+          "field_name": "modified_by",
+          "form_field": "ModelMultipleChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:name",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "name",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "CharFilter",
+          "field_name": "name",
+          "form_field": "CharField",
+          "lookup_expr": "icontains",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "ProhibitNullCharactersValidator",
+              "limit_value": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:payment",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "payment",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "ChoiceFilter",
+          "field_name": "payment",
+          "form_field": "ChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [
+            "",
+            "paid",
+            "unpaid"
+          ],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:payment_percentage",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "payment_percentage",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "NumberFilter",
+          "field_name": "payment_percentage",
+          "form_field": "DecimalField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "DecimalValidator",
+              "limit_value": ""
+            },
+            {
+              "class": "MaxValueValidator",
+              "limit_value": "1e+50"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:payment_type",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "payment_type",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "ChoiceFilter",
+          "field_name": "payment_type",
+          "form_field": "ChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [
+            "",
+            "paid",
+            "unpaid",
+            "custom"
+          ],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:period_in",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "period_in",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "ChoiceFilter",
+          "field_name": "period_in",
+          "form_field": "ChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [
+            "",
+            "day",
+            "month",
+            "year"
+          ],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:require_approval",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "require_approval",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "ChoiceFilter",
+          "field_name": "require_approval",
+          "form_field": "ChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [
+            "",
+            "yes",
+            "no"
+          ],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:require_attachment",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "require_attachment",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "ChoiceFilter",
+          "field_name": "require_attachment",
+          "form_field": "ChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [
+            "",
+            "yes",
+            "no"
+          ],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:reset",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "reset",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "BooleanFilter",
+          "field_name": "reset",
+          "form_field": "NullBooleanField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:reset_based",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "reset_based",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "ChoiceFilter",
+          "field_name": "reset_based",
+          "form_field": "ChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [
+            "",
+            "yearly",
+            "monthly",
+            "weekly",
+            "custom"
+          ],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:reset_day",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "reset_day",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "ChoiceFilter",
+          "field_name": "reset_day",
+          "form_field": "ChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [
+            "",
+            "last day",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31"
+          ],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:reset_month",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "reset_month",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "ChoiceFilter",
+          "field_name": "reset_month",
+          "form_field": "ChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [
+            "",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"
+          ],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:reset_weekend",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "reset_weekend",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "ChoiceFilter",
+          "field_name": "reset_weekend",
+          "form_field": "ChoiceField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [
+            "",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "validators": []
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:search",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "search",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "CharFilter",
+          "field_name": "name",
+          "form_field": "CharField",
+          "lookup_expr": "icontains",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "ProhibitNullCharactersValidator",
+              "limit_value": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:total_days",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "total_days",
+      "category": "runtime_filter",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {
+        "filter": {
+          "class": "NumberFilter",
+          "field_name": "total_days",
+          "form_field": "DecimalField",
+          "lookup_expr": "exact",
+          "method": null,
+          "required": false,
+          "static_choices": [],
+          "validators": [
+            {
+              "class": "DecimalValidator",
+              "limit_value": ""
+            },
+            {
+              "class": "MaxValueValidator",
+              "limit_value": "1e+50"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "INPUT:leave_type_list:query:page",
+      "operation": "leave_type_list",
+      "location": "query",
+      "field": "page",
+      "category": "pagination",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_type_list:header:Authorization",
+      "operation": "leave_type_list",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:leave_type_list:header:Accept",
+      "operation": "leave_type_list",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:employee_leave_type_list:query:is_active",
+      "operation": "employee_leave_type_list",
+      "location": "query",
+      "field": "is_active",
+      "category": "manager_query",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05",
+        "BR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:employee_leave_type_list:query:page",
+      "operation": "employee_leave_type_list",
+      "location": "query",
+      "field": "page",
+      "category": "pagination",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05",
+        "BR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:employee_leave_type_list:header:Authorization",
+      "operation": "employee_leave_type_list",
+      "location": "header",
+      "field": "Authorization",
+      "category": "authentication_roles",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05",
+        "BR-04"
+      ],
+      "details": {}
+    },
+    {
+      "id": "INPUT:employee_leave_type_list:header:Accept",
+      "operation": "employee_leave_type_list",
+      "location": "header",
+      "field": "Accept",
+      "category": "response_negotiation",
+      "stage": 2,
+      "requirements": [
+        "FR-01",
+        "FR-05",
+        "BR-04"
+      ],
+      "details": {}
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+test_all_authorization_combinations_and_self_denial (test_case_catalog.CatalogTests.test_all_authorization_combinations_and_self_denial) ... ok
+test_balance_oracle_cap_and_forecast_are_separate (test_case_catalog.CatalogTests.test_balance_oracle_cap_and_forecast_are_separate) ... ok
+test_cancellation_rejection_returns_approved_without_refund_state (test_case_catalog.CatalogTests.test_cancellation_rejection_returns_approved_without_refund_state) ... ok
+test_complete_br02_truth_table_with_explicit_infeasibility (test_case_catalog.CatalogTests.test_complete_br02_truth_table_with_explicit_infeasibility) ... ok
+test_each_state_has_allowed_or_explicit_terminal_and_invalid_action (test_case_catalog.CatalogTests.test_each_state_has_allowed_or_explicit_terminal_and_invalid_action) ... ok
+test_generated_selection_is_explicit_unique_and_excludes_binary (test_case_catalog.CatalogTests.test_generated_selection_is_explicit_unique_and_excludes_binary) ... ok
+test_ledger_partitions_generated_ids_without_duplicate_api_cases (test_case_catalog.CatalogTests.test_ledger_partitions_generated_ids_without_duplicate_api_cases) ... ok
+test_array_limits_and_single_invalid_item_preserve_count (test_generate.GeneratorTests.test_array_limits_and_single_invalid_item_preserve_count) ... ok
+test_bad_references_fail_visibly (test_generate.GeneratorTests.test_bad_references_fail_visibly) ... ok
+test_binary_filename_real_three_point_set (test_generate.GeneratorTests.test_binary_filename_real_three_point_set) ... ok
+test_boolean_false_and_nonfinite_values (test_generate.GeneratorTests.test_boolean_false_and_nonfinite_values) ... ok
+test_bounded_float_requires_real_unit (test_generate.GeneratorTests.test_bounded_float_requires_real_unit) ... ok
+test_cli_generate_and_check (test_generate.GeneratorTests.test_cli_generate_and_check) ... ok
+test_contract_operations_exist_in_current_source (test_generate.GeneratorTests.test_contract_operations_exist_in_current_source) ... ok
+test_date_limits_and_invalid_calendar_day (test_generate.GeneratorTests.test_date_limits_and_invalid_calendar_day) ... ok
+test_date_order_uses_bound_start_and_changes_only_end (test_generate.GeneratorTests.test_date_order_uses_bound_start_and_changes_only_end) ... ok
+test_enum_all_members_and_outside_class (test_generate.GeneratorTests.test_enum_all_members_and_outside_class) ... ok
+test_escaped_pointer_resolution (test_generate.GeneratorTests.test_escaped_pointer_resolution) ... ok
+test_exact_decimal_steps (test_generate.GeneratorTests.test_exact_decimal_steps) ... ok
+test_exclusive_maximum_baseline (test_generate.GeneratorTests.test_exclusive_maximum_baseline) ... ok
+test_exclusive_minimum_baseline (test_generate.GeneratorTests.test_exclusive_minimum_baseline) ... ok
+test_integer_limits_and_exclusivity (test_generate.GeneratorTests.test_integer_limits_and_exclusivity) ... ok
+test_invalid_dialect_and_duplicate_ids_fail (test_generate.GeneratorTests.test_invalid_dialect_and_duplicate_ids_fail) ... ok
+test_length_limits_and_negative_length_na (test_generate.GeneratorTests.test_length_limits_and_negative_length_na) ... ok
+test_local_reference_resolution (test_generate.GeneratorTests.test_local_reference_resolution) ... ok
+test_missing_bindings_and_invalid_binding_fail (test_generate.GeneratorTests.test_missing_bindings_and_invalid_binding_fail) ... ok
+test_nested_leaves_and_container_omission (test_generate.GeneratorTests.test_nested_leaves_and_container_omission) ... ok
+test_one_mutated_dimension_and_valid_baselines (test_generate.GeneratorTests.test_one_mutated_dimension_and_valid_baselines) ... ok
+test_pagination_cap_clamps_instead_of_rejecting_above_limit (test_generate.GeneratorTests.test_pagination_cap_clamps_instead_of_rejecting_above_limit) ... ok
+test_query_and_path_are_separate_and_required (test_generate.GeneratorTests.test_query_and_path_are_separate_and_required) ... ok
+test_real_contract_deterministic_and_round_trips (test_generate.GeneratorTests.test_real_contract_deterministic_and_round_trips) ... ok
+test_required_and_nullable_are_distinct (test_generate.GeneratorTests.test_required_and_nullable_are_distinct) ... ok
+test_stale_spec_binding_data_and_code_are_detected (test_generate.GeneratorTests.test_stale_spec_binding_data_and_code_are_detected) ... ok
+test_supported_constraint_mutation_changes_derived_values (test_generate.GeneratorTests.test_supported_constraint_mutation_changes_derived_values) ... ok
+test_unbounded_numeric_partitions_do_not_invent_limits (test_generate.GeneratorTests.test_unbounded_numeric_partitions_do_not_invent_limits) ... ok
+test_unknown_constraints_fail_instead_of_silent_coverage (test_generate.GeneratorTests.test_unknown_constraints_fail_instead_of_silent_coverage) ... ok
+test_whitespace_normalization_is_explicit (test_generate.GeneratorTests.test_whitespace_normalization_is_explicit) ... ok
+test_existing_output_is_never_overwritten (test_regeneration.RegenerationTests.test_existing_output_is_never_overwritten) ... ok
+test_two_constraint_changes_regenerate_boundaries_and_preserve_baseline (test_regeneration.RegenerationTests.test_two_constraint_changes_regenerate_boundaries_and_preserve_baseline) ... ok
+synthetic fail-propagation probe
+test_child_failure_preserves_exit_code_and_log (test_runner.RunnerTests.test_child_failure_preserves_exit_code_and_log) ... ok
+synthetic success probe
+test_child_success_and_missing_xml_are_distinct (test_runner.RunnerTests.test_child_success_and_missing_xml_are_distinct) ... ok
+test_command_order_reverses_second_clean_api_run_and_keeps_gate (test_runner.RunnerTests.test_command_order_reverses_second_clean_api_run_and_keeps_gate) ... ok
+test_existing_evidence_directory_is_not_overwritten (test_runner.RunnerTests.test_existing_evidence_directory_is_not_overwritten) ... ok
+test_failed_first_api_still_runs_reverse_and_scope_without_losing_failure (test_runner.RunnerTests.test_failed_first_api_still_runs_reverse_and_scope_without_losing_failure) ... ok
+test_prerequisite_failure_blocks_dependent_application_stages (test_runner.RunnerTests.test_prerequisite_failure_blocks_dependent_application_stages) ... ok
+test_xml_counts_skips_errors_and_failures (test_runner.RunnerTests.test_xml_counts_skips_errors_and_failures) ... ok
+test_zero_exit_does_not_hide_invalid_or_failed_junit (test_runner.RunnerTests.test_zero_exit_does_not_hide_invalid_or_failed_junit) ... ok
+
+----------------------------------------------------------------------
+Ran 47 tests in 7.509s
+
+OK

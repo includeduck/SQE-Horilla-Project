@@ -1,0 +1,62 @@
+name: Phase D verification
+
+on:
+  push:
+    branches: [sqe-team]
+    paths: ["tests/team/**", "leave/forms.py", ".github/workflows/phase-d-verification.yml"]
+  pull_request:
+    branches: [sqe-team]
+    paths: ["tests/team/**", "leave/forms.py", ".github/workflows/phase-d-verification.yml"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: phase-d-verification-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  phase-d:
+    strategy:
+      fail-fast: false
+      matrix:
+        activity: [regeneration, browser]
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install application and Phase D tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf-2.0-0 libffi8 shared-mime-info
+          bash .github/scripts/install-requirements.sh
+          python -m pip install -r tests/team/requirements-phase-d.txt
+      - name: Install Chromium
+        if: matrix.activity == 'browser'
+        run: python -m playwright install --with-deps chromium
+      - name: Execute strict two-constraint HTTP demonstration
+        if: matrix.activity == 'regeneration'
+        run: python tests/team/run_phase_d.py --evidence docs/team/evidence/area2/phase-d/ci-${{ github.run_id }}-${{ github.run_attempt }}-regeneration
+      - name: Execute all ten personal browser flows
+        if: matrix.activity == 'browser'
+        env:
+          PYTHONPATH: tests/team:tests/team/api:tests/team/generator:.
+          AREA2_BROWSER_EVIDENCE: docs/team/evidence/area2/phase-d/ci-${{ github.run_id }}-${{ github.run_attempt }}-browser
+        run: |
+          mkdir -p "$AREA2_BROWSER_EVIDENCE"
+          set -o pipefail
+          python -m pytest -c tests/team/pytest-area2.ini tests/team/e2e -v -s -o junit_family=xunit1 --junitxml="$AREA2_BROWSER_EVIDENCE/browser.xml" 2>&1 | tee "$AREA2_BROWSER_EVIDENCE/browser.txt"
+      - name: Render genuine browser completion report
+        if: always() && matrix.activity == 'browser'
+        run: python tests/team/browser_report.py --junit docs/team/evidence/area2/phase-d/ci-${{ github.run_id }}-${{ github.run_attempt }}-browser/browser.xml --output docs/team/evidence/area2/phase-d/ci-${{ github.run_id }}-${{ github.run_attempt }}-browser/browser.html
+      - name: Retain genuine results and traces
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase-d-${{ matrix.activity }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: docs/team/evidence/area2/phase-d/ci-*/
+          if-no-files-found: error

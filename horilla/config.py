@@ -84,6 +84,11 @@ def sidebar(request):
 
 
 def get_MENUS(request):
+    # JWT-only API requests can select the browsable HTML renderer without
+    # ever creating a browser session. Session-keyed sidebar checks do not
+    # apply to that representation.
+    if request.session.session_key is None:
+        return {"sidebar": []}
     # Rebuild at most once per request — accessibility checks hit the DB.
     cached = getattr(request, "_horilla_menus", None)
     if cached is not None:
@@ -137,3 +142,4 @@ def load_ldap_settings():
         return settings.DEFAULT_LDAP_CONFIG  # Return default on error
 
     return settings.DEFAULT_LDAP_CONFIG  # Fallback in case of an issue
+

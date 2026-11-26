@@ -1,0 +1,36 @@
+{
+  "evidence_kind": "Derived from genuine completed GitHub Actions job log retrieved during prompt preparation",
+  "source_commit": "7189656a7b118565f42004770ff9a9f8bbcd3a09",
+  "run_id": 45388276552,
+  "job_id": 138424862517,
+  "artifact_id": 14921788926,
+  "artifact_url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45388276552/artifacts/14921788926",
+  "populations": {
+    "focused": {
+      "passed": 16
+    },
+    "upstream": {
+      "passed": 8
+    },
+    "expanded": {
+      "passed": 177
+    },
+    "api_preflight": {
+      "passed": 1
+    },
+    "api_first": {
+      "passed": 275,
+      "elapsed_seconds": 1213.11
+    },
+    "api_reversed": {
+      "passed": 275,
+      "elapsed_seconds": 1206.22
+    }
+  },
+  "producer": {
+    "exit_code": 3,
+    "blocked_by": "complete-scope",
+    "accepted": false
+  },
+  "interpretation": "Both existing full API orders passed. The run failed only the explicit incomplete-scope gate. These overlapping populations are separate. Current required-input completeness is still unverified/incomplete; refresh after changes."
+}

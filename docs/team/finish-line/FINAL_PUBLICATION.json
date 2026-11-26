@@ -1,0 +1,213 @@
+{
+  "format": 1,
+  "label": "Final external publication and delivery record; metadata-only changes after verified contribution snapshot",
+  "date": "2026-11-25",
+  "contributor": "Syed Muhammad Rayyan Hassan",
+  "github_identity": "rayyanhasan899",
+  "rayyan_execution_closed": true,
+  "project_release": "HOLD",
+  "ownership_statement": "Rayyan will no longer do any further project implementation, testing, integration, documentation, packaging or follow-up execution work. Rayyan's project execution assignment is finished. Every remaining project execution item in the final handoff is now assigned to Muhammad Wasay Tariq / Wasay's agent, and its completion is mandatory for the project. No further technical execution or additional prompt is expected from Rayyan.",
+  "source_branch": "rayyan/phase-c-evidence",
+  "target_branch": "sqe-team",
+  "pull_request": {
+    "number": 8,
+    "url": "https://github.com/includeduck/SQE-Horilla-Project/pull/8",
+    "merged": false,
+    "independent_acceptance": "required and unverified"
+  },
+  "tested_application_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+  "tested_merge_checkout": "801351079aada8c399db2212d9c033737e032e0d",
+  "verified_contribution_revision": "fb28a6ccafb229193adc0a9430ae05078074c267",
+  "source_equivalence": {
+    "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+    "candidate_tree": "3f41447db767d7ded47a30792465e49285e3d8fa",
+    "critical_blob_count": 1558,
+    "differences": [],
+    "scope": "All horilla*/leave application files and Area2 API/generator/contract/runtime/browser consumers unchanged; separate CI/package tooling changes verified independently"
+  },
+  "final_source_inventory": {
+    "path": "docs/team/AREA2_PACKAGE_MANIFEST.json",
+    "files": 277,
+    "excludes": [
+      "manifest self",
+      "FINAL_PUBLICATION.json",
+      "separately added external delivery records"
+    ]
+  },
+  "verification": {
+    "api_run": 45627793460,
+    "api_cases_each_order": 3433,
+    "complete_scope": true,
+    "generated_ids": 713,
+    "former_missing_ids": 399,
+    "mandatory_input_families": 350,
+    "explicit_requirements": 14,
+    "browser_flows": 10,
+    "regeneration": "6 baseline pass; variant4 pass with exactly2 predicted strict failures",
+    "shared_quality_run": 45641527661,
+    "shared_quality_result": "failure - missing live Sonar configuration and actual mutation runner/policy",
+    "supplied_unit_passes": 127,
+    "gate_control_tests_passed": 7,
+    "all_required_head_checks_claimed": false
+  },
+  "package": {
+    "source_revision": "fb28a6ccafb229193adc0a9430ae05078074c267",
+    "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+    "files": 439,
+    "zip_bytes": 49210580,
+    "zip_sha256": "e6946b68a4d4dcb639ef3a1ad87475727edcdd5c405ccbc4beeb943a04db91f9",
+    "pdf_sha256": "8ede32f6bbf3432039d6643401e14e45bec7faaf98e98899e3862505e19e998d",
+    "api_cases_per_order": 3433,
+    "mandatory_families": 350,
+    "requirements": 14,
+    "workflow_run": 45641527409,
+    "workflow_url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45641527409",
+    "workflow_conclusion": "success",
+    "artifact_id": 15033619081,
+    "artifact_url": "https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45641527409/artifacts/15033619081",
+    "artifact_archive_sha256": "c088a70d751d95ff37bf7ebd8b61ec83aeb44d122f850f94e4fd35a59b2c2808",
+    "verified_payload_files": 439,
+    "manifest_self_hash_excluded": true,
+    "artifact_expires": "2027-02-23",
+    "label": "Rayyan contribution, not final group submission",
+    "local_download_verification": "Original artifact digest, inner ZIP/PDF hashes and all439 payload byte/Git identities checked again after download"
+  },
+  "report_visual_review": {
+    "pages": 10,
+    "all_pages_viewed": true,
+    "layout_passed": true,
+    "saved_pdf_normalized_bytes": 96505,
+    "saved_pdf_normalized_sha256": "c3c3b73e680619e34b49d2604bdae9adfcb3bff6cce9cd1fc37522fe013860d2",
+    "saved_pdf_text_identical": true,
+    "saved_pdf_pixels_identical_all_pages": true,
+    "note": "Archive's original PDF hash differs from normalized separately delivered PDF bytes; all10 rendered pages and text are identical."
+  },
+  "delivery": {
+    "pdf": "Persistent contributor file delivered; exact original also inside archive",
+    "zip": "Persistent49,210,580-byte contributor archive delivered",
+    "public_backup": "Pinned GitHub artifact URL above",
+    "exact_manifest": "deliverables/rayyan/package_manifest.json"
+  },
+  "remaining_requirements": [
+    {
+      "id": "F4-REVIEW",
+      "priority": "P1",
+      "phase": "C-D",
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "requirement_status": "open",
+      "execution_status": "transferred",
+      "acceptance": "Actual independent accepted review + permitted merged commit + actual post-integration checks and warranted Issue states."
+    },
+    {
+      "id": "F4-SONAR",
+      "priority": "P1",
+      "phase": "D / Area 1",
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "requirement_status": "open",
+      "execution_status": "transferred",
+      "acceptance": "Live analysis revision equals reviewed source; gate OK with explicit duplication <=3%, reliability/security A and zero new blocker/high conditions; immutable raw server responses retained."
+    },
+    {
+      "id": "F4-MUTATION",
+      "priority": "P1",
+      "phase": "D / Area 1",
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "requirement_status": "open",
+      "execution_status": "transferred",
+      "acceptance": "Actual mutmut/Cosmic Ray outputs on reviewed source; two business-rule operators; >=15 unique analysed baseline survivors; all killable survivors killed; measured justified score passes strict gate."
+    },
+    {
+      "id": "F4-GATE-ADMIN",
+      "priority": "P1",
+      "phase": "D / shared",
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "requirement_status": "open",
+      "execution_status": "transferred",
+      "acceptance": "Actual settings and remote blocked merge/deployment evidence, then a genuine successful corrected gate; no continue-on-error, forced exits or self-approval."
+    },
+    {
+      "id": "F4-A1-FINDINGS",
+      "priority": "P2",
+      "phase": "Area 1 / shared",
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "requirement_status": "open",
+      "execution_status": "transferred",
+      "acceptance": "Actual accepted dispositions or strict before/after corrections, accurate current 100%-scope argument and source-bound unit/Sonar evidence; no hidden new uncovered business logic."
+    },
+    {
+      "id": "F4-MEMBER-USECASES",
+      "priority": "P1",
+      "phase": "D / shared Area 3",
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "requirement_status": "open",
+      "execution_status": "transferred",
+      "acceptance": "At least two genuine cases per member across the agreed workflows, all required flows automated and attributed with actual reports and commits."
+    },
+    {
+      "id": "F4-ACCESSIBILITY",
+      "priority": "P1",
+      "phase": "Area 3",
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "requirement_status": "open",
+      "execution_status": "transferred",
+      "acceptance": "Actual scripts, focus/keyboard assertions, issue impact/fix records and original before/after Lighthouse/axe/Playwright reports."
+    },
+    {
+      "id": "F4-SECURITY",
+      "priority": "P1",
+      "phase": "Area 3",
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "requirement_status": "open",
+      "execution_status": "transferred",
+      "acceptance": "Actual role/action expected/observed evidence, passive ZAP and checked package/version findings, risk/root cause/fix records without active attacks or real data."
+    },
+    {
+      "id": "F4-PERFORMANCE",
+      "priority": "P2",
+      "phase": "Area 3",
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "requirement_status": "open",
+      "execution_status": "transferred",
+      "acceptance": "Original scripts/output/environment plus p95, throughput and unexpected failures per run, interpretation against honestly predeclared targets."
+    },
+    {
+      "id": "F4-RECOVERY",
+      "priority": "P1",
+      "phase": "Area 3",
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "requirement_status": "open",
+      "execution_status": "transferred",
+      "acceptance": "Actual deterministic script, failure and recovery observations, source/fixture identity and persisted assertions."
+    },
+    {
+      "id": "F4-REGISTRATION",
+      "priority": "P2",
+      "phase": "A / shared administration",
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "requirement_status": "open",
+      "execution_status": "transferred",
+      "acceptance": "Authentic available registration/scope evidence or explicit truthful unavailable/not-completed disclosure; no invented backdated approval."
+    },
+    {
+      "id": "F4-GROUP-PACKAGE",
+      "priority": "P1",
+      "phase": "D / final submission",
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "requirement_status": "open",
+      "execution_status": "transferred",
+      "acceptance": "Correct three-roll/section naming, complete evidence-backed all-area PDF, public repo link, reproducible source/scripts/tools, synchronized .git, verified ZIP/payload hashes and honest release/HOLD decision."
+    },
+    {
+      "id": "F4-HUMAN-RECORDS",
+      "priority": "P2",
+      "phase": "Shared management",
+      "current_executor": "Wasay / Wasay's agent - mandatory",
+      "requirement_status": "open",
+      "execution_status": "transferred",
+      "acceptance": "Substantiated records or explicit unavailable labels, never fabricated hours, meetings, retroactive estimates, review or assessment outcomes."
+    }
+  ],
+  "publication_check_interpretation": "Final metadata-only commit uses [skip ci] to avoid exhaustive reruns solely for publication records. This creates no passing head check, owner acceptance or protected-merge bypass. Actual shared gate remains red and project HOLD.",
+  "personal_assessment": "No human effort, retrospective history, independent approval, teammate authorship or passed viva is certified.",
+  "local_checkout": "Stale dirty local sqe-team checkout preserved; no destructive reset/pull or packaged stale.git history claimed."
+}

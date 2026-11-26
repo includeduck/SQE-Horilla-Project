@@ -1,0 +1,1489 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Rayyan Area 2 source-reconstructed leave API subset",
+    "version": "0.2.0-source-review"
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8000"
+    }
+  ],
+  "x-exclusions": [
+    "Phase A archive/report/runtime evidence unavailable locally; this is a source-reconstructed scoped contract, not the recovered or live-validated Phase A contract.",
+    "Page-size clamp generation is supported for five list operations. Remaining page/filter/search/grouping query inputs, invalid-value pagination fallbacks and assign-leave administration still require complete inventory/coverage.",
+    "Optional reject reason is normalized/ignored/truncated by helper, not schema-validated; body generation for rejection and its persistence mismatch require Phase C oracle review.",
+    "Date ordering has generated relative calendar-day BVA. Other relational breakdown/overlap/attachment-required and effective balance/carry-forward/forecast rules require runtime scenario binding; isolated schema cases may violate those relations and are not automatically safe HTTP cases.",
+    "Path integer routing/existence and role/state transitions need Phase C expectations; positive/existing symbolic values are scenario placeholders, not proven database records.",
+    "DRF coercions (including numeric strings) and file-null/form omission are not exhaustively modeled; generated predicates concern declared schema classes, not guaranteed HTTP status.",
+    "Attachment 100-character filename bound derives from Django/DRF defaults; verify serializer introspection and HTTP before accepting this as runtime evidence.",
+    "Entire-body omission/null, binary byte/file-size limits and multipart collection encodings are outside this reader; body leaves and synthetic ASCII file descriptors are supported."
+  ],
+  "paths": {
+    "/api/v1/leave/available-leave/": {
+      "get": {
+        "operationId": "own_balance",
+        "x-role": "employee",
+        "x-requirements": [
+          "FR-10"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "200": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 20,
+              "x-clamp-maximum": 100,
+              "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+              "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/leave/allocation-request/": {
+      "get": {
+        "operationId": "allocation_list",
+        "x-role": "approver",
+        "x-requirements": [
+          "FR-01",
+          "FR-04"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "200": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 20,
+              "x-clamp-maximum": 100,
+              "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+              "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+            }
+          }
+        ]
+      },
+      "post": {
+        "operationId": "allocation_create",
+        "x-role": "approver",
+        "x-requirements": [
+          "FR-01",
+          "FR-04"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "201": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/AllocationCreate"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/leave/allocation-request/{pk}/": {
+      "parameters": [
+        {
+          "name": "pk",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "x-binding": "allocation_id",
+            "x-reference": {
+              "missing-binding": "missing_id"
+            },
+            "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "allocation_detail",
+        "x-role": "approver",
+        "x-requirements": [
+          "FR-01",
+          "FR-04"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "200": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      },
+      "put": {
+        "operationId": "allocation_update",
+        "x-role": "approver",
+        "x-requirements": [
+          "FR-01",
+          "FR-04"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "201": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/AllocationUpdate"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "allocation_delete",
+        "x-role": "approver",
+        "x-requirements": [
+          "FR-01",
+          "FR-04"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "200": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/leave/user-allocation-request/": {
+      "get": {
+        "operationId": "self_allocation_list",
+        "x-role": "employee",
+        "x-requirements": [
+          "FR-01",
+          "FR-04"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "200": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 20,
+              "x-clamp-maximum": 100,
+              "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+              "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+            }
+          }
+        ]
+      },
+      "post": {
+        "operationId": "self_allocation_create",
+        "x-role": "employee",
+        "x-requirements": [
+          "FR-01",
+          "FR-04"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "200": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/SelfAllocationCreate"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/leave/user-allocation-request/{pk}/": {
+      "parameters": [
+        {
+          "name": "pk",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "x-binding": "allocation_id",
+            "x-reference": {
+              "missing-binding": "missing_id"
+            },
+            "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "self_allocation_update",
+        "x-role": "employee",
+        "x-requirements": [
+          "FR-01",
+          "FR-04"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "201": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/SelfAllocationUpdate"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "self_allocation_delete",
+        "x-role": "employee",
+        "x-requirements": [
+          "FR-01",
+          "FR-04"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "200": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/leave/request/": {
+      "get": {
+        "operationId": "leave_list",
+        "x-role": "approver",
+        "x-requirements": [
+          "FR-05",
+          "FR-06",
+          "FR-07"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "200": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 20,
+              "x-clamp-maximum": 100,
+              "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+              "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+            }
+          }
+        ]
+      },
+      "post": {
+        "operationId": "leave_create",
+        "x-role": "approver",
+        "x-requirements": [
+          "FR-05",
+          "FR-06",
+          "FR-07"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "201": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/LeaveCreate"
+              }
+            }
+          }
+        },
+        "x-date-order": {
+          "start": "start_date",
+          "end": "end_date",
+          "source": "horilla_api/api_serializers/leave/serializers.py leave_Validations: start_date <= end_date; leave/models.py LeaveRequest.clean"
+        }
+      }
+    },
+    "/api/v1/leave/request/{pk}/": {
+      "parameters": [
+        {
+          "name": "pk",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "x-binding": "leave_request_id",
+            "x-reference": {
+              "missing-binding": "missing_id"
+            },
+            "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "leave_detail",
+        "x-role": "approver",
+        "x-requirements": [
+          "FR-05",
+          "FR-06",
+          "FR-07"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "200": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      },
+      "put": {
+        "operationId": "leave_update",
+        "x-role": "approver",
+        "x-requirements": [
+          "FR-05",
+          "FR-06",
+          "FR-07"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "201": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/LeaveCreate"
+              }
+            }
+          }
+        },
+        "x-date-order": {
+          "start": "start_date",
+          "end": "end_date",
+          "source": "horilla_api/api_serializers/leave/serializers.py leave_Validations: start_date <= end_date; leave/models.py LeaveRequest.clean"
+        }
+      },
+      "delete": {
+        "operationId": "leave_delete",
+        "x-role": "approver",
+        "x-requirements": [
+          "FR-05",
+          "FR-06",
+          "FR-07"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "200": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/leave/user-request/": {
+      "get": {
+        "operationId": "self_leave_list",
+        "x-role": "employee",
+        "x-requirements": [
+          "FR-05",
+          "FR-06",
+          "FR-07"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "200": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 20,
+              "x-clamp-maximum": 100,
+              "x-source": "horilla_api/api_methods/base/pagination.py HorillaPageNumberPagination; horilla/settings/base.py PAGE_SIZE=20",
+              "x-wire-coercion": "Requests query serialization yields strings. DRF coerces positive integers, caps at 100; invalid/zero inputs use default 20 rather than schema rejection. Only clamp-boundary predicates are executed in the current slice."
+            }
+          }
+        ]
+      },
+      "post": {
+        "operationId": "self_leave_create",
+        "x-role": "employee",
+        "x-requirements": [
+          "FR-05",
+          "FR-06",
+          "FR-07"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "201": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/SelfLeaveCreate"
+              }
+            }
+          }
+        },
+        "x-date-order": {
+          "start": "start_date",
+          "end": "end_date",
+          "source": "horilla_api/api_serializers/leave/serializers.py leave_Validations: start_date <= end_date; leave/models.py LeaveRequest.clean"
+        }
+      }
+    },
+    "/api/v1/leave/user-request/{pk}/": {
+      "parameters": [
+        {
+          "name": "pk",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "x-binding": "leave_request_id",
+            "x-reference": {
+              "missing-binding": "missing_id"
+            },
+            "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "self_leave_detail",
+        "x-role": "employee",
+        "x-requirements": [
+          "FR-05",
+          "FR-06",
+          "FR-07"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "200": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      },
+      "put": {
+        "operationId": "self_leave_update",
+        "x-role": "employee",
+        "x-requirements": [
+          "FR-05",
+          "FR-06",
+          "FR-07"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "201": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/SelfLeaveCreate"
+              }
+            }
+          }
+        },
+        "x-date-order": {
+          "start": "start_date",
+          "end": "end_date",
+          "source": "horilla_api/api_serializers/leave/serializers.py leave_Validations: start_date <= end_date; leave/models.py LeaveRequest.clean"
+        }
+      },
+      "delete": {
+        "operationId": "self_leave_delete",
+        "x-role": "employee",
+        "x-requirements": [
+          "FR-05",
+          "FR-06",
+          "FR-07"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "200": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/leave/approve/{pk}/": {
+      "parameters": [
+        {
+          "name": "pk",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "x-binding": "leave_request_id",
+            "x-reference": {
+              "missing-binding": "missing_id"
+            },
+            "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "approve",
+        "x-role": "approver",
+        "x-requirements": [
+          "FR-08"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "200": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/leave/reject/{pk}/": {
+      "parameters": [
+        {
+          "name": "pk",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "x-binding": "leave_request_id",
+            "x-reference": {
+              "missing-binding": "missing_id"
+            },
+            "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "reject",
+        "x-role": "approver",
+        "x-requirements": [
+          "FR-09"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "200": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/leave/cancel/{pk}/": {
+      "parameters": [
+        {
+          "name": "pk",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "x-binding": "leave_request_id",
+            "x-reference": {
+              "missing-binding": "missing_id"
+            },
+            "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "cancel",
+        "x-role": "employee",
+        "x-requirements": [
+          "BR-03"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "200": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/leave/cancellation-approve/{pk}/": {
+      "parameters": [
+        {
+          "name": "pk",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "x-binding": "leave_request_id",
+            "x-reference": {
+              "missing-binding": "missing_id"
+            },
+            "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "cancellation_approve",
+        "x-role": "approver",
+        "x-requirements": [
+          "BR-03"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "200": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/leave/cancellation-reject/{pk}/": {
+      "parameters": [
+        {
+          "name": "pk",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "x-binding": "leave_request_id",
+            "x-reference": {
+              "missing-binding": "missing_id"
+            },
+            "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "cancellation_reject",
+        "x-role": "approver",
+        "x-requirements": [
+          "BR-03"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "200": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/leave/allocation-approve/{pk}/": {
+      "parameters": [
+        {
+          "name": "pk",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "x-binding": "allocation_id",
+            "x-reference": {
+              "missing-binding": "missing_id"
+            },
+            "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "allocation_approve",
+        "x-role": "approver",
+        "x-requirements": [
+          "FR-02"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "200": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/leave/allocation-reject/{pk}/": {
+      "parameters": [
+        {
+          "name": "pk",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "x-binding": "allocation_id",
+            "x-reference": {
+              "missing-binding": "missing_id"
+            },
+            "x-source": "horilla_api/api_urls/leave/urls.py int:pk; existence/owner/state are separate runtime constraints"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "allocation_reject",
+        "x-role": "approver",
+        "x-requirements": [
+          "FR-03"
+        ],
+        "x-source": "horilla_api/api_views/leave/views.py",
+        "responses": {
+          "200": {
+            "description": "Source-inspected success; real server verification pending"
+          },
+          "400": {
+            "description": "Validation or business rejection"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Permission denied"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "AllocationCreate": {
+        "type": "object",
+        "properties": {
+          "leave_type_id": {
+            "type": "integer",
+            "x-binding": "leave_type_id",
+            "x-reference": {
+              "missing-binding": "missing_id"
+            },
+            "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
+            "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
+          },
+          "employee_id": {
+            "type": "integer",
+            "x-binding": "employee_id",
+            "x-reference": {
+              "missing-binding": "missing_id"
+            },
+            "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
+            "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
+          },
+          "requested_days": {
+            "type": "number",
+            "example": 5,
+            "x-source": "horilla_api/api_serializers/leave/serializers.py LeaveAllocationRequestCreateSerializer.requested_days required FloatField, no min/max",
+            "x-wire-coercion": "Finite numeric strings accepted by DRF FloatField; nonnumeric representative rejects"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "example": "Synthetic Area 2 allocation",
+            "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
+            "x-trim-whitespace": true
+          },
+          "attachment": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true,
+            "x-filename-maxLength": 100,
+            "x-allow-empty-file": false,
+            "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+          }
+        },
+        "required": [
+          "leave_type_id",
+          "employee_id",
+          "requested_days",
+          "description"
+        ]
+      },
+      "SelfAllocationCreate": {
+        "type": "object",
+        "properties": {
+          "leave_type_id": {
+            "type": "integer",
+            "x-binding": "leave_type_id",
+            "x-reference": {
+              "missing-binding": "missing_id"
+            },
+            "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
+            "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
+          },
+          "requested_days": {
+            "type": "number",
+            "example": 5,
+            "x-source": "horilla_api/api_serializers/leave/serializers.py LeaveAllocationRequestCreateSerializer.requested_days required FloatField, no min/max",
+            "x-wire-coercion": "Finite numeric strings accepted by DRF FloatField; nonnumeric representative rejects"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "example": "Synthetic Area 2 allocation",
+            "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
+            "x-trim-whitespace": true
+          },
+          "attachment": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true,
+            "x-filename-maxLength": 100,
+            "x-allow-empty-file": false,
+            "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+          }
+        },
+        "required": [
+          "leave_type_id",
+          "requested_days",
+          "description"
+        ]
+      },
+      "AllocationUpdate": {
+        "type": "object",
+        "properties": {
+          "leave_type_id": {
+            "type": "integer",
+            "x-binding": "leave_type_id",
+            "x-reference": {
+              "missing-binding": "missing_id"
+            },
+            "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
+            "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
+          },
+          "employee_id": {
+            "type": "integer",
+            "x-binding": "employee_id",
+            "x-reference": {
+              "missing-binding": "missing_id"
+            },
+            "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
+            "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
+          },
+          "requested_days": {
+            "type": "number",
+            "example": 5,
+            "x-source": "horilla_api/api_serializers/leave/serializers.py LeaveAllocationRequestCreateSerializer.requested_days required FloatField, no min/max",
+            "x-wire-coercion": "Finite numeric strings accepted by DRF FloatField; nonnumeric representative rejects",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "example": "Synthetic Area 2 allocation",
+            "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
+            "x-trim-whitespace": true
+          },
+          "attachment": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true,
+            "x-filename-maxLength": 100,
+            "x-allow-empty-file": false,
+            "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+          }
+        },
+        "required": [
+          "leave_type_id",
+          "employee_id",
+          "description"
+        ]
+      },
+      "SelfAllocationUpdate": {
+        "type": "object",
+        "properties": {
+          "leave_type_id": {
+            "type": "integer",
+            "x-binding": "leave_type_id",
+            "x-reference": {
+              "missing-binding": "missing_id"
+            },
+            "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
+            "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
+          },
+          "requested_days": {
+            "type": "number",
+            "example": 5,
+            "x-source": "horilla_api/api_serializers/leave/serializers.py LeaveAllocationRequestCreateSerializer.requested_days required FloatField, no min/max",
+            "x-wire-coercion": "Finite numeric strings accepted by DRF FloatField; nonnumeric representative rejects",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "example": "Synthetic Area 2 allocation",
+            "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
+            "x-trim-whitespace": true
+          },
+          "attachment": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true,
+            "x-filename-maxLength": 100,
+            "x-allow-empty-file": false,
+            "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+          }
+        },
+        "required": [
+          "leave_type_id",
+          "description"
+        ]
+      },
+      "LeaveCreate": {
+        "type": "object",
+        "properties": {
+          "employee_id": {
+            "type": "integer",
+            "x-binding": "employee_id",
+            "x-reference": {
+              "missing-binding": "missing_id"
+            },
+            "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
+            "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
+          },
+          "leave_type_id": {
+            "type": "integer",
+            "x-binding": "leave_type_id",
+            "x-reference": {
+              "missing-binding": "missing_id"
+            },
+            "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
+            "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "x-binding": "start_date",
+            "x-source": "leave/models.py:1383"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date",
+            "nullable": true,
+            "x-binding": "end_date",
+            "x-source": "leave/models.py:1390; employee create normalizes missing/null end date to start"
+          },
+          "start_date_breakdown": {
+            "type": "string",
+            "enum": [
+              "full_day",
+              "first_half",
+              "second_half"
+            ],
+            "default": "full_day",
+            "x-source": "leave/models.py BREAKDOWN and LeaveRequest start/end_date_breakdown"
+          },
+          "end_date_breakdown": {
+            "type": "string",
+            "enum": [
+              "full_day",
+              "first_half",
+              "second_half"
+            ],
+            "default": "full_day",
+            "x-source": "leave/models.py BREAKDOWN and LeaveRequest start/end_date_breakdown"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "example": "Synthetic Area 2 allocation",
+            "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
+            "x-trim-whitespace": true
+          },
+          "attachment": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true,
+            "x-filename-maxLength": 100,
+            "x-allow-empty-file": false,
+            "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+          }
+        },
+        "required": [
+          "employee_id",
+          "leave_type_id",
+          "start_date",
+          "description"
+        ]
+      },
+      "SelfLeaveCreate": {
+        "type": "object",
+        "properties": {
+          "leave_type_id": {
+            "type": "integer",
+            "x-binding": "leave_type_id",
+            "x-reference": {
+              "missing-binding": "missing_id"
+            },
+            "x-wire-coercion": "DRF also accepts integral numeric strings; strict JSON type classes are not an exhaustive coercion oracle",
+            "x-source": "horilla_api/api_serializers/leave/serializers.py ModelSerializer foreign keys"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "x-binding": "start_date",
+            "x-source": "leave/models.py:1383"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date",
+            "nullable": true,
+            "x-binding": "end_date",
+            "x-source": "leave/models.py:1390; employee create normalizes missing/null end date to start"
+          },
+          "start_date_breakdown": {
+            "type": "string",
+            "enum": [
+              "full_day",
+              "first_half",
+              "second_half"
+            ],
+            "default": "full_day",
+            "x-source": "leave/models.py BREAKDOWN and LeaveRequest start/end_date_breakdown"
+          },
+          "end_date_breakdown": {
+            "type": "string",
+            "enum": [
+              "full_day",
+              "first_half",
+              "second_half"
+            ],
+            "default": "full_day",
+            "x-source": "leave/models.py BREAKDOWN and LeaveRequest start/end_date_breakdown"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "example": "Synthetic Area 2 allocation",
+            "x-source": "leave/models.py:1403,2462 TextField(blank=False); DRF CharField default allow_blank=False; no declared maximum",
+            "x-trim-whitespace": true
+          },
+          "attachment": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true,
+            "x-filename-maxLength": 100,
+            "x-allow-empty-file": false,
+            "x-source": "leave/models.py:1404-1409,2456-2461; Django FileField default max_length=100, DRF FileField allow_empty_file=False (runtime introspection pending)"
+          }
+        },
+        "required": [
+          "leave_type_id",
+          "start_date",
+          "description"
+        ]
+      }
+    }
+  }
+}

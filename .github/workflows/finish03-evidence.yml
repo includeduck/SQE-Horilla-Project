@@ -1,0 +1,78 @@
+name: Finish 03 evidence reconciliation
+on:
+  push:
+    branches: [rayyan/prompt3-report-reader]
+    paths:
+      - ".github/workflows/finish03-evidence.yml"
+      - "docs/team/finish-line/PROMPT03_EVIDENCE_SNAPSHOTS.json"
+  pull_request:
+    branches: [sqe-team]
+    paths:
+      - ".github/workflows/finish03-evidence.yml"
+      - "docs/team/finish-line/PROMPT03_EVIDENCE_SNAPSHOTS.json"
+permissions:
+  contents: read
+  actions: read
+jobs:
+  reconcile:
+    strategy:
+      fail-fast: false
+      matrix:
+        file:
+          - PROMPT03_EXECUTION_SUMMARY.json
+          - PROMPT03_INPUT_LEDGER.json
+          - PROMPT03_GENERATED_LEDGER.json
+          - PROMPT03_REQUIREMENT_EVIDENCE.json
+          - REMAINING_WORK.json
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Retrieve retained source-bound reports without rerunning tests
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPORT_FILE: ${{ matrix.file }}
+        run: |
+          python - <<'PY'
+          import hashlib, io, json, os, urllib.request, zipfile
+          from urllib.parse import urlsplit
+          from pathlib import Path
+          repo=os.environ["GITHUB_REPOSITORY"]
+          filename=os.environ["REPORT_FILE"]
+          config=json.loads(Path("docs/team/finish-line/PROMPT03_EVIDENCE_SNAPSHOTS.json").read_text())
+          class SafeRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  redirected=super().redirect_request(req, fp, code, msg, headers, newurl)
+                  if redirected and urlsplit(req.full_url).netloc != urlsplit(newurl).netloc:
+                      redirected.remove_header("Authorization")
+                      redirected.remove_header("Accept")
+                  return redirected
+          opener=urllib.request.build_opener(SafeRedirect())
+          def api(path):
+              req=urllib.request.Request("https://api.github.com/repos/"+repo+"/"+path,
+                  headers={"Authorization":"Bearer "+os.environ["GH_TOKEN"],"Accept":"application/vnd.github+json"})
+              with opener.open(req) as response: return response.read()
+          for snapshot in config["snapshots"]:
+              run=json.loads(api(f'actions/runs/{snapshot["run"]}'))
+              assert run["status"]=="completed", "Cannot reconcile an unfinished run"
+              assert run["head_sha"]==snapshot["source"], "Unexpected tested source"
+              listing=json.loads(api(f'actions/runs/{snapshot["run"]}/artifacts?per_page=100'))
+              artifacts=[a for a in listing["artifacts"] if a["name"]==snapshot["artifact"] and not a["expired"]]
+              assert len(artifacts)==1, "Missing or ambiguous retained report artifact"
+              archive=zipfile.ZipFile(io.BytesIO(api(f'actions/artifacts/{artifacts[0]["id"]}/zip')))
+              paths=[p for p in archive.namelist() if p.split("/")[-1]==filename]
+              assert len(paths)==1, "Missing or ambiguous report file"
+              raw=archive.read(paths[0]); parsed=json.loads(raw)
+              recorded=parsed.get("tested_source_sha") or parsed.get("summary",{}).get("tested_source_sha")
+              assert recorded==snapshot["source"], "Report source mismatch"
+              text=raw.decode("utf-8")
+              parts=[text[i:i+8000] for i in range(0,len(text),8000)]
+              print("REPORT_IDENTITY "+json.dumps(dict(run=snapshot["run"],source=snapshot["source"],
+                  artifact=artifacts[0]["id"],path=paths[0],bytes=len(raw),sha256=hashlib.sha256(raw).hexdigest(),
+                  label="Unmodified retained derived report; authoritative JUnit stays in original artifacts")),flush=True)
+              for index,part in enumerate(parts):
+                  print("REPORT_FILE_CHUNK "+json.dumps(dict(run=snapshot["run"],path=filename,index=index,total=len(parts),text=part)),flush=True)
+          PY

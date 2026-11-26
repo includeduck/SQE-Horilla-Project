@@ -1,0 +1,108 @@
+name: Finish 02 validation regressions
+on:
+  pull_request:
+    branches: [sqe-team]
+    paths:
+      - "horilla_api/api_views/leave/**"
+      - "horilla_api/api_methods/base/methods.py"
+      - "horilla_api/api_decorators/base/decorators.py"
+      - "horilla/filters.py"
+      - "horilla/config.py"
+      - ".github/workflows/finish02-regressions.yml"
+permissions:
+  contents: read
+concurrency:
+  group: finish02-regressions-${{ github.ref }}
+  cancel-in-progress: true
+env:
+  AREA2_SOURCE_SHA: ${{ github.event.pull_request.head.sha }}
+jobs:
+  validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install unchanged runtime
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf-2.0-0 libffi8 shared-mime-info
+          bash .github/scripts/install-requirements.sh
+          python -m pip install -r tests/team/requirements-area2.txt
+      - name: Recheck malformed bodies grouping and target authorization
+        env:
+          PYTHONPATH: tests/team:tests/team/api:.
+        run: |
+          mkdir -p docs/team/evidence/area2/finish-02/validation-${{ github.run_id }}
+          set -o pipefail
+          python -m pytest -c tests/team/pytest-area2.ini tests/team/api/test_runtime_wire.py -k "nonfinite_string or invalid_field or (whole and (array or scalar or null)) or (allocation_create and Authorization) or (path and zero) or (employee_id and (empty or malformed)) or (created_by and (empty or malformed)) or (Accept and HTML) or validator_" -v -s -o junit_family=xunit1 --junitxml=docs/team/evidence/area2/finish-02/validation-${{ github.run_id }}/validation.xml 2>&1 | tee docs/team/evidence/area2/finish-02/validation-${{ github.run_id }}/validation.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: finish02-validation-${{ github.run_id }}
+          path: docs/team/evidence/area2/finish-02/validation-*/
+          if-no-files-found: error
+
+
+  advanced:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install unchanged runtime
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf-2.0-0 libffi8 shared-mime-info
+          bash .github/scripts/install-requirements.sh
+          python -m pip install -r tests/team/requirements-area2.txt
+      - name: Recheck malformed advanced-query values
+        env:
+          PYTHONPATH: tests/team:tests/team/api:.
+        run: |
+          mkdir -p docs/team/evidence/area2/finish-02/advanced-${{ github.run_id }}
+          set -o pipefail
+          python -m pytest -c tests/team/pytest-area2.ini tests/team/api/test_runtime_wire.py -k "custom_field and malformed_value" -v -s -o junit_family=xunit1 --junitxml=docs/team/evidence/area2/finish-02/advanced-${{ github.run_id }}/validation.xml 2>&1 | tee docs/team/evidence/area2/finish-02/advanced-${{ github.run_id }}/validation.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: finish02-advanced-${{ github.run_id }}
+          path: docs/team/evidence/area2/finish-02/advanced-*/
+          if-no-files-found: error
+
+
+  upstream:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install unchanged runtime
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf-2.0-0 libffi8 shared-mime-info
+          bash .github/scripts/install-requirements.sh
+          python -m pip install -r tests/team/requirements-area2.txt
+      - name: Verify affected upstream filters and target guards
+        env:
+          PYTHONPATH: tests/team:tests/team/api:.
+        run: |
+          mkdir -p docs/team/evidence/area2/finish-02/upstream-${{ github.run_id }}
+          set -o pipefail
+          python -m pytest -c tests/team/pytest-area2.ini horilla/tests/test_filterset_dict_data.py horilla_api/tests/test_manager_target_scoping.py horilla_api/tests/test_leave_request_write_scoping.py horilla_api/tests/test_api_without_session.py -v -s -o junit_family=xunit1 --junitxml=docs/team/evidence/area2/finish-02/upstream-${{ github.run_id }}/upstream.xml 2>&1 | tee docs/team/evidence/area2/finish-02/upstream-${{ github.run_id }}/upstream.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: finish02-upstream-${{ github.run_id }}
+          path: docs/team/evidence/area2/finish-02/upstream-*/
+          if-no-files-found: error
+

@@ -1,0 +1,85 @@
+{
+  "evidence_kind": "Derived summary from unmodified completed job log",
+  "run_id": 45355537997,
+  "job_id": 138312304992,
+  "source_commit": "32621b42b6ec9a64f81f4540eea151ede4acbb2e",
+  "tested_merge_commit": "42f0b233b9dd28f62a2cd34d14cd589844c5977c",
+  "job_conclusion": "success",
+  "raw_log": "ci-45355537997-regeneration.log",
+  "artifact_id": 14903031343,
+  "result": {
+    "stages": [
+      {
+        "name": "baseline",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.12.16/x64/bin/python",
+          "-m",
+          "pytest",
+          "-c",
+          "/home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/pytest-area2.ini",
+          "/home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/regeneration",
+          "-v",
+          "-s",
+          "-o",
+          "junit_family=xunit1",
+          "--junitxml=/home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/docs/team/evidence/area2/phase-d/ci-45355537997-1-regeneration/baseline.xml"
+        ],
+        "exit_code": 0,
+        "status": "passed",
+        "elapsed_seconds": 269.334
+      },
+      {
+        "name": "variant",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.12.16/x64/bin/python",
+          "-m",
+          "pytest",
+          "-c",
+          "/home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/pytest-area2.ini",
+          "/home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/regeneration",
+          "-v",
+          "-s",
+          "-o",
+          "junit_family=xunit1",
+          "--junitxml=/home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/docs/team/evidence/area2/phase-d/ci-45355537997-1-regeneration/variant.xml"
+        ],
+        "exit_code": 1,
+        "status": "failed",
+        "elapsed_seconds": 260.825
+      }
+    ],
+    "baseline": {
+      "cases": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "variant": {
+      "cases": 6,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0
+    },
+    "python": "3.12.16 (main, Oct 26 2026, 02:48:44) [GCC 15.2.0]",
+    "tool_versions": {
+      "Django": "5.2.19",
+      "djangorestframework": "3.18.3",
+      "pytest": "9.2.0",
+      "pytest-django": "4.14.0",
+      "requests": "2.34.2",
+      "playwright": "1.65.2",
+      "pytest-asyncio": "1.5.0"
+    },
+    "actual_failed_ids": [
+      "self_allocation_create:body:attachment:BVA:x-filename-maxLength-above",
+      "self_allocation_create:body:description:BVA:minLength-below"
+    ],
+    "expected_failed_ids": [
+      "self_allocation_create:body:attachment:BVA:x-filename-maxLength-above",
+      "self_allocation_create:body:description:BVA:minLength-below"
+    ],
+    "experiment_demonstrated": true,
+    "application_scope_complete": false,
+    "interpretation": "Two predicted spec-only incompatibilities must fail strict pytest assertions. Every additional failure/setup error/skip/missing result makes this demonstration fail."
+  }
+}

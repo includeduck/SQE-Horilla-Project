@@ -1,0 +1,119 @@
+name: Finish 02 generated and wire coverage
+on:
+  workflow_call:
+    inputs:
+      full_scope:
+        type: boolean
+        default: false
+concurrency:
+  group: finish02-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+env:
+  AREA2_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+jobs:
+  api:
+    strategy:
+      fail-fast: false
+      max-parallel: 16
+      matrix:
+        order: [first, reversed]
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install unchanged application runtime
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf-2.0-0 libffi8 shared-mime-info
+          bash .github/scripts/install-requirements.sh
+          python -m pip install -r tests/team/requirements-area2.txt
+      - name: Validate canonical and bookkeeping
+        run: |
+          python tests/team/generator/build_case_ledger.py --wire-output docs/team/finish-line/WIRE_CASES.json
+          python -m unittest discover -s tests/team/generator -p 'test_*.py' -v
+          python tests/team/generator/generate.py --spec tests/team/generator/openapi.json --bindings tests/team/generator/bindings.json --output tests/team/generator/generated_cases.json --check
+          python -c "import json; from openapi_spec_validator import validate; validate(json.load(open('tests/team/generator/openapi.json')))"
+      - name: Execute the full API population distributed without dropping cases
+        env:
+          PYTHONPATH: tests/team:tests/team/api:.
+        run: |
+          mkdir -p docs/team/evidence/area2/finish-02/ci-${{ github.run_id }}
+          set -o pipefail
+          python -m pytest -c tests/team/pytest-area2.ini -p area2_order tests/team/api ${{ matrix.order == 'reversed' && '--area2-reverse' || '' }} --area2-shards=16 --area2-shard=${{ matrix.shard }} -v -s -o junit_family=xunit1 --junitxml=docs/team/evidence/area2/finish-02/ci-${{ github.run_id }}/${{ matrix.order }}-shard-${{ matrix.shard }}.xml 2>&1 | tee docs/team/evidence/area2/finish-02/ci-${{ github.run_id }}/${{ matrix.order }}-shard-${{ matrix.shard }}.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: finish02-${{ github.run_id }}-${{ matrix.order }}-shard-${{ matrix.shard }}
+          path: |
+            docs/team/evidence/area2/finish-02/ci-*/
+            tests/team/api/case_ledger.json
+            docs/team/finish-line/WIRE_CASES.json
+          if-no-files-found: error
+
+  coverage:
+    needs: api
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: finish02-${{ github.run_id }}-*-shard-*
+          path: docs/team/evidence/area2/finish-02/download
+          merge-multiple: true
+      - name: Enforce real results for the full distributed stage
+        run: |
+          python tests/team/generator/build_case_ledger.py
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess, sys
+          exit_code=0
+          for order in ("first","reversed"):
+              paths=sorted(Path("docs/team/evidence/area2/finish-02/download").rglob(order+"-shard-*.xml"))
+              if len(paths)!=16:
+                  raise SystemExit("Missing one or more "+order+" shard result files")
+              mode="--require-complete" if "${{ inputs.full_scope }}"=="true" else "--stage2"
+              command=[sys.executable,"tests/team/generator/coverage_guard.py",mode,"--output","docs/team/evidence/area2/finish-02/coverage-"+order+".json"]
+              for path in paths:
+                  command+=["--junit",str(path)]
+              code=subprocess.call(command)
+              exit_code=exit_code or code
+          if "${{ inputs.full_scope }}"=="true":
+              command=[sys.executable,"tests/team/generator/coverage_guard.py","--require-complete","--output","docs/team/evidence/area2/finish-02/coverage-complete.json"]
+              for path in sorted(Path("docs/team/evidence/area2/finish-02/download").rglob("*-shard-*.xml")):
+                  command+=["--junit",str(path)]
+              code=subprocess.call(command)
+              exit_code=exit_code or code
+          # Evidence is reconciled even after a failed collection; it cannot
+          # turn a failed/missing/skipped assertion into a verified input.
+          command=[sys.executable,"tests/team/generator/record_execution.py","--stage","3","--source","${{ env.AREA2_SOURCE_SHA }}","--run","${{ github.run_id }}","--evidence","https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"]
+          for order in ("first","reversed"):
+              command += ["--report","docs/team/evidence/area2/finish-02/coverage-"+order+".json"]
+          code=subprocess.call(command)
+          exit_code=exit_code or code
+          command=[sys.executable,"tests/team/generator/requirement_evidence.py","--source","${{ env.AREA2_SOURCE_SHA }}","--output","docs/team/finish-line/PROMPT03_REQUIREMENT_EVIDENCE.json"]
+          for order in ("first","reversed"):
+              command += ["--report","docs/team/evidence/area2/finish-02/coverage-"+order+".json"]
+          code=subprocess.call(command)
+          exit_code=exit_code or code
+          raise SystemExit(exit_code)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: finish02-coverage-${{ github.run_id }}
+          path: |
+            docs/team/evidence/area2/finish-02/coverage-*.json
+            docs/team/finish-line/PROMPT03_*.json
+            docs/team/finish-line/REMAINING_WORK.json
+          if-no-files-found: error

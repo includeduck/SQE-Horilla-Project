@@ -1,0 +1,58 @@
+name: Finish 01 contract foundation
+on:
+  pull_request:
+    branches: [sqe-team]
+    paths: ["tests/team/contract/**", ".github/workflows/finish01-contract.yml", "tests/team/generator/openapi.json"]
+  push:
+    branches: [sqe-team]
+    paths: ["tests/team/contract/**", ".github/workflows/finish01-contract.yml", "tests/team/generator/openapi.json"]
+permissions:
+  contents: read
+concurrency:
+  group: finish01-contract-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  contract:
+    strategy:
+      fail-fast: false
+      matrix:
+        initialization: [fresh-a, fresh-b]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install unchanged application and scoped tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf-2.0-0 libffi8 shared-mime-info
+          bash .github/scripts/install-requirements.sh
+          python -m pip install -r tests/team/requirements-area2.txt
+      - name: Validate canonical schema
+        run: python -c "import json; from openapi_spec_validator import validate; validate(json.load(open('tests/team/generator/openapi.json'))); print('Canonical OpenAPI validated')"
+      - name: Fresh database authentication workflow and live contract
+        env:
+          PYTHONPATH: tests/team/contract:tests/team:tests/team/api:.
+          AREA2_CONTRACT_EVIDENCE: docs/team/evidence/area2/finish-01/ci-${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.initialization }}/probe
+        run: |
+          mkdir -p "$(dirname "$AREA2_CONTRACT_EVIDENCE")"
+          set -o pipefail
+          python -m pytest -c tests/team/pytest-area2.ini tests/team/contract/test_foundation.py -v -s -o junit_family=xunit1 --junitxml="$(dirname "$AREA2_CONTRACT_EVIDENCE")/foundation.xml" 2>&1 | tee "$(dirname "$AREA2_CONTRACT_EVIDENCE")/foundation.txt"
+      - name: Smoke-test reconciled generated consumers
+        env:
+          PYTHONPATH: tests/team/contract:tests/team:tests/team/api:.
+        run: |
+          python -m pytest -c tests/team/pytest-area2.ini tests/team/api/test_generated_inputs.py -k "self_allocation_update and is_active" -v -s --junitxml=docs/team/evidence/area2/finish-01/smoke-${{ github.run_id }}-${{ matrix.initialization }}.xml
+      - name: Retain actual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: finish01-${{ matrix.initialization }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            docs/team/evidence/area2/finish-01/ci-*/
+            docs/team/evidence/area2/finish-01/smoke-*.xml
+          if-no-files-found: error

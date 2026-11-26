@@ -1,0 +1,106 @@
+name: SQE team quality gate
+on:
+  pull_request:
+    branches: [sqe-team]
+  push:
+    branches: [sqe-team, rayyan/final-closeout]
+permissions:
+  contents: read
+  actions: read
+env:
+  SQE_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install unchanged application and supplied Area 1 tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf-2.0-0 libffi8 shared-mime-info
+          bash .github/scripts/install-requirements.sh
+          python -m pip install -r tests/team/requirements-unit.txt
+      - name: Run all supplied team unit tests and actual coverage
+        run: |
+          mkdir -p docs/team/evidence/finish-04
+          set -o pipefail
+          python -m pytest -c tests/team/pytest-unit.ini tests/team/unit --cov=leave --cov=horilla_api.api_views.leave --cov-branch --cov-report=json:coverage.json --cov-report=xml:coverage.xml --junitxml=docs/team/evidence/finish-04/team-unit.xml -v 2>&1 | tee docs/team/evidence/finish-04/team-unit.log
+      - name: Enforce existing 100 percent scoped coverage and meaningful gate controls
+        run: |
+          set -o pipefail
+          python tests/team/unit/coverage_scope.py coverage.json 2>&1 | tee docs/team/evidence/finish-04/unit-scope.log
+          python -m unittest discover -s tests/team/ci -p 'test_*.py' -v
+          python -m py_compile scripts/team/build_rayyan_contribution.py scripts/team/final_quality_gate.py
+          python tests/team/unit/mcc_tables.py > docs/team/evidence/finish-04/MCC_MCDC_TABLES.md
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: final-unit-${{ github.run_id }}
+          path: |
+            docs/team/evidence/finish-04/
+            coverage.json
+            coverage.xml
+          if-no-files-found: error
+  sonar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Require actual current Sonar server analysis and proposed quality conditions
+        env:
+          SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL || secrets.SONAR_HOST_URL }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: python scripts/team/final_quality_gate.py sonar --source "$SQE_SOURCE_SHA" --output docs/team/evidence/finish-04/sonar-gate.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: final-sonar-${{ github.run_id }}
+          path: docs/team/evidence/finish-04/sonar-gate.json
+          if-no-files-found: error
+  mutation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Require supplied mutation runner policy and genuine raw evidence
+        run: python scripts/team/final_quality_gate.py mutation --source "$SQE_SOURCE_SHA" --output docs/team/evidence/finish-04/mutation-gate.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: final-mutation-${{ github.run_id }}
+          path: docs/team/evidence/finish-04/
+          if-no-files-found: error
+  team-gate:
+    timeout-minutes: 180
+    needs: [unit, sonar, mutation]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Preserve every required producer failure and exact-source dependency
+        env:
+          GH_TOKEN: ${{ github.token }}
+          UNIT_RESULT: ${{ needs.unit.result }}
+          SONAR_RESULT: ${{ needs.sonar.result }}
+          MUTATION_RESULT: ${{ needs.mutation.result }}
+        run: python scripts/team/final_quality_gate.py aggregate --source "$SQE_SOURCE_SHA" --output docs/team/evidence/finish-04/team-gate.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: final-team-gate-${{ github.run_id }}
+          path: docs/team/evidence/finish-04/team-gate.json
+          if-no-files-found: error

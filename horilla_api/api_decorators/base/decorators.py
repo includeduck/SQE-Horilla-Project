@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.utils.translation import gettext_lazy as _
 from rest_framework import status
+from rest_framework.exceptions import ValidationError
 from rest_framework.permissions import BasePermission
 from rest_framework.response import Response
 
@@ -85,7 +86,7 @@ def manager_or_owner_permission_required(model_class, perm):
         def wrapper(self, request, pk=None, *args, **kwargs):
             employee = request.user.employee_get
 
-            if pk:
+            if pk is not None:
                 target = model_class.objects.filter(pk=pk).first()
                 if target is None:
                     # 404 only for a caller who could legitimately act on the
@@ -106,6 +107,25 @@ def manager_or_owner_permission_required(model_class, perm):
                         },
                         status=status.HTTP_403_FORBIDDEN,
                     )
+                # Authorize a changed owner as well as the original record.
+                # Otherwise an owner (or a manager of only the old employee)
+                # can retarget an update to somebody outside their scope.
+                data = (request.data if request.method in {"PUT", "PATCH"}
+                        and hasattr(request.data, "get") else {})
+                new_employee_id = data.get("employee_id")
+                if (request.method in {"PUT", "PATCH"}
+                        and new_employee_id is not None
+                        and str(new_employee_id) != str(target.employee_id_id)):
+                    try:
+                        new_target = Employee.objects.filter(pk=new_employee_id).first()
+                    except (TypeError, ValueError, OverflowError) as error:
+                        raise ValidationError({"employee_id": _("A valid employee identifier is required.")}) from error
+                    if not (new_target == employee or request.user.has_perm(perm)
+                            or check_manager(employee, new_target)):
+                        return Response(
+                            {"error": _("You do not have permission to perform this action.")},
+                            status=status.HTTP_403_FORBIDDEN,
+                        )
                 if target.employee_id == employee:
                     return func(self, request, pk, *args, **kwargs)
             else:
@@ -117,10 +137,15 @@ def manager_or_owner_permission_required(model_class, perm):
                 target_id = data.get("employee_id")
                 if target_id is not None and str(target_id) == str(employee.id):
                     return func(self, request, *args, **kwargs)
-                target = Employee.objects.filter(pk=target_id).first()
+                try:
+                    target = Employee.objects.filter(pk=target_id).first()
+                except (TypeError, ValueError, OverflowError) as error:
+                    # Invalid client identifiers must not crash before DRF can
+                    # validate the request; ownership checks still apply.
+                    raise ValidationError({"employee_id": _("A valid employee identifier is required.")}) from error
 
             if request.user.has_perm(perm) or check_manager(employee, target):
-                if pk:
+                if pk is not None:
                     return func(self, request, pk, *args, **kwargs)
                 return func(self, request, *args, **kwargs)
 
@@ -259,3 +284,4 @@ def permission_required(function, perm):
             return Response({"message": _("No permission")}, status=401)
 
     return _function
+

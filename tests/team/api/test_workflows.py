@@ -99,20 +99,30 @@ def test_duplicate_leave_creation_rejected_without_record(leave_http):
 
 
 def test_allocation_duplicate_creation_contract(leave_http):
-    """Provisional duplicate oracle: reject identical pending submission with 400.
-
-    The brief requires no duplicates; the current endpoint has no idempotency
-    contract. This explicit proposal needs owner review before a product fix.
-    Keep a genuine failure visible; do not introduce deduplication in this test.
-    """
+    """OD-02: reject an identical pending submission, preserving distinct ones."""
     h = leave_http
     h.lineage("GAP-ALLOCATION-DUPLICATE-001")
     body = h.baseline("allocation")
-    h.create_allocation(body)
+    pk = h.create_allocation(body)
     before = h.snapshot()
     response = h.request("POST", "/api/v1/leave/user-allocation-request/", body=body)
-    assert response.status_code == 400, "Proposed rejection oracle requires owner decision"
+    assert response.status_code == 400, response.text[:500]
+    assert "identical pending" in str(response.json()).lower()
     assert h.snapshot() == before
+    # The shared generic create route must enforce the same identity rule.
+    response = h.request("POST", "/api/v1/leave/allocation-request/",
+                         body={**body, "employee_id": h.context["employee"].pk})
+    assert response.status_code == 400, response.text[:500]
+    assert "identical pending" in str(response.json()).lower()
+    assert h.snapshot() == before
+    h.create_allocation({**body, "description": body["description"] + " distinct"})
+    h.create_allocation({**body, "requested_days": body["requested_days"] + 1})
+    assert len(h.allocations()) == 3 and h.balance() == before["employee"]
+    assert h.request("PUT", f"/api/v1/leave/allocation-approve/{pk}/", "approver", {}).status_code == 200
+    # The identical historical approved request is not an active duplicate.
+    h.create_allocation(body)
+    assert len(h.allocations()) == 4
+    assert h.balance() == (float(body["requested_days"]), 0.0)
 
 
 @pytest.mark.parametrize("method", ["PUT", "DELETE"])

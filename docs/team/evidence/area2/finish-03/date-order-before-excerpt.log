@@ -1,0 +1,53 @@
+2026-11-25T05:39:37.6202956Z =================================== FAILURES ===================================
+2026-11-25T05:39:37.6203902Z _ test_generated_self_create_input[self_leave_update:body:end_date:BVA:date-order-below] _
+2026-11-25T05:39:37.6204553Z 
+2026-11-25T05:39:37.6204887Z leave_http = <http_support.LeaveHTTP object at 0x78f73a4bc350>
+2026-11-25T05:39:37.6205650Z case_id = 'self_leave_update:body:end_date:BVA:date-order-below'
+2026-11-25T05:39:37.6206430Z 
+2026-11-25T05:39:37.6206841Z     @pytest.mark.parametrize("case_id", CASE_IDS, ids=CASE_IDS)
+2026-11-25T05:39:37.6207702Z     def test_generated_self_create_input(leave_http, case_id):
+2026-11-25T05:39:37.6208239Z         h = leave_http
+2026-11-25T05:39:37.6208569Z         h.grant(5)
+2026-11-25T05:39:37.6209207Z         case = h.case(case_id)
+2026-11-25T05:39:37.6209866Z         allocation = case["operation"].startswith("self_allocation_")
+2026-11-25T05:39:37.6210526Z         updating = case["method"] == "PUT"
+2026-11-25T05:39:37.6210996Z         pk = None
+2026-11-25T05:39:37.6211381Z         route = case["route"]
+2026-11-25T05:39:37.6211798Z         if updating:
+2026-11-25T05:39:37.6212279Z             pk = h.create_allocation() if allocation else h.create_leave()
+2026-11-25T05:39:37.6212818Z             route = route.replace("{pk}", str(pk))
+2026-11-25T05:39:37.6213377Z             h.record_property("runtime_record_id", pk)
+2026-11-25T05:39:37.6213968Z         body = copy.deepcopy(case["request"]["body"])
+2026-11-25T05:39:37.6214516Z         body.pop("attachment", None)
+2026-11-25T05:39:37.6214981Z         h.lineage(case_id, body)
+2026-11-25T05:39:37.6215591Z         h.record_property("wire_binding", "native-json-with-optional-upload-omitted")
+2026-11-25T05:39:37.6216640Z         h.record_property("generated_schema_predicate", case["expected"]["predicate"])
+2026-11-25T05:39:37.6217287Z         before = h.snapshot()
+2026-11-25T05:39:37.6217667Z         if allocation and updating:
+2026-11-25T05:39:37.6218139Z             from leave.models import LeaveAllocationRequest
+2026-11-25T05:39:37.6218790Z             persisted_ids = set(LeaveAllocationRequest.objects.entire().filter(
+2026-11-25T05:39:37.6219518Z                 employee_id=h.context["employee"]).values_list("id", flat=True))
+2026-11-25T05:39:37.6220108Z         expected = case["expected"]["predicate"]
+2026-11-25T05:39:37.6220745Z         # Source-backed wire normalization in employee POST/PUT: a falsy end date is
+2026-11-25T05:39:37.6221529Z         # replaced by start before serializer validation. Preserve that difference
+2026-11-25T05:39:37.6222254Z         # from the raw DateField schema predicate and report it explicitly.
+2026-11-25T05:39:37.6223176Z         normalizes_end = not allocation and case["field"] == ["end_date"] and (case["omitted"] or case["value"] in (None, ""))
+2026-11-25T05:39:37.6223963Z         if normalizes_end:
+2026-11-25T05:39:37.6224322Z             expected = "accept"
+2026-11-25T05:39:37.6224908Z             h.record_property("bound_oracle", "view-normalizes-empty-end-date-to-start")
+2026-11-25T05:39:37.6225630Z         response = h.request(case["method"], route, body=body)
+2026-11-25T05:39:37.6226310Z         if expected == "reject":
+2026-11-25T05:39:37.6226812Z             assert response.status_code == 400, response.text[:500]
+2026-11-25T05:39:37.6227327Z             errors = response.json()
+2026-11-25T05:39:37.6227723Z             field = case["field"][-1]
+2026-11-25T05:39:37.6228174Z             if case["expected"]["oracle"] == "date-order":
+2026-11-25T05:39:37.6228651Z >               assert errors.get("end_date")
+2026-11-25T05:39:37.6229088Z E               AssertionError: assert None
+2026-11-25T05:39:37.6229706Z E                +  where None = <built-in method get of dict object at 0x78f73ae30840>('end_date')
+2026-11-25T05:39:37.6230901Z E                +    where <built-in method get of dict object at 0x78f73ae30840> = {'non_field_errors': ['The effective requested days must be greater than zero.']}.get
+2026-11-25T05:39:37.6231946Z 
+2026-11-25T05:39:37.6232188Z tests/team/api/test_generated_inputs.py:68: AssertionError
+2026-11-25T05:39:37.6232826Z ------------------------------ Captured log call -------------------------------
+2026-11-25T05:39:37.6233593Z WARNING  django.request:log.py:293 Bad Request: /api/v1/leave/user-request/61/
+2026-11-25T05:39:37.6234317Z ---------------------------- Captured log teardown -----------------------------
+2026-11-25T05:39:37.6235023Z INFO     payroll.apps:apps.py:56 Created 11 standard payroll component(s)

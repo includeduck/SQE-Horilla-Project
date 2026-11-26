@@ -48,12 +48,32 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(len(selected), len({case["id"] for case in selected}))
         self.assertTrue(selected)
         self.assertTrue(all(case["field"] != ["attachment"] and case["location"] == "body" for case in selected))
-        self.assertEqual({case["operation"] for case in selected}, {"self_allocation_create", "self_leave_create"})
+        self.assertEqual({case["operation"] for case in selected}, {
+            "self_allocation_create", "self_leave_create",
+            "self_allocation_update", "self_leave_update"})
         self.assertNotIn("self_allocation_create:body:requested_days:EP:valid", {case["id"] for case in selected})
 
     def test_balance_oracle_cap_and_forecast_are_separate(self):
         self.assertEqual(catalog.effective_balance(2, 9, "carryforward", 3, 1), 6)
         self.assertEqual(catalog.effective_balance(2, 9, "no carryforward", 3, 1), 3)
+
+    def test_ledger_partitions_generated_ids_without_duplicate_api_cases(self):
+        artifact = json.loads((TEAM / "generator/generated_cases.json").read_text(encoding="utf-8"))
+        ledger = json.loads((TEAM / "api/case_ledger.json").read_text(encoding="utf-8"))
+        entries = ledger["entries"]
+        ids = [entry["case_id"] for entry in entries]
+        self.assertEqual(len(ids), len(set(ids)))
+        self.assertEqual(ledger["implemented_api_cases"], len(ids))
+        referenced = {entry["case_id"] for entry in entries if entry["generated"]}
+        all_generated = {case["id"] for case in artifact["cases"]}
+        missing = set(ledger["unconsumed_generated_case_ids"])
+        self.assertEqual(referenced | missing, all_generated)
+        self.assertFalse(referenced & missing)
+        self.assertEqual(ledger["referenced_generated_case_ids"], len(referenced))
+        scalar_ids = {entry["case_id"] for entry in entries if entry["file"] == "test_generated_inputs.py"}
+        self.assertEqual(scalar_ids, {case["id"] for case in catalog.selected_generated_cases(artifact)})
+        self.assertEqual(ledger["spec_sha256"], artifact["spec_sha256"])
+        self.assertEqual(ledger["data_sha256"], artifact["data_sha256"])
 
 
 if __name__ == "__main__":

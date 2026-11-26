@@ -1,0 +1,1270 @@
+﻿2026-11-24T08:22:28.1113129Z Current runner version: '2.338.2'
+2026-11-24T08:22:28.1130415Z ##[group]Runner Image Provisioner
+2026-11-24T08:22:28.1131144Z Hosted Compute Agent
+2026-11-24T08:22:28.1131595Z Version: 20261111.635
+2026-11-24T08:22:28.1132035Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-24T08:22:28.1132568Z Build Date: 2026-11-11T01:49:01Z
+2026-11-24T08:22:28.1133039Z Worker ID: {75a96488-5aaa-452a-9d9c-98d16e72f405}
+2026-11-24T08:22:28.1133520Z Region: us-west-2
+2026-11-24T08:22:28.1134154Z Cloud: AWS
+2026-11-24T08:22:28.1134562Z ##[endgroup]
+2026-11-24T08:22:28.1135925Z ##[group]Operating System
+2026-11-24T08:22:28.1136390Z Ubuntu
+2026-11-24T08:22:28.1136733Z 26.04.1
+2026-11-24T08:22:28.1137130Z LTS
+2026-11-24T08:22:28.1137475Z ##[endgroup]
+2026-11-24T08:22:28.1137849Z ##[group]Runner Image
+2026-11-24T08:22:28.1138272Z Image: ubuntu-26.04
+2026-11-24T08:22:28.1138660Z Version: 20261116.88.1
+2026-11-24T08:22:28.1139600Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261116.88/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-24T08:22:28.1140650Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261116.88
+2026-11-24T08:22:28.1141330Z ##[endgroup]
+2026-11-24T08:22:28.1142178Z ##[group]GITHUB_TOKEN Permissions
+2026-11-24T08:22:28.1143719Z Contents: read
+2026-11-24T08:22:28.1144112Z Metadata: read
+2026-11-24T08:22:28.1144525Z ##[endgroup]
+2026-11-24T08:22:28.1146221Z Secret source: Actions
+2026-11-24T08:22:28.1146900Z Cache mode: write
+2026-11-24T08:22:28.1147399Z Prepare workflow directory
+2026-11-24T08:22:28.1370626Z Prepare all required actions
+2026-11-24T08:22:28.1406612Z Getting action download info
+2026-11-24T08:22:28.5209467Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-24T08:22:30.1722612Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-11-24T08:22:30.3810689Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-24T08:22:30.7331026Z Complete job name: phase-d (regeneration)
+2026-11-24T08:22:30.7979685Z ##[group]Run actions/checkout@v4
+2026-11-24T08:22:30.7980178Z with:
+2026-11-24T08:22:30.7980545Z   repository: includeduck/SQE-Horilla-Project
+2026-11-24T08:22:30.7982793Z   token: ***
+2026-11-24T08:22:30.7983059Z   ssh-strict: true
+2026-11-24T08:22:30.7983402Z   ssh-user: git
+2026-11-24T08:22:30.7983643Z   persist-credentials: true
+2026-11-24T08:22:30.7984123Z   clean: true
+2026-11-24T08:22:30.7984410Z   sparse-checkout-cone-mode: true
+2026-11-24T08:22:30.7984704Z   fetch-depth: 1
+2026-11-24T08:22:30.7984975Z   fetch-tags: false
+2026-11-24T08:22:30.7985240Z   show-progress: true
+2026-11-24T08:22:30.7985508Z   lfs: false
+2026-11-24T08:22:30.7985970Z   submodules: false
+2026-11-24T08:22:30.7986226Z   set-safe-directory: true
+2026-11-24T08:22:30.7986569Z   allow-unsafe-pr-checkout: false
+2026-11-24T08:22:30.7987021Z ##[endgroup]
+2026-11-24T08:22:34.1313606Z Syncing repository: includeduck/SQE-Horilla-Project
+2026-11-24T08:22:34.1315159Z ##[group]Getting Git version info
+2026-11-24T08:22:34.1316073Z Working directory is '/home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project'
+2026-11-24T08:22:34.1316746Z [command]/usr/bin/git version
+2026-11-24T08:22:34.1325866Z git version 2.56.1
+2026-11-24T08:22:34.1339561Z ##[endgroup]
+2026-11-24T08:22:34.1349712Z Temporarily overriding HOME='/home/runner/work/_temp/4b945af5-c470-49dc-b716-5671a4e74be5' before making global git config changes
+2026-11-24T08:22:34.1350661Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-24T08:22:34.1353287Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project
+2026-11-24T08:22:34.1829751Z Deleting the contents of '/home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project'
+2026-11-24T08:22:34.1831923Z ##[group]Initializing the repository
+2026-11-24T08:22:34.1836011Z [command]/usr/bin/git init /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project
+2026-11-24T08:22:34.2606247Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-24T08:22:34.2606786Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-24T08:22:34.2607368Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-24T08:22:34.2607744Z hint: call:
+2026-11-24T08:22:34.2607989Z hint:
+2026-11-24T08:22:34.2608318Z hint: 	git config --global init.defaultBranch <name>
+2026-11-24T08:22:34.2608603Z hint:
+2026-11-24T08:22:34.2608928Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-24T08:22:34.2609356Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-24T08:22:34.2609678Z hint:
+2026-11-24T08:22:34.2609990Z hint: 	git branch -m <name>
+2026-11-24T08:22:34.2610355Z hint:
+2026-11-24T08:22:34.2610741Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-24T08:22:34.2634261Z Initialized empty Git repository in /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/.git/
+2026-11-24T08:22:34.2640864Z [command]/usr/bin/git remote add origin https://github.com/includeduck/SQE-Horilla-Project
+2026-11-24T08:22:34.2704281Z ##[endgroup]
+2026-11-24T08:22:34.2704724Z ##[group]Disabling automatic garbage collection
+2026-11-24T08:22:34.2706939Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-24T08:22:34.2728037Z ##[endgroup]
+2026-11-24T08:22:34.2728624Z ##[group]Setting up auth
+2026-11-24T08:22:34.2732547Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-24T08:22:34.2755001Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-24T08:22:34.5642596Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-24T08:22:34.5664766Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-24T08:22:34.5840636Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-24T08:22:34.5861492Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-24T08:22:34.6034621Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-24T08:22:34.6058771Z ##[endgroup]
+2026-11-24T08:22:34.6059359Z ##[group]Fetching the repository
+2026-11-24T08:22:34.6064918Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +42f0b233b9dd28f62a2cd34d14cd589844c5977c:refs/remotes/pull/8/merge
+2026-11-24T08:22:38.0214924Z From https://github.com/includeduck/SQE-Horilla-Project
+2026-11-24T08:22:38.0215545Z  * [new ref]         42f0b233b9dd28f62a2cd34d14cd589844c5977c -> pull/8/merge
+2026-11-24T08:22:38.0221025Z ##[endgroup]
+2026-11-24T08:22:38.0221616Z ##[group]Determining the checkout info
+2026-11-24T08:22:38.0222203Z ##[endgroup]
+2026-11-24T08:22:38.0227045Z [command]/usr/bin/git sparse-checkout disable
+2026-11-24T08:22:38.0280259Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-24T08:22:38.0307292Z ##[group]Checking out the ref
+2026-11-24T08:22:38.0310474Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/8/merge
+2026-11-24T08:22:38.4661090Z Note: switching to 'refs/remotes/pull/8/merge'.
+2026-11-24T08:22:38.4661427Z 
+2026-11-24T08:22:38.4661775Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-24T08:22:38.4662279Z changes and commit them, and you can discard any commits you make in this
+2026-11-24T08:22:38.4662677Z state without impacting any branches by switching back to a branch.
+2026-11-24T08:22:38.4662890Z 
+2026-11-24T08:22:38.4663116Z If you want to create a new branch to retain commits you create, you may
+2026-11-24T08:22:38.4663782Z do so (now or later) by using -c with the switch command. Example:
+2026-11-24T08:22:38.4664020Z 
+2026-11-24T08:22:38.4664114Z   git switch -c <new-branch-name>
+2026-11-24T08:22:38.4664338Z 
+2026-11-24T08:22:38.4664461Z Or undo this operation with:
+2026-11-24T08:22:38.4664660Z 
+2026-11-24T08:22:38.4664780Z   git switch -
+2026-11-24T08:22:38.4664877Z 
+2026-11-24T08:22:38.4665105Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-24T08:22:38.4665365Z 
+2026-11-24T08:22:38.4665827Z HEAD is now at 42f0b23 Merge 32621b42b6ec9a64f81f4540eea151ede4acbb2e into 2242c502090c81031e20df912b49809a03a1f523
+2026-11-24T08:22:38.4687101Z ##[endgroup]
+2026-11-24T08:22:38.4741029Z [command]/usr/bin/git log -1 --format=%H
+2026-11-24T08:22:38.4759397Z 42f0b233b9dd28f62a2cd34d14cd589844c5977c
+2026-11-24T08:22:38.4972633Z ##[group]Run actions/setup-python@v5
+2026-11-24T08:22:38.4972989Z with:
+2026-11-24T08:22:38.4973281Z   python-version: 3.12
+2026-11-24T08:22:38.4973554Z   cache: pip
+2026-11-24T08:22:38.4973782Z   check-latest: false
+2026-11-24T08:22:38.4976585Z   token: ***
+2026-11-24T08:22:38.4976851Z   update-environment: true
+2026-11-24T08:22:38.4977194Z   allow-prereleases: false
+2026-11-24T08:22:38.4977503Z   freethreaded: false
+2026-11-24T08:22:38.4977714Z ##[endgroup]
+2026-11-24T08:22:38.5975250Z ##[group]Installed versions
+2026-11-24T08:22:39.1117030Z (node:2360) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-24T08:22:39.1117824Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-24T08:22:39.1118450Z Successfully set up CPython (3.12.16)
+2026-11-24T08:22:39.1119151Z ##[endgroup]
+2026-11-24T08:22:39.7940173Z [command]/opt/hostedtoolcache/Python/3.12.16/x64/bin/pip cache dir
+2026-11-24T08:22:43.1954415Z /home/runner/.cache/pip
+2026-11-24T08:22:43.5636202Z Cache hit for: setup-python-Linux-x64-26.04-Ubuntu-python-3.12.16-pip-99b1196b597897ee049be41f8d682ac25ad350893dc08a251676fc5fc2a6fab6
+2026-11-24T08:22:43.5729543Z (node:2360) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-24T08:22:44.9021748Z Received 0 of 281687468 (0.0%), 0.0 MBs/sec
+2026-11-24T08:22:45.9025222Z Received 62914560 of 281687468 (22.3%), 30.0 MBs/sec
+2026-11-24T08:22:46.9036207Z Received 171966464 of 281687468 (61.0%), 54.6 MBs/sec
+2026-11-24T08:22:47.9035476Z Received 269104556 of 281687468 (95.5%), 64.1 MBs/sec
+2026-11-24T08:22:48.1015007Z Received 281687468 of 281687468 (100.0%), 64.0 MBs/sec
+2026-11-24T08:22:48.1015877Z Cache Size: ~269 MB (281687468 B)
+2026-11-24T08:22:48.1039824Z [command]/usr/bin/tar -xf /home/runner/work/_temp/e6d4992b-f9df-451e-a3d2-5f21292d427a/cache.tzst -P -C /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project --use-compress-program unzstd
+2026-11-24T08:22:48.2783202Z Cache restored successfully
+2026-11-24T08:22:48.2869825Z Cache restored from key: setup-python-Linux-x64-26.04-Ubuntu-python-3.12.16-pip-99b1196b597897ee049be41f8d682ac25ad350893dc08a251676fc5fc2a6fab6
+2026-11-24T08:22:48.3043273Z ##[group]Run sudo apt-get update
+2026-11-24T08:22:48.3043696Z [36;1msudo apt-get update[0m
+2026-11-24T08:22:48.3044263Z [36;1msudo apt-get install -y --no-install-recommends libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf-2.0-0 libffi8 shared-mime-info[0m
+2026-11-24T08:22:48.3044842Z [36;1mbash .github/scripts/install-requirements.sh[0m
+2026-11-24T08:22:48.3045226Z [36;1mpython -m pip install -r tests/team/requirements-phase-d.txt[0m
+2026-11-24T08:22:48.3069500Z shell: /usr/bin/bash -e {0}
+2026-11-24T08:22:48.3069901Z env:
+2026-11-24T08:22:48.3070211Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-24T08:22:48.3070628Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-24T08:22:48.3071135Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-24T08:22:48.3071523Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-24T08:22:48.3071940Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-24T08:22:48.3072325Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-24T08:22:48.3072622Z ##[endgroup]
+2026-11-24T08:22:48.4291643Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [152 B]
+2026-11-24T08:22:48.4967734Z Get:6 https://packages.microsoft.com/ubuntu/26.04/prod resolute InRelease [3964 B]
+2026-11-24T08:22:48.6152967Z Get:7 https://packages.microsoft.com/ubuntu/26.04/prod resolute/main amd64 Packages [186 kB]
+2026-11-24T08:22:48.6760516Z Get:8 https://packages.microsoft.com/ubuntu/26.04/prod resolute/main arm64 Packages [173 kB]
+2026-11-24T08:22:49.4239431Z Hit:2 http://us-east-2.ec2.archive.ubuntu.com/ubuntu resolute InRelease
+2026-11-24T08:22:49.5401581Z Get:3 http://us-east-2.ec2.archive.ubuntu.com/ubuntu resolute-updates InRelease [137 kB]
+2026-11-24T08:22:51.6594362Z Get:4 http://us-east-2.ec2.archive.ubuntu.com/ubuntu resolute-backports InRelease [137 kB]
+2026-11-24T08:23:07.8477003Z Get:5 http://us-east-2.ec2.archive.ubuntu.com/ubuntu resolute-security InRelease [137 kB]
+2026-11-24T08:23:11.9184063Z Get:9 http://us-east-2.ec2.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 Packages [914 kB]
+2026-11-24T08:23:12.3433073Z Get:10 http://us-east-2.ec2.archive.ubuntu.com/ubuntu resolute-updates/main Translation-en [201 kB]
+2026-11-24T08:23:12.4999078Z Get:11 http://us-east-2.ec2.archive.ubuntu.com/ubuntu resolute-updates/universe amd64v3 Packages [394 kB]
+2026-11-24T08:23:12.9142014Z Get:12 http://us-east-2.ec2.archive.ubuntu.com/ubuntu resolute-updates/universe Translation-en [124 kB]
+2026-11-24T08:23:13.0198696Z Get:13 http://us-east-2.ec2.archive.ubuntu.com/ubuntu resolute-updates/restricted amd64v3 Packages [640 kB]
+2026-11-24T08:23:18.7732207Z Get:14 http://us-east-2.ec2.archive.ubuntu.com/ubuntu resolute-updates/restricted Translation-en [132 kB]
+2026-11-24T08:23:19.9937346Z Get:15 http://us-east-2.ec2.archive.ubuntu.com/ubuntu resolute-security/main amd64v3 Packages [753 kB]
+2026-11-24T08:23:22.3356782Z Get:16 http://us-east-2.ec2.archive.ubuntu.com/ubuntu resolute-security/main Translation-en [162 kB]
+2026-11-24T08:23:22.6892590Z Get:17 http://us-east-2.ec2.archive.ubuntu.com/ubuntu resolute-security/universe amd64v3 Packages [224 kB]
+2026-11-24T08:23:39.6994512Z Get:18 http://us-east-2.ec2.archive.ubuntu.com/ubuntu resolute-security/universe Translation-en [73.2 kB]
+2026-11-24T08:23:43.5538605Z Get:19 http://us-east-2.ec2.archive.ubuntu.com/ubuntu resolute-security/restricted amd64v3 Packages [618 kB]
+2026-11-24T08:23:43.9208371Z Get:20 http://us-east-2.ec2.archive.ubuntu.com/ubuntu resolute-security/restricted Translation-en [128 kB]
+2026-11-24T08:23:54.4037574Z Fetched 5139 kB in 56s (92.6 kB/s)
+2026-11-24T08:23:54.9415256Z Reading package lists...
+2026-11-24T08:23:54.9668790Z Reading package lists...
+2026-11-24T08:23:55.0768819Z Building dependency tree...
+2026-11-24T08:23:55.0775111Z Reading state information...
+2026-11-24T08:23:55.1049681Z libcairo2 is already the newest version (1.18.4-3).
+2026-11-24T08:23:55.1050695Z libcairo2 set to manually installed.
+2026-11-24T08:23:55.1051031Z libpango-1.0-0 is already the newest version (1.57.0-1).
+2026-11-24T08:23:55.1051538Z libpango-1.0-0 set to manually installed.
+2026-11-24T08:23:55.1053701Z libpangocairo-1.0-0 is already the newest version (1.57.0-1).
+2026-11-24T08:23:55.1054219Z libpangocairo-1.0-0 set to manually installed.
+2026-11-24T08:23:55.1054681Z libgdk-pixbuf-2.0-0 is already the newest version (2.44.5+dfsg-4ubuntu1).
+2026-11-24T08:23:55.1055126Z libgdk-pixbuf-2.0-0 set to manually installed.
+2026-11-24T08:23:55.1055538Z libffi8 is already the newest version (3.5.2-4).
+2026-11-24T08:23:55.1056147Z libffi8 set to manually installed.
+2026-11-24T08:23:55.1056654Z shared-mime-info is already the newest version (2.4-5build3).
+2026-11-24T08:23:55.1057204Z shared-mime-info set to manually installed.
+2026-11-24T08:23:55.1429739Z Solving dependencies...
+2026-11-24T08:23:55.3014163Z 0 upgraded, 0 newly installed, 0 to remove and 54 not upgraded.
+2026-11-24T08:23:55.3117288Z Downloading model wheel: https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
+2026-11-24T08:23:57.2146572Z Collecting Django~=5.2.17 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 28))
+2026-11-24T08:23:57.2157114Z   Using cached django-5.2.19-py3-none-any.whl.metadata (4.1 kB)
+2026-11-24T08:23:57.2300796Z Collecting django-environ==0.14.0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 29))
+2026-11-24T08:23:57.2309235Z   Using cached django_environ-0.14.0-py3-none-any.whl.metadata (12 kB)
+2026-11-24T08:23:57.2846429Z Collecting psycopg2-binary<3,>=2.9.13 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 30))
+2026-11-24T08:23:57.2854160Z   Using cached psycopg2_binary-2.9.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+2026-11-24T08:23:57.2993523Z Collecting django-apscheduler==0.7.0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 33))
+2026-11-24T08:23:57.2999460Z   Using cached django_apscheduler-0.7.0-py3-none-any.whl.metadata (15 kB)
+2026-11-24T08:23:57.3143687Z Collecting django-auditlog==3.4.1 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 34))
+2026-11-24T08:23:57.3150817Z   Using cached django_auditlog-3.4.1-py3-none-any.whl.metadata (3.9 kB)
+2026-11-24T08:23:57.3330454Z Collecting django-cors-headers==4.9.0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 35))
+2026-11-24T08:23:57.3338545Z   Using cached django_cors_headers-4.9.0-py3-none-any.whl.metadata (16 kB)
+2026-11-24T08:23:57.3483499Z Collecting django-filter==26.1 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 36))
+2026-11-24T08:23:57.3491327Z   Using cached django_filter-26.1-py3-none-any.whl.metadata (5.2 kB)
+2026-11-24T08:23:57.3662890Z Collecting django-import-export==4.4.1 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 37))
+2026-11-24T08:23:57.3669848Z   Using cached django_import_export-4.4.1-py3-none-any.whl.metadata (12 kB)
+2026-11-24T08:23:57.3836291Z Collecting django-mathfilters==1.0.0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 38))
+2026-11-24T08:23:57.3843986Z   Using cached django_mathfilters-1.0.0-py3-none-any.whl.metadata (3.4 kB)
+2026-11-24T08:23:57.3982954Z Collecting django-model-utils==5.0.0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 39))
+2026-11-24T08:23:57.3990577Z   Using cached django_model_utils-5.0.0-py3-none-any.whl.metadata (22 kB)
+2026-11-24T08:23:57.4141031Z Collecting django-redis==5.4.0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 40))
+2026-11-24T08:23:57.4148888Z   Using cached django_redis-5.4.0-py3-none-any.whl.metadata (32 kB)
+2026-11-24T08:23:57.4334072Z Collecting django-simple-history==3.13.0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 41))
+2026-11-24T08:23:57.4342744Z   Using cached django_simple_history-3.13.0-py3-none-any.whl.metadata (27 kB)
+2026-11-24T08:23:57.4486983Z Collecting django-storages==1.14.6 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 42))
+2026-11-24T08:23:57.4495078Z   Using cached django_storages-1.14.6-py3-none-any.whl.metadata (4.7 kB)
+2026-11-24T08:23:57.4617705Z Collecting django-widget-tweaks==1.5.1 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 43))
+2026-11-24T08:23:57.4624502Z   Using cached django_widget_tweaks-1.5.1-py3-none-any.whl.metadata (16 kB)
+2026-11-24T08:23:57.4797149Z Collecting djangorestframework==3.18.3 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 53))
+2026-11-24T08:23:57.4805089Z   Using cached djangorestframework-3.18.3-py3-none-any.whl.metadata (7.8 kB)
+2026-11-24T08:23:57.4959107Z Collecting djangorestframework-simplejwt==5.5.1 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 56))
+2026-11-24T08:23:57.4967023Z   Using cached djangorestframework_simplejwt-5.5.1-py3-none-any.whl.metadata (4.6 kB)
+2026-11-24T08:23:57.5123636Z Collecting PyJWT==2.15.1 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 62))
+2026-11-24T08:23:57.5131914Z   Using cached pyjwt-2.15.1-py3-none-any.whl.metadata (3.5 kB)
+2026-11-24T08:23:57.5319427Z Collecting drf-yasg==1.21.15 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 63))
+2026-11-24T08:23:57.5327365Z   Using cached drf_yasg-1.21.15-py3-none-any.whl.metadata (17 kB)
+2026-11-24T08:23:57.6493966Z Collecting numpy<3,>=1.26 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 66))
+2026-11-24T08:23:57.6504416Z   Using cached numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+2026-11-24T08:23:57.6647134Z Collecting openpyxl==3.1.5 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 67))
+2026-11-24T08:23:57.6655021Z   Using cached openpyxl-3.1.5-py2.py3-none-any.whl.metadata (2.5 kB)
+2026-11-24T08:23:57.7357103Z Collecting pandas<4,>=2.1 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 68))
+2026-11-24T08:23:57.7367024Z   Using cached pandas-3.1.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (16 kB)
+2026-11-24T08:23:57.7590388Z Collecting XlsxWriter==3.2.9 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 69))
+2026-11-24T08:23:57.7598667Z   Using cached xlsxwriter-3.2.9-py3-none-any.whl.metadata (2.7 kB)
+2026-11-24T08:23:57.7737688Z Collecting pdfkit==1.0.0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 75))
+2026-11-24T08:23:57.7745939Z   Using cached pdfkit-1.0.0-py3-none-any.whl.metadata (9.3 kB)
+2026-11-24T08:23:57.8524040Z Collecting PyMuPDF<2,>=1.28.2 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 76))
+2026-11-24T08:23:57.8533158Z   Using cached pymupdf-1.28.2-cp310-abi3-manylinux_2_28_x86_64.whl.metadata (26 kB)
+2026-11-24T08:23:57.9292614Z Collecting reportlab==4.0.9 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 77))
+2026-11-24T08:23:57.9299848Z   Using cached reportlab-4.0.9-py3-none-any.whl.metadata (1.4 kB)
+2026-11-24T08:23:57.9474161Z Collecting xhtml2pdf==0.2.17 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 78))
+2026-11-24T08:23:57.9481749Z   Using cached xhtml2pdf-0.2.17-py3-none-any.whl.metadata (22 kB)
+2026-11-24T08:23:57.9638145Z Collecting beautifulsoup4==4.15.0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 81))
+2026-11-24T08:23:57.9646070Z   Using cached beautifulsoup4-4.15.0-py3-none-any.whl.metadata (3.8 kB)
+2026-11-24T08:23:57.9810851Z Collecting requests==2.34.2 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 82))
+2026-11-24T08:23:57.9819324Z   Using cached requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+2026-11-24T08:23:57.9940389Z Collecting requests-oauthlib==2.0.0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 83))
+2026-11-24T08:23:57.9948520Z   Using cached requests_oauthlib-2.0.0-py2.py3-none-any.whl.metadata (11 kB)
+2026-11-24T08:23:58.0111128Z Collecting urllib3<3,>=2.8.0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 86))
+2026-11-24T08:23:58.0119408Z   Using cached urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+2026-11-24T08:23:58.0360113Z Collecting google-api-python-client==2.200.0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 89))
+2026-11-24T08:23:58.0368847Z   Using cached google_api_python_client-2.200.0-py3-none-any.whl.metadata (6.8 kB)
+2026-11-24T08:23:58.0494225Z Collecting google-auth-oauthlib==1.4.1 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 90))
+2026-11-24T08:23:58.0501387Z   Using cached google_auth_oauthlib-1.4.1-py3-none-any.whl.metadata (2.6 kB)
+2026-11-24T08:23:58.0674277Z Collecting google-cloud-storage==3.0.0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 91))
+2026-11-24T08:23:58.0682633Z   Using cached google_cloud_storage-3.0.0-py2.py3-none-any.whl.metadata (12 kB)
+2026-11-24T08:23:58.0841453Z Collecting geopy==2.5.0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 94))
+2026-11-24T08:23:58.0849532Z   Using cached geopy-2.5.0-py3-none-any.whl.metadata (7.1 kB)
+2026-11-24T08:23:58.0987973Z Collecting pyzk==0.9 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 99))
+2026-11-24T08:23:58.0988577Z   Using cached pyzk-0.9-py3-none-any.whl
+2026-11-24T08:23:58.1994831Z Collecting pillow<14,>=13.0.0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 102))
+2026-11-24T08:23:58.2003554Z   Using cached pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+2026-11-24T08:23:58.3009664Z Collecting cryptography<51,>=50.0.0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 107))
+2026-11-24T08:23:58.3018792Z   Using cached cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (4.4 kB)
+2026-11-24T08:23:58.3204437Z Collecting django-axes==8.3.1 (from django-axes[ipware]==8.3.1->-r /home/runner/work/_temp/requirements-no-model.txt (line 109))
+2026-11-24T08:23:58.3212807Z   Using cached django_axes-8.3.1-py3-none-any.whl.metadata (41 kB)
+2026-11-24T08:23:58.3507532Z Collecting sentry-sdk==2.69.1 (from sentry-sdk[django]==2.69.1->-r /home/runner/work/_temp/requirements-no-model.txt (line 111))
+2026-11-24T08:23:58.3514699Z   Using cached sentry_sdk-2.69.1-py3-none-any.whl.metadata (11 kB)
+2026-11-24T08:23:58.3691108Z Collecting swapper==1.5.0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 114))
+2026-11-24T08:23:58.3698490Z   Using cached swapper-1.5.0-py2.py3-none-any.whl.metadata (15 kB)
+2026-11-24T08:23:58.3852018Z Collecting whitenoise==6.9.0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 117))
+2026-11-24T08:23:58.3862286Z   Using cached whitenoise-6.9.0-py3-none-any.whl.metadata (3.6 kB)
+2026-11-24T08:23:58.3997620Z Collecting APScheduler==3.11.3 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 120))
+2026-11-24T08:23:58.4005584Z   Using cached apscheduler-3.11.3-py3-none-any.whl.metadata (6.5 kB)
+2026-11-24T08:23:58.4141950Z Collecting python-dateutil==2.9.0.post0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 123))
+2026-11-24T08:23:58.4148854Z   Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+2026-11-24T08:23:58.4613078Z Collecting pytz==2026.3.post1 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 124))
+2026-11-24T08:23:58.4622130Z   Using cached pytz-2026.3.post1-py2.py3-none-any.whl.metadata (22 kB)
+2026-11-24T08:23:58.4767236Z Collecting arabic-reshaper==3.0.1 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 127))
+2026-11-24T08:23:58.4775976Z   Using cached arabic_reshaper-3.0.1-py3-none-any.whl.metadata (13 kB)
+2026-11-24T08:23:58.4922299Z Collecting click==8.5.0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 128))
+2026-11-24T08:23:58.4930731Z   Using cached click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+2026-11-24T08:23:58.5198145Z Collecting phonenumbers==9.0.39 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 129))
+2026-11-24T08:23:58.5205898Z   Using cached phonenumbers-9.0.39-py2.py3-none-any.whl.metadata (10 kB)
+2026-11-24T08:23:58.5351210Z Collecting pycountry==24.6.1 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 130))
+2026-11-24T08:23:58.5358937Z   Using cached pycountry-24.6.1-py3-none-any.whl.metadata (12 kB)
+2026-11-24T08:23:58.5890142Z Collecting python-bidi<0.7,>=0.6.11 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 131))
+2026-11-24T08:23:58.5898664Z   Using cached python_bidi-0.6.12-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.3 kB)
+2026-11-24T08:23:58.8510457Z Collecting rapidfuzz<4,>=3.14.6 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 132))
+2026-11-24T08:23:58.8519019Z   Using cached rapidfuzz-3.14.6-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (12 kB)
+2026-11-24T08:23:58.9455217Z Collecting spacy<3.9,>=3.8.16 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:23:58.9462163Z   Using cached spacy-3.8.18-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (28 kB)
+2026-11-24T08:23:58.9767546Z Collecting preshed==3.0.13 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 142))
+2026-11-24T08:23:58.9774341Z   Using cached preshed-3.0.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.2 kB)
+2026-11-24T08:23:58.9924569Z Collecting bleach==6.4.0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 153))
+2026-11-24T08:23:58.9932113Z   Using cached bleach-6.4.0-py3-none-any.whl.metadata (32 kB)
+2026-11-24T08:23:59.0099048Z Collecting tinycss2==1.5.1 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 159))
+2026-11-24T08:23:59.0106082Z   Using cached tinycss2-1.5.1-py3-none-any.whl.metadata (3.0 kB)
+2026-11-24T08:23:59.0249904Z Collecting gunicorn==23.0.0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 160))
+2026-11-24T08:23:59.0256046Z   Using cached gunicorn-23.0.0-py3-none-any.whl.metadata (4.4 kB)
+2026-11-24T08:23:59.0403059Z Collecting packaging==26.3 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 161))
+2026-11-24T08:23:59.0409669Z   Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-11-24T08:23:59.0903040Z Collecting msgpack<2,>=1.2.2 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 168))
+2026-11-24T08:23:59.0910241Z   Using cached msgpack-1.2.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
+2026-11-24T08:23:59.1339513Z Collecting setuptools==84.1.0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 173))
+2026-11-24T08:23:59.1348215Z   Using cached setuptools-84.1.0-py3-none-any.whl.metadata (6.6 kB)
+2026-11-24T08:23:59.4128434Z Collecting coverage>=7.0 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 176))
+2026-11-24T08:23:59.4137867Z   Using cached coverage-7.17.5-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (8.3 kB)
+2026-11-24T08:23:59.4264589Z Collecting tblib==3.2.2 (from -r /home/runner/work/_temp/requirements-no-model.txt (line 177))
+2026-11-24T08:23:59.4271984Z   Using cached tblib-3.2.2-py3-none-any.whl.metadata (27 kB)
+2026-11-24T08:23:59.4449330Z Collecting tzlocal>=3.0 (from APScheduler==3.11.3->-r /home/runner/work/_temp/requirements-no-model.txt (line 120))
+2026-11-24T08:23:59.4456576Z   Using cached tzlocal-5.4.5-py3-none-any.whl.metadata (7.7 kB)
+2026-11-24T08:23:59.4614645Z Collecting asgiref>=3.6 (from django-cors-headers==4.9.0->-r /home/runner/work/_temp/requirements-no-model.txt (line 35))
+2026-11-24T08:23:59.4622286Z   Using cached asgiref-3.13.0-py3-none-any.whl.metadata (12 kB)
+2026-11-24T08:23:59.4766580Z Collecting diff-match-patch==20241021 (from django-import-export==4.4.1->-r /home/runner/work/_temp/requirements-no-model.txt (line 37))
+2026-11-24T08:23:59.4773583Z   Using cached diff_match_patch-20241021-py3-none-any.whl.metadata (5.5 kB)
+2026-11-24T08:23:59.4923690Z Collecting tablib>=3.7.0 (from django-import-export==4.4.1->-r /home/runner/work/_temp/requirements-no-model.txt (line 37))
+2026-11-24T08:23:59.4931194Z   Using cached tablib-3.10.0-py3-none-any.whl.metadata (3.8 kB)
+2026-11-24T08:23:59.5161471Z Collecting redis!=4.0.0,!=4.0.1,>=3 (from django-redis==5.4.0->-r /home/runner/work/_temp/requirements-no-model.txt (line 40))
+2026-11-24T08:23:59.5169183Z   Using cached redis-8.2.0-py3-none-any.whl.metadata (18 kB)
+2026-11-24T08:23:59.5342589Z Collecting inflection>=0.3.1 (from drf-yasg==1.21.15->-r /home/runner/work/_temp/requirements-no-model.txt (line 63))
+2026-11-24T08:23:59.5349942Z   Using cached inflection-0.5.1-py2.py3-none-any.whl.metadata (1.7 kB)
+2026-11-24T08:23:59.5616446Z Collecting pyyaml>=5.1 (from drf-yasg==1.21.15->-r /home/runner/work/_temp/requirements-no-model.txt (line 63))
+2026-11-24T08:23:59.5624419Z   Using cached pyyaml-6.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.3 kB)
+2026-11-24T08:23:59.5739638Z Collecting uritemplate>=3.0.0 (from drf-yasg==1.21.15->-r /home/runner/work/_temp/requirements-no-model.txt (line 63))
+2026-11-24T08:23:59.5746964Z   Using cached uritemplate-4.2.0-py3-none-any.whl.metadata (2.6 kB)
+2026-11-24T08:23:59.5865112Z Collecting et-xmlfile (from openpyxl==3.1.5->-r /home/runner/work/_temp/requirements-no-model.txt (line 67))
+2026-11-24T08:23:59.5872433Z   Using cached et_xmlfile-2.0.0-py3-none-any.whl.metadata (2.7 kB)
+2026-11-24T08:23:59.6144634Z Collecting chardet (from reportlab==4.0.9->-r /home/runner/work/_temp/requirements-no-model.txt (line 77))
+2026-11-24T08:23:59.6150780Z   Using cached chardet-7.7.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (10 kB)
+2026-11-24T08:23:59.6279320Z Collecting html5lib>=1.1 (from xhtml2pdf==0.2.17->-r /home/runner/work/_temp/requirements-no-model.txt (line 78))
+2026-11-24T08:23:59.6286322Z   Using cached html5lib-1.1-py2.py3-none-any.whl.metadata (16 kB)
+2026-11-24T08:23:59.6462903Z Collecting pyHanko>=0.12.1 (from xhtml2pdf==0.2.17->-r /home/runner/work/_temp/requirements-no-model.txt (line 78))
+2026-11-24T08:23:59.6469044Z   Using cached pyhanko-0.38.2-py3-none-any.whl.metadata (3.3 kB)
+2026-11-24T08:23:59.6634895Z Collecting pyhanko-certvalidator>=0.19.5 (from xhtml2pdf==0.2.17->-r /home/runner/work/_temp/requirements-no-model.txt (line 78))
+2026-11-24T08:23:59.6640917Z   Using cached pyhanko_certvalidator-0.33.0-py3-none-any.whl.metadata (5.0 kB)
+2026-11-24T08:23:59.6829497Z Collecting pypdf>=3.1.0 (from xhtml2pdf==0.2.17->-r /home/runner/work/_temp/requirements-no-model.txt (line 78))
+2026-11-24T08:23:59.6837144Z   Using cached pypdf-7.1.1-py3-none-any.whl.metadata (7.6 kB)
+2026-11-24T08:23:59.6997490Z Collecting svglib>=1.2.1 (from xhtml2pdf==0.2.17->-r /home/runner/work/_temp/requirements-no-model.txt (line 78))
+2026-11-24T08:23:59.7004618Z   Using cached svglib-2.4.0-py3-none-any.whl.metadata (14 kB)
+2026-11-24T08:23:59.7164920Z Collecting soupsieve>=1.6.1 (from beautifulsoup4==4.15.0->-r /home/runner/work/_temp/requirements-no-model.txt (line 81))
+2026-11-24T08:23:59.7172661Z   Using cached soupsieve-4.1.3-py3-none-any.whl.metadata (4.4 kB)
+2026-11-24T08:23:59.7318833Z Collecting typing-extensions>=4.0.0 (from beautifulsoup4==4.15.0->-r /home/runner/work/_temp/requirements-no-model.txt (line 81))
+2026-11-24T08:23:59.7326302Z   Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+2026-11-24T08:23:59.8086212Z Collecting charset_normalizer<4,>=2 (from requests==2.34.2->-r /home/runner/work/_temp/requirements-no-model.txt (line 82))
+2026-11-24T08:23:59.8094150Z   Using cached charset_normalizer-3.5.3-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (43 kB)
+2026-11-24T08:23:59.8246607Z Collecting idna<4,>=2.5 (from requests==2.34.2->-r /home/runner/work/_temp/requirements-no-model.txt (line 82))
+2026-11-24T08:23:59.8254062Z   Using cached idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+2026-11-24T08:23:59.8409490Z Collecting certifi>=2023.5.7 (from requests==2.34.2->-r /home/runner/work/_temp/requirements-no-model.txt (line 82))
+2026-11-24T08:23:59.8417583Z   Using cached certifi-2026.11.20-py3-none-any.whl.metadata (2.5 kB)
+2026-11-24T08:23:59.8551565Z Collecting oauthlib>=3.0.0 (from requests-oauthlib==2.0.0->-r /home/runner/work/_temp/requirements-no-model.txt (line 83))
+2026-11-24T08:23:59.8558103Z   Using cached oauthlib-4.0.1-py3-none-any.whl.metadata (8.6 kB)
+2026-11-24T08:23:59.8703366Z Collecting httplib2<1.0.0,>=0.19.0 (from google-api-python-client==2.200.0->-r /home/runner/work/_temp/requirements-no-model.txt (line 89))
+2026-11-24T08:23:59.8714611Z   Using cached httplib2-0.32.1-py3-none-any.whl.metadata (2.2 kB)
+2026-11-24T08:23:59.8947021Z Collecting google-auth!=2.24.0,!=2.25.0,<3.0.0,>=1.32.0 (from google-api-python-client==2.200.0->-r /home/runner/work/_temp/requirements-no-model.txt (line 89))
+2026-11-24T08:23:59.8954979Z   Using cached google_auth-2.63.1-py3-none-any.whl.metadata (6.0 kB)
+2026-11-24T08:23:59.9094551Z Collecting google-auth-httplib2<1.0.0,>=0.2.0 (from google-api-python-client==2.200.0->-r /home/runner/work/_temp/requirements-no-model.txt (line 89))
+2026-11-24T08:23:59.9102571Z   Using cached google_auth_httplib2-0.4.4-py3-none-any.whl.metadata (3.0 kB)
+2026-11-24T08:23:59.9315155Z Collecting google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5 (from google-api-python-client==2.200.0->-r /home/runner/work/_temp/requirements-no-model.txt (line 89))
+2026-11-24T08:23:59.9322180Z   Using cached google_api_core-2.44.0-py3-none-any.whl.metadata (3.2 kB)
+2026-11-24T08:23:59.9553633Z Collecting google-cloud-core<3.0dev,>=2.3.0 (from google-cloud-storage==3.0.0->-r /home/runner/work/_temp/requirements-no-model.txt (line 91))
+2026-11-24T08:23:59.9560773Z   Using cached google_cloud_core-2.8.0-py3-none-any.whl.metadata (2.9 kB)
+2026-11-24T08:23:59.9709216Z Collecting google-resumable-media>=2.7.2 (from google-cloud-storage==3.0.0->-r /home/runner/work/_temp/requirements-no-model.txt (line 91))
+2026-11-24T08:23:59.9716260Z   Using cached google_resumable_media-2.11.0-py3-none-any.whl.metadata (2.3 kB)
+2026-11-24T08:24:00.0049083Z Collecting google-crc32c<2.0dev,>=1.0 (from google-cloud-storage==3.0.0->-r /home/runner/work/_temp/requirements-no-model.txt (line 91))
+2026-11-24T08:24:00.0054999Z   Using cached google_crc32c-1.9.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.2 kB)
+2026-11-24T08:24:00.0188205Z Collecting geographiclib<3,>=1.52 (from geopy==2.5.0->-r /home/runner/work/_temp/requirements-no-model.txt (line 94))
+2026-11-24T08:24:00.0195198Z   Using cached geographiclib-2.1-py3-none-any.whl.metadata (1.6 kB)
+2026-11-24T08:24:00.0322861Z Collecting future (from pyzk==0.9->-r /home/runner/work/_temp/requirements-no-model.txt (line 99))
+2026-11-24T08:24:00.0331064Z   Using cached future-1.0.0-py3-none-any.whl.metadata (4.0 kB)
+2026-11-24T08:24:00.0495837Z Collecting six>=1.5 (from python-dateutil==2.9.0.post0->-r /home/runner/work/_temp/requirements-no-model.txt (line 123))
+2026-11-24T08:24:00.0503344Z   Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+2026-11-24T08:24:00.0784951Z Collecting cymem<2.1.0,>=2.0.2 (from preshed==3.0.13->-r /home/runner/work/_temp/requirements-no-model.txt (line 142))
+2026-11-24T08:24:00.0792215Z   Using cached cymem-2.0.16-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (9.7 kB)
+2026-11-24T08:24:00.1052452Z Collecting murmurhash<1.1.0,>=0.28.0 (from preshed==3.0.13->-r /home/runner/work/_temp/requirements-no-model.txt (line 142))
+2026-11-24T08:24:00.1062518Z   Using cached murmurhash-1.0.16-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl.metadata (2.3 kB)
+2026-11-24T08:24:00.1177014Z Collecting webencodings (from bleach==6.4.0->-r /home/runner/work/_temp/requirements-no-model.txt (line 153))
+2026-11-24T08:24:00.1183473Z   Using cached webencodings-0.6.1-py3-none-any.whl.metadata (3.4 kB)
+2026-11-24T08:24:00.1358395Z Collecting django-ipware>=3 (from django-axes[ipware]==8.3.1->-r /home/runner/work/_temp/requirements-no-model.txt (line 109))
+2026-11-24T08:24:00.1365234Z   Using cached django_ipware-8.0.0-py3-none-any.whl.metadata (19 kB)
+2026-11-24T08:24:00.1533442Z Collecting sqlparse>=0.3.1 (from Django~=5.2.17->-r /home/runner/work/_temp/requirements-no-model.txt (line 28))
+2026-11-24T08:24:00.1542197Z   Using cached sqlparse-0.6.1-py3-none-any.whl.metadata (6.9 kB)
+2026-11-24T08:24:00.2590974Z Collecting cffi>=2.0.0 (from cryptography<51,>=50.0.0->-r /home/runner/work/_temp/requirements-no-model.txt (line 107))
+2026-11-24T08:24:00.2601199Z   Using cached cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+2026-11-24T08:24:00.2739145Z Collecting spacy-legacy<3.1.0,>=3.0.11 (from spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:00.2747101Z   Using cached spacy_legacy-3.0.12-py2.py3-none-any.whl.metadata (2.8 kB)
+2026-11-24T08:24:00.2865900Z Collecting spacy-loggers<2.0.0,>=1.0.0 (from spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:00.2873181Z   Using cached spacy_loggers-1.0.5-py3-none-any.whl.metadata (23 kB)
+2026-11-24T08:24:00.3626236Z Collecting thinc<8.4.0,>=8.3.12 (from spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:00.3634471Z   Using cached thinc-8.3.14-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (14 kB)
+2026-11-24T08:24:00.3783129Z Collecting wasabi<1.2.0,>=0.9.1 (from spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:00.3791135Z   Using cached wasabi-1.1.3-py3-none-any.whl.metadata (28 kB)
+2026-11-24T08:24:00.4133785Z Collecting srsly<3.0.0,>=2.5.3 (from spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:00.4140473Z   Using cached srsly-2.5.6-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (20 kB)
+2026-11-24T08:24:00.4269043Z Collecting catalogue<2.1.0,>=2.0.6 (from spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:00.4276547Z   Using cached catalogue-2.0.10-py3-none-any.whl.metadata (14 kB)
+2026-11-24T08:24:00.4403964Z Collecting weasel<2.0.0,>=1.0.1 (from spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:00.4410788Z   Using cached weasel-1.0.1-py3-none-any.whl.metadata (4.8 kB)
+2026-11-24T08:24:00.4532512Z Collecting confection<2.0.0,>=1.3.4 (from spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:00.4539131Z   Using cached confection-1.3.4-py3-none-any.whl.metadata (19 kB)
+2026-11-24T08:24:00.4714624Z Collecting typer<1.0.0,>=0.3.0 (from spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:00.4722424Z   Using cached typer-0.29.2-py3-none-any.whl.metadata (16 kB)
+2026-11-24T08:24:00.4931603Z Collecting tqdm<5.0.0,>=4.38.0 (from spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:00.4942288Z   Using cached tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+2026-11-24T08:24:00.5593765Z Collecting pydantic<3.0.0,>=2.0.0 (from spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:00.5602429Z   Using cached pydantic-2.14.4-py3-none-any.whl.metadata (143 kB)
+2026-11-24T08:24:00.5772592Z Collecting jinja2 (from spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:00.5779306Z   Using cached jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+2026-11-24T08:24:00.5967852Z Collecting googleapis-common-protos<2.0.0,>=1.69.2 (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client==2.200.0->-r /home/runner/work/_temp/requirements-no-model.txt (line 89))
+2026-11-24T08:24:00.5976999Z   Using cached googleapis_common_protos-1.76.0-py3-none-any.whl.metadata (8.5 kB)
+2026-11-24T08:24:00.6807196Z Collecting protobuf<8.0.0,>=6.33.5 (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client==2.200.0->-r /home/runner/work/_temp/requirements-no-model.txt (line 89))
+2026-11-24T08:24:00.6815021Z   Using cached protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+2026-11-24T08:24:00.6962436Z Collecting proto-plus<2.0.0,>=1.26.1 (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client==2.200.0->-r /home/runner/work/_temp/requirements-no-model.txt (line 89))
+2026-11-24T08:24:00.6970167Z   Using cached proto_plus-1.29.0-py3-none-any.whl.metadata (2.2 kB)
+2026-11-24T08:24:00.7155577Z Collecting opentelemetry-api<2.0.0,>=1.44.0 (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client==2.200.0->-r /home/runner/work/_temp/requirements-no-model.txt (line 89))
+2026-11-24T08:24:00.7163442Z   Using cached opentelemetry_api-1.45.2-py3-none-any.whl.metadata (1.4 kB)
+2026-11-24T08:24:00.7335093Z Collecting pyasn1-modules>=0.2.1 (from google-auth!=2.24.0,!=2.25.0,<3.0.0,>=1.32.0->google-api-python-client==2.200.0->-r /home/runner/work/_temp/requirements-no-model.txt (line 89))
+2026-11-24T08:24:00.7343349Z   Using cached pyasn1_modules-0.4.2-py3-none-any.whl.metadata (3.5 kB)
+2026-11-24T08:24:00.7582375Z Collecting pyparsing<4,>=3.1 (from httplib2<1.0.0,>=0.19.0->google-api-python-client==2.200.0->-r /home/runner/work/_temp/requirements-no-model.txt (line 89))
+2026-11-24T08:24:00.7590471Z   Using cached pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+2026-11-24T08:24:00.7749982Z Collecting annotated-types>=0.6.0 (from pydantic<3.0.0,>=2.0.0->spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:00.7757794Z   Using cached annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+2026-11-24T08:24:01.2124890Z Collecting pydantic-core==2.50.5 (from pydantic<3.0.0,>=2.0.0->spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:01.2135856Z   Using cached pydantic_core-2.50.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (6.6 kB)
+2026-11-24T08:24:01.2258880Z Collecting typing-inspection>=0.4.4 (from pydantic<3.0.0,>=2.0.0->spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:01.2266176Z   Using cached typing_inspection-0.4.5-py3-none-any.whl.metadata (2.6 kB)
+2026-11-24T08:24:01.2627440Z Collecting blis<1.4.0,>=1.3.0 (from thinc<8.4.0,>=8.3.12->spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:01.2633743Z   Using cached blis-1.3.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.4 kB)
+2026-11-24T08:24:01.2850232Z Collecting shellingham>=1.3.0 (from typer<1.0.0,>=0.3.0->spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:01.2856651Z   Using cached shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+2026-11-24T08:24:01.3551214Z Collecting rich>=13.8.0 (from typer<1.0.0,>=0.3.0->spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:01.3559212Z   Using cached rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+2026-11-24T08:24:01.3686612Z Collecting annotated-doc>=0.0.2 (from typer<1.0.0,>=0.3.0->spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:01.3693230Z   Using cached annotated_doc-0.0.7-py3-none-any.whl.metadata (6.4 kB)
+2026-11-24T08:24:01.3853992Z Collecting cloudpathlib>=0.7.0 (from weasel<2.0.0,>=1.0.1->spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:01.3860069Z   Using cached cloudpathlib-0.26.0-py3-none-any.whl.metadata (16 kB)
+2026-11-24T08:24:01.4013171Z Collecting smart-open>=5.2.1 (from smart-open[http]>=5.2.1->weasel<2.0.0,>=1.0.1->spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:01.4019621Z   Using cached smart_open-10.0.0-py3-none-any.whl.metadata (25 kB)
+2026-11-24T08:24:01.4180081Z Collecting httpx>=0.24.0 (from weasel<2.0.0,>=1.0.1->spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:01.4187638Z   Using cached httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+2026-11-24T08:24:01.4359388Z Collecting pycparser (from cffi>=2.0.0->cryptography<51,>=50.0.0->-r /home/runner/work/_temp/requirements-no-model.txt (line 107))
+2026-11-24T08:24:01.4365114Z   Using cached pycparser-3.12-py3-none-any.whl.metadata (9.7 kB)
+2026-11-24T08:24:01.4510169Z Collecting python-ipware<5,>=4.1.0 (from django-ipware>=3->django-axes[ipware]==8.3.1->-r /home/runner/work/_temp/requirements-no-model.txt (line 109))
+2026-11-24T08:24:01.4517312Z   Using cached python_ipware-4.1.1-py3-none-any.whl.metadata (15 kB)
+2026-11-24T08:24:01.4715427Z Collecting anyio (from httpx>=0.24.0->weasel<2.0.0,>=1.0.1->spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:01.4722591Z   Using cached anyio-4.16.0-py3-none-any.whl.metadata (4.7 kB)
+2026-11-24T08:24:01.4863844Z Collecting httpcore==1.* (from httpx>=0.24.0->weasel<2.0.0,>=1.0.1->spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:01.4870111Z   Using cached httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+2026-11-24T08:24:01.5007566Z Collecting h11>=0.16 (from httpcore==1.*->httpx>=0.24.0->weasel<2.0.0,>=1.0.1->spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:01.5013824Z   Using cached h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+2026-11-24T08:24:01.5232431Z Collecting pyasn1<0.7.0,>=0.6.1 (from pyasn1-modules>=0.2.1->google-auth!=2.24.0,!=2.25.0,<3.0.0,>=1.32.0->google-api-python-client==2.200.0->-r /home/runner/work/_temp/requirements-no-model.txt (line 89))
+2026-11-24T08:24:01.5240129Z   Using cached pyasn1-0.6.5-py3-none-any.whl.metadata (8.4 kB)
+2026-11-24T08:24:01.5376755Z Collecting asn1crypto>=1.5.1 (from pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /home/runner/work/_temp/requirements-no-model.txt (line 78))
+2026-11-24T08:24:01.5382719Z   Using cached asn1crypto-1.5.1-py2.py3-none-any.whl.metadata (13 kB)
+2026-11-24T08:24:01.8135842Z Collecting aiohttp<3.15,>=3.9 (from pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /home/runner/work/_temp/requirements-no-model.txt (line 78))
+2026-11-24T08:24:01.8146440Z   Using cached aiohttp-3.14.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
+2026-11-24T08:24:02.0041820Z Collecting lxml>=5.4.0 (from pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /home/runner/work/_temp/requirements-no-model.txt (line 78))
+2026-11-24T08:24:02.0050777Z   Using cached lxml-6.1.3-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+2026-11-24T08:24:02.0201265Z Collecting aiohappyeyeballs>=2.5.0 (from aiohttp<3.15,>=3.9->pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /home/runner/work/_temp/requirements-no-model.txt (line 78))
+2026-11-24T08:24:02.0209029Z   Using cached aiohappyeyeballs-2.7.1-py3-none-any.whl.metadata (5.9 kB)
+2026-11-24T08:24:02.0323283Z Collecting aiosignal>=1.4.0 (from aiohttp<3.15,>=3.9->pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /home/runner/work/_temp/requirements-no-model.txt (line 78))
+2026-11-24T08:24:02.0330885Z   Using cached aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+2026-11-24T08:24:02.0460011Z Collecting attrs>=17.3.0 (from aiohttp<3.15,>=3.9->pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /home/runner/work/_temp/requirements-no-model.txt (line 78))
+2026-11-24T08:24:02.0468030Z   Using cached attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+2026-11-24T08:24:02.0866144Z Collecting frozenlist>=1.1.1 (from aiohttp<3.15,>=3.9->pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /home/runner/work/_temp/requirements-no-model.txt (line 78))
+2026-11-24T08:24:02.0874318Z   Using cached frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (20 kB)
+2026-11-24T08:24:02.2378312Z Collecting multidict<8.0,>=4.5 (from aiohttp<3.15,>=3.9->pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /home/runner/work/_temp/requirements-no-model.txt (line 78))
+2026-11-24T08:24:02.2388098Z   Using cached multidict-7.2.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (6.1 kB)
+2026-11-24T08:24:02.2817848Z Collecting propcache>=0.2.0 (from aiohttp<3.15,>=3.9->pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /home/runner/work/_temp/requirements-no-model.txt (line 78))
+2026-11-24T08:24:02.2826676Z   Using cached propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (25 kB)
+2026-11-24T08:24:02.4831018Z Collecting yarl<2.0,>=1.25.1 (from aiohttp<3.15,>=3.9->pyHanko>=0.12.1->xhtml2pdf==0.2.17->-r /home/runner/work/_temp/requirements-no-model.txt (line 78))
+2026-11-24T08:24:02.4840022Z   Using cached yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (111 kB)
+2026-11-24T08:24:02.5057672Z Collecting oscrypto>=1.1.0 (from pyhanko-certvalidator>=0.19.5->xhtml2pdf==0.2.17->-r /home/runner/work/_temp/requirements-no-model.txt (line 78))
+2026-11-24T08:24:02.5066039Z   Using cached oscrypto-1.3.0-py2.py3-none-any.whl.metadata (15 kB)
+2026-11-24T08:24:02.5219306Z Collecting uritools>=3.0.1 (from pyhanko-certvalidator>=0.19.5->xhtml2pdf==0.2.17->-r /home/runner/work/_temp/requirements-no-model.txt (line 78))
+2026-11-24T08:24:02.5225903Z   Using cached uritools-7.0.1-py3-none-any.whl.metadata (5.1 kB)
+2026-11-24T08:24:02.5492251Z Collecting markdown-it-py>=2.2.0 (from rich>=13.8.0->typer<1.0.0,>=0.3.0->spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:02.5498839Z   Using cached markdown_it_py-4.3.0-py3-none-any.whl.metadata (7.9 kB)
+2026-11-24T08:24:02.5662838Z Collecting pygments<3.0.0,>=2.13.0 (from rich>=13.8.0->typer<1.0.0,>=0.3.0->spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:02.5670005Z   Using cached pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+2026-11-24T08:24:02.5800491Z Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.8.0->typer<1.0.0,>=0.3.0->spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:02.5806436Z   Using cached mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+2026-11-24T08:24:02.7847409Z Collecting wrapt (from smart-open>=5.2.1->smart-open[http]>=5.2.1->weasel<2.0.0,>=1.0.1->spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:02.7860440Z   Using cached wrapt-2.5.2-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (7.6 kB)
+2026-11-24T08:24:02.8029344Z Collecting cssselect2>=0.2.0 (from svglib>=1.2.1->xhtml2pdf==0.2.17->-r /home/runner/work/_temp/requirements-no-model.txt (line 78))
+2026-11-24T08:24:02.8037544Z   Using cached cssselect2-0.10.1-py3-none-any.whl.metadata (2.9 kB)
+2026-11-24T08:24:02.8063513Z Collecting svglib>=1.2.1 (from xhtml2pdf==0.2.17->-r /home/runner/work/_temp/requirements-no-model.txt (line 78))
+2026-11-24T08:24:02.8070910Z   Using cached svglib-2.3.3-py3-none-any.whl.metadata (14 kB)
+2026-11-24T08:24:02.8089077Z INFO: pip is looking at multiple versions of svglib to determine which version is compatible with other requirements. This could take a while.
+2026-11-24T08:24:02.8098257Z   Using cached svglib-2.3.2-py3-none-any.whl.metadata (14 kB)
+2026-11-24T08:24:02.8125184Z   Using cached svglib-2.3.1-py3-none-any.whl.metadata (14 kB)
+2026-11-24T08:24:02.8154157Z   Using cached svglib-2.3.0-py3-none-any.whl.metadata (14 kB)
+2026-11-24T08:24:02.8181277Z   Using cached svglib-2.2.0-py3-none-any.whl.metadata (14 kB)
+2026-11-24T08:24:02.8207335Z   Using cached svglib-2.1.0-py3-none-any.whl.metadata (14 kB)
+2026-11-24T08:24:02.8233546Z   Using cached svglib-2.0.2-py3-none-any.whl.metadata (13 kB)
+2026-11-24T08:24:02.8250240Z INFO: pip is still looking at multiple versions of svglib to determine which version is compatible with other requirements. This could take a while.
+2026-11-24T08:24:02.8261360Z   Using cached svglib-1.6.0-py3-none-any.whl.metadata (11 kB)
+2026-11-24T08:24:02.8288119Z   Using cached svglib-1.5.1-py3-none-any.whl
+2026-11-24T08:24:02.8757123Z Collecting MarkupSafe>=2.0 (from jinja2->spacy<3.9,>=3.8.16->-r /home/runner/work/_temp/requirements-no-model.txt (line 136))
+2026-11-24T08:24:02.8764273Z   Using cached markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+2026-11-24T08:24:02.8823498Z Using cached django_environ-0.14.0-py3-none-any.whl (20 kB)
+2026-11-24T08:24:02.8831420Z Using cached django_apscheduler-0.7.0-py3-none-any.whl (24 kB)
+2026-11-24T08:24:02.8839681Z Using cached apscheduler-3.11.3-py3-none-any.whl (66 kB)
+2026-11-24T08:24:02.8846981Z Using cached django_auditlog-3.4.1-py3-none-any.whl (49 kB)
+2026-11-24T08:24:02.8853502Z Using cached django_cors_headers-4.9.0-py3-none-any.whl (12 kB)
+2026-11-24T08:24:02.8861324Z Using cached django_filter-26.1-py3-none-any.whl (94 kB)
+2026-11-24T08:24:02.8869447Z Using cached django_import_export-4.4.1-py3-none-any.whl (157 kB)
+2026-11-24T08:24:02.8877774Z Using cached django_mathfilters-1.0.0-py3-none-any.whl (5.9 kB)
+2026-11-24T08:24:02.8884856Z Using cached django_model_utils-5.0.0-py3-none-any.whl (42 kB)
+2026-11-24T08:24:02.8892342Z Using cached django_redis-5.4.0-py3-none-any.whl (31 kB)
+2026-11-24T08:24:02.8900462Z Using cached django_simple_history-3.13.0-py3-none-any.whl (82 kB)
+2026-11-24T08:24:02.8907971Z Using cached django_storages-1.14.6-py3-none-any.whl (33 kB)
+2026-11-24T08:24:02.8915350Z Using cached django_widget_tweaks-1.5.1-py3-none-any.whl (9.6 kB)
+2026-11-24T08:24:02.8923254Z Using cached djangorestframework-3.18.3-py3-none-any.whl (903 kB)
+2026-11-24T08:24:02.8934303Z Using cached djangorestframework_simplejwt-5.5.1-py3-none-any.whl (107 kB)
+2026-11-24T08:24:02.8942257Z Using cached pyjwt-2.15.1-py3-none-any.whl (33 kB)
+2026-11-24T08:24:02.8950155Z Using cached drf_yasg-1.21.15-py3-none-any.whl (4.9 MB)
+2026-11-24T08:24:02.8973924Z Using cached openpyxl-3.1.5-py2.py3-none-any.whl (250 kB)
+2026-11-24T08:24:02.8983152Z Using cached xlsxwriter-3.2.9-py3-none-any.whl (175 kB)
+2026-11-24T08:24:02.8991067Z Using cached pdfkit-1.0.0-py3-none-any.whl (12 kB)
+2026-11-24T08:24:02.8997139Z Using cached reportlab-4.0.9-py3-none-any.whl (1.9 MB)
+2026-11-24T08:24:02.9010772Z Using cached xhtml2pdf-0.2.17-py3-none-any.whl (125 kB)
+2026-11-24T08:24:02.9018938Z Using cached beautifulsoup4-4.15.0-py3-none-any.whl (109 kB)
+2026-11-24T08:24:02.9026640Z Using cached requests-2.34.2-py3-none-any.whl (73 kB)
+2026-11-24T08:24:02.9034365Z Using cached requests_oauthlib-2.0.0-py2.py3-none-any.whl (24 kB)
+2026-11-24T08:24:02.9041812Z Using cached google_api_python_client-2.200.0-py3-none-any.whl (16.1 MB)
+2026-11-24T08:24:02.9096990Z Using cached google_auth_oauthlib-1.4.1-py3-none-any.whl (19 kB)
+2026-11-24T08:24:02.9104748Z Using cached google_cloud_storage-3.0.0-py2.py3-none-any.whl (173 kB)
+2026-11-24T08:24:02.9111942Z Using cached geopy-2.5.0-py3-none-any.whl (114 kB)
+2026-11-24T08:24:02.9119852Z Using cached django_axes-8.3.1-py3-none-any.whl (74 kB)
+2026-11-24T08:24:02.9127469Z Using cached sentry_sdk-2.69.1-py3-none-any.whl (528 kB)
+2026-11-24T08:24:02.9136661Z Using cached swapper-1.5.0-py2.py3-none-any.whl (7.3 kB)
+2026-11-24T08:24:02.9144289Z Using cached whitenoise-6.9.0-py3-none-any.whl (20 kB)
+2026-11-24T08:24:02.9151956Z Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+2026-11-24T08:24:02.9160512Z Using cached pytz-2026.3.post1-py2.py3-none-any.whl (508 kB)
+2026-11-24T08:24:02.9170052Z Using cached arabic_reshaper-3.0.1-py3-none-any.whl (20 kB)
+2026-11-24T08:24:02.9177623Z Using cached click-8.5.0-py3-none-any.whl (125 kB)
+2026-11-24T08:24:02.9185538Z Using cached phonenumbers-9.0.39-py2.py3-none-any.whl (2.6 MB)
+2026-11-24T08:24:02.9201476Z Using cached pycountry-24.6.1-py3-none-any.whl (6.3 MB)
+2026-11-24T08:24:02.9228754Z Using cached preshed-3.0.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (868 kB)
+2026-11-24T08:24:02.9239341Z Using cached bleach-6.4.0-py3-none-any.whl (165 kB)
+2026-11-24T08:24:02.9247519Z Using cached tinycss2-1.5.1-py3-none-any.whl (28 kB)
+2026-11-24T08:24:02.9254817Z Using cached gunicorn-23.0.0-py3-none-any.whl (85 kB)
+2026-11-24T08:24:02.9263047Z Using cached packaging-26.3-py3-none-any.whl (129 kB)
+2026-11-24T08:24:02.9271041Z Using cached setuptools-84.1.0-py3-none-any.whl (819 kB)
+2026-11-24T08:24:02.9281419Z Using cached tblib-3.2.2-py3-none-any.whl (12 kB)
+2026-11-24T08:24:02.9288654Z Using cached diff_match_patch-20241021-py3-none-any.whl (43 kB)
+2026-11-24T08:24:02.9296188Z Using cached django-5.2.19-py3-none-any.whl (8.3 MB)
+2026-11-24T08:24:02.9330573Z Using cached psycopg2_binary-2.9.13-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.3 MB)
+2026-11-24T08:24:02.9351741Z Using cached numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (15.7 MB)
+2026-11-24T08:24:02.9403418Z Using cached pandas-3.1.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.0 MB)
+2026-11-24T08:24:02.9447521Z Using cached pymupdf-1.28.2-cp310-abi3-manylinux_2_28_x86_64.whl (25.8 MB)
+2026-11-24T08:24:02.9530383Z Using cached urllib3-2.8.0-py3-none-any.whl (135 kB)
+2026-11-24T08:24:02.9537570Z Using cached pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.1 MB)
+2026-11-24T08:24:02.9567469Z Using cached cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl (4.8 MB)
+2026-11-24T08:24:02.9590487Z Using cached python_bidi-0.6.12-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (296 kB)
+2026-11-24T08:24:02.9599545Z Using cached rapidfuzz-3.14.6-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (3.2 MB)
+2026-11-24T08:24:02.9616755Z Using cached spacy-3.8.18-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (35.5 MB)
+2026-11-24T08:24:02.9726261Z Using cached msgpack-1.2.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (475 kB)
+2026-11-24T08:24:02.9734907Z Using cached catalogue-2.0.10-py3-none-any.whl (17 kB)
+2026-11-24T08:24:02.9743131Z Using cached charset_normalizer-3.5.3-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (257 kB)
+2026-11-24T08:24:02.9751292Z Using cached confection-1.3.4-py3-none-any.whl (35 kB)
+2026-11-24T08:24:02.9759001Z Using cached cymem-2.0.16-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (274 kB)
+2026-11-24T08:24:02.9767618Z Using cached geographiclib-2.1-py3-none-any.whl (40 kB)
+2026-11-24T08:24:02.9774926Z Using cached google_api_core-2.44.0-py3-none-any.whl (225 kB)
+2026-11-24T08:24:02.9783670Z Using cached google_auth-2.63.1-py3-none-any.whl (271 kB)
+2026-11-24T08:24:02.9792350Z Using cached google_auth_httplib2-0.4.4-py3-none-any.whl (9.5 kB)
+2026-11-24T08:24:02.9799627Z Using cached google_cloud_core-2.8.0-py3-none-any.whl (31 kB)
+2026-11-24T08:24:02.9807208Z Using cached google_crc32c-1.9.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (36 kB)
+2026-11-24T08:24:02.9814832Z Using cached googleapis_common_protos-1.76.0-py3-none-any.whl (307 kB)
+2026-11-24T08:24:02.9823764Z Using cached httplib2-0.32.1-py3-none-any.whl (92 kB)
+2026-11-24T08:24:02.9831308Z Using cached idna-3.20-py3-none-any.whl (69 kB)
+2026-11-24T08:24:02.9839370Z Using cached murmurhash-1.0.16-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl (132 kB)
+2026-11-24T08:24:02.9847197Z Using cached opentelemetry_api-1.45.2-py3-none-any.whl (60 kB)
+2026-11-24T08:24:02.9855020Z Using cached proto_plus-1.29.0-py3-none-any.whl (50 kB)
+2026-11-24T08:24:02.9862501Z Using cached protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
+2026-11-24T08:24:02.9870909Z Using cached pydantic-2.14.4-py3-none-any.whl (494 kB)
+2026-11-24T08:24:02.9879980Z Using cached pydantic_core-2.50.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.3 MB)
+2026-11-24T08:24:02.9897250Z Using cached pyparsing-3.3.3-py3-none-any.whl (126 kB)
+2026-11-24T08:24:02.9903950Z Using cached spacy_legacy-3.0.12-py2.py3-none-any.whl (29 kB)
+2026-11-24T08:24:02.9911096Z Using cached spacy_loggers-1.0.5-py3-none-any.whl (22 kB)
+2026-11-24T08:24:02.9916936Z Using cached srsly-2.5.6-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.3 MB)
+2026-11-24T08:24:02.9928259Z Using cached thinc-8.3.14-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (4.3 MB)
+2026-11-24T08:24:02.9948435Z Using cached blis-1.3.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (14.3 MB)
+2026-11-24T08:24:02.9997526Z Using cached tqdm-4.70.1-py3-none-any.whl (80 kB)
+2026-11-24T08:24:03.0004701Z Using cached typer-0.29.2-py3-none-any.whl (121 kB)
+2026-11-24T08:24:03.0012574Z Using cached uritemplate-4.2.0-py3-none-any.whl (11 kB)
+2026-11-24T08:24:03.0017834Z Using cached wasabi-1.1.3-py3-none-any.whl (27 kB)
+2026-11-24T08:24:03.0024436Z Using cached weasel-1.0.1-py3-none-any.whl (51 kB)
+2026-11-24T08:24:03.0031971Z Using cached coverage-7.17.5-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (265 kB)
+2026-11-24T08:24:03.0040069Z Using cached annotated_doc-0.0.7-py3-none-any.whl (5.3 kB)
+2026-11-24T08:24:03.0046960Z Using cached annotated_types-0.8.0-py3-none-any.whl (13 kB)
+2026-11-24T08:24:03.0053415Z Using cached asgiref-3.13.0-py3-none-any.whl (27 kB)
+2026-11-24T08:24:03.0060709Z Using cached certifi-2026.11.20-py3-none-any.whl (127 kB)
+2026-11-24T08:24:03.0068451Z Using cached cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)
+2026-11-24T08:24:03.0076050Z Using cached cloudpathlib-0.26.0-py3-none-any.whl (66 kB)
+2026-11-24T08:24:03.0083152Z Using cached django_ipware-8.0.0-py3-none-any.whl (12 kB)
+2026-11-24T08:24:03.0090119Z Using cached python_ipware-4.1.1-py3-none-any.whl (27 kB)
+2026-11-24T08:24:03.0097142Z Using cached google_resumable_media-2.11.0-py3-none-any.whl (81 kB)
+2026-11-24T08:24:03.0104225Z Using cached html5lib-1.1-py2.py3-none-any.whl (112 kB)
+2026-11-24T08:24:03.0111682Z Using cached httpx-0.28.1-py3-none-any.whl (73 kB)
+2026-11-24T08:24:03.0118810Z Using cached httpcore-1.0.9-py3-none-any.whl (78 kB)
+2026-11-24T08:24:03.0125956Z Using cached h11-0.16.0-py3-none-any.whl (37 kB)
+2026-11-24T08:24:03.0132973Z Using cached inflection-0.5.1-py2.py3-none-any.whl (9.5 kB)
+2026-11-24T08:24:03.0139904Z Using cached oauthlib-4.0.1-py3-none-any.whl (161 kB)
+2026-11-24T08:24:03.0147521Z Using cached pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
+2026-11-24T08:24:03.0154723Z Using cached pyasn1-0.6.5-py3-none-any.whl (84 kB)
+2026-11-24T08:24:03.0161900Z Using cached pyhanko-0.38.2-py3-none-any.whl (486 kB)
+2026-11-24T08:24:03.0172250Z Using cached aiohttp-3.14.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.9 MB)
+2026-11-24T08:24:03.0186379Z Using cached multidict-7.2.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (516 kB)
+2026-11-24T08:24:03.0195376Z Using cached pyhanko_certvalidator-0.33.0-py3-none-any.whl (118 kB)
+2026-11-24T08:24:03.0203413Z Using cached yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (117 kB)
+2026-11-24T08:24:03.0211338Z Using cached aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
+2026-11-24T08:24:03.0218906Z Using cached aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+2026-11-24T08:24:03.0226463Z Using cached asn1crypto-1.5.1-py2.py3-none-any.whl (105 kB)
+2026-11-24T08:24:03.0234242Z Using cached attrs-26.1.0-py3-none-any.whl (67 kB)
+2026-11-24T08:24:03.0242076Z Using cached frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (242 kB)
+2026-11-24T08:24:03.0250415Z Using cached lxml-6.1.3-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (5.2 MB)
+2026-11-24T08:24:03.0273711Z Using cached oscrypto-1.3.0-py2.py3-none-any.whl (194 kB)
+2026-11-24T08:24:03.0282115Z Using cached propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (250 kB)
+2026-11-24T08:24:03.0290451Z Using cached pypdf-7.1.1-py3-none-any.whl (421 kB)
+2026-11-24T08:24:03.0300240Z Using cached pyyaml-6.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (849 kB)
+2026-11-24T08:24:03.0310711Z Using cached redis-8.2.0-py3-none-any.whl (732 kB)
+2026-11-24T08:24:03.0320863Z Using cached rich-15.0.0-py3-none-any.whl (310 kB)
+2026-11-24T08:24:03.0336330Z Using cached pygments-2.21.0-py3-none-any.whl (1.3 MB)
+2026-11-24T08:24:03.0349005Z Using cached markdown_it_py-4.3.0-py3-none-any.whl (96 kB)
+2026-11-24T08:24:03.0356754Z Using cached mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+2026-11-24T08:24:03.0364069Z Using cached shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+2026-11-24T08:24:03.0371495Z Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+2026-11-24T08:24:03.0379008Z Using cached smart_open-10.0.0-py3-none-any.whl (76 kB)
+2026-11-24T08:24:03.0386576Z Using cached soupsieve-4.1.3-py3-none-any.whl (59 kB)
+2026-11-24T08:24:03.0394318Z Using cached sqlparse-0.6.1-py3-none-any.whl (51 kB)
+2026-11-24T08:24:03.0401801Z Using cached cssselect2-0.10.1-py3-none-any.whl (15 kB)
+2026-11-24T08:24:03.0409246Z Using cached tablib-3.10.0-py3-none-any.whl (50 kB)
+2026-11-24T08:24:03.0416732Z Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-11-24T08:24:03.0424459Z Using cached typing_inspection-0.4.5-py3-none-any.whl (14 kB)
+2026-11-24T08:24:03.0431942Z Using cached tzlocal-5.4.5-py3-none-any.whl (18 kB)
+2026-11-24T08:24:03.0439299Z Using cached uritools-7.0.1-py3-none-any.whl (12 kB)
+2026-11-24T08:24:03.0446573Z Using cached webencodings-0.6.1-py3-none-any.whl (8.7 kB)
+2026-11-24T08:24:03.0453941Z Using cached anyio-4.16.0-py3-none-any.whl (134 kB)
+2026-11-24T08:24:03.0462431Z Using cached chardet-7.7.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.7 MB)
+2026-11-24T08:24:03.0475830Z Using cached et_xmlfile-2.0.0-py3-none-any.whl (18 kB)
+2026-11-24T08:24:03.0483064Z Using cached future-1.0.0-py3-none-any.whl (491 kB)
+2026-11-24T08:24:03.0492539Z Using cached jinja2-3.1.6-py3-none-any.whl (134 kB)
+2026-11-24T08:24:03.0501016Z Using cached markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+2026-11-24T08:24:03.0508269Z Using cached pycparser-3.12-py3-none-any.whl (62 kB)
+2026-11-24T08:24:03.0516613Z Using cached wrapt-2.5.2-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (250 kB)
+2026-11-24T08:24:04.1242311Z Installing collected packages: pytz, pdfkit, django-mathfilters, asn1crypto, XlsxWriter, wrapt, whitenoise, webencodings, wasabi, urllib3, uritools, uritemplate, tzlocal, typing-extensions, tqdm, tblib, tablib, swapper, sqlparse, spacy-loggers, spacy-legacy, soupsieve, six, shellingham, setuptools, redis, rapidfuzz, pyyaml, python-ipware, python-bidi, pypdf, pyparsing, PyMuPDF, PyJWT, pygments, pycparser, pycountry, pyasn1, psycopg2-binary, protobuf, propcache, pillow, phonenumbers, packaging, oscrypto, oauthlib, numpy, murmurhash, multidict, msgpack, mdurl, MarkupSafe, lxml, inflection, idna, h11, google-crc32c, geographiclib, future, frozenlist, et-xmlfile, django-environ, diff-match-patch, cymem, coverage, confection, cloudpathlib, click, charset_normalizer, chardet, certifi, catalogue, attrs, asgiref, arabic-reshaper, annotated-types, annotated-doc, aiohappyeyeballs, yarl, typing-inspection, tinycss2, srsly, smart-open, sentry-sdk, requests, reportlab, pyzk, python-dateutil, pydantic-core, pyasn1-modules, proto-plus, preshed, opentelemetry-api, openpyxl, markdown-it-py, jinja2, httplib2, httpcore, html5lib, gunicorn, googleapis-common-protos, google-resumable-media, geopy, Django, cffi, blis, bleach, beautifulsoup4, APScheduler, anyio, aiosignal, rich, requests-oauthlib, pydantic, pandas, httpx, djangorestframework, django-widget-tweaks, django-storages, django-simple-history, django-redis, django-model-utils, django-ipware, django-import-export, django-filter, django-cors-headers, django-axes, django-auditlog, django-apscheduler, cssselect2, cryptography, aiohttp, typer, thinc, svglib, pyhanko-certvalidator, google-auth, drf-yasg, djangorestframework-simplejwt, weasel, pyHanko, google-auth-oauthlib, google-auth-httplib2, google-api-core, xhtml2pdf, spacy, google-cloud-core, google-api-python-client, google-cloud-storage
+2026-11-24T08:24:22.0586125Z 
+2026-11-24T08:24:22.0658262Z Successfully installed APScheduler-3.11.3 Django-5.2.19 MarkupSafe-3.0.4 PyJWT-2.15.1 PyMuPDF-1.28.2 XlsxWriter-3.2.9 aiohappyeyeballs-2.7.1 aiohttp-3.14.5 aiosignal-1.4.0 annotated-doc-0.0.7 annotated-types-0.8.0 anyio-4.16.0 arabic-reshaper-3.0.1 asgiref-3.13.0 asn1crypto-1.5.1 attrs-26.1.0 beautifulsoup4-4.15.0 bleach-6.4.0 blis-1.3.4 catalogue-2.0.10 certifi-2026.11.20 cffi-2.1.1 chardet-7.7.0 charset_normalizer-3.5.3 click-8.5.0 cloudpathlib-0.26.0 confection-1.3.4 coverage-7.17.5 cryptography-50.0.2 cssselect2-0.10.1 cymem-2.0.16 diff-match-patch-20241021 django-apscheduler-0.7.0 django-auditlog-3.4.1 django-axes-8.3.1 django-cors-headers-4.9.0 django-environ-0.14.0 django-filter-26.1 django-import-export-4.4.1 django-ipware-8.0.0 django-mathfilters-1.0.0 django-model-utils-5.0.0 django-redis-5.4.0 django-simple-history-3.13.0 django-storages-1.14.6 django-widget-tweaks-1.5.1 djangorestframework-3.18.3 djangorestframework-simplejwt-5.5.1 drf-yasg-1.21.15 et-xmlfile-2.0.0 frozenlist-1.8.0 future-1.0.0 geographiclib-2.1 geopy-2.5.0 google-api-core-2.44.0 google-api-python-client-2.200.0 google-auth-2.63.1 google-auth-httplib2-0.4.4 google-auth-oauthlib-1.4.1 google-cloud-core-2.8.0 google-cloud-storage-3.0.0 google-crc32c-1.9.0 google-resumable-media-2.11.0 googleapis-common-protos-1.76.0 gunicorn-23.0.0 h11-0.16.0 html5lib-1.1 httpcore-1.0.9 httplib2-0.32.1 httpx-0.28.1 idna-3.20 inflection-0.5.1 jinja2-3.1.6 lxml-6.1.3 markdown-it-py-4.3.0 mdurl-0.1.2 msgpack-1.2.4 multidict-7.2.1 murmurhash-1.0.16 numpy-2.5.5 oauthlib-4.0.1 openpyxl-3.1.5 opentelemetry-api-1.45.2 oscrypto-1.3.0 packaging-26.3 pandas-3.1.1 pdfkit-1.0.0 phonenumbers-9.0.39 pillow-13.0.0 preshed-3.0.13 propcache-0.5.4 proto-plus-1.29.0 protobuf-7.36.2 psycopg2-binary-2.9.13 pyHanko-0.38.2 pyasn1-0.6.5 pyasn1-modules-0.4.2 pycountry-24.6.1 pycparser-3.12 pydantic-2.14.4 pydantic-core-2.50.5 pygments-2.21.0 pyhanko-certvalidator-0.33.0 pyparsing-3.3.3 pypdf-7.1.1 python-bidi-0.6.12 python-dateutil-2.9.0.post0 python-ipware-4.1.1 pytz-2026.3.post1 pyyaml-6.0.4 pyzk-0.9 rapidfuzz-3.14.6 redis-8.2.0 reportlab-4.0.9 requests-2.34.2 requests-oauthlib-2.0.0 rich-15.0.0 sentry-sdk-2.69.1 setuptools-84.1.0 shellingham-1.5.4 six-1.17.0 smart-open-10.0.0 soupsieve-4.1.3 spacy-3.8.18 spacy-legacy-3.0.12 spacy-loggers-1.0.5 sqlparse-0.6.1 srsly-2.5.6 svglib-1.5.1 swapper-1.5.0 tablib-3.10.0 tblib-3.2.2 thinc-8.3.14 tinycss2-1.5.1 tqdm-4.70.1 typer-0.29.2 typing-extensions-4.16.0 typing-inspection-0.4.5 tzlocal-5.4.5 uritemplate-4.2.0 uritools-7.0.1 urllib3-2.8.0 wasabi-1.1.3 weasel-1.0.1 webencodings-0.6.1 whitenoise-6.9.0 wrapt-2.5.2 xhtml2pdf-0.2.17 yarl-1.25.1
+2026-11-24T08:24:23.1538946Z Processing /home/runner/.cache/horilla-ci/en_core_web_sm-3.8.0-py3-none-any.whl
+2026-11-24T08:24:23.1807996Z Installing collected packages: en-core-web-sm
+2026-11-24T08:24:23.2691665Z Successfully installed en-core-web-sm-3.8.0
+2026-11-24T08:24:24.0804544Z Collecting pytest<10,>=8.3 (from -r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 2))
+2026-11-24T08:24:24.0813670Z   Using cached pytest-9.2.0-py3-none-any.whl.metadata (7.9 kB)
+2026-11-24T08:24:24.0964470Z Collecting pytest-django<5,>=4.9 (from -r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 3))
+2026-11-24T08:24:24.0972407Z   Using cached pytest_django-4.14.0-py3-none-any.whl.metadata (8.1 kB)
+2026-11-24T08:24:24.0992795Z Requirement already satisfied: requests<3,>=2.32 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from -r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 4)) (2.34.2)
+2026-11-24T08:24:24.1122458Z Collecting openapi-spec-validator<0.8,>=0.7 (from -r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 5))
+2026-11-24T08:24:24.1129934Z   Using cached openapi_spec_validator-0.7.2-py3-none-any.whl.metadata (5.7 kB)
+2026-11-24T08:24:24.3162871Z Collecting ruff<1,>=0.14 (from -r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 7))
+2026-11-24T08:24:24.3173283Z   Using cached ruff-0.17.6-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (20 kB)
+2026-11-24T08:24:24.3443863Z Collecting playwright<2,>=1.50 (from -r tests/team/requirements-phase-d.txt (line 2))
+2026-11-24T08:24:24.3451517Z   Using cached playwright-1.65.2-py3-none-manylinux1_x86_64.whl.metadata (3.3 kB)
+2026-11-24T08:24:24.3630434Z Collecting pytest-asyncio<2,>=0.24 (from -r tests/team/requirements-phase-d.txt (line 3))
+2026-11-24T08:24:24.3984827Z   Downloading pytest_asyncio-1.5.0-py3-none-any.whl.metadata (4.4 kB)
+2026-11-24T08:24:24.4117437Z Collecting iniconfig>=2 (from pytest<10,>=8.3->-r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 2))
+2026-11-24T08:24:24.4124694Z   Using cached iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+2026-11-24T08:24:24.4135912Z Requirement already satisfied: packaging>=24 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from pytest<10,>=8.3->-r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 2)) (26.3)
+2026-11-24T08:24:24.4254078Z Collecting pluggy<2,>=1.6 (from pytest<10,>=8.3->-r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 2))
+2026-11-24T08:24:24.4262709Z   Using cached pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+2026-11-24T08:24:24.4272583Z Requirement already satisfied: pygments>=2.15 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from pytest<10,>=8.3->-r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 2)) (2.21.0)
+2026-11-24T08:24:24.4291242Z Requirement already satisfied: charset_normalizer<4,>=2 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from requests<3,>=2.32->-r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 4)) (3.5.3)
+2026-11-24T08:24:24.4294285Z Requirement already satisfied: idna<4,>=2.5 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from requests<3,>=2.32->-r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 4)) (3.20)
+2026-11-24T08:24:24.4297618Z Requirement already satisfied: urllib3<3,>=1.26 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from requests<3,>=2.32->-r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 4)) (2.8.0)
+2026-11-24T08:24:24.4300436Z Requirement already satisfied: certifi>=2023.5.7 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from requests<3,>=2.32->-r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 4)) (2026.11.20)
+2026-11-24T08:24:24.4464737Z Collecting jsonschema<5.0.0,>=4.18.0 (from openapi-spec-validator<0.8,>=0.7->-r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 5))
+2026-11-24T08:24:24.4471881Z   Using cached jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)
+2026-11-24T08:24:24.4609362Z Collecting jsonschema-path<0.4.0,>=0.3.1 (from openapi-spec-validator<0.8,>=0.7->-r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 5))
+2026-11-24T08:24:24.4614747Z   Using cached jsonschema_path-0.3.4-py3-none-any.whl.metadata (4.3 kB)
+2026-11-24T08:24:24.4864784Z Collecting lazy-object-proxy<2.0.0,>=1.7.1 (from openapi-spec-validator<0.8,>=0.7->-r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 5))
+2026-11-24T08:24:24.4870839Z   Using cached lazy_object_proxy-1.13.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (5.1 kB)
+2026-11-24T08:24:24.5015122Z Collecting openapi-schema-validator<0.7.0,>=0.6.0 (from openapi-spec-validator<0.8,>=0.7->-r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 5))
+2026-11-24T08:24:24.5023020Z   Using cached openapi_schema_validator-0.6.3-py3-none-any.whl.metadata (5.4 kB)
+2026-11-24T08:24:24.5851330Z Collecting greenlet<4.0.0,>=3.1.1 (from playwright<2,>=1.50->-r tests/team/requirements-phase-d.txt (line 2))
+2026-11-24T08:24:24.5859190Z   Using cached greenlet-3.5.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+2026-11-24T08:24:24.5885565Z Requirement already satisfied: typing-extensions>=4.12 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from pytest-asyncio<2,>=0.24->-r tests/team/requirements-phase-d.txt (line 3)) (4.16.0)
+2026-11-24T08:24:24.5908643Z Requirement already satisfied: attrs>=22.2.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from jsonschema<5.0.0,>=4.18.0->openapi-spec-validator<0.8,>=0.7->-r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 5)) (26.1.0)
+2026-11-24T08:24:24.6023234Z Collecting jsonschema-specifications>=2023.03.6 (from jsonschema<5.0.0,>=4.18.0->openapi-spec-validator<0.8,>=0.7->-r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 5))
+2026-11-24T08:24:24.6030816Z   Using cached jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+2026-11-24T08:24:24.6197313Z Collecting referencing>=0.28.4 (from jsonschema<5.0.0,>=4.18.0->openapi-spec-validator<0.8,>=0.7->-r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 5))
+2026-11-24T08:24:24.6203809Z   Using cached referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
+2026-11-24T08:24:24.7838390Z Collecting rpds-py>=0.25.0 (from jsonschema<5.0.0,>=4.18.0->openapi-spec-validator<0.8,>=0.7->-r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 5))
+2026-11-24T08:24:24.7848777Z   Using cached rpds_py-2026.9.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+2026-11-24T08:24:24.7863827Z Requirement already satisfied: PyYAML>=5.1 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from jsonschema-path<0.4.0,>=0.3.1->openapi-spec-validator<0.8,>=0.7->-r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 5)) (6.0.4)
+2026-11-24T08:24:24.7985943Z Collecting pathable<0.5.0,>=0.4.1 (from jsonschema-path<0.4.0,>=0.3.1->openapi-spec-validator<0.8,>=0.7->-r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 5))
+2026-11-24T08:24:24.7992778Z   Using cached pathable-0.4.4-py3-none-any.whl.metadata (1.8 kB)
+2026-11-24T08:24:24.8013469Z Collecting referencing>=0.28.4 (from jsonschema<5.0.0,>=4.18.0->openapi-spec-validator<0.8,>=0.7->-r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 5))
+2026-11-24T08:24:24.8021120Z   Using cached referencing-0.36.2-py3-none-any.whl.metadata (2.8 kB)
+2026-11-24T08:24:24.8156604Z Collecting rfc3339-validator (from openapi-schema-validator<0.7.0,>=0.6.0->openapi-spec-validator<0.8,>=0.7->-r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 5))
+2026-11-24T08:24:24.8163196Z   Using cached rfc3339_validator-0.1.4-py2.py3-none-any.whl.metadata (1.5 kB)
+2026-11-24T08:24:24.8237170Z Requirement already satisfied: six in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from rfc3339-validator->openapi-schema-validator<0.7.0,>=0.6.0->openapi-spec-validator<0.8,>=0.7->-r /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/requirements-area2.txt (line 5)) (1.17.0)
+2026-11-24T08:24:24.8251448Z Using cached pytest-9.2.0-py3-none-any.whl (411 kB)
+2026-11-24T08:24:24.8259892Z Using cached pytest_django-4.14.0-py3-none-any.whl (27 kB)
+2026-11-24T08:24:24.8267092Z Using cached openapi_spec_validator-0.7.2-py3-none-any.whl (39 kB)
+2026-11-24T08:24:24.8273677Z Using cached ruff-0.17.6-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (10.6 MB)
+2026-11-24T08:24:24.8315208Z Using cached playwright-1.65.2-py3-none-manylinux1_x86_64.whl (53.5 MB)
+2026-11-24T08:24:24.8576213Z Downloading pytest_asyncio-1.5.0-py3-none-any.whl (17 kB)
+2026-11-24T08:24:24.8605364Z Using cached greenlet-3.5.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (621 kB)
+2026-11-24T08:24:24.8615116Z Using cached jsonschema-4.26.0-py3-none-any.whl (90 kB)
+2026-11-24T08:24:24.8623702Z Using cached jsonschema_path-0.3.4-py3-none-any.whl (14 kB)
+2026-11-24T08:24:24.8631338Z Using cached lazy_object_proxy-1.13.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (71 kB)
+2026-11-24T08:24:24.8638996Z Using cached openapi_schema_validator-0.6.3-py3-none-any.whl (8.8 kB)
+2026-11-24T08:24:24.8646124Z Using cached pathable-0.4.4-py3-none-any.whl (9.6 kB)
+2026-11-24T08:24:24.8653493Z Using cached pluggy-1.7.0-py3-none-any.whl (27 kB)
+2026-11-24T08:24:24.8660976Z Using cached referencing-0.36.2-py3-none-any.whl (26 kB)
+2026-11-24T08:24:24.8668518Z Using cached iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+2026-11-24T08:24:24.8676042Z Using cached jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+2026-11-24T08:24:24.8683446Z Using cached rpds_py-2026.9.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (371 kB)
+2026-11-24T08:24:24.8692452Z Using cached rfc3339_validator-0.1.4-py2.py3-none-any.whl (3.5 kB)
+2026-11-24T08:24:25.0276911Z Installing collected packages: ruff, rpds-py, rfc3339-validator, pluggy, pathable, lazy-object-proxy, iniconfig, greenlet, referencing, pytest, playwright, pytest-django, pytest-asyncio, jsonschema-specifications, jsonschema-path, jsonschema, openapi-schema-validator, openapi-spec-validator
+2026-11-24T08:24:26.3313441Z 
+2026-11-24T08:24:26.3378256Z Successfully installed greenlet-3.5.6 iniconfig-2.3.1 jsonschema-4.26.0 jsonschema-path-0.3.4 jsonschema-specifications-2025.9.1 lazy-object-proxy-1.13.0 openapi-schema-validator-0.6.3 openapi-spec-validator-0.7.2 pathable-0.4.4 playwright-1.65.2 pluggy-1.7.0 pytest-9.2.0 pytest-asyncio-1.5.0 pytest-django-4.14.0 referencing-0.36.2 rfc3339-validator-0.1.4 rpds-py-2026.9.1 ruff-0.17.6
+2026-11-24T08:24:26.4286366Z ##[group]Run python tests/team/run_phase_d.py --evidence docs/team/evidence/area2/phase-d/ci-45355537997-1-regeneration
+2026-11-24T08:24:26.4287042Z [36;1mpython tests/team/run_phase_d.py --evidence docs/team/evidence/area2/phase-d/ci-45355537997-1-regeneration[0m
+2026-11-24T08:24:26.4306695Z shell: /usr/bin/bash -e {0}
+2026-11-24T08:24:26.4306986Z env:
+2026-11-24T08:24:26.4307277Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-24T08:24:26.4307670Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-24T08:24:26.4308078Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-24T08:24:26.4308425Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-24T08:24:26.4308764Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-24T08:24:26.4309151Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-24T08:24:26.4309431Z ##[endgroup]
+2026-11-24T08:24:30.0297421Z [2026-11-24 13:24:30] INFO axes.apps [-] AXES: BEGIN version 8.3.1, blocking by combination of username and ip_address
+2026-11-24T08:24:32.4608363Z [2026-11-24 13:24:32] WARNING horilla.config [-] Database is empty. Using default LDAP settings.
+2026-11-24T08:24:32.4714454Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/pytest_asyncio/plugin.py:306: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+2026-11-24T08:24:32.4716558Z The event loop scope for asynchronous fixtures will default to the fixture scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to "function" scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", "package", "session". Set it to "fixture-scope" to keep the current behavior.
+2026-11-24T08:24:32.4717964Z 
+2026-11-24T08:24:32.4718230Z   warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+2026-11-24T08:24:32.5397187Z ============================= test session starts ==============================
+2026-11-24T08:24:32.5398315Z platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- /opt/hostedtoolcache/Python/3.12.16/x64/bin/python
+2026-11-24T08:24:32.5409611Z cachedir: .pytest_cache
+2026-11-24T08:24:32.5410299Z django: version: 5.2.19, settings: area2_settings (from ini)
+2026-11-24T08:24:32.5410916Z rootdir: /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team
+2026-11-24T08:24:32.5411764Z configfile: pytest-area2.ini
+2026-11-24T08:24:32.5412232Z plugins: django-4.14.0, asyncio-1.5.0, anyio-4.16.0
+2026-11-24T08:24:32.5412928Z asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+2026-11-24T08:24:32.5519289Z collecting ... collected 6 items
+2026-11-24T08:24:32.5523132Z 
+2026-11-24T08:24:32.5605910Z tests/team/regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:description:BVA:minLength-below] Creating test database for alias 'default'...
+2026-11-24T08:24:32.5607110Z Destroying old test database for alias 'default'...
+2026-11-24T08:28:33.5538265Z Creating default color themes...
+2026-11-24T08:28:33.5557031Z Created theme: Coral Red Theme (Default)
+2026-11-24T08:28:33.5562474Z Created theme: Ocean Blue Theme
+2026-11-24T08:28:33.5569437Z Created theme: Forest Green Theme
+2026-11-24T08:28:33.5575900Z Created theme: Purple Professional Theme
+2026-11-24T08:28:33.5582518Z Created theme: Slate Gray Theme
+2026-11-24T08:28:33.5589422Z Created theme: Indigo Night Theme
+2026-11-24T08:28:33.5595826Z Created theme: Sunset Orange Theme
+2026-11-24T08:28:33.5602103Z Created theme: Crimson Wine Theme
+2026-11-24T08:28:33.5608536Z Created theme: Teal Corporate Theme
+2026-11-24T08:28:33.5614762Z Created theme: Amber Glow Theme
+2026-11-24T08:28:33.5621690Z Created theme: Navy Steel Theme
+2026-11-24T08:28:33.5628221Z Created theme: Rose Gold Theme
+2026-11-24T08:28:33.5634998Z Created theme: Emerald Mint Theme
+2026-11-24T08:28:33.5635191Z 
+2026-11-24T08:28:33.5635329Z Successfully created 13 themes.
+2026-11-24T08:28:34.4824573Z [2026-11-24 13:28:34] INFO payroll.apps [-] Created 11 standard payroll component(s)
+2026-11-24T08:28:35.8043452Z Team seed OK: company=1 leave_type=1 approver=2 employee=3 available_leave=1
+2026-11-24T08:28:36.6942290Z {"case_id": "self_allocation_create:body:description:BVA:minLength-below", "spec_sha256": "45e37bfbcd255fc567d5923b13076637f8777bbc4c48bb239f6c2e3fe398f0db", "data_sha256": "871ae894f239335760ad33418e14434601d7d3d85d2d3f3b5293cdc3790b9427", "bound_request_sha256": "bf6e73435eb4e54c235165bea5fef8f1df630f5f5980bde80190b968584d0601"}
+2026-11-24T08:28:36.9712690Z [2026-11-24 13:28:36] WARNING django.request [-] Bad Request: /api/v1/leave/user-allocation-request/
+2026-11-24T08:28:37.3503077Z PASSEDCreating default color themes...
+2026-11-24T08:28:37.3521525Z Created theme: Coral Red Theme (Default)
+2026-11-24T08:28:37.3525524Z Created theme: Ocean Blue Theme
+2026-11-24T08:28:37.3532527Z Created theme: Forest Green Theme
+2026-11-24T08:28:37.3539512Z Created theme: Purple Professional Theme
+2026-11-24T08:28:37.3546099Z Created theme: Slate Gray Theme
+2026-11-24T08:28:37.3552610Z Created theme: Indigo Night Theme
+2026-11-24T08:28:37.3559387Z Created theme: Sunset Orange Theme
+2026-11-24T08:28:37.3565833Z Created theme: Crimson Wine Theme
+2026-11-24T08:28:37.3572558Z Created theme: Teal Corporate Theme
+2026-11-24T08:28:37.3606670Z Created theme: Amber Glow Theme
+2026-11-24T08:28:37.3615893Z Created theme: Navy Steel Theme
+2026-11-24T08:28:37.3623373Z Created theme: Rose Gold Theme
+2026-11-24T08:28:37.3630530Z Created theme: Emerald Mint Theme
+2026-11-24T08:28:37.3630744Z 
+2026-11-24T08:28:37.3630862Z Successfully created 13 themes.
+2026-11-24T08:28:38.2819896Z [2026-11-24 13:28:38] INFO payroll.apps [-] Created 11 standard payroll component(s)
+2026-11-24T08:28:39.0648680Z 
+2026-11-24T08:28:39.1440264Z tests/team/regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:description:BVA:minLength-at] Team seed OK: company=2 leave_type=2 approver=6 employee=7 available_leave=4
+2026-11-24T08:28:39.5143157Z {"case_id": "self_allocation_create:body:description:BVA:minLength-at", "spec_sha256": "45e37bfbcd255fc567d5923b13076637f8777bbc4c48bb239f6c2e3fe398f0db", "data_sha256": "e622a9fb5f341ad0f6f80abe7bb4edb958840f4a1fc0adcc1c3e17f1be3afe5a", "bound_request_sha256": "88fbf2741ad22fc06d16a12cf064df5e90d9f88e063e7b6b5f10f6582e536120"}
+2026-11-24T08:28:40.2296674Z PASSEDCreating default color themes...
+2026-11-24T08:28:40.2305895Z Created theme: Coral Red Theme (Default)
+2026-11-24T08:28:40.2312438Z Created theme: Ocean Blue Theme
+2026-11-24T08:28:40.2319160Z Created theme: Forest Green Theme
+2026-11-24T08:28:40.2325439Z Created theme: Purple Professional Theme
+2026-11-24T08:28:40.2331886Z Created theme: Slate Gray Theme
+2026-11-24T08:28:40.2338488Z Created theme: Indigo Night Theme
+2026-11-24T08:28:40.2344787Z Created theme: Sunset Orange Theme
+2026-11-24T08:28:40.2351402Z Created theme: Crimson Wine Theme
+2026-11-24T08:28:40.2357902Z Created theme: Teal Corporate Theme
+2026-11-24T08:28:40.2364619Z Created theme: Amber Glow Theme
+2026-11-24T08:28:40.2371136Z Created theme: Navy Steel Theme
+2026-11-24T08:28:40.2377533Z Created theme: Rose Gold Theme
+2026-11-24T08:28:40.2385281Z Created theme: Emerald Mint Theme
+2026-11-24T08:28:40.2385954Z 
+2026-11-24T08:28:40.2386138Z Successfully created 13 themes.
+2026-11-24T08:28:41.3832498Z [2026-11-24 13:28:41] INFO payroll.apps [-] Created 11 standard payroll component(s)
+2026-11-24T08:28:42.1639673Z 
+2026-11-24T08:28:42.2427007Z tests/team/regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:description:BVA:minLength-above] Team seed OK: company=3 leave_type=3 approver=10 employee=11 available_leave=7
+2026-11-24T08:28:42.6142590Z {"case_id": "self_allocation_create:body:description:BVA:minLength-above", "spec_sha256": "45e37bfbcd255fc567d5923b13076637f8777bbc4c48bb239f6c2e3fe398f0db", "data_sha256": "9bbe33a3196fc90882d10b32da8c4887da0bd2160e71e5de99f04bdc3f90936e", "bound_request_sha256": "87253b0e1f5ff67e31d83d6f4d57d3a85554b3b55d9ab3ddaa74ea77dad61777"}
+2026-11-24T08:28:43.3211519Z PASSEDCreating default color themes...
+2026-11-24T08:28:43.3223860Z Created theme: Coral Red Theme (Default)
+2026-11-24T08:28:43.3231774Z Created theme: Ocean Blue Theme
+2026-11-24T08:28:43.3239470Z Created theme: Forest Green Theme
+2026-11-24T08:28:43.3247128Z Created theme: Purple Professional Theme
+2026-11-24T08:28:43.3254517Z Created theme: Slate Gray Theme
+2026-11-24T08:28:43.3262692Z Created theme: Indigo Night Theme
+2026-11-24T08:28:43.3270518Z Created theme: Sunset Orange Theme
+2026-11-24T08:28:43.3280780Z Created theme: Crimson Wine Theme
+2026-11-24T08:28:43.3288930Z Created theme: Teal Corporate Theme
+2026-11-24T08:28:43.3296376Z Created theme: Amber Glow Theme
+2026-11-24T08:28:43.3304323Z Created theme: Navy Steel Theme
+2026-11-24T08:28:43.3312139Z Created theme: Rose Gold Theme
+2026-11-24T08:28:43.3320041Z Created theme: Emerald Mint Theme
+2026-11-24T08:28:43.3320342Z 
+2026-11-24T08:28:43.3320610Z Successfully created 13 themes.
+2026-11-24T08:28:44.4676679Z [2026-11-24 13:28:44] INFO payroll.apps [-] Created 11 standard payroll component(s)
+2026-11-24T08:28:45.2433587Z 
+2026-11-24T08:28:45.3215924Z tests/team/regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:attachment:BVA:x-filename-maxLength-below] Team seed OK: company=4 leave_type=4 approver=14 employee=15 available_leave=10
+2026-11-24T08:28:45.6952053Z {"case_id": "self_allocation_create:body:attachment:BVA:x-filename-maxLength-below", "spec_sha256": "45e37bfbcd255fc567d5923b13076637f8777bbc4c48bb239f6c2e3fe398f0db", "data_sha256": "83d871e95a1ad0da8054eb74346f8ac2b5a0b6589ab0159b33c48e7e009c1cdf", "bound_request_sha256": "ffbcc6c047c24462c4a924e1075922eb3167fa9c63e9a4615b0fbfa872886931"}
+2026-11-24T08:28:46.4033422Z PASSEDCreating default color themes...
+2026-11-24T08:28:46.4048407Z Created theme: Coral Red Theme (Default)
+2026-11-24T08:28:46.4055888Z Created theme: Ocean Blue Theme
+2026-11-24T08:28:46.4063433Z Created theme: Forest Green Theme
+2026-11-24T08:28:46.4070182Z Created theme: Purple Professional Theme
+2026-11-24T08:28:46.4078060Z Created theme: Slate Gray Theme
+2026-11-24T08:28:46.4085266Z Created theme: Indigo Night Theme
+2026-11-24T08:28:46.4092880Z Created theme: Sunset Orange Theme
+2026-11-24T08:28:46.4103689Z Created theme: Crimson Wine Theme
+2026-11-24T08:28:46.4111365Z Created theme: Teal Corporate Theme
+2026-11-24T08:28:46.4119109Z Created theme: Amber Glow Theme
+2026-11-24T08:28:46.4126276Z Created theme: Navy Steel Theme
+2026-11-24T08:28:46.4133822Z Created theme: Rose Gold Theme
+2026-11-24T08:28:46.4141713Z Created theme: Emerald Mint Theme
+2026-11-24T08:28:46.4142063Z 
+2026-11-24T08:28:46.4142243Z Successfully created 13 themes.
+2026-11-24T08:28:47.3065113Z [2026-11-24 13:28:47] INFO payroll.apps [-] Created 11 standard payroll component(s)
+2026-11-24T08:28:48.3033228Z 
+2026-11-24T08:28:48.3814119Z tests/team/regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:attachment:BVA:x-filename-maxLength-at] Team seed OK: company=5 leave_type=5 approver=18 employee=19 available_leave=13
+2026-11-24T08:28:48.7503437Z {"case_id": "self_allocation_create:body:attachment:BVA:x-filename-maxLength-at", "spec_sha256": "45e37bfbcd255fc567d5923b13076637f8777bbc4c48bb239f6c2e3fe398f0db", "data_sha256": "ae219682a2435c9d30295be6f7dd75675055dbe7dc7870face0015432a4b4b54", "bound_request_sha256": "db33998f587d6620d9fa7d33cde95e4cfdc424d269a58528f53450e0bfd04fd8"}
+2026-11-24T08:28:49.4561483Z PASSEDCreating default color themes...
+2026-11-24T08:28:49.4573620Z Created theme: Coral Red Theme (Default)
+2026-11-24T08:28:49.4579830Z Created theme: Ocean Blue Theme
+2026-11-24T08:28:49.4586018Z Created theme: Forest Green Theme
+2026-11-24T08:28:49.4592938Z Created theme: Purple Professional Theme
+2026-11-24T08:28:49.4599527Z Created theme: Slate Gray Theme
+2026-11-24T08:28:49.4606072Z Created theme: Indigo Night Theme
+2026-11-24T08:28:49.4612610Z Created theme: Sunset Orange Theme
+2026-11-24T08:28:49.4622411Z Created theme: Crimson Wine Theme
+2026-11-24T08:28:49.4629969Z Created theme: Teal Corporate Theme
+2026-11-24T08:28:49.4637257Z Created theme: Amber Glow Theme
+2026-11-24T08:28:49.4643852Z Created theme: Navy Steel Theme
+2026-11-24T08:28:49.4650818Z Created theme: Rose Gold Theme
+2026-11-24T08:28:49.4658100Z Created theme: Emerald Mint Theme
+2026-11-24T08:28:49.4658352Z 
+2026-11-24T08:28:49.4658473Z Successfully created 13 themes.
+2026-11-24T08:28:50.3598798Z [2026-11-24 13:28:50] INFO payroll.apps [-] Created 11 standard payroll component(s)
+2026-11-24T08:28:51.3647238Z 
+2026-11-24T08:28:51.4429667Z tests/team/regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:attachment:BVA:x-filename-maxLength-above] Team seed OK: company=6 leave_type=6 approver=22 employee=23 available_leave=16
+2026-11-24T08:28:51.8144604Z {"case_id": "self_allocation_create:body:attachment:BVA:x-filename-maxLength-above", "spec_sha256": "45e37bfbcd255fc567d5923b13076637f8777bbc4c48bb239f6c2e3fe398f0db", "data_sha256": "3b9f4fcd44e0243fd04e9c7ee4abd90c4aed9ab4817b8a5d2b7a6e50b32db211", "bound_request_sha256": "1fd58756a12d24deb59ce964c56db6957baa35649f9996331b03d9a43ed9cc7d"}
+2026-11-24T08:28:52.0909950Z [2026-11-24 13:28:52] WARNING django.request [-] Bad Request: /api/v1/leave/user-allocation-request/
+2026-11-24T08:28:52.4626617Z PASSEDCreating default color themes...
+2026-11-24T08:28:52.4637548Z Created theme: Coral Red Theme (Default)
+2026-11-24T08:28:52.4644257Z Created theme: Ocean Blue Theme
+2026-11-24T08:28:52.4651114Z Created theme: Forest Green Theme
+2026-11-24T08:28:52.4658009Z Created theme: Purple Professional Theme
+2026-11-24T08:28:52.4665033Z Created theme: Slate Gray Theme
+2026-11-24T08:28:52.4672237Z Created theme: Indigo Night Theme
+2026-11-24T08:28:52.4678875Z Created theme: Sunset Orange Theme
+2026-11-24T08:28:52.4685343Z Created theme: Crimson Wine Theme
+2026-11-24T08:28:52.4691992Z Created theme: Teal Corporate Theme
+2026-11-24T08:28:52.4698933Z Created theme: Amber Glow Theme
+2026-11-24T08:28:52.4705721Z Created theme: Navy Steel Theme
+2026-11-24T08:28:52.4712155Z Created theme: Rose Gold Theme
+2026-11-24T08:28:52.4719008Z Created theme: Emerald Mint Theme
+2026-11-24T08:28:52.4719475Z 
+2026-11-24T08:28:52.4719629Z Successfully created 13 themes.
+2026-11-24T08:28:53.3637107Z [2026-11-24 13:28:53] INFO payroll.apps [-] Created 11 standard payroll component(s)
+2026-11-24T08:28:54.3703377Z Destroying test database for alias 'default'...
+2026-11-24T08:28:54.5455350Z 
+2026-11-24T08:28:54.5455812Z 
+2026-11-24T08:28:54.5456863Z =============================== warnings summary ===============================
+2026-11-24T08:28:54.5457876Z ../../../../../opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/reportlab/lib/rl_safe_eval.py:11
+2026-11-24T08:28:54.5459503Z   /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/reportlab/lib/rl_safe_eval.py:11: DeprecationWarning: ast.NameConstant is deprecated and will be removed in Python 3.14; use ast.Constant instead
+2026-11-24T08:28:54.5460679Z     haveNameConstant = hasattr(ast,'NameConstant')
+2026-11-24T08:28:54.5460986Z 
+2026-11-24T08:28:54.5467276Z ../../../../../opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1148
+2026-11-24T08:28:54.5468838Z ../../../../../opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1148
+2026-11-24T08:28:54.5472414Z   /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1148: RemovedInDjango60Warning: The default scheme will be changed from 'http' to 'https' in Django 6.0. Pass the forms.URLField.assume_scheme argument to silence this warning, or set the FORMS_URLFIELD_ASSUME_HTTPS transitional setting to True to opt into using 'https' as the new default scheme.
+2026-11-24T08:28:54.5475326Z     return form_class(**defaults)
+2026-11-24T08:28:54.5475627Z 
+2026-11-24T08:28:54.5476542Z ../../../../../opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/django/db/backends/utils.py:98
+2026-11-24T08:28:54.5479134Z   /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+2026-11-24T08:28:54.5481487Z     warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+2026-11-24T08:28:54.5482078Z 
+2026-11-24T08:28:54.5482602Z ../../../../../opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/drf_yasg/views.py:100
+2026-11-24T08:28:54.5485849Z   /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/drf_yasg/views.py:100: DeprecationWarning: SwaggerJSONRenderer & SwaggerYAMLRenderer's `format` has changed to not include a `.` prefix, please silence this warning by setting `SWAGGER_USE_COMPAT_RENDERERS = False` in your Django settings and ensure your application works (check your URLCONF and swagger/redoc URLs).
+2026-11-24T08:28:54.5488598Z     warnings.warn(
+2026-11-24T08:28:54.5488887Z 
+2026-11-24T08:28:54.5489788Z regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:description:BVA:minLength-below]
+2026-11-24T08:28:54.5492058Z   /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/django/core/handlers/base.py:61: UserWarning: No directory at: /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/staticfiles/
+2026-11-24T08:28:54.5493717Z     mw_instance = middleware(adapted_handler)
+2026-11-24T08:28:54.5494151Z 
+2026-11-24T08:28:54.5494986Z regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:description:BVA:minLength-below]
+2026-11-24T08:28:54.5497474Z regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:description:BVA:minLength-at]
+2026-11-24T08:28:54.5499360Z regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:description:BVA:minLength-above]
+2026-11-24T08:28:54.5501288Z regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:attachment:BVA:x-filename-maxLength-below]
+2026-11-24T08:28:54.5503558Z regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:attachment:BVA:x-filename-maxLength-at]
+2026-11-24T08:28:54.5505528Z regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:attachment:BVA:x-filename-maxLength-above]
+2026-11-24T08:28:54.5508391Z   /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/rest_framework/pagination.py:198: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'leave.models.AvailableLeave'> GuardedQuerySet.
+2026-11-24T08:28:54.5510557Z     paginator = self.django_paginator_class(queryset, page_size)
+2026-11-24T08:28:54.5511045Z 
+2026-11-24T08:28:54.5511468Z -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2026-11-24T08:28:54.5513041Z - generated xml file: /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/docs/team/evidence/area2/phase-d/ci-45355537997-1-regeneration/baseline.xml -
+2026-11-24T08:28:54.5514509Z ================== 6 passed, 12 warnings in 262.01s (0:04:22) ==================
+2026-11-24T08:28:57.4390410Z [2026-11-24 13:28:57] INFO axes.apps [-] AXES: BEGIN version 8.3.1, blocking by combination of username and ip_address
+2026-11-24T08:28:58.8905912Z [2026-11-24 13:28:58] WARNING horilla.config [-] Database is empty. Using default LDAP settings.
+2026-11-24T08:28:58.8961541Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/pytest_asyncio/plugin.py:306: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+2026-11-24T08:28:58.8964026Z The event loop scope for asynchronous fixtures will default to the fixture scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to "function" scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", "package", "session". Set it to "fixture-scope" to keep the current behavior.
+2026-11-24T08:28:58.8966133Z 
+2026-11-24T08:28:58.8966431Z   warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+2026-11-24T08:28:58.9056017Z ============================= test session starts ==============================
+2026-11-24T08:28:58.9062628Z platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- /opt/hostedtoolcache/Python/3.12.16/x64/bin/python
+2026-11-24T08:28:58.9072385Z cachedir: .pytest_cache
+2026-11-24T08:28:58.9072874Z django: version: 5.2.19, settings: area2_settings (from ini)
+2026-11-24T08:28:58.9073600Z rootdir: /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team
+2026-11-24T08:28:58.9074157Z configfile: pytest-area2.ini
+2026-11-24T08:28:58.9074605Z plugins: django-4.14.0, asyncio-1.5.0, anyio-4.16.0
+2026-11-24T08:28:58.9075326Z asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+2026-11-24T08:28:58.9133031Z collecting ... collected 6 items
+2026-11-24T08:28:58.9136191Z 
+2026-11-24T08:28:58.9212672Z tests/team/regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:description:BVA:minLength-below] Creating test database for alias 'default'...
+2026-11-24T08:28:58.9213698Z Destroying old test database for alias 'default'...
+2026-11-24T08:32:53.9223043Z Creating default color themes...
+2026-11-24T08:32:53.9236891Z Created theme: Coral Red Theme (Default)
+2026-11-24T08:32:53.9242915Z Created theme: Ocean Blue Theme
+2026-11-24T08:32:53.9249534Z Created theme: Forest Green Theme
+2026-11-24T08:32:53.9255796Z Created theme: Purple Professional Theme
+2026-11-24T08:32:53.9262339Z Created theme: Slate Gray Theme
+2026-11-24T08:32:53.9268854Z Created theme: Indigo Night Theme
+2026-11-24T08:32:53.9275161Z Created theme: Sunset Orange Theme
+2026-11-24T08:32:53.9281590Z Created theme: Crimson Wine Theme
+2026-11-24T08:32:53.9287976Z Created theme: Teal Corporate Theme
+2026-11-24T08:32:53.9294184Z Created theme: Amber Glow Theme
+2026-11-24T08:32:53.9300988Z Created theme: Navy Steel Theme
+2026-11-24T08:32:53.9307422Z Created theme: Rose Gold Theme
+2026-11-24T08:32:53.9313646Z Created theme: Emerald Mint Theme
+2026-11-24T08:32:53.9315227Z 
+2026-11-24T08:32:53.9315746Z Successfully created 13 themes.
+2026-11-24T08:32:54.8244517Z [2026-11-24 13:32:54] INFO payroll.apps [-] Created 11 standard payroll component(s)
+2026-11-24T08:32:56.1201128Z Team seed OK: company=1 leave_type=1 approver=2 employee=3 available_leave=1
+2026-11-24T08:32:56.9735531Z {"case_id": "self_allocation_create:body:description:BVA:minLength-below", "spec_sha256": "769fa6b449a3f8f9970a74c182b80e1db0e95ede2a36342b74d287583d61c16a", "data_sha256": "37b2b81effa70cdd24756b5e7326f35e9faf395b34783ab318996130e9b79eba", "bound_request_sha256": "fbc65466be7bcce28896a0a2a552b8d89ab319faded755607dbbc36c1a2ce6e0"}
+2026-11-24T08:32:57.7963579Z FAILEDCreating default color themes...
+2026-11-24T08:32:57.7978283Z Created theme: Coral Red Theme (Default)
+2026-11-24T08:32:57.7984695Z Created theme: Ocean Blue Theme
+2026-11-24T08:32:57.8022746Z Created theme: Forest Green Theme
+2026-11-24T08:32:57.8033121Z Created theme: Purple Professional Theme
+2026-11-24T08:32:57.8039972Z Created theme: Slate Gray Theme
+2026-11-24T08:32:57.8047728Z Created theme: Indigo Night Theme
+2026-11-24T08:32:57.8055104Z Created theme: Sunset Orange Theme
+2026-11-24T08:32:57.8063428Z Created theme: Crimson Wine Theme
+2026-11-24T08:32:57.8071254Z Created theme: Teal Corporate Theme
+2026-11-24T08:32:57.8079141Z Created theme: Amber Glow Theme
+2026-11-24T08:32:57.8086753Z Created theme: Navy Steel Theme
+2026-11-24T08:32:57.8094198Z Created theme: Rose Gold Theme
+2026-11-24T08:32:57.8102322Z Created theme: Emerald Mint Theme
+2026-11-24T08:32:57.8102587Z 
+2026-11-24T08:32:57.8102769Z Successfully created 13 themes.
+2026-11-24T08:32:58.7190782Z [2026-11-24 13:32:58] INFO payroll.apps [-] Created 11 standard payroll component(s)
+2026-11-24T08:32:59.7487540Z 
+2026-11-24T08:32:59.8257465Z tests/team/regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:description:BVA:minLength-at] Team seed OK: company=2 leave_type=2 approver=6 employee=7 available_leave=4
+2026-11-24T08:33:00.2027762Z {"case_id": "self_allocation_create:body:description:BVA:minLength-at", "spec_sha256": "769fa6b449a3f8f9970a74c182b80e1db0e95ede2a36342b74d287583d61c16a", "data_sha256": "084c5b127fe01de0c2afd55b8c48b6d32fae7fdaa58205db7d9957911e8a682e", "bound_request_sha256": "25552f21ccd289cb1ea423ea5e960fe5a6340478d35bc100e42aa281fb693dbf"}
+2026-11-24T08:33:00.9216214Z PASSEDCreating default color themes...
+2026-11-24T08:33:00.9229319Z Created theme: Coral Red Theme (Default)
+2026-11-24T08:33:00.9232486Z Created theme: Ocean Blue Theme
+2026-11-24T08:33:00.9239529Z Created theme: Forest Green Theme
+2026-11-24T08:33:00.9246128Z Created theme: Purple Professional Theme
+2026-11-24T08:33:00.9252458Z Created theme: Slate Gray Theme
+2026-11-24T08:33:00.9259188Z Created theme: Indigo Night Theme
+2026-11-24T08:33:00.9265565Z Created theme: Sunset Orange Theme
+2026-11-24T08:33:00.9275450Z Created theme: Crimson Wine Theme
+2026-11-24T08:33:00.9282741Z Created theme: Teal Corporate Theme
+2026-11-24T08:33:00.9289901Z Created theme: Amber Glow Theme
+2026-11-24T08:33:00.9297031Z Created theme: Navy Steel Theme
+2026-11-24T08:33:00.9303658Z Created theme: Rose Gold Theme
+2026-11-24T08:33:00.9310827Z Created theme: Emerald Mint Theme
+2026-11-24T08:33:00.9311064Z 
+2026-11-24T08:33:00.9311213Z Successfully created 13 themes.
+2026-11-24T08:33:01.8376114Z [2026-11-24 13:33:01] INFO payroll.apps [-] Created 11 standard payroll component(s)
+2026-11-24T08:33:02.8456460Z 
+2026-11-24T08:33:02.9250898Z tests/team/regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:description:BVA:minLength-above] Team seed OK: company=3 leave_type=3 approver=10 employee=11 available_leave=7
+2026-11-24T08:33:03.3005465Z {"case_id": "self_allocation_create:body:description:BVA:minLength-above", "spec_sha256": "769fa6b449a3f8f9970a74c182b80e1db0e95ede2a36342b74d287583d61c16a", "data_sha256": "789e506525e9a3001263daa8db7807a48f9175ddb7bb6b922a47a4eb1075aef8", "bound_request_sha256": "86ff311e06515d1017b315b59e8f7e002cd9fec78b3e286a463062b9ce71ab2b"}
+2026-11-24T08:33:04.0190205Z PASSEDCreating default color themes...
+2026-11-24T08:33:04.0203669Z Created theme: Coral Red Theme (Default)
+2026-11-24T08:33:04.0210454Z Created theme: Ocean Blue Theme
+2026-11-24T08:33:04.0218014Z Created theme: Forest Green Theme
+2026-11-24T08:33:04.0225575Z Created theme: Purple Professional Theme
+2026-11-24T08:33:04.0232596Z Created theme: Slate Gray Theme
+2026-11-24T08:33:04.0240286Z Created theme: Indigo Night Theme
+2026-11-24T08:33:04.0247735Z Created theme: Sunset Orange Theme
+2026-11-24T08:33:04.0254682Z Created theme: Crimson Wine Theme
+2026-11-24T08:33:04.0262467Z Created theme: Teal Corporate Theme
+2026-11-24T08:33:04.0269633Z Created theme: Amber Glow Theme
+2026-11-24T08:33:04.0277091Z Created theme: Navy Steel Theme
+2026-11-24T08:33:04.0284113Z Created theme: Rose Gold Theme
+2026-11-24T08:33:04.0291308Z Created theme: Emerald Mint Theme
+2026-11-24T08:33:04.0291752Z 
+2026-11-24T08:33:04.0291929Z Successfully created 13 themes.
+2026-11-24T08:33:04.9344650Z [2026-11-24 13:33:04] INFO payroll.apps [-] Created 11 standard payroll component(s)
+2026-11-24T08:33:05.9527864Z 
+2026-11-24T08:33:06.0320109Z tests/team/regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:attachment:BVA:x-filename-maxLength-below] Team seed OK: company=4 leave_type=4 approver=14 employee=15 available_leave=10
+2026-11-24T08:33:06.4094616Z {"case_id": "self_allocation_create:body:attachment:BVA:x-filename-maxLength-below", "spec_sha256": "769fa6b449a3f8f9970a74c182b80e1db0e95ede2a36342b74d287583d61c16a", "data_sha256": "d961da8da7bd86ca43f9bdff8ce88af09844ce88d603a09d967d18b144e68869", "bound_request_sha256": "618e9ad930ad1b21b28393961d30f00b570c2c679792424c8a8a32305437bd11"}
+2026-11-24T08:33:07.1284451Z PASSEDCreating default color themes...
+2026-11-24T08:33:07.1298056Z Created theme: Coral Red Theme (Default)
+2026-11-24T08:33:07.1306299Z Created theme: Ocean Blue Theme
+2026-11-24T08:33:07.1313193Z Created theme: Forest Green Theme
+2026-11-24T08:33:07.1320806Z Created theme: Purple Professional Theme
+2026-11-24T08:33:07.1328669Z Created theme: Slate Gray Theme
+2026-11-24T08:33:07.1335448Z Created theme: Indigo Night Theme
+2026-11-24T08:33:07.1343363Z Created theme: Sunset Orange Theme
+2026-11-24T08:33:07.1350962Z Created theme: Crimson Wine Theme
+2026-11-24T08:33:07.1358525Z Created theme: Teal Corporate Theme
+2026-11-24T08:33:07.1365992Z Created theme: Amber Glow Theme
+2026-11-24T08:33:07.1373319Z Created theme: Navy Steel Theme
+2026-11-24T08:33:07.1381048Z Created theme: Rose Gold Theme
+2026-11-24T08:33:07.1388726Z Created theme: Emerald Mint Theme
+2026-11-24T08:33:07.1389089Z 
+2026-11-24T08:33:07.1389341Z Successfully created 13 themes.
+2026-11-24T08:33:08.0449084Z [2026-11-24 13:33:08] INFO payroll.apps [-] Created 11 standard payroll component(s)
+2026-11-24T08:33:08.8275862Z 
+2026-11-24T08:33:08.9060499Z tests/team/regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:attachment:BVA:x-filename-maxLength-at] Team seed OK: company=5 leave_type=5 approver=18 employee=19 available_leave=13
+2026-11-24T08:33:09.2823918Z {"case_id": "self_allocation_create:body:attachment:BVA:x-filename-maxLength-at", "spec_sha256": "769fa6b449a3f8f9970a74c182b80e1db0e95ede2a36342b74d287583d61c16a", "data_sha256": "80c1ca3fb683eaa21e28989620f7976e68e3e9fd8ac17c4d64331267e368c290", "bound_request_sha256": "d11a177f4ba3ed235bc27714d91f5364b44de6978b7135fab7b20e2bd6cf36c4"}
+2026-11-24T08:33:09.9977176Z PASSEDCreating default color themes...
+2026-11-24T08:33:09.9987966Z Created theme: Coral Red Theme (Default)
+2026-11-24T08:33:09.9993908Z Created theme: Ocean Blue Theme
+2026-11-24T08:33:10.0001257Z Created theme: Forest Green Theme
+2026-11-24T08:33:10.0007942Z Created theme: Purple Professional Theme
+2026-11-24T08:33:10.0014067Z Created theme: Slate Gray Theme
+2026-11-24T08:33:10.0021045Z Created theme: Indigo Night Theme
+2026-11-24T08:33:10.0027797Z Created theme: Sunset Orange Theme
+2026-11-24T08:33:10.0052471Z Created theme: Crimson Wine Theme
+2026-11-24T08:33:10.0060474Z Created theme: Teal Corporate Theme
+2026-11-24T08:33:10.0067457Z Created theme: Amber Glow Theme
+2026-11-24T08:33:10.0073935Z Created theme: Navy Steel Theme
+2026-11-24T08:33:10.0080539Z Created theme: Rose Gold Theme
+2026-11-24T08:33:10.0088100Z Created theme: Emerald Mint Theme
+2026-11-24T08:33:10.0088456Z 
+2026-11-24T08:33:10.0088631Z Successfully created 13 themes.
+2026-11-24T08:33:11.1509184Z [2026-11-24 13:33:11] INFO payroll.apps [-] Created 11 standard payroll component(s)
+2026-11-24T08:33:11.9378735Z 
+2026-11-24T08:33:12.0161600Z tests/team/regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:attachment:BVA:x-filename-maxLength-above] Team seed OK: company=6 leave_type=6 approver=22 employee=23 available_leave=16
+2026-11-24T08:33:12.3924243Z {"case_id": "self_allocation_create:body:attachment:BVA:x-filename-maxLength-above", "spec_sha256": "769fa6b449a3f8f9970a74c182b80e1db0e95ede2a36342b74d287583d61c16a", "data_sha256": "714b1b242164f5b94afb32b2b2e11cec1d6f394682672e2bd42f3118aa38e94c", "bound_request_sha256": "1384a5e8434844d004d55abc36717540f382ee75d2e60700345d58c3df2289f0"}
+2026-11-24T08:33:13.1094454Z FAILEDCreating default color themes...
+2026-11-24T08:33:13.1106391Z Created theme: Coral Red Theme (Default)
+2026-11-24T08:33:13.1111219Z Created theme: Ocean Blue Theme
+2026-11-24T08:33:13.1118335Z Created theme: Forest Green Theme
+2026-11-24T08:33:13.1124968Z Created theme: Purple Professional Theme
+2026-11-24T08:33:13.1131570Z Created theme: Slate Gray Theme
+2026-11-24T08:33:13.1138432Z Created theme: Indigo Night Theme
+2026-11-24T08:33:13.1145347Z Created theme: Sunset Orange Theme
+2026-11-24T08:33:13.1151850Z Created theme: Crimson Wine Theme
+2026-11-24T08:33:13.1158457Z Created theme: Teal Corporate Theme
+2026-11-24T08:33:13.1164672Z Created theme: Amber Glow Theme
+2026-11-24T08:33:13.1171121Z Created theme: Navy Steel Theme
+2026-11-24T08:33:13.1177670Z Created theme: Rose Gold Theme
+2026-11-24T08:33:13.1184087Z Created theme: Emerald Mint Theme
+2026-11-24T08:33:13.1184296Z 
+2026-11-24T08:33:13.1184502Z Successfully created 13 themes.
+2026-11-24T08:33:14.2779946Z [2026-11-24 13:33:14] INFO payroll.apps [-] Created 11 standard payroll component(s)
+2026-11-24T08:33:15.0693091Z Destroying test database for alias 'default'...
+2026-11-24T08:33:15.1788085Z 
+2026-11-24T08:33:15.1788105Z 
+2026-11-24T08:33:15.1789028Z =================================== FAILURES ===================================
+2026-11-24T08:33:15.1789748Z _ test_regenerated_allocation_contract[self_allocation_create:body:description:BVA:minLength-below] _
+2026-11-24T08:33:15.1790150Z 
+2026-11-24T08:33:15.1790537Z leave_http = <http_support.LeaveHTTP object at 0x77772d86f770>
+2026-11-24T08:33:15.1791020Z case_id = 'self_allocation_create:body:description:BVA:minLength-below'
+2026-11-24T08:33:15.1791311Z 
+2026-11-24T08:33:15.1791579Z     @pytest.mark.parametrize("case_id", SELECTED_IDS, ids=SELECTED_IDS)
+2026-11-24T08:33:15.1794330Z     def test_regenerated_allocation_contract(leave_http, case_id):
+2026-11-24T08:33:15.1794956Z         h = leave_http
+2026-11-24T08:33:15.1795444Z         case = h.case(case_id)
+2026-11-24T08:33:15.1796103Z         body = copy.deepcopy(case["request"]["body"])
+2026-11-24T08:33:15.1796664Z         descriptor = body.pop("attachment")
+2026-11-24T08:33:15.1797155Z         h.lineage(case_id, case["request"]["body"])
+2026-11-24T08:33:15.1797627Z         before = h.snapshot()
+2026-11-24T08:33:15.1798051Z         response = h.request("POST", case["route"], body=body,
+2026-11-24T08:33:15.1798770Z                              files={"attachment": (descriptor["filename"], descriptor["text"].encode(), descriptor["content_type"])})
+2026-11-24T08:33:15.1799898Z         expected = 200 if case["expected"]["predicate"] == "accept" else 400
+2026-11-24T08:33:15.1800340Z         after = h.snapshot()
+2026-11-24T08:33:15.1800853Z         # Inspect persisted state even when the subsequent strict contract assertion fails.
+2026-11-24T08:33:15.1801443Z         for role in ("employee", "approver", "outsider"):
+2026-11-24T08:33:15.1801931Z             assert after[role] == before[role]
+2026-11-24T08:33:15.1802367Z         if response.status_code == 200:
+2026-11-24T08:33:15.1802840Z             assert len(after["allocations"]) == len(before["allocations"]) + 1
+2026-11-24T08:33:15.1803457Z             detail = h.allocation_detail(after["allocations"][0]["id"])
+2026-11-24T08:33:15.1804022Z             assert detail["description"] == body["description"].strip()
+2026-11-24T08:33:15.1804642Z             assert detail["employee_id"]["id"] == h.context["employee"].pk
+2026-11-24T08:33:15.1805098Z         else:
+2026-11-24T08:33:15.1805557Z             assert response.status_code == 400 and response.json().get(case["field"][-1])
+2026-11-24T08:33:15.1806272Z             assert after == before
+2026-11-24T08:33:15.1806689Z         h.record_property("actual_http_status", response.status_code)
+2026-11-24T08:33:15.1807269Z         h.record_property("contract_http_status", expected)
+2026-11-24T08:33:15.1808424Z >       assert response.status_code == expected, f"Spec/server disagreement: {case_id}; actual {response.status_code}, contract {expected}"
+2026-11-24T08:33:15.1810145Z E       AssertionError: Spec/server disagreement: self_allocation_create:body:description:BVA:minLength-below; actual 200, contract 400
+2026-11-24T08:33:15.1811281Z E       assert 200 == 400
+2026-11-24T08:33:15.1811865Z E        +  where 200 = <Response [200]>.status_code
+2026-11-24T08:33:15.1812275Z 
+2026-11-24T08:33:15.1812698Z tests/team/regeneration/test_consuming_experiment.py:35: AssertionError
+2026-11-24T08:33:15.1813622Z ------------------------------ Captured log setup ------------------------------
+2026-11-24T08:33:15.1814584Z INFO     payroll.apps:apps.py:56 Created 11 standard payroll component(s)
+2026-11-24T08:33:15.1815464Z ---------------------------- Captured log teardown -----------------------------
+2026-11-24T08:33:15.1816304Z INFO     payroll.apps:apps.py:56 Created 11 standard payroll component(s)
+2026-11-24T08:33:15.1817486Z _ test_regenerated_allocation_contract[self_allocation_create:body:attachment:BVA:x-filename-maxLength-above] _
+2026-11-24T08:33:15.1818367Z 
+2026-11-24T08:33:15.1818714Z leave_http = <http_support.LeaveHTTP object at 0x77772ac5ce30>
+2026-11-24T08:33:15.1819683Z case_id = 'self_allocation_create:body:attachment:BVA:x-filename-maxLength-above'
+2026-11-24T08:33:15.1820329Z 
+2026-11-24T08:33:15.1820689Z     @pytest.mark.parametrize("case_id", SELECTED_IDS, ids=SELECTED_IDS)
+2026-11-24T08:33:15.1821654Z     def test_regenerated_allocation_contract(leave_http, case_id):
+2026-11-24T08:33:15.1822374Z         h = leave_http
+2026-11-24T08:33:15.1822846Z         case = h.case(case_id)
+2026-11-24T08:33:15.1823431Z         body = copy.deepcopy(case["request"]["body"])
+2026-11-24T08:33:15.1824127Z         descriptor = body.pop("attachment")
+2026-11-24T08:33:15.1824766Z         h.lineage(case_id, case["request"]["body"])
+2026-11-24T08:33:15.1825387Z         before = h.snapshot()
+2026-11-24T08:33:15.1826255Z         response = h.request("POST", case["route"], body=body,
+2026-11-24T08:33:15.1827436Z                              files={"attachment": (descriptor["filename"], descriptor["text"].encode(), descriptor["content_type"])})
+2026-11-24T08:33:15.1828637Z         expected = 200 if case["expected"]["predicate"] == "accept" else 400
+2026-11-24T08:33:15.1829380Z         after = h.snapshot()
+2026-11-24T08:33:15.1830192Z         # Inspect persisted state even when the subsequent strict contract assertion fails.
+2026-11-24T08:33:15.1831091Z         for role in ("employee", "approver", "outsider"):
+2026-11-24T08:33:15.1831999Z             assert after[role] == before[role]
+2026-11-24T08:33:15.1832599Z         if response.status_code == 200:
+2026-11-24T08:33:15.1833390Z             assert len(after["allocations"]) == len(before["allocations"]) + 1
+2026-11-24T08:33:15.1834259Z             detail = h.allocation_detail(after["allocations"][0]["id"])
+2026-11-24T08:33:15.1835079Z             assert detail["description"] == body["description"].strip()
+2026-11-24T08:33:15.1836239Z             assert detail["employee_id"]["id"] == h.context["employee"].pk
+2026-11-24T08:33:15.1836953Z         else:
+2026-11-24T08:33:15.1837619Z             assert response.status_code == 400 and response.json().get(case["field"][-1])
+2026-11-24T08:33:15.1838426Z             assert after == before
+2026-11-24T08:33:15.1839129Z         h.record_property("actual_http_status", response.status_code)
+2026-11-24T08:33:15.1839938Z         h.record_property("contract_http_status", expected)
+2026-11-24T08:33:15.1841116Z >       assert response.status_code == expected, f"Spec/server disagreement: {case_id}; actual {response.status_code}, contract {expected}"
+2026-11-24T08:33:15.1842901Z E       AssertionError: Spec/server disagreement: self_allocation_create:body:attachment:BVA:x-filename-maxLength-above; actual 200, contract 400
+2026-11-24T08:33:15.1844170Z E       assert 200 == 400
+2026-11-24T08:33:15.1844688Z E        +  where 200 = <Response [200]>.status_code
+2026-11-24T08:33:15.1845142Z 
+2026-11-24T08:33:15.1845856Z tests/team/regeneration/test_consuming_experiment.py:35: AssertionError
+2026-11-24T08:33:15.1846818Z ---------------------------- Captured log teardown -----------------------------
+2026-11-24T08:33:15.1847754Z INFO     payroll.apps:apps.py:56 Created 11 standard payroll component(s)
+2026-11-24T08:33:15.1848561Z =============================== warnings summary ===============================
+2026-11-24T08:33:15.1849660Z ../../../../../opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/reportlab/lib/rl_safe_eval.py:11
+2026-11-24T08:33:15.1851801Z   /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/reportlab/lib/rl_safe_eval.py:11: DeprecationWarning: ast.NameConstant is deprecated and will be removed in Python 3.14; use ast.Constant instead
+2026-11-24T08:33:15.1853496Z     haveNameConstant = hasattr(ast,'NameConstant')
+2026-11-24T08:33:15.1853980Z 
+2026-11-24T08:33:15.1854693Z ../../../../../opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1148
+2026-11-24T08:33:15.1856399Z ../../../../../opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1148
+2026-11-24T08:33:15.1859869Z   /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1148: RemovedInDjango60Warning: The default scheme will be changed from 'http' to 'https' in Django 6.0. Pass the forms.URLField.assume_scheme argument to silence this warning, or set the FORMS_URLFIELD_ASSUME_HTTPS transitional setting to True to opt into using 'https' as the new default scheme.
+2026-11-24T08:33:15.1862814Z     return form_class(**defaults)
+2026-11-24T08:33:15.1863146Z 
+2026-11-24T08:33:15.1863790Z ../../../../../opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/django/db/backends/utils.py:98
+2026-11-24T08:33:15.1866569Z   /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+2026-11-24T08:33:15.1868985Z     warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+2026-11-24T08:33:15.1869649Z 
+2026-11-24T08:33:15.1870179Z ../../../../../opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/drf_yasg/views.py:100
+2026-11-24T08:33:15.1873347Z   /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/drf_yasg/views.py:100: DeprecationWarning: SwaggerJSONRenderer & SwaggerYAMLRenderer's `format` has changed to not include a `.` prefix, please silence this warning by setting `SWAGGER_USE_COMPAT_RENDERERS = False` in your Django settings and ensure your application works (check your URLCONF and swagger/redoc URLs).
+2026-11-24T08:33:15.1876515Z     warnings.warn(
+2026-11-24T08:33:15.1876789Z 
+2026-11-24T08:33:15.1877709Z regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:description:BVA:minLength-below]
+2026-11-24T08:33:15.1880076Z   /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/django/core/handlers/base.py:61: UserWarning: No directory at: /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/staticfiles/
+2026-11-24T08:33:15.1881753Z     mw_instance = middleware(adapted_handler)
+2026-11-24T08:33:15.1882173Z 
+2026-11-24T08:33:15.1883031Z regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:description:BVA:minLength-below]
+2026-11-24T08:33:15.1884972Z regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:description:BVA:minLength-at]
+2026-11-24T08:33:15.1887075Z regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:description:BVA:minLength-above]
+2026-11-24T08:33:15.1889171Z regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:attachment:BVA:x-filename-maxLength-below]
+2026-11-24T08:33:15.1891198Z regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:attachment:BVA:x-filename-maxLength-at]
+2026-11-24T08:33:15.1893165Z regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:attachment:BVA:x-filename-maxLength-above]
+2026-11-24T08:33:15.1896109Z   /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/rest_framework/pagination.py:198: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'leave.models.AvailableLeave'> GuardedQuerySet.
+2026-11-24T08:33:15.1898393Z     paginator = self.django_paginator_class(queryset, page_size)
+2026-11-24T08:33:15.1898870Z 
+2026-11-24T08:33:15.1899327Z -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2026-11-24T08:33:15.1900810Z - generated xml file: /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/docs/team/evidence/area2/phase-d/ci-45355537997-1-regeneration/variant.xml -
+2026-11-24T08:33:15.1902247Z =========================== short test summary info ============================
+2026-11-24T08:33:15.1904603Z FAILED tests/team/regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:description:BVA:minLength-below] - AssertionError: Spec/server disagreement: self_allocation_create:body:description:BVA:minLength-below; actual 200, contract 400
+2026-11-24T08:33:15.1906944Z assert 200 == 400
+2026-11-24T08:33:15.1907474Z  +  where 200 = <Response [200]>.status_code
+2026-11-24T08:33:15.1909801Z FAILED tests/team/regeneration/test_consuming_experiment.py::test_regenerated_allocation_contract[self_allocation_create:body:attachment:BVA:x-filename-maxLength-above] - AssertionError: Spec/server disagreement: self_allocation_create:body:attachment:BVA:x-filename-maxLength-above; actual 200, contract 400
+2026-11-24T08:33:15.1912114Z assert 200 == 400
+2026-11-24T08:33:15.1912613Z  +  where 200 = <Response [200]>.status_code
+2026-11-24T08:33:15.1913317Z ============= 2 failed, 4 passed, 12 warnings in 256.28s (0:04:16) =============
+2026-11-24T08:33:16.8998968Z {"stages": [{"name": "baseline", "command": ["/opt/hostedtoolcache/Python/3.12.16/x64/bin/python", "-m", "pytest", "-c", "/home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/pytest-area2.ini", "/home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/regeneration", "-v", "-s", "-o", "junit_family=xunit1", "--junitxml=/home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/docs/team/evidence/area2/phase-d/ci-45355537997-1-regeneration/baseline.xml"], "exit_code": 0, "status": "passed", "elapsed_seconds": 269.334}, {"name": "variant", "command": ["/opt/hostedtoolcache/Python/3.12.16/x64/bin/python", "-m", "pytest", "-c", "/home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/pytest-area2.ini", "/home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/tests/team/regeneration", "-v", "-s", "-o", "junit_family=xunit1", "--junitxml=/home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project/docs/team/evidence/area2/phase-d/ci-45355537997-1-regeneration/variant.xml"], "exit_code": 1, "status": "failed", "elapsed_seconds": 260.825}], "baseline": {"cases": 6, "failures": 0, "errors": 0, "skipped": 0}, "variant": {"cases": 6, "failures": 2, "errors": 0, "skipped": 0}, "python": "3.12.16 (main, Oct 26 2026, 02:48:44) [GCC 15.2.0]", "tool_versions": {"Django": "5.2.19", "djangorestframework": "3.18.3", "pytest": "9.2.0", "pytest-django": "4.14.0", "requests": "2.34.2", "playwright": "1.65.2", "pytest-asyncio": "1.5.0"}, "actual_failed_ids": ["self_allocation_create:body:attachment:BVA:x-filename-maxLength-above", "self_allocation_create:body:description:BVA:minLength-below"], "expected_failed_ids": ["self_allocation_create:body:attachment:BVA:x-filename-maxLength-above", "self_allocation_create:body:description:BVA:minLength-below"], "experiment_demonstrated": true, "application_scope_complete": false, "interpretation": "Two predicted spec-only incompatibilities must fail strict pytest assertions. Every additional failure/setup error/skip/missing result makes this demonstration fail."}
+2026-11-24T08:33:16.9191543Z ##[group]Run actions/upload-artifact@v4
+2026-11-24T08:33:16.9191845Z with:
+2026-11-24T08:33:16.9192102Z   name: phase-d-regeneration-45355537997-1
+2026-11-24T08:33:16.9192421Z   path: docs/team/evidence/area2/phase-d/ci-*/
+2026-11-24T08:33:16.9192740Z   if-no-files-found: error
+2026-11-24T08:33:16.9192998Z   compression-level: 6
+2026-11-24T08:33:16.9193228Z   overwrite: false
+2026-11-24T08:33:16.9193468Z   include-hidden-files: false
+2026-11-24T08:33:16.9193741Z env:
+2026-11-24T08:33:16.9194032Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-24T08:33:16.9194419Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-24T08:33:16.9194806Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-24T08:33:16.9195209Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-24T08:33:16.9195544Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-24T08:33:16.9196295Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-24T08:33:16.9196613Z ##[endgroup]
+2026-11-24T08:33:17.0464443Z (node:2748) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-24T08:33:17.0465403Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-24T08:33:17.0678554Z With the provided path, there will be 10 files uploaded
+2026-11-24T08:33:17.0679227Z Artifact name is valid!
+2026-11-24T08:33:17.0679849Z Root directory input is valid!
+2026-11-24T08:33:17.4682042Z Beginning upload of artifact content to blob storage
+2026-11-24T08:33:17.5889713Z (node:2748) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-24T08:33:18.0692166Z Uploaded bytes 83514
+2026-11-24T08:33:18.1588101Z Finished uploading artifact content to blob storage!
+2026-11-24T08:33:18.1588849Z SHA256 digest of uploaded artifact zip is 79ff67877d46413da6eec600bc4a7eaee413595611cc1529c7f206a826a9a541
+2026-11-24T08:33:18.1589393Z Finalizing artifact upload
+2026-11-24T08:33:18.5762868Z Artifact phase-d-regeneration-45355537997-1.zip successfully finalized. Artifact ID 14903031343
+2026-11-24T08:33:18.5763963Z Artifact phase-d-regeneration-45355537997-1 has been successfully uploaded! Final size is 83514 bytes. Artifact ID is 14903031343
+2026-11-24T08:33:18.5768309Z Artifact download URL: https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45355537997/artifacts/14903031343
+2026-11-24T08:33:18.5905288Z Post job cleanup.
+2026-11-24T08:33:18.6782720Z Cache hit occurred on the primary key setup-python-Linux-x64-26.04-Ubuntu-python-3.12.16-pip-99b1196b597897ee049be41f8d682ac25ad350893dc08a251676fc5fc2a6fab6, not saving cache.
+2026-11-24T08:33:18.6783647Z (node:2760) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-24T08:33:18.6784169Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-24T08:33:18.6872728Z Post job cleanup.
+2026-11-24T08:33:18.7481699Z [command]/usr/bin/git version
+2026-11-24T08:33:18.7512286Z git version 2.56.1
+2026-11-24T08:33:18.7534785Z Temporarily overriding HOME='/home/runner/work/_temp/7c9dbfee-423a-439e-8b68-99d73d7adfbf' before making global git config changes
+2026-11-24T08:33:18.7535940Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-24T08:33:18.7538102Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/SQE-Horilla-Project/SQE-Horilla-Project
+2026-11-24T08:33:18.7567468Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-24T08:33:18.7590338Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-24T08:33:18.7811515Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-24T08:33:18.7829262Z http.https://github.com/.extraheader
+2026-11-24T08:33:18.7837771Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-24T08:33:18.7862975Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-24T08:33:18.8133075Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-24T08:33:18.8165091Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-24T08:33:18.8502344Z Cleaning up orphan processes
+2026-11-24T08:33:18.8750173Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

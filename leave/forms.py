@@ -866,6 +866,9 @@ class LeaveAllocationRequestForm(BaseModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         _exclude_compensatory_leave_types(self)
+        # An allocation needs an amount, as in the API and bulk form. The
+        # nullable model field otherwise lets this UI persist unusable None days.
+        self.fields["requested_days"].required = True
 
     def as_p(self, *args, **kwargs):
         """

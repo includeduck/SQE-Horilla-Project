@@ -40,9 +40,9 @@ class GeneratorTests(unittest.TestCase):
         second = generator.generate(copy.deepcopy(doc), dict(reversed(list(bindings.items()))))
         self.assertEqual(first, second)
         self.assertEqual(json.loads(json.dumps(first)), first)
-        self.assertEqual(len(first["operations"]), 27)
-        self.assertFalse(first["coverage_complete"])
-        self.assertTrue(first["exclusions"])
+        self.assertEqual(len(first["operations"]), 34)
+        self.assertTrue(first["coverage_complete"])
+        self.assertFalse(first["exclusions"])
         self.assertEqual(len(first["cases"]), len({c["id"] for c in first["cases"]}))
 
     def test_contract_operations_exist_in_current_source(self):
@@ -274,12 +274,22 @@ class GeneratorTests(unittest.TestCase):
             self.assertEqual(first.returncode, 0, first.stderr)
             original = Path(output).read_bytes()
             self.assertEqual(subprocess.run(command + ["--check"], capture_output=True).returncode, 0)
-            self.assertEqual(subprocess.run(command + ["--check", "--require-complete"], capture_output=True).returncode, 3)
+            self.assertEqual(subprocess.run(command + ["--check", "--require-complete"], capture_output=True).returncode, 0)
             self.assertEqual(subprocess.run(command, capture_output=True).returncode, 0)
             self.assertEqual(Path(output).read_bytes(), original)
             Path(output).write_text("{}", encoding="utf-8")
             self.assertEqual(subprocess.run(command + ["--check"], capture_output=True).returncode, 2)
 
+    def test_cli_still_refuses_a_declared_mandatory_exclusion(self):
+        with tempfile.TemporaryDirectory(prefix="sqe-exclusion-") as temp:
+            doc=document({"value":{"type":"string"}})
+            doc["x-exclusions"]=["A genuinely unimplemented mandatory input"]
+            spec_path=Path(temp)/"spec.json";spec_path.write_text(json.dumps(doc),encoding="utf-8")
+            bindings=Path(temp)/"bindings.json";bindings.write_text("{}",encoding="utf-8")
+            result=subprocess.run([sys.executable,str(ROOT/"generate.py"),"--spec",str(spec_path),"--bindings",str(bindings),"--output",str(Path(temp)/"cases.json"),"--require-complete"],capture_output=True)
+            self.assertEqual(result.returncode,3)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+

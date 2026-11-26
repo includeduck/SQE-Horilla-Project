@@ -115,7 +115,6 @@ def test_reject_already_rejected_is_refused(employee, leave_type, available_leav
     assert balance(employee, leave_type) == before
 
 
-@pytest.mark.xfail(strict=True, reason="Known defect OD-01: rejecting a cancelled leave is accepted (BR-03 terminal state)")
 def test_reject_cancelled_leave_is_refused(employee, leave_type, available_leave, admin_employee):
     req = leave_req(employee, leave_type, status="cancelled")
     resp = call(api.LeaveRequestRejectAPIView, admin_employee, req.pk)

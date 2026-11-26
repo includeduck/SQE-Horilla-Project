@@ -1,0 +1,13 @@
+{
+  "source_commit": "b8480253e6fd4f7679e39eac14395296a269a9a0",
+  "branch": "rayyan/phase-c-evidence",
+  "pr": 8,
+  "pr_state": "draft-open",
+  "run_id": 45342013246,
+  "job_id": 138267650582,
+  "observed_status": "in_progress",
+  "observed_stage": "Install unchanged application and scoped test requirements",
+  "author_login": "rayyanhasan899",
+  "committer_login": "rayyanhasan899",
+  "scope_complete": false
+}

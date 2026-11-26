@@ -1,3 +1,7 @@
+# Final contribution verification
+
+Rayyan execution is closed; all remaining project execution is Wasay / Wasay's agent — mandatory. [Final report](../../docs/team/reports/RAYYAN_FINAL_CLOSEOUT.md) and [handoff](../../handoff.md) are current. API source aeed7b7b verifies 3,433 cases per sharded order, 713 generated IDs, 350 families and 14 assertion-selected requirements. Ten browser flows and the exact controlled regeneration are separately verified. Shared quality failures remain failures; see team-quality-gate.yml. Package reproduction is in finish04-package.yml. No fifth Rayyan prompt is expected. Below is historical technical setup, not current pending ownership.
+
 # Team tests (SE3002 SQE Final Project)
 
 Everything in this folder is written by our team. Upstream tests (e.g. `leave/tests/`) earn no marks and are not counted.
@@ -9,7 +13,7 @@ Everything in this folder is written by our team. Upstream tests (e.g. `leave/te
 | `api/` | API and integration tests using generator output | pytest + requests | Area 2 |
 | `e2e/` | Use-case tests, usability + keyboard tests, axe-core | Playwright (Chromium) | Area 3 |
 | `security/` | Access-matrix checks (Playwright), ZAP / pip-audit evidence | Playwright, OWASP ZAP, pip-audit | Area 3 |
-| `perf/` | Load scripts (1 VU and ≥5 VU) | Grafana k6 OSS | Area 3 |
+| `perf/` | Load scripts (1 VU and â‰¥5 VU) | Grafana k6 OSS | Area 3 |
 | `recovery/` | Failure-and-recovery test for a state-changing operation | pytest + test double | Area 3 |
 
 Test-basis IDs (FR-xx, BR-xx) come from [`docs/team/SCOPE.md`](../../docs/team/SCOPE.md). Reference them in each test's docstring so the traceability matrix can be generated.
@@ -24,7 +28,7 @@ The source-reconstructed test basis is
 
 ### Independent generation and regression checks
 
-From the repository root with a supported Python (3.12–3.14), these commands
+From the repository root with a supported Python (3.12â€“3.14), these commands
 require only the standard library. On this Windows checkout replace `python`
 with `.\.venv\Scripts\python`; on Linux use the activated environment's
 `python` or `.venv/bin/python`.
@@ -165,3 +169,21 @@ Blocked unfinished work is assigned by Rayyan to Wasay/his agent in
 GitHub author/committer attribution is verified for each published checkpoint.
 The original laptop Git metadata remains read-only; do not reset or discard its
 uncommitted files to conceal the difference from the published branch.
+
+## Continuation producer contract - 24 November 2026
+
+The runner now collects reversed-order evidence even if api-first fails, and
+checks completeness independently after API failures. It retains the first
+failure exit; it never converts two failing runs into acceptance. Failed
+schema/runtime/preflight still blocks dependent stages. Missing, malformed,
+empty, skipped, failed or errored JUnit with child exit zero also fails.
+
+Current inventory: 275 distinct API cases / 179 of 578 generated IDs; full
+coverage is still false. New-build runtime evidence must be inspected. The
+focused expansion step writes `expanded.xml` before the full producer. The
+old merged-build results are 14 focused passes, 8 upstream passes and 176/178
+API passes; these are separate populations.
+
+Synthetic disposable users use MD5PasswordHasher only in area2_settings to
+reduce fixture/authentication time. Password checks, JWT issuance and actual
+role/permission handling remain enabled. Production settings are untouched.

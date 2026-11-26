@@ -1,0 +1,191 @@
+name: Finish 04 contribution package
+on:
+  push:
+    branches: [rayyan/final-closeout]
+    paths:
+      - ".github/workflows/finish04-package.yml"
+      - "scripts/team/build_rayyan_contribution.py"
+      - "docs/team/finish-line/FINAL_CLOSEOUT_DATA.json"
+      - "docs/team/reports/RAYYAN_FINAL_CLOSEOUT.md"
+permissions:
+  contents: read
+  actions: read
+jobs:
+  package:
+    permissions:
+      contents: write
+      actions: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Require immutable producer identity and actual outcomes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json,os,time,urllib.request,urllib.error
+          from pathlib import Path
+          rows=[]
+          for run in (45627793460,45627793417,45627793425,45627793437,45627793546,45627793476,45633245200):
+              req=urllib.request.Request("https://api.github.com/repos/${{ github.repository }}/actions/runs/"+str(run),headers={"Authorization":"Bearer "+os.environ["GH_TOKEN"],"Accept":"application/vnd.github+json"})
+              for attempt in range(5):
+                  try:
+                      with urllib.request.urlopen(req,timeout=45) as response:r=json.load(response)
+                      break
+                  except (urllib.error.URLError,TimeoutError):
+                      if attempt==4:raise
+                      time.sleep(3*(attempt+1))
+              expected="51f89abc40320730509ef42c57b067665d4efdcf" if run==45633245200 else "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e"
+              assert r["head_sha"]==expected and r["status"]=="completed"
+              assert r["conclusion"]==("failure" if run==45633245200 else "success")
+              rows.append({k:r.get(k) for k in ("id","name","head_sha","event","run_attempt","created_at","updated_at","conclusion","html_url")})
+          Path("evidence").mkdir()
+          Path("evidence/pinned-producers.json").write_text(json.dumps(rows,indent=2)+"\n")
+          print("PINNED_PRODUCERS",json.dumps(rows),flush=True)
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45627793460
+          pattern: finish02-*
+          merge-multiple: true
+          path: evidence/api
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45627793417
+          name: phase-d-browser-45627793417-1
+          path: evidence/browser
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45627793417
+          name: phase-d-regeneration-45627793417-1
+          path: evidence/regeneration
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45627793425
+          path: evidence/business
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45627793437
+          path: evidence/integrity
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45627793546
+          path: evidence/foundation
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45627793476
+          path: evidence/validation
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45633245200
+          path: evidence/shared-gate
+      - name: Recompute inventory separately and verify exact contribution
+        run: |
+          python -m pip install reportlab==4.0.9 PyMuPDF==1.28.2 pypdf==7.1.1 jsonschema==4.26.0
+          python tests/team/contract/inventory.py --output evidence/fresh-inventory
+          python -m py_compile scripts/team/build_rayyan_contribution.py
+          set -o pipefail
+          python scripts/team/build_rayyan_contribution.py --evidence evidence --output out | tee out-build.log
+          cp out-build.log out/
+      - name: Validate PDF pages and exact source manifest
+        run: |
+          python - <<'PY'
+          import base64,json,hashlib
+          from pathlib import Path
+          import fitz
+          from pypdf import PdfReader
+          path=Path("out/Rayyan_24I-3000_Final_Contribution.pdf")
+          reader=PdfReader(path)
+          assert len(reader.pages)>=5
+          texts=[p.extract_text() for p in reader.pages]
+          for i,text in enumerate(texts):
+              assert len(text.strip())>120,(i,"near-empty page")
+              assert "\ufffd" not in text
+          assert "NOT THE FINAL GROUP SUBMISSION" in "\n".join(texts)
+          document=fitz.open(path)
+          pages=[]
+          Path("preview").mkdir()
+          for index,page in enumerate(document):
+              pixmap=page.get_pixmap(matrix=fitz.Matrix(1.1,1.1),alpha=False)
+              filename=Path("preview")/("page-%02d.png"%(index+1))
+              pixmap.save(filename)
+              pages.append({"page":index+1,"width":pixmap.width,"height":pixmap.height,"bytes":filename.stat().st_size})
+          Path("out/pdf_validation.json").write_text(json.dumps({"pages":pages,"text_check":"passed","visual_inspection":"requires actual reviewer viewing rendered preview"},indent=2))
+          print("PDF_PAGE_SUMMARY",json.dumps(pages),flush=True)
+          encoded=base64.b64encode(path.read_bytes()).decode()
+          for index in range(0,len(encoded),8000):
+              print("FINAL_PDF_CHUNK",json.dumps({"index":index//8000,"total":(len(encoded)+7999)//8000,"text":encoded[index:index+8000]}),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rayyan-final-contribution-${{ github.sha }}
+          path: out/
+          retention-days: 90
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: final-pdf-preview
+          path: preview/
+          retention-days: 30
+          if-no-files-found: error
+      - name: Persist requested project deliverables as immutable Git objects
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import base64,json,hashlib,os,time,urllib.request,urllib.error
+          from pathlib import Path
+          url="https://api.github.com/repos/${{ github.repository }}/git/blobs"
+          for name in ("Rayyan_24I-3000_Final_Contribution.pdf","package_manifest.json"):
+              raw=(Path("out")/name).read_bytes()
+              assert len(raw)<95*1024*1024,"Use retained artifact rather than exceed GitHub file size"
+              data=json.dumps({"content":base64.b64encode(raw).decode(),"encoding":"base64"}).encode()
+              req=urllib.request.Request(url,data=data,headers={"Authorization":"Bearer "+os.environ["GH_TOKEN"],"Accept":"application/vnd.github+json","Content-Type":"application/json"},method="POST")
+              for attempt in range(3):
+                  try:
+                      with urllib.request.urlopen(req,timeout=180) as response:result=json.load(response)
+                      break
+                  except (urllib.error.URLError,TimeoutError):
+                      if attempt==2:raise
+                      time.sleep(4*(attempt+1))
+              expected=hashlib.sha1(b"blob "+str(len(raw)).encode()+b"\0"+raw).hexdigest()
+              assert result["sha"]==expected
+              print("FINAL_DELIVERABLE_BLOB",json.dumps({"path":"deliverables/rayyan/"+name,"sha":result["sha"],"bytes":len(raw),"sha256":hashlib.sha256(raw).hexdigest()}),flush=True)
+          PY
+  preview:
+    needs: package
+    if: always()
+    strategy:
+      matrix:
+        group: [0, 1, 2, 3]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: final-pdf-preview
+          path: preview
+      - name: Retain rendered previews for actual visual inspection
+        env:
+          GROUP: ${{ matrix.group }}
+        run: |
+          python - <<'PY'
+          import base64,json,os
+          from pathlib import Path
+          for index,path in enumerate(sorted(Path("preview").glob("page-*.png"))):
+              if index%4!=int(os.environ["GROUP"]):continue
+              encoded=base64.b64encode(path.read_bytes()).decode()
+              for offset in range(0,len(encoded),8000):
+                  print("FINAL_PREVIEW_CHUNK",json.dumps({"page":index+1,"index":offset//8000,"total":(len(encoded)+7999)//8000,"text":encoded[offset:offset+8000]}),flush=True)
+          PY

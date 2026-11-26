@@ -1,8 +1,11 @@
 from collections import Counter
+from collections.abc import Mapping
 
+from django.core.exceptions import FieldError
 from django.db.models import Q
 from django.http import QueryDict
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.exceptions import ValidationError
 
 from employee.models import EmployeeWorkInformation
 
@@ -16,7 +19,10 @@ def get_filter_url(current_url, request):
 
 
 def groupby_queryset(request, url, field_name, queryset):
-    queryset_with_counts = queryset.values(field_name)
+    try:
+        queryset_with_counts = queryset.values(field_name)
+    except FieldError as error:
+        raise ValidationError({"groupby_field": "A valid grouping field is required."}) from error
 
     counts = Counter(item[field_name] for item in queryset_with_counts)
 
@@ -94,8 +100,12 @@ def reject_reason_from(request):
     a request was rejected, never why. Optional, so existing clients that
     send no body keep working unchanged.
     """
-    reason = request.data.get("reason") if hasattr(request, "data") else None
+    data = request.data if hasattr(request, "data") else {}
+    if not isinstance(data, Mapping):
+        raise ValidationError({"non_field_errors": ["Expected an object body."]})
+    reason = data.get("reason")
     if not isinstance(reason, str):
         return None
     reason = reason.strip()
     return reason[:1000] or None
+

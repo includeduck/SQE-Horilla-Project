@@ -4,21 +4,63 @@ name: Area 2 verification
 # all-tests/Sonar/mutation merge gate and its required-check configuration.
 on:
   push:
-    branches: [sqe-team, rayyan/phase-c-evidence]
+    branches: [sqe-team]
     paths:
-      - "tests/team/**"
+      - "tests/team/api/**"
+      - "tests/team/generator/**"
+      - "tests/team/storage/**"
+      - "tests/team/run_area2.py"
+      - "tests/team/area2_order.py"
+      - "tests/team/area2_settings.py"
+      - "tests/team/area2_urls.py"
+      - "tests/team/pytest-area2.ini"
+      - "tests/team/requirements-area2.txt"
       - "horilla_api/api_views/leave/**"
       - "horilla_api/api_serializers/leave/**"
       - "horilla/models.py"
       - ".github/workflows/area2-verification.yml"
+      - "horilla_api/api_decorators/base/decorators.py"
+      - "horilla_api/api_methods/base/methods.py"
+      - "horilla/filters.py"
+      - "horilla/config.py"
+      - "leave/filters.py"
+      - ".github/workflows/finish02-coverage.yml"
+  pull_request:
+    branches: [sqe-team]
+    paths:
+      - "tests/team/api/**"
+      - "tests/team/generator/**"
+      - "tests/team/storage/**"
+      - "tests/team/run_area2.py"
+      - "tests/team/area2_order.py"
+      - "tests/team/area2_settings.py"
+      - "tests/team/area2_urls.py"
+      - "tests/team/pytest-area2.ini"
+      - "tests/team/requirements-area2.txt"
+      - "horilla_api/api_views/leave/**"
+      - "horilla_api/api_serializers/leave/**"
+      - "horilla/models.py"
+      - ".github/workflows/area2-verification.yml"
+      - "horilla_api/api_decorators/base/decorators.py"
+      - "horilla_api/api_methods/base/methods.py"
+      - "horilla/filters.py"
+      - "horilla/config.py"
+      - "leave/filters.py"
+      - ".github/workflows/finish02-coverage.yml"
 
 permissions:
   contents: read
 
+concurrency:
+  group: area2-verification-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  area2:
+  focused:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    # Focused populations remain separate; the two full collections run in
+    # fresh distributed jobs below with independent coverage enforcement.
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -42,15 +84,19 @@ jobs:
         run: |
           mkdir -p docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}-targeted
           set -o pipefail
-          python -m pytest -c tests/team/pytest-area2.ini tests/team/storage tests/team/api/test_generated_slice.py tests/team/api/test_workflows.py::test_refund_belongs_to_requester tests/team/api/test_workflows.py::test_nonowner_self_allocation_route_denied tests/team/api/test_workflows.py::test_carryforward_cap_used_in_balance_validation 'tests/team/api/test_states_and_decisions.py::test_state_transition_catalog[STATE-LEAVE-approved-reject]' -v -s --junitxml=docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}-targeted/defects.xml 2>&1 | tee docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}-targeted/defects.txt
+          python -m pytest -c tests/team/pytest-area2.ini tests/team/storage tests/team/api/test_generated_slice.py tests/team/api/test_workflows.py::test_refund_belongs_to_requester tests/team/api/test_workflows.py::test_nonowner_self_allocation_route_denied tests/team/api/test_workflows.py::test_carryforward_cap_used_in_balance_validation 'tests/team/api/test_states_and_decisions.py::test_state_transition_catalog[STATE-LEAVE-approved-reject]' tests/team/api/test_workflows.py::test_allocation_duplicate_creation_contract 'tests/team/api/test_states_and_decisions.py::test_state_transition_catalog[STATE-LEAVE-cancelled-reject]' -v -s --junitxml=docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}-targeted/defects.xml 2>&1 | tee docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}-targeted/defects.txt
       - name: Run affected upstream balance and file-display regressions separately
         env:
           PYTHONPATH: tests/team:tests/team/api:.
         run: |
           set -o pipefail
           python -m pytest -c tests/team/pytest-area2.ini leave/tests/test_carryforward.py leave/tests/test_approve_balance.py horilla_widgets/tests/test_pretty_file_name.py -v --junitxml=docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}-targeted/upstream.xml 2>&1 | tee docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}-targeted/upstream.txt
-      - name: Verify Area 2 twice with reversed second API order
-        run: python tests/team/run_area2.py --evidence docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Verify newly consumed generated update file and pagination cases
+        env:
+          PYTHONPATH: tests/team:tests/team/api:.
+        run: |
+          set -o pipefail
+          python -m pytest -c tests/team/pytest-area2.ini tests/team/api/test_generated_inputs.py tests/team/api/test_generated_attachments.py tests/team/api/test_queries_and_auth.py -v -s -o junit_family=xunit1 --junitxml=docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}-targeted/expanded.xml 2>&1 | tee docs/team/evidence/area2/ci-${{ github.run_id }}-${{ github.run_attempt }}-targeted/expanded.txt
       - name: Retain real results on success or failure
         if: always()
         uses: actions/upload-artifact@v4
@@ -58,3 +104,22 @@ jobs:
           name: area2-${{ github.run_id }}-${{ github.run_attempt }}
           path: docs/team/evidence/area2/ci-*/
           if-no-files-found: warn
+
+
+  distributed:
+    uses: ./.github/workflows/finish02-coverage.yml
+    with:
+      full_scope: true
+
+  area2:
+    needs: [focused, distributed]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Preserve every failed or incomplete requirement
+        env:
+          FOCUSED_RESULT: ${{ needs.focused.result }}
+          DISTRIBUTED_RESULT: ${{ needs.distributed.result }}
+        run: |
+          test "$FOCUSED_RESULT" = success
+          test "$DISTRIBUTED_RESULT" = success

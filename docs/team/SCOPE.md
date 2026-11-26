@@ -1,3 +1,81 @@
+## Final execution closeout — 25 November 2026
+
+Rayyan's project execution assignment is finished. **Whole-project release: HOLD.** No further technical execution or additional prompt is expected from Rayyan.
+
+The final application/API verification source is `aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e`; Actions checked synthetic merge `801351079aada8c399db2212d9c033737e032e0d` with `sqe-team` base `0a5ac6443dadb50ab5fd6ea749f41dd108a19486`. [Run 45627793460](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460) verifies **3,433/3,433 API cases in each of two orders**, with zero failures/errors/skips/missing IDs and strict complete-scope acceptance. Each collection is the exact union of 16 fresh isolated deterministic shards; reversal occurs within each shard, not a claim of one monolithic reversed process.
+
+**713/713 generated IDs, all former 399 missing IDs, 350/350 mandatory input families, FR-01–FR-10 and BR-01–BR-04 are verified** from real source-bound assertions. Ten personal browser flows pass; the consuming regeneration has six baseline passes and exactly two predicted strict variant failures with four passes. Separate overlapping populations and full links are in [RAYYAN_FINAL_CLOSEOUT.md](reports/RAYYAN_FINAL_CLOSEOUT.md), the final evidence index and machine ledger. Never sum them into a fictitious unique-test total.
+
+All remaining project execution is **Wasay / Wasay's agent — mandatory**, with exact attempts, dependencies and acceptance in root [handoff.md](../../handoff.md) and `finish-line/REMAINING_WORK.json`. Current shared gate evidence is genuinely red for missing Sonar service/credentials and mutation runner/policy; supplied units pass. No independent review, merged PR #8, required branch/deploy enforcement, teammate authorship, human effort or passed viva is inferred.
+
+The PDF/ZIP is a **Rayyan contribution, not the final group submission**. Earlier dated results/ownership below are historical and superseded by the final handoff; they do not assign new execution to Rayyan.
+
+---
+
+---
+
+## Historical dated appendix (not current ownership or pending work)
+
+## Verified Prompt 3 result — 25 November 2026
+
+This source-specific result supersedes historical incomplete-input, pending-retest
+and unanswered OD-01/OD-02 labels below. On `fecac354c9b5d8ea47ac732a2b089ed3cc148620`,
+[run 45609322121](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121) passed **3,433/3,433 API
+cases in EACH independent order**, with no failures, errors, required skips or
+missing IDs. The strict complete-scope guard accepted both orders.
+**713/713 canonical generated IDs, all former 399 missing IDs, and 350/350
+mandatory input families are verified.** Explicit requirement assertion selectors
+verify FR-01–FR-10 and BR-01–BR-04; tags or mappings alone are not the evidence.
+
+The authoritative source-bound summaries and individual rows are in
+`docs/team/finish-line/PROMPT03_EXECUTION_SUMMARY.json`,
+`PROMPT03_REQUIREMENT_EVIDENCE.json`, `PROMPT03_INPUT_LEDGER.json` and
+`REMAINING_WORK.json`. The derived complete coverage, case-execution and generated-ID
+ledgers remain in [artifact 15024156843](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15024156843).
+
+Separate overlapping populations on the same source passed: 482 business/state/
+role/workflow cases; 82 affected upstream tests; 24 original team units; 16
+focused regressions; eight focused upstream tests; 182 expanded cases; 238 wire
+validation cases; seven advanced-filter cases; 27 further upstream tests plus
+two subtests; all ten personal browser flows; two fresh foundations with five
+smoke cases each; 68 tooling and four media-reader checks. Regeneration passed
+six baseline cases and retained exactly two predicted strict variant failures
+with four passes, in its separate controlled experiment. These totals are not
+added into a larger unique-case count.
+
+Prompt 3's scoped technical work is complete. **Whole-project release remains
+HOLD** pending accepted integration, owner/shared quality gates and Prompt 4's
+final integrated/report/package/ownership closeout. PR #8 remains draft/open;
+no owner approval, merge, human effort, review or viva is inferred.
+
+---
+
+Historical dated records and implementation detail follow.
+
+## Prompt 3 technical evidence supplement — 25 November 2026
+
+Sections 1–8 and OD-01/OD-02 are preserved. Source-backed API business consumers
+now implement duration/holiday/target/forecast/cap/expiry, reason normalization,
+all scoped state/role decisions and connected W1/W2 balance invariants. See
+AREA2_TEST_BASIS.md and finish-line/PROMPT03_REQUIREMENT_EVIDENCE.json for exact
+assertion selectors and actual source-specific outcomes. The current inventory
+is 34 operations / 88 generated input entries / 713 preserved IDs / 350 broader
+mandatory families; 3,433 API scenarios include 2,256 wire cases. Historical
+184-reference/529-unconsumed/329-family counts below describe Prompt 1 only.
+
+Reasons are optional under the existing API helper; its 1000-character strip/
+truncation and model TextField's declared 255 bound are explicitly distinguished.
+No concurrent duplicate feature, new allocation positivity rule, forecast
+credit-at-approval policy, PostgreSQL enforcement or human scope signoff is
+invented. The old instruction to mark known decisions xfail is superseded by
+the user's strict-regression instruction: the tested 400 assertions stay active.
+Current raw/derived evidence and technical completion are separate from owner
+review, protected integration, final Prompt 4 and whole-group acceptance.
+
+---
+
+Historical dated records follow. Current source-specific results above supersede their older pending/count labels.
+
 # Test Scope and Test Basis: Horilla HRMS, Leave Module
 
 > **DRAFT.** The team must review, verify against the running app, and edit this before it is used as the test basis.
@@ -95,3 +173,13 @@ Team decisions on expected behaviour where the code and documentation do not set
 | OD-02 | 2026-11-23 | Submit an allocation request identical to the same employee's existing **pending** request (same leave type, days, description) | Reject with **HTTP 400**; no second record created | Brief §2: repeated requests must not create duplicates | Duplicate accepted → **defect / endpoint weakness** |
 
 Tests for open decisions are marked `xfail(strict=True)` with the defect issue number, so they stay visible as known failures and turn into an error (XPASS) once the defect is fixed.
+
+## 8. Prompt 1 technical scope supplement — 24 November 2026
+
+Technical reconciliation is completed as documented in finish-line/CONTRACT_RECONCILIATION.md and reports/RAYYAN_FINISH_01_STATUS.md; this does not invent human scope approval. Preserve sections 1–7 and OD-01/OD-02. The existing strict corrected regressions remain active without xfail.
+
+The versioned W1/W2 contract now selects 34 method/route operations (previously 27). Added operations are assignment list/create/detail/update/delete plus leave-type reference and employee-available-type reference reads, required by FR-01 assignment and W1/W2 type binding. Active source exposes 56 leave method/route operations; all 22 non-selected configuration-write/bulk/status/helper operations have explicit reasons in finish-line/OPERATION_INPUT_INVENTORY.json.
+
+One canonical OpenAPI 3.0.3 JSON remains in tests/team/generator/openapi.json. Generated 713 IDs cover 88 operation/input entries; the complete inventory has 329 mandatory families, 241 outside generation. All old IDs and the old 399 dispositions remain traceable. Current references/collection totals are 184/713 and 280 scenarios, not full executed coverage. The full contract remains mandatory across Prompts 2–4. Actual production Swagger 2.0 is compared semantically with resolver/serializer/model behavior; it is not a competing canonical contract.
+
+No additional policy approval was invented. Full runtime/coercion/filter/media and source-backed state/decision plans are technical test-basis work; exact consumption and new relational outcomes remain pending. Overall release HOLD and team signoff obligations remain.

@@ -1,4 +1,164 @@
+## Final execution closeout — 25 November 2026
+
+Rayyan's project execution assignment is finished. **Whole-project release: HOLD.** No further technical execution or additional prompt is expected from Rayyan.
+
+The final application/API verification source is `aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e`; Actions checked synthetic merge `801351079aada8c399db2212d9c033737e032e0d` with `sqe-team` base `0a5ac6443dadb50ab5fd6ea749f41dd108a19486`. [Run 45627793460](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45627793460) verifies **3,433/3,433 API cases in each of two orders**, with zero failures/errors/skips/missing IDs and strict complete-scope acceptance. Each collection is the exact union of 16 fresh isolated deterministic shards; reversal occurs within each shard, not a claim of one monolithic reversed process.
+
+**713/713 generated IDs, all former 399 missing IDs, 350/350 mandatory input families, FR-01–FR-10 and BR-01–BR-04 are verified** from real source-bound assertions. Ten personal browser flows pass; the consuming regeneration has six baseline passes and exactly two predicted strict variant failures with four passes. Separate overlapping populations and full links are in [RAYYAN_FINAL_CLOSEOUT.md](reports/RAYYAN_FINAL_CLOSEOUT.md), the final evidence index and machine ledger. Never sum them into a fictitious unique-test total.
+
+All remaining project execution is **Wasay / Wasay's agent — mandatory**, with exact attempts, dependencies and acceptance in root [handoff.md](../../handoff.md) and `finish-line/REMAINING_WORK.json`. Current shared gate evidence is genuinely red for missing Sonar service/credentials and mutation runner/policy; supplied units pass. No independent review, merged PR #8, required branch/deploy enforcement, teammate authorship, human effort or passed viva is inferred.
+
+The PDF/ZIP is a **Rayyan contribution, not the final group submission**. Earlier dated results/ownership below are historical and superseded by the final handoff; they do not assign new execution to Rayyan.
+
+---
+
+---
+
+## Historical dated appendix (not current ownership or pending work)
+
+## Verified Prompt 3 result — 25 November 2026
+
+This source-specific result supersedes historical incomplete-input, pending-retest
+and unanswered OD-01/OD-02 labels below. On `fecac354c9b5d8ea47ac732a2b089ed3cc148620`,
+[run 45609322121](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121) passed **3,433/3,433 API
+cases in EACH independent order**, with no failures, errors, required skips or
+missing IDs. The strict complete-scope guard accepted both orders.
+**713/713 canonical generated IDs, all former 399 missing IDs, and 350/350
+mandatory input families are verified.** Explicit requirement assertion selectors
+verify FR-01–FR-10 and BR-01–BR-04; tags or mappings alone are not the evidence.
+
+The authoritative source-bound summaries and individual rows are in
+`docs/team/finish-line/PROMPT03_EXECUTION_SUMMARY.json`,
+`PROMPT03_REQUIREMENT_EVIDENCE.json`, `PROMPT03_INPUT_LEDGER.json` and
+`REMAINING_WORK.json`. The derived complete coverage, case-execution and generated-ID
+ledgers remain in [artifact 15024156843](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45609322121/artifacts/15024156843).
+
+Separate overlapping populations on the same source passed: 482 business/state/
+role/workflow cases; 82 affected upstream tests; 24 original team units; 16
+focused regressions; eight focused upstream tests; 182 expanded cases; 238 wire
+validation cases; seven advanced-filter cases; 27 further upstream tests plus
+two subtests; all ten personal browser flows; two fresh foundations with five
+smoke cases each; 68 tooling and four media-reader checks. Regeneration passed
+six baseline cases and retained exactly two predicted strict variant failures
+with four passes, in its separate controlled experiment. These totals are not
+added into a larger unique-case count.
+
+Prompt 3's scoped technical work is complete. **Whole-project release remains
+HOLD** pending accepted integration, owner/shared quality gates and Prompt 4's
+final integrated/report/package/ownership closeout. PR #8 remains draft/open;
+no owner approval, merge, human effort, review or viva is inferred.
+
+---
+
+Historical dated records and implementation detail follow.
+
+## Prompt 3 reconciled behavior — 25 November 2026
+
+This section supersedes the historical incomplete-reader and unanswered
+OD-01/OD-02 labels below. The canonical scope has 34 operations, 88 generated
+input entries and 713 preserved IDs. The broader inventory has 350 mandatory
+families (334 input/media/filter/query families and 16 business/reason families).
+The implementation has 3,433 unique API cases including 2,256 supplementary wire
+cases; these numbers measure implementation until actual source-bound JUnit
+and requirement assertion selectors establish a pass.
+
+Effective duration uses independent expected calendar/half-day calculations,
+holiday and company-day sets with overlap removed once, and the target
+employee's specific-holiday context. Positive effective duration applies to
+leave requests. No positive allocation-amount policy is invented. Available
+funds use existing carry-forward policy/cap and model forecast at its reset
+boundary; approval rechecks current funds and does not credit future entitlement
+early. Expiry tests explicitly run the existing expire_carryforward lifecycle
+before checking validation, rather than inventing expiry by requested date.
+
+All nine same-day breakdown pairs, active versus terminal/foreign overlap,
+conditional attachment bytes, assignment, requested-only editing/deletion,
+invalid action IDs, permitted manager/permission roles, self/nonowner denials,
+repetition and connected grant/consume/refuse/refund are exercised. BR-02 keeps
+24 feasible and eight evidenced infeasible combinations; BR-04 keeps all eight
+permission/manager/self truth rows. Additional state/role cases exercise the
+existing graph under four distinct actor modes. W1/W2 readback independently
+corroborates persisted owner/status and exact available/carry debit/refund splits.
+
+Reasons follow reject_reason_from: omission/null/nonstring become empty,
+strings are stripped and capped at 1000, with actual persistence asserted.
+The LeaveRequest TextField's declared max_length=255 is separate: the tested
+SQLite persistence and explicit TextField.clean accept the tested longer text.
+The helper limit is not a serializer rejection bound, and this work makes no
+PostgreSQL claim. Optional cancel reasons are a source-discovered supplementary
+family. An incompatible future mandatory-reason policy would require an owner
+decision; it is not silently imposed here.
+
+A response alone is never the workflow oracle. Current evidence and precise
+per-FR/BR assertions are in finish-line/PROMPT03_REQUIREMENT_EVIDENCE.json,
+finish-line/PROMPT03_INPUT_LEDGER.json and reports/RAYYAN_FINISH_03_STATUS.md.
+No human approval, whole-project release or final Prompt 4 execution is inferred.
+
+---
+
+Historical dated records follow. Current source-specific results above supersede their older pending/count labels.
+
 # Area 2 test basis: Phase B prerequisite reconstruction
+
+## Prompt 1 completed — current contract checkpoint (24 November 2026)
+
+The contract foundation is reconciled using two independent fresh runtime initializations, live production Swagger, active source/serializer/model introspection and actual role/state HTTP probes. See [Prompt 1 status](reports/RAYYAN_FINISH_01_STATUS.md) and [contract reconciliation](finish-line/CONTRACT_RECONCILIATION.md) for exact tested builds, commands and limitations.
+
+Current canonical scope is **34 operations / 88 generated inputs / 713 IDs**; **184 IDs referenced, 529 unconsumed**, and **280 parametrized API scenarios**. All old 578 IDs survive and all old 399 unconsumed IDs have individual dispositions. The complete required-input inventory is **329 families**, including **241 outside generation**. All consumption and relational plans remain mandatory; inventory is not a pass. The old 275 first/reversed API passes belong to source 7189656a and are preserved separately.
+
+[REMAINING_WORK.json](finish-line/REMAINING_WORK.json) assigns feasible remaining consumers to Codex for Rayyan in Prompt 2 and business-rule assertions/fixes in Prompt 3, with final verification/closure in Prompt 4. Overall release remains HOLD. Historical blocked/partial labels below describe earlier checkpoints; this section supersedes their current contract/runtime status without claiming teammate review or recovering the missing original A archive.
+
+
+## Current continuation - 24 November 2026
+
+This section supersedes earlier pending-result statements below. Phase C is
+**partially implemented; Hold remains in effect**. Wasay merged
+[PR #2](https://github.com/includeduck/SQE-Horilla-Project/pull/2) on 23 November.
+Remote `sqe-team` build is `2242c502090c81031e20df912b49809a03a1f523`;
+local Git HEAD is still `da76b337190ceb67f1a7c43ee4d5f8eca4ddc8a0` with preserved
+uncommitted files. No local pull/reset is claimed.
+
+[Run 45197384096](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45197384096)
+completed on the merged build: **14 focused regressions passed**, **8 affected
+upstream tests passed**, **41 independent tooling tests passed**, W1/W2 preflight
+**1 passed**, full API collection **176 passed / 2 failed / 178 total**.
+The focused collection includes four storage-only tests and repeated API tests;
+these counts are separate populations and must not be added together.
+Reversed execution and completeness were blocked by the old fail-fast runner.
+Raw evidence: `docs/team/evidence/area2/phase-c/ci-45197384096-job.log`.
+
+The two genuine remaining failures are
+`STATE-LEAVE-cancelled-reject` (expected 400, observed 200) and
+`GAP-ALLOCATION-DUPLICATE-001` (proposed 400, observed 200 plus another row).
+Their business-rule oracles remain unresolved; neither assertion was weakened.
+Requester refund, foreign-owner allocation PUT/DELETE, capped carry-forward and
+extensionless attachment corrections now have actual passing-after evidence.
+
+This continuation adds **97 executable API cases**: 73 generated self-service
+update body cases, 15 additional attachment classes/boundaries, and nine further
+pagination classes/minimum boundaries. Inventory is now **275 unique API cases**,
+referencing **179/578 generated IDs**, with **399 unconsumed IDs** explicitly
+listed in `tests/team/api/case_ledger.json`. New cases are pending runtime
+verification; the 176/178 result belongs to the older merged build only.
+Spec/data fingerprints are unchanged. Dynamic record IDs are bound after real
+HTTP creation; update tests assert identity/count preservation and unchanged
+balances on rejection. Files use real multipart bytes; null/omission/invalid
+file JSON bindings are recorded. Pagination expectations explicitly model DRF's
+fallback/clamp rather than pretending every schema-invalid query is rejected.
+
+The producer now attempts the independent reversed API pass and completeness
+check after an API collection failure, preserving the first nonzero exit.
+Prerequisite/preflight failures still block dependent execution. Zero child exit
+cannot hide missing/malformed/empty/failed/errored/skipped JUnit. New subprocess
+regressions exercise these cases. Disposable test settings use Django's fast
+MD5 test hasher for synthetic users, retaining password verification/JWT over
+HTTP; this is no production hashing or password-security claim.
+
+Local dependency installation was retried on 24 November and failed to resolve
+pytest; Django/pytest remain absent and Docker's Linux engine is unavailable.
+No local HTTP pass is claimed. The complete free remote runtime remains the
+verification route. See the final continuation evidence below for this build's
+actual checks/publication and any new runtime outcome.
 
 Owner: Syed Muhammad Rayyan Hassan, **24I-3000**, `rayyanhasan899`. Date: 23 November 2026.
 

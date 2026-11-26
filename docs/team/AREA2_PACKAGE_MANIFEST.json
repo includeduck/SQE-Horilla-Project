@@ -1,0 +1,1413 @@
+{
+  "format_version": 4,
+  "contributor": "Syed Muhammad Rayyan Hassan",
+  "roll": "24I-3000",
+  "section": "SE-5B",
+  "label": "Final contribution source snapshot; not whole-group release",
+  "inventory_tree_sha": "3f41447db767d7ded47a30792465e49285e3d8fa",
+  "inventory_origin": "Complete untruncated public Git tree after final substantive content edits; exact Git blob bytes. Manifest self and external publication index excluded to avoid circular hashes.",
+  "hash_algorithm": "Git SHA-1 blob identity includes blob header; SHA256 for every archive payload is in deliverables package_manifest.json",
+  "tested_application_sha": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+  "source_equivalence": {
+    "tested_source": "aeed7b7ba049a79589b8e9ac0b4abb52bec28d0e",
+    "candidate_tree": "3f41447db767d7ded47a30792465e49285e3d8fa",
+    "critical_blob_count": 1558,
+    "differences": [],
+    "scope": "All horilla*/leave application files and Area2 API/generator/contract/runtime/browser consumers unchanged; separate CI/package tooling changes verified independently"
+  },
+  "file_count": 277,
+  "files": [
+    {
+      "path": ".github/scripts/install-requirements.sh",
+      "bytes": 2147,
+      "git_blob_sha": "82239c5acef6dad7d77d258c4a50e1a9cf34503e"
+    },
+    {
+      "path": ".github/workflows/area2-verification.yml",
+      "bytes": 5868,
+      "git_blob_sha": "1d25477ad12e0657480f6c988152df614eaab54c"
+    },
+    {
+      "path": ".github/workflows/codeql.yml",
+      "bytes": 1113,
+      "git_blob_sha": "803eb51ec14f5508f84b0ef4df3617daa7f03197"
+    },
+    {
+      "path": ".github/workflows/docker-ci.yml",
+      "bytes": 5030,
+      "git_blob_sha": "3af88dd96bd63fd940291767be3902546251bc15"
+    },
+    {
+      "path": ".github/workflows/docker-publish.yml",
+      "bytes": 15569,
+      "git_blob_sha": "bd1cf0b37071966bc2964bbd5aa255be17359cd7"
+    },
+    {
+      "path": ".github/workflows/finish01-contract.yml",
+      "bytes": 2834,
+      "git_blob_sha": "b96e128dc6b6150b53fdc30825e23bb3240a96da"
+    },
+    {
+      "path": ".github/workflows/finish01-reconcile.yml",
+      "bytes": 1723,
+      "git_blob_sha": "0acf390c590243c1e752135b213282329f987b1a"
+    },
+    {
+      "path": ".github/workflows/finish02-coverage.yml",
+      "bytes": 6055,
+      "git_blob_sha": "9933db726e3f576ff701835e7a6e65a10ffadc38"
+    },
+    {
+      "path": ".github/workflows/finish02-regressions.yml",
+      "bytes": 5078,
+      "git_blob_sha": "17e270c50ae371b34285b468850f861f8e6f986c"
+    },
+    {
+      "path": ".github/workflows/finish03-business.yml",
+      "bytes": 4697,
+      "git_blob_sha": "60af490699416941b166f41b7f97e615ccafeb49"
+    },
+    {
+      "path": ".github/workflows/finish03-evidence.yml",
+      "bytes": 4058,
+      "git_blob_sha": "abe5aa3e35eea15ec354836c9717582ecaa09dff"
+    },
+    {
+      "path": ".github/workflows/finish04-harvest.yml",
+      "bytes": 2611,
+      "git_blob_sha": "71e680f1ac5a0d969a5b8731fb7eb4e42bd14eac"
+    },
+    {
+      "path": ".github/workflows/finish04-package.yml",
+      "bytes": 8716,
+      "git_blob_sha": "cbe7a3fc755f2d4a75d9d0040c689f3736506a24"
+    },
+    {
+      "path": ".github/workflows/phase-d-verification.yml",
+      "bytes": 2771,
+      "git_blob_sha": "94b135d78585d990ad66d0986820c79f150df902"
+    },
+    {
+      "path": ".github/workflows/quality.yml",
+      "bytes": 8755,
+      "git_blob_sha": "fcae14cbf0c075ef1584c59fd47c844260710716"
+    },
+    {
+      "path": ".github/workflows/team-quality-gate.yml",
+      "bytes": 4435,
+      "git_blob_sha": "76494a04da04def87c4e6aa4a3220887e68002bb"
+    },
+    {
+      "path": ".github/workflows/unit-tests.yml",
+      "bytes": 4156,
+      "git_blob_sha": "58d55ea54908df070cdc7dfb9a7e96f131988a77"
+    },
+    {
+      "path": "Communication.md",
+      "bytes": 20995,
+      "git_blob_sha": "dc578ac56d3691e86b5cc5803ec022b0ab46272a"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 26526,
+      "git_blob_sha": "8000a6faacf471c537530805ab29523c7732e11a"
+    },
+    {
+      "path": "README.md",
+      "bytes": 11051,
+      "git_blob_sha": "b21439c17d27d411763e82105fb34b8dc0d7c516"
+    },
+    {
+      "path": "docs/team/AI_USE_RECORD.md",
+      "bytes": 14308,
+      "git_blob_sha": "f47800a78dd570ad608bc073d28ce57e16597725"
+    },
+    {
+      "path": "docs/team/API_COVERAGE_MATRIX.md",
+      "bytes": 21775,
+      "git_blob_sha": "bf0014716342436909700fc3ec3c8fe736163483"
+    },
+    {
+      "path": "docs/team/AREA2_CI_HANDOFF.md",
+      "bytes": 12075,
+      "git_blob_sha": "03e54f6edc6e8c5178ceda7bcc43221a412767a1"
+    },
+    {
+      "path": "docs/team/AREA2_EVIDENCE_INDEX.md",
+      "bytes": 16532,
+      "git_blob_sha": "50633c46af6f50cb7c9504ce6e2b16fa9cfdbd30"
+    },
+    {
+      "path": "docs/team/AREA2_MANAGEMENT.md",
+      "bytes": 29146,
+      "git_blob_sha": "e8b8ea9c7cf9664140d6386c99ad38326e15f82a"
+    },
+    {
+      "path": "docs/team/AREA2_TEST_BASIS.md",
+      "bytes": 19586,
+      "git_blob_sha": "3d2a222c24f3f3134cb16e249c1b679390d65ffe"
+    },
+    {
+      "path": "docs/team/AREA2_VIVA_REHEARSAL.md",
+      "bytes": 7400,
+      "git_blob_sha": "facbf9f7c8821dfbb693508b131ace387e46e4de"
+    },
+    {
+      "path": "docs/team/RAYYAN_USE_CASES.md",
+      "bytes": 8384,
+      "git_blob_sha": "07f55b8dc8c1c7bd620306f9351a68fbed14da43"
+    },
+    {
+      "path": "docs/team/SCOPE.md",
+      "bytes": 15480,
+      "git_blob_sha": "5b0c02b22db9eaccedc92b8d126cd153b3cf1432"
+    },
+    {
+      "path": "docs/team/SETUP.md",
+      "bytes": 5002,
+      "git_blob_sha": "e08914571edc976c1c30dded8c93750ad567c9ad"
+    },
+    {
+      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_A.md",
+      "bytes": 14805,
+      "git_blob_sha": "67d5b17874e077985eac826b9e411219fe09b25e"
+    },
+    {
+      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_B.md",
+      "bytes": 12618,
+      "git_blob_sha": "dec9410de0fb8a87e0e96b7248455e9e20ed87c5"
+    },
+    {
+      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_C.md",
+      "bytes": 15786,
+      "git_blob_sha": "5988aaf3852fa3bbed2bfa2847066a6b954b842b"
+    },
+    {
+      "path": "docs/team/SQE_IMPLEMENTATION_PHASE_D.md",
+      "bytes": 16447,
+      "git_blob_sha": "7bfa7957cb8279087d40b61088f34bf4a9aec5a5"
+    },
+    {
+      "path": "docs/team/SQE_PHASE_1_PERSONAL_AUDIT.md",
+      "bytes": 55847,
+      "git_blob_sha": "823c504970929cc7500e20e3e508720738b35ce6"
+    },
+    {
+      "path": "docs/team/SQE_PHASE_2_IMPLEMENTATION_ROADMAP.md",
+      "bytes": 36122,
+      "git_blob_sha": "071c955d4365d9137b891e7f7f48f64ed26e7f15"
+    },
+    {
+      "path": "docs/team/TEAM.md",
+      "bytes": 1589,
+      "git_blob_sha": "5f850db3258ed02c20a6227866c0a26889297c18"
+    },
+    {
+      "path": "docs/team/env.example",
+      "bytes": 496,
+      "git_blob_sha": "4f1b3c5bf191fbdf2d9a4300b25cd9295f5ad778"
+    },
+    {
+      "path": "docs/team/evidence/.gitkeep",
+      "bytes": 0,
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/ci-45410463931-fresh-a.log",
+      "bytes": 212892,
+      "git_blob_sha": "c626b721a014b2338f63f514e0021b575c07645d"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/ci-45410463931-fresh-b.log",
+      "bytes": 212935,
+      "git_blob_sha": "304cc3a24a4bc1f0e1585a8fb9fd528ebbba19b7"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/ci-45412578317-candidate-failed.log",
+      "bytes": 23987,
+      "git_blob_sha": "e7c8a426f9373ca793cd2d5c52b0b884f20fd1bb"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/ci-45414664482-browser-passed.log",
+      "bytes": 184221,
+      "git_blob_sha": "dda676d802a4aa67ff0b831de46186e16a6c5be3"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/ci-45414664482-regeneration-passed.log",
+      "bytes": 141872,
+      "git_blob_sha": "a536b567d20423e9e06435e13f9dd158670f7801"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/ci-45414665978-fresh-a-smoke-failed.log",
+      "bytes": 270632,
+      "git_blob_sha": "2f5bcd35078305bdca2962aa3a2cce7174ff326c"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/ci-45414665978-fresh-b-smoke-failed.log",
+      "bytes": 270002,
+      "git_blob_sha": "b5b62e5d2d51eeb3e6ebbef4256e2d0be2f62989"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/ci-45416612883-inventory-failed.log",
+      "bytes": 36086,
+      "git_blob_sha": "2ad29a1018eabf18bb2c1555ff4171ff69530379"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/ci-45416915820-fresh-a-passed.log",
+      "bytes": 264328,
+      "git_blob_sha": "b6dcc0c13321d6ca595ec92507d4881143f00588"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/ci-45416915820-fresh-b-passed.log",
+      "bytes": 264210,
+      "git_blob_sha": "f4515ce01b85700b2ad293a969479a861b54e7a8"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/runtime-contract-45410463931-fresh-b.json",
+      "bytes": 190042,
+      "git_blob_sha": "89c31b5ee18b860e6bca4342254a908cf5082ed4"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-01/runtime-contract-current.json",
+      "bytes": 236108,
+      "git_blob_sha": "e7125f92e10cf66d34d5c48f9f310ba28289cd78"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-02/ci-45425553419-shard-0-failed.log",
+      "bytes": 274281,
+      "git_blob_sha": "61ff73809f9a38a15c8576314eeb542c3f80862d"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-02/ci-45425553419-shard-2-failed.log",
+      "bytes": 321381,
+      "git_blob_sha": "db8609f21003a2643aeff0674acdd5aa7f9f32bb"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-03/baseline-execution-summary.json",
+      "bytes": 1714,
+      "git_blob_sha": "beb71b68705562108ca055eec825316f4deb06e7"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-03/before-45544239475-job-138969868529.log",
+      "bytes": 610051,
+      "git_blob_sha": "80d133a8b77b583fddfcf79499e53369c6a6889c"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-03/before-45544239475-job-138969868953.log",
+      "bytes": 537552,
+      "git_blob_sha": "d703dddc1a4973079d30e94e4f2b370a7c15d3be"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-03/before-45544239475-job-138969869008.log",
+      "bytes": 563904,
+      "git_blob_sha": "6c0d57118fa6afa174af8181bb4bde4c0804018d"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-03/before-45544239475-job-138969869010.log",
+      "bytes": 455875,
+      "git_blob_sha": "f69bd7f54d826c3c263efef2bd6109f9370fb6a8"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-03/before-45544984779-job-138972520699.log",
+      "bytes": 607711,
+      "git_blob_sha": "1048f59d0f41f45b00613617b4109f92a1ebcb12"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-03/date-order-before-excerpt.log",
+      "bytes": 4587,
+      "git_blob_sha": "c824cabb9202f915526f67f0f410ceb0582b0567"
+    },
+    {
+      "path": "docs/team/evidence/area2/finish-03/date-order-before.json",
+      "bytes": 1030,
+      "git_blob_sha": "bb86f40e97518867385628c026297c19a66a6742"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/checkpoint-manifest.json",
+      "bytes": 8757,
+      "git_blob_sha": "731e7b9c59093679dc5d038bec1c36b0de68d271"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/checkpoint-review.json",
+      "bytes": 218,
+      "git_blob_sha": "2141b972dd512924e94f9d464f55e6099085e186"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/compile.txt",
+      "bytes": 48,
+      "git_blob_sha": "247f0491a623f8479cc7a76d1d732ceee28efa1b"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/dependency-install.txt",
+      "bytes": 171,
+      "git_blob_sha": "9cbdfd844435f90da00545f33f71143bb3c35cc1"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/django-check.txt",
+      "bytes": 866,
+      "git_blob_sha": "f182c71cf89bf68261db609b1cd04bff53394f61"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/docker-attempt.txt",
+      "bytes": 236,
+      "git_blob_sha": "886ed3be3096ec351e0610806bff10278d1ebaef"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/environment.json",
+      "bytes": 142,
+      "git_blob_sha": "e609b7838e7406de70a6b3f8fc4e2d45a2d49711"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/freshness.txt",
+      "bytes": 1777,
+      "git_blob_sha": "298b2e5aba8b21180b9942c95de93737d78efb78"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/generation.txt",
+      "bytes": 1777,
+      "git_blob_sha": "298b2e5aba8b21180b9942c95de93737d78efb78"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/generator-tests-first-source-check.txt",
+      "bytes": 4174,
+      "git_blob_sha": "9583d3ddf4ceca7e8c3a1c8aedf8c0c53bd06eb1"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/generator-tests.txt",
+      "bytes": 3677,
+      "git_blob_sha": "7d82306b13cbd8d46ceb21dea3b516a16c24174f"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/git-version.txt",
+      "bytes": 29,
+      "git_blob_sha": "f7713094661607466e36b17a17238a5c2b74525c"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/http-attempt.txt",
+      "bytes": 140,
+      "git_blob_sha": "b057fdaaf3dd26418bcf97416bf972f412cf17b6"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/incomplete-gate.txt",
+      "bytes": 1853,
+      "git_blob_sha": "0f36147f8eb1d1de487782a54f24942d7da40ad2"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/lint-attempt.txt",
+      "bytes": 138,
+      "git_blob_sha": "bf0ccdefd2556b11edcb5639156e03129267789a"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/openapi-validation-attempt.txt",
+      "bytes": 395,
+      "git_blob_sha": "254d14babcec8129d15f9e579a02ce9b02f2b278"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/packages.json",
+      "bytes": 39,
+      "git_blob_sha": "d42db86b3b9429217834a622d08b12de48892dec"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/publication-attempt.json",
+      "bytes": 1047,
+      "git_blob_sha": "1bb012927e7c7c45bdb869f559498e1e97ff26ac"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/remote-state.json",
+      "bytes": 427,
+      "git_blob_sha": "35141ca07fc89bf575f46d0f2220e8bd3793b39c"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-b/working-tree.txt",
+      "bytes": 2141,
+      "git_blob_sha": "da1b02cfab71a83f31af400272f8e16948ed912f"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/ci-45179588790-job.log",
+      "bytes": 543497,
+      "git_blob_sha": "c71e700c71b672c94309b84a6c8d9884e85bd5b6"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/ci-45181052750-job.log",
+      "bytes": 561576,
+      "git_blob_sha": "626f1dd24a3ee16774fcb0259ee20ff52ca6f8e3"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/ci-45183086568-job.log",
+      "bytes": 509289,
+      "git_blob_sha": "8ecf28d989a0cca25c1b55b7b6c5233e404969f3"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/ci-45197384096-job.log",
+      "bytes": 467406,
+      "git_blob_sha": "4bd281bd5dfd592db16d5a8d1b7c9f9433822fa4"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/ci-45342013246-job.log",
+      "bytes": 478559,
+      "git_blob_sha": "ecec3df764ba0a6035d0249cb1798fc0ab072b80"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/ci-45355537962-job.log",
+      "bytes": 1406687,
+      "git_blob_sha": "f7d820eb23bdd4ee572d4f7fe5cb6fac144f5315"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/ci-45355537962-summary.json",
+      "bytes": 1336,
+      "git_blob_sha": "8d8d0f0732cf5225bb161ae796c8e8111c693b25"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/ci-first-summary.json",
+      "bytes": 1173,
+      "git_blob_sha": "47ea7bcb849cb97e8da132fe22a45c197f5b2e75"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/ci-merged-summary.json",
+      "bytes": 674,
+      "git_blob_sha": "c32880204a4ffb75e300d8eaf6ead603f80ab5ba"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/ci-third-summary.json",
+      "bytes": 456,
+      "git_blob_sha": "b5229f15e9783721c71195cbc9109b4a15459802"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/compile-final.txt",
+      "bytes": 12,
+      "git_blob_sha": "500e57c8b79f5fdb41b3c6619ba258ed76e5ec30"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/compile.txt",
+      "bytes": 12,
+      "git_blob_sha": "500e57c8b79f5fdb41b3c6619ba258ed76e5ec30"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/continuation-independent-20261124.txt",
+      "bytes": 6156,
+      "git_blob_sha": "527da63dd6af6fe9c78330998931d6ea26672205"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/continuation-local-20261124/freshness.txt",
+      "bytes": 1819,
+      "git_blob_sha": "644e1b1a52be5a0daaf6327b8e557ff11b2d98db"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/continuation-local-20261124/generator.txt",
+      "bytes": 6156,
+      "git_blob_sha": "d12631c2053df9161d637f0deec825878ec35972"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/continuation-local-20261124/run-manifest.json",
+      "bytes": 5958,
+      "git_blob_sha": "53342c3b9f0f90d37c439abcfac7604822a19763"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/continuation-local-20261124/schema.txt",
+      "bytes": 368,
+      "git_blob_sha": "4f0fdf12d46d43b15297cfda6252881457fd619a"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/continuation-publication.json",
+      "bytes": 415,
+      "git_blob_sha": "558b5dd7fa4dfdf3191ae2a6aea7e15fc59c4612"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/independent-tests-after-pagination.txt",
+      "bytes": 5521,
+      "git_blob_sha": "c1874c6333bd35fe543ca6129e1b1a70d4a639aa"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/independent-tests-final.txt",
+      "bytes": 6307,
+      "git_blob_sha": "a0b98c81b4931257cead42ffeca79d03d11b9eee"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/independent-tests-streaming-warning.txt",
+      "bytes": 6307,
+      "git_blob_sha": "a0b98c81b4931257cead42ffeca79d03d11b9eee"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/independent-tests.txt",
+      "bytes": 5363,
+      "git_blob_sha": "204e1ee91ad9d74fe3f9f61d39530beee6d9c640"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/local-api-1.txt",
+      "bytes": 140,
+      "git_blob_sha": "b057fdaaf3dd26418bcf97416bf972f412cf17b6"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/local-api-2.txt",
+      "bytes": 140,
+      "git_blob_sha": "b057fdaaf3dd26418bcf97416bf972f412cf17b6"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/local-final-independent.txt",
+      "bytes": 5509,
+      "git_blob_sha": "82097ee2e1c4d6479256335b1230613945750eb0"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/local-run-1/freshness.txt",
+      "bytes": 1765,
+      "git_blob_sha": "d0a0ad691f7b0925d5753be68f0c9dd09d37e411"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/local-run-1/generator.txt",
+      "bytes": 5351,
+      "git_blob_sha": "01146a55ea5555d772e8389f4343e9fa20093466"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/local-run-1/run-manifest.json",
+      "bytes": 5295,
+      "git_blob_sha": "338f773204016a61a9d8c48cc6e240083570960b"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/local-run-1/schema.txt",
+      "bytes": 368,
+      "git_blob_sha": "4f0fdf12d46d43b15297cfda6252881457fd619a"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-c/runner-tests-final.txt",
+      "bytes": 838,
+      "git_blob_sha": "834e03a419a05bf694e8076bb6d5ae2e2237e686"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/REGENERATION_DEMONSTRATION.md",
+      "bytes": 4466,
+      "git_blob_sha": "1218a74e39b1d70ef2b758efa8f78d491e3539f5"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/browser-verified-summary.json",
+      "bytes": 1487,
+      "git_blob_sha": "8d0ed11dcfad63fa89bcd2a5502252f1d22b1aa3"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/ci-45348178607-browser-first.log",
+      "bytes": 175865,
+      "git_blob_sha": "89e2352a1cc41677171d2ae7611b9433c2651825"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/ci-45348808900-browser-second.log",
+      "bytes": 190450,
+      "git_blob_sha": "b5b43c1eae8f4d81feec4716985fe2854532c448"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/ci-45350628323-browser-third.log",
+      "bytes": 136411,
+      "git_blob_sha": "fe8cbbcd2dcd5bcdd98898232f40144032a34614"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/ci-45351673393-browser-fourth.log",
+      "bytes": 159235,
+      "git_blob_sha": "f4bd8f6c5f73cbd4a8cc5df2e304a07e0a3022ad"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/ci-45353554904-browser-fifth.log",
+      "bytes": 176793,
+      "git_blob_sha": "4b63938c115476c9200bd8e242664b126df881bd"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/ci-45355537997-browser-sixth.log",
+      "bytes": 222170,
+      "git_blob_sha": "96cc5baddd9d437438fcb1aa574ae250e720dd7c"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/ci-45355537997-regeneration.log",
+      "bytes": 142227,
+      "git_blob_sha": "400fcd6052d4ee61b55c196a2d5645a0549065d7"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/ci-45357327780-browser-seventh.log",
+      "bytes": 236226,
+      "git_blob_sha": "d3d0f39a5b27a39ce9855c0c939d3a9836d60b97"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/ci-45388276537-browser-passed.log",
+      "bytes": 184299,
+      "git_blob_sha": "9fc5f3a87c6ed5386cba3a58bf0973e2e79f6e0e"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/ci-45388276537-regeneration-passed.log",
+      "bytes": 141864,
+      "git_blob_sha": "a43e32cd0a2c2035af9d94b1012f00203eaba4ec"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/independent-regeneration-20261124/baseline.cases.json",
+      "bytes": 1162492,
+      "git_blob_sha": "b880584bef972546313d1e9d429802f4a17305ec"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/independent-regeneration-20261124/baseline.openapi.json",
+      "bytes": 47451,
+      "git_blob_sha": "53624f1a59f2ab3dcc67c1c110c6663176bbe151"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/independent-regeneration-20261124/comparison.json",
+      "bytes": 61819,
+      "git_blob_sha": "a788be710129743ff5bcbf2d8db6cdf9796b5bb0"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/independent-regeneration-20261124/variant.cases.json",
+      "bytes": 1162372,
+      "git_blob_sha": "760c4f56d427fdf47bf2200a576c33a3e9549a7d"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/independent-regeneration-20261124/variant.openapi.json",
+      "bytes": 47450,
+      "git_blob_sha": "f8d25c69e9d2cc52513436229aed682b65e60716"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/independent-tests-20261124.txt",
+      "bytes": 6474,
+      "git_blob_sha": "8af8cd534a903314a15f9d1abcbcaf75acaa02d7"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/independent-tests-final.txt",
+      "bytes": 6826,
+      "git_blob_sha": "2316c14959810d7ae5581ed9a452b3c980effb45"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/local-dependency-attempt.txt",
+      "bytes": 237,
+      "git_blob_sha": "1571eba20b574352bbe025252de8fc06b7decc9c"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/regeneration-32621b42-summary.json",
+      "bytes": 2976,
+      "git_blob_sha": "7b36c9ecf53fb4b1a91fe153a73faacf69c4253a"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/regeneration-current-verified-summary.json",
+      "bytes": 2983,
+      "git_blob_sha": "c40d50fde861acaabe2f34cdd326cda7da15c382"
+    },
+    {
+      "path": "docs/team/evidence/area2/phase-d/regeneration-verified-summary.json",
+      "bytes": 530,
+      "git_blob_sha": "eab6a6661e88ac851238526ff7d6c3321167a912"
+    },
+    {
+      "path": "docs/team/evidence/sonar/baseline-issues.json",
+      "bytes": 166168,
+      "git_blob_sha": "7eedc5b40de97307e8697cdd79b4989c2827da56"
+    },
+    {
+      "path": "docs/team/evidence/sonar/baseline-measures.jsonl",
+      "bytes": 9187,
+      "git_blob_sha": "fda66b75d4c44f08bd9f257837f26fc5df940d3d"
+    },
+    {
+      "path": "docs/team/evidence/unit-coverage-scope.txt",
+      "bytes": 1835,
+      "git_blob_sha": "3b559c4ad3f63e5f2ddb3d3ee48c7fe9cee4b9ff"
+    },
+    {
+      "path": "docs/team/finish-line/BASELINE_VERIFICATION.json",
+      "bytes": 1094,
+      "git_blob_sha": "f3d7b35929438950be756a15b1920e319f679384"
+    },
+    {
+      "path": "docs/team/finish-line/CONTRACT_LINEAGE.json",
+      "bytes": 49110,
+      "git_blob_sha": "fd412ccb6594ba365aa839649f11371df9e473d2"
+    },
+    {
+      "path": "docs/team/finish-line/CONTRACT_RECONCILIATION.md",
+      "bytes": 13887,
+      "git_blob_sha": "0f306b7a8e1c508f2be3969c713348a5650afe41"
+    },
+    {
+      "path": "docs/team/finish-line/FINAL_CLOSEOUT_DATA.json",
+      "bytes": 52800,
+      "git_blob_sha": "afd3523d490af85361398e483bdf34b6abb5a370"
+    },
+    {
+      "path": "docs/team/finish-line/GENERATED_CASE_AUDIT.json",
+      "bytes": 684339,
+      "git_blob_sha": "729c3ce3051f91af87e200c19c28b3554752bc45"
+    },
+    {
+      "path": "docs/team/finish-line/OPERATION_INPUT_INVENTORY.json",
+      "bytes": 694215,
+      "git_blob_sha": "1f7b5537c5b4f005b352f79dfb8e56eb680a2a9c"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT03_DEFECT_POPULATION.json",
+      "bytes": 11207,
+      "git_blob_sha": "126d29ecbd51b2c6b2aa01e2c5d42a4e991eb198"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT03_EVIDENCE_SNAPSHOTS.json",
+      "bytes": 322,
+      "git_blob_sha": "db6d8b1ecdef3ca86e2b89e80ccc652481749779"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT03_EXCLUSION_RECONCILIATION.json",
+      "bytes": 40820,
+      "git_blob_sha": "8d2c0b6c4f0198d2ad300da52a165b562259256c"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT03_EXECUTION_SUMMARY.json",
+      "bytes": 1153,
+      "git_blob_sha": "d653481bd9fc91c563b5d7165b7563627e3dd1d9"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT03_GENERATED_LEDGER.json",
+      "bytes": 776455,
+      "git_blob_sha": "7265553ccd700aaae07916e4742ce5ab15bb690b"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT03_INPUT_LEDGER.json",
+      "bytes": 336066,
+      "git_blob_sha": "ca84defd0606da799bffca4f8dd752b384c5aff1"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT03_PREVIOUS_OPENAPI.json",
+      "bytes": 67142,
+      "git_blob_sha": "084860556b8995b0c68706df6c05576d41548f6d"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT03_REQUIREMENT_EVIDENCE.json",
+      "bytes": 127161,
+      "git_blob_sha": "0726dec71ba76f5859a2d28563c3a878f6c345e4"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT03_VERIFICATION.json",
+      "bytes": 29188,
+      "git_blob_sha": "4875ddbeacb6185fa4518a86bfac5a2edf39037c"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT04_VERIFICATION.json",
+      "bytes": 68497,
+      "git_blob_sha": "ef55af67798620f185b440f3e363bca0c3e1d73b"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT_01_CONTRACT_AND_SCOPE.md",
+      "bytes": 7368,
+      "git_blob_sha": "27eeb2fd4d4b1d327e2c2c0758cb18a3947e8fdd"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT_01_VERIFICATION.json",
+      "bytes": 3727,
+      "git_blob_sha": "3040a73e69570473ddebc00eba36d5b245fceb4c"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT_02_GENERATED_COVERAGE.md",
+      "bytes": 6386,
+      "git_blob_sha": "ce57ad38224f61125a2100ba6387c078d1062e8c"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT_03_BUSINESS_RULES_AND_FIXES.md",
+      "bytes": 6702,
+      "git_blob_sha": "44dfb152f922f8347a9d72ce0afafd6edee59dd6"
+    },
+    {
+      "path": "docs/team/finish-line/PROMPT_04_FINAL_VERIFICATION_AND_HANDOFF.md",
+      "bytes": 10888,
+      "git_blob_sha": "861071e7e56dd8f7781b3e8980a27764bfd01239"
+    },
+    {
+      "path": "docs/team/finish-line/README.md",
+      "bytes": 9743,
+      "git_blob_sha": "d238c3e20a2cbc825561319a5520a5fc417edc46"
+    },
+    {
+      "path": "docs/team/finish-line/REMAINING_WORK.json",
+      "bytes": 586373,
+      "git_blob_sha": "ced1a25781a110c713f61955696fafdd927d1476"
+    },
+    {
+      "path": "docs/team/finish-line/WIRE_CASES.json",
+      "bytes": 1714747,
+      "git_blob_sha": "ad8614b2f27c9031d271ed7b8fc007a0bfe857d6"
+    },
+    {
+      "path": "docs/team/history/PHASES_A_D_before_final_closeout.md",
+      "bytes": 13650,
+      "git_blob_sha": "8cb6352709873c4b40773b70241cf3e9ff763cf8"
+    },
+    {
+      "path": "docs/team/history/SQE_IMPLEMENTATION_PHASE_A_before_final_closeout.md",
+      "bytes": 3386,
+      "git_blob_sha": "e25ff0617f7000da925cc1b88f412634964534e9"
+    },
+    {
+      "path": "docs/team/history/SQE_IMPLEMENTATION_PHASE_B_before_final_closeout.md",
+      "bytes": 15765,
+      "git_blob_sha": "eccfcf2c4413f3b5ea6b0ed992b37712d52384bb"
+    },
+    {
+      "path": "docs/team/history/SQE_IMPLEMENTATION_PHASE_C_before_final_closeout.md",
+      "bytes": 29770,
+      "git_blob_sha": "e3c62434b029a2fccdd883145fed03ae657799aa"
+    },
+    {
+      "path": "docs/team/history/SQE_IMPLEMENTATION_PHASE_D_before_final_closeout.md",
+      "bytes": 11206,
+      "git_blob_sha": "f92ff2880bbb328ebe0a2c1bcc59122891ebd3c2"
+    },
+    {
+      "path": "docs/team/history/handoff-before-final-closeout.md",
+      "bytes": 33376,
+      "git_blob_sha": "a532b0fd787ba06da5f9dce85d28f8e090200bba"
+    },
+    {
+      "path": "docs/team/reports/.gitkeep",
+      "bytes": 0,
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "docs/team/reports/AREA2_COMPLETION_REPORT.md",
+      "bytes": 13929,
+      "git_blob_sha": "525e01b08d050b1da6dc02b2a1619747c2e2d6c0"
+    },
+    {
+      "path": "docs/team/reports/AREA2_DEFECTS.md",
+      "bytes": 27058,
+      "git_blob_sha": "b81a7542813e346b9b7e9cdaf2216d7dadcb0c07"
+    },
+    {
+      "path": "docs/team/reports/AREA2_RCA_CONTRIBUTION.md",
+      "bytes": 17049,
+      "git_blob_sha": "8db862ce3fade3e84fc183e8568ebf64c2f0d1ea"
+    },
+    {
+      "path": "docs/team/reports/MCC_MCDC_TABLES.md",
+      "bytes": 8675,
+      "git_blob_sha": "084601b08474ce5034268af979947b6451e2ef42"
+    },
+    {
+      "path": "docs/team/reports/PHASES_A_D_REMAINING_CHECKLIST.md",
+      "bytes": 5138,
+      "git_blob_sha": "ea0924ddf84b0383c738ac21ccfd5cb0579ecee9"
+    },
+    {
+      "path": "docs/team/reports/RAYYAN_FINAL_CLOSEOUT.md",
+      "bytes": 36298,
+      "git_blob_sha": "9ba428fe71a0bfdd45c9c3b6472925a8478bdd90"
+    },
+    {
+      "path": "docs/team/reports/RAYYAN_FINISH_01_STATUS.md",
+      "bytes": 12038,
+      "git_blob_sha": "ea2a21eb4ba1226ecfea26fcf19e14edda78c7b9"
+    },
+    {
+      "path": "docs/team/reports/RAYYAN_FINISH_02_STATUS.md",
+      "bytes": 11302,
+      "git_blob_sha": "a86fd92a1b8bdc474a0a1edeb40852de1b522486"
+    },
+    {
+      "path": "docs/team/reports/RAYYAN_FINISH_03_STATUS.md",
+      "bytes": 10137,
+      "git_blob_sha": "4405cda8b750c3f8c5e820347d482faa4abfe5ad"
+    },
+    {
+      "path": "docs/team/reports/RAYYAN_FINISH_04_STATUS.md",
+      "bytes": 2585,
+      "git_blob_sha": "1835db90fd044e33597671c783318a5575299894"
+    },
+    {
+      "path": "docs/team/reports/SONARQUBE_BASELINE.md",
+      "bytes": 11430,
+      "git_blob_sha": "0934edad8316f65ba2efcc5fa171273e75803414"
+    },
+    {
+      "path": "docs/team/reports/SQE_IMPLEMENTATION_PHASE_A_STATUS.md",
+      "bytes": 876,
+      "git_blob_sha": "6591aee4ecbae522edef70fe12df8b3b60f91a01"
+    },
+    {
+      "path": "docs/team/reports/SQE_IMPLEMENTATION_PHASE_B_STATUS.md",
+      "bytes": 870,
+      "git_blob_sha": "70ed9832322ec6dc21377652552a76b0f0c5826e"
+    },
+    {
+      "path": "docs/team/reports/SQE_IMPLEMENTATION_PHASE_C_STATUS.md",
+      "bytes": 859,
+      "git_blob_sha": "0f996a503fc6bc8d02a3f6026545322c0f471156"
+    },
+    {
+      "path": "docs/team/reports/SQE_IMPLEMENTATION_PHASE_D_STATUS.md",
+      "bytes": 908,
+      "git_blob_sha": "dadcf5099faf00086fc91eae3485a75ee257bb6e"
+    },
+    {
+      "path": "docs/team/reports/WHITEBOX_UNIT_TESTING.md",
+      "bytes": 11001,
+      "git_blob_sha": "a2a2c2ef9a1bec7e578bde438e80f77a9e5b4bc9"
+    },
+    {
+      "path": "handoff.md",
+      "bytes": 24719,
+      "git_blob_sha": "1297b73a3d6c8a9861b29080df7507cd7fdb22c2"
+    },
+    {
+      "path": "horilla/config.py",
+      "bytes": 5150,
+      "git_blob_sha": "301057e2e27dfe5c98175de15fb30af89b7b38fe"
+    },
+    {
+      "path": "horilla/filters.py",
+      "bytes": 24837,
+      "git_blob_sha": "73222cc79c2e9f6f2ace4ce7bc6a30ae7ce98d10"
+    },
+    {
+      "path": "horilla/models.py",
+      "bytes": 9892,
+      "git_blob_sha": "e77339b19b07773ddc0d18d5bdd58a66ddd6eff1"
+    },
+    {
+      "path": "horilla_api/api_decorators/base/decorators.py",
+      "bytes": 12224,
+      "git_blob_sha": "c1a7cb26d1a5ef0fb232b77cdef43212d549b1ba"
+    },
+    {
+      "path": "horilla_api/api_methods/base/methods.py",
+      "bytes": 4144,
+      "git_blob_sha": "d5c7daa8d448b782c72c5187caacd14e2deb537a"
+    },
+    {
+      "path": "horilla_api/api_serializers/leave/serializers.py",
+      "bytes": 18700,
+      "git_blob_sha": "d4679886b735f03045d3c67fd4c76c2459e3ee1b"
+    },
+    {
+      "path": "horilla_api/api_views/leave/views.py",
+      "bytes": 55552,
+      "git_blob_sha": "76e18cd560b29c45fca1aa5a364f602a6312495a"
+    },
+    {
+      "path": "leave/forms.py",
+      "bytes": 51797,
+      "git_blob_sha": "7c84f8b464a62c380e9316d86b1b5574315bd832"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 6796,
+      "git_blob_sha": "024de6288fcc0b2850a2db7ab77d9c731ea9b9f6"
+    },
+    {
+      "path": "scripts/team/build_rayyan_contribution.py",
+      "bytes": 15053,
+      "git_blob_sha": "3034b8f3deae25f6b0ce373db0343a7896bcf6d4"
+    },
+    {
+      "path": "scripts/team/final_quality_gate.py",
+      "bytes": 7986,
+      "git_blob_sha": "a1166dfbb4881376d01b4ce0e813401c31c1641e"
+    },
+    {
+      "path": "scripts/team/reset.ps1",
+      "bytes": 1669,
+      "git_blob_sha": "8fedd4064c3494eed3ee0003cec14c06fe5e9fd3"
+    },
+    {
+      "path": "scripts/team/seed_team.py",
+      "bytes": 4181,
+      "git_blob_sha": "bf5c5e01d4847459066382a457df1f18f4ca1b8a"
+    },
+    {
+      "path": "scripts/team/smoke_api.py",
+      "bytes": 912,
+      "git_blob_sha": "2c2e45cded6936eebc015774110e9efdbbdbabff"
+    },
+    {
+      "path": "sonar-project.properties",
+      "bytes": 1095,
+      "git_blob_sha": "a052c6b302225b4a9436d5428867dfb697375142"
+    },
+    {
+      "path": "tests/team/README.md",
+      "bytes": 12372,
+      "git_blob_sha": "7ada3fbd1f2c23b8689bbc0aeedeb5afc9f5a7fe"
+    },
+    {
+      "path": "tests/team/api/.gitkeep",
+      "bytes": 0,
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "tests/team/api/business_catalog.py",
+      "bytes": 6063,
+      "git_blob_sha": "4cb888f474446181addbebefa29fa9a5a50b8125"
+    },
+    {
+      "path": "tests/team/api/case_catalog.py",
+      "bytes": 5320,
+      "git_blob_sha": "f018cf503d7bf9dac36dac3e49e0638f4128ef89"
+    },
+    {
+      "path": "tests/team/api/case_ledger.json",
+      "bytes": 1231441,
+      "git_blob_sha": "b97624c3c984bb11b3c266353344ba04f267be1f"
+    },
+    {
+      "path": "tests/team/api/conftest.py",
+      "bytes": 5117,
+      "git_blob_sha": "991922ecdfd0c7b4d2d7834cc64fcc39752e242a"
+    },
+    {
+      "path": "tests/team/api/contract_support.py",
+      "bytes": 17832,
+      "git_blob_sha": "a8d91141e09c76c925caba281c4f4186daba84a3"
+    },
+    {
+      "path": "tests/team/api/http_support.py",
+      "bytes": 6100,
+      "git_blob_sha": "10d7a81f3291d50a1e0497828ba84d5265a92dc9"
+    },
+    {
+      "path": "tests/team/api/legacy_generated_ids.json",
+      "bytes": 10921,
+      "git_blob_sha": "49da8430c314b3a16f20dd4f89f86a5f5a7f1871"
+    },
+    {
+      "path": "tests/team/api/query_support.py",
+      "bytes": 19015,
+      "git_blob_sha": "6d074aa15b1559cee65aab28b758d2a572d2640c"
+    },
+    {
+      "path": "tests/team/api/test_business_rules.py",
+      "bytes": 17571,
+      "git_blob_sha": "252dd0257646f4254dc0e638c8822db073e0d3b4"
+    },
+    {
+      "path": "tests/team/api/test_contract_inputs.py",
+      "bytes": 841,
+      "git_blob_sha": "a23126d8c6df170c86989d522afa093596824671"
+    },
+    {
+      "path": "tests/team/api/test_generated_attachments.py",
+      "bytes": 3460,
+      "git_blob_sha": "90e260ece747e05303849e4a278f88391058f3a8"
+    },
+    {
+      "path": "tests/team/api/test_generated_inputs.py",
+      "bytes": 5967,
+      "git_blob_sha": "401c64157b2fdedaef88a84559eaab6c486d5e6a"
+    },
+    {
+      "path": "tests/team/api/test_generated_slice.py",
+      "bytes": 5010,
+      "git_blob_sha": "fc71d24b92dc203e2810392feb30fc809ac069d1"
+    },
+    {
+      "path": "tests/team/api/test_queries_and_auth.py",
+      "bytes": 4060,
+      "git_blob_sha": "4fab99b7267301dd451607eb35708c3c0b66e9de"
+    },
+    {
+      "path": "tests/team/api/test_runtime_wire.py",
+      "bytes": 346,
+      "git_blob_sha": "d7847749cc6a0899ea892fc14a3a5ba957ccc930"
+    },
+    {
+      "path": "tests/team/api/test_states_and_decisions.py",
+      "bytes": 6686,
+      "git_blob_sha": "ea116c925a835e82329db4d3b1b09943b120a542"
+    },
+    {
+      "path": "tests/team/api/test_workflows.py",
+      "bytes": 6937,
+      "git_blob_sha": "278aa2d872642aead3c19614126fa1b1ec015bfc"
+    },
+    {
+      "path": "tests/team/api/wire_support.py",
+      "bytes": 11749,
+      "git_blob_sha": "840c5a036569a438a47a00ce942b3e2942bc8083"
+    },
+    {
+      "path": "tests/team/area2_order.py",
+      "bytes": 938,
+      "git_blob_sha": "91f85d67f5fb500d88d2ed49e13a1a506c9d9e59"
+    },
+    {
+      "path": "tests/team/area2_settings.py",
+      "bytes": 1590,
+      "git_blob_sha": "c7d6b252ef2aaefc244cae12c03d3ccb0a7b8f13"
+    },
+    {
+      "path": "tests/team/area2_urls.py",
+      "bytes": 268,
+      "git_blob_sha": "8e961d7cb8b31d0ab2a1df8538158e1594445a1e"
+    },
+    {
+      "path": "tests/team/browser_report.py",
+      "bytes": 3135,
+      "git_blob_sha": "7d1746f3d93c06ad89cc039b488520fa879dd2cd"
+    },
+    {
+      "path": "tests/team/ci/test_final_quality_gate.py",
+      "bytes": 2656,
+      "git_blob_sha": "d6ad7cf965283a29e381089f3178751e49d6929a"
+    },
+    {
+      "path": "tests/team/contract/conftest.py",
+      "bytes": 481,
+      "git_blob_sha": "510d6e158f1cb5b9fe0265085f5346fa7d10f499"
+    },
+    {
+      "path": "tests/team/contract/contract_urls.py",
+      "bytes": 645,
+      "git_blob_sha": "e9d9b0da2bae9c77b468b998afd8ef350e5940f7"
+    },
+    {
+      "path": "tests/team/contract/inventory.py",
+      "bytes": 32045,
+      "git_blob_sha": "962f83c3c7b5ead353c412b9e9bfa476dfb8d85c"
+    },
+    {
+      "path": "tests/team/contract/prepare_contract.py",
+      "bytes": 13580,
+      "git_blob_sha": "1dbf3d8efb1989a27a25bafab3baabfdaa16081b"
+    },
+    {
+      "path": "tests/team/contract/test_foundation.py",
+      "bytes": 12300,
+      "git_blob_sha": "33d1d0f733a4c0089730a6fafac410227e690ac5"
+    },
+    {
+      "path": "tests/team/contract/test_media_reader.py",
+      "bytes": 2080,
+      "git_blob_sha": "d3464b35fc27390b305d88a5af05548ed18e56f6"
+    },
+    {
+      "path": "tests/team/e2e/.gitkeep",
+      "bytes": 0,
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "tests/team/e2e/conftest.py",
+      "bytes": 2281,
+      "git_blob_sha": "8868f8763c1c2e5fb4765cb11cc9e07343af10e7"
+    },
+    {
+      "path": "tests/team/e2e/test_rayyan_use_cases.py",
+      "bytes": 8286,
+      "git_blob_sha": "f9554d23fa7504808282999bf40c52da938977ec"
+    },
+    {
+      "path": "tests/team/generator/.gitkeep",
+      "bytes": 0,
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "tests/team/generator/bindings.json",
+      "bytes": 215,
+      "git_blob_sha": "37ba8e53387852656108ff78e3f3023df0a0fca2"
+    },
+    {
+      "path": "tests/team/generator/build_case_ledger.py",
+      "bytes": 3022,
+      "git_blob_sha": "ae72559e918776f1f8e30892d14d76830d4839e4"
+    },
+    {
+      "path": "tests/team/generator/coverage_guard.py",
+      "bytes": 6685,
+      "git_blob_sha": "48d63a072f90a3885102d014d3ad6be9016188d2"
+    },
+    {
+      "path": "tests/team/generator/demonstrate_regeneration.py",
+      "bytes": 4253,
+      "git_blob_sha": "01897b9d44ad768736ce596f7761f077515cd57f"
+    },
+    {
+      "path": "tests/team/generator/generate.py",
+      "bytes": 27705,
+      "git_blob_sha": "14cdff4f619ccbc146ad8256793018a4603a8ab9"
+    },
+    {
+      "path": "tests/team/generator/generated_cases.json",
+      "bytes": 1391407,
+      "git_blob_sha": "577752e5671964a674b6254cc957191e68037681"
+    },
+    {
+      "path": "tests/team/generator/openapi.json",
+      "bytes": 66565,
+      "git_blob_sha": "5b7579c4ca75baa787189f5e54a184057997b579"
+    },
+    {
+      "path": "tests/team/generator/record_execution.py",
+      "bytes": 8826,
+      "git_blob_sha": "0fcb4d7f758b5d0a6ce84185139803e9762a4e98"
+    },
+    {
+      "path": "tests/team/generator/requirement_evidence.py",
+      "bytes": 7451,
+      "git_blob_sha": "9400ecfc374f73f852eb4753b66d81907e3a76ff"
+    },
+    {
+      "path": "tests/team/generator/test_browser_report.py",
+      "bytes": 1937,
+      "git_blob_sha": "502537aa61cbde3488d34c69b3da5f8e7355e1e6"
+    },
+    {
+      "path": "tests/team/generator/test_case_catalog.py",
+      "bytes": 4503,
+      "git_blob_sha": "b6111d324e587c0eea4c278055202380c0126588"
+    },
+    {
+      "path": "tests/team/generator/test_contract_lineage.py",
+      "bytes": 1765,
+      "git_blob_sha": "313294de016765a0634b7339fc376c2ba1088d35"
+    },
+    {
+      "path": "tests/team/generator/test_coverage_guard.py",
+      "bytes": 7054,
+      "git_blob_sha": "9e4475cd755bcf4bd6988cb60eaab59e25d73b72"
+    },
+    {
+      "path": "tests/team/generator/test_generate.py",
+      "bytes": 17719,
+      "git_blob_sha": "c2b0e61c08a0b6521f0833f432524a1c1e57a078"
+    },
+    {
+      "path": "tests/team/generator/test_regeneration.py",
+      "bytes": 1876,
+      "git_blob_sha": "65dfab71ff5128f6bbbb831de68a00d9a0e5ae2f"
+    },
+    {
+      "path": "tests/team/generator/test_requirement_evidence.py",
+      "bytes": 1604,
+      "git_blob_sha": "b7904d38e758d712a3be3ccd9472595903869486"
+    },
+    {
+      "path": "tests/team/generator/test_runner.py",
+      "bytes": 5725,
+      "git_blob_sha": "f28a98e80dca05c9d2aaea109966268bd8ef0266"
+    },
+    {
+      "path": "tests/team/generator/wire_catalog.py",
+      "bytes": 7932,
+      "git_blob_sha": "1df893f2056450d2fb1c6f9cdb11b8b5b4327a1b"
+    },
+    {
+      "path": "tests/team/generator/wire_inputs.json",
+      "bytes": 181703,
+      "git_blob_sha": "da32027967d9038e4bdcc362ff53074ffcb1e748"
+    },
+    {
+      "path": "tests/team/perf/.gitkeep",
+      "bytes": 0,
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "tests/team/pytest-area2.ini",
+      "bytes": 104,
+      "git_blob_sha": "3be001fd5cae1467eab5464cd3ab63272a07f009"
+    },
+    {
+      "path": "tests/team/pytest-unit.ini",
+      "bytes": 146,
+      "git_blob_sha": "bae44220ae0d29b24d37a0e0860e8f2086f2d3d9"
+    },
+    {
+      "path": "tests/team/recovery/.gitkeep",
+      "bytes": 0,
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "tests/team/regeneration/conftest.py",
+      "bytes": 1238,
+      "git_blob_sha": "849fa3e000c0691c8e3e39956b036c9de29477d5"
+    },
+    {
+      "path": "tests/team/regeneration/test_consuming_experiment.py",
+      "bytes": 1680,
+      "git_blob_sha": "aea07d79a55007208d0a30cf58ff586d8840603b"
+    },
+    {
+      "path": "tests/team/requirements-area2.txt",
+      "bytes": 259,
+      "git_blob_sha": "17211a376b63f05f9acd4a0f6fe58eb97637bece"
+    },
+    {
+      "path": "tests/team/requirements-phase-d.txt",
+      "bytes": 70,
+      "git_blob_sha": "0c4a59f2864a8ad16499fe422df2495aeac22cdf"
+    },
+    {
+      "path": "tests/team/requirements-unit.txt",
+      "bytes": 160,
+      "git_blob_sha": "2e934a81bb22cb2678c364ba7a5438ea9e789720"
+    },
+    {
+      "path": "tests/team/run_area2.py",
+      "bytes": 7020,
+      "git_blob_sha": "735aaad46c04d9c9ef8f1ab3edf4d5629234240f"
+    },
+    {
+      "path": "tests/team/run_phase_d.py",
+      "bytes": 3138,
+      "git_blob_sha": "aa5c07f7de6d4acd974c685bd70335fec650db30"
+    },
+    {
+      "path": "tests/team/security/.gitkeep",
+      "bytes": 0,
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "tests/team/storage/test_upload_path.py",
+      "bytes": 1121,
+      "git_blob_sha": "bd3217b335803437f79a461af280c30ae9d5470b"
+    },
+    {
+      "path": "tests/team/unit/.gitkeep",
+      "bytes": 0,
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "tests/team/unit/__init__.py",
+      "bytes": 0,
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "tests/team/unit/conftest.py",
+      "bytes": 3959,
+      "git_blob_sha": "63db616b7ddb51be4d69d95261a3a457ff2d24d8"
+    },
+    {
+      "path": "tests/team/unit/coverage_scope.py",
+      "bytes": 4462,
+      "git_blob_sha": "b1358d5af8b7c275039fba6d8d5f61d425543940"
+    },
+    {
+      "path": "tests/team/unit/mcc_tables.py",
+      "bytes": 7658,
+      "git_blob_sha": "730d5f677e6ad6e744509812d74e57b9e780d33e"
+    },
+    {
+      "path": "tests/team/unit/test_approval_and_allocation.py",
+      "bytes": 10015,
+      "git_blob_sha": "5d9084f54a7d4db272096dd00516842d2e102569"
+    },
+    {
+      "path": "tests/team/unit/test_day_counting.py",
+      "bytes": 5103,
+      "git_blob_sha": "497956946c090d7cb635d0e7e4fc02614ee106e1"
+    },
+    {
+      "path": "tests/team/unit/test_leave_request_clean.py",
+      "bytes": 16911,
+      "git_blob_sha": "cc58542b4ed3df99a775ed8aebc07ef508e00e63"
+    },
+    {
+      "path": "tests/team/unit/test_smoke.py",
+      "bytes": 306,
+      "git_blob_sha": "e201e846074fe3f1f15c5bb777e60902258baa5b"
+    },
+    {
+      "path": "tests/team/unit_settings.py",
+      "bytes": 740,
+      "git_blob_sha": "8dc2feb2d32a148ca6abd262f244aded6d82543b"
+    }
+  ],
+  "exclusions": [
+    "docs/team/AREA2_PACKAGE_MANIFEST.json",
+    "docs/team/finish-line/FINAL_PUBLICATION.json"
+  ],
+  "package_files_reference": "deliverables/rayyan/package_manifest.json",
+  "release": "HOLD",
+  "assignment_closed": true
+}
