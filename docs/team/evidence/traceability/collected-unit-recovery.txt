@@ -29,7 +29,8 @@ unit/test_leave_request_clean.py::test_c1_single_day_breakdown_mismatch_mcc[C1-1
 unit/test_leave_request_clean.py::test_c1_single_day_breakdown_mismatch_mcc[C1-2 A=T B=F-True-first_half-first_half-False]
 unit/test_leave_request_clean.py::test_c1_single_day_breakdown_mismatch_mcc[C1-3 A=F B=T-False-first_half-second_half-False]
 unit/test_leave_request_clean.py::test_c1_single_day_breakdown_mismatch_mcc[C1-4 A=F B=F-False-full_day-full_day-False]
-unit/test_leave_request_clean.py::test_missing_end_date_crashes_before_validation
+unit/test_leave_request_clean.py::test_missing_end_date_is_a_single_day_request
+unit/test_leave_request_clean.py::test_missing_end_date_still_checks_balance
 unit/test_leave_request_clean.py::test_c2_attachment_required_mcc[C2-1 L=T R=T N=T-yes-None-True]
 unit/test_leave_request_clean.py::test_c2_attachment_required_mcc[C2-2 L=T R=T N=F-yes-doc/proof.pdf-False]
 unit/test_leave_request_clean.py::test_c2_attachment_required_mcc[C2-3 L=T R=F N=T-no-None-False]
@@ -139,7 +140,8 @@ unit/test_smoke.py::test_database_builds_and_leave_models_work
 recovery/test_allocation_approve_recovery.py::test_approval_recovers_without_duplicate_credit[1st write: balance credit-AvailableLeave]
 recovery/test_allocation_approve_recovery.py::test_approval_recovers_without_duplicate_credit[2nd write: request status-LeaveAllocationRequest]
 recovery/test_allocation_approve_recovery.py::test_second_retry_after_success_is_refused
-recovery/test_allocation_approve_recovery.py::test_observed_partial_failure_then_retry_credits_twice
+recovery/test_allocation_approve_recovery.py::test_leave_approval_recovers_without_double_debit[1st write: balance debit-AvailableLeave]
+recovery/test_allocation_approve_recovery.py::test_leave_approval_recovers_without_double_debit[2nd write: request status-LeaveRequest]
 unit/test_day_counting.py::test_calculate_requested_days_paths[P1 D1=T D2=T D3=T-start0-end0-full_day-full_day-1]
 unit/test_day_counting.py::test_calculate_requested_days_paths[P2 D1=T D2=F (short-circuit)-start1-end1-first_half-full_day-0.5]
 unit/test_day_counting.py::test_calculate_requested_days_paths[P3 D1=T D2=T D3=F-start2-end2-full_day-second_half-0.5]

@@ -44,7 +44,8 @@ UNIT_RULES = [
     (r"non_owner|owner_gets_own|ownership", ["FR-04", "BR-04"]),
     (r"approve_allocation_creates_balance_row|approve_allocation_credits", ["FR-02", "FR-10", "BR-03"]),
     (r"approve_allocation_twice", ["FR-02", "BR-03"]),
-    (r"approval_recovers|second_retry|partial_failure", ["FR-02", "FR-10", "BR-03"]),
+    (r"approval_recovers_without_duplicate|second_retry|partial_failure", ["FR-02", "FR-10", "BR-03"]),
+    (r"leave_approval_recovers", ["FR-08", "FR-10", "BR-03"]),
     (r"leave_approve_calculation", ["FR-08", "BR-01"]),
     (r"reject_.*allocation|reject_requested_allocation|reject_rejected_allocation", ["FR-03", "BR-03"]),
     (r"reject_already_rejected|reject_cancelled|reject_pending_cancellation|refunds_requester|refunds_only", ["FR-09", "BR-03"]),
@@ -59,19 +60,29 @@ UNIT_RULES = [
     (r"database_builds", []),
 ]
 
-# Other levels: (level, test id, description, requirements)
+# Other levels: (level, test id, description, requirements, number of executable cases)
 OTHER = [
-    ("Use case (browser)", "UC-RAY-01 (5 flows)", "tests/team/e2e: allocation request main/alt/exception flows", ["FR-01", "FR-10"]),
-    ("Use case (browser)", "UC-RAY-02 (5 flows)", "tests/team/e2e: leave request main/alt/exception flows", ["FR-05", "FR-06", "BR-01", "BR-02"]),
-    ("Usability (browser)", "A11Y-W1", "tests/team/a11y: keyboard-only allocation request", ["FR-01"]),
-    ("Usability (browser)", "A11Y-W2", "tests/team/a11y: over-balance rejected then corrected", ["FR-05", "FR-06", "BR-01"]),
-    ("Security", "AD-1", "employee views own balance page", ["FR-10"]),
-    ("Security", "AD-2", "employee cannot approve own allocation", ["FR-02", "BR-04"]),
-    ("Security", "AD-3", "approver approves reportee's allocation", ["FR-02", "FR-10", "BR-04"]),
-    ("Security", "AD-4", "employee cannot approve own leave", ["FR-08", "BR-04"]),
-    ("Security", "AD-5", "approver approves reportee's leave", ["FR-08", "FR-10", "BR-04"]),
-    ("Security", "AD-6", "employee cannot delete another's allocation", ["FR-04", "BR-04"]),
-    ("Performance", "k6 available-leave", "balance read at 1 and 5 users (4 runs)", ["FR-10"]),
+    ("Use case (browser)", "UC-RAY-01 (5 flows)", "tests/team/e2e: employee requests an allocation", ["FR-01", "FR-10"], 5),
+    ("Use case (browser)", "UC-RAY-02 (5 flows)", "tests/team/e2e: employee requests leave", ["FR-05", "FR-06", "BR-01", "BR-02"], 5),
+    ("Use case (browser)", "UC-WAS-01-MAIN", "approver approves an allocation", ["FR-02", "FR-10", "BR-03", "BR-04"], 1),
+    ("Use case (browser)", "UC-WAS-01-A1", "approver rejects an allocation with a reason", ["FR-03", "BR-03"], 1),
+    ("Use case (browser)", "UC-WAS-01-A2", "approver dismisses, then approves", ["FR-02", "BR-03"], 1),
+    ("Use case (browser)", "UC-WAS-01-E1", "reject without reason refused", ["FR-03", "BR-03"], 1),
+    ("Use case (browser)", "UC-WAS-01-E2", "employee self-approval denied", ["BR-04"], 1),
+    ("Use case (browser)", "UC-WAS-02-MAIN", "approver approves a leave request", ["FR-08", "FR-10", "BR-03", "BR-04"], 1),
+    ("Use case (browser)", "UC-WAS-02-A1", "approver rejects a requested leave", ["FR-09", "BR-03"], 1),
+    ("Use case (browser)", "UC-WAS-02-A2", "approver reverses an approval; refund to requester", ["FR-09", "BR-01", "BR-03"], 1),
+    ("Use case (browser)", "UC-WAS-02-E1", "reject without reason refused", ["FR-09", "BR-03"], 1),
+    ("Use case (browser)", "UC-WAS-02-E2", "employee self-approval denied", ["BR-04"], 1),
+    ("Usability (browser)", "A11Y-W1", "tests/team/a11y: keyboard-only allocation request", ["FR-01"], 1),
+    ("Usability (browser)", "A11Y-W2", "tests/team/a11y: over-balance rejected then corrected", ["FR-05", "FR-06", "BR-01"], 1),
+    ("Security", "AD-1", "employee views own balance page", ["FR-10"], 1),
+    ("Security", "AD-2", "employee cannot approve own allocation", ["FR-02", "BR-04"], 1),
+    ("Security", "AD-3", "approver approves reportee's allocation", ["FR-02", "FR-10", "BR-04"], 1),
+    ("Security", "AD-4", "employee cannot approve own leave", ["FR-08", "BR-04"], 1),
+    ("Security", "AD-5", "approver approves reportee's leave", ["FR-08", "FR-10", "BR-04"], 1),
+    ("Security", "AD-6", "employee cannot delete another's allocation", ["FR-04", "BR-04"], 1),
+    ("Performance", "k6 available-leave", "balance read at 1 and 5 users (4 runs)", ["FR-10"], 4),
 ]
 
 LEVELS = ["Unit", "Recovery", "API", "Use case (browser)", "Usability (browser)", "Security", "Performance"]
@@ -112,9 +123,9 @@ def main(collected):
     for req, (n, _status, _files) in api.items():
         per_req[req]["API"] += n
     other_ids = defaultdict(lambda: defaultdict(list))
-    for level, tid, _desc, reqs in OTHER:
+    for level, tid, _desc, reqs, cases in OTHER:
         for req in reqs:
-            per_req[req][level] += 1
+            per_req[req][level] += cases
             other_ids[req][level].append(tid)
 
     p = print
@@ -174,7 +185,7 @@ def main(collected):
         p("")
 
     p("## 4. Notes\n")
-    p("- Known open failures kept visible as strict `xfail`: REC-01 (#46) under FR-02/BR-03 (recovery level).")
+    p("- REC-01 (#46) was kept as a strict `xfail` at recovery level until its fix; the recovery tests now pass for both allocation and leave approval.")
     p("- API counts are case IDs required per requirement in the Area 2 evidence; one API case can serve several "
       "requirements, so the API column is not summed across rows.")
     p("- Mutation testing (MUTATION_TESTING.md) strengthens the unit level for BR-01–BR-04; it is not a separate test level.")
