@@ -1,0 +1,14 @@
+{
+  "name": "sqe-horilla-a11y",
+  "private": true,
+  "description": "Area 3 usability and accessibility tests (Playwright + axe-core + Lighthouse)",
+  "scripts": {
+    "test": "playwright test",
+    "lighthouse": "node lighthouse.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.1",
+    "@playwright/test": "1.65.1",
+    "lighthouse": "13.6.0"
+  }
+}

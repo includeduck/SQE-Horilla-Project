@@ -1,0 +1,27 @@
+{
+  "allocation-requests": {
+    "url": "http://localhost:8000/leave/leave-allocation-request-view/",
+    "accessibility": 92,
+    "best_practices": 100,
+    "seo": 82,
+    "failing_audits": [
+      "valid-source-maps",
+      "button-name",
+      "color-contrast",
+      "meta-description",
+      "crawlable-anchors"
+    ]
+  },
+  "my-leave-requests": {
+    "url": "http://localhost:8000/leave/user-request-view/",
+    "accessibility": 99,
+    "best_practices": 100,
+    "seo": 82,
+    "failing_audits": [
+      "valid-source-maps",
+      "heading-order",
+      "meta-description",
+      "crawlable-anchors"
+    ]
+  }
+}
