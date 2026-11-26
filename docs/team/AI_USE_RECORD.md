@@ -118,3 +118,4 @@ human review, effort, RCA meeting, teammate approval or viva were claimed.
 The disconnected local workspace and its uncommitted files were preserved.
 Prompt 4 remains unexecuted; final integrated verification/packaging/assignment
 closeout and genuine owner/shared dependencies are precisely retained.
+| 7 | 2026-11-26 | Muhammad Wasay Tariq (24I-3071) | Claude Code (Claude Opus 5.5) | "Start mutation testing": mutmut 3 in WSL on the scoped business-rule functions, 2+ custom operators, analyse survivors, kill killable | `setup.cfg`, `tests/team/mutation/` (runner, 3 custom operators, analyser), `test_mutation_killers.py` (+32 tests), `reports/MUTATION_TESTING.md`, evidence runs 1 and 2 | Ran both mutation runs myself in WSL; every survivor diff is in evidence. _TODO (Wasay): be able to explain each custom operator, 3 equivalent mutants (incl. the `>` vs `>=` one) and 3 killed survivors in the viva._ |

@@ -170,3 +170,5 @@ CLAUDE.md
 tests/team/.baseline.sqlite3
 # SonarQube scanner work dir
 .scannerwork/
+# mutmut working copy
+mutants/
