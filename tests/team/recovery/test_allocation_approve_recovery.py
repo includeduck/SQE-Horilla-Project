@@ -70,7 +70,7 @@ def database_down_on(model):
         ("1st write: balance credit", AvailableLeave),
         pytest.param(
             "2nd write: request status", LeaveAllocationRequest,
-            marks=pytest.mark.xfail(strict=True, reason="REC-01: approval is not atomic; a failure after the "
+            marks=pytest.mark.xfail(strict=True, reason="REC-01 (#46): approval is not atomic; a failure after the "
                                     "balance credit leaves it committed and the retry credits again"),
         ),
     ],

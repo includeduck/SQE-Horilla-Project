@@ -80,7 +80,7 @@ k6 reported all thresholds passed (exit code 0) for every run.
 | Retry after a successful approval | n/a | second call refused (400), balance credited once | **pass**: no duplicate credit |
 | Characterisation of REC-01 | balance 8 with status `requested` | retry credits again: balance 11 | passes, documenting the defect |
 
-**Finding REC-01: allocation approval is not atomic (data integrity).**
+**Finding REC-01 (#46): allocation approval is not atomic (data integrity).**
 
 | | |
 |---|---|
