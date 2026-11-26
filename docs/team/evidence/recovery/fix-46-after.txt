@@ -1,0 +1,6 @@
+tests/team/recovery/test_allocation_approve_recovery.py::test_approval_recovers_without_duplicate_credit[1st write: balance credit-AvailableLeave] PASSED [ 20%]
+tests/team/recovery/test_allocation_approve_recovery.py::test_approval_recovers_without_duplicate_credit[2nd write: request status-LeaveAllocationRequest] PASSED [ 40%]
+tests/team/recovery/test_allocation_approve_recovery.py::test_second_retry_after_success_is_refused PASSED [ 60%]
+tests/team/recovery/test_allocation_approve_recovery.py::test_leave_approval_recovers_without_double_debit[1st write: balance debit-AvailableLeave] PASSED [ 80%]
+tests/team/recovery/test_allocation_approve_recovery.py::test_leave_approval_recovers_without_double_debit[2nd write: request status-LeaveRequest] PASSED [100%]
+============================== 5 passed in 1.61s ===============================

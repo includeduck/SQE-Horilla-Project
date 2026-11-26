@@ -4628,6 +4628,7 @@ def _reject_leave_allocation(request, leave_allocation_request, reason):
 
 @login_required
 @leave_allocation_reject_permission()
+@transaction.atomic  # #46: balance credit and status change commit together
 def leave_allocation_request_approve(request, req_id):
     """
     function used to approve a leave allocation request.
