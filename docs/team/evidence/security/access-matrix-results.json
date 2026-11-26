@@ -1,0 +1,60 @@
+{
+  "base_url": "http://localhost:8000",
+  "zap_proxy": "http://127.0.0.1:8090",
+  "decisions": [
+    {
+      "id": "AD-1",
+      "role": "Employee",
+      "action": "Open own 'My Leave' page /leave/user-request-view/",
+      "expected": "allowed: 200 and own balance shown",
+      "observed": "HTTP 200, balance card visible=True",
+      "evidence": "docs/team/evidence/security/AD-1-employee-own-leave-page.png",
+      "result": "pass"
+    },
+    {
+      "id": "AD-2",
+      "role": "Employee",
+      "action": "GET /leave/leave-allocation-request-approve/1/ (own request)",
+      "expected": "denied: status stays 'requested', balance unchanged",
+      "observed": "HTTP 200, status requested->requested, balance 0.0->0.0",
+      "evidence": "docs/team/evidence/security/AD-2-employee-approve-own-allocation.png",
+      "result": "pass"
+    },
+    {
+      "id": "AD-3",
+      "role": "Leave Approver",
+      "action": "GET /leave/leave-allocation-request-approve/1/ (reportee's request)",
+      "expected": "allowed: status 'approved', balance +3",
+      "observed": "HTTP 200, status approved, balance 0.0->3.0",
+      "evidence": "docs/team/evidence/security/AD-3-approver-approves-allocation.png",
+      "result": "pass"
+    },
+    {
+      "id": "AD-4",
+      "role": "Employee",
+      "action": "PUT /api/leave/approve/1/ (own request)",
+      "expected": "denied: 403, status 'requested', balance unchanged",
+      "observed": "HTTP 403 {\"error\":\"You cannot approve or reject your own request.\"}, status requested, balance 3.0->3.0",
+      "evidence": "docs/team/evidence/security/AD-4-response.json",
+      "result": "pass"
+    },
+    {
+      "id": "AD-5",
+      "role": "Leave Approver",
+      "action": "PUT /api/leave/approve/1/ (reportee's request)",
+      "expected": "allowed: 200, status 'approved', balance -2",
+      "observed": "HTTP 200, status approved, balance 3.0->1.0",
+      "evidence": "docs/team/evidence/security/AD-5-response.json",
+      "result": "pass"
+    },
+    {
+      "id": "AD-6",
+      "role": "Employee",
+      "action": "DELETE /api/leave/user-allocation-request/2/ (approver's request)",
+      "expected": "denied: 403, record still exists",
+      "observed": "HTTP 403 {\"detail\":\"Access Denied..\"}, record exists=True",
+      "evidence": "docs/team/evidence/security/AD-6-response.json",
+      "result": "pass"
+    }
+  ]
+}
