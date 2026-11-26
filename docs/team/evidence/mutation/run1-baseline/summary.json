@@ -1,0 +1,74 @@
+{
+  "mutants": 475,
+  "status": {
+    "killed": 404,
+    "survived": 71
+  },
+  "score_percent": 85.1,
+  "per_function": {
+    "EmployeeLeaveAllocationUpdateDeleteAPIView.get_allocation_request": {
+      "killed": 5,
+      "survived": 9
+    },
+    "LeaveAllocationApproveAPIView.approve_calculations": {
+      "killed": 8
+    },
+    "LeaveAllocationRequestRejectAPIView.reject_calculation": {
+      "killed": 18,
+      "survived": 2
+    },
+    "LeaveRequestApproveAPIView.leave_approve_calculation": {
+      "survived": 1,
+      "killed": 18
+    },
+    "LeaveRequestRejectAPIView.leave_calculation": {
+      "killed": 15,
+      "survived": 3
+    },
+    "calculate_requested_days": {
+      "killed": 44
+    },
+    "cal_effective_requested_days": {
+      "killed": 50,
+      "survived": 4
+    },
+    "leave_requested_dates": {
+      "killed": 10
+    },
+    "AvailableLeave.forcasted_leaves": {
+      "killed": 12
+    },
+    "LeaveAllocationRequest.clean": {
+      "killed": 7,
+      "survived": 2
+    },
+    "LeaveRequest.clean": {
+      "survived": 47,
+      "killed": 196
+    },
+    "LeaveRequest.leaveoverlapping": {
+      "killed": 21,
+      "survived": 3
+    }
+  },
+  "per_operator": {
+    "built-in": {
+      "killed": 369,
+      "survived": 70
+    },
+    "custom": {
+      "killed": 35,
+      "survived": 1
+    },
+    "custom:leave_state_swap (BR-03)": {
+      "killed": 7
+    },
+    "custom:balance_term_drop (BR-01)": {
+      "killed": 22,
+      "survived": 1
+    },
+    "custom:day_breakdown_swap (BR-01)": {
+      "killed": 6
+    }
+  }
+}
