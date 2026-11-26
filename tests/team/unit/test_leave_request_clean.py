@@ -84,13 +84,21 @@ def test_c1_single_day_breakdown_mismatch_mcc(employee, leave_type, available_le
         req.clean()
 
 
-def test_missing_end_date_crashes_before_validation(employee, leave_type, available_leave, acting_as):
-    # White-box finding: end_date is nullable on the model, but clean() compares
-    # start_date > end_date (line 2069) before any None check, so a missing end
-    # date raises TypeError instead of a ValidationError. This is also why the
-    # False branch of line 2087 ("start_date and end_date") is unreachable.
+def test_missing_end_date_is_a_single_day_request(employee, leave_type, available_leave, acting_as):
+    # Issue #11 (A1-D01): end_date is nullable on the model, and requested_dates()
+    # already treats a missing end date as a one-day request. clean() must do the
+    # same instead of crashing with TypeError at the date-order check.
     acting_as(employee)
-    with pytest.raises(TypeError):
+    req = lr(employee, leave_type, end=None)
+    req.clean()
+    assert req.end_date == req.start_date
+
+
+def test_missing_end_date_still_checks_balance(employee, leave_type, available_leave, acting_as):
+    # The defaulted end date goes through the normal BR-01 balance check.
+    AvailableLeave.objects.filter(pk=available_leave.pk).update(available_days=0.5)
+    acting_as(employee)
+    with pytest.raises(ValidationError, match="sufficient leave balance"):
         lr(employee, leave_type, end=None).clean()
 
 
