@@ -1,0 +1,12 @@
+{
+  "run": "5vu-run2",
+  "vus": 5,
+  "p95_ms": 39.12779000000001,
+  "p90_ms": 31.64548000000001,
+  "median_ms": 18.6744,
+  "max_ms": 68.8642,
+  "requests": 295,
+  "requests_per_second": 4.916666666666667,
+  "unexpected_failure_rate": 0,
+  "thresholds_passed": true
+}

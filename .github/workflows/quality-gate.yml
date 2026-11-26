@@ -28,7 +28,7 @@ env:
 
 jobs:
   unit:
-    name: Unit tests + 100% scoped coverage
+    name: Unit + recovery tests, 100% scoped coverage
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
@@ -46,7 +46,7 @@ jobs:
       - name: Run unit tests with branch coverage
         run: |
           set -o pipefail
-          python -m pytest -c tests/team/pytest-unit.ini tests/team/unit \
+          python -m pytest -c tests/team/pytest-unit.ini tests/team/unit tests/team/recovery \
             --cov=leave --cov=horilla_api.api_views.leave --cov-branch \
             --cov-report=json:coverage.json --cov-report=xml:coverage.xml \
             --junitxml=unit-results.xml 2>&1 | tee unit-results.txt
