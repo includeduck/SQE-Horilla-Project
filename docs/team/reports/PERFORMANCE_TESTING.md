@@ -76,9 +76,9 @@ k6 reported all thresholds passed (exit code 0) for every run.
 | Case | After the failure (expected → observed) | After the retry (expected → observed) | Result |
 |---|---|---|---|
 | Database fails at the **1st write** (balance credit) | status `requested`, 1 row, balance 5 → **same** | `approved`, 1 row, balance 8 → **same** | **pass**: nothing half-applied, recovery clean |
-| Database fails at the **2nd write** (status) | status `requested`, 1 row, balance **5** → observed **8** | `approved`, 1 row, balance **8** → observed **11** | **fail (REC-01)**: kept as `xfail(strict=True)` |
+| Database fails at the **2nd write** (status) | status `requested`, 1 row, balance **5** → observed **8** | `approved`, 1 row, balance **8** → observed **11** | **fail (REC-01)** on the original code; **pass after the #46 fix** |
 | Retry after a successful approval | n/a | second call refused (400), balance credited once | **pass**: no duplicate credit |
-| Characterisation of REC-01 | balance 8 with status `requested` | retry credits again: balance 11 | passes, documenting the defect |
+| Leave approval (W2), failure at 1st / 2nd write (added with the fix) | status `requested`, balance 5 | `approved`, balance 3 (debited once) | 2nd write **failed before the fix** (balance 5 → 3 with status `requested`); both **pass after** |
 
 **Finding REC-01 (#46): allocation approval is not atomic (data integrity).**
 
@@ -90,4 +90,13 @@ k6 reported all thresholds passed (exit code 0) for every run.
 | Risk | **PR-01** (wrong balance changes), PR-06 (duplicate effect from a retry). |
 | Fix | Wrap the approval (balance credit + status change) in `transaction.atomic()` (or enable `ATOMIC_REQUESTS`); also lock the row (`select_for_update`) so two concurrent approvals cannot both pass the status check. The `xfail(strict=True)` test turns into a failure once fixed, forcing the marker to be removed. |
 
-The same two-write pattern exists in the leave approve/reject and allocation reject views; they should be fixed the same way.
+The same two-write pattern existed in the leave approve/reject and allocation reject views.
+
+### REC-01 fix (#46): fails before, passes after
+
+| | |
+|---|---|
+| Change | `@transaction.atomic` on the `put` of `LeaveRequestApproveAPIView`, `LeaveRequestRejectAPIView`, `LeaveAllocationApproveAPIView` and `LeaveAllocationRequestRejectAPIView`, which now load the request with `select_for_update()`; the web view `leave_allocation_request_approve` is atomic as well |
+| Before (test-only commit) | 2 of 5 recovery tests fail: allocation balance 5 → 8 and leave balance 5 → 3 left committed with the request still `requested` ([`fix-46-before.txt`](../evidence/recovery/fix-46-before.txt)) |
+| After (fix commit) | 5 of 5 recovery tests pass; unit suite 159 passed, 100% scoped coverage ([`fix-46-after.txt`](../evidence/recovery/fix-46-after.txt)) |
+| Note | SQLite ignores `select_for_update`; the transaction still makes the writes all-or-nothing. On PostgreSQL the row lock also stops two concurrent approvals from both passing the status check |

@@ -4,6 +4,7 @@ from collections.abc import Mapping
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.models import AnonymousUser
 from django.core.exceptions import ValidationError as DjangoValidationError
+from django.db import transaction
 from django.db.models import Count
 from django.http import Http404, QueryDict
 from django.utils.decorators import method_decorator
@@ -751,7 +752,9 @@ class LeaveRequestApproveAPIView(APIView):
 
     def get_leave_request(self, pk):
         try:
-            return LeaveRequest.objects.get(pk=pk)
+            # Locked for the rest of the atomic put() (#46): a concurrent
+            # approval cannot pass the status check at the same time.
+            return LeaveRequest.objects.select_for_update().get(pk=pk)
         except LeaveRequest.DoesNotExist as e:
             raise serializers.ValidationError(e)
 
@@ -801,6 +804,8 @@ class LeaveRequestApproveAPIView(APIView):
         "leave.change_leaverequest",
         designated_approvers=_leave_condition_approvers,
     )
+    # #46: all writes of a decision commit together or not at all.
+    @transaction.atomic
     def put(self, request, pk):
         leave_request = self.get_leave_request(pk)
         if leave_request.status == "cancel_requested":
@@ -835,7 +840,9 @@ class LeaveRequestRejectAPIView(APIView):
 
     def get_leave_request(self, pk):
         try:
-            return LeaveRequest.objects.get(pk=pk)
+            # Locked for the rest of the atomic put() (#46): a concurrent
+            # approval cannot pass the status check at the same time.
+            return LeaveRequest.objects.select_for_update().get(pk=pk)
         except LeaveRequest.DoesNotExist as e:
             raise serializers.ValidationError(e)
 
@@ -857,6 +864,8 @@ class LeaveRequestRejectAPIView(APIView):
         "leave.change_leaverequest",
         designated_approvers=_leave_condition_approvers,
     )
+    # #46: all writes of a decision commit together or not at all.
+    @transaction.atomic
     def put(self, request, pk):
         leave_request = self.get_leave_request(pk)
         employee_id = leave_request.employee_id
@@ -966,7 +975,9 @@ class LeaveAllocationApproveAPIView(APIView):
 
     def get_leave_allocation_request(self, pk):
         try:
-            return LeaveAllocationRequest.objects.get(pk=pk)
+            # Locked for the rest of the atomic put() (#46): a concurrent
+            # approval cannot pass the status check at the same time.
+            return LeaveAllocationRequest.objects.select_for_update().get(pk=pk)
         except LeaveAllocationRequest.DoesNotExist as e:
             raise serializers.ValidationError(e)
 
@@ -985,6 +996,8 @@ class LeaveAllocationApproveAPIView(APIView):
     @approver_permission_required(
         LeaveAllocationRequest, "leave.change_leaveallocationrequest"
     )
+    # #46: all writes of a decision commit together or not at all.
+    @transaction.atomic
     def put(self, request, pk):
         leave_allocation_request = self.get_leave_allocation_request(pk)
         if leave_allocation_request.status == "requested":
@@ -1000,7 +1013,9 @@ class LeaveAllocationRequestRejectAPIView(APIView):
 
     def get_leave_allocation_request(self, pk):
         try:
-            return LeaveAllocationRequest.objects.get(pk=pk)
+            # Locked for the rest of the atomic put() (#46): a concurrent
+            # approval cannot pass the status check at the same time.
+            return LeaveAllocationRequest.objects.select_for_update().get(pk=pk)
         except LeaveAllocationRequest.DoesNotExist as e:
             raise serializers.ValidationError(e)
 
@@ -1023,6 +1038,8 @@ class LeaveAllocationRequestRejectAPIView(APIView):
     @approver_permission_required(
         LeaveAllocationRequest, "leave.change_leaveallocationrequest"
     )
+    # #46: all writes of a decision commit together or not at all.
+    @transaction.atomic
     def put(self, request, pk):
         leave_allocation_request = self.get_leave_allocation_request(pk)
         if leave_allocation_request.status != "rejected":
