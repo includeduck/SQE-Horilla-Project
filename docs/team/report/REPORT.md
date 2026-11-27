@@ -141,11 +141,11 @@ Full report: Appendix E; MCC and MC/DC tables: Appendix F.
 | Item | Result |
 |---|---|
 | Scope | The **15 functions** that implement BR-01 – BR-04 and the approve/reject arithmetic (`tests/team/unit/coverage_scope.py`) |
-| Tests | **160 unit tests** pass (in-memory SQLite, about 1 min), plus 5 recovery tests (§4.9) |
+| Tests | **163 unit tests** pass (in-memory SQLite), plus 5 recovery tests (§4.9) |
 | Coverage | **100% statement and branch** of every scoped function. 1 line and 2 branches are infeasible and justified in Appendix E §4 |
 | MCC / MC-DC | Critical decision: the overlap check with its half-day exception (BR-02). Complete MCC with 20 rows, and MC/DC independence pairs for every condition, each linked to a test |
 | Business rules | All four rules covered, with BVA at the balance boundary (0, exactly enough, one over) |
-| Defects | **#11** (A1-D01): a missing end date crashes validation with a `TypeError` (fixed: end date defaults to start date). **#12** dead code, **#13** unknown carry-forward type uncapped |
+| Defects | Regression test for **#54** (today's-leave filter, §6.1). **#11** (A1-D01): a missing end date crashes validation with a `TypeError` (fixed: end date defaults to start date). **#12** dead code, **#13** unknown carry-forward type uncapped |
 
 ## 4.3 Mutation testing (Area 1)
 
@@ -189,7 +189,7 @@ By Syed Muhammad Rayyan Hassan. Full reports: Appendix I (completion report, cov
 | Techniques | Equivalence partitioning, boundary values, decision tables (FR/BR), state transitions (all allowed and disallowed), repeated requests, read-back of persisted state and all affected balances |
 | Execution | **3,433 API cases pass** in each of two test orders (first and reversed), sharded in CI |
 | Regeneration demo | A controlled change of two constraints in the spec: the baseline had 6 passes, and the regenerated variant predicted exactly 2 strict failures, which then failed as predicted |
-| Defects | 22 API defects (#3 – #6, #14 – #30) and one browser defect (#31), all **fixed and verified** (§6) |
+| Defects | 22 API defects (#3 – #6, #14 – #30, #54) and one browser defect (#31), all **fixed and verified** (§6) |
 
 ## 4.6 Use cases and browser automation (Area 3)
 
@@ -284,6 +284,7 @@ All defects are GitHub issues in the public repository, labelled with severity, 
 | [#3](https://github.com/includeduck/SQE-Horilla-Project/issues/3), [#21](https://github.com/includeduck/SQE-Horilla-Project/issues/21) – [#23](https://github.com/includeduck/SQE-Horilla-Project/issues/23), [#26](https://github.com/includeduck/SQE-Horilla-Project/issues/26) – [#28](https://github.com/includeduck/SQE-Horilla-Project/issues/28) | Seven malformed inputs return **HTTP 500** (attachment names at 99/100 chars, malformed IDs, non-object bodies, bad `groupby_field`, filter choices, sessionless JWT HTML, date filters) | Input parsed or cast without validation before use | Medium/Low | PR-05 | Validate and return 400; fixed, verified (EC-4) |
 | [#29](https://github.com/includeduck/SQE-Horilla-Project/issues/29) A2-D04 | Identical pending allocation requests create duplicates | No identity rule for a pending request (decided as OD-02) | Medium | PR-06 | Refuse the duplicate (400); fixed, verified |
 | [#30](https://github.com/includeduck/SQE-Horilla-Project/issues/30) A2-D05 | Cancelled leave can be rejected | Terminal state not guarded (decided as OD-01) | Medium | PR-04 | 400 before any state or refund change; fixed, verified |
+| [#54](https://github.com/includeduck/SQE-Horilla-Project/issues/54) TZ-01 | "Today's leave" filter misses today's leave from 18:30 to 24:00 UTC (found when the API suite failed in CI at 19:04 UTC) | Filter used `now().date()`, the UTC date, while the rest of the module uses the local date (`TIME_ZONE`) | Medium | PR-07 | `localdate(now())`; unit test fails before (1 of 3 cases), passes after (3/3); in PR #53 |
 | [#31](https://github.com/includeduck/SQE-Horilla-Project/issues/31) A2-D10 | Browser allocation form accepts an empty amount | Field not required in the form | Medium | PR-05 | Required field; fixed, verified |
 
 ## 6.2 White-box findings (Area 1)
@@ -332,7 +333,7 @@ These are recorded in the accessibility report (Appendix K) rather than as issue
 
 Full analysis with the defect log: Appendix L.
 
-**33 defects** in total: **10 high, 14 medium, 9 low**. They were found by API tests (22), security testing (7), white-box testing (3), the browser (1, #31) and recovery testing (1, #46).
+**34 defects** in total: **10 high, 15 medium, 9 low**. They were found by API tests (22), security testing (7), white-box testing (3), the browser (1, #31) and recovery testing (1, #46).
 
 ![Defects by category (Pareto)](../defects/pareto-count.png)
 
@@ -347,7 +348,7 @@ Two categories, **input validation** and **leave-rule logic**, account for most 
 
 ![Fishbone, issue #46](../defects/fishbone-issue-46.png)
 
-**Metrics (GQM):** defect density 2.1 per KLOC in the scoped code (high severity 0.64/KLOC); requirements coverage 14/14; reopen rate **0%**; **24 of 33** defects closed as fixed and verified; 9 open, none of them high severity.
+**Metrics (GQM):** defect density 2.2 per KLOC in the scoped code (high severity 0.64/KLOC); requirements coverage 14/14; reopen rate **0%**; **25 of 34** defects fixed and verified (24 closed, #54 in PR #53); 9 open, none of them high severity.
 
 # 8. Release decision
 

@@ -3,7 +3,7 @@ issue,title,state,category,severity,priority,triage,source,status,created,closed
 4,A2-D01: rejecting approved leave refunds the acting approver instead of requester,closed,leave-rule-logic,high,P1,accepted,api,fixed-verified,2026-11-23,2026-11-25
 5,A2-D02: foreign-owned self-allocation PUT and DELETE return 500,closed,access-control,high,P1,accepted,api,fixed-verified,2026-11-23,2026-11-25
 6,A2-D03: API leave creation ignores carry-forward policy cap,closed,leave-rule-logic,high,P2,accepted,api,fixed-verified,2026-11-23,2026-11-25
-11,A1-D01: leave request without end date crashes validation with TypeError,open,input-validation,medium,P2,accepted,white-box,open,2026-11-24,
+11,A1-D01: leave request without end date crashes validation with TypeError,closed,input-validation,medium,P2,accepted,white-box,fixed-verified,2026-11-24,2026-11-26
 12,A1-D02: dead code in LeaveRequest.clean month/year comparison (line 2141),open,maintainability,low,P3,deferred,white-box,open,2026-11-24,
 13,A1-D03: unknown carry-forward type adds stored carry-forward days uncapped,open,leave-rule-logic,low,P3,accepted,white-box,open,2026-11-24,
 14,A2-P3-01: API accepts zero and negative effective leave duration,closed,leave-rule-logic,high,P1,accepted,api,fixed-verified,2026-11-25,2026-11-26
@@ -31,4 +31,5 @@ issue,title,state,category,severity,priority,triage,source,status,created,closed
 42,SEC-05: pdfkit 1.0.0 advisory (PYSEC-2026-2860) with no upstream fix,open,dependency,low,P3,deferred,security,open,2026-11-26,
 43,SEC-06: svglib 1.5.1 DoS advisory (fixed in 2.3.1),open,dependency,low,P3,accepted,security,open,2026-11-26,
 44,SEC-07: CSRF token sent in a GET query string,open,security-config,low,P3,accepted,security,open,2026-11-26,
-46,REC-01: allocation approval is not atomic; a failed write plus retry credits the balance twice,open,data-integrity,high,P1,accepted,recovery,open,2026-11-26,
+46,REC-01: allocation approval is not atomic; a failed write plus retry credits the balance twice,closed,data-integrity,high,P1,accepted,recovery,fixed-verified,2026-11-26,2026-11-26
+54,TZ-01: today's-leave filter uses the UTC date instead of the local date,open,leave-rule-logic,medium,P2,accepted,api,open,2026-11-27,

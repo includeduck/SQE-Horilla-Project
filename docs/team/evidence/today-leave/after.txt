@@ -1,0 +1,4 @@
+tests\team\unit\test_today_leave_timezone.py::test_today_leave_uses_local_date[local-ahead-of-utc] PASSED [ 33%]
+tests\team\unit\test_today_leave_timezone.py::test_today_leave_uses_local_date[last-local-minute] PASSED [ 66%]
+tests\team\unit\test_today_leave_timezone.py::test_today_leave_uses_local_date[same-date] PASSED [100%]
+============================== 3 passed in 5.40s ==============================

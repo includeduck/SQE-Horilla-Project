@@ -4,7 +4,7 @@ SE3002 SQE project, section SE-5B. System: Horilla HRMS 2.4.0, leave module (W1 
 
 ## 1. Summary
 
-All 14 requirements (FR-01–FR-10, BR-01–BR-04) are covered by passing automated tests, each at two or more test levels. Testing found **33 defects** (10 high); **24 are fixed and verified** by regression tests in the required CI gate and **9 are open**, none of them high severity. The last high-severity defect, #46 (REC-01: a failed approval plus a retry credits the balance twice), is fixed.
+All 14 requirements (FR-01–FR-10, BR-01–BR-04) are covered by passing automated tests, each at two or more test levels. Testing found **34 defects** (10 high); **25 are fixed and verified** by regression tests in the required CI gate and **9 are open**, none of them high severity. The last high-severity defect, #46 (REC-01: a failed approval plus a retry credits the balance twice), is fixed.
 
 **Recommendation: RELEASE.** All three release criteria are met. EC-2 depended on the high-severity defect #46 in the highest-scored risk (PR-01, wrong balance changes). Its fix (PR #51, merged through integration PR #52) failed before (2 recovery tests red) and passes after (5/5), with the unit, coverage and mutation gates unchanged; gate run 45863953710 passed on the combined change.
 
@@ -82,7 +82,7 @@ Other exit criteria:
 | PR-04 invalid state transitions | 16 | State-transition tests (all allowed + disallowed), OD-01 fix | none | Low |
 | PR-05 malformed input → 500 | 15 | Generated invalid inputs on every API input | none (#11 fixed and verified) | Low |
 | PR-06 duplicates | 12 | Repeated-request tests, OD-02 fix, recovery retry | none | Low |
-| PR-07 day counting | 12 | Basis-path, holiday/company-leave tests, custom mutants | none | Low |
+| PR-07 day counting | 12 | Basis-path, holiday/company-leave tests, custom mutants, time-zone test (#54) | none (#54 fixed in PR #53) | Low |
 | PR-08 overlap | 12 | 20-row MCC of the half-day exception | none | Low |
 | PR-09 dependencies | 9 | pip-audit, ZAP library check | #40, #41, #42, #43 | Medium (client-side libraries) |
 | PR-10 performance | 6 | k6 1 and 5 users | none | Low |

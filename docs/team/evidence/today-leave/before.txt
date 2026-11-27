@@ -1,0 +1,8 @@
+tests\team\unit\test_today_leave_timezone.py::test_today_leave_uses_local_date[local-ahead-of-utc] FAILED [ 33%]
+tests\team\unit\test_today_leave_timezone.py::test_today_leave_uses_local_date[last-local-minute] PASSED [ 66%]
+tests\team\unit\test_today_leave_timezone.py::test_today_leave_uses_local_date[same-date] PASSED [100%]
+E       AssertionError: leave on the local date 2026-11-27 must be listed at 20:00 UTC
+E       assert 1 in set()
+E        +  where 1 = <LeaveRequest: Emp Test  | Unit Annual | approved>.pk
+FAILED tests\team\unit\test_today_leave_timezone.py::test_today_leave_uses_local_date[local-ahead-of-utc]
+========================= 1 failed, 2 passed in 9.24s =========================
