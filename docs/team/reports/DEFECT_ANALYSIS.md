@@ -19,9 +19,9 @@ Shared test-management document (brief §2: "Defects: GitHub Issues with severit
 
 **Reproducible log:** [`scripts/team/defect_pareto.py`](../../../scripts/team/defect_pareto.py) exports every issue labelled `defect` to [`defects/DEFECT_LOG.csv`](../defects/DEFECT_LOG.csv) and draws the Pareto charts, so the analysis can be regenerated after any triage change.
 
-## 2. Defect log (2026-11-26)
+## 2. Defect log (2026-11-27)
 
-**33 defects:** 10 high, 14 medium, 9 low. **22 fixed and verified** (corrections from PR #2/#8, regression tests in the API suite and unit tests, gate green on `sqe-team`), **11 open** (white-box #11–#13, security #38–#44, recovery #46). Found by: API testing 21, security 7, white-box 3, browser 1, recovery 1.
+**34 defects:** 10 high, 15 medium, 9 low. **25 fixed and verified**: 24 closed (corrections from PR #2/#8 and integration PR #52, each with a regression test in the required gate) plus #54, whose fix and regression test are in PR #53. **9 open**: white-box #12, #13 and security #38–#44. Found by: API testing 22, security 7, white-box 3, browser 1, recovery 1.
 
 | # | Title | Source | Category | Severity | Priority | Triage | Status |
 |---|---|---|---|---|---|---|---|
@@ -29,7 +29,7 @@ Shared test-management document (brief §2: "Defects: GitHub Issues with severit
 | [#4](https://github.com/includeduck/SQE-Horilla-Project/issues/4) | A2-D01: rejecting approved leave refunds the acting approver instead of req… | api | leave-rule-logic | high | P1 | accepted | fixed-verified |
 | [#5](https://github.com/includeduck/SQE-Horilla-Project/issues/5) | A2-D02: foreign-owned self-allocation PUT and DELETE return 500 | api | access-control | high | P1 | accepted | fixed-verified |
 | [#6](https://github.com/includeduck/SQE-Horilla-Project/issues/6) | A2-D03: API leave creation ignores carry-forward policy cap | api | leave-rule-logic | high | P2 | accepted | fixed-verified |
-| [#11](https://github.com/includeduck/SQE-Horilla-Project/issues/11) | A1-D01: leave request without end date crashes validation with TypeError | white-box | input-validation | medium | P2 | accepted | open |
+| [#11](https://github.com/includeduck/SQE-Horilla-Project/issues/11) | A1-D01: leave request without end date crashes validation with TypeError | white-box | input-validation | medium | P2 | accepted | fixed-verified |
 | [#12](https://github.com/includeduck/SQE-Horilla-Project/issues/12) | A1-D02: dead code in LeaveRequest.clean month/year comparison (line 2141) | white-box | maintainability | low | P3 | deferred | open |
 | [#13](https://github.com/includeduck/SQE-Horilla-Project/issues/13) | A1-D03: unknown carry-forward type adds stored carry-forward days uncapped | white-box | leave-rule-logic | low | P3 | accepted | open |
 | [#14](https://github.com/includeduck/SQE-Horilla-Project/issues/14) | A2-P3-01: API accepts zero and negative effective leave duration | api | leave-rule-logic | high | P1 | accepted | fixed-verified |
@@ -57,15 +57,16 @@ Shared test-management document (brief §2: "Defects: GitHub Issues with severit
 | [#42](https://github.com/includeduck/SQE-Horilla-Project/issues/42) | SEC-05: pdfkit 1.0.0 advisory (PYSEC-2026-2860) with no upstream fix | security | dependency | low | P3 | deferred | open |
 | [#43](https://github.com/includeduck/SQE-Horilla-Project/issues/43) | SEC-06: svglib 1.5.1 DoS advisory (fixed in 2.3.1) | security | dependency | low | P3 | accepted | open |
 | [#44](https://github.com/includeduck/SQE-Horilla-Project/issues/44) | SEC-07: CSRF token sent in a GET query string | security | security-config | low | P3 | accepted | open |
-| [#46](https://github.com/includeduck/SQE-Horilla-Project/issues/46) | REC-01: allocation approval is not atomic; a failed write plus retry credit… | recovery | data-integrity | high | P1 | accepted | open |
+| [#46](https://github.com/includeduck/SQE-Horilla-Project/issues/46) | REC-01: allocation approval is not atomic; a failed write plus retry credit… | recovery | data-integrity | high | P1 | accepted | fixed-verified |
+| [#54](https://github.com/includeduck/SQE-Horilla-Project/issues/54) | TZ-01: today's-leave filter uses the UTC date instead of the local date | api | leave-rule-logic | medium | P2 | accepted | fixed in PR #53 |
 
 ## 3. Pareto analysis by category
 
 | Category | Defects | Cumulative % | Severity-weighted (H=3, M=2, L=1) | Weighted rank |
 |---|---|---|---|---|
-| Input validation / error handling | 9 | 27% | 14 | 2nd |
-| Leave rule logic (BR-01/BR-02) | 8 | 52% | **20** | **1st** |
-| Access control (BR-04) | 4 | 64% | 11 | 3rd |
+| Leave rule logic (BR-01/BR-02) | 9 | 26% | **22** | **1st** |
+| Input validation / error handling | 9 | 53% | 14 | 2nd |
+| Access control (BR-04) | 4 | 65% | 11 | 3rd |
 | Third-party dependency | 4 | 76% | 6 | 5th |
 | Security configuration | 3 | 85% | 5 | 6th |
 | Data integrity / atomicity | 2 | 91% | 6 | 4th |
@@ -77,9 +78,9 @@ Shared test-management document (brief §2: "Defects: GitHub Issues with severit
 ![Pareto weighted by severity](../defects/pareto-severity.png)
 
 **Reading the Pareto:**
-- By count, **2 of 8 categories (25%) hold 52% of the defects** and the first **5 categories pass 80%**. The 80/20 shape is weaker than usual because the security scan added several small categories at once.
-- By count, **input validation** comes first: nine paths where malformed or missing input ended in an HTTP 500 instead of a validation message (malformed ids, non-object bodies, bad filters, a missing end date). They share one root cause: request data reaches ORM queries or comparisons before it is validated.
-- **Weighted by severity, leave-rule logic moves to first place** (20 of 67 points). These are the defects that silently change a balance (#4, #6, #14, #15, #18). Leave-rule logic, input validation and access control together carry **67%** of the weighted severity.
+- By count, **2 of 8 categories (25%) hold 53% of the defects** and the first **5 categories pass 80%**. The 80/20 shape is weaker than usual because the security scan added several small categories at once.
+- By count, **input validation** ties for first: nine paths where malformed or missing input ended in an HTTP 500 instead of a validation message (malformed ids, non-object bodies, bad filters, a missing end date). They share one root cause: request data reaches ORM queries or comparisons before it is validated.
+- **Weighted by severity, leave-rule logic moves to first place** (22 of 69 points). Most of them silently change a balance (#4, #6, #14, #15, #18); #54 shows the wrong "on leave today" list for 5½ hours a day. Leave-rule logic, input validation and access control together carry **68%** of the weighted severity.
 - **Action:** the depth given to PR-01/PR-02 (balance) and PR-03 (access) in the risk register is confirmed. The input-validation cluster argues for one shared fix, validating the request shape at the API boundary, which PR #8 introduced as `_request_object()` / `_filtered_queryset()`.
 
 ## 4. Root cause analysis
@@ -155,10 +156,10 @@ Shared test-management document (brief §2: "Defects: GitHub Issues with severit
 | PR-04 invalid state transitions (16) | #30 | Fixed and verified |
 | PR-05 malformed input → 500 (15) | #3, #11, #21, #22, #23, #26, #27, #28, #31 | Largest category by count; #11 fixed in PR #35 |
 | PR-06 duplicates (12) | #29, #46 (duplicate credit on retry) | #29 fixed; #46 open |
-| PR-07 / PR-08 day counting, overlap (12) | #15, #17 | Fixed and verified |
+| PR-07 / PR-08 day counting, overlap (12) | #15, #17, #54 | Fixed and verified (#54 in PR #53) |
 | PR-09 vulnerable dependency (9) | #40, #41, #42, #43 | Open; #42 deferred (outside the workflows, compensating control) |
 | PR-10 performance (6) | none (worst p95 39 ms) | Low rating confirmed |
 | PR-11 accessibility (6) | A11Y-01–13 (ACCESSIBILITY_TESTING.md); fixed screen meets EC-5 | Residual moderate items |
 | (not in the original register) security configuration | #39, #44 | Recorded as further evidence for PR-03 / PR-09 |
 
-**Defect density** (input for the GQM metrics in the progress report): 33 defects in the scoped code (`leave/` 14.47 KLOC + `horilla_api/api_views/leave/` 1.10 KLOC ≈ 15.6 KLOC) ≈ **2.1 defects/KLOC**; high severity ≈ 0.64/KLOC.
+**Defect density** (input for the GQM metrics in the progress report): 34 defects in the scoped code (`leave/` 14.47 KLOC + `horilla_api/api_views/leave/` 1.10 KLOC ≈ 15.6 KLOC) ≈ **2.2 defects/KLOC**; high severity ≈ 0.64/KLOC.

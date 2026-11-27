@@ -105,7 +105,21 @@ On 26 Nov eight pull requests were open at once. Every gate run starts ~35 jobs 
 
 ## 6. Integration run
 
-_To be filled with the integration PR's gate run once it completes._
+All waiting pull requests (#35, #37, #45, #47, #48, #49, #50, #51) were combined into one integration pull request, [PR #52](https://github.com/includeduck/SQE-Horilla-Project/pull/52), so the gate ran once on the combined change instead of eight times (control action C2-3, CI congestion). Quality-gate run [45863953710](https://github.com/includeduck/SQE-Horilla-Project/actions/runs/45863953710) on commit `ede185543`, 26 Nov 2026, 17:00–18:28 UTC:
+
+| Job | Result | Measured |
+|---|---|---|
+| unit (+ recovery) | **success** | 165 passed (160 unit + 5 recovery); "PASS: 100% statement and branch coverage of scoped business logic" |
+| api | **success** | 33/33 jobs green: 16 shards × 2 orders (first, reversed) + the coverage-completeness job |
+| e2e | **success** | 20 passed (UC-RAY-01/02 and UC-WAS-01/02, every flow) |
+| sonar | **success** | "SQE Gate" OK: coverage 2.4% (≥ 2.0), duplication 2.9% (≤ 3.0), bugs 38 (≤ 38), code smells 45 (≤ 45), vulnerabilities 62 (≤ 62) |
+| mutation | **success** | 477 mutants, 467 killed, 10 survived; score **97.9%**; 10 documented equivalents, **0 unexplained** |
+| **gate** | **success** | all five jobs `success` |
+| deploy | skipped | by design: runs only on a push to `sqe-team` |
+
+The PR was merged on 26 Nov 2026 at 18:47 UTC (merge commit `4953d35d1`). #11 and #46 are closed and labelled `status:fixed-verified`, because their regression tests ran in this gate. The push to `sqe-team` starts the same workflow again, and on success its `deploy` job builds the staging bundle.
+
+This run produced 477 mutants against 475 in the earlier runs. The 2 extra mutants come from scoped code changed by the merged fixes, and both are killed: the survivor count is still 10, all of them documented equivalents.
 
 ## 7. How to run the pieces locally
 

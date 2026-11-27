@@ -13,7 +13,7 @@ from django import forms
 from django.apps import apps
 from django.db.models import Q, Value
 from django.db.models.functions import Coalesce, Concat, TruncYear
-from django.utils.timezone import now
+from django.utils.timezone import localdate, now
 from django.utils.translation import gettext as __
 from django.utils.translation import gettext_lazy as _
 from django_filters import DateFilter, NumberFilter, filters
@@ -422,7 +422,7 @@ class LeaveRequestFilter(HorillaFilterSet):
 
     def filter_today_leave(self, queryset, name, value):
         if value:
-            today = now().date()
+            today = localdate(now())  # local date (TIME_ZONE), not the UTC date (#54)
             return queryset.filter(start_date__lte=today).filter(
                 Q(end_date__gte=today) | Q(end_date__isnull=True, start_date=today)
             )
